@@ -1,0 +1,38 @@
+{
+  "environment": { 
+      "qx.icontheme": "Tango"
+  },     
+  "applications": [ 
+  {
+    "class": "mobilegrid.demo.Application",
+    "name": "mobilegrid.demo",
+    "title" : "MobileGrid Demo",
+    "writeIndexHtmlToRoot": true
+  }
+  ],
+  "libraries": [ 
+      "node_modules/qooxdoo-sdk/framework",
+      "." 
+  ],
+  "targets": [
+    {
+      "type": "source",
+      "outputPath": "source-compiled"
+    },
+    {
+      "type": "build",
+      "outputPath": "build-compiled"
+    }
+  ],	
+  "defaultTarget": "source",
+  "locales": ["en"],
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2017
+    },
+    "rules" : { 
+//      "no-nested-ternary": "off"
+    } 
+  }
+  
+}

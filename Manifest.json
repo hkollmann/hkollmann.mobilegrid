@@ -1,0 +1,36 @@
+{
+  "info" : 
+  {
+    "name" : "mobilegrid",
+
+    "summary" : "adds a grid  widget to qx mobile",
+    "description" : "With this you have a grid layout in qx.mobile",
+    "homepage": "https://github.com/hkollmann/qx-contrib-mobileGrid",
+    "license" : "MIT license",
+    "authors" : [
+        {
+          "name": "Henner Kollmann (hkollmann)",
+          "email": "Henner.Kollmann@gmx.de"
+        }
+    ],
+    "version" : "1.0.0",
+    "qooxdoo-range": "6.0 || 6.0.0-* || 6.0.0-alpha || 6.0.0-alpha-*"
+  },
+  
+  "provides" : 
+  {
+    "namespace"   : "mobilegrid",
+    "encoding"    : "utf-8",
+    "class"       : "source/class",
+    "resource"    : "source/resource",
+    "translation" : "source/translation",
+    "type"        : "contribution"
+  },
+  "externalResources": {
+        "script": [
+         ],
+        "css": [
+          "mobilegrid/css/custom.css"
+        ]
+   }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "qx-contrib-mobileGrid",
+  "version": "1.0.0",
+  "description": "A widget implementing a grid for the mobile grid",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hkollmann/qx-contrib-mobileGrid.git"
+  },
+  "author": "Henner Kollmann (hkollmann)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hkollmann/qx-contrib-mobileGrid/issues"
+  },
+  "homepage": "https://github.com/hkollmann/qx-contrib-mobileGrid#readme",
+  "dependencies": {
+    "qooxdoo-sdk": "^v6.0.0-alpha"
+  }
+}
