@@ -47,7 +47,7 @@
   {
     "APPLICATION"  : "mobilegrid.demo",
     "APPLICATION_PATH" : "mobilegrid",
-    "QOOXDOO_PATH" : "../qooxdoo",
+    "QOOXDOO_PATH" : "./qooxdoo",
     "LOCALES"      : [ "en" ],
     "CACHE"        : "${TMPDIR}/qx${QOOXDOO_VERSION}/cache",
     "MOBILE_THEME" : "custom",

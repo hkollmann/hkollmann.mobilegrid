@@ -11,6 +11,7 @@
   }
   ],
   "libraries": [ 
+      "node_modules/qooxdoo-sdk/framework",
       "." 
   ],
   "targets": [
