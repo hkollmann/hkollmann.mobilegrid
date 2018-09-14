@@ -17,10 +17,9 @@
     Henner Kollmann (Henner.Kollmann@gmx.de)
 
 ************************************************************************ */
-/**
+/*
  * @require(mobilegrid.event.type.GridEvent)
  * @asset(mobilegrid/css/custom.css)
- *
  */
 qx.Class.define("mobilegrid.ui.container.Grid", {
   extend : qx.ui.mobile.core.Widget,
@@ -32,30 +31,23 @@ qx.Class.define("mobilegrid.ui.container.Grid", {
     addCell : "mobilegrid.event.type.GridEvent",
     addRow : "mobilegrid.event.type.GridEvent"
   },
-  /*
-    *****************************************************************************
-       PROPERTIES
-    *****************************************************************************
-    */
+
   properties : {
-    // overridden
+    /**
+     * overridden
+     */ 
     defaultCssClass : {
       refine : true,
       init : "grid"
     }
   },
-  /*
-    *****************************************************************************
-       MEMBERS
-    *****************************************************************************
-    */
   members : {
     /**
-     * TODOC
+     * get the cell widget at row/col
      *
-     * @param aRow {Array} TODOC
-     * @param aCol {Array} TODOC
-     * @return {var} TODOC
+     * @param aRow {Array} row to fetch
+     * @param aCol {Array} col to fetch
+     * @return {var} widget at row/col
      */
     getCell : function(aRow, aCol) {
       var res = null;
@@ -66,32 +58,39 @@ qx.Class.define("mobilegrid.ui.container.Grid", {
       }
       return res;
     },
+    
     /**
-     * TODOC
+     * count of rows
      *
-     * @return {var} TODOC
+     * @return {var} count of rows
      */
     getRowCount : function() {
       return this.__items.length;
     },
+    
     /**
-     * TODOC
+     * count of cols
      *
-     * @return {var} TODOC
+     * @return {var} count of cols
      */
     getColCount : function() {
       return this.__maxcols;
     },
+    
     /**
-     * TODOC
+     * add an widget to the grid
      *
-     * @param aItem {Array} TODOC
-     * @param aLayoutProperties {Array} TODOC
-     * @param aStyle {Array} TODOC
-     * @return {var} TODOC
-     * @throws TODOC
+     * @param aItem {Widget} the widget to add
+     * @param aLayoutProperties {Object} define properties of the widget: 
+     *         col    : col where widget should be inserted
+     *         row    : row where widget should be inserted
+     *         colspan: count of cols to span
+     *         rowspan: count of rows to span
+     *         class  : class for div element, default: cell
+     *         style  : special style for div element
+     * @return {var} the added item
      */
-    add : function(aItem, aLayoutProperties, aClass, aStyle) {
+    add : function(aItem, aLayoutProperties) {
       if (aLayoutProperties === null) {
         throw new Error("No properties given");
       }
@@ -106,18 +105,16 @@ qx.Class.define("mobilegrid.ui.container.Grid", {
       }
       this.__items[aLayoutProperties.row][aLayoutProperties.col] = aItem;
       aItem.$$layoutProperties = aLayoutProperties;
-      if (aClass) {
-        qx.bom.element.Class.add(aItem.getContentElement(), aClass || "cell");
-      }
-      if (aStyle) {
-        qx.bom.element.Style.setStyles(aItem.getContentElement(), aStyle);
+      qx.bom.element.Class.add(aItem.getContentElement(), aLayoutProperties.class || "cell");
+      if (aLayoutProperties.style) {
+        qx.bom.element.Style.setStyles(aItem.getContentElement(), aLayoutProperties.style);
       }
       this.__render();
       return this.__items[aLayoutProperties.row][aLayoutProperties.col];
     },
+    
     /**
-     * TODOC
-     *
+     * clears the whole grid
      */
     clear : function() {
       for (var r = 0; r < this.__items.length; r++) {
@@ -129,17 +126,16 @@ qx.Class.define("mobilegrid.ui.container.Grid", {
       }
       this.__render();
     },
-    // overridden
+    
     /**
-     * TODOC
-     *
-     * @return {string} TODOC
+     *  overridden
      */
     _getTagName : function() {
       return "table";
-    },
+     },
+     
     /**
-     * TODOC
+     * renders the grid
      *
      */
     __render : function() {
@@ -165,11 +161,11 @@ qx.Class.define("mobilegrid.ui.container.Grid", {
               this.fireEvent("addCell", mobilegrid.event.type.GridEvent, [this, td, r, c]);
               var item = this.__items[r][c];
               if (item) {
-                if (item.$$layoutProperties.colspan) {
+                if (item.$$layoutProperties.colspan && (item.$$layoutProperties.colspan > 1)) {
                   qx.bom.element.Attribute.set(td, "colspan", item.$$layoutProperties.colspan);
                   c += item.$$layoutProperties.colspan - 1;
                 }
-                if (item.$$layoutProperties.rowspan) {
+                if (item.$$layoutProperties.rowspan && (item.$$layoutProperties.rowspan > 1)) {
                   qx.bom.element.Attribute.set(td, "rowspan", item.$$layoutProperties.rowspan);
                 }
                 var e = item.getContainerElement();
@@ -187,9 +183,9 @@ qx.Class.define("mobilegrid.ui.container.Grid", {
       }
       this._domUpdated();
     },
+    
     /**
-     * TODOC
-     *
+     * destructor
      */
     destruct : function() {
       this.clear();
