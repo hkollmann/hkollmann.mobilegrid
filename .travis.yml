@@ -16,7 +16,7 @@ script:
   - mkdir -p api/qx/icon
   - mv qooxdoo/framework/source/resource/qx/icon/Tango api/qx/icon/Tango
   - qx compile --target=build
-  - mv api build-output
+  - mv api build-output/
   - mv 
   - find build-output -name ".gitignore" -type f -delete
   
