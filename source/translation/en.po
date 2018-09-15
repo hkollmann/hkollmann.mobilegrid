@@ -1,7 +1,7 @@
-#: mobilegrid/demo/Demo.js:25
+#: mobilegrid/demo/Demo.js:25 mobilegrid/demo/Demo.js:30
 msgid "Simple Demo"
 msgstr ""
 
-#: mobilegrid/demo/Demo.js:37
+#: mobilegrid/demo/Demo.js:37 mobilegrid/demo/Demo.js:42
 msgid "col %1, row %2"
 msgstr ""
