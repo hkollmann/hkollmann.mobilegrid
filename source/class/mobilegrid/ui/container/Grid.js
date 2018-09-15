@@ -21,6 +21,12 @@
  * @require(mobilegrid.event.type.GridEvent)
  * @asset(mobilegrid/css/custom.css)
  */
+/**
+ * 
+ * @type Grid
+ * a widget to generate a grid for mobile framework. Cell content can be any 
+ * mobile wigdet. Each cell can be styled by css class or css style.
+ */
 qx.Class.define("mobilegrid.ui.container.Grid", {
   extend : qx.ui.mobile.core.Widget,
   construct : function() {
@@ -115,6 +121,7 @@ qx.Class.define("mobilegrid.ui.container.Grid", {
     
     /**
      * clears the whole grid
+     * @return 
      */
     clear : function() {
       for (var r = 0; r < this.__items.length; r++) {

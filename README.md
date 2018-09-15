@@ -9,7 +9,7 @@ the legacy generator.
 see [code of Demo application](source/class/mobilegrid/demo/Application.js)
 
 ## API
-http://hkollmann.github.io/qx-contrib-mobileGrid/api/#
+http://hkollmann.github.io/qx-contrib-mobileGrid/api/#mobilegrid.ui.container.Grid
 
 ## Online demo
 http://hkollmann.github.io/qx-contrib-mobileGrid/
