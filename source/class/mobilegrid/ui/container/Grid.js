@@ -87,12 +87,12 @@ qx.Class.define("mobilegrid.ui.container.Grid", {
      * add an widget to the grid
      *
      * @param aItem {Widget} the widget to add
-     * @param aLayoutProperties {Object} define properties of the widget: 
-     *         col    : col where widget should be inserted
-     *         row    : row where widget should be inserted
-     *         colspan: count of cols to span
-     *         rowspan: count of rows to span
-     *         class  : class for div element, default: cell
+     * @param aLayoutProperties {Object} define properties of the widget:<br/>
+     *         col    : col where widget should be inserted<br/>
+     *         row    : row where widget should be inserted<br/>
+     *         colspan: count of cols to span<br/>
+     *         rowspan: count of rows to span<br/>
+     *         class  : class for div element, default: cell<br/>
      *         style  : special style for div element
      * @return {var} the added item
      */
