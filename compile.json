@@ -6,13 +6,8 @@
   {
     "class": "mobilegrid.demo.Application",
     "name": "mobilegrid.demo",
-    "title" : "MobileGrid Demo",
-    "writeIndexHtmlToRoot": true
+    "title" : "MobileGrid Demo"
   }
-  ],
-  "libraries": [ 
-      "node_modules/qooxdoo-sdk/framework",
-      "." 
   ],
   "targets": [
     {
