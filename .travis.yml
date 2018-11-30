@@ -8,7 +8,6 @@ node_js:
 
 install:
   - npm install qxcompiler -g 
-  - npm install 
   - git clone --depth 1 https://github.com/qooxdoo/qooxdoo.git
 
 script:
