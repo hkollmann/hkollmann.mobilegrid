@@ -8,15 +8,9 @@ node_js:
 
 install:
   - npm install qxcompiler -g 
-  - git clone --depth 1 https://github.com/qooxdoo/qooxdoo.git
 
 script:
-  - ./generate.py api
-  - mkdir -p api/qx/icon
-  - mv qooxdoo/framework/source/resource/qx/icon/Tango api/qx/icon/Tango
-  - qx compile --target=build
-  - mv api build-output/
-  - find build-output -name ".gitignore" -type f -delete
+  - .travis/build.sh
   
 deploy:
   provider: pages
