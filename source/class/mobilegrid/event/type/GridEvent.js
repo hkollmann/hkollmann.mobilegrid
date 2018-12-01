@@ -18,7 +18,7 @@
 
 ************************************************************************ */
 /**
- * 
+ *
  * @type GridEvent
  * special event type fired during grid creating.
  */

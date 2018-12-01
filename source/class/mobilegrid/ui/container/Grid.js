@@ -22,9 +22,9 @@
  * @asset(mobilegrid/css/custom.css)
  */
 /**
- * 
+ *
  * @type Grid
- * a widget to generate a grid for mobile framework. Cell content can be any 
+ * a widget to generate a grid for mobile framework. Cell content can be any
  * mobile wigdet. Each cell can be styled by css class or css style.
  */
 qx.Class.define("mobilegrid.ui.container.Grid", {
@@ -41,7 +41,7 @@ qx.Class.define("mobilegrid.ui.container.Grid", {
   properties : {
     /**
      * overridden
-     */ 
+     */
     defaultCssClass : {
       refine : true,
       init : "grid"
@@ -64,7 +64,7 @@ qx.Class.define("mobilegrid.ui.container.Grid", {
       }
       return res;
     },
-    
+
     /**
      * count of rows
      *
@@ -73,7 +73,7 @@ qx.Class.define("mobilegrid.ui.container.Grid", {
     getRowCount : function() {
       return this.__items.length;
     },
-    
+
     /**
      * count of cols
      *
@@ -82,7 +82,7 @@ qx.Class.define("mobilegrid.ui.container.Grid", {
     getColCount : function() {
       return this.__maxcols;
     },
-    
+
     /**
      * add an widget to the grid
      *
@@ -118,10 +118,10 @@ qx.Class.define("mobilegrid.ui.container.Grid", {
       this.__render();
       return this.__items[aLayoutProperties.row][aLayoutProperties.col];
     },
-    
+
     /**
      * clears the whole grid
-     * @return 
+     * @return
      */
     clear : function() {
       for (var r = 0; r < this.__items.length; r++) {
@@ -133,14 +133,14 @@ qx.Class.define("mobilegrid.ui.container.Grid", {
       }
       this.__render();
     },
-    
+
     /**
      *  overridden
      */
     _getTagName : function() {
       return "table";
-     },
-     
+    },
+
     /**
      * renders the grid
      *
@@ -190,7 +190,7 @@ qx.Class.define("mobilegrid.ui.container.Grid", {
       }
       this._domUpdated();
     },
-    
+
     /**
      * destructor
      */
