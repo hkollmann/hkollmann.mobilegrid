@@ -6,8 +6,6 @@ node_js:
 #  directories:
 #    - node_modules
 
-install:
-  - npm install qxcompiler -g 
 
 script:
   - .travis/build.sh
