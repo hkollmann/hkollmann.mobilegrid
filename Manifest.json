@@ -12,7 +12,7 @@
       }
     ],
     "version": "1.0.1",
-    "qooxdoo-range": "6.0 || 6.0.0-* || 6.0.0-alpha || 6.0.0-alpha-* || 6.0.0-alpha-20181116-263f2cc9"
+    "qooxdoo-range": "6.0 || 6.0.0-* || 6.0.0-alpha || 6.0.0-alpha* "
   },
   "provides": {
     "namespace": "mobilegrid",
