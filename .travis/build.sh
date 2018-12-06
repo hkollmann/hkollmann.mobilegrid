@@ -9,5 +9,6 @@ npm install qxcompiler -g
 #cd ..
 
 qx contrib update 
+qx contrib list
 qx contrib install qooxdoo/qooxdoo-api-viewer 
 qx compile --target=build -v
