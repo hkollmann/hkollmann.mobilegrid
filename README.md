@@ -16,7 +16,6 @@ http://hkollmann.github.io/qx-contrib-mobileGrid/
 
 ## Run the demo locally
 - `npm install`
-- `pushd node_modules/qxcompiler && npm link && popd`
 - `qx serve`
 - Open your browser at localhost:8080
 
