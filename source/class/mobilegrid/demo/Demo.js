@@ -17,6 +17,11 @@
     Henner Kollmann (Henner.Kollmann@gmx.de)
 
 ************************************************************************ */
+/**
+ *
+ * @type Demo
+ * demo class for mobile grid
+ */
 qx.Class.define("mobilegrid.demo.Demo", {
   extend : qx.ui.mobile.page.NavigationPage,
   include : [qx.locale.MTranslation],

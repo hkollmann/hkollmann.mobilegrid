@@ -15,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/hkollmann/qx-contrib-mobileGrid/issues"
   },
-  "homepage": "https://github.com/hkollmann/qx-contrib-mobileGrid#readme",
-  "dependencies": {
-    "qooxdoo-sdk": "^v6.0.0-alpha"
-  }
+  "homepage": "https://github.com/hkollmann/qx-contrib-mobileGrid#readme"
 }

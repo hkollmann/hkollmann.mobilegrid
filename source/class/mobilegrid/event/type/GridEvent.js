@@ -17,6 +17,11 @@
     Henner Kollmann (Henner.Kollmann@gmx.de)
 
 ************************************************************************ */
+/**
+ *
+ * @type GridEvent
+ * special event type fired during grid creating.
+ */
 qx.Class.define("mobilegrid.event.type.GridEvent", {
   extend : qx.event.type.Event,
   members : {

@@ -1,38 +1,47 @@
 {
-  "environment": { 
-      "qx.icontheme": "Tango"
-  },     
-  "applications": [ 
-  {
-    "class": "mobilegrid.demo.Application",
-    "name": "mobilegrid.demo",
-    "title" : "MobileGrid Demo",
-    "writeIndexHtmlToRoot": true
-  }
-  ],
-  "libraries": [ 
-      "node_modules/qooxdoo-sdk/framework",
-      "." 
+  "environment": {
+    "qx.icontheme": "Tango"
+  },
+  "applications": [
+    {
+      "class": "mobilegrid.demo.Application",
+      "name": "mobilegrid.demo",
+      "title": "MobileGrid Demo"
+    },
+    {
+      "class": "apiviewer.Application",
+      "theme": "apiviewer.Theme",
+      "name": "apiviewer",
+      "title": "Qooxdoo API Viewer",
+      "outputPath": "apiviewer",
+      "include": [
+        "qx.*"
+      ],
+      "exclude": [
+        "qx.test.*",
+        "qx.module.Blocker",
+        "qx.module.Placement"
+      ]
+    }
   ],
   "targets": [
     {
       "type": "source",
-      "outputPath": "source-compiled"
+      "outputPath": "source-output"
     },
     {
       "type": "build",
-      "outputPath": "build-compiled"
+      "outputPath": "build-output"
     }
-  ],	
+  ],
   "defaultTarget": "source",
-  "locales": ["en"],
+  "locales": [
+    "en"
+  ],
   "eslintConfig": {
     "parserOptions": {
       "ecmaVersion": 2017
     },
-    "rules" : { 
-//      "no-nested-ternary": "off"
-    } 
+    "rules": {}
   }
-  
 }
