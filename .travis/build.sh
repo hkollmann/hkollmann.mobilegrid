@@ -10,5 +10,5 @@ npm install qxcompiler -g
 
 qx contrib update 
 qx contrib list
-qx contrib install qooxdoo/qooxdoo-api-viewer 
+qx contrib install qooxdoo/apiviewer 
 qx compile --target=build -v
