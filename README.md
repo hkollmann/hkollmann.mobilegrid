@@ -6,13 +6,13 @@ This version is developed with the new compiler for qooxdoo, but still supports
 the legacy generator. 
 
 ## Usage
-see [code of Demo application](source/class/mobilegrid/demo/Application.js)
+see [code of Demo application](source/class/gh/hkollmann/mobilegrid/demo/Application.js)
 
 ## API
-http://hkollmann.github.io/qx-contrib-mobileGrid/apiviewer/#mobilegrid.ui.container.Grid
+https://hkollmann.github.io/gh.hkollmann.mobilegrid/apiviewer/#gh.hkollmann.mobilegrid
 
 ## Online demo
-http://hkollmann.github.io/qx-contrib-mobileGrid/
+http://hkollmann.github.io/gh.hkollmann.mobilegrid/
 
 ## Run the demo locally
 - `npm install`
