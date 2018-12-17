@@ -15,11 +15,15 @@ https://hkollmann.github.io/gh.hkollmann.mobilegrid/apiviewer/#gh.hkollmann.mobi
 http://hkollmann.github.io/gh.hkollmann.mobilegrid/
 
 ## Run the demo locally
-- `npm install`
-- `qx serve`
+```
+    $ git clone https://github.com/qooxdoo/gh.hkollman.mobilegrid
+    $ cd qxl.demobrowser
+    $ npm install
+    $ qx serve
+```
 - Open your browser at localhost:8080
 
 ## Install in your qooxdoo app
 - `qx contrib update`
 - `qx contrib list`
-- `qx contrib install hkollmann/qx-contrib-mobileGrid`
+- `qx contrib install hkollmann/gh.hkollman.mobilegrid`
