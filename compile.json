@@ -1,27 +1,15 @@
 {
   "environment": {
-    "qx.icontheme": "Tango"
+    "qx.icontheme": "Tango",
+    "excludeFromAPIViewer": [
+      "qx.*"
+    ]
   },
   "applications": [
     {
-      "class": "mobilegrid.demo.Application",
+      "class": "gh.hkollmann.mobilegrid.demo.Application",
       "name": "mobilegrid.demo",
       "title": "MobileGrid Demo"
-    },
-    {
-      "class": "apiviewer.Application",
-      "theme": "apiviewer.Theme",
-      "name": "apiviewer",
-      "title": "Qooxdoo API Viewer",
-      "outputPath": "apiviewer",
-      "include": [
-        "qx.*"
-      ],
-      "exclude": [
-        "qx.test.*",
-        "qx.module.Blocker",
-        "qx.module.Placement"
-      ]
     }
   ],
   "targets": [

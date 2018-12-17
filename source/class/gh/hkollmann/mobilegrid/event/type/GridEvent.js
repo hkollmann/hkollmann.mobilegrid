@@ -22,7 +22,7 @@
  * @type GridEvent
  * special event type fired during grid creating.
  */
-qx.Class.define("mobilegrid.event.type.GridEvent", {
+qx.Class.define("gh.hkollmann.mobilegrid.event.type.GridEvent", {
   extend : qx.event.type.Event,
   members : {
     init : function(grid, DOMElement, row, col, canBubble) {

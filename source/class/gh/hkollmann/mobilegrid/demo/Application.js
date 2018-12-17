@@ -20,7 +20,7 @@
 /**
  * @asset(mobilegrid/*)
  */
-qx.Class.define("mobilegrid.demo.Application", {
+qx.Class.define("gh.hkollmann.mobilegrid.demo.Application", {
   extend : qx.application.Mobile,
   members : {
     /**
@@ -40,7 +40,7 @@ qx.Class.define("mobilegrid.demo.Application", {
         qx.log.appender.Console;
       }
 
-      var demo = new mobilegrid.demo.Demo();
+      var demo = new gh.hkollmann.mobilegrid.demo.Demo();
       var manager = new qx.ui.mobile.page.Manager(false);
       manager.addDetail([
         demo

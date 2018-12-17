@@ -15,7 +15,7 @@
     "qooxdoo-range": "^6.0.0-alpha"
   },
   "provides": {
-    "namespace": "mobilegrid",
+    "namespace": "gh.hkollmann.mobilegrid",
     "encoding": "utf-8",
     "class": "source/class",
     "resource": "source/resource",
@@ -25,7 +25,7 @@
   "externalResources": {
     "script": [],
     "css": [
-      "mobilegrid/css/custom.css"
+      "gh/hkollmann/mobilegrid/css/custom.css"
     ]
   }
 }

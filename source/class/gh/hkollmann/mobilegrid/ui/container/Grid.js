@@ -18,8 +18,8 @@
 
 ************************************************************************ */
 /*
- * @require(mobilegrid.event.type.GridEvent)
- * @asset(mobilegrid/css/custom.css)
+ * @require(gh.hkollmann.mobilegrid.event.type.GridEvent)
+ * @asset(gh/hkollmann/mobilegrid/css/custom.css)
  */
 /**
  *
@@ -27,15 +27,15 @@
  * a widget to generate a grid for mobile framework. Cell content can be any
  * mobile wigdet. Each cell can be styled by css class or css style.
  */
-qx.Class.define("mobilegrid.ui.container.Grid", {
+qx.Class.define("gh.hkollmann.mobilegrid.ui.container.Grid", {
   extend : qx.ui.mobile.core.Widget,
   construct : function() {
     this.base(arguments);
     this.__items = [];
   },
   events : {
-    addCell : "mobilegrid.event.type.GridEvent",
-    addRow : "mobilegrid.event.type.GridEvent"
+    addCell : "gh.hkollmann.mobilegrid.event.type.GridEvent",
+    addRow : "gh.hkollmann.mobilegrid.event.type.GridEvent"
   },
 
   properties : {
@@ -161,11 +161,11 @@ qx.Class.define("mobilegrid.ui.container.Grid", {
             var td;
             qx.bom.element.Class.add(tr, "grid-row");
             var c = -1;
-            this.fireEvent("addRow", mobilegrid.event.type.GridEvent, [this, tr, r, c]);
+            this.fireEvent("addRow", gh.hkollmann.mobilegrid.event.type.GridEvent, [this, tr, r, c]);
             for (c = 0; c < this.__items[r].length; c++) {
               td = qx.dom.Element.create("td");
               qx.bom.element.Class.add(td, "grid-cell");
-              this.fireEvent("addCell", mobilegrid.event.type.GridEvent, [this, td, r, c]);
+              this.fireEvent("addCell", gh.hkollmann.mobilegrid.event.type.GridEvent, [this, td, r, c]);
               var item = this.__items[r][c];
               if (item) {
                 if (item.$$layoutProperties.colspan && (item.$$layoutProperties.colspan > 1)) {
