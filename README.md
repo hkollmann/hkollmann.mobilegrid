@@ -2,8 +2,7 @@
 
 A widget implementing an grid for the mobile framework
 
-This version is developed with the new compiler for qooxdoo, but still supports
-the legacy generator. 
+This version is developed with the new compiler for qooxdoo
 
 ## Usage
 see [code of Demo application](source/class/gh/hkollmann/mobilegrid/demo/Application.js)
