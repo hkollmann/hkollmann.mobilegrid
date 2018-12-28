@@ -2,7 +2,8 @@
   "environment": {
     "qx.icontheme": "Tango",
     "excludeFromAPIViewer": [
-      "qx.*"
+      "qx.*",
+      "qxl.*"
     ]
   },
   "applications": [
