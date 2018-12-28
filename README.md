@@ -8,7 +8,7 @@ This version is developed with the new compiler for qooxdoo
 see [code of Demo application](source/class/contrib/hkollmann/mobilegrid/demo/Application.js)
 
 ## API
-https://hkollmann.github.io/contrib.hkollmann.mobilegrid/apiviewer/#gh.hkollmann.mobilegrid
+https://hkollmann.github.io/contrib.hkollmann.mobilegrid/apiviewer/#contrib.hkollmann.mobilegrid
 
 ## Online demo
 http://hkollmann.github.io/contrib.hkollmann.mobilegrid/
