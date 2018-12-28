@@ -8,15 +8,15 @@ This version is developed with the new compiler for qooxdoo
 see [code of Demo application](source/class/gh/hkollmann/mobilegrid/demo/Application.js)
 
 ## API
-https://hkollmann.github.io/gh.hkollmann.mobilegrid/apiviewer/#gh.hkollmann.mobilegrid
+https://hkollmann.github.io/contrib.hkollmann.mobilegrid/apiviewer/#gh.hkollmann.mobilegrid
 
 ## Online demo
-http://hkollmann.github.io/gh.hkollmann.mobilegrid/
+http://hkollmann.github.io/contrib.hkollmann.mobilegrid/
 
 ## Run the demo locally
 ```
-    $ git clone https://github.com/qooxdoo/gh.hkollmann.mobilegrid
-    $ cd gh.hkollmann.mobilegrid
+    $ git clone https://github.com/qooxdoo/contrib.hkollmann.mobilegrid
+    $ cd contrib.hkollmann.mobilegrid
     $ qx serve
 ```
 - Open your browser at localhost:8080
@@ -24,4 +24,4 @@ http://hkollmann.github.io/gh.hkollmann.mobilegrid/
 ## Install in your qooxdoo app
 - `qx contrib update`
 - `qx contrib list`
-- `qx contrib install hkollmann/gh.hkollmann.mobilegrid`
+- `qx contrib install hkollmann/contrib.hkollmann.mobilegrid`
