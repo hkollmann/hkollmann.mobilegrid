@@ -2,24 +2,26 @@
 
 A widget implementing an grid for the mobile framework
 
-This version is developed with the new compiler for qooxdoo, but still supports
-the legacy generator. 
+This version is developed with the new compiler for qooxdoo
 
 ## Usage
-see [code of Demo application](source/class/mobilegrid/demo/Application.js)
+see [code of Demo application](source/class/gh/hkollmann/mobilegrid/demo/Application.js)
 
 ## API
-http://hkollmann.github.io/qx-contrib-mobileGrid/apiviewer/#mobilegrid.ui.container.Grid
+https://hkollmann.github.io/gh.hkollmann.mobilegrid/apiviewer/#gh.hkollmann.mobilegrid
 
 ## Online demo
-http://hkollmann.github.io/qx-contrib-mobileGrid/
+http://hkollmann.github.io/gh.hkollmann.mobilegrid/
 
 ## Run the demo locally
-- `npm install`
-- `qx serve`
+```
+    $ git clone https://github.com/qooxdoo/gh.hkollmann.mobilegrid
+    $ cd gh.hkollmann.mobilegrid
+    $ qx serve
+```
 - Open your browser at localhost:8080
 
 ## Install in your qooxdoo app
 - `qx contrib update`
 - `qx contrib list`
-- `qx contrib install hkollmann/qx-contrib-mobileGrid`
+- `qx contrib install hkollmann/gh.hkollmann.mobilegrid`
