@@ -7,7 +7,7 @@
   },
   "applications": [
     {
-      "class": "gh.hkollmann.mobilegrid.demo.Application",
+      "class": "contrib.hkollmann.mobilegrid.demo.Application",
       "name": "mobilegrid.demo",
       "title": "MobileGrid Demo"
     }
