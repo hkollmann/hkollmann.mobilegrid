@@ -1,7 +1,7 @@
 /* ************************************************************************
 
    qooxdoo mobile grid
-   https://github.com/hkollmann/qx-contrib-mobileGrid
+   https://github.com/hkollmann/hkollmann.mobilegrid
 
    Copyright:
      2018 Henner Kollmann (Henner.Kollmann@gmx.de)
@@ -20,7 +20,7 @@
 /**
  * @asset(mobilegrid/*)
  */
-qx.Class.define("contrib.hkollmann.mobilegrid.demo.Application", {
+qx.Class.define("hkollmann.mobilegrid.demo.Application", {
   extend : qx.application.Mobile,
   members : {
     /**
@@ -40,7 +40,7 @@ qx.Class.define("contrib.hkollmann.mobilegrid.demo.Application", {
         qx.log.appender.Console;
       }
 
-      var demo = new contrib.hkollmann.mobilegrid.demo.Demo();
+      var demo = new hkollmann.mobilegrid.demo.Demo();
       var manager = new qx.ui.mobile.page.Manager(false);
       manager.addDetail([
         demo

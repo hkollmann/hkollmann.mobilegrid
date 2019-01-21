@@ -1,8 +1,8 @@
 /* ************************************************************************
 
    qooxdoo mobile grid
-   https://github.com/hkollmann/qx-contrib-mobileGrid
-
+   https://github.com/hkollmann/hkollmann.mobilegrid
+   
    Copyright:
      2018 Henner Kollmann (Henner.Kollmann@gmx.de)
 
@@ -22,7 +22,7 @@
  * @type GridEvent
  * special event type fired during grid creating.
  */
-qx.Class.define("contrib.hkollmann.mobilegrid.event.type.GridEvent", {
+qx.Class.define("hkollmann.mobilegrid.event.type.GridEvent", {
   extend : qx.event.type.Event,
   members : {
     init : function(grid, DOMElement, row, col, canBubble) {

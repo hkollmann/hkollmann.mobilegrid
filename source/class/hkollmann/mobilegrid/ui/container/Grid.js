@@ -1,8 +1,8 @@
 /* ************************************************************************
 
    qooxdoo mobile grid
-   https://github.com/hkollmann/qx-contrib-mobileGrid
-
+   https://github.com/hkollmann/hkollmann.mobilegrid
+   
    Copyright:
      2018 Henner Kollmann (Henner.Kollmann@gmx.de)
 
@@ -18,8 +18,8 @@
 
 ************************************************************************ */
 /*
- * @require(contrib.hkollmann.mobilegrid.event.type.GridEvent)
- * @asset(gh/hkollmann/mobilegrid/css/custom.css)
+ * @require(hkollmann.mobilegrid.event.type.GridEvent)
+ * @asset(hkollmann/mobilegrid/css/custom.css)
  */
 /**
  *
@@ -27,15 +27,15 @@
  * a widget to generate a grid for mobile framework. Cell content can be any
  * mobile wigdet. Each cell can be styled by css class or css style.
  */
-qx.Class.define("contrib.hkollmann.mobilegrid.ui.container.Grid", {
+qx.Class.define("hkollmann.mobilegrid.ui.container.Grid", {
   extend : qx.ui.mobile.core.Widget,
   construct : function() {
     this.base(arguments);
     this.__items = [];
   },
   events : {
-    addCell : "contrib.hkollmann.mobilegrid.event.type.GridEvent",
-    addRow : "contrib.hkollmann.mobilegrid.event.type.GridEvent"
+    addCell : "hkollmann.mobilegrid.event.type.GridEvent",
+    addRow  : "hkollmann.mobilegrid.event.type.GridEvent"
   },
 
   properties : {
@@ -161,11 +161,11 @@ qx.Class.define("contrib.hkollmann.mobilegrid.ui.container.Grid", {
             var td;
             qx.bom.element.Class.add(tr, "grid-row");
             var c = -1;
-            this.fireEvent("addRow", contrib.hkollmann.mobilegrid.event.type.GridEvent, [this, tr, r, c]);
+            this.fireEvent("addRow", hkollmann.mobilegrid.event.type.GridEvent, [this, tr, r, c]);
             for (c = 0; c < this.__items[r].length; c++) {
               td = qx.dom.Element.create("td");
               qx.bom.element.Class.add(td, "grid-cell");
-              this.fireEvent("addCell", contrib.hkollmann.mobilegrid.event.type.GridEvent, [this, td, r, c]);
+              this.fireEvent("addCell", hkollmann.mobilegrid.event.type.GridEvent, [this, td, r, c]);
               var item = this.__items[r][c];
               if (item) {
                 if (item.$$layoutProperties.colspan && (item.$$layoutProperties.colspan > 1)) {
