@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/qooxdoo/qooxdoo-compiler/master/resource/schema/v1/Manifest.json",
   "info": {
     "name": "mobilegrid",
     "summary": "adds a grid  widget to qx mobile",
@@ -28,6 +29,8 @@
     ]
   },
   "requires": {
-    "qooxdoo-sdk": "^6.0.0-alpha"
+    "@qooxdoo/compiler": "^1.0.0-beta",
+    "@qooxdoo/framework": "^6.0.0-alpha"
+    "qooxdoo/qxl.apiviewer": "^0.1.15"
   }
 }
