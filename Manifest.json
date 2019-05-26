@@ -30,7 +30,7 @@
   },
   "requires": {
     "@qooxdoo/compiler": "^1.0.0-beta",
-    "@qooxdoo/framework": "^6.0.0-alpha"
+    "@qooxdoo/framework": "^6.0.0-alpha",
     "qooxdoo/qxl.apiviewer": "^0.1.15"
   }
 }
