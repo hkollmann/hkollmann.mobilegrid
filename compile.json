@@ -12,7 +12,6 @@
 			"class": "hkollmann.mobilegrid.demo.Application",
 			"name": "mobilegrid.demo",
 			"title": "MobileGrid Demo",
-			"theme" : "",
 			"default": true
 		},
 		{
