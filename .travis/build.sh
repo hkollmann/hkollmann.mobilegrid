@@ -2,6 +2,5 @@
 set -e
 set -x
 
-npm install qxcompiler -g 
-qx contrib install
+npm install @qooxdoo/compiler -g 
 qx compile --target=build -v
