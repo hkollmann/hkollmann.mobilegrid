@@ -54,5 +54,8 @@
 			"ecmaVersion": 2017
 		},
 		"rules": {}
+	},
+	"sass": {
+	   "compiler": "legacy"
 	}
 }

@@ -18,7 +18,7 @@
 
 ************************************************************************ */
 /**
- * @asset(mobilegrid/*)
+ * @asset(hkollmann/mobilegrid/*)
  */
 qx.Class.define("hkollmann.mobilegrid.demo.Application", {
   extend : qx.application.Mobile,

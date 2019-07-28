@@ -19,7 +19,7 @@
 ************************************************************************ */
 /*
  * @require(hkollmann.mobilegrid.event.type.GridEvent)
- * @asset(hkollmann/mobilegrid/css/custom.css)
+ * @asset(hkollmann/mobilegrid/*)
  */
 /**
  *
