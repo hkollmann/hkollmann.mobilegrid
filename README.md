@@ -5,7 +5,7 @@ A widget implementing an grid for the mobile framework
 This version is developed with the new compiler for qooxdoo
 
 ## Usage
-see [code of Demo application](source/class/hkollmann/mobilegrid/demo/Application.js)
+see [code of Demo application](source/class/hkollmann/mobilegrid/demo/Demo.js)
 
 ## API
 https://hkollmann.github.io/hkollmann.mobilegrid/apiviewer/#contrib.hkollmann.mobilegrid

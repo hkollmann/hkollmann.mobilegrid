@@ -15,24 +15,18 @@
 			"default": true
 		},
 		{
-			"class": "qxl.apiviewer.Application",
+			"class": "qxl.apiviewer.Appliecation",
 			"theme": "qxl.apiviewer.Theme",
 			"name": "apiviewer",
-			"title": "Qooxdoo API Viewer",
+			"title": "MobileGrid API",
 			"environment": {
 				"qx.icontheme": "Tango",
 				"excludeFromAPIViewer": [
-					"qxl.apiviewer.*"
+					"qxl.*",
+					"qx.*",
+					"qxWeb"
 				]
-			},
-			"include": [
-				"qx.*"
-			],
-			"exclude": [
-				"qx.test.*",
-				"qx.module.Blocker",
-				"qx.module.Placement"
-			]
+			}
 		}
 	],
 	"targets": [
