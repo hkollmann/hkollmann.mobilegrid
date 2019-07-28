@@ -22,6 +22,6 @@ https://hkollmann.github.io/hkollmann.mobilegrid/
 - Open your browser at localhost:8080
 
 ## Install in your qooxdoo app
-- `qx contrib update`
-- `qx contrib list`
-- `qx contrib install hkollmann/hkollmann.mobilegrid`
+- `qx pkg update`
+- `qx pkg list`
+- `qx pkg install hkollmann/hkollmann.mobilegrid`
