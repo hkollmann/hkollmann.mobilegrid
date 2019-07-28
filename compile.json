@@ -15,7 +15,7 @@
 			"default": true
 		},
 		{
-			"class": "qxl.apiviewer.Appliecation",
+			"class": "qxl.apiviewer.Application",
 			"theme": "qxl.apiviewer.Theme",
 			"name": "apiviewer",
 			"title": "MobileGrid API",
