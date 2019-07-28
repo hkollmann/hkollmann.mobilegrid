@@ -12,7 +12,7 @@
         "email": "Henner DOT Kollmann AT gmx DOT de"
       }
     ],
-    "version": "1.0.6"
+    "version": "1.0.7"
   },
   "provides": {
     "namespace": "hkollmann.mobilegrid",
