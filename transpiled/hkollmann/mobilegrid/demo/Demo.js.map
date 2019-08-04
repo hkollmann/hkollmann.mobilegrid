@@ -1,0 +1,47 @@
+{
+  "version": 3,
+  "sources": [
+    "/home/travis/build/hkollmann/hkollmann.mobilegrid/source/class/hkollmann/mobilegrid/demo/Demo.js"
+  ],
+  "names": [
+    "qx",
+    "Bootstrap",
+    "executePendingDefers",
+    "$$dbClassInfo",
+    "Class",
+    "define",
+    "extend",
+    "ui",
+    "mobile",
+    "page",
+    "NavigationPage",
+    "include",
+    "locale",
+    "MTranslation",
+    "construct",
+    "setTitle",
+    "tr",
+    "members",
+    "_initialize",
+    "grid",
+    "hkollmann",
+    "mobilegrid",
+    "container",
+    "Grid",
+    "r",
+    "c",
+    "lbl",
+    "basic",
+    "Label",
+    "add",
+    "row",
+    "col",
+    "getContent",
+    "demo",
+    "Demo"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAAA,EAAAA,EAAE,CAACC,SAAH,CAAaC,oBAAb,CAAkCC,aAAlC;;AAAA;;;;;;;;;;;;;;;;;;;;AAmBA;;;;;AAKAH,EAAAA,EAAE,CAACI,KAAH,CAASC,MAAT,CAAgB,gCAAhB,EAAkD;AAChDC,IAAAA,MAAM,EAAGN,EAAE,CAACO,EAAH,CAAMC,MAAN,CAAaC,IAAb,CAAkBC,cADqB;AAEhDC,IAAAA,OAAO,EAAG,CAACX,EAAE,CAACY,MAAH,CAAUC,YAAX,CAFsC;AAGhDC,IAAAA,SAAS,EAAG,qBAAW;AACrB;AACA,WAAKC,QAAL,CAAc,KAAKC,EAAL,CAAQ,aAAR,CAAd;AACD,KAN+C;AAOhDC,IAAAA,OAAO,EAAG;AACR;;;;AAIAC,MAAAA,WAAW,EAAE,uBAAW;AACtB;;AACA,YAAIC,IAAI,GAAG,IAAIC,SAAS,CAACC,UAAV,CAAqBd,EAArB,CAAwBe,SAAxB,CAAkCC,IAAtC,EAAX;;AACA,aAAK,IAAIC,CAAC,GAAG,CAAb,EAAgBA,CAAC,GAAG,CAApB,EAAuBA,CAAC,EAAxB,EAA4B;AAC1B,eAAK,IAAIC,CAAC,GAAG,CAAb,EAAgBA,CAAC,GAAG,CAApB,EAAuBA,CAAC,EAAxB,EAA4B;AAC1B,gBAAIC,GAAG,GAAG,IAAI1B,EAAE,CAACO,EAAH,CAAMC,MAAN,CAAamB,KAAb,CAAmBC,KAAvB,CAA6B,KAAKZ,EAAL,CAAQ,gBAAR,EAA0BS,CAA1B,EAA6BD,CAA7B,CAA7B,CAAV;AACAL,YAAAA,IAAI,CAACU,GAAL,CAASH,GAAT,EAAc;AACZI,cAAAA,GAAG,EAAGN,CADM;AAEZO,cAAAA,GAAG,EAAGN;AAFM,aAAd;AAID;AACF;;AACD,aAAKO,UAAL,GAAkBH,GAAlB,CAAsBV,IAAtB;AACD;AAlBO;AAPsC,GAAlD;AAxBAC,EAAAA,SAAS,CAACC,UAAV,CAAqBY,IAArB,CAA0BC,IAA1B,CAA+B/B,aAA/B,GAA+CA,aAA/C",
+  "sourcesContent": [
+    "/* ************************************************************************\n\n   qooxdoo mobile grid\n   https://github.com/hkollmann/hkollmann.mobilegrid\n\n   Copyright:\n     2018 Henner Kollmann (Henner.Kollmann@gmx.de)\n\n   License:\n     MIT: https://opensource.org/licenses/MIT\n\n     This software is provided under the same licensing terms as Qooxdoo,\n     please see the LICENSE file in the Qooxdoo project's top-level directory\n     for details.\n\n   Authors:\n    Henner Kollmann (Henner.Kollmann@gmx.de)\n\n************************************************************************ */\n/**\n *\n * @type Demo\n * demo class for mobile grid\n */\nqx.Class.define(\"hkollmann.mobilegrid.demo.Demo\", {\n  extend : qx.ui.mobile.page.NavigationPage,\n  include : [qx.locale.MTranslation],\n  construct : function() {\n    this.base(arguments);\n    this.setTitle(this.tr(\"Simple Demo\"));\n  },\n  members : {\n    /**\n     *\n     * @overridden\n     */\n    _initialize: function() {\n      this.base(arguments);\n      var grid = new hkollmann.mobilegrid.ui.container.Grid();\n      for (var r = 0; r < 5; r++) {\n        for (var c = 0; c < 5; c++) {\n          var lbl = new qx.ui.mobile.basic.Label(this.tr(\"col %1, row %2\", c, r));\n          grid.add(lbl, {\n            row : r,\n            col : c\n          });\n        }\n      }\n      this.getContent().add(grid);\n    }\n  }\n});\n"
+  ]
+}

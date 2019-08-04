@@ -1,0 +1,42 @@
+{
+  "version": 3,
+  "sources": [
+    "/home/travis/build/hkollmann/hkollmann.mobilegrid/source/class/hkollmann/mobilegrid/event/type/GridEvent.js"
+  ],
+  "names": [
+    "qx",
+    "Bootstrap",
+    "executePendingDefers",
+    "$$dbClassInfo",
+    "Class",
+    "define",
+    "extend",
+    "event",
+    "type",
+    "Event",
+    "members",
+    "init",
+    "grid",
+    "DOMElement",
+    "row",
+    "col",
+    "canBubble",
+    "__row",
+    "__col",
+    "__grid",
+    "__DOMElement",
+    "clone",
+    "embryo",
+    "getGrid",
+    "getDOMElement",
+    "getRow",
+    "getCol",
+    "hkollmann",
+    "mobilegrid",
+    "GridEvent"
+  ],
+  "mappings": ";;;;;;;;;;;;AAAAA,EAAAA,EAAE,CAACC,SAAH,CAAaC,oBAAb,CAAkCC,aAAlC;;AAAA;;;;;;;;;;;;;;;;;;;;AAmBA;;;;;AAKAH,EAAAA,EAAE,CAACI,KAAH,CAASC,MAAT,CAAgB,2CAAhB,EAA6D;AAC3DC,IAAAA,MAAM,EAAGN,EAAE,CAACO,KAAH,CAASC,IAAT,CAAcC,KADoC;AAE3DC,IAAAA,OAAO,EAAG;AACRC,MAAAA,IAAI,EAAG,cAASC,IAAT,EAAeC,UAAf,EAA2BC,GAA3B,EAAgCC,GAAhC,EAAqCC,SAArC,EAAgD;AACrD,iFAAqBA,SAArB,EAAgC,KAAhC;AACA,aAAKC,KAAL,GAAaH,GAAb;AACA,aAAKI,KAAL,GAAaH,GAAb;AACA,aAAKI,MAAL,GAAcP,IAAd;AACA,aAAKQ,YAAL,GAAoBP,UAApB;AACA,eAAO,IAAP;AACD,OARO;AASR;AACAQ,MAAAA,KAAK,EAAG,eAASC,MAAT,EAAiB;AACvB,YAAID,KAAK,6EAAwBC,MAAxB,CAAT;AACAD,QAAAA,KAAK,CAACF,MAAN,GAAe,KAAKA,MAApB;AACAE,QAAAA,KAAK,CAACJ,KAAN,GAAc,KAAKA,KAAnB;AACAI,QAAAA,KAAK,CAACH,KAAN,GAAc,KAAKA,KAAnB;AACAG,QAAAA,KAAK,CAACD,YAAN,GAAqB,KAAKA,YAA1B;AACA,eAAOC,KAAP;AACD,OAjBO;AAkBRE,MAAAA,OAAO,EAAG,mBAAW;AACnB,eAAO,KAAKJ,MAAZ;AACD,OApBO;AAqBRK,MAAAA,aAAa,EAAG,yBAAW;AACzB,eAAO,KAAKJ,YAAZ;AACD,OAvBO;AAwBRK,MAAAA,MAAM,EAAG,kBAAW;AAClB,eAAO,KAAKR,KAAZ;AACD,OA1BO;AA2BRS,MAAAA,MAAM,EAAG,kBAAW;AAClB,eAAO,KAAKR,KAAZ;AACD,OA7BO;AA8BRC,MAAAA,MAAM,EAAG,IA9BD;AA+BRF,MAAAA,KAAK,EAAG,IA/BA;AAgCRC,MAAAA,KAAK,EAAG,IAhCA;AAiCRE,MAAAA,YAAY,EAAG;AAjCP;AAFiD,GAA7D;AAxBAO,EAAAA,SAAS,CAACC,UAAV,CAAqBrB,KAArB,CAA2BC,IAA3B,CAAgCqB,SAAhC,CAA0C1B,aAA1C,GAA0DA,aAA1D",
+  "sourcesContent": [
+    "/* ************************************************************************\n\n   qooxdoo mobile grid\n   https://github.com/hkollmann/hkollmann.mobilegrid\n   \n   Copyright:\n     2018 Henner Kollmann (Henner.Kollmann@gmx.de)\n\n   License:\n     MIT: https://opensource.org/licenses/MIT\n\n     This software is provided under the same licensing terms as Qooxdoo,\n     please see the LICENSE file in the Qooxdoo project's top-level directory\n     for details.\n\n   Authors:\n    Henner Kollmann (Henner.Kollmann@gmx.de)\n\n************************************************************************ */\n/**\n *\n * @type GridEvent\n * special event type fired during grid creating.\n */\nqx.Class.define(\"hkollmann.mobilegrid.event.type.GridEvent\", {\n  extend : qx.event.type.Event,\n  members : {\n    init : function(grid, DOMElement, row, col, canBubble) {\n      this.base(arguments, canBubble, false);\n      this.__row = row;\n      this.__col = col;\n      this.__grid = grid;\n      this.__DOMElement = DOMElement;\n      return this;\n    },\n    // override\n    clone : function(embryo) {\n      var clone = this.base(arguments, embryo);\n      clone.__grid = this.__grid;\n      clone.__row = this.__row;\n      clone.__col = this.__col;\n      clone.__DOMElement = this.__DOMElement;\n      return clone;\n    },\n    getGrid : function() {\n      return this.__grid;\n    },\n    getDOMElement : function() {\n      return this.__DOMElement;\n    },\n    getRow : function() {\n      return this.__row;\n    },\n    getCol : function() {\n      return this.__col;\n    },\n    __grid : null,\n    __row : null,\n    __col : null,\n    __DOMElement : null\n  }\n});\n"
+  ]
+}
