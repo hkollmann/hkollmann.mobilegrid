@@ -4,6 +4,9 @@
       "qx.module.Animation": {
         "require": true
       },
+      "qx.module.Manipulating": {
+        "require": true
+      },
       "qx.core.Environment": {
         "defer": "load",
         "construct": true,
@@ -345,4 +348,4 @@
   qx.ui.mobile.container.MNativeScroll.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MNativeScroll.js.map?dt=1564930745427
+//# sourceMappingURL=MNativeScroll.js.map?dt=1591463664607

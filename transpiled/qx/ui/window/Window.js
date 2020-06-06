@@ -40,7 +40,6 @@
       "qx.ui.window.Manager": {
         "require": true
       },
-      "qx.ui.window.IDesktop": {},
       "qx.ui.container.Composite": {},
       "qx.ui.layout.HBox": {},
       "qx.ui.basic.Label": {},
@@ -417,16 +416,16 @@
     */
     members: {
       /** @type {Integer} Original top value before maximation had occurred */
-      __restoredTop: null,
+      __P_231_0: null,
 
       /** @type {Integer} Original left value before maximation had occurred */
-      __restoredLeft: null,
+      __P_231_1: null,
 
       /** @type {Integer} Listener ID for centering on appear */
-      __centeringAppearId: null,
+      __P_231_2: null,
 
       /** @type {Integer} Listener ID for centering on resize */
-      __centeringResizeId: null,
+      __P_231_3: null,
 
       /*
       ---------------------------------------------------------------------------
@@ -457,23 +456,20 @@
       // overridden
       setLayoutParent: function setLayoutParent(parent) {
         var oldParent;
-        {
-          parent && this.assertInterface(parent, qx.ui.window.IDesktop, "Windows can only be added to widgets, which implement the interface qx.ui.window.IDesktop. All root widgets implement this interface.");
-        } // Before changing the parent, if there's a prior one, remove our resize
+        // Before changing the parent, if there's a prior one, remove our resize
         // listener
-
         oldParent = this.getLayoutParent();
 
-        if (oldParent && this.__centeringResizeId) {
-          oldParent.removeListenerById(this.__centeringResizeId);
-          this.__centeringResizeId = null;
+        if (oldParent && this.__P_231_3) {
+          oldParent.removeListenerById(this.__P_231_3);
+          this.__P_231_3 = null;
         } // Call the superclass
 
 
         qx.ui.window.Window.prototype.setLayoutParent.base.call(this, parent); // Re-add a listener for resize, if required
 
         if (parent && this.getCenterOnContainerResize()) {
-          this.__centeringResizeId = parent.addListener("resize", this.center, this);
+          this.__P_231_3 = parent.addListener("resize", this.center, this);
         }
       },
       // overridden
@@ -721,10 +717,6 @@
             return;
           }
         }
-
-        {
-          this.warn("Centering depends on parent bounds!");
-        }
       },
 
       /**
@@ -748,8 +740,8 @@
 
 
             var props = this.getLayoutProperties();
-            this.__restoredLeft = props.left === undefined ? 0 : props.left;
-            this.__restoredTop = props.top === undefined ? 0 : props.top; // Update layout properties
+            this.__P_231_1 = props.left === undefined ? 0 : props.left;
+            this.__P_231_0 = props.top === undefined ? 0 : props.top; // Update layout properties
 
             this.setLayoutProperties({
               left: null,
@@ -778,8 +770,8 @@
         if (this.fireNonBubblingEvent("beforeMinimize", qx.event.type.Event, [false, true])) {
           // store current dimension and location
           var props = this.getLayoutProperties();
-          this.__restoredLeft = props.left === undefined ? 0 : props.left;
-          this.__restoredTop = props.top === undefined ? 0 : props.top;
+          this.__P_231_1 = props.left === undefined ? 0 : props.left;
+          this.__P_231_0 = props.top === undefined ? 0 : props.top;
           this.removeState("maximized");
           this.hide();
           this.fireEvent("minimize");
@@ -801,8 +793,8 @@
           } // Restore old properties
 
 
-          var left = this.__restoredLeft;
-          var top = this.__restoredTop;
+          var left = this.__P_231_1;
+          var top = this.__P_231_0;
           this.setLayoutProperties({
             edge: null,
             left: left,
@@ -937,28 +929,28 @@
       },
       _applyCenterOnAppear: function _applyCenterOnAppear(value, old) {
         // Remove prior listener for centering on appear
-        if (this.__centeringAppearId !== null) {
-          this.removeListenerById(this.__centeringAppearId);
-          this.__centeringAppearId = null;
+        if (this.__P_231_2 !== null) {
+          this.removeListenerById(this.__P_231_2);
+          this.__P_231_2 = null;
         } // If we are to center on appear, arrange to do so
 
 
         if (value) {
-          this.__centeringAppearId = this.addListener("appear", this.center, this);
+          this.__P_231_2 = this.addListener("appear", this.center, this);
         }
       },
       _applyCenterOnContainerResize: function _applyCenterOnContainerResize(value, old) {
         var parent = this.getLayoutParent(); // Remove prior listener for centering on resize
 
-        if (this.__centeringResizeId !== null) {
-          parent.removeListenerById(this.__centeringResizeId);
-          this.__centeringResizeId = null;
+        if (this.__P_231_3 !== null) {
+          parent.removeListenerById(this.__P_231_3);
+          this.__P_231_3 = null;
         } // If we are to center on resize, arrange to do so
 
 
         if (value) {
           if (parent) {
-            this.__centeringResizeId = parent.addListener("resize", this.center, this);
+            this.__P_231_3 = parent.addListener("resize", this.center, this);
           }
         }
       },
@@ -1014,7 +1006,7 @@
        * @param e {qx.event.type.Pointer} double tap event
        */
       _onCaptionPointerDblTap: function _onCaptionPointerDblTap(e) {
-        if (this.getAllowMaximize()) {
+        if (this.getAllowMaximize() && (e.getTarget() === this.getChildControl("captionbar") || e.getTarget() === this.getChildControl("title"))) {
           this.isMaximized() ? this.restore() : this.maximize();
         }
       },
@@ -1079,7 +1071,7 @@
 
       if (parent) {
         // Remove the listener for resize, if there is one
-        id = this.__centeringResizeId;
+        id = this.__P_231_3;
         id && parent.removeListenerById(id); // Remove ourself from our parent
 
         parent.remove(this);
@@ -1089,4 +1081,4 @@
   qx.ui.window.Window.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Window.js.map?dt=1564930749387
+//# sourceMappingURL=Window.js.map?dt=1591463670999

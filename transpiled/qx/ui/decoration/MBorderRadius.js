@@ -148,16 +148,10 @@
         }
       },
       // property apply
-      _applyBorderRadius: function _applyBorderRadius() {
-        {
-          if (this._isInitialized()) {
-            throw new Error("This decorator is already in-use. Modification is not possible anymore!");
-          }
-        }
-      }
+      _applyBorderRadius: function _applyBorderRadius() {}
     }
   });
   qx.ui.decoration.MBorderRadius.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MBorderRadius.js.map?dt=1564930746157
+//# sourceMappingURL=MBorderRadius.js.map?dt=1591463665814

@@ -21,15 +21,15 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\nFabian Jakobs (fjakobs)\n\n======================================================================\n\nThis class contains code based on the following work:\n\nYahoo! UI Library\nhttp:\nVersion 2.2.0\n\nCopyright:\n(c) 2007, Yahoo! Inc.\n\nLicense:\nBSD: http:\n\n----------------------------------------------------------------------\n\nhttp:\n\nCopyright (c) 2009, Yahoo! Inc.\nAll rights reserved.\n\nRedistribution and use of this software in source and binary forms,\nwith or without modification, are permitted provided that the\nfollowing conditions are met:\n\nRedistributions of source code must retain the above copyright\nnotice, this list of conditions and the following disclaimer.\nRedistributions in binary form must reproduce the above copyright\nnotice, this list of conditions and the following disclaimer in\nthe documentation and/or other materials provided with the\ndistribution.\nNeither the name of Yahoo! Inc. nor the names of its contributors\nmay be used to endorse or promote products derived from this\nsoftware without specific prior written permission of Yahoo! Inc.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n\"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\nLIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS\nFOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE\nCOPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,\nINCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\nSERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)\nHOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,\nSTRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)\nARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED\nOF THE POSSIBILITY OF SUCH DAMAGE.\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2004-2008 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Sebastian Werner (wpbasti)\n Andreas Ecker (ecker)\n Fabian Jakobs (fjakobs)\n   ======================================================================\n   This class contains code based on the following work:\n Yahoo! UI Library\n     http://developer.yahoo.com/yui\n     Version 2.2.0\n     Copyright:\n       (c) 2007, Yahoo! Inc.\n     License:\n       BSD: http://developer.yahoo.com/yui/license.txt</p>\n<hr />\n<pre><code> http://developer.yahoo.com/yui/license.html\n Copyright (c) 2009, Yahoo! Inc.\n All rights reserved.\n Redistribution and use of this software in source and binary forms,\n with or without modification, are permitted provided that the\n following conditions are met:\n</code></pre>\n<p>Redistributions of source code must retain the above copyright\n       notice, this list of conditions and the following disclaimer.\n Redistributions in binary form must reproduce the above copyright\n       notice, this list of conditions and the following disclaimer in\n       the documentation and/or other materials provided with the\n       distribution.\n Neither the name of Yahoo! Inc. nor the names of its contributors\n       may be used to endorse or promote products derived from this\n       software without specific prior written permission of Yahoo! Inc.\n     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n     \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n     LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS\n     FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE\n     COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,\n     INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n     (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\n     SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)\n     HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,\n     STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)\n     ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED\n     OF THE POSSIBILITY OF SUCH DAMAGE.\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "***********************************************************************\n\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n*****************************************************************\n</code></pre>"
         },
         {
           "name": "@description",
-          "body": "A helper for using the browser history in JavaScript Applications without\nreloading the main page.\n\nAdds entries to the browser history and fires a \"request\" event when one of\nthe entries was requested by the user (e.g. by clicking on the back button).\n\nThis class is an abstract template class. Concrete implementations have to\nprovide implementations for the {@link #_readState} and {@link #_writeState}\nmethods.\n\nBrowser history support is currently available for Internet Explorer 6/7,\nFirefox, Opera 9 and WebKit. Safari 2 and older are not yet supported.\n\nThis module is based on the ideas behind the YUI Browser History Manager\nby Julien Lecomte (Yahoo), which is described at\nhttp:\nimplementation can be found at http:\nThe original code is licensed under a BSD license\n(http:"
+          "body": "<p>A helper for using the browser history in JavaScript Applications without\n reloading the main page.\n Adds entries to the browser history and fires a \"request\" event when one of\n the entries was requested by the user (e.g. by clicking on the back button).\n This class is an abstract template class. Concrete implementations have to\n provide implementations for the {@link #<em>readState} and {@link #</em>writeState}\n methods.\n Browser history support is currently available for Internet Explorer 6/7,\n Firefox, Opera 9 and WebKit. Safari 2 and older are not yet supported.\n This module is based on the ideas behind the YUI Browser History Manager\n by Julien Lecomte (Yahoo), which is described at\n http://yuiblog.com/blog/2007/02/21/browser-history-manager/. The Yahoo\n implementation can be found at http://developer.yahoo.com/yui/history/.\n The original code is licensed under a BSD license\n (http://developer.yahoo.com/yui/license.txt).</p>"
         }
       ],
       "@asset": [
@@ -54,6 +54,14 @@
         "line": 119,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "events": {
@@ -72,7 +80,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Fired when the user moved in the history. The data property of the event\nholds the state, which was passed to {@link #addToHistory}."
+            "body": "<p>Fired when the user moved in the history. The data property of the event\n holds the state, which was passed to {@link #addToHistory}.</p>"
           }
         ]
       },
@@ -124,7 +132,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Get the singleton instance of the history manager."
+            "body": "<p>Get the singleton instance of the history manager.</p>"
           }
         ],
         "@return": [
@@ -156,7 +164,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Property holding the current title"
+            "body": "<p>Property holding the current title</p>"
           }
         ]
       },
@@ -183,7 +191,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Property holding the current state of the history."
+            "body": "<p>Property holding the current state of the history.</p>"
           }
         ]
       },
@@ -201,7 +209,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>The owning object</p>"
+          }
+        ]
+      }
     },
     "qxObjectId": {
       "type": "property",
@@ -209,7 +225,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>{String} The ID of the object.</p>"
+          }
+        ]
+      }
     }
   },
   "members": {
@@ -242,7 +266,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -267,7 +291,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Populates the 'state' property with the initial state value"
+            "body": "<p>Populates the 'state' property with the initial state value</p>"
           }
         ]
       },
@@ -289,7 +313,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Encodes the state value into a format suitable as fragment identifier."
+            "body": "<p>Encodes the state value into a format suitable as fragment identifier.</p>"
           }
         ],
         "@param": [
@@ -328,7 +352,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Decodes a fragment identifier into a string"
+            "body": "<p>Decodes a fragment identifier into a string</p>"
           }
         ],
         "@param": [
@@ -367,7 +391,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -392,22 +416,22 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Adds an entry to the browser history."
+            "body": "<p>Adds an entry to the browser history.</p>"
           }
         ],
         "@param": [
           {
             "name": "@param",
-            "body": "state {String} a string representing the state of the\n         application. This command will be delivered in the data property of\n         the \"request\" event.",
+            "body": "state {String} a string representing the state of the\n          application. This command will be delivered in the data property of\n          the \"request\" event.",
             "paramName": "state",
-            "description": " a string representing the state of the\n         application. This command will be delivered in the data property of\n         the \"request\" event.",
+            "description": " a string representing the state of the\n          application. This command will be delivered in the data property of\n          the \"request\" event.",
             "type": "qx.bom.String"
           },
           {
             "name": "@param",
-            "body": "newTitle {String ? null} the page title to set after the history entry\n         is done. This title should represent the new state of the application.",
+            "body": "newTitle {String ? null} the page title to set after the history entry\n          is done. This title should represent the new state of the application.",
             "paramName": "newTitle",
-            "description": " the page title to set after the history entry\n         is done. This title should represent the new state of the application.",
+            "description": " the page title to set after the history entry\n          is done. This title should represent the new state of the application.",
             "optional": true,
             "defaultValue": "null",
             "type": "String"
@@ -432,7 +456,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Navigates back in the browser history.\nSimulates a back button click."
+            "body": "<p>Navigates back in the browser history.\n Simulates a back button click.</p>"
           }
         ]
       },
@@ -454,7 +478,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Navigates forward in the browser history.\nSimulates a forward button click."
+            "body": "<p>Navigates forward in the browser history.\n Simulates a forward button click.</p>"
           }
         ]
       },
@@ -476,7 +500,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Called on changes to the history using the browser buttons."
+            "body": "<p>Called on changes to the history using the browser buttons.</p>"
           }
         ],
         "@param": [
@@ -507,7 +531,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Browser dependent function to read the current state of the history"
+            "body": "<p>Browser dependent function to read the current state of the history</p>"
           }
         ],
         "@return": [
@@ -537,7 +561,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Save a state into the browser history."
+            "body": "<p>Save a state into the browser history.</p>"
           }
         ],
         "@param": [
@@ -568,7 +592,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Sets the fragment identifier of the window URL"
+            "body": "<p>Sets the fragment identifier of the window URL</p>"
           }
         ],
         "@param": [
@@ -599,7 +623,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the fragment identifier of the top window URL. For gecko browsers we\nhave to use a regular expression to avoid encoding problems."
+            "body": "<p>Returns the fragment identifier of the top window URL. For gecko browsers we\n have to use a regular expression to avoid encoding problems.</p>"
           }
         ],
         "@return": [
@@ -673,7 +697,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -732,7 +764,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getTitle": {
       "type": "function",

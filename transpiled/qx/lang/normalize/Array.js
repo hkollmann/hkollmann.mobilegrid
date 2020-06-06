@@ -8,7 +8,6 @@
         "usage": "dynamic",
         "require": true
       },
-      "qx.core.Assert": {},
       "qx.core.Environment": {
         "defer": "runtime"
       }
@@ -271,9 +270,6 @@
        * @return {Object} result, undefined if not found
        */
       find: function find(callback, obj) {
-        {
-          qx.core.Assert.assertFunction(callback);
-        }
         var l = this.length;
 
         for (var i = 0; i < l; i++) {
@@ -298,9 +294,6 @@
        * @return {Integer} the index in the array, -1 if not found
        */
       findIndex: function findIndex(callback, obj) {
-        {
-          qx.core.Assert.assertFunction(callback);
-        }
         var l = this.length;
 
         for (var i = 0; i < l; i++) {
@@ -481,4 +474,4 @@
   qx.lang.normalize.Array.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Array.js.map?dt=1564930734299
+//# sourceMappingURL=Array.js.map?dt=1591463651909

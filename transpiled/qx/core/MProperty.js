@@ -6,8 +6,7 @@
         "require": true
       },
       "qx.core.Property": {},
-      "qx.Bootstrap": {},
-      "qx.core.Assert": {}
+      "qx.Bootstrap": {}
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -133,13 +132,6 @@
        * @throws {Error} If the property defined does not exist
        */
       isPropertyInitialized: function isPropertyInitialized(prop) {
-        {
-          qx.core.Assert.assertString(prop);
-
-          if (!this["get" + qx.Bootstrap.firstUp(prop)]) {
-            throw new Error("No such property: " + prop);
-          }
-        }
         return this["$$user_" + prop] !== undefined || this["$$init_" + prop] !== undefined;
       }
     }
@@ -147,4 +139,4 @@
   qx.core.MProperty.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MProperty.js.map?dt=1564930740152
+//# sourceMappingURL=MProperty.js.map?dt=1591463657933

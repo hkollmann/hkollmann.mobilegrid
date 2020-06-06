@@ -42,40 +42,40 @@
     members: {
       init: function init(grid, DOMElement, row, col, canBubble) {
         hkollmann.mobilegrid.event.type.GridEvent.prototype.init.base.call(this, canBubble, false);
-        this.__row = row;
-        this.__col = col;
-        this.__grid = grid;
-        this.__DOMElement = DOMElement;
+        this.__P_87_0 = row;
+        this.__P_87_1 = col;
+        this.__P_87_2 = grid;
+        this.__P_87_3 = DOMElement;
         return this;
       },
       // override
       clone: function clone(embryo) {
         var clone = hkollmann.mobilegrid.event.type.GridEvent.prototype.clone.base.call(this, embryo);
-        clone.__grid = this.__grid;
-        clone.__row = this.__row;
-        clone.__col = this.__col;
-        clone.__DOMElement = this.__DOMElement;
+        clone.__P_87_2 = this.__P_87_2;
+        clone.__P_87_0 = this.__P_87_0;
+        clone.__P_87_1 = this.__P_87_1;
+        clone.__P_87_3 = this.__P_87_3;
         return clone;
       },
       getGrid: function getGrid() {
-        return this.__grid;
+        return this.__P_87_2;
       },
       getDOMElement: function getDOMElement() {
-        return this.__DOMElement;
+        return this.__P_87_3;
       },
       getRow: function getRow() {
-        return this.__row;
+        return this.__P_87_0;
       },
       getCol: function getCol() {
-        return this.__col;
+        return this.__P_87_1;
       },
-      __grid: null,
-      __row: null,
-      __col: null,
-      __DOMElement: null
+      __P_87_2: null,
+      __P_87_0: null,
+      __P_87_1: null,
+      __P_87_3: null
     }
   });
   hkollmann.mobilegrid.event.type.GridEvent.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=GridEvent.js.map?dt=1564930741289
+//# sourceMappingURL=GridEvent.js.map?dt=1591463658660

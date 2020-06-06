@@ -19,8 +19,6 @@
       "qx.bom.Stylesheet": {
         "construct": true
       },
-      "qx.log.appender.Native": {},
-      "qx.log.appender.Console": {},
       "qx.ui.core.Widget": {},
       "qxl.apiviewer.MWidgetRegistry": {},
       "qxl.apiviewer.Viewer": {},
@@ -88,10 +86,6 @@
         // Call super class
         qxl.apiviewer.Application.prototype.main.base.call(this); // Add log appenders
 
-        {
-          qx.log.appender.Native;
-          qx.log.appender.Console;
-        }
         qx.Class.include(qx.ui.core.Widget, qxl.apiviewer.MWidgetRegistry);
         this.viewer = new qxl.apiviewer.Viewer();
         this.controller = new qxl.apiviewer.Controller(); // set variables for later usage.
@@ -122,4 +116,4 @@
   qxl.apiviewer.Application.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Application.js.map?dt=1564930732100
+//# sourceMappingURL=Application.js.map?dt=1591463649782

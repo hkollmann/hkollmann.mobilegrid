@@ -1,4 +1,4 @@
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 (function () {
   var $$dbClassInfo = {
@@ -356,6 +356,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @internal
        * @param callback {Function} The function which should be executed as
        *   soon as the check is done.
+       * 
+       * @ignore(Image)
        */
       getDataUrl: function getDataUrl(callback) {
         var data = new Image();
@@ -523,4 +525,4 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   qx.bom.client.Html.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Html.js.map?dt=1564930735143
+//# sourceMappingURL=Html.js.map?dt=1591463663226

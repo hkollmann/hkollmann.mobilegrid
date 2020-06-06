@@ -1,13 +1,10 @@
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
       "qx.Bootstrap": {
         "usage": "dynamic",
         "require": true
-      },
-      "qx.dev.StackTrace": {}
+      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -40,7 +37,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
    * themes.
    *
    * For more details, take a look at the
-   * <a href='http://manual.qooxdoo.org/${qxversion}/pages/desktop/ui_theming.html' target='_blank'>
+   * <a href='http://qooxdoo.org/docs/#desktop/gui/theming.md' target='_blank'>
    * documentation of the theme system in the qooxdoo manual.</a>
    */
   qx.Bootstrap.define("qx.Theme", {
@@ -75,7 +72,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * </pre>
        *
        * For more details, take a look at the
-       * <a href='http://manual.qooxdoo.org/${qxversion}/pages/desktop/ui_theming.html' target='_blank'>
+       * <a href='http://qooxdoo.org/docs/#desktop/gui/theming.md' target='_blank'>
        * documentation of the theme system in the qooxdoo manual.</a>
        *
        * @param name {String} name of the mixin
@@ -86,13 +83,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           var config = {};
         }
 
-        config.include = this.__normalizeArray(config.include);
-        config.patch = this.__normalizeArray(config.patch); // Validate incoming data
+        config.include = this.__P_11_0(config.include);
+        config.patch = this.__P_11_0(config.patch); // Validate incoming data
 
-        {
-          this.__validateConfig(name, config);
-        } // Create alias
-
+        // Create alias
         var theme = {
           $$type: "Theme",
           name: name,
@@ -108,9 +102,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         theme.basename = qx.Bootstrap.createNamespace(name, theme); // Convert theme entry from Object to Function (for prototype inheritance)
 
-        this.__convert(theme, config);
+        this.__P_11_1(theme, config);
 
-        this.__initializeAliases(theme, config); // Store class reference in global class registry
+        this.__P_11_2(theme, config); // Store class reference in global class registry
 
 
         this.$$registry[name] = theme; // Include mixin themes
@@ -138,7 +132,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {Array} Either an array that has the original object as its
        *   single item, or the original array itself
        */
-      __normalizeArray: function __normalizeArray(objectOrArray) {
+      __P_11_0: function __P_11_0(objectOrArray) {
         if (!objectOrArray) {
           return [];
         }
@@ -156,7 +150,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param theme {Map} The theme
        * @param config {Map} config structure
        */
-      __initializeAliases: function __initializeAliases(theme, config) {
+      __P_11_2: function __P_11_2(theme, config) {
         var aliases = config.aliases || {};
 
         if (config.extend && config.extend.aliases) {
@@ -227,8 +221,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param config {Map} The map from where to extract the key
        * @return {String} the key which was found
        */
-      __extractType: function __extractType(config) {
-        for (var i = 0, keys = this.__inheritableKeys, l = keys.length; i < l; i++) {
+      __P_11_3: function __P_11_3(config) {
+        for (var i = 0, keys = this.__P_11_4, l = keys.length; i < l; i++) {
           if (config[keys[i]]) {
             return keys[i];
           }
@@ -241,8 +235,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param theme {Theme} newly created theme object
        * @param config {Map} incoming theme configuration
        */
-      __convert: function __convert(theme, config) {
-        var type = this.__extractType(config); // Use theme key from extended theme if own one is not available
+      __P_11_1: function __P_11_1(theme, config) {
+        var type = this.__P_11_3(config); // Use theme key from extended theme if own one is not available
 
 
         if (config.extend && !type) {
@@ -267,11 +261,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           // Convert base flag to class reference (needed for mixin support)
 
           if (target[id].base) {
-            {
-              if (!config.extend) {
-                throw new Error("Found base flag in entry '" + id + "' of theme '" + config.name + "'. Base flags are not allowed for themes without a valid super theme!");
-              }
-            }
             target[id].base = config.extend;
           }
         } // store pseudo class
@@ -286,52 +275,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       $$registry: {},
 
       /** @type {Array} Keys which support inheritance */
-      __inheritableKeys: ["colors", "borders", "decorations", "fonts", "icons", "widgets", "appearances", "meta"],
+      __P_11_4: ["colors", "borders", "decorations", "fonts", "icons", "widgets", "appearances", "meta"],
 
       /** @type {Map} allowed keys in theme definition */
-      __allowedKeys: {
-        "title": "string",
-        // String
-        "aliases": "object",
-        // Map
-        "type": "string",
-        // String
-        "extend": "object",
-        // Theme
-        "colors": "object",
-        // Map
-        "borders": "object",
-        // Map
-        "decorations": "object",
-        // Map
-        "fonts": "object",
-        // Map
-        "icons": "object",
-        // Map
-        "widgets": "object",
-        // Map
-        "appearances": "object",
-        // Map
-        "meta": "object",
-        // Map
-        "include": "object",
-        // Array
-        "patch": "object",
-        // Array
-        "boot": "function" // Function
-
-      },
+      __P_11_5: null,
 
       /** @type {Map} allowed keys inside a meta theme block */
-      __metaKeys: {
-        "color": "object",
-        "border": "object",
-        "decoration": "object",
-        "font": "object",
-        "icon": "object",
-        "appearance": "object",
-        "widget": "object"
-      },
+      __P_11_6: null,
 
       /**
        * Validates incoming configuration and checks keys and values
@@ -341,93 +291,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param config {Map} Configuration map
        * @throws {Error} if the given config is not valid (e.g. wrong key or wrong key value)
        */
-      __validateConfig: function __validateConfig(name, config) {
-        var allowed = this.__allowedKeys;
-
-        for (var key in config) {
-          if (allowed[key] === undefined) {
-            throw new Error('The configuration key "' + key + '" in theme "' + name + '" is not allowed!');
-          }
-
-          if (config[key] == null) {
-            throw new Error('Invalid key "' + key + '" in theme "' + name + '"! The value is undefined/null!');
-          }
-
-          if (allowed[key] !== null && _typeof(config[key]) !== allowed[key]) {
-            throw new Error('Invalid type of key "' + key + '" in theme "' + name + '"! The type of the key must be "' + allowed[key] + '"!');
-          }
-        } // Validate maps
-
-
-        var maps = ["colors", "borders", "decorations", "fonts", "icons", "widgets", "appearances", "meta"];
-
-        for (var i = 0, l = maps.length; i < l; i++) {
-          var key = maps[i];
-
-          if (config[key] !== undefined && (config[key] instanceof Array || config[key] instanceof RegExp || config[key] instanceof Date || config[key].classname !== undefined)) {
-            throw new Error('Invalid key "' + key + '" in theme "' + name + '"! The value needs to be a map!');
-          }
-        } // Check conflicts (detect number ...)
-
-
-        var counter = 0;
-
-        for (var i = 0, l = maps.length; i < l; i++) {
-          var key = maps[i];
-
-          if (config[key]) {
-            counter++;
-          }
-
-          if (counter > 1) {
-            throw new Error("You can only define one theme category per file! Invalid theme: " + name);
-          }
-        } // Validate meta
-
-
-        if (config.meta) {
-          var value;
-
-          for (var key in config.meta) {
-            value = config.meta[key];
-
-            if (this.__metaKeys[key] === undefined) {
-              throw new Error('The key "' + key + '" is not allowed inside a meta theme block.');
-            }
-
-            if (_typeof(value) !== this.__metaKeys[key]) {
-              throw new Error('The type of the key "' + key + '" inside the meta block is wrong.');
-            }
-
-            if (!(_typeof(value) === "object" && value !== null && value.$$type === "Theme")) {
-              throw new Error('The content of a meta theme must reference to other themes. The value for "' + key + '" in theme "' + name + '" is invalid: ' + value);
-            }
-          }
-        } // Validate extend
-
-
-        if (config.extend && config.extend.$$type !== "Theme") {
-          throw new Error('Invalid extend in theme "' + name + '": ' + config.extend);
-        } // Validate include
-
-
-        if (config.include) {
-          for (var i = 0, l = config.include.length; i < l; i++) {
-            if (typeof config.include[i] == "undefined" || config.include[i].$$type !== "Theme") {
-              throw new Error('Invalid include in theme "' + name + '": ' + config.include[i]);
-            }
-          }
-        } // Validate patch
-
-
-        if (config.patch) {
-          for (var i = 0, l = config.patch.length; i < l; i++) {
-            if (typeof config.patch[i] === "undefined" || config.patch[i].$$type !== "Theme") {
-              throw new Error('Invalid patch in theme "' + name + '": ' + config.patch[i]);
-            }
-          }
-        }
-      },
+      __P_11_7: function __P_11_7() {},
 
       /**
        * Include all keys of the given mixin theme into the theme. The mixin may
@@ -438,11 +302,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param mixinTheme {Theme} The theme to be included.
        */
       patch: function patch(theme, mixinTheme) {
-        this.__checkForInvalidTheme(mixinTheme);
+        this.__P_11_8(mixinTheme);
 
-        var type = this.__extractType(mixinTheme);
+        var type = this.__P_11_3(mixinTheme);
 
-        if (type !== this.__extractType(theme)) {
+        if (type !== this.__P_11_3(theme)) {
           throw new Error("The mixins '" + theme.name + "' are not compatible '" + mixinTheme.name + "'!");
         }
 
@@ -464,7 +328,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param mixinTheme {Theme} The theme to be included.
        */
       include: function include(theme, mixinTheme) {
-        this.__checkForInvalidTheme(mixinTheme);
+        this.__P_11_8(mixinTheme);
 
         var type = mixinTheme.type;
 
@@ -491,13 +355,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param mixinTheme {qx.Theme?null} theme to check
        * @throws {Error} if the theme is not valid
        */
-      __checkForInvalidTheme: function __checkForInvalidTheme(mixinTheme) {
+      __P_11_8: function __P_11_8(mixinTheme) {
         if (typeof mixinTheme === "undefined" || mixinTheme == null) {
           var errorObj = new Error("Mixin theme is not a valid theme!");
-          {
-            var stackTrace = qx.dev.StackTrace.getStackTraceFromError(errorObj);
-            qx.Bootstrap.error(this, stackTrace);
-          }
           throw errorObj;
         }
       }
@@ -506,4 +366,4 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   qx.Theme.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Theme.js.map?dt=1564930734027
+//# sourceMappingURL=Theme.js.map?dt=1591463651576

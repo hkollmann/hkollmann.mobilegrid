@@ -12,7 +12,6 @@
         "usage": "dynamic",
         "require": true
       },
-      "qx.core.Assert": {},
       "qx.dom.Element": {},
       "qx.util.Uri": {}
     },
@@ -131,11 +130,6 @@
        * @param entry {String} style rule
        */
       addRule: function addRule(sheet, selector, entry) {
-        {
-          var msg = "qx.bom.Stylesheet.addRule: The rule '" + entry + "' for the selector '" + selector + "' must not be enclosed in braces";
-          qx.core.Assert.assertFalse(/^\s*?\{.*?\}\s*?$/.test(entry), msg);
-        }
-
         if (qx.core.Environment.get("html.stylesheet.insertrule")) {
           sheet.insertRule(selector + "{" + entry + "}", sheet.cssRules.length);
         } else {
@@ -274,4 +268,4 @@
   qx.bom.Stylesheet.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Stylesheet.js.map?dt=1564930733332
+//# sourceMappingURL=Stylesheet.js.map?dt=1591463650747

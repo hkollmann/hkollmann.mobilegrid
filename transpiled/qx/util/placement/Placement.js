@@ -12,7 +12,6 @@
       "qx.util.placement.DirectAxis": {
         "construct": true
       },
-      "qx.core.Assert": {},
       "qx.util.placement.KeepAlignAxis": {},
       "qx.util.placement.BestFitAxis": {}
     }
@@ -47,7 +46,7 @@
     extend: qx.core.Object,
     construct: function construct() {
       qx.core.Object.constructor.call(this);
-      this.__defaultAxis = qx.util.placement.DirectAxis;
+      this.__P_180_0 = qx.util.placement.DirectAxis;
     },
     properties: {
       /**
@@ -81,7 +80,7 @@
       }
     },
     statics: {
-      __instance: null,
+      __P_180_1: null,
 
       /**
        * DOM and widget independent method to compute the location
@@ -119,34 +118,23 @@
        *   <code>left</code> and <code>top</code>.
        */
       compute: function compute(size, area, target, offsets, position, modeX, modeY) {
-        this.__instance = this.__instance || new qx.util.placement.Placement();
+        this.__P_180_1 = this.__P_180_1 || new qx.util.placement.Placement();
         var splitted = position.split("-");
         var edge = splitted[0];
         var align = splitted[1];
-        {
-          if (align === "center" || align === "middle") {
-            var expected = "middle";
 
-            if (edge === "top" || edge === "bottom") {
-              expected = "center";
-            }
-
-            qx.core.Assert.assertEquals(expected, align, "Please use '" + edge + "-" + expected + "' instead!");
-          }
-        }
-
-        this.__instance.set({
-          axisX: this.__getAxis(modeX),
-          axisY: this.__getAxis(modeY),
+        this.__P_180_1.set({
+          axisX: this.__P_180_2(modeX),
+          axisY: this.__P_180_2(modeY),
           edge: edge,
           align: align
         });
 
-        return this.__instance.compute(size, area, target, offsets);
+        return this.__P_180_1.compute(size, area, target, offsets);
       },
-      __direct: null,
-      __keepAlign: null,
-      __bestFit: null,
+      __P_180_3: null,
+      __P_180_4: null,
+      __P_180_5: null,
 
       /**
        * Get the axis implementation for the given mode
@@ -155,19 +143,19 @@
        *   <code>best-fit</code>
        * @return {qx.util.placement.AbstractAxis}
        */
-      __getAxis: function __getAxis(mode) {
+      __P_180_2: function __P_180_2(mode) {
         switch (mode) {
           case "direct":
-            this.__direct = this.__direct || qx.util.placement.DirectAxis;
-            return this.__direct;
+            this.__P_180_3 = this.__P_180_3 || qx.util.placement.DirectAxis;
+            return this.__P_180_3;
 
           case "keep-align":
-            this.__keepAlign = this.__keepAlign || qx.util.placement.KeepAlignAxis;
-            return this.__keepAlign;
+            this.__P_180_4 = this.__P_180_4 || qx.util.placement.KeepAlignAxis;
+            return this.__P_180_4;
 
           case "best-fit":
-            this.__bestFit = this.__bestFit || qx.util.placement.BestFitAxis;
-            return this.__bestFit;
+            this.__P_180_5 = this.__P_180_5 || qx.util.placement.BestFitAxis;
+            return this.__P_180_5;
 
           default:
             throw new Error("Invalid 'mode' argument!'");
@@ -175,7 +163,7 @@
       }
     },
     members: {
-      __defaultAxis: null,
+      __P_180_0: null,
 
       /**
        * DOM and widget independent method to compute the location
@@ -196,26 +184,7 @@
        *   <code>left</code> and <code>top</code>.
        */
       compute: function compute(size, area, target, offsets) {
-        {
-          this.assertObject(size, "size");
-          this.assertNumber(size.width, "size.width");
-          this.assertNumber(size.height, "size.height");
-          this.assertObject(area, "area");
-          this.assertNumber(area.width, "area.width");
-          this.assertNumber(area.height, "area.height");
-          this.assertObject(target, "target");
-          this.assertNumber(target.top, "target.top");
-          this.assertNumber(target.right, "target.right");
-          this.assertNumber(target.bottom, "target.bottom");
-          this.assertNumber(target.left, "target.left");
-          this.assertObject(offsets, "offsets");
-          this.assertNumber(offsets.top, "offsets.top");
-          this.assertNumber(offsets.right, "offsets.right");
-          this.assertNumber(offsets.bottom, "offsets.bottom");
-          this.assertNumber(offsets.left, "offsets.left");
-        }
-
-        var axisX = this.getAxisX() || this.__defaultAxis;
+        var axisX = this.getAxisX() || this.__P_180_0;
 
         var left = axisX.computeStart(size.width, {
           start: target.left,
@@ -223,9 +192,9 @@
         }, {
           start: offsets.left,
           end: offsets.right
-        }, area.width, this.__getPositionX());
+        }, area.width, this.__P_180_6());
 
-        var axisY = this.getAxisY() || this.__defaultAxis;
+        var axisY = this.getAxisY() || this.__P_180_0;
 
         var top = axisY.computeStart(size.height, {
           start: target.top,
@@ -233,7 +202,7 @@
         }, {
           start: offsets.top,
           end: offsets.bottom
-        }, area.height, this.__getPositionY());
+        }, area.height, this.__P_180_7());
         return {
           left: left,
           top: top
@@ -245,7 +214,7 @@
        *
        * @return {String} the position
        */
-      __getPositionX: function __getPositionX() {
+      __P_180_6: function __P_180_6() {
         var edge = this.getEdge();
         var align = this.getAlign();
 
@@ -267,7 +236,7 @@
        *
        * @return {String} the position
        */
-      __getPositionY: function __getPositionY() {
+      __P_180_7: function __P_180_7() {
         var edge = this.getEdge();
         var align = this.getAlign();
 
@@ -285,10 +254,10 @@
       }
     },
     destruct: function destruct() {
-      this._disposeObjects('__defaultAxis');
+      this._disposeObjects("__P_180_0");
     }
   });
   qx.util.placement.Placement.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Placement.js.map?dt=1564930746874
+//# sourceMappingURL=Placement.js.map?dt=1591463666791

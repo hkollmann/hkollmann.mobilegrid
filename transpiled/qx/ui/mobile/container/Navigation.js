@@ -12,7 +12,6 @@
       "qx.ui.mobile.layout.VBox": {
         "construct": true
       },
-      "qx.ui.mobile.container.INavigation": {},
       "qx.ui.mobile.layout.Card": {},
       "qx.ui.mobile.navigationbar.NavigationBar": {}
     }
@@ -67,15 +66,15 @@
     */
     construct: function construct() {
       qx.ui.mobile.container.Composite.constructor.call(this, new qx.ui.mobile.layout.VBox());
-      this.__navigationBar = this._createNavigationBar();
+      this.__P_26_0 = this._createNavigationBar();
 
-      if (this.__navigationBar) {
-        this._add(this.__navigationBar);
+      if (this.__P_26_0) {
+        this._add(this.__P_26_0);
       }
 
-      this.__content = this._createContent();
+      this.__P_26_1 = this._createContent();
 
-      this._add(this.__content, {
+      this._add(this.__P_26_1, {
         flex: 1
       });
     },
@@ -109,21 +108,15 @@
     *****************************************************************************
     */
     members: {
-      __navigationBar: null,
-      __content: null,
-      __layout: null,
+      __P_26_0: null,
+      __P_26_1: null,
+      __P_26_2: null,
       // overridden
       add: function add(widget) {
-        {
-          this.assertInterface(widget, qx.ui.mobile.container.INavigation);
-        }
         this.getContent().add(widget);
       },
       // overridden
       remove: function remove(widget) {
-        {
-          this.assertInterface(widget, qx.ui.mobile.container.INavigation);
-        }
         this.getContent().remove(widget);
       },
 
@@ -133,7 +126,7 @@
        * @return {qx.ui.mobile.container.Composite} The content container
        */
       getContent: function getContent() {
-        return this.__content;
+        return this.__P_26_1;
       },
 
       /**
@@ -141,7 +134,7 @@
        * @return {qx.ui.mobile.layout.Card} assigned Card Layout.
        */
       getLayout: function getLayout() {
-        return this.__layout;
+        return this.__P_26_2;
       },
 
       /**
@@ -150,7 +143,7 @@
        * @return {qx.ui.mobile.navigationbar.NavigationBar} The navigation bar.
        */
       getNavigationBar: function getNavigationBar() {
-        return this.__navigationBar;
+        return this.__P_26_0;
       },
 
       /**
@@ -159,15 +152,15 @@
        * @return {qx.ui.mobile.container.Composite} The created content container
        */
       _createContent: function _createContent() {
-        this.__layout = new qx.ui.mobile.layout.Card();
+        this.__P_26_2 = new qx.ui.mobile.layout.Card();
 
-        this.__layout.addListener("updateLayout", this._onUpdateLayout, this);
+        this.__P_26_2.addListener("updateLayout", this._onUpdateLayout, this);
 
-        this.__layout.addListener("animationStart", this._onAnimationStart, this);
+        this.__P_26_2.addListener("animationStart", this._onAnimationStart, this);
 
-        this.__layout.addListener("animationEnd", this._onAnimationEnd, this);
+        this.__P_26_2.addListener("animationEnd", this._onAnimationEnd, this);
 
-        return new qx.ui.mobile.container.Composite(this.__layout);
+        return new qx.ui.mobile.container.Composite(this.__P_26_2);
       },
 
       /**
@@ -258,12 +251,12 @@
       this.getLayout().removeListener("animationStart", this._onAnimationStart, this);
       this.getLayout().removeListener("animationEnd", this._onAnimationEnd, this);
 
-      this._disposeObjects("__navigationBar", "__content", "__layout");
+      this._disposeObjects("__P_26_0", "__P_26_1", "__P_26_2");
 
-      this.__navigationBar = this.__content = this.__layout = null;
+      this.__P_26_0 = this.__P_26_1 = this.__P_26_2 = null;
     }
   });
   qx.ui.mobile.container.Navigation.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Navigation.js.map?dt=1564930736067
+//# sourceMappingURL=Navigation.js.map?dt=1591463653246

@@ -64,7 +64,7 @@
    *
    * *External Documentation*
    *
-   * <a href='http://manual.qooxdoo.org/${qxversion}/pages/layout/grow.html'>
+   * <a href='http://qooxdoo.org/docs/#layout/grow.md'>
    * Extended documentation</a> and links to demos of this layout in the qooxdoo manual.
    */
   qx.Class.define("qx.ui.layout.Grow", {
@@ -82,9 +82,7 @@
       ---------------------------------------------------------------------------
       */
       // overridden
-      verifyLayoutProperty: function verifyLayoutProperty(item, name, value) {
-        this.assert(false, "The property '" + name + "' is not supported by the Grow layout!");
-      },
+      verifyLayoutProperty: null,
       // overridden
       renderLayout: function renderLayout(availWidth, availHeight, padding) {
         var children = this._getLayoutChildren();
@@ -151,4 +149,4 @@
   qx.ui.layout.Grow.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Grow.js.map?dt=1564930743650
+//# sourceMappingURL=Grow.js.map?dt=1591463662320

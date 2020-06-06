@@ -26,11 +26,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2004-2008 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Sebastian Werner (wpbasti)\n Andreas Ecker (ecker)\n Fabian Jakobs (fjakobs)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "This is a basic form field with common functionality for\n{@link TextArea} and {@link TextField}.\n\nOn every keystroke the value is synchronized with the\nvalue of the textfield. Value changes can be monitored by listening to the\n{@link #input} or {@link #changeValue} events, respectively."
+          "body": "<p>This is a basic form field with common functionality for\n {@link TextArea} and {@link TextField}.\n On every keystroke the value is synchronized with the\n value of the textfield. Value changes can be monitored by listening to the\n {@link #input} or {@link #changeValue} events, respectively.</p>"
         }
       ]
     }
@@ -55,7 +55,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Stylesheet needed to style the native placeholder element."
+            "body": "<p>Stylesheet needed to style the native placeholder element.</p>"
           }
         ]
       },
@@ -77,7 +77,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Adds the CSS rules needed to style the native placeholder element."
+            "body": "<p>Adds the CSS rules needed to style the native placeholder element.</p>"
           }
         ]
       },
@@ -95,6 +95,27 @@
         "line": 116,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        },
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "value {String} initial text value of the input field ({@link #setValue}).",
+          "paramName": "value",
+          "description": " initial text value of the input field ({@link #setValue}).",
+          "type": "String"
+        }
+      ]
     }
   },
   "events": {
@@ -113,7 +134,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The event is fired on every keystroke modifying the value of the field.\n\nThe method {@link qx.event.type.Data#getData} returns the\ncurrent value of the text field."
+            "body": "<p>The event is fired on every keystroke modifying the value of the field.\n The method {@link qx.event.type.Data#getData} returns the\n current value of the text field.</p>"
           }
         ]
       },
@@ -135,7 +156,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The event is fired each time the text field looses focus and the\ntext field values has changed.\n\nIf you change {@link #liveUpdate} to true, the changeValue event will\nbe fired after every keystroke and not only after every focus loss. In\nthat mode, the changeValue event is equal to the {@link #input} event.\n\nThe method {@link qx.event.type.Data#getData} returns the\ncurrent text value of the field."
+            "body": "<p>The event is fired each time the text field looses focus and the\n text field values has changed.\n If you change {@link #liveUpdate} to true, the changeValue event will\n be fired after every keystroke and not only after every focus loss. In\n that mode, the changeValue event is equal to the {@link #input} event.\n The method {@link qx.event.type.Data#getData} returns the\n current text value of the field.</p>"
           }
         ]
       },
@@ -159,7 +180,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Alignment of the text"
+            "body": "<p>Alignment of the text</p>"
           }
         ]
       },
@@ -190,7 +211,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Whether the field is read only"
+            "body": "<p>Whether the field is read only</p>"
           }
         ]
       },
@@ -217,7 +238,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -246,7 +267,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -275,7 +296,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Maximal number of characters that can be entered in the TextArea."
+            "body": "<p>Maximal number of characters that can be entered in the TextArea.</p>"
           }
         ]
       },
@@ -301,7 +322,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Whether the {@link #changeValue} event should be fired on every key\ninput. If set to true, the changeValue event is equal to the\n{@link #input} event."
+            "body": "<p>Whether the {@link #changeValue} event should be fired on every key\n input. If set to true, the changeValue event is equal to the\n {@link #input} event.</p>"
           }
         ]
       },
@@ -326,7 +347,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "String value which will be shown as a hint if the field is all of:\nunset, unfocused and enabled. Set to null to not show a placeholder\ntext."
+            "body": "<p>String value which will be shown as a hint if the field is all of:\n unset, unfocused and enabled. Set to null to not show a placeholder\n text.</p>"
           }
         ]
       },
@@ -352,7 +373,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "RegExp responsible for filtering the value of the textfield. the RegExp\ngives the range of valid values.\nNote: The regexp specified is applied to each character in turn,\nNOT to the entire string. So only regular expressions matching a\nsingle character make sense in the context.\nThe following example only allows digits in the textfield.\n<pre class='javascript'>field.setFilter(/[0-9]/);</pre>"
+            "body": "<p>RegExp responsible for filtering the value of the textfield. the RegExp\n gives the range of valid values.\n Note: The regexp specified is applied to each character in turn,\n NOT to the entire string. So only regular expressions matching a\n single character make sense in the context.\n The following example only allows digits in the textfield.\n </p>\n<pre class='javascript'>field.setFilter(/[0-9]/);</pre>"
           }
         ]
       },
@@ -368,7 +389,16 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.ui.form.MForm"
+      "overriddenFrom": "qx.ui.form.MForm",
+      "event": "changeValid",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Flag signaling if a widget is valid. If a widget is invalid, an invalid\n state will be set.</p>"
+          }
+        ]
+      }
     },
     "required": {
       "type": "property",
@@ -376,7 +406,16 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.ui.form.MForm"
+      "overriddenFrom": "qx.ui.form.MForm",
+      "event": "changeRequired",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Flag signaling if a widget is required.</p>"
+          }
+        ]
+      }
     },
     "invalidMessage": {
       "type": "property",
@@ -384,7 +423,16 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.ui.form.MForm"
+      "overriddenFrom": "qx.ui.form.MForm",
+      "event": "changeInvalidMessage",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Message which is shown in an invalid tooltip.</p>"
+          }
+        ]
+      }
     },
     "requiredInvalidMessage": {
       "type": "property",
@@ -392,7 +440,16 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.ui.form.MForm"
+      "overriddenFrom": "qx.ui.form.MForm",
+      "event": "changeInvalidMessage",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Message which is shown in an invalid tooltip if the {@link #required} is\n set to true.</p>"
+          }
+        ]
+      }
     }
   },
   "members": {
@@ -509,19 +566,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nWIDGET API\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  WIDGET API\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{qx.html.Element} The html element to focus.",
-            "type": "qx.html.Element",
-            "description": " The html element to focus."
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -547,7 +596,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Creates the input element. Derived classes may override this\nmethod, to create different input elements."
+            "body": "<p>Creates the input element. Derived classes may override this\n method, to create different input elements.</p>"
           }
         ],
         "@return": [
@@ -577,45 +626,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "left {Integer} Any integer value for the left position,\n  always in pixels",
-            "paramName": "left",
-            "description": " Any integer value for the left position,\n  always in pixels",
-            "type": "Integer"
-          },
-          {
-            "name": "@param",
-            "body": "top {Integer} Any integer value for the top position,\n  always in pixels",
-            "paramName": "top",
-            "description": " Any integer value for the top position,\n  always in pixels",
-            "type": "Integer"
-          },
-          {
-            "name": "@param",
-            "body": "width {Integer} Any positive integer value for the width,\n  always in pixels",
-            "paramName": "width",
-            "description": " Any positive integer value for the width,\n  always in pixels",
-            "type": "Integer"
-          },
-          {
-            "name": "@param",
-            "body": "height {Integer} Any positive integer value for the height,\n  always in pixels",
-            "paramName": "height",
-            "description": " Any positive integer value for the height,\n  always in pixels",
-            "type": "Integer"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Map} A map of which layout sizes changed.",
-            "type": "Map",
-            "description": " A map of which layout sizes changed."
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -642,7 +653,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Hook into {@link qx.ui.form.AbstractField#renderLayout} method.\nCalled after the contentElement has a width and an innerWidth.\n\nNote: This was introduced to fix BUG#1585"
+            "body": "<p>Hook into {@link qx.ui.form.AbstractField#renderLayout} method.\n Called after the contentElement has a width and an innerWidth.\n Note: This was introduced to fix BUG#1585</p>"
           }
         ],
         "@param": [
@@ -680,15 +691,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{qx.html.Element} The widget's content element",
-            "type": "qx.html.Element",
-            "description": " The widget's content element"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -714,7 +717,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -740,7 +743,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "default text sizes"
+            "body": "<p>default text sizes</p>"
           },
           {
             "name": "@description",
@@ -772,15 +775,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Map}",
-            "type": "Map",
-            "description": ""
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -806,7 +801,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -832,7 +827,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -858,7 +853,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -883,7 +878,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -909,7 +904,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the text size."
+            "body": "<p>Returns the text size.</p>"
           }
         ],
         "@return": [
@@ -939,11 +934,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nEVENTS\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  EVENTS\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Event listener for native input events. Redirects the event\nto the widget. Also checks for the filter and max length."
+            "body": "<p>Event listener for native input events. Redirects the event\n to the widget. Also checks for the filter and max length.</p>"
           }
         ],
         "@param": [
@@ -974,7 +969,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Triggers text size recalculation after a web font was loaded"
+            "body": "<p>Triggers text size recalculation after a web font was loaded</p>"
           }
         ],
         "@param": [
@@ -1005,7 +1000,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Handles the firing of the changeValue event including the local cache\nfor sending the old value in the event."
+            "body": "<p>Handles the firing of the changeValue event including the local cache\n for sending the old value in the event.</p>"
           }
         ],
         "@param": [
@@ -1036,11 +1031,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nTEXTFIELD VALUE API\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  TEXTFIELD VALUE API\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Sets the value of the textfield to the given value."
+            "body": "<p>Sets the value of the textfield to the given value.</p>"
           }
         ],
         "@param": [
@@ -1076,7 +1071,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the current value of the textfield."
+            "body": "<p>Returns the current value of the textfield.</p>"
           }
         ],
         "@return": [
@@ -1111,7 +1106,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Resets the value to the default"
+            "body": "<p>Resets the value to the default</p>"
           }
         ]
       },
@@ -1138,7 +1133,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Event listener for change event of content element"
+            "body": "<p>Event listener for change event of content element</p>"
           }
         ],
         "@param": [
@@ -1169,11 +1164,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nTEXTFIELD SELECTION API\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  TEXTFIELD SELECTION API\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Returns the current selection.\nThis method only works if the widget is already created and\nadded to the document."
+            "body": "<p>Returns the current selection.\n This method only works if the widget is already created and\n added to the document.</p>"
           }
         ],
         "@return": [
@@ -1203,7 +1198,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the current selection length.\nThis method only works if the widget is already created and\nadded to the document."
+            "body": "<p>Returns the current selection length.\n This method only works if the widget is already created and\n added to the document.</p>"
           }
         ],
         "@return": [
@@ -1233,7 +1228,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the start of the text selection"
+            "body": "<p>Returns the start of the text selection</p>"
           }
         ],
         "@return": [
@@ -1263,7 +1258,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the end of the text selection"
+            "body": "<p>Returns the end of the text selection</p>"
           }
         ],
         "@return": [
@@ -1293,7 +1288,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Set the selection to the given start and end (zero-based).\nIf no end value is given the selection will extend to the\nend of the textfield's content.\nThis method only works if the widget is already created and\nadded to the document."
+            "body": "<p>Set the selection to the given start and end (zero-based).\n If no end value is given the selection will extend to the\n end of the textfield's content.\n This method only works if the widget is already created and\n added to the document.</p>"
           }
         ],
         "@param": [
@@ -1331,7 +1326,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Clears the current selection.\nThis method only works if the widget is already created and\nadded to the document."
+            "body": "<p>Clears the current selection.\n This method only works if the widget is already created and\n added to the document.</p>"
           }
         ]
       },
@@ -1353,7 +1348,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Selects the whole content"
+            "body": "<p>Selects the whole content</p>"
           }
         ]
       },
@@ -1375,23 +1370,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nPLACEHOLDER HELPERS\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  PLACEHOLDER HELPERS\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "parent {qx.ui.core.Widget|null} The new parent.",
-            "paramName": "parent",
-            "description": " The new parent.",
-            "type": [
-              "qx.ui.core.Widget",
-              "null"
-            ]
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -1418,7 +1401,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Helper to show the placeholder text in the field. It checks for all\nstates and possible conditions and shows the placeholder only if allowed."
+            "body": "<p>Helper to show the placeholder text in the field. It checks for all\n states and possible conditions and shows the placeholder only if allowed.</p>"
           }
         ]
       },
@@ -1440,7 +1423,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Remove the fake placeholder"
+            "body": "<p>Remove the fake placeholder</p>"
           }
         ]
       },
@@ -1462,7 +1445,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Helper to remove the placeholder. Deletes the placeholder text from the\nfield and removes the state."
+            "body": "<p>Helper to remove the placeholder. Deletes the placeholder text from the\n field and removes the state.</p>"
           }
         ]
       },
@@ -1484,7 +1467,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Updates the placeholder text with the DOM"
+            "body": "<p>Updates the placeholder text with the DOM</p>"
           }
         ]
       },
@@ -1506,7 +1489,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the placeholder label and creates it if necessary."
+            "body": "<p>Returns the placeholder label and creates it if necessary.</p>"
           }
         ]
       },
@@ -1528,7 +1511,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Locale change event handler"
+            "body": "<p>Locale change event handler</p>"
           }
         ],
         "@signature": [
@@ -1565,7 +1548,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -1592,7 +1575,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Validates the the input value."
+            "body": "<p>Validates the the input value.</p>"
           }
         ],
         "@param": [
@@ -1629,11 +1612,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nPROPERTY APPLY ROUTINES\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  PROPERTY APPLY ROUTINES\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -1658,7 +1641,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -1683,7 +1666,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -1706,11 +1689,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nENABLED PROPERTY\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  ENABLED PROPERTY\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Set the enabled state of the widget."
+            "body": "<p>Set the enabled state of the widget.</p>"
           }
         ],
         "@param": [
@@ -1737,7 +1720,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Return the current set enabled state."
+            "body": "<p>Return the current set enabled state.</p>"
           }
         ],
         "@return": [
@@ -1763,11 +1746,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nREQUIRED PROPERTY\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  REQUIRED PROPERTY\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Sets the required state of a widget."
+            "body": "<p>Sets the required state of a widget.</p>"
           }
         ],
         "@param": [
@@ -1794,7 +1777,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Return the current required state of the widget."
+            "body": "<p>Return the current required state of the widget.</p>"
           }
         ],
         "@return": [
@@ -1820,11 +1803,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nVALID PROPERTY\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  VALID PROPERTY\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Sets the valid state of the widget."
+            "body": "<p>Sets the valid state of the widget.</p>"
           }
         ],
         "@param": [
@@ -1851,7 +1834,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the valid state of the widget."
+            "body": "<p>Returns the valid state of the widget.</p>"
           }
         ],
         "@return": [
@@ -1877,11 +1860,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nINVALID MESSAGE PROPERTY\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  INVALID MESSAGE PROPERTY\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Sets the invalid message of the widget."
+            "body": "<p>Sets the invalid message of the widget.</p>"
           }
         ],
         "@param": [
@@ -1908,7 +1891,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the invalid message of the widget."
+            "body": "<p>Returns the invalid message of the widget.</p>"
           }
         ],
         "@return": [
@@ -1934,11 +1917,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nREQUIRED INVALID MESSAGE PROPERTY\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  REQUIRED INVALID MESSAGE PROPERTY\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Sets the invalid message if required of the widget."
+            "body": "<p>Sets the invalid message if required of the widget.</p>"
           }
         ],
         "@param": [
@@ -1965,7 +1948,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the invalid message if required of the widget."
+            "body": "<p>Returns the invalid message if required of the widget.</p>"
           }
         ],
         "@return": [
@@ -1985,7 +1968,15 @@
       "mixin": true,
       "inherited": true,
       "access": "protected",
-      "overriddenFrom": "qx.ui.form.MForm"
+      "overriddenFrom": "qx.ui.form.MForm",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>apply method</p>"
+          }
+        ]
+      }
     },
     "__onChangeLocale": {
       "type": "function",
@@ -1999,7 +1990,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Locale change event handler"
+            "body": "<p>Locale change event handler</p>"
           }
         ],
         "@signature": [
@@ -2052,7 +2043,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.form.MForm",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>valid</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #valid}."
+          }
+        ]
+      }
     },
     "isRequired": {
       "type": "function",
@@ -2087,7 +2086,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.form.MForm",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>required</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #required}."
+          }
+        ]
+      }
     },
     "resetInvalidMessage": {
       "type": "function",
@@ -2097,7 +2104,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.form.MForm",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>invalidMessage</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #invalidMessage}."
+          }
+        ]
+      }
     },
     "resetRequiredInvalidMessage": {
       "type": "function",
@@ -2107,7 +2122,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.form.MForm",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>requiredInvalidMessage</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #requiredInvalidMessage}."
+          }
+        ]
+      }
     },
     "getQxOwner": {
       "type": "function",
@@ -2168,7 +2191,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -2227,7 +2258,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getMinWidth": {
       "type": "function",
@@ -2288,7 +2327,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>minWidth</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #minWidth}."
+          }
+        ]
+      }
     },
     "getWidth": {
       "type": "function",
@@ -2349,7 +2396,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>width</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #width}."
+          }
+        ]
+      }
     },
     "getMaxWidth": {
       "type": "function",
@@ -2410,7 +2465,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>maxWidth</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #maxWidth}."
+          }
+        ]
+      }
     },
     "getMinHeight": {
       "type": "function",
@@ -2471,7 +2534,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>minHeight</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #minHeight}."
+          }
+        ]
+      }
     },
     "getHeight": {
       "type": "function",
@@ -2532,7 +2603,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>height</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #height}."
+          }
+        ]
+      }
     },
     "getMaxHeight": {
       "type": "function",
@@ -2593,7 +2672,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>maxHeight</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #maxHeight}."
+          }
+        ]
+      }
     },
     "getAllowGrowX": {
       "type": "function",
@@ -2679,7 +2766,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>allowGrowX</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #allowGrowX}."
+          }
+        ]
+      }
     },
     "getAllowShrinkX": {
       "type": "function",
@@ -2765,7 +2860,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>allowShrinkX</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #allowShrinkX}."
+          }
+        ]
+      }
     },
     "getAllowGrowY": {
       "type": "function",
@@ -2851,7 +2954,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>allowGrowY</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #allowGrowY}."
+          }
+        ]
+      }
     },
     "getAllowShrinkY": {
       "type": "function",
@@ -2937,7 +3048,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>allowShrinkY</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #allowShrinkY}."
+          }
+        ]
+      }
     },
     "getAllowStretchX": {
       "type": "function",
@@ -2998,7 +3117,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>allowStretchX</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #allowStretchX}."
+          }
+        ]
+      }
     },
     "getAllowStretchY": {
       "type": "function",
@@ -3059,7 +3186,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>allowStretchY</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #allowStretchY}."
+          }
+        ]
+      }
     },
     "getMarginTop": {
       "type": "function",
@@ -3120,7 +3255,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>marginTop</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #marginTop}."
+          }
+        ]
+      }
     },
     "getMarginRight": {
       "type": "function",
@@ -3181,7 +3324,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>marginRight</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #marginRight}."
+          }
+        ]
+      }
     },
     "getMarginBottom": {
       "type": "function",
@@ -3242,7 +3393,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>marginBottom</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #marginBottom}."
+          }
+        ]
+      }
     },
     "getMarginLeft": {
       "type": "function",
@@ -3303,7 +3462,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>marginLeft</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #marginLeft}."
+          }
+        ]
+      }
     },
     "getMargin": {
       "type": "function",
@@ -3364,7 +3531,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>margin</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #margin}."
+          }
+        ]
+      }
     },
     "getAlignX": {
       "type": "function",
@@ -3425,7 +3600,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>alignX</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #alignX}."
+          }
+        ]
+      }
     },
     "getAlignY": {
       "type": "function",
@@ -3486,7 +3669,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>alignY</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #alignY}."
+          }
+        ]
+      }
     },
     "getPaddingTop": {
       "type": "function",
@@ -3547,7 +3738,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>paddingTop</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #paddingTop}."
+          }
+        ]
+      }
     },
     "getPaddingRight": {
       "type": "function",
@@ -3608,7 +3807,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>paddingRight</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #paddingRight}."
+          }
+        ]
+      }
     },
     "getPaddingBottom": {
       "type": "function",
@@ -3669,7 +3876,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>paddingBottom</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #paddingBottom}."
+          }
+        ]
+      }
     },
     "getPaddingLeft": {
       "type": "function",
@@ -3730,7 +3945,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>paddingLeft</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #paddingLeft}."
+          }
+        ]
+      }
     },
     "getPadding": {
       "type": "function",
@@ -3791,7 +4014,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>padding</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #padding}."
+          }
+        ]
+      }
     },
     "getZIndex": {
       "type": "function",
@@ -3852,7 +4083,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>zIndex</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #zIndex}."
+          }
+        ]
+      }
     },
     "getDecorator": {
       "type": "function",
@@ -3913,7 +4152,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>decorator</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #decorator}."
+          }
+        ]
+      }
     },
     "getBackgroundColor": {
       "type": "function",
@@ -3974,7 +4221,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>backgroundColor</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #backgroundColor}."
+          }
+        ]
+      }
     },
     "getTextColor": {
       "type": "function",
@@ -4035,7 +4290,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>textColor</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #textColor}."
+          }
+        ]
+      }
     },
     "getFont": {
       "type": "function",
@@ -4096,7 +4359,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>font</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #font}."
+          }
+        ]
+      }
     },
     "getOpacity": {
       "type": "function",
@@ -4157,7 +4428,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>opacity</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #opacity}."
+          }
+        ]
+      }
     },
     "getCursor": {
       "type": "function",
@@ -4218,7 +4497,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>cursor</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #cursor}."
+          }
+        ]
+      }
     },
     "getToolTip": {
       "type": "function",
@@ -4279,7 +4566,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>toolTip</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #toolTip}."
+          }
+        ]
+      }
     },
     "getToolTipText": {
       "type": "function",
@@ -4340,7 +4635,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>toolTipText</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #toolTipText}."
+          }
+        ]
+      }
     },
     "getToolTipIcon": {
       "type": "function",
@@ -4401,7 +4704,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>toolTipIcon</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #toolTipIcon}."
+          }
+        ]
+      }
     },
     "getBlockToolTip": {
       "type": "function",
@@ -4487,7 +4798,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>blockToolTip</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #blockToolTip}."
+          }
+        ]
+      }
     },
     "getShowToolTipWhenDisabled": {
       "type": "function",
@@ -4573,7 +4892,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>showToolTipWhenDisabled</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #showToolTipWhenDisabled}."
+          }
+        ]
+      }
     },
     "getVisibility": {
       "type": "function",
@@ -4634,7 +4961,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>visibility</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #visibility}."
+          }
+        ]
+      }
     },
     "isEnabled": {
       "type": "function",
@@ -4669,7 +5004,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>enabled</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #enabled}."
+          }
+        ]
+      }
     },
     "getAnonymous": {
       "type": "function",
@@ -4755,7 +5098,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>anonymous</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #anonymous}."
+          }
+        ]
+      }
     },
     "getTabIndex": {
       "type": "function",
@@ -4816,7 +5167,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>tabIndex</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #tabIndex}."
+          }
+        ]
+      }
     },
     "getFocusable": {
       "type": "function",
@@ -4902,7 +5261,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>focusable</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #focusable}."
+          }
+        ]
+      }
     },
     "getKeepFocus": {
       "type": "function",
@@ -4988,7 +5355,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>keepFocus</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #keepFocus}."
+          }
+        ]
+      }
     },
     "getKeepActive": {
       "type": "function",
@@ -5074,7 +5449,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>keepActive</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #keepActive}."
+          }
+        ]
+      }
     },
     "getDraggable": {
       "type": "function",
@@ -5160,7 +5543,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>draggable</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #draggable}."
+          }
+        ]
+      }
     },
     "getDroppable": {
       "type": "function",
@@ -5246,7 +5637,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>droppable</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #droppable}."
+          }
+        ]
+      }
     },
     "getSelectable": {
       "type": "function",
@@ -5332,7 +5731,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>selectable</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #selectable}."
+          }
+        ]
+      }
     },
     "getContextMenu": {
       "type": "function",
@@ -5393,7 +5800,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>contextMenu</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #contextMenu}."
+          }
+        ]
+      }
     },
     "getNativeContextMenu": {
       "type": "function",
@@ -5479,7 +5894,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>nativeContextMenu</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #nativeContextMenu}."
+          }
+        ]
+      }
     },
     "getAppearance": {
       "type": "function",
@@ -5540,7 +5963,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>appearance</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #appearance}."
+          }
+        ]
+      }
     },
     "getTextAlign": {
       "type": "function",
@@ -5997,7 +6428,8 @@
         "line": 1050,
         "column": 3
       }
-    }
+    },
+    "jsdoc": {}
   },
   "destruct": {
     "location": {
@@ -6009,6 +6441,14 @@
         "line": 1080,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DESTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "descendants": [

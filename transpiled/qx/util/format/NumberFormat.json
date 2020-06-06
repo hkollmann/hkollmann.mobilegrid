@@ -24,11 +24,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2006 STZ-IDA, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nTil Schneider (til132)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2006 STZ-IDA, Germany, http://www.stz-ida.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Til Schneider (til132)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "A formatter and parser for numbers.\n\nNOTE: Instances of this class must be disposed of after use"
+          "body": "<p>A formatter and parser for numbers.\n NOTE: Instances of this class must be disposed of after use</p>"
         }
       ]
     }
@@ -44,6 +44,35 @@
         "line": 63,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        },
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "locale {String} optional locale to be used",
+          "paramName": "locale",
+          "description": " optional locale to be used",
+          "type": "String"
+        }
+      ],
+      "@throws": [
+        {
+          "name": "@throws",
+          "body": "{Error} If the argument is not a string.",
+          "type": "Error",
+          "description": " If the argument is not a string."
+        }
+      ]
     }
   },
   "properties": {
@@ -62,7 +91,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The minimum number of integer digits (digits before the decimal separator).\nMissing digits will be filled up with 0 (\"19\" -> \"0019\")."
+            "body": "<p>The minimum number of integer digits (digits before the decimal separator).\n Missing digits will be filled up with 0 (\"19\" -&gt; \"0019\").</p>"
           }
         ]
       },
@@ -87,7 +116,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The maximum number of integer digits (superfluous digits will be cut off\n(\"1923\" -> \"23\")."
+            "body": "<p>The maximum number of integer digits (superfluous digits will be cut off\n (\"1923\" -&gt; \"23\").</p>"
           }
         ]
       },
@@ -112,7 +141,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The minimum number of fraction digits (digits after the decimal separator).\nMissing digits will be filled up with 0 (\"1.5\" -> \"1.500\")"
+            "body": "<p>The minimum number of fraction digits (digits after the decimal separator).\n Missing digits will be filled up with 0 (\"1.5\" -&gt; \"1.500\")</p>"
           }
         ]
       },
@@ -137,7 +166,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The maximum number of fraction digits (digits after the decimal separator).\nSuperfluous digits will cause rounding (\"1.8277\" -> \"1.83\")"
+            "body": "<p>The maximum number of fraction digits (digits after the decimal separator).\n Superfluous digits will cause rounding (\"1.8277\" -&gt; \"1.83\")</p>"
           }
         ]
       },
@@ -162,7 +191,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Whether thousand groupings should be used {e.g. \"1,432,234.65\"}."
+            "body": "<p>Whether thousand groupings should be used {e.g. \"1,432,234.65\"}.</p>"
           }
         ]
       },
@@ -187,7 +216,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The prefix to put before the number {\"EUR \" -> \"EUR 12.31\"}."
+            "body": "<p>The prefix to put before the number {\"EUR \" -&gt; \"EUR 12.31\"}.</p>"
           }
         ]
       },
@@ -213,7 +242,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Sets the postfix to put after the number {\" %\" -> \"56.13 %\"}."
+            "body": "<p>Sets the postfix to put after the number {\" %\" -&gt; \"56.13 %\"}.</p>"
           }
         ]
       },
@@ -239,7 +268,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Locale used"
+            "body": "<p>Locale used</p>"
           }
         ]
       },
@@ -254,7 +283,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>The owning object</p>"
+          }
+        ]
+      }
     },
     "qxObjectId": {
       "type": "property",
@@ -262,7 +299,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>{String} The ID of the object.</p>"
+          }
+        ]
+      }
     }
   },
   "members": {
@@ -281,7 +326,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Formats a number."
+            "body": "<p>Formats a number.</p>"
           }
         ],
         "@param": [
@@ -324,7 +369,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Parses a number."
+            "body": "<p>Parses a number.</p>"
           }
         ],
         "@param": [
@@ -419,7 +464,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -478,7 +531,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getMinimumIntegerDigits": {
       "type": "function",
@@ -1043,7 +1104,8 @@
         "line": 317,
         "column": 3
       }
-    }
+    },
+    "jsdoc": {}
   },
   "descendants": []
 }

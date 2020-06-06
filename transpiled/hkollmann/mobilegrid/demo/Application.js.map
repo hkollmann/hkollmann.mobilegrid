@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": [
-    "/home/travis/build/hkollmann/hkollmann.mobilegrid/source/class/hkollmann/mobilegrid/demo/Application.js"
+    "/home/runner/work/hkollmann.mobilegrid/hkollmann.mobilegrid/source/class/hkollmann/mobilegrid/demo/Application.js"
   ],
   "names": [
     "qx",
@@ -15,10 +15,6 @@
     "Mobile",
     "members",
     "main",
-    "log",
-    "appender",
-    "Native",
-    "Console",
     "demo",
     "hkollmann",
     "mobilegrid",
@@ -32,7 +28,7 @@
     "show",
     "Application"
   ],
-  "mappings": ";;;;;;;;;;;;;;;;AAAAA,EAAAA,EAAE,CAACC,SAAH,CAAaC,oBAAb,CAAkCC,aAAlC;;AAAA;;;;;;;;;;;;;;;;;;;;AAmBA;;;AAGAH,EAAAA,EAAE,CAACI,KAAH,CAASC,MAAT,CAAgB,uCAAhB,EAAyD;AACvDC,IAAAA,MAAM,EAAGN,EAAE,CAACO,WAAH,CAAeC,MAD+B;AAEvDC,IAAAA,OAAO,EAAG;AACR;;;;AAIAC,MAAAA,IAAI,EAAG,gBAAW;AAChB;AACA,6EAFgB,CAIhB;;AACyC;AACvC;AACAV,UAAAA,EAAE,CAACW,GAAH,CAAOC,QAAP,CAAgBC,MAAhB,CAFuC,CAGvC;AACA;;AACAb,UAAAA,EAAE,CAACW,GAAH,CAAOC,QAAP,CAAgBE,OAAhB;AACD;AAED,YAAIC,IAAI,GAAG,IAAIC,SAAS,CAACC,UAAV,CAAqBF,IAArB,CAA0BG,IAA9B,EAAX;AACA,YAAIC,OAAO,GAAG,IAAInB,EAAE,CAACoB,EAAH,CAAMC,MAAN,CAAaC,IAAb,CAAkBC,OAAtB,CAA8B,KAA9B,CAAd;AACAJ,QAAAA,OAAO,CAACK,SAAR,CAAkB,CAChBT,IADgB,CAAlB;AAGAA,QAAAA,IAAI,CAACU,IAAL;AACD;AAxBO;AAF6C,GAAzD;AAtBAT,EAAAA,SAAS,CAACC,UAAV,CAAqBF,IAArB,CAA0BW,WAA1B,CAAsCvB,aAAtC,GAAsDA,aAAtD",
+  "mappings": ";;;;;;;;;;;;;;AAAAA,EAAAA,EAAE,CAACC,SAAH,CAAaC,oBAAb,CAAkCC,aAAlC;;AAAA;;;;;;;;;;;;;;;;;;;;AAmBA;;;AAGAH,EAAAA,EAAE,CAACI,KAAH,CAASC,MAAT,CAAgB,uCAAhB,EAAyD;AACvDC,IAAAA,MAAM,EAAGN,EAAE,CAACO,WAAH,CAAeC,MAD+B;AAEvDC,IAAAA,OAAO,EAAG;AACR;;;;AAIAC,MAAAA,IAAI,EAAG,gBAAW;AAChB;AACA,6EAFgB,CAIhB;;AASA,YAAIC,IAAI,GAAG,IAAIC,SAAS,CAACC,UAAV,CAAqBF,IAArB,CAA0BG,IAA9B,EAAX;AACA,YAAIC,OAAO,GAAG,IAAIf,EAAE,CAACgB,EAAH,CAAMC,MAAN,CAAaC,IAAb,CAAkBC,OAAtB,CAA8B,KAA9B,CAAd;AACAJ,QAAAA,OAAO,CAACK,SAAR,CAAkB,CAChBT,IADgB,CAAlB;AAGAA,QAAAA,IAAI,CAACU,IAAL;AACD;AAxBO;AAF6C,GAAzD;AAtBAT,EAAAA,SAAS,CAACC,UAAV,CAAqBF,IAArB,CAA0BW,WAA1B,CAAsCnB,aAAtC,GAAsDA,aAAtD",
   "sourcesContent": [
     "/* ************************************************************************\n\n   qooxdoo mobile grid\n   https://github.com/hkollmann/hkollmann.mobilegrid\n\n   Copyright:\n     2018 Henner Kollmann (Henner.Kollmann@gmx.de)\n\n   License:\n     MIT: https://opensource.org/licenses/MIT\n\n     This software is provided under the same licensing terms as Qooxdoo,\n     please see the LICENSE file in the Qooxdoo project's top-level directory\n     for details.\n\n   Authors:\n    Henner Kollmann (Henner.Kollmann@gmx.de)\n\n************************************************************************ */\n/**\n * @asset(hkollmann/mobilegrid/*)\n */\nqx.Class.define(\"hkollmann.mobilegrid.demo.Application\", {\n  extend : qx.application.Mobile,\n  members : {\n    /**\n     * This method contains the initial application code and gets called\n     * during startup of the application\n     */\n    main : function() {\n      // Call super class\n      this.base(arguments);\n\n      // Enable logging in debug variant\n      if (qx.core.Environment.get(\"qx.debug\")) {\n        // support native logging capabilities, e.g. Firebug for Firefox\n        qx.log.appender.Native;\n        // support additional cross-browser console.\n        // Trigger a \"longtap\" event on the navigation bar for opening it.\n        qx.log.appender.Console;\n      }\n\n      var demo = new hkollmann.mobilegrid.demo.Demo();\n      var manager = new qx.ui.mobile.page.Manager(false);\n      manager.addDetail([\n        demo\n      ]);\n      demo.show();\n    }\n  }\n});\n"
   ]

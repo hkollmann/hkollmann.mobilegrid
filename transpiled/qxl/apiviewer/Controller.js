@@ -1,3 +1,13 @@
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
@@ -53,6 +63,7 @@
        * Andreas Ecker (ecker)
        * Fabian Jakobs (fjakobs)
        * Jonathan Weiß (jonathan_rass)
+       * Henner Kollmann (hkollmann)
   
   ************************************************************************ */
 
@@ -60,8 +71,6 @@
    * Implements the dynamic behavior of the API viewer. The GUI is defined in
    * {@link Viewer}.
    *
-   * @ignore (qx.$$appRoot)
-   * 
    */
   qx.Class.define("qxl.apiviewer.Controller", {
     extend: qx.core.Object,
@@ -75,9 +84,8 @@
     /**
      * @param widgetRegistry
      *          {Viewer} the GUI
-     * 
-     * 
      */
+    // @ignore (qx.$$appRoot)
     construct: function construct(widgetRegistry) {
       qx.core.Object.constructor.call(this);
       this._widgetRegistry = qxl.apiviewer.MWidgetRegistry;
@@ -87,30 +95,30 @@
       this._detailLoader = this._widgetRegistry.getWidgetById("detail_loader");
       this._tabViewController = new qxl.apiviewer.TabViewController(this._widgetRegistry);
 
-      this.__bindTabViewController();
+      this.__P_10_0();
 
       this._tree = this._widgetRegistry.getWidgetById("tree");
 
-      this.__bindTree();
+      this.__P_10_1();
 
-      this.__bindToolbar();
+      this.__P_10_2();
 
       var btn_inherited = this._widgetRegistry.getWidgetById("btn_inherited");
 
       var btn_included = this._widgetRegistry.getWidgetById("btn_included");
 
-      btn_inherited.addListener("changeValue", this.__syncMenuButton, this);
-      btn_included.addListener("changeValue", this.__syncMenuButton, this);
+      btn_inherited.addListener("changeValue", this.__P_10_3, this);
+      btn_included.addListener("changeValue", this.__P_10_3, this);
       this._history = qx.bom.History.getInstance();
 
-      this.__bindHistory();
+      this.__P_10_4();
 
       qx.core.Init.getApplication().getRoot().addListener("pointerdown", function (e) {
-        this.__openInNewTab = e.isShiftPressed() || e.isCtrlOrCommandPressed();
+        this.__P_10_5 = e.isShiftPressed() || e.isCtrlOrCommandPressed();
       }, this, true);
     },
     members: {
-      __openInNewTab: false,
+      __P_10_5: false,
       // overridden
       $$logCategory: "application",
 
@@ -125,51 +133,36 @@
 
         setTimeout(function () {
           var start = new Date();
-          var _iteratorNormalCompletion = true;
-          var _didIteratorError = false;
-          var _iteratorError = undefined;
+
+          var _iterator = _createForOfIteratorHelper(apidata.classes),
+              _step;
 
           try {
-            for (var _iterator = apidata.classes[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
               var classname = _step.value;
               qxl.apiviewer.dao.Class.getClassByName(classname, true);
             }
           } catch (err) {
-            _didIteratorError = true;
-            _iteratorError = err;
+            _iterator.e(err);
           } finally {
-            try {
-              if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-                _iterator["return"]();
-              }
-            } finally {
-              if (_didIteratorError) {
-                throw _iteratorError;
-              }
-            }
+            _iterator.f();
           }
 
           var rootPackage = qxl.apiviewer.dao.Package.getPackage(null);
           var end = new Date();
-          {
-            _this.debug("Time to build data tree: " + (end.getTime() - start.getTime()) + "ms");
-          }
-          var start = new Date();
+          start = new Date();
 
           _this._tree.setTreeData(rootPackage);
 
-          var end = new Date();
-          {
-            _this.debug("Time to update tree: " + (end.getTime() - start.getTime()) + "ms");
-          }
+          end = new Date();
           setTimeout(function () {
             // Handle bookmarks
             var state = _this._history.getState();
 
             if (state) {
-              _this.__selectItem(_this.__decodeState(state));
+              _this.__P_10_6(_this.__P_10_7(state));
             } else {
-              _this.__selectItem("");
+              _this.__P_10_6("");
             }
           });
         });
@@ -178,7 +171,7 @@
       /**
        * binds the events of the TabView controller
        */
-      __bindTabViewController: function __bindTabViewController() {
+      __P_10_0: function __P_10_0() {
         this._tabViewController.addListener("classLinkTapped", function (evt) {
           this._updateHistory(evt.getData());
         }, this);
@@ -194,10 +187,10 @@
             var nodeName = page.getUserData("nodeName");
             var itemName = page.getUserData("itemName");
 
-            if (itemName != null) {
-              this._updateHistory(nodeName + "#" + itemName);
-            } else {
+            if (itemName === null) {
               this._updateHistory(nodeName);
+            } else {
+              this._updateHistory(nodeName + "#" + itemName);
             }
           } else {
             this._tree.resetSelection();
@@ -208,7 +201,7 @@
       /**
        * binds the selection event of the package tree.
        */
-      __bindTree: function __bindTree() {
+      __P_10_1: function __P_10_1() {
         this._tree.addListener("changeSelection", function (evt) {
           var treeNode = evt.getData()[0];
 
@@ -223,7 +216,7 @@
       /**
        * binds the actions of the toolbar buttons.
        */
-      __bindToolbar: function __bindToolbar() {
+      __P_10_2: function __P_10_2() {
         var uiModel = qxl.apiviewer.UiModel.getInstance();
 
         var btn_inherited = this._widgetRegistry.getWidgetById("btn_inherited");
@@ -262,7 +255,7 @@
        * inherited and mixin includes.
        * 
        */
-      __syncMenuButton: function __syncMenuButton() {
+      __P_10_3: function __P_10_3() {
         var menuButton = this._widgetRegistry.getWidgetById("menubtn_includes");
 
         var btn_inherited = this._widgetRegistry.getWidgetById("btn_inherited");
@@ -273,31 +266,31 @@
         var showMixins = btn_included.getValue();
 
         if (showMixins && showInherited) {
-          menuButton.setIcon('qxl/apiviewer/image/inherited_and_mixins_included.gif');
+          menuButton.setIcon("qxl/apiviewer/image/inherited_and_mixins_included.gif");
         }
 
         if (showInherited && !showMixins) {
-          menuButton.setIcon('qxl/apiviewer/image/method_public_inherited18.gif');
+          menuButton.setIcon("qxl/apiviewer/image/method_public_inherited18.gif");
         }
 
         if (!showInherited && showMixins) {
-          menuButton.setIcon('qxl/apiviewer/image/overlay_mixin18.gif');
+          menuButton.setIcon("qxl/apiviewer/image/overlay_mixin18.gif");
         }
 
         if (!showInherited && !showMixins) {
-          menuButton.setIcon('qxl/apiviewer/image/includes.gif');
+          menuButton.setIcon("qxl/apiviewer/image/includes.gif");
         }
       },
 
       /**
        * bind history events
        */
-      __bindHistory: function __bindHistory() {
+      __P_10_4: function __P_10_4() {
         this._history.addListener("changeState", function (evt) {
-          var item = this.__decodeState(evt.getData());
+          var item = this.__P_10_7(evt.getData());
 
           if (item) {
-            this.__selectItem(item);
+            this.__P_10_6(item);
           }
         }, this);
       },
@@ -310,7 +303,7 @@
        */
       _updateHistory: function _updateHistory(className) {
         var newTitle = className + " - " + this._titlePrefix;
-        qx.bom.History.getInstance().addToHistory(this.__encodeState(className), newTitle);
+        qx.bom.History.getInstance().addToHistory(this.__P_10_8(className), newTitle);
       },
 
       /**
@@ -319,23 +312,53 @@
        * @param classNode
        *          {qxl.apiviewer.dao.Class} class node to display
        */
-      _selectClass: function _selectClass(classNode, callback, self) {
-        var _this2 = this;
+      _selectClass: function () {
+        var _selectClass2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(classNode, callback, self) {
+          return regeneratorRuntime.wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  this._detailLoader.exclude();
 
-        this._detailLoader.exclude();
+                  this._tabViewController.showTabView();
 
-        this._tabViewController.showTabView();
+                  _context.next = 4;
+                  return classNode.loadDependedClasses();
 
-        return classNode.loadDependedClasses().then(function () {
-          if (classNode instanceof qxl.apiviewer.dao.Class) {
-            return _this2._tabViewController.openClass(classNode, _this2.__openInNewTab);
-          } else {
-            return _this2._tabViewController.openPackage(classNode, _this2.__openInNewTab);
-          }
-        }).then(function () {
-          return callback && callback.call(self);
-        });
-      },
+                case 4:
+                  if (!(classNode instanceof qxl.apiviewer.dao.Class)) {
+                    _context.next = 9;
+                    break;
+                  }
+
+                  _context.next = 7;
+                  return this._tabViewController.openClass(classNode, this.__P_10_5);
+
+                case 7:
+                  _context.next = 11;
+                  break;
+
+                case 9:
+                  _context.next = 11;
+                  return this._tabViewController.openPackage(classNode, this.__P_10_5);
+
+                case 11:
+                  callback && callback.call(self);
+
+                case 12:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee, this);
+        }));
+
+        function _selectClass(_x, _x2, _x3) {
+          return _selectClass2.apply(this, arguments);
+        }
+
+        return _selectClass;
+      }(),
 
       /**
        * Selects an item (class, property, method or constant).
@@ -344,10 +367,9 @@
        *          {String} the full name of the item to select. (e.g.
        *          "qx.mypackage.MyClass" or "qx.mypackage.MyClass#myProperty")
        * 
-       * @lint ignoreDeprecated(alert)
        */
-      __selectItem: function __selectItem(fullItemName) {
-        var _this3 = this;
+      __P_10_6: function __P_10_6(fullItemName) {
+        var _this2 = this;
 
         qxl.apiviewer.LoadingIndicator.getInstance().show();
         var className = fullItemName;
@@ -368,50 +390,50 @@
         this._ignoreTreeSelection = true;
 
         this._tree.selectTreeNodeByClassName(className).then(function (couldSelectTreeNode) {
-          _this3._ignoreTreeSelection = false;
+          _this2._ignoreTreeSelection = false;
 
           if (!couldSelectTreeNode) {
-            _this3.error("Unknown class: " + className); //alert("Unknown class: " + className);
-
+            _this2.error("Unknown class: " + className);
 
             qxl.apiviewer.LoadingIndicator.getInstance().hide();
             return;
           }
 
-          var sel = _this3._tree.getSelection();
+          var sel = _this2._tree.getSelection();
 
           var nodeName = sel[0].getUserData("nodeName") || className;
-          /**
-           * @lint ignoreDeprecated(alert)
-           */
+          _this2._ignoreTabViewSelection = true;
 
-          _this3._ignoreTabViewSelection = true;
-
-          _this3._selectClass(qxl.apiviewer.ClassLoader.getClassOrPackage(nodeName), function () {
+          _this2._selectClass(qxl.apiviewer.ClassLoader.getClassOrPackage(nodeName), function () {
             if (itemName) {
-              if (!_this3._tabViewController.showItem(itemName)) {
-                _this3.error("Unknown item of class '" + className + "': " + itemName); //alert("Unknown item of class '"+ className +"': " + itemName);
+              _this2._tabViewController.isLoaded(function () {
+                if (!_this2._tabViewController.showItem(itemName)) {
+                  _this2.error("Unknown item of class '" + className + "': " + itemName);
 
+                  qxl.apiviewer.LoadingIndicator.getInstance().hide();
+
+                  _this2._updateHistory(className);
+
+                  _this2._ignoreTabViewSelection = false;
+                  return;
+                }
+
+                _this2._updateHistory(fullItemName);
 
                 qxl.apiviewer.LoadingIndicator.getInstance().hide();
-
-                _this3._updateHistory(className);
-
-                _this3._ignoreTabViewSelection = false;
-                return;
-              }
+                _this2._ignoreTabViewSelection = false;
+              });
+            } else {
+              qxl.apiviewer.LoadingIndicator.getInstance().hide();
+              _this2._ignoreTabViewSelection = false;
             }
-
-            _this3._updateHistory(fullItemName);
-
-            _this3._ignoreTabViewSelection = false;
           });
         });
       },
-      __encodeState: function __encodeState(state) {
+      __P_10_8: function __P_10_8(state) {
         return state.replace(/(.*)#(.*)/g, "$1~$2");
       },
-      __decodeState: function __decodeState(encodedState) {
+      __P_10_7: function __P_10_7(encodedState) {
         return encodedState.replace(/(.*)~(.*)/g, "$1#$2");
       }
     },
@@ -430,4 +452,4 @@
   qxl.apiviewer.Controller.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Controller.js.map?dt=1564930733933
+//# sourceMappingURL=Controller.js.map?dt=1591463651497

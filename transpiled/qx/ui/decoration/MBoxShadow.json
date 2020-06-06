@@ -21,11 +21,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2004-2010 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nMartin Wittemann (martinwittemann)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2004-2010 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Martin Wittemann (martinwittemann)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "Mixin for the box shadow CSS property.\nThis mixin is usually used by {@link qx.ui.decoration.Decorator}.\n\nKeep in mind that this is not supported by all browsers:\n\n* Firefox 3,5+\n* IE9+\n* Safari 3.0+\n* Opera 10.5+\n* Chrome 4.0+\n\nIt is possible to define multiple box shadows by setting an\narray containing the needed values as the property value.\nIn case multiple values are specified, the values of the properties\nare repeated until all match in length.\n\nAn example:\n<pre class=\"javascript\">\n  'my-decorator': {\n    style: {\n      shadowBlurRadius: 2,\n      shadowVerticalLength: 1,\n      shadowColor: ['rgba(0, 0, 0, 0.2)', 'rgba(255, 255, 255, 0.4)'],\n      inset: [true, false]\n    }\n  }\n</pre>\nwhich is the same as:\n<pre class=\"javascript\">\n  'my-decorator': {\n    style: {\n      shadowBlurRadius: [2, 2],\n      shadowVerticalLength: [1, 1],\n      shadowColor: ['rgba(0, 0, 0, 0.2)', 'rgba(255, 255, 255, 0.4)'],\n      inset: [true, false]\n    }\n  }"
+          "body": "<p>Mixin for the box shadow CSS property.\n This mixin is usually used by {@link qx.ui.decoration.Decorator}.\n Keep in mind that this is not supported by all browsers:</p>\n<ul>\n<li>Firefox 3,5+</li>\n<li>IE9+</li>\n<li>Safari 3.0+</li>\n<li>Opera 10.5+</li>\n<li><p>Chrome 4.0+\nIt is possible to define multiple box shadows by setting an\narray containing the needed values as the property value.\nIn case multiple values are specified, the values of the properties\nare repeated until all match in length.\nAn example:</p></li>\n</ul>\n<pre class=\"javascript\">\n   'my-decorator': {\n     style: {\n       shadowBlurRadius: 2,\n       shadowVerticalLength: 1,\n       shadowColor: ['rgba(0, 0, 0, 0.2)', 'rgba(255, 255, 255, 0.4)'],\n       inset: [true, false]\n     }\n   }\n </pre>\n<p>which is the same as:\n <pre class=\"javascript\">\n   'my-decorator': {\n     style: {\n       shadowBlurRadius: [2, 2],\n       shadowVerticalLength: [1, 1],\n       shadowColor: ['rgba(0, 0, 0, 0.2)', 'rgba(255, 255, 255, 0.4)'],\n       inset: [true, false]\n     }\n   }</p>"
         }
       ]
     }
@@ -33,53 +33,180 @@
   "type": "mixin",
   "properties": {
     "shadowHorizontalLength": {
-      "type": "property",
+      "location": {
+        "start": {
+          "line": 61,
+          "column": 4
+        },
+        "end": {
+          "line": 65,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Horizontal length of the shadow.</p>"
+          }
+        ]
+      },
       "name": "shadowHorizontalLength",
-      "abstract": false,
-      "mixin": true,
-      "access": "public"
+      "propertyType": "new",
+      "apply": "_applyBoxShadow",
+      "nullable": true,
+      "allowNull": true
     },
     "shadowVerticalLength": {
-      "type": "property",
+      "location": {
+        "start": {
+          "line": 68,
+          "column": 4
+        },
+        "end": {
+          "line": 72,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Vertical length of the shadow.</p>"
+          }
+        ]
+      },
       "name": "shadowVerticalLength",
-      "abstract": false,
-      "mixin": true,
-      "access": "public"
+      "propertyType": "new",
+      "apply": "_applyBoxShadow",
+      "nullable": true,
+      "allowNull": true
     },
     "shadowBlurRadius": {
-      "type": "property",
+      "location": {
+        "start": {
+          "line": 75,
+          "column": 4
+        },
+        "end": {
+          "line": 79,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>The blur radius of the shadow.</p>"
+          }
+        ]
+      },
       "name": "shadowBlurRadius",
-      "abstract": false,
-      "mixin": true,
-      "access": "public"
+      "propertyType": "new",
+      "apply": "_applyBoxShadow",
+      "nullable": true,
+      "allowNull": true
     },
     "shadowSpreadRadius": {
-      "type": "property",
+      "location": {
+        "start": {
+          "line": 82,
+          "column": 4
+        },
+        "end": {
+          "line": 86,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>The spread radius of the shadow.</p>"
+          }
+        ]
+      },
       "name": "shadowSpreadRadius",
-      "abstract": false,
-      "mixin": true,
-      "access": "public"
+      "propertyType": "new",
+      "apply": "_applyBoxShadow",
+      "nullable": true,
+      "allowNull": true
     },
     "shadowColor": {
-      "type": "property",
+      "location": {
+        "start": {
+          "line": 89,
+          "column": 4
+        },
+        "end": {
+          "line": 93,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>The color of the shadow.</p>"
+          }
+        ]
+      },
       "name": "shadowColor",
-      "abstract": false,
-      "mixin": true,
-      "access": "public"
+      "propertyType": "new",
+      "apply": "_applyBoxShadow",
+      "nullable": true,
+      "allowNull": true
     },
     "inset": {
-      "type": "property",
+      "location": {
+        "start": {
+          "line": 96,
+          "column": 4
+        },
+        "end": {
+          "line": 100,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Inset shadows are drawn inside the border.</p>"
+          }
+        ]
+      },
       "name": "inset",
-      "abstract": false,
-      "mixin": true,
-      "access": "public"
+      "propertyType": "new",
+      "apply": "_applyBoxShadow",
+      "init": false,
+      "defaultValue": false
     },
     "shadowLength": {
-      "type": "property",
+      "location": {
+        "start": {
+          "line": 103,
+          "column": 4
+        },
+        "end": {
+          "line": 107,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Property group to set the shadow length.</p>"
+          }
+        ]
+      },
       "name": "shadowLength",
-      "abstract": false,
-      "mixin": true,
-      "access": "public"
+      "propertyType": "new",
+      "group": [
+        "shadowHorizontalLength",
+        "shadowVerticalLength"
+      ]
     }
   },
   "members": {
@@ -98,7 +225,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Takes a styles map and adds the box shadow styles in place to the\ngiven map. This is the needed behavior for\n{@link qx.ui.decoration.Decorator}."
+            "body": "<p>Takes a styles map and adds the box shadow styles in place to the\n given map. This is the needed behavior for\n {@link qx.ui.decoration.Decorator}.</p>"
           }
         ],
         "@param": [
@@ -129,7 +256,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },

@@ -21,11 +21,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\nAdrian Olaru (adrianolaru)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2004-2008 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Sebastian Werner (wpbasti)\n Andreas Ecker (ecker)\n Adrian Olaru (adrianolaru)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "The tooltip manager globally manages the tooltips of all widgets. It will\ndisplay tooltips if the user hovers a widgets with a tooltip and hides all\nother tooltips."
+          "body": "<p>The tooltip manager globally manages the tooltips of all widgets. It will\n display tooltips if the user hovers a widgets with a tooltip and hides all\n other tooltips.</p>"
         }
       ]
     }
@@ -44,6 +44,14 @@
         "line": 55,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "properties": {
@@ -62,7 +70,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Holds the current ToolTip instance"
+            "body": "<p>Holds the current ToolTip instance</p>"
           }
         ]
       },
@@ -88,7 +96,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Show all invalid form fields tooltips ."
+            "body": "<p>Show all invalid form fields tooltips .</p>"
           }
         ]
       },
@@ -113,7 +121,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Show all tooltips."
+            "body": "<p>Show all tooltips.</p>"
           }
         ]
       },
@@ -129,7 +137,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>The owning object</p>"
+          }
+        ]
+      }
     },
     "qxObjectId": {
       "type": "property",
@@ -137,7 +153,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>{String} The ID of the object.</p>"
+          }
+        ]
+      }
     }
   },
   "members": {
@@ -226,7 +250,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Get the shared tooltip, which is used to display the\n{@link qx.ui.core.Widget#toolTipText} and\n{@link qx.ui.core.Widget#toolTipIcon} properties of widgets.\nYou can use this public shared instance to e.g. customize the\nlook and feel."
+            "body": "<p>Get the shared tooltip, which is used to display the\n {@link qx.ui.core.Widget#toolTipText} and\n {@link qx.ui.core.Widget#toolTipIcon} properties of widgets.\n You can use this public shared instance to e.g. customize the\n look and feel.</p>"
           }
         ],
         "@return": [
@@ -256,7 +280,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Get the shared tooltip, which is used to display the\n{@link qx.ui.core.Widget#toolTipText} and\n{@link qx.ui.core.Widget#toolTipIcon} properties of widgets.\nYou can use this public shared instance to e.g. customize the\nlook and feel of the validation tooltips like\n<code>getSharedErrorTooltip().getChildControl(\"atom\").getChildControl(\"label\").set({rich: true, wrap: true, width: 80})</code>"
+            "body": "<p>Get the shared tooltip, which is used to display the\n {@link qx.ui.core.Widget#toolTipText} and\n {@link qx.ui.core.Widget#toolTipIcon} properties of widgets.\n You can use this public shared instance to e.g. customize the\n look and feel of the validation tooltips like\n <code>getSharedErrorTooltip().getChildControl(\"atom\").getChildControl(\"label\").set({rich: true, wrap: true, width: 80})</code></p>"
           }
         ],
         "@return": [
@@ -286,11 +310,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nPROPERTY APPLY ROUTINES\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  PROPERTY APPLY ROUTINES\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -315,11 +339,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nTIMER EVENT HANDLER\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  TIMER EVENT HANDLER\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Event listener for the interval event of the show timer."
+            "body": "<p>Event listener for the interval event of the show timer.</p>"
           }
         ],
         "@param": [
@@ -350,7 +374,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Event listener for the interval event of the hide timer."
+            "body": "<p>Event listener for the interval event of the hide timer.</p>"
           }
         ],
         "@param": [
@@ -381,11 +405,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nPOINTER EVENT HANDLER\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  POINTER EVENT HANDLER\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Global pointer move event handler"
+            "body": "<p>Global pointer move event handler</p>"
           }
         ],
         "@param": [
@@ -416,7 +440,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Searches for the tooltip of the target widget. If any tooltip instance\nis found this instance is bound to the target widget and the tooltip is\nset as {@link #current}"
+            "body": "<p>Searches for the tooltip of the target widget. If any tooltip instance\n is found this instance is bound to the target widget and the tooltip is\n set as {@link #current}</p>"
           }
         ],
         "@param": [
@@ -447,7 +471,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Explicitly show tooltip for particular form item."
+            "body": "<p>Explicitly show tooltip for particular form item.</p>"
           }
         ],
         "@param": [
@@ -481,7 +505,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Resets the property {@link #current} if there was a\ntooltip and no new one is created."
+            "body": "<p>Resets the property {@link #current} if there was a\n tooltip and no new one is created.</p>"
           }
         ],
         "@param": [
@@ -512,11 +536,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nFOCUS EVENT HANDLER\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  FOCUS EVENT HANDLER\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Reset the property {@link #current} if the\ncurrent tooltip is the tooltip of the target widget."
+            "body": "<p>Reset the property {@link #current} if the\n current tooltip is the tooltip of the target widget.</p>"
           }
         ],
         "@param": [
@@ -591,7 +615,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -650,7 +682,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getCurrent": {
       "type": "function",
@@ -909,6 +949,14 @@
         "line": 459,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DESTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "descendants": []

@@ -115,9 +115,9 @@
    *
    * *External Documentation*
    *
-   * <a href='http://manual.qooxdoo.org/${qxversion}/pages/widget/label.html' target='_blank'>
+   * <a href='http://qooxdoo.org/docs/#desktop/widget/label.md' target='_blank'>
    * Documentation of this widget in the qooxdoo manual.</a>
-   * 
+   *
    * NOTE: Instances of this class must be disposed of after use
    *
    */
@@ -175,6 +175,19 @@
         check: "Boolean",
         init: true,
         apply: "_applyWrap"
+      },
+
+      /**
+       * Controls whether line wrapping can occur in the middle of a word; this is
+       * typically only useful when there is a restricted amount of horizontal space
+       * and words would otherwise overflow beyond the width of the element.  Words
+       * are typically considered as separated by spaces, so "abc/def/ghi" is a 11
+       * character word that would not be split without `breakWithWords` set to true.
+       */
+      breakWithinWords: {
+        check: "Boolean",
+        init: false,
+        apply: "_applyBreakWithinWords"
       },
 
       /**
@@ -251,10 +264,10 @@
     *****************************************************************************
     */
     members: {
-      __font: null,
-      __invalidContentSize: null,
-      __tapListenerId: null,
-      __webfontListenerId: null,
+      __P_66_0: null,
+      __P_66_1: null,
+      __P_66_2: null,
+      __P_66_3: null,
 
       /*
       ---------------------------------------------------------------------------
@@ -263,14 +276,14 @@
       */
       // overridden
       _getContentHint: function _getContentHint() {
-        if (this.__invalidContentSize) {
-          this.__contentSize = this.__computeContentSize();
-          delete this.__invalidContentSize;
+        if (this.__P_66_1) {
+          this.__P_66_4 = this.__P_66_5();
+          delete this.__P_66_1;
         }
 
         return {
-          width: this.__contentSize.width,
-          height: this.__contentSize.height
+          width: this.__P_66_4.width,
+          height: this.__P_66_4.height
         };
       },
       // overridden
@@ -284,9 +297,6 @@
         // https://bugzilla.mozilla.org/show_bug.cgi?id=312156
         if (!qx.core.Environment.get("css.textoverflow") && qx.core.Environment.get("html.xul")) {
           if (value && !this.isRich()) {
-            {
-              this.warn("Only rich labels are selectable in browsers with Gecko engine!");
-            }
             return;
           }
         }
@@ -299,7 +309,7 @@
           return null;
         }
 
-        return this.__computeContentSize(width).height;
+        return this.__P_66_5(width).height;
       },
       // overridden
       _createContentElement: function _createContentElement() {
@@ -329,31 +339,31 @@
        *
        * @lint ignoreReferenceField(__contentSize)
        */
-      __contentSize: {
+      __P_66_4: {
         width: 0,
         height: 0
       },
       // property apply
       _applyFont: function _applyFont(value, old) {
-        if (old && this.__font && this.__webfontListenerId) {
-          this.__font.removeListenerById(this.__webfontListenerId);
+        if (old && this.__P_66_0 && this.__P_66_3) {
+          this.__P_66_0.removeListenerById(this.__P_66_3);
 
-          this.__webfontListenerId = null;
+          this.__P_66_3 = null;
         } // Apply
 
 
         var styles;
 
         if (value) {
-          this.__font = qx.theme.manager.Font.getInstance().resolve(value);
+          this.__P_66_0 = qx.theme.manager.Font.getInstance().resolve(value);
 
-          if (this.__font instanceof qx.bom.webfonts.WebFont) {
-            this.__webfontListenerId = this.__font.addListener("changeStatus", this._onWebFontStatusChange, this);
+          if (this.__P_66_0 instanceof qx.bom.webfonts.WebFont) {
+            this.__P_66_3 = this.__P_66_0.addListener("changeStatus", this._onWebFontStatusChange, this);
           }
 
-          styles = this.__font.getStyles();
+          styles = this.__P_66_0.getStyles();
         } else {
-          this.__font = null;
+          this.__P_66_0 = null;
           styles = qx.bom.Font.getDefaultStyles();
         } // check if text color already set - if so this local value has higher priority
 
@@ -364,7 +374,7 @@
 
         this.getContentElement().setStyles(styles); // Invalidate text size
 
-        this.__invalidContentSize = true; // Update layout
+        this.__P_66_1 = true; // Update layout
 
         qx.ui.core.queue.Layout.add(this);
       },
@@ -375,15 +385,19 @@
        * @param width {Integer?null} Optional width constraint
        * @return {Map} Map with <code>width</code> and <code>height</code> keys
        */
-      __computeContentSize: function __computeContentSize(width) {
+      __P_66_5: function __P_66_5(width) {
         var Label = qx.bom.Label;
         var font = this.getFont();
-        var styles = font ? this.__font.getStyles() : qx.bom.Font.getDefaultStyles();
+        var styles = font ? this.__P_66_0.getStyles() : qx.bom.Font.getDefaultStyles();
         var content = this.getValue() || "A";
         var rich = this.getRich();
 
-        if (this.__webfontListenerId) {
-          this.__fixEllipsis();
+        if (this.__P_66_3) {
+          this.__P_66_6();
+        }
+
+        if (rich && this.getBreakWithinWords()) {
+          styles.wordBreak = "break-all";
         }
 
         return rich ? Label.getHtmlSize(content, styles, width) : Label.getTextSize(content, styles);
@@ -394,7 +408,7 @@
       * though there is enough space for the text. Re-applying the content forces
       * a recalculation and fixes the problem. See qx bug #6293
       */
-      __fixEllipsis: function __fixEllipsis() {
+      __P_66_6: function __P_66_6() {
         if (!this.getContentElement()) {
           return;
         }
@@ -417,13 +431,13 @@
       _applyBuddy: function _applyBuddy(value, old) {
         if (old != null) {
           this.removeRelatedBindings(old);
-          this.removeListenerById(this.__tapListenerId);
-          this.__tapListenerId = null;
+          this.removeListenerById(this.__P_66_2);
+          this.__P_66_2 = null;
         }
 
         if (value != null) {
           value.bind("enabled", this, "enabled");
-          this.__tapListenerId = this.addListener("tap", function () {
+          this.__P_66_2 = this.addListener("tap", function () {
             // only focus focusable elements [BUG #3555]
             if (value.isFocusable()) {
               value.focus.apply(value);
@@ -441,23 +455,25 @@
         // Sync with content element
         this.getContentElement().setRich(value); // Mark text size cache as invalid
 
-        this.__invalidContentSize = true; // Update layout
+        this.__P_66_1 = true; // Update layout
 
         qx.ui.core.queue.Layout.add(this);
       },
       // property apply
       _applyWrap: function _applyWrap(value, old) {
-        if (value && !this.isRich()) {
-          {
-            this.warn("Only rich labels support wrap.");
-          }
-        }
+        if (value && !this.isRich()) {}
 
         if (this.isRich()) {
           // apply the white space style to the label to force it not
           // to wrap if wrap is set to false [BUG #3732]
           var whiteSpace = value ? "normal" : "nowrap";
           this.getContentElement().setStyle("whiteSpace", whiteSpace);
+        }
+      },
+      // property apply
+      _applyBreakWithinWords: function _applyBreakWithinWords(value, old) {
+        if (this.isRich()) {
+          this.getContentElement().setStyle("wordBreak", value ? "break-all" : "normal");
         }
       },
 
@@ -485,12 +501,12 @@
           // safari has trouble resizing, adding it again fixed the issue [BUG #8786]
           if (qx.core.Environment.get("browser.name") == "safari" && parseFloat(qx.core.Environment.get("browser.version")) >= 8) {
             window.setTimeout(function () {
-              this.__invalidContentSize = true;
+              this.__P_66_1 = true;
               qx.ui.core.queue.Layout.add(this);
             }.bind(this), 0);
           }
 
-          this.__invalidContentSize = true;
+          this.__P_66_1 = true;
           qx.ui.core.queue.Layout.add(this);
         }
       },
@@ -504,7 +520,7 @@
         } // Mark text size cache as invalid
 
 
-        this.__invalidContentSize = true; // Update layout
+        this.__P_66_1 = true; // Update layout
 
         qx.ui.core.queue.Layout.add(this);
       }
@@ -520,14 +536,14 @@
         qx.locale.Manager.getInstance().removeListener("changeLocale", this._onChangeLocale, this);
       }
 
-      if (this.__font && this.__webfontListenerId) {
-        this.__font.removeListenerById(this.__webfontListenerId);
+      if (this.__P_66_0 && this.__P_66_3) {
+        this.__P_66_0.removeListenerById(this.__P_66_3);
       }
 
-      this.__font = null;
+      this.__P_66_0 = null;
     }
   });
   qx.ui.basic.Label.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Label.js.map?dt=1564930738279
+//# sourceMappingURL=Label.js.map?dt=1591463656084

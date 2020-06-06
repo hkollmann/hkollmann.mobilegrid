@@ -139,16 +139,10 @@
         }).apply(this, this._getExtendedPropertyValueArrays(transitionProperties));
       },
       // property apply
-      _applyTransition: function _applyTransition() {
-        {
-          if (this._isInitialized()) {
-            throw new Error("This decorator is already in-use. Modification is not possible anymore!");
-          }
-        }
-      }
+      _applyTransition: function _applyTransition() {}
     }
   });
   qx.ui.decoration.MTransition.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MTransition.js.map?dt=1564930746302
+//# sourceMappingURL=MTransition.js.map?dt=1591463666024

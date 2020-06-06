@@ -58,7 +58,7 @@
    *
    * *External Documentation*
    *
-   * <a href='http://manual.qooxdoo.org/${qxversion}/pages/widget/atom.html' target='_blank'>
+   * <a href='http://qooxdoo.org/docs/#desktop/widget/atom.md' target='_blank'>
    * Documentation of this widget in the qooxdoo manual.</a>
    *
    *
@@ -79,9 +79,6 @@
      * @param icon {String?null} Icon to use
      */
     construct: function construct(label, icon) {
-      {
-        this.assertArgumentsCount(arguments, 0, 2);
-      }
       qx.ui.core.Widget.constructor.call(this);
 
       this._setLayout(new qx.ui.layout.Atom());
@@ -321,4 +318,4 @@
   qx.ui.basic.Atom.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Atom.js.map?dt=1564930747217
+//# sourceMappingURL=Atom.js.map?dt=1591463667283

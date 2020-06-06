@@ -1,3 +1,7 @@
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
@@ -57,6 +61,7 @@
        * Fabian Jakobs (fjakobs)
        * Jonathan Weiß (jonathan_rass)
        * John Spackman (johnspackman)
+       * Henner Kollmann (hkollmann)
   
   ************************************************************************ */
   qx.Class.define("qxl.apiviewer.ui.AbstractViewer", {
@@ -167,19 +172,23 @@
         }
       }
     },
+    events: {
+      "synced": "qx.event.type.Event"
+    },
     members: {
       _infoPanelHash: null,
       _infoPanels: null,
+      __P_237_0: false,
       _init: function _init(pkg) {
         var _this = this;
 
-        this.__initHtml();
+        this.__P_237_1();
 
         this.addListenerOnce("appear", function () {
           return _this._syncHtml();
         });
       },
-      __initHtml: function __initHtml() {
+      __P_237_1: function __P_237_1() {
         var html = new qx.util.StringBuilder();
         html.add("<div style=\"padding:24px;\">"); // Add title
 
@@ -222,24 +231,55 @@
        * HtmlEmbed element initialization routine.
        *
        */
-      _syncHtml: function _syncHtml() {
-        var oldTitleElem = this._titleElem;
-        var element = this.getContentElement().getDomElement().firstChild;
-        var divArr = element.childNodes;
-        var panels = this.getPanels();
-        qxl.apiviewer.ui.AbstractViewer.fixLinks(element);
-        this._titleElem = divArr[0];
-        this._tocElem = divArr[1];
-        this._classDescElem = divArr[2];
+      _syncHtml: function () {
+        var _syncHtml2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+          var oldTitleElem, element, divArr, panels, i, panel;
+          return regeneratorRuntime.wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  oldTitleElem = this._titleElem;
+                  element = this.getContentElement().getDomElement().firstChild;
+                  divArr = element.childNodes;
+                  panels = this.getPanels();
+                  qxl.apiviewer.ui.AbstractViewer.fixLinks(element);
+                  this._titleElem = divArr[0];
+                  this._tocElem = divArr[1];
+                  this._classDescElem = divArr[2];
 
-        for (var i = 0; i < panels.length; i++) {
-          var panel = panels[i];
-          panel.setElement(divArr[i + 3]);
+                  for (i = 0; i < panels.length; i++) {
+                    panel = panels[i];
+                    panel.setElement(divArr[i + 3]);
+                  }
+
+                  if (!(oldTitleElem !== this._titleElem && this.getDocNode())) {
+                    _context.next = 12;
+                    break;
+                  }
+
+                  _context.next = 12;
+                  return this._applyDocNode(this.getDocNode());
+
+                case 12:
+                  this.__P_237_0 = true;
+                  this.fireEvent("synced");
+
+                case 14:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee, this);
+        }));
+
+        function _syncHtml() {
+          return _syncHtml2.apply(this, arguments);
         }
 
-        if (oldTitleElem !== this._titleElem && this.getDocNode()) {
-          this._applyDocNode(this.getDocNode());
-        }
+        return _syncHtml;
+      }(),
+      isValid: function isValid() {
+        return this.__P_237_0;
       },
       addInfoPanel: function addInfoPanel(panel) {
         this._infoPanelHash[panel.toHashCode()] = panel;
@@ -306,7 +346,7 @@
         var _this4 = this;
 
         if (!this._titleElem) {
-          return;
+          return null;
         }
 
         this._titleElem.innerHTML = this._getTitleHtml(classNode);
@@ -339,6 +379,8 @@
         } catch (exc) {
           this.error("Toggling info body failed", exc);
         }
+
+        return null;
       },
 
       /**
@@ -414,4 +456,4 @@
   qxl.apiviewer.ui.AbstractViewer.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=AbstractViewer.js.map?dt=1564930749696
+//# sourceMappingURL=AbstractViewer.js.map?dt=1591463671413

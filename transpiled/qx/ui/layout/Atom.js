@@ -109,9 +109,7 @@
       ---------------------------------------------------------------------------
       */
       // overridden
-      verifyLayoutProperty: function verifyLayoutProperty(item, name, value) {
-        this.assert(false, "The property '" + name + "' is not supported by the Atom layout!");
-      },
+      verifyLayoutProperty: null,
       // overridden
       renderLayout: function renderLayout(availWidth, availHeight, padding) {
         var left = padding.left;
@@ -325,4 +323,4 @@
   qx.ui.layout.Atom.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Atom.js.map?dt=1564930749140
+//# sourceMappingURL=Atom.js.map?dt=1591463670627

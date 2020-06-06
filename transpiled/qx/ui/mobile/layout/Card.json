@@ -21,11 +21,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2004-2011 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nTino Butz (tbtz)\nChristopher Zuendorf (czuendorf)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2004-2011 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Tino Butz (tbtz)\n Christopher Zuendorf (czuendorf)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "A card layout.\n\nThe card layout lays out widgets in a stack. Call show to display a widget.\nOnly the widget which show method is called is displayed. All other widgets are excluded.\n\n\n*Example*\n\nHere is a little example of how to use the Card layout.\n\n<pre class=\"javascript\">\nvar layout = new qx.ui.mobile.layout.Card());\nvar container = new qx.ui.mobile.container.Composite(layout);\n\nvar label1 = new qx.ui.mobile.basic.Label(\"1\");\ncontainer.add(label1);\nvar label2 = new qx.ui.mobile.basic.Label(\"2\");\ncontainer.add(label2);\n\nlabel2.show();\n</pre>"
+          "body": "<p>A card layout.\n The card layout lays out widgets in a stack. Call show to display a widget.\n Only the widget which show method is called is displayed. All other widgets are excluded.\n<em>Example</em>\n Here is a little example of how to use the Card layout.\n </p>\n<pre class=\"javascript\">\n var layout = new qx.ui.mobile.layout.Card());\n var container = new qx.ui.mobile.container.Composite(layout);\n var label1 = new qx.ui.mobile.basic.Label(\"1\");\n container.add(label1);\n var label2 = new qx.ui.mobile.basic.Label(\"2\");\n container.add(label2);\n label2.show();\n </pre>"
         }
       ],
       "@use": [
@@ -47,6 +47,14 @@
         "line": 60,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "events": {
@@ -65,7 +73,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Fired when the animation of a page transition starts"
+            "body": "<p>Fired when the animation of a page transition starts</p>"
           }
         ]
       },
@@ -87,7 +95,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Fired when the animation of a page transition ends"
+            "body": "<p>Fired when the animation of a page transition ends</p>"
           }
         ]
       },
@@ -111,7 +119,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The default animation to use for page transition"
+            "body": "<p>The default animation to use for page transition</p>"
           }
         ]
       },
@@ -136,7 +144,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Flag which indicates, whether animation is needed, or widgets should only swap."
+            "body": "<p>Flag which indicates, whether animation is needed, or widgets should only swap.</p>"
           }
         ]
       },
@@ -161,7 +169,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Transition duration of each animation."
+            "body": "<p>Transition duration of each animation.</p>"
           }
         ]
       },
@@ -177,7 +185,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>The owning object</p>"
+          }
+        ]
+      }
     },
     "qxObjectId": {
       "type": "property",
@@ -185,7 +201,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>{String} The ID of the object.</p>"
+          }
+        ]
+      }
     }
   },
   "members": {
@@ -288,15 +312,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Array} The css classes that the layout is using",
-            "type": "Array",
-            "description": " The css classes that the layout is using"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -322,16 +338,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "widget {qx.ui.mobile.core.Widget} The widget to connect to",
-            "paramName": "widget",
-            "description": " The widget to connect to",
-            "type": "qx.ui.mobile.core.Widget"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -357,16 +364,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "widget {qx.ui.mobile.core.Widget} The widget to connect to",
-            "paramName": "widget",
-            "description": " The widget to connect to",
-            "type": "qx.ui.mobile.core.Widget"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -392,30 +390,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "widget {qx.ui.mobile.core.Widget} The target widget",
-            "paramName": "widget",
-            "description": " The target widget",
-            "type": "qx.ui.mobile.core.Widget"
-          },
-          {
-            "name": "@param",
-            "body": "action {String} The causing action that triggered the layout update.",
-            "paramName": "action",
-            "description": " The causing action that triggered the layout update.",
-            "type": "String"
-          },
-          {
-            "name": "@param",
-            "body": "properties {Map} The animation properties to set. Key / value pairs.",
-            "paramName": "properties",
-            "description": " The animation properties to set. Key / value pairs.",
-            "type": "Map"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -441,7 +416,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Setter for this.__cardAnimation."
+            "body": "<p>Setter for this.__cardAnimation.</p>"
           }
         ],
         "@param": [
@@ -472,7 +447,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Getter for this.__cardAnimation."
+            "body": "<p>Getter for this.__cardAnimation.</p>"
           }
         ],
         "@return": [
@@ -502,7 +477,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Shows the widget with the given properties."
+            "body": "<p>Shows the widget with the given properties.</p>"
           }
         ],
         "@param": [
@@ -540,7 +515,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Excludes the current widget and sets the next widget to the current widget."
+            "body": "<p>Excludes the current widget and sets the next widget to the current widget.</p>"
           }
         ]
       },
@@ -562,7 +537,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Fix size, only if widget has mixin MResize set,\nand nextWidget is set."
+            "body": "<p>Fix size, only if widget has mixin MResize set,\n and nextWidget is set.</p>"
           }
         ],
         "@param": [
@@ -593,7 +568,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Releases recently fixed widget size (width/height). This is needed for allowing further\nflexbox layouting."
+            "body": "<p>Releases recently fixed widget size (width/height). This is needed for allowing further\n flexbox layouting.</p>"
           }
         ],
         "@param": [
@@ -624,7 +599,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Starts the animation for the page transition."
+            "body": "<p>Starts the animation for the page transition.</p>"
           }
         ],
         "@param": [
@@ -655,7 +630,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Event handler. Called when the animation of the page transition ends."
+            "body": "<p>Event handler. Called when the animation of the page transition ends.</p>"
           }
         ],
         "@param": [
@@ -686,7 +661,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Stops the animation for the page transition."
+            "body": "<p>Stops the animation for the page transition.</p>"
           }
         ]
       },
@@ -708,7 +683,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the animation CSS classes for a given direction. The direction\ncan be <code>in</code> or <code>out</code>."
+            "body": "<p>Returns the animation CSS classes for a given direction. The direction\n can be <code>in</code> or <code>out</code>.</p>"
           }
         ],
         "@param": [
@@ -791,7 +766,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -850,7 +833,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getDefaultAnimation": {
       "type": "function",
@@ -1085,7 +1076,8 @@
         "line": 367,
         "column": 3
       }
-    }
+    },
+    "jsdoc": {}
   },
   "descendants": []
 }

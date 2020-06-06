@@ -10,7 +10,7 @@
       }
     },
     "environment": {
-      "provided": ["ecmascript.array.indexof", "ecmascript.array.lastindexof", "ecmascript.array.foreach", "ecmascript.array.filter", "ecmascript.array.map", "ecmascript.array.some", "ecmascript.array.find", "ecmascript.array.findIndex", "ecmascript.array.every", "ecmascript.array.reduce", "ecmascript.array.reduceright", "ecmascript.array.includes", "ecmascript.date.now", "ecmascript.date.parse", "ecmascript.error.toString", "ecmascript.error.stacktrace", "ecmascript.function.bind", "ecmascript.object.keys", "ecmascript.object.values", "ecmascript.object.is", "ecmascript.number.EPSILON", "ecmascript.string.startsWith", "ecmascript.string.endsWith", "ecmascript.string.trim", "ecmascript.function.async", "ecmascript.mutationobserver", "ecmascript.promise.native"],
+      "provided": ["ecmascript.array.indexof", "ecmascript.array.lastindexof", "ecmascript.array.foreach", "ecmascript.array.filter", "ecmascript.array.map", "ecmascript.array.some", "ecmascript.array.find", "ecmascript.array.findIndex", "ecmascript.array.every", "ecmascript.array.reduce", "ecmascript.array.reduceright", "ecmascript.array.includes", "ecmascript.date.now", "ecmascript.date.parse", "ecmascript.error.toString", "ecmascript.error.stacktrace", "ecmascript.function.bind", "ecmascript.object.keys", "ecmascript.object.values", "ecmascript.object.is", "ecmascript.number.EPSILON", "ecmascript.string.startsWith", "ecmascript.string.endsWith", "ecmascript.string.trim", "ecmascript.function.async", "ecmascript.mutationobserver", "ecmascript.bigint", "ecmascript.bigint.tolocalestring", "ecmascript.promise.native"],
       "required": {}
     }
   };
@@ -305,6 +305,31 @@
       },
 
       /**
+       * Checks if 'BigInt' type is supported.
+       * @internal
+       * @ignore(BigInt)
+       * @return {Boolean} <code>true</code>, if BigInt is available.
+       */
+      getBigInt: function getBigInt() {
+        return typeof BigInt !== "undefined";
+      },
+
+      /**
+       * Checks if 'toLocaleString' is supported on the BigInt object and whether
+       * it actually works
+       * @internal
+       * @ignore(BigInt)
+       * @ignore(BigInt.prototype.toLocaleString)
+       * @return {Boolean} <code>true</code>, if the method is supported and
+       *   works at least rudimentary.
+       */
+      getBigIntToLocaleString: function getBigIntToLocaleString() {
+        return typeof BigInt !== "undefined" // BigInt type supported...
+        && typeof BigInt.prototype.toLocaleString === "function" // ...method is present...
+        && BigInt(1234).toLocaleString("de-DE") === "1,234"; // ...and works as expected
+      },
+
+      /**
        * Checks whether Native promises are available
        */
       getPromiseNative: function getPromiseNative() {
@@ -353,7 +378,10 @@
 
       qx.core.Environment.add("ecmascript.function.async", statics.getAsyncFunction); // MutationObserver
 
-      qx.core.Environment.add("ecmascript.mutationobserver", statics.getMutationObserver); // Promises
+      qx.core.Environment.add("ecmascript.mutationobserver", statics.getMutationObserver); // BigInt
+
+      qx.core.Environment.add("ecmascript.bigint", statics.getBigInt);
+      qx.core.Environment.add("ecmascript.bigint.tolocalestring", statics.getBigIntToLocaleString); // Promises
 
       qx.core.Environment.add("ecmascript.promise.native", statics.getPromiseNative);
     }
@@ -361,4 +389,4 @@
   qx.bom.client.EcmaScript.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=EcmaScript.js.map?dt=1564930738713
+//# sourceMappingURL=EcmaScript.js.map?dt=1591463656599

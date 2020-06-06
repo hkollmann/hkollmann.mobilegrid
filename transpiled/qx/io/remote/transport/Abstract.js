@@ -13,12 +13,6 @@
         "construct": true,
         "require": true
       }
-    },
-    "environment": {
-      "provided": [],
-      "required": {
-        "qx.debug.io.remote": {}
-      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -207,11 +201,6 @@
        *
        */
       abort: function abort() {
-        {
-          if (qx.core.Environment.get("qx.debug.io.remote")) {
-            this.warn("Aborting...");
-          }
-        }
         this.setState("aborted");
       },
 
@@ -222,11 +211,6 @@
        *
        */
       timeout: function timeout() {
-        {
-          if (qx.core.Environment.get("qx.debug.io.remote")) {
-            this.warn("Timeout...");
-          }
-        }
         this.setState("timeout");
       },
 
@@ -237,11 +221,6 @@
        *
        */
       failed: function failed() {
-        {
-          if (qx.core.Environment.get("qx.debug.io.remote")) {
-            this.warn("Failed...");
-          }
-        }
         this.setState("failed");
       },
 
@@ -401,12 +380,6 @@
        * @param old {var} Previous value
        */
       _applyState: function _applyState(value, old) {
-        {
-          if (qx.core.Environment.get("qx.debug.io.remote")) {
-            this.debug("State: " + value);
-          }
-        }
-
         switch (value) {
           case "created":
             this.fireEvent("created");
@@ -459,4 +432,4 @@
   qx.io.remote.transport.Abstract.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Abstract.js.map?dt=1564930751226
+//# sourceMappingURL=Abstract.js.map?dt=1591463673626

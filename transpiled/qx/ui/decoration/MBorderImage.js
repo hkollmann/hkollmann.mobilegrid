@@ -236,7 +236,7 @@
 
         var resolvedImage = qx.util.AliasManager.getInstance().resolve(this.getBorderImage());
 
-        var computedSlices = this.__getSlices(resolvedImage);
+        var computedSlices = this.__P_167_0(resolvedImage);
 
         return {
           top: this.getSliceTop() || computedSlices[0],
@@ -245,13 +245,7 @@
           left: this.getSliceLeft() || computedSlices[3]
         };
       },
-      _applyBorderImage: function _applyBorderImage() {
-        {
-          if (this._isInitialized()) {
-            throw new Error("This decorator is already in-use. Modification is not possible anymore!");
-          }
-        }
-      },
+      _applyBorderImage: function _applyBorderImage() {},
 
       /**
        * Gets the slice sizes from the fallback border images.
@@ -259,7 +253,7 @@
        * @param baseImage {String} Resource Id of the base border image
        * @return {Integer[]} Array with the top, right, bottom and left slice widths
        */
-      __getSlices: function __getSlices(baseImage) {
+      __P_167_0: function __P_167_0(baseImage) {
         var mode = this.getBorderImageMode();
         var topSlice = 0;
         var rightSlice = 0;
@@ -287,4 +281,4 @@
   qx.ui.decoration.MBorderImage.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MBorderImage.js.map?dt=1564930746289
+//# sourceMappingURL=MBorderImage.js.map?dt=1591463666000

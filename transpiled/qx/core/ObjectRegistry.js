@@ -49,19 +49,16 @@
       inShutDown: false,
 
       /** @type {Map} Internal data structure to store objects */
-      __registry: {},
+      __P_53_0: {},
 
       /** @type {Integer} Next new hash code. */
-      __nextHash: 0,
-
-      /** @type {Array} List of all free hash codes */
-      __freeHashes: [],
+      __P_53_1: 0,
 
       /** @type {String} Post id for hash code creation. */
-      __postId: "",
+      __P_53_2: "",
 
       /** @type {Map} Object hashes to stack traces (for dispose profiling only) */
-      __stackTraces: {},
+      __P_53_3: {},
 
       /**
        * Registers an object into the database. This adds a hashcode
@@ -76,33 +73,13 @@
        * @param obj {Object} Any object with a dispose() method
        */
       register: function register(obj) {
-        var registry = this.__registry;
+        var registry = this.__P_53_0;
 
         if (!registry) {
           return;
         }
 
-        var hash = obj.$$hash;
-
-        if (hash == null) {
-          // Create new hash code
-          var cache = this.__freeHashes;
-
-          if (cache.length > 0 && true) {
-            hash = cache.pop();
-          } else {
-            hash = this.__nextHash++ + this.__postId;
-          } // Store hash code
-
-
-          obj.$$hash = hash;
-        }
-
-        {
-          if (!obj.dispose) {
-            throw new Error("Invalid object: " + obj);
-          }
-        }
+        var hash = qx.core.ObjectRegistry.toHashCode(obj);
         registry[hash] = obj;
       },
 
@@ -118,24 +95,13 @@
           return;
         }
 
-        var registry = this.__registry;
+        var registry = this.__P_53_0;
 
         if (registry && registry[hash]) {
           delete registry[hash];
-
-          this.__freeHashes.push(hash);
-        } // Delete the hash code
-
-
-        try {
-          delete obj.$$hash;
-        } catch (ex) {
-          // IE has trouble directly removing the hash
-          // but it's ok with using removeAttribute
-          if (obj.removeAttribute) {
-            obj.removeAttribute("$$hash");
-          }
         }
+
+        this.clearHashCode(obj);
       },
 
       /**
@@ -146,11 +112,6 @@
        * @return {String} unique identifier for the given object
        */
       toHashCode: function toHashCode(obj) {
-        {
-          if (obj == null) {
-            throw new Error("Invalid object: " + obj);
-          }
-        }
         var hash = obj.$$hash;
 
         if (hash != null) {
@@ -158,16 +119,20 @@
         } // Create new hash code
 
 
-        var cache = this.__freeHashes;
+        hash = this.createHashCode(); // Store
 
-        if (cache.length > 0) {
-          hash = cache.pop();
-        } else {
-          hash = this.__nextHash++ + this.__postId;
-        } // Store
+        obj.$$hash = hash;
+        return obj.$$hash;
+      },
 
-
-        return obj.$$hash = hash;
+      /**
+       * Creates a hash code
+       * 
+       * @return {String}
+       */
+      createHashCode: function createHashCode() {
+        var hash = String(this.__P_53_1++ + this.__P_53_2);
+        return hash;
       },
 
       /**
@@ -176,18 +141,12 @@
        * @param obj {Object} the object to clear the hashcode for
        */
       clearHashCode: function clearHashCode(obj) {
-        {
-          if (obj == null) {
-            throw new Error("Invalid object: " + obj);
-          }
-        }
         var hash = obj.$$hash;
 
         if (hash != null) {
-          this.__freeHashes.push(hash); // Delete the hash code
-
-
+          // Delete the hash code
           try {
+            obj.$$discardedHashCode = hash;
             delete obj.$$hash;
           } catch (ex) {
             // IE has trouble directly removing the hash
@@ -209,7 +168,7 @@
        * @return {qx.core.Object} The corresponding object or <code>null</code>.
        */
       fromHashCode: function fromHashCode(hash, suppressWarnings) {
-        var obj = this.__registry[hash] || null;
+        var obj = this.__P_53_0[hash] || null;
 
         if (!obj && !suppressWarnings) {
           qx.log.Logger.warn(this, "Object with hash code " + hash + " does not exist (since Qooxdoo 6.0 fromHashCode requires that you explicitly register objects with qx.core.ObjectRegistry.register)");
@@ -226,7 +185,7 @@
        * @return {qx.core.Object} The corresponding object or <code>null</code>.
        */
       hasHashCode: function hasHashCode(hash) {
-        return !!this.__registry[hash];
+        return !!this.__P_53_0[hash];
       },
 
       /**
@@ -239,7 +198,7 @@
        */
       shutdown: function shutdown() {
         this.inShutDown = true;
-        var registry = this.__registry;
+        var registry = this.__P_53_0;
         var hashes = [];
 
         for (var hash in registry) {
@@ -278,7 +237,7 @@
         }
 
         qx.Bootstrap.debug(this, "Disposed " + l + " objects");
-        delete this.__registry;
+        delete this.__P_53_0;
       },
 
       /**
@@ -287,17 +246,17 @@
        * @return {Object} The registry
        */
       getRegistry: function getRegistry() {
-        return this.__registry;
+        return this.__P_53_0;
       },
 
       /**
-       * Returns the next hash code that will be used
-       *
+       * Returns the next hash code that will be used.
+       * 
        * @return {Integer} The next hash code
        * @internal
        */
       getNextHash: function getNextHash() {
-        return this.__nextHash;
+        return this.__P_53_1;
       },
 
       /**
@@ -307,7 +266,7 @@
        * @internal
        */
       getPostId: function getPostId() {
-        return this.__postId;
+        return this.__P_53_2;
       },
 
       /**
@@ -317,7 +276,7 @@
        * @internal
        */
       getStackTraces: function getStackTraces() {
-        return this.__stackTraces;
+        return this.__P_53_3;
       }
     },
     defer: function defer(statics) {
@@ -326,16 +285,16 @@
 
         for (var i = 0; i < frames.length; i++) {
           if (frames[i] === window) {
-            statics.__postId = "-" + (i + 1);
+            statics.__P_53_2 = "-" + (i + 1);
             return;
           }
         }
       }
 
-      statics.__postId = "-0";
+      statics.__P_53_2 = "-0";
     }
   });
   qx.core.ObjectRegistry.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=ObjectRegistry.js.map?dt=1564930735416
+//# sourceMappingURL=ObjectRegistry.js.map?dt=1591463654878

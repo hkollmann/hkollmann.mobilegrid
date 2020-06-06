@@ -1,6 +1,4 @@
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 (function () {
   var $$dbClassInfo = {
@@ -44,7 +42,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
    * Represents a parameter or return type, taken from JSDoc meta data
    *
    * Example data:
-   *
+   *      qooxdoo style
           "@param": [
             {
               "name": "@param",
@@ -56,10 +54,23 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
               "type": "Map"
             }
           ],
+          jsdoc style
+          "@param": [
+            {
+              "name": "@param",
+              "body": "{Map?null} options Optional layout data for widget.",
+              "paramName": "options",
+              "description": " Optional layout data for widget.",
+              "optional": true,
+              "defaultValue": "null",
+              "type": "Map"
+            }
+          ],
           "@return": [
             {
               "name": "@return",
               "body": "{Integer} The index position or <code>-1</code> when\nthe given widget is no child of this layout.",
+              "docComment": "",
               "type": "Integer",
               "desc": " The index position or <code>-1</code> when\nthe given widget is no child of this layout."
             }
@@ -99,7 +110,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         });
       }
     },
-    members: _defineProperty({
+    members: {
       _method: null,
       _meta: null,
       _types: null,
@@ -113,9 +124,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       getName: function getName() {
         return this._meta.paramName;
       },
-      getDescription: function getDescription() {
-        return this._meta.desc;
-      },
       getTypes: function getTypes() {
         return this._types;
       },
@@ -127,12 +135,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       },
       isOptional: function isOptional() {
         return Boolean(this._meta.optional);
+      },
+      getDescription: function getDescription() {
+        return this._meta.description || this._meta.body;
       }
-    }, "getDescription", function getDescription() {
-      return this._meta.description;
-    })
+    }
   });
   qxl.apiviewer.dao.Param.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Param.js.map?dt=1564930748356
+//# sourceMappingURL=Param.js.map?dt=1591463669025

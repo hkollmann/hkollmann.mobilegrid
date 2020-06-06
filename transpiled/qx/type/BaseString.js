@@ -3,14 +3,10 @@
     "dependsOn": {
       "qx.Class": {
         "usage": "dynamic",
-        "defer": "runtime",
         "require": true
       },
       "qx.core.ObjectRegistry": {},
-      "qx.core.Object": {},
-      "qx.core.MAssert": {
-        "defer": "runtime"
-      }
+      "qx.core.Object": {}
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -58,13 +54,13 @@
     construct: function construct(txt) {
       var txt = txt || ""; // no base call needed
 
-      this.__txt = txt;
+      this.__P_175_0 = txt;
       this.length = txt.length;
     },
     members: {
       $$isString: true,
       length: 0,
-      __txt: null,
+      __P_175_0: null,
 
       /**
        * Returns a string representing the specified object.
@@ -77,7 +73,7 @@
        * @return {String} A new string containing the string value.
        */
       toString: function toString() {
-        return this.__txt;
+        return this.__P_175_0;
       },
 
       /**
@@ -363,9 +359,6 @@
      */
     defer: function defer(statics, members) {
       // add asserts into each debug build
-      {
-        qx.Class.include(statics, qx.core.MAssert);
-      }
       var mappedFunctions = ['charAt', 'charCodeAt', 'concat', 'indexOf', 'lastIndexOf', 'match', 'replace', 'search', 'slice', 'split', 'substr', 'substring', 'toLowerCase', 'toUpperCase', 'toLocaleLowerCase', 'toLocaleUpperCase', 'trim']; // feature/bug detection:
       // Some older Firefox version (<2) break if valueOf is overridden
 
@@ -383,4 +376,4 @@
   qx.type.BaseString.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=BaseString.js.map?dt=1564930746678
+//# sourceMappingURL=BaseString.js.map?dt=1591463666566

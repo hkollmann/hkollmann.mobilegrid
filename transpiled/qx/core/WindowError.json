@@ -21,11 +21,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2007-2008 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2007-2008 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Fabian Jakobs (fjakobs)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "This exception is thrown by the {@link qx.event.GlobalError} handler if a\n<code>window.onerror</code> event occurs in the browser."
+          "body": "<p>This exception is thrown by the {@link qx.event.GlobalError} handler if a\n <code>window.onerror</code> event occurs in the browser.</p>"
         }
       ]
     }
@@ -41,6 +41,55 @@
         "line": 59,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        },
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "failMessage {String} The error message",
+          "paramName": "failMessage",
+          "description": " The error message",
+          "type": "String"
+        },
+        {
+          "name": "@param",
+          "body": "uri {String} URI where error was raised",
+          "paramName": "uri",
+          "description": " URI where error was raised",
+          "type": "String"
+        },
+        {
+          "name": "@param",
+          "body": "lineNumber {Integer} The line number where the error was raised",
+          "paramName": "lineNumber",
+          "description": " The line number where the error was raised",
+          "type": "Integer"
+        },
+        {
+          "name": "@param",
+          "body": "columnNumber {Integer} The column number where the error was raised",
+          "paramName": "columnNumber",
+          "description": " The column number where the error was raised",
+          "type": "Integer"
+        },
+        {
+          "name": "@param",
+          "body": "sourceException {Error} orginal error",
+          "paramName": "sourceException",
+          "description": " orginal error",
+          "type": "Error"
+        }
+      ]
     }
   },
   "members": {
@@ -129,7 +178,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Get the URI where error was raised"
+            "body": "<p>Get the URI where error was raised</p>"
           }
         ],
         "@return": [
@@ -159,7 +208,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Get the line number where the error was raised"
+            "body": "<p>Get the line number where the error was raised</p>"
           }
         ],
         "@return": [
@@ -189,7 +238,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Get the column number where the error was raised"
+            "body": "<p>Get the column number where the error was raised</p>"
           }
         ],
         "@return": [
@@ -219,7 +268,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Get the source exception"
+            "body": "<p>Get the source exception</p>"
           }
         ],
         "@return": [

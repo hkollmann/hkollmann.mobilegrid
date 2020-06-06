@@ -98,7 +98,6 @@
   ************************************************************************ */
 
   /**
-   * EXPERIMENTAL - NOT READY FOR PRODUCTION
    *
    * This class provides support for HTML5 transition and animation events.
    * Currently only WebKit and Firefox are supported.
@@ -123,8 +122,8 @@
      */
     construct: function construct(manager) {
       qx.core.Object.constructor.call(this);
-      this.__registeredEvents = {};
-      this.__onEventWrapper = qx.lang.Function.listener(this._onNative, this);
+      this.__P_159_0 = {};
+      this.__P_159_1 = qx.lang.Function.listener(this._onNative, this);
     },
 
     /*
@@ -163,8 +162,8 @@
     *****************************************************************************
     */
     members: {
-      __onEventWrapper: null,
-      __registeredEvents: null,
+      __P_159_1: null,
+      __P_159_0: null,
 
       /*
       ---------------------------------------------------------------------------
@@ -191,29 +190,29 @@
         "webkit": function webkit(target, type, capture) {
           var hash = qx.core.ObjectRegistry.toHashCode(target) + type;
           var nativeType = qx.event.handler.Transition.TYPE_TO_NATIVE[type];
-          this.__registeredEvents[hash] = {
+          this.__P_159_0[hash] = {
             target: target,
             type: nativeType
           };
-          qx.bom.Event.addNativeListener(target, nativeType, this.__onEventWrapper);
+          qx.bom.Event.addNativeListener(target, nativeType, this.__P_159_1);
         },
         "gecko": function gecko(target, type, capture) {
           var hash = qx.core.ObjectRegistry.toHashCode(target) + type;
           var nativeType = qx.event.handler.Transition.TYPE_TO_NATIVE[type];
-          this.__registeredEvents[hash] = {
+          this.__P_159_0[hash] = {
             target: target,
             type: nativeType
           };
-          qx.bom.Event.addNativeListener(target, nativeType, this.__onEventWrapper);
+          qx.bom.Event.addNativeListener(target, nativeType, this.__P_159_1);
         },
         "mshtml": function mshtml(target, type, capture) {
           var hash = qx.core.ObjectRegistry.toHashCode(target) + type;
           var nativeType = qx.event.handler.Transition.TYPE_TO_NATIVE[type];
-          this.__registeredEvents[hash] = {
+          this.__P_159_0[hash] = {
             target: target,
             type: nativeType
           };
-          qx.bom.Event.addNativeListener(target, nativeType, this.__onEventWrapper);
+          qx.bom.Event.addNativeListener(target, nativeType, this.__P_159_1);
         },
         "default": function _default() {}
       }),
@@ -233,7 +232,7 @@
        */
       unregisterEvent: qx.core.Environment.select("engine.name", {
         "webkit": function webkit(target, type, capture) {
-          var events = this.__registeredEvents;
+          var events = this.__P_159_0;
 
           if (!events) {
             return;
@@ -245,10 +244,10 @@
             delete events[hash];
           }
 
-          qx.bom.Event.removeNativeListener(target, qx.event.handler.Transition.TYPE_TO_NATIVE[type], this.__onEventWrapper);
+          qx.bom.Event.removeNativeListener(target, qx.event.handler.Transition.TYPE_TO_NATIVE[type], this.__P_159_1);
         },
         "gecko": function gecko(target, type, capture) {
-          var events = this.__registeredEvents;
+          var events = this.__P_159_0;
 
           if (!events) {
             return;
@@ -260,10 +259,10 @@
             delete events[hash];
           }
 
-          qx.bom.Event.removeNativeListener(target, qx.event.handler.Transition.TYPE_TO_NATIVE[type], this.__onEventWrapper);
+          qx.bom.Event.removeNativeListener(target, qx.event.handler.Transition.TYPE_TO_NATIVE[type], this.__P_159_1);
         },
         "mshtml": function mshtml(target, type, capture) {
-          var events = this.__registeredEvents;
+          var events = this.__P_159_0;
 
           if (!events) {
             return;
@@ -275,7 +274,7 @@
             delete events[hash];
           }
 
-          qx.bom.Event.removeNativeListener(target, qx.event.handler.Transition.TYPE_TO_NATIVE[type], this.__onEventWrapper);
+          qx.bom.Event.removeNativeListener(target, qx.event.handler.Transition.TYPE_TO_NATIVE[type], this.__P_159_1);
         },
         "default": function _default() {}
       }),
@@ -304,17 +303,17 @@
     */
     destruct: function destruct() {
       var event;
-      var events = this.__registeredEvents;
+      var events = this.__P_159_0;
 
       for (var id in events) {
         event = events[id];
 
         if (event.target) {
-          qx.bom.Event.removeNativeListener(event.target, event.type, this.__onEventWrapper);
+          qx.bom.Event.removeNativeListener(event.target, event.type, this.__P_159_1);
         }
       }
 
-      this.__registeredEvents = this.__onEventWrapper = null;
+      this.__P_159_0 = this.__P_159_1 = null;
     },
 
     /*
@@ -344,4 +343,4 @@
   qx.event.handler.Transition.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Transition.js.map?dt=1564930745804
+//# sourceMappingURL=Transition.js.map?dt=1591463665236

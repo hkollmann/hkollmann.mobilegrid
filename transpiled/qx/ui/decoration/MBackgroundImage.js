@@ -205,35 +205,19 @@
             var imageMarkup = [attrs.image, attrs.position + ('size' in attrs ? ' / ' + attrs.size : ''), attrs.repeat, attrs.origin];
             styles["background"][this.getOrderGradientsFront() ? 'push' : 'unshift'](imageMarkup.join(' '));
 
-            if (true && source && source.endsWith(".png") && (repeat == "scale" || repeat == "no-repeat") && qx.core.Environment.get("engine.name") == "mshtml" && qx.core.Environment.get("browser.documentmode") < 9) {
+            if (false && source && source.endsWith(".png") && (repeat == "scale" || repeat == "no-repeat") && qx.core.Environment.get("engine.name") == "mshtml" && qx.core.Environment.get("browser.documentmode") < 9) {
               this.warn("Background PNGs with repeat == 'scale' or repeat == 'no-repeat' are not supported in this client! The image's resource id is '" + id + "'");
             }
           }
         }).apply(this, this._getExtendedPropertyValueArrays(backgroundImageProperties));
       },
       // property apply
-      _applyBackgroundImage: function _applyBackgroundImage() {
-        {
-          if (this._isInitialized()) {
-            throw new Error("This decorator is already in-use. Modification is not possible anymore!");
-          }
-        }
-      },
+      _applyBackgroundImage: function _applyBackgroundImage() {},
       // property apply
-      _applyBackgroundPosition: function _applyBackgroundPosition() {
-        {
-          if (this._isInitialized()) {
-            throw new Error("This decorator is already in-use. Modification is not possible anymore!");
-          }
-
-          if (qx.core.Environment.get("engine.name") == "mshtml" && qx.core.Environment.get("browser.documentmode") < 9) {
-            this.warn("The backgroundPosition property is not supported by this client!");
-          }
-        }
-      }
+      _applyBackgroundPosition: function _applyBackgroundPosition() {}
     }
   });
   qx.ui.decoration.MBackgroundImage.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MBackgroundImage.js.map?dt=1564930748850
+//# sourceMappingURL=MBackgroundImage.js.map?dt=1591463670143

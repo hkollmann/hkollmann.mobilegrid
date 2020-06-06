@@ -8,8 +8,6 @@
       "qx.application.Mobile": {
         "require": true
       },
-      "qx.log.appender.Native": {},
-      "qx.log.appender.Console": {},
       "hkollmann.mobilegrid.demo.Demo": {},
       "qx.ui.mobile.page.Manager": {}
     }
@@ -50,13 +48,6 @@
         // Call super class
         hkollmann.mobilegrid.demo.Application.prototype.main.base.call(this); // Enable logging in debug variant
 
-        {
-          // support native logging capabilities, e.g. Firebug for Firefox
-          qx.log.appender.Native; // support additional cross-browser console.
-          // Trigger a "longtap" event on the navigation bar for opening it.
-
-          qx.log.appender.Console;
-        }
         var demo = new hkollmann.mobilegrid.demo.Demo();
         var manager = new qx.ui.mobile.page.Manager(false);
         manager.addDetail([demo]);
@@ -67,4 +58,4 @@
   hkollmann.mobilegrid.demo.Application.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Application.js.map?dt=1564930732019
+//# sourceMappingURL=Application.js.map?dt=1591463649713

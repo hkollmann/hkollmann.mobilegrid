@@ -9,7 +9,6 @@
         "usage": "dynamic",
         "require": true
       },
-      "qx.log.Logger": {},
       "qx.bom.client.Engine": {},
       "qx.bom.client.Browser": {},
       "qx.bom.client.CssTransition": {},
@@ -133,11 +132,7 @@
           target.attachEvent("on" + type, listener);
         } else if (typeof target["on" + type] != "undefined") {
           target["on" + type] = listener;
-        } else {
-          {
-            qx.log.Logger.warn("No method available to add native listener to " + target);
-          }
-        }
+        } else {}
       },
 
       /**
@@ -167,11 +162,7 @@
           }
         } else if (typeof target["on" + type] != "undefined") {
           target["on" + type] = null;
-        } else {
-          {
-            qx.log.Logger.warn("No method available to remove native listener from " + target);
-          }
-        }
+        } else {}
       },
 
       /**
@@ -320,7 +311,7 @@
 
 
         var eventName = "on" + type.toLowerCase();
-        var supportsEvent = eventName in target;
+        var supportsEvent = (eventName in target);
 
         if (!supportsEvent) {
           supportsEvent = typeof target[eventName] == "function";
@@ -363,4 +354,4 @@
   qx.bom.Event.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Event.js.map?dt=1564930740440
+//# sourceMappingURL=Event.js.map?dt=1591463658437

@@ -23,11 +23,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http:\n2006 Derrell Lipman\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\nDerrell Lipman (derrell)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2004-2008 1&amp;1 Internet AG, Germany, http://www.1und1.de\n     2006 Derrell Lipman\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Sebastian Werner (wpbasti)\n Andreas Ecker (ecker)\n Derrell Lipman (derrell)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "Transports requests to a server using the native XmlHttpRequest object.\n\nThis class should not be used directly by client programmers."
+          "body": "<p>Transports requests to a server using the native XmlHttpRequest object.\n This class should not be used directly by client programmers.</p>"
         }
       ]
     }
@@ -49,7 +49,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Capabilities of this transport type."
+            "body": "<p>Capabilities of this transport type.</p>"
           }
         ],
         "@internal": [
@@ -77,7 +77,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Return a new XMLHttpRequest object suitable for the client browser."
+            "body": "<p>Return a new XMLHttpRequest object suitable for the client browser.</p>"
           }
         ],
         "@return": [
@@ -113,7 +113,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Whether the transport type is supported by the client."
+            "body": "<p>Whether the transport type is supported by the client.</p>"
           }
         ],
         "@return": [
@@ -143,7 +143,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The timeout for Xhr requests"
+            "body": "<p>The timeout for Xhr requests</p>"
           }
         ]
       },
@@ -165,13 +165,13 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Sets the timeout for requests"
+            "body": "<p>Sets the timeout for requests</p>"
           }
         ],
         "@deprecated": [
           {
             "name": "@deprecated",
-            "body": "{6.0} This method is deprecated from the start because synchronous I/O itself is deprecated\n in the W3C spec {@link https:\n other server issues.  However, this API is still supported by many browsers and this API is useful\n for code which has not made the transition to asynchronous I/O"
+            "body": "{6.0} This method is deprecated from the start because synchronous I/O itself is deprecated\n  in the W3C spec {@link https://xhr.spec.whatwg.org/} and timeouts are indicative of synchronous I/O and/or\n  other server issues.  However, this API is still supported by many browsers and this API is useful\n  for code which has not made the transition to asynchronous I/O"
           }
         ]
       },
@@ -193,7 +193,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the timeout for requests"
+            "body": "<p>Returns the timeout for requests</p>"
           }
         ]
       },
@@ -217,7 +217,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "If true and the responseType property is set to \"application/json\", getResponseContent() will\nreturn a Javascript map containing the JSON contents, i. e. the result qx.lang.Json.parse().\nIf false, the raw string data will be returned and the parsing must be done manually.\nThis is useful for special JSON dialects / extensions which are not supported by\nqx.lang.Json."
+            "body": "<p>If true and the responseType property is set to \"application/json\", getResponseContent() will\n return a Javascript map containing the JSON contents, i. e. the result qx.lang.Json.parse().\n If false, the raw string data will be returned and the parsing must be done manually.\n This is useful for special JSON dialects / extensions which are not supported by\n qx.lang.Json.</p>"
           }
         ]
       },
@@ -233,7 +233,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>The owning object</p>"
+          }
+        ]
+      }
     },
     "qxObjectId": {
       "type": "property",
@@ -241,7 +249,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>{String} The ID of the object.</p>"
+          }
+        ]
+      }
     }
   },
   "members": {
@@ -260,7 +276,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nCORE METHODS\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  CORE METHODS\n---------------------------------------------------------------------------\n</code></pre>"
           }
         ]
       },
@@ -310,7 +326,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the native request object"
+            "body": "<p>Returns the native request object</p>"
           }
         ],
         "@return": [
@@ -340,11 +356,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nUSER METHODS\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  USER METHODS\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Implementation for sending the request"
+            "body": "<p>Implementation for sending the request</p>"
           }
         ]
       },
@@ -370,7 +386,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Force the transport into the failed state (\"failed\").\n\nThis method should be used only if the requests URI was local\naccess. I.e. it started with \"file:"
+            "body": "<p>Force the transport into the failed state (\"failed\").\n This method should be used only if the requests URI was local\n access. I.e. it started with \"file://\".</p>"
           }
         ]
       },
@@ -392,11 +408,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nEVENT HANDLER\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  EVENT HANDLER\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Listener method for change of the \"readystate\".\nSets the internal state and informs the transport layer."
+            "body": "<p>Listener method for change of the \"readystate\".\n Sets the internal state and informs the transport layer.</p>"
           }
         ],
         "@signature": [
@@ -433,11 +449,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nREADY STATE\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  READY STATE\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Get the ready state of this transports request.\n\nFor qx.io.remote.transport.XmlHttp, ready state is a number between 1 to 4."
+            "body": "<p>Get the ready state of this transports request.\n For qx.io.remote.transport.XmlHttp, ready state is a number between 1 to 4.</p>"
           }
         ],
         "@return": [
@@ -467,11 +483,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nREQUEST HEADER SUPPORT\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  REQUEST HEADER SUPPORT\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Set a request header to this transports request."
+            "body": "<p>Set a request header to this transports request.</p>"
           }
         ],
         "@param": [
@@ -513,11 +529,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nRESPONSE HEADER SUPPORT\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  RESPONSE HEADER SUPPORT\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Returns a specific header provided by the server upon sending a request,\nwith header name determined by the argument headerName.\n\nOnly available at readyState 3 and 4 universally and in readyState 2\nin Gecko.\n\nPlease note: Some servers/proxies (such as Selenium RC) will capitalize\nresponse header names. This is in accordance with RFC 2616[1], which\nstates that HTTP 1.1 header names are case-insensitive, so your\napplication should be case-agnostic when dealing with response headers.\n\n[1]<a href=\"http:"
+            "body": "<p>Returns a specific header provided by the server upon sending a request,\n with header name determined by the argument headerName.\n Only available at readyState 3 and 4 universally and in readyState 2\n in Gecko.\n Please note: Some servers/proxies (such as Selenium RC) will capitalize\n response header names. This is in accordance with RFC 2616[1], which\n states that HTTP 1.1 header names are case-insensitive, so your\n application should be case-agnostic when dealing with response headers.\n [1]<a href=\"http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2\">RFC 2616: HTTP Message Headers</a></p>"
           }
         ],
         "@param": [
@@ -560,7 +576,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns all response headers of the request."
+            "body": "<p>Returns all response headers of the request.</p>"
           }
         ],
         "@return": [
@@ -590,7 +606,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Provides a hash of all response headers."
+            "body": "<p>Provides a hash of all response headers.</p>"
           }
         ],
         "@return": [
@@ -624,11 +640,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nSTATUS SUPPORT\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  STATUS SUPPORT\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Returns the current status code of the request if available or -1 if not."
+            "body": "<p>Returns the current status code of the request if available or -1 if not.</p>"
           }
         ],
         "@return": [
@@ -662,7 +678,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Provides the status text for the current request if available and null\notherwise."
+            "body": "<p>Provides the status text for the current request if available and null\n otherwise.</p>"
           }
         ],
         "@return": [
@@ -696,11 +712,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nRESPONSE DATA SUPPORT\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  RESPONSE DATA SUPPORT\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Provides the response text from the request when available and null\notherwise.  By passing true as the \"partial\" parameter of this method,\nincomplete data will be made available to the caller."
+            "body": "<p>Provides the response text from the request when available and null\n otherwise.  By passing true as the \"partial\" parameter of this method,\n incomplete data will be made available to the caller.</p>"
           }
         ],
         "@return": [
@@ -734,7 +750,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Provides the XML provided by the response if any and null otherwise.  By\npassing true as the \"partial\" parameter of this method, incomplete data will\nbe made available to the caller."
+            "body": "<p>Provides the XML provided by the response if any and null otherwise.  By\n passing true as the \"partial\" parameter of this method, incomplete data will\n be made available to the caller.</p>"
           }
         ],
         "@return": [
@@ -776,7 +792,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the length of the content as fetched thus far"
+            "body": "<p>Returns the length of the content as fetched thus far</p>"
           }
         ],
         "@return": [
@@ -810,7 +826,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the content of the response"
+            "body": "<p>Returns the content of the response</p>"
           }
         ],
         "@return": [
@@ -840,11 +856,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nAPPLY ROUTINES\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  APPLY ROUTINES\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Apply method for the \"state\" property.\nFires an event for each state value to inform the listeners."
+            "body": "<p>Apply method for the \"state\" property.\n Fires an event for each state value to inform the listeners.</p>"
           }
         ],
         "@param": [
@@ -930,7 +946,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -989,7 +1013,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getUrl": {
       "type": "function",
@@ -1932,6 +1964,14 @@
         "line": 982,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DEFER\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "destruct": {
@@ -1944,6 +1984,14 @@
         "line": 1015,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DESTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "descendants": []

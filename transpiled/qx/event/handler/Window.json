@@ -24,11 +24,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2007-2008 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nFabian Jakobs (fjakobs)\nChristian Hagendorn (chris_schmidt)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2007-2008 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Sebastian Werner (wpbasti)\n Fabian Jakobs (fjakobs)\n Christian Hagendorn (chris_schmidt)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "This handler provides event for the window object.\n\nNOTE: Instances of this class must be disposed of after use"
+          "body": "<p>This handler provides event for the window object.\n NOTE: Instances of this class must be disposed of after use</p>"
         }
       ],
       "@require": [
@@ -54,6 +54,27 @@
         "line": 58,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        },
+        {
+          "name": "@description",
+          "body": "<p>Create a new instance</p>"
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "manager {qx.event.Manager} Event manager for the window to use",
+          "paramName": "manager",
+          "description": " Event manager for the window to use",
+          "type": "qx.event.Manager"
+        }
+      ]
     }
   },
   "statics": {
@@ -186,35 +207,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nEVENT HANDLER INTERFACE\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  EVENT HANDLER INTERFACE\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "interface implementation"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "target {var} The target to, which the event handler should\n    be attached",
-            "paramName": "target",
-            "description": " The target to, which the event handler should\n    be attached",
-            "type": "var"
-          },
-          {
-            "name": "@param",
-            "body": "type {String} event type",
-            "paramName": "type",
-            "description": " event type",
-            "type": "String"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Boolean} Whether the event handler can handle events of the\n    given type.",
-            "type": "Boolean",
-            "description": " Whether the event handler can handle events of the\n    given type."
+            "body": "<p>interface implementation</p>"
           }
         ]
       },
@@ -240,30 +237,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "interface implementation"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "target {var} The target to, which the event handler should\n    be attached",
-            "paramName": "target",
-            "description": " The target to, which the event handler should\n    be attached",
-            "type": "var"
-          },
-          {
-            "name": "@param",
-            "body": "type {String} event type",
-            "paramName": "type",
-            "description": " event type",
-            "type": "String"
-          },
-          {
-            "name": "@param",
-            "body": "capture {Boolean} Whether to attach the event to the\n        capturing phase or the bubbling phase of the event.",
-            "paramName": "capture",
-            "description": " Whether to attach the event to the\n        capturing phase or the bubbling phase of the event.",
-            "type": "Boolean"
+            "body": "<p>interface implementation</p>"
           }
         ]
       },
@@ -289,30 +263,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "interface implementation"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "target {var} The target from, which the event handler should\n    be removed",
-            "paramName": "target",
-            "description": " The target from, which the event handler should\n    be removed",
-            "type": "var"
-          },
-          {
-            "name": "@param",
-            "body": "type {String} event type",
-            "paramName": "type",
-            "description": " event type",
-            "type": "String"
-          },
-          {
-            "name": "@param",
-            "body": "capture {Boolean} Whether to attach the event to the\n        capturing phase or the bubbling phase of the event.",
-            "paramName": "capture",
-            "description": " Whether to attach the event to the\n        capturing phase or the bubbling phase of the event.",
-            "type": "Boolean"
+            "body": "<p>interface implementation</p>"
           }
         ]
       },
@@ -338,11 +289,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nOBSERVER INIT/STOP\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  OBSERVER INIT/STOP\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Initializes the native window event listeners."
+            "body": "<p>Initializes the native window event listeners.</p>"
           }
         ]
       },
@@ -364,7 +315,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Disconnect the native window event listeners."
+            "body": "<p>Disconnect the native window event listeners.</p>"
           }
         ]
       },
@@ -386,11 +337,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nNATIVE EVENT SUPPORT\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  NATIVE EVENT SUPPORT\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "When qx.globalErrorHandling is enabled the callback will observed"
+            "body": "<p>When qx.globalErrorHandling is enabled the callback will observed</p>"
           }
         ]
       },
@@ -412,7 +363,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Native listener for all supported events."
+            "body": "<p>Native listener for all supported events.</p>"
           }
         ],
         "@param": [
@@ -495,7 +446,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -554,7 +513,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     }
   },
   "destruct": {
@@ -567,6 +534,14 @@
         "line": 242,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DESTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "defer": {
@@ -579,6 +554,14 @@
         "line": 254,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DEFER\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "descendants": []

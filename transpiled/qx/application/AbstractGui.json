@@ -25,11 +25,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2004-2008 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Sebastian Werner (wpbasti)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "Abstract base class for GUI applications using qooxdoo widgets."
+          "body": "<p>Abstract base class for GUI applications using qooxdoo widgets.</p>"
         }
       ],
       "@require": [
@@ -88,15 +88,15 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Create the root widget. This method is abstract and must be overridden\nby sub classes."
+            "body": "<p>Create the root widget. This method is abstract and must be overridden\n by sub classes.</p>"
           }
         ],
         "@return": [
           {
             "name": "@return",
-            "body": "{qx.ui.core.Widget} The root widget. This widget must be configured\n    with a {@link qx.ui.layout.Basic} or {@link qx.ui.layout.Canvas} layout.",
+            "body": "{qx.ui.core.Widget} The root widget. This widget must be configured\n     with a {@link qx.ui.layout.Basic} or {@link qx.ui.layout.Canvas} layout.",
             "type": "qx.ui.core.Widget",
-            "description": " The root widget. This widget must be configured\n    with a {@link qx.ui.layout.Basic} or {@link qx.ui.layout.Canvas} layout."
+            "description": " The root widget. This widget must be configured\n     with a {@link qx.ui.layout.Basic} or {@link qx.ui.layout.Canvas} layout."
           }
         ]
       },
@@ -118,7 +118,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the application's root widget. The root widgets can act as container\nfor popups. It is configured with a {@link qx.ui.layout.Basic} (if the\napplication is an inline application) layout or a {@link qx.ui.layout.Canvas}\n(if the application is a standalone application) layout .\n\nThe root has the same add method as the configured layout\n({@link qx.ui.layout.Basic} or {@link qx.ui.layout.Canvas})."
+            "body": "<p>Returns the application's root widget. The root widgets can act as container\n for popups. It is configured with a {@link qx.ui.layout.Basic} (if the\n application is an inline application) layout or a {@link qx.ui.layout.Canvas}\n (if the application is a standalone application) layout .\n The root has the same add method as the configured layout\n ({@link qx.ui.layout.Basic} or {@link qx.ui.layout.Canvas}).</p>"
           }
         ],
         "@return": [
@@ -148,7 +148,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "interface method"
+            "body": "<p>interface method</p>"
           }
         ]
       },
@@ -174,7 +174,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "interface method"
+            "body": "<p>interface method</p>"
           }
         ]
       },
@@ -200,7 +200,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Updates the GUI rendering"
+            "body": "<p>Updates the GUI rendering</p>"
           }
         ]
       },
@@ -222,15 +222,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "interface method"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{String?null} message text on unloading the page",
-            "type": "String?null",
-            "description": " message text on unloading the page"
+            "body": "<p>interface method</p>"
           }
         ]
       },
@@ -256,7 +248,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "interface method"
+            "body": "<p>interface method</p>"
           }
         ]
       },
@@ -279,7 +271,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Translate a message\nMark the message for translation."
+            "body": "<p>Translate a message\n Mark the message for translation.</p>"
           }
         ],
         "@param": [
@@ -321,7 +313,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Translate a plural message\nMark the messages for translation.\n\nDepending on the third argument the plural or the singular form is chosen."
+            "body": "<p>Translate a plural message\n Mark the messages for translation.\n Depending on the third argument the plural or the singular form is chosen.</p>"
           }
         ],
         "@param": [
@@ -377,7 +369,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Translate a message with translation hint\nMark the messages for translation."
+            "body": "<p>Translate a message with translation hint\n Mark the messages for translation.</p>"
           }
         ],
         "@param": [
@@ -426,7 +418,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Translate a plural message with translation hint\nMark the messages for translation.\n\nDepending on the third argument the plural or the singular form is chosen."
+            "body": "<p>Translate a plural message with translation hint\n Mark the messages for translation.\n Depending on the third argument the plural or the singular form is chosen.</p>"
           }
         ],
         "@param": [
@@ -489,7 +481,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Mark the message for translation but return the original message."
+            "body": "<p>Mark the message for translation but return the original message.</p>"
           }
         ],
         "@param": [
@@ -570,7 +562,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -629,11 +629,18 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     }
   },
   "descendants": [
-    "qx.application.Standalone",
-    "qx.application.Inline"
+    "qx.application.Standalone"
   ]
 }

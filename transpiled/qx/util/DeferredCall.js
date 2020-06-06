@@ -62,9 +62,9 @@
      */
     construct: function construct(callback, context) {
       qx.core.Object.constructor.call(this);
-      this.__callback = callback;
-      this.__context = context || null;
-      this.__manager = qx.util.DeferredCallManager.getInstance();
+      this.__P_113_0 = callback;
+      this.__P_113_1 = context || null;
+      this.__P_113_2 = qx.util.DeferredCallManager.getInstance();
     },
 
     /*
@@ -73,37 +73,29 @@
     *****************************************************************************
     */
     members: {
-      __callback: null,
-      __context: null,
-      __manager: null,
+      __P_113_0: null,
+      __P_113_1: null,
+      __P_113_2: null,
 
       /**
        * Prevent the callback from being called.
        */
       cancel: function cancel() {
-        this.__manager.cancel(this);
+        this.__P_113_2.cancel(this);
       },
 
       /**
        * Issue a deferred call of the callback.
        */
       schedule: function schedule() {
-        this.__manager.schedule(this);
+        this.__P_113_2.schedule(this);
       },
 
       /**
        * Calls the callback directly.
        */
       call: function call() {
-        {
-          // warn if the context is disposed
-          var context = this.__context;
-
-          if (context && context.isDisposed && context.isDisposed()) {
-            this.warn("The context object '" + context + "' of the defered call '" + this + "'is already disposed.");
-          }
-        }
-        this.__context ? this.__callback.apply(this.__context) : this.__callback();
+        this.__P_113_1 ? this.__P_113_0.apply(this.__P_113_1) : this.__P_113_0();
       }
     },
 
@@ -114,10 +106,10 @@
     */
     destruct: function destruct() {
       this.cancel();
-      this.__context = this.__callback = this.__manager = null;
+      this.__P_113_1 = this.__P_113_0 = this.__P_113_2 = null;
     }
   });
   qx.util.DeferredCall.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=DeferredCall.js.map?dt=1564930742511
+//# sourceMappingURL=DeferredCall.js.map?dt=1591463660724

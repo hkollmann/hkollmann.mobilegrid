@@ -21,11 +21,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2004-2012 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nGabriel Munteanu (gabios)\nChristopher Zuendorf (czuendorf)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2004-2012 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Gabriel Munteanu (gabios)\n Christopher Zuendorf (czuendorf)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "A multi-purpose widget, which combines a label with an icon.\n\nThe intended purpose of qx.ui.mobile.basic.Atom is to easily align the common icon-text\ncombination in different ways.\n\n*Example*\n\nHere is a little example of how to use the widget.\n\n<pre class='javascript'>\n  var atom = new qx.ui.mobile.basic.Atom(\"Icon Right\", \"icon/32/actions/go-next.png\");\n  this.getRoot().add(atom);\n</pre>\n\nThis example creates an atom with the label \"Icon Right\" and an icon."
+          "body": "<p>A multi-purpose widget, which combines a label with an icon.\n The intended purpose of qx.ui.mobile.basic.Atom is to easily align the common icon-text\n combination in different ways.\n<em>Example</em>\n Here is a little example of how to use the widget.\n </p>\n<pre class='javascript'>\n   var atom = new qx.ui.mobile.basic.Atom(\"Icon Right\", \"icon/32/actions/go-next.png\");\n   this.getRoot().add(atom);\n </pre>\n<p>This example creates an atom with the label \"Icon Right\" and an icon.</p>"
         }
       ]
     }
@@ -41,6 +41,36 @@
         "line": 58,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        },
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "label {String} Label to use",
+          "paramName": "label",
+          "description": " Label to use",
+          "type": "String"
+        },
+        {
+          "name": "@param",
+          "body": "icon {String?null} Icon to use",
+          "paramName": "icon",
+          "description": " Icon to use",
+          "optional": true,
+          "defaultValue": "null",
+          "type": "String"
+        }
+      ]
     }
   },
   "properties": {
@@ -59,7 +89,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -88,7 +118,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The label/caption/text of the qx.ui.mobile.basic.Atom instance"
+            "body": "<p>The label/caption/text of the qx.ui.mobile.basic.Atom instance</p>"
           }
         ]
       },
@@ -115,7 +145,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Any URI String supported by qx.ui.mobile.basic.Image to display an icon"
+            "body": "<p>Any URI String supported by qx.ui.mobile.basic.Image to display an icon</p>"
           }
         ]
       },
@@ -142,7 +172,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Configure the visibility of the sub elements/widgets.\nPossible values: both, text, icon"
+            "body": "<p>Configure the visibility of the sub elements/widgets.\n Possible values: both, text, icon</p>"
           }
         ]
       },
@@ -173,7 +203,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The position of the icon in relation to the text.\nOnly useful/needed if text and icon is configured and 'show' is configured as 'both' (default)"
+            "body": "<p>The position of the icon in relation to the text.\n Only useful/needed if text and icon is configured and 'show' is configured as 'both' (default)</p>"
           }
         ]
       },
@@ -262,7 +292,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -287,7 +317,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -312,7 +342,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -337,7 +367,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -362,7 +392,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Takes care of lazily creating the layout and disposing an already\npresent layout if necessary."
+            "body": "<p>Takes care of lazily creating the layout and disposing an already\n present layout if necessary.</p>"
           }
         ],
         "@param": [
@@ -400,7 +430,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the icon widget."
+            "body": "<p>Returns the icon widget.</p>"
           }
         ],
         "@return": [
@@ -430,7 +460,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the label widget."
+            "body": "<p>Returns the label widget.</p>"
           }
         ],
         "@return": [
@@ -460,7 +490,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Creates the icon widget."
+            "body": "<p>Creates the icon widget.</p>"
           }
         ],
         "@param": [
@@ -499,7 +529,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Creates the label widget."
+            "body": "<p>Creates the label widget.</p>"
           }
         ],
         "@param": [
@@ -538,7 +568,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "This function is responsible for creating and adding 2 children controls to the Button widget.\nA label and an icon."
+            "body": "<p>This function is responsible for creating and adding 2 children controls to the Button widget.\n A label and an icon.</p>"
           }
         ],
         "@param": [
@@ -620,7 +650,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -679,7 +717,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getDefaultCssClass": {
       "type": "function",
@@ -740,7 +786,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>defaultCssClass</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #defaultCssClass}."
+          }
+        ]
+      }
     },
     "getEnabled": {
       "type": "function",
@@ -826,7 +880,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>enabled</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #enabled}."
+          }
+        ]
+      }
     },
     "getName": {
       "type": "function",
@@ -887,7 +949,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>name</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #name}."
+          }
+        ]
+      }
     },
     "getAnonymous": {
       "type": "function",
@@ -973,7 +1043,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>anonymous</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #anonymous}."
+          }
+        ]
+      }
     },
     "getId": {
       "type": "function",
@@ -1034,7 +1112,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>id</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #id}."
+          }
+        ]
+      }
     },
     "getVisibility": {
       "type": "function",
@@ -1095,7 +1181,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>visibility</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #visibility}."
+          }
+        ]
+      }
     },
     "getActivatable": {
       "type": "function",
@@ -1181,7 +1275,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>activatable</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #activatable}."
+          }
+        ]
+      }
     },
     "getRotation": {
       "type": "function",
@@ -1242,7 +1344,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>rotation</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #rotation}."
+          }
+        ]
+      }
     },
     "getTransformUnit": {
       "type": "function",
@@ -1303,7 +1413,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>transformUnit</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #transformUnit}."
+          }
+        ]
+      }
     },
     "getScaleX": {
       "type": "function",
@@ -1364,7 +1482,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>scaleX</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #scaleX}."
+          }
+        ]
+      }
     },
     "getScaleY": {
       "type": "function",
@@ -1425,7 +1551,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>scaleY</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #scaleY}."
+          }
+        ]
+      }
     },
     "getTranslateX": {
       "type": "function",
@@ -1486,7 +1620,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>translateX</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #translateX}."
+          }
+        ]
+      }
     },
     "getTranslateY": {
       "type": "function",
@@ -1547,7 +1689,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>translateY</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #translateY}."
+          }
+        ]
+      }
     },
     "getTranslateZ": {
       "type": "function",
@@ -1608,7 +1758,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.core.Widget",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>translateZ</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #translateZ}."
+          }
+        ]
+      }
     },
     "getLabel": {
       "type": "function",
@@ -1885,6 +2043,14 @@
         "line": 343,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DESTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "descendants": [

@@ -175,16 +175,10 @@
         }).apply(this, this._getExtendedPropertyValueArrays(boxShadowProperties));
       },
       // property apply
-      _applyBoxShadow: function _applyBoxShadow() {
-        {
-          if (this._isInitialized()) {
-            throw new Error("This decorator is already in-use. Modification is not possible anymore!");
-          }
-        }
-      }
+      _applyBoxShadow: function _applyBoxShadow() {}
     }
   });
   qx.ui.decoration.MBoxShadow.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MBoxShadow.js.map?dt=1564930746172
+//# sourceMappingURL=MBoxShadow.js.map?dt=1591463665847

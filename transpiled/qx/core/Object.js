@@ -1,11 +1,8 @@
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
       "qx.core.ObjectRegistry": {
-        "require": true,
-        "construct": true
+        "require": true
       },
       "qx.core.Environment": {
         "defer": "load",
@@ -13,7 +10,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       },
       "qx.Class": {
         "usage": "dynamic",
-        "construct": true,
         "require": true
       },
       "qx.data.MBinding": {
@@ -34,21 +30,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       "qx.core.MAssert": {
         "require": true
       },
-      "qx.core.IDisposable": {
-        "construct": true
-      },
       "qx.core.Property": {
         "require": true
       },
-      "qx.Bootstrap": {},
+      "qx.core.IDisposable": {},
+      "qx.util.Uuid": {},
       "qx.util.DisposeUtil": {},
       "qx.event.Registration": {}
-    },
-    "environment": {
-      "provided": [],
-      "required": {
-        "qx.debug.dispose.level": {}
-      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -106,13 +94,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     /**
      * Create a new instance
      */
-    construct: function construct() {
-      if (false || qx.Class.hasInterface(this.constructor, qx.core.IDisposable)) {
-        qx.core.ObjectRegistry.register(this);
-      } else {
-        qx.core.ObjectRegistry.toHashCode(this);
-      }
-    },
+    construct: function construct() {},
 
     /*
     *****************************************************************************
@@ -130,7 +112,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     *****************************************************************************
     */
     members: {
-      __Property: true ? qx.core.Property : null,
+      __P_17_0: true ? qx.core.Property : null,
 
       /*
       ---------------------------------------------------------------------------
@@ -141,10 +123,50 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       /**
        * Return unique hash code of object
        *
-       * @return {Integer} unique hash code of the object
+       * @return {String} unique hash code of the object
        */
       toHashCode: function toHashCode() {
+        if (!this.$$hash && !this.$$disposed) {
+          if (false || qx.Class.hasInterface(this.constructor, qx.core.IDisposable)) {
+            qx.core.ObjectRegistry.register(this);
+          } else {
+            qx.core.ObjectRegistry.toHashCode(this);
+          }
+        }
+
         return this.$$hash;
+      },
+
+      /**
+       * Returns a UUID for this object
+       * 
+       * @return {String} a UUID
+       */
+      toUuid: function toUuid() {
+        if (!this.$$uuid) {
+          this.$$uuid = qx.util.Uuid.createUuidV4();
+        }
+
+        return this.$$uuid;
+      },
+
+      /**
+       * Sets a UUID; normally set automatically, you would only set this manually
+       * if you have a very special reason to do so - for example, you are using UUIDs which are
+       * synchronized from a special source, eg remote server.
+       * 
+       * This can only be called once, and only if it has not been automatically allocated.  If
+       * you really do need to call this, call it as soon after construction as possible to avoid
+       * an exception.  
+       * 
+       * @param uuid {String} an ID which is unique across the whole application
+       */
+      setExplicitUuid: function setExplicitUuid(uuid) {
+        if (Boolean(this.$$uuid)) {
+          throw new Error("Cannot change the UUID of an object once set");
+        }
+
+        this.$$uuid = uuid;
       },
 
       /**
@@ -153,7 +175,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {String} string representation of the object
        */
       toString: function toString() {
-        return this.classname + "[" + this.$$hash + "]";
+        return this.classname + "[" + this.toHashCode() + "]";
       },
 
       /**
@@ -164,12 +186,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {var} the return value of the method of the base class.
        */
       base: function base(args, varargs) {
-        {
-          if (!qx.Bootstrap.isFunctionOrAsyncFunction(args.callee.base)) {
-            throw new Error("Cannot call super class. Method is not derived: " + args.callee.displayName);
-          }
-        }
-
         if (arguments.length === 1) {
           return args.callee.base.call(this);
         } else {
@@ -194,7 +210,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       */
 
       /**
-       * EXPERIMENTAL - NOT READY FOR PRODUCTION
        *
        * Returns a clone of this object. Copies over all user configured
        * property values. Do not configure a parent nor apply the appearance
@@ -206,8 +221,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         var clazz = this.constructor;
         var clone = new clazz();
         var props = qx.Class.getProperties(clazz);
-        var user = this.__Property.$$store.user;
-        var setter = this.__Property.$$method.set;
+        var user = this.__P_17_0.$$store.user;
+        var setter = this.__P_17_0.$$method.set;
         var name; // Iterate through properties
 
         for (var i = 0, l = props.length; i < l; i++) {
@@ -229,7 +244,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       */
 
       /** @type {Map} stored user data */
-      __userData: null,
+      __P_17_1: null,
 
       /**
        * Store user defined data inside the object.
@@ -238,11 +253,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param value {Object} the value of the user data
        */
       setUserData: function setUserData(key, value) {
-        if (!this.__userData) {
-          this.__userData = {};
+        if (!this.__P_17_1) {
+          this.__P_17_1 = {};
         }
 
-        this.__userData[key] = value;
+        this.__P_17_1[key] = value;
       },
 
       /**
@@ -252,12 +267,19 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {Object} the user data
        */
       getUserData: function getUserData(key) {
-        if (!this.__userData) {
+        if (!this.__P_17_1) {
           return null;
         }
 
-        var data = this.__userData[key];
+        var data = this.__P_17_1[key];
         return data === undefined ? null : data;
+      },
+
+      /**
+       * Clears all user defined data from the object.
+       */
+      resetUserData: function resetUserData() {
+        this.__P_17_1 = null;
       },
 
       /*
@@ -301,12 +323,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         this.$$instance = null;
         this.$$allowconstruct = null; // Debug output
 
-        {
-          if (qx.core.Environment.get("qx.debug.dispose.level") > 2) {
-            qx.Bootstrap.debug(this, "Disposing " + this.classname + "[" + this.toHashCode() + "]");
-          }
-        } // Deconstructor support for classes
-
+        // Deconstructor support for classes
         var clazz = this.constructor;
         var mixins;
 
@@ -332,30 +349,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         }
 
         this.$$disposing = false; // Additional checks
-
-        {
-          if (qx.core.Environment.get("qx.debug.dispose.level") > 0) {
-            var key, value;
-
-            for (key in this) {
-              value = this[key]; // Check for Objects but respect values attached to the prototype itself
-
-              if (value !== null && _typeof(value) === "object" && !qx.Bootstrap.isString(value)) {
-                // Check prototype value
-                // undefined is the best, but null may be used as a placeholder for
-                // private variables (hint: checks in qx.Class.define). We accept both.
-                if (this.constructor.prototype[key] != null) {
-                  continue;
-                }
-
-                if (qx.core.Environment.get("qx.debug.dispose.level") > 1) {
-                  qx.Bootstrap.warn(this, "Missing destruct definition for '" + key + "' in " + this.classname + "[" + this.toHashCode() + "]: " + value);
-                  delete this[key];
-                }
-              }
-            }
-          }
-        }
       },
 
       /*
@@ -432,13 +425,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       qx.core.ObjectRegistry.unregister(this); // Cleanup user data
 
-      this.__userData = null; // only of properties are available
+      this.__P_17_1 = null; // only of properties are available
 
       {
         // Cleanup properties
         var clazz = this.constructor;
         var properties;
-        var store = this.__Property.$$store;
+        var store = this.__P_17_0.$$store;
         var storeUser = store.user;
         var storeTheme = store.theme;
         var storeInherit = store.inherit;
@@ -464,4 +457,4 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   qx.core.Object.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Object.js.map?dt=1564930734871
+//# sourceMappingURL=Object.js.map?dt=1591463652596

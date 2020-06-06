@@ -83,11 +83,11 @@
 
         this.setRoot(true); // Register for synchronization
 
-        qx.html.Element._modified[this.$$hash] = this;
+        qx.html.Element._modified[this.toHashCode()] = this;
       }
     }
   });
   qx.html.Root.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Root.js.map?dt=1564930741960
+//# sourceMappingURL=Root.js.map?dt=1591463659817

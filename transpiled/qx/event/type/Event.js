@@ -9,7 +9,6 @@
       "qx.core.Object": {
         "require": true
       },
-      "qx.core.Assert": {},
       "qx.event.Pool": {},
       "qx.Promise": {}
     }
@@ -93,15 +92,6 @@
        * @return {qx.event.type.Event} The initialized event instance
        */
       init: function init(canBubble, cancelable) {
-        {
-          if (canBubble !== undefined) {
-            qx.core.Assert.assertBoolean(canBubble, "Invalid argument value 'canBubble'.");
-          }
-
-          if (cancelable !== undefined) {
-            qx.core.Assert.assertBoolean(cancelable, "Invalid argument value 'cancelable'.");
-          }
-        }
         this._type = null;
         this._target = null;
         this._currentTarget = null;
@@ -170,9 +160,6 @@
        *
        */
       stopPropagation: function stopPropagation() {
-        {
-          this.assertTrue(this._bubbles, "Cannot stop propagation on a non bubbling event: " + this.getType());
-        }
         this._stopPropagation = true;
       },
 
@@ -191,9 +178,6 @@
        *
        */
       preventDefault: function preventDefault() {
-        {
-          this.assertTrue(this._cancelable, "Cannot prevent default action on a non cancelable event: " + this.getType());
-        }
         this._preventDefault = true;
       },
 
@@ -412,4 +396,4 @@
   qx.event.type.Event.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Event.js.map?dt=1564930741128
+//# sourceMappingURL=Event.js.map?dt=1591463659102

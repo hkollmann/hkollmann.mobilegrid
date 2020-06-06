@@ -21,11 +21,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\nFabian Jakobs (fjakobs)\nMustafa Sak (msak)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2004-2008 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Sebastian Werner (wpbasti)\n Andreas Ecker (ecker)\n Fabian Jakobs (fjakobs)\n Mustafa Sak (msak)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "A wrapper for CSS font styles. Fond objects can be applied to instances\nof {@link qx.html.Element}."
+          "body": "<p>A wrapper for CSS font styles. Fond objects can be applied to instances\n of {@link qx.html.Element}.</p>"
         }
       ]
     }
@@ -41,6 +41,36 @@
         "line": 66,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        },
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "size {String?} The font size (Unit: pixel)",
+          "paramName": "size",
+          "description": " The font size (Unit: pixel)",
+          "optional": true,
+          "type": "String"
+        },
+        {
+          "name": "@param",
+          "body": "family {String[]?} A sorted list of font families",
+          "paramName": "family",
+          "description": " A sorted list of font families",
+          "optional": true,
+          "type": "String[]"
+        }
+      ]
     }
   },
   "statics": {
@@ -59,7 +89,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Converts a typical CSS font definition string to an font object\n\nExample string: <code>bold italic 20px Arial</code>"
+            "body": "<p>Converts a typical CSS font definition string to an font object\n Example string: <code>bold italic 20px Arial</code></p>"
           }
         ],
         "@param": [
@@ -98,7 +128,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Converts a map property definition into a font object."
+            "body": "<p>Converts a map property definition into a font object.</p>"
           }
         ],
         "@param": [
@@ -165,7 +195,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns a map of all properties in empty state.\n\nThis is useful for resetting previously configured\nfont styles."
+            "body": "<p>Returns a map of all properties in empty state.\n This is useful for resetting previously configured\n font styles.</p>"
           }
         ],
         "@return": [
@@ -197,7 +227,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The font size (Unit: pixel)"
+            "body": "<p>The font size (Unit: pixel)</p>"
           }
         ]
       },
@@ -223,7 +253,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The line height as scaling factor of the default line height. A value\nof 1 corresponds to the default line height"
+            "body": "<p>The line height as scaling factor of the default line height. A value\n of 1 corresponds to the default line height</p>"
           }
         ]
       },
@@ -249,7 +279,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Characters that are used to test if the font has loaded properly. These\ndefault to \"WEei\" in `qx.bom.webfont.Validator` and can be overridden\nfor certain cases like icon fonts that do not provide the predefined\ncharacters."
+            "body": "<p>Characters that are used to test if the font has loaded properly. These\n default to \"WEei\" in <code>qx.bom.webfont.Validator</code> and can be overridden\n for certain cases like icon fonts that do not provide the predefined\n characters.</p>"
           }
         ]
       },
@@ -274,7 +304,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Version identifier that is appended to the URL to be loaded. Fonts\nthat are defined thru themes may be managed by the resource manager.\nIn this case updated fonts persist due to aggressive fontface caching\nof some browsers. To get around this, set the `version` property to\nthe version of your font. It will be appended to the CSS URL and forces\nthe browser to re-validate.\n\nThe version needs to be URL friendly, so only characters, numbers,\ndash and dots are allowed here."
+            "body": "<p>Version identifier that is appended to the URL to be loaded. Fonts\n that are defined thru themes may be managed by the resource manager.\n In this case updated fonts persist due to aggressive fontface caching\n of some browsers. To get around this, set the <code>version</code> property to\n the version of your font. It will be appended to the CSS URL and forces\n the browser to re-validate.\n The version needs to be URL friendly, so only characters, numbers,\n dash and dots are allowed here.</p>"
           }
         ]
       },
@@ -298,7 +328,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "A sorted list of font families"
+            "body": "<p>A sorted list of font families</p>"
           }
         ]
       },
@@ -324,7 +354,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Whether the font is bold"
+            "body": "<p>Whether the font is bold</p>"
           }
         ]
       },
@@ -350,7 +380,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Whether the font is italic"
+            "body": "<p>Whether the font is italic</p>"
           }
         ]
       },
@@ -376,7 +406,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The text decoration for this font"
+            "body": "<p>The text decoration for this font</p>"
           }
         ]
       },
@@ -406,7 +436,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The text color for this font"
+            "body": "<p>The text color for this font</p>"
           }
         ]
       },
@@ -432,7 +462,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The text shadow for this font"
+            "body": "<p>The text shadow for this font</p>"
           }
         ]
       },
@@ -458,7 +488,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The weight property of the font as opposed to just setting it to 'bold' by setting the bold property to true"
+            "body": "<p>The weight property of the font as opposed to just setting it to 'bold' by setting the bold property to true</p>"
           }
         ]
       },
@@ -475,7 +505,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>The owning object</p>"
+          }
+        ]
+      }
     },
     "qxObjectId": {
       "type": "property",
@@ -483,7 +521,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>{String} The ID of the object.</p>"
+          }
+        ]
+      }
     }
   },
   "members": {
@@ -516,7 +562,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -558,7 +604,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -583,7 +629,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -608,7 +654,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -633,7 +679,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -658,7 +704,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -683,7 +729,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -708,7 +754,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -733,15 +779,15 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Get a map of all CSS styles, which will be applied to the widget. Only\nthe styles which are set are returned."
+            "body": "<p>Get a map of all CSS styles, which will be applied to the widget. Only\n the styles which are set are returned.</p>"
           }
         ],
         "@return": [
           {
             "name": "@return",
-            "body": "{Map} Map containing the current styles. The keys are property\nnames which can directly be used with the <code>set</code> method of each\nwidget.",
+            "body": "{Map} Map containing the current styles. The keys are property\n names which can directly be used with the <code>set</code> method of each\n widget.",
             "type": "Map",
-            "description": " Map containing the current styles. The keys are property\nnames which can directly be used with the <code>set</code> method of each\nwidget."
+            "description": " Map containing the current styles. The keys are property\n names which can directly be used with the <code>set</code> method of each\n widget."
           }
         ]
       },
@@ -807,7 +853,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -866,7 +920,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getSize": {
       "type": "function",

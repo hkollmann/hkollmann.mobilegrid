@@ -92,7 +92,7 @@
    *
    * *External Documentation*
    *
-   * See <a href='http://manual.qooxdoo.org/${qxversion}/pages/layout/box.html'>extended documentation</a>
+   * See <a href='http://qooxdoo.org/docs/#layout/box.md'>extended documentation</a>
    * and links to demos for this layout.
    *
    */
@@ -182,10 +182,10 @@
     *****************************************************************************
     */
     members: {
-      __heights: null,
-      __flexs: null,
-      __enableFlex: null,
-      __children: null,
+      __P_55_0: null,
+      __P_55_1: null,
+      __P_55_2: null,
+      __P_55_3: null,
 
       /*
       ---------------------------------------------------------------------------
@@ -203,16 +203,16 @@
       /**
        * Rebuilds caches for flex and percent layout properties
        */
-      __rebuildCache: function __rebuildCache() {
+      __P_55_4: function __P_55_4() {
         var children = this._getLayoutChildren();
 
         var length = children.length;
         var enableFlex = false;
-        var reuse = this.__heights && this.__heights.length != length && this.__flexs && this.__heights;
+        var reuse = this.__P_55_0 && this.__P_55_0.length != length && this.__P_55_1 && this.__P_55_0;
         var props; // Sparse array (keep old one if lengths has not been modified)
 
-        var heights = reuse ? this.__heights : new Array(length);
-        var flexs = reuse ? this.__flexs : new Array(length); // Reverse support
+        var heights = reuse ? this.__P_55_0 : new Array(length);
+        var flexs = reuse ? this.__P_55_1 : new Array(length); // Reverse support
 
         if (this.getReversed()) {
           children = children.concat().reverse();
@@ -237,12 +237,12 @@
 
 
         if (!reuse) {
-          this.__heights = heights;
-          this.__flexs = flexs;
+          this.__P_55_0 = heights;
+          this.__P_55_1 = flexs;
         }
 
-        this.__enableFlex = enableFlex;
-        this.__children = children; // Clear invalidation marker
+        this.__P_55_2 = enableFlex;
+        this.__P_55_3 = children; // Clear invalidation marker
 
         delete this._invalidChildrenCache;
       },
@@ -253,26 +253,16 @@
       ---------------------------------------------------------------------------
       */
       // overridden
-      verifyLayoutProperty: function verifyLayoutProperty(item, name, value) {
-        this.assert(name === "flex" || name === "height", "The property '" + name + "' is not supported by the VBox layout!");
-
-        if (name == "height") {
-          this.assertMatch(value, qx.ui.layout.Util.PERCENT_VALUE);
-        } else {
-          // flex
-          this.assertNumber(value);
-          this.assert(value >= 0);
-        }
-      },
+      verifyLayoutProperty: null,
       // overridden
       renderLayout: function renderLayout(availWidth, availHeight, padding) {
         // Rebuild flex/height caches
         if (this._invalidChildrenCache) {
-          this.__rebuildCache();
+          this.__P_55_4();
         } // Cache children
 
 
-        var children = this.__children;
+        var children = this.__P_55_3;
         var length = children.length;
         var util = qx.ui.layout.Util; // Compute gaps
 
@@ -292,7 +282,7 @@
         var allocatedHeight = gaps;
 
         for (i = 0; i < length; i += 1) {
-          percent = this.__heights[i];
+          percent = this.__P_55_0[i];
           hint = children[i].getSizeHint();
           height = percent != null ? Math.floor((availHeight - gaps) * percent) : hint.height; // Limit computed value
 
@@ -307,12 +297,12 @@
         } // Flex support (growing/shrinking)
 
 
-        if (this.__enableFlex && allocatedHeight != availHeight) {
+        if (this.__P_55_2 && allocatedHeight != availHeight) {
           var flexibles = {};
           var flex, offset;
 
           for (i = 0; i < length; i += 1) {
-            flex = this.__flexs[i];
+            flex = this.__P_55_1[i];
 
             if (flex > 0) {
               hint = children[i].getSizeHint();
@@ -401,11 +391,11 @@
       _computeSizeHint: function _computeSizeHint() {
         // Rebuild flex/height caches
         if (this._invalidChildrenCache) {
-          this.__rebuildCache();
+          this.__P_55_4();
         }
 
         var util = qx.ui.layout.Util;
-        var children = this.__children; // Initialize
+        var children = this.__P_55_3; // Initialize
 
         var minHeight = 0,
             height = 0,
@@ -420,8 +410,8 @@
 
           height += hint.height; // Detect if child is shrinkable or has percent height and update minHeight
 
-          var flex = this.__flexs[i];
-          var percent = this.__heights[i];
+          var flex = this.__P_55_1[i];
+          var percent = this.__P_55_0[i];
 
           if (flex) {
             minHeight += hint.minHeight;
@@ -471,10 +461,10 @@
     *****************************************************************************
     */
     destruct: function destruct() {
-      this.__heights = this.__flexs = this.__children = null;
+      this.__P_55_0 = this.__P_55_1 = this.__P_55_3 = null;
     }
   });
   qx.ui.layout.VBox.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=VBox.js.map?dt=1564930737484
+//# sourceMappingURL=VBox.js.map?dt=1591463654994

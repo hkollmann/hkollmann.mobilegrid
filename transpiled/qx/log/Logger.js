@@ -1,4 +1,4 @@
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 (function () {
   var $$dbClassInfo = {
@@ -13,11 +13,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         "require": true
       },
       "qx.lang.Array": {},
-      "qx.lang.Function": {},
       "qx.log.appender.RingBuffer": {
         "usage": "dynamic",
         "require": true
-      }
+      },
+      "qx.lang.Function": {}
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -88,7 +88,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         CONFIGURATION
       ---------------------------------------------------------------------------
       */
-      __level: "debug",
+      __P_108_0: "debug",
 
       /**
        * Configures the minimum log level required for new messages.
@@ -96,7 +96,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param value {String} One of "debug", "info", "warn" or "error".
        */
       setLevel: function setLevel(value) {
-        this.__level = value;
+        this.__P_108_0 = value;
       },
 
       /**
@@ -106,7 +106,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {Integer} Debug level
        */
       getLevel: function getLevel() {
-        return this.__level;
+        return this.__P_108_0;
       },
 
       /**
@@ -115,7 +115,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param value {Integer} Any positive integer
        */
       setTreshold: function setTreshold(value) {
-        this.__buffer.setMaxMessages(value);
+        this.__P_108_1.setMaxMessages(value);
       },
 
       /**
@@ -125,7 +125,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {Integer} Treshold value
        */
       getTreshold: function getTreshold() {
-        return this.__buffer.getMaxMessages();
+        return this.__P_108_1.getMaxMessages();
       },
 
       /*
@@ -135,19 +135,22 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       */
 
       /** @type {Map} Map of all known appenders by ID */
-      __appenders: [],
+      __P_108_2: [],
 
       /** @type {Map} Map of all known appenders by name */
-      __appendersByName: {},
+      __P_108_3: {},
 
       /** @type {Array} Array of filters to apply when selecting appenders to append to */
-      __filters: [],
+      __P_108_4: [],
 
       /** @type {Integer} Last free appender ID */
-      __id: 0,
+      __P_108_5: 0,
 
       /**
        * Registers the given appender and inserts the last cached messages.
+       * 
+       * Note that an appender is named by it's class name, unless it has a property
+       * called `appenderName`
        *
        * @param appender {Class} A static appender class supporting at
        *   least a <code>process()</code> method to handle incoming messages.
@@ -158,19 +161,20 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         } // Register appender
 
 
-        var id = this.__id++;
-        this.__appenders[id] = appender;
-        this.__appendersByName[appender.classname] = appender;
+        var id = this.__P_108_5++;
+        var appenderName = appender.appenderName || appender.classname;
+        this.__P_108_2[id] = appender;
+        this.__P_108_3[appenderName] = appender;
         appender.$$id = id; // Insert previous messages
 
-        var entries = this.__buffer.getAllLogEvents();
+        var entries = this.__P_108_1.getAllLogEvents();
 
         for (var i = 0, l = entries.length; i < l; i++) {
           var entry = entries[i];
 
-          var appenders = this.__getAppenders(entry.loggerName, entry.level);
+          var appenders = this.__P_108_6(entry.loggerName, entry.level);
 
-          if (appenders[appender.classname]) {
+          if (appenders[appenderName]) {
             appender.process(entry);
           }
         }
@@ -188,8 +192,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           return;
         }
 
-        delete this.__appendersByName[appender.classname];
-        delete this.__appenders[id];
+        var appenderName = appender.appenderName || appender.classname;
+        delete this.__P_108_3[appenderName];
+        delete this.__P_108_2[id];
         delete appender.$$id;
       },
 
@@ -229,6 +234,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * is issued; qx.io.* will go to Native for debug, error, warn, and info and to
        * Console for error, warn, and info
        *
+       * Note that an appender is named by it's class name, unless it has a property
+       * called `appenderName`.
+       * 
        * @param logger {String|RegExp} the pattern to match in the logger name
        * @param appenderName {String?} the name of the appender class, if undefined then all appenders
        * @param level {String?} the minimum logging level to use the appender, if undefined the default level is used
@@ -238,9 +246,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           logger = new RegExp(logger);
         }
 
-        this.__filters.push({
+        this.__P_108_4.push({
           loggerMatch: logger,
-          level: level || this.__level,
+          level: level || this.__P_108_0,
           appenderName: appenderName
         });
       },
@@ -249,7 +257,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * Reset all filters
        */
       resetFilters: function resetFilters() {
-        this.__filters = [];
+        this.__P_108_4 = [];
       },
 
       /*
@@ -267,7 +275,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        *   does not keep references to other objects.
        */
       debug: function debug(object, message) {
-        qx.log.Logger.__log("debug", arguments);
+        qx.log.Logger.__P_108_7("debug", arguments);
       },
 
       /**
@@ -279,7 +287,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        *   does not keep references to other objects.
        */
       info: function info(object, message) {
-        qx.log.Logger.__log("info", arguments);
+        qx.log.Logger.__P_108_7("info", arguments);
       },
 
       /**
@@ -291,7 +299,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        *   does not keep references to other objects.
        */
       warn: function warn(object, message) {
-        qx.log.Logger.__log("warn", arguments);
+        qx.log.Logger.__P_108_7("warn", arguments);
       },
 
       /**
@@ -303,7 +311,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        *   does not keep references to other objects.
        */
       error: function error(object, message) {
-        qx.log.Logger.__log("error", arguments);
+        qx.log.Logger.__P_108_7("error", arguments);
       },
 
       /**
@@ -320,7 +328,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           var args = qx.lang.Array.fromArguments(arguments);
           args.push(trace.join("\n"));
 
-          qx.log.Logger.__log("trace", args);
+          qx.log.Logger.__P_108_7("trace", args);
         }
       },
 
@@ -332,13 +340,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        *     arguments.callee if the calling method is to be deprecated.
        * @param msg {String?} Optional message to be printed.
        */
-      deprecatedMethodWarning: function deprecatedMethodWarning(fcn, msg) {
-        {
-          var functionName = qx.lang.Function.getName(fcn);
-          this.warn("The method '" + functionName + "' is deprecated: " + (msg || "Please consult the API documentation of this method for alternatives."));
-          this.trace();
-        }
-      },
+      deprecatedMethodWarning: function deprecatedMethodWarning(fcn, msg) {},
 
       /**
        * Prints a class deprecation warning and a stack trace if the setting
@@ -347,13 +349,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param clazz {Class} reference to the deprecated class.
        * @param msg {String?} Optional message to be printed.
        */
-      deprecatedClassWarning: function deprecatedClassWarning(clazz, msg) {
-        {
-          var className = clazz.classname || "unknown";
-          this.warn("The class '" + className + "' is deprecated: " + (msg || "Please consult the API documentation of this class for alternatives."));
-          this.trace();
-        }
-      },
+      deprecatedClassWarning: function deprecatedClassWarning(clazz, msg) {},
 
       /**
        * Prints an event deprecation warning and a stack trace if the setting
@@ -363,13 +359,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param event {String} deprecated event name.
        * @param msg {String?} Optional message to be printed.
        */
-      deprecatedEventWarning: function deprecatedEventWarning(clazz, event, msg) {
-        {
-          var className = clazz.self ? clazz.self.classname : "unknown";
-          this.warn("The event '" + (event || "unknown") + "' from class '" + className + "' is deprecated: " + (msg || "Please consult the API documentation of this class for alternatives."));
-          this.trace();
-        }
-      },
+      deprecatedEventWarning: function deprecatedEventWarning(clazz, event, msg) {},
 
       /**
        * Prints a mixin deprecation warning and a stack trace if the setting
@@ -378,13 +368,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param clazz {Class} reference to the deprecated mixin.
        * @param msg {String?} Optional message to be printed.
        */
-      deprecatedMixinWarning: function deprecatedMixinWarning(clazz, msg) {
-        {
-          var mixinName = clazz ? clazz.name : "unknown";
-          this.warn("The mixin '" + mixinName + "' is deprecated: " + (msg || "Please consult the API documentation of this class for alternatives."));
-          this.trace();
-        }
-      },
+      deprecatedMixinWarning: function deprecatedMixinWarning(clazz, msg) {},
 
       /**
        * Prints a constant deprecation warning and a stacktrace if the setting
@@ -395,21 +379,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param constant {String} The name of the constant as string.
        * @param msg {String} Optional message to be printed.
        */
-      deprecatedConstantWarning: function deprecatedConstantWarning(clazz, constant, msg) {
-        {
-          // check if __defineGetter__ is available
-          if (clazz.__defineGetter__) {
-            var self = this;
-            var constantValue = clazz[constant];
-
-            clazz.__defineGetter__(constant, function () {
-              self.warn("The constant '" + constant + "' is deprecated: " + (msg || "Please consult the API documentation for alternatives."));
-              self.trace();
-              return constantValue;
-            });
-          }
-        }
-      },
+      deprecatedConstantWarning: function deprecatedConstantWarning(clazz, constant, msg) {},
 
       /**
        * Prints a deprecation warning and a stacktrace when a subclass overrides
@@ -422,21 +392,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param methodName {String} The method name which is deprecated for overriding.
        * @param msg {String?} Optional message to be printed.
        */
-      deprecateMethodOverriding: function deprecateMethodOverriding(object, baseclass, methodName, msg) {
-        {
-          var clazz = object.constructor;
-
-          while (clazz.classname !== baseclass.classname) {
-            if (clazz.prototype.hasOwnProperty(methodName)) {
-              this.warn("The method '" + qx.lang.Function.getName(object[methodName]) + "' overrides a deprecated method: " + (msg || "Please consult the API documentation for alternatives."));
-              this.trace();
-              break;
-            }
-
-            clazz = clazz.superclass;
-          }
-        }
-      },
+      deprecateMethodOverriding: function deprecateMethodOverriding(object, baseclass, methodName, msg) {},
 
       /**
        * Deletes the current buffer. Does not influence message handling of the
@@ -444,7 +400,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        *
        */
       clear: function clear() {
-        this.__buffer.clearHistory();
+        this.__P_108_1.clearHistory();
       },
 
       /*
@@ -454,10 +410,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       */
 
       /** @type {qx.log.appender.RingBuffer} Message buffer of previously fired messages. */
-      __buffer: new qx.log.appender.RingBuffer(50),
+      __P_108_1: new qx.log.appender.RingBuffer(50),
 
       /** @type {Map} Numeric translation of log levels */
-      __levels: {
+      __P_108_8: {
         trace: 0,
         debug: 1,
         info: 2,
@@ -466,7 +422,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       },
 
       /** @type {Map} cache of appenders for a given logger and level */
-      __appendersCache: {},
+      __P_108_9: {},
 
       /**
        * Detects the name of the logger to use for an object
@@ -474,7 +430,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param object {Object} Contextual object (either instance or static class)
        * @return {String} Logger name
        */
-      __getLoggerName: function __getLoggerName(object) {
+      __P_108_10: function __P_108_10(object) {
         if (object) {
           if (object.classname) {
             return object.classname;
@@ -496,9 +452,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {Boolean} True if the logger is enabled
        */
       isLoggerEnabled: function isLoggerEnabled(level, object) {
-        var loggerName = this.__getLoggerName(object);
+        var loggerName = this.__P_108_10(object);
 
-        var appenders = this.__getAppenders(loggerName, level);
+        var appenders = this.__P_108_6(loggerName, level);
 
         return !!Object.keys(appenders).length;
       },
@@ -510,13 +466,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param args {Array} List of other arguments, where the first is
        *   taken as the context object.
        */
-      __log: function __log(level, args) {
+      __P_108_7: function __P_108_7(level, args) {
         // Get object and determine appenders
         var object = args.length < 2 ? null : args[0];
 
-        var loggerName = this.__getLoggerName(object);
+        var loggerName = this.__P_108_10(object);
 
-        var appenders = this.__getAppenders(loggerName, level);
+        var appenders = this.__P_108_6(loggerName, level);
 
         if (!Object.keys(appenders).length) {
           return;
@@ -527,7 +483,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         var items = [];
 
         for (var i = start, l = args.length; i < l; i++) {
-          items.push(this.__serialize(args[i], true));
+          items.push(this.__P_108_11(args[i], true));
         } // Build entry
 
 
@@ -543,10 +499,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         }; // Add relation fields
 
         if (object) {
-          // Do not explicitly check for instanceof qx.core.Object, in order not
-          // to introduce an unwanted load-time dependency
-          if (object.$$hash !== undefined) {
-            entry.object = object.$$hash;
+          if (qx.Bootstrap.isQxCoreObject(object)) {
+            entry.object = object.toHashCode();
           }
 
           if (object.$$type) {
@@ -556,7 +510,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           }
         }
 
-        this.__buffer.process(entry); // Send to appenders
+        this.__P_108_1.process(entry); // Send to appenders
 
 
         for (var classname in appenders) {
@@ -571,21 +525,21 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param level {String} the minimum logging level to use the appender
        * @return {Array} list of appenders
        */
-      __getAppenders: function __getAppenders(className, level) {
-        var levels = this.__levels; // If no filters, then all appenders apply
+      __P_108_6: function __P_108_6(className, level) {
+        var levels = this.__P_108_8; // If no filters, then all appenders apply
 
-        if (!this.__filters.length) {
+        if (!this.__P_108_4.length) {
           // Check the default level
-          if (levels[level] < levels[this.__level]) {
+          if (levels[level] < levels[this.__P_108_0]) {
             return [];
           }
 
-          return this.__appendersByName;
+          return this.__P_108_3;
         } // Check the cache
 
 
         var cacheId = className + "|" + level;
-        var appenders = this.__appendersCache[cacheId];
+        var appenders = this.__P_108_9[cacheId];
 
         if (appenders !== undefined) {
           return appenders;
@@ -593,8 +547,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         var appenders = {};
 
-        for (var i = 0; i < this.__filters.length; i++) {
-          var filter = this.__filters[i]; // Filters only apply to certain levels
+        for (var i = 0; i < this.__P_108_4.length; i++) {
+          var filter = this.__P_108_4[i]; // Filters only apply to certain levels
 
           if (levels[level] < levels[filter.level]) {
             continue;
@@ -608,14 +562,14 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
           if (!filter.loggerMatch || filter.loggerMatch.test(className)) {
             if (filter.appenderName) {
-              appenders[filter.appenderName] = this.__appendersByName[filter.appenderName];
+              appenders[filter.appenderName] = this.__P_108_3[filter.appenderName];
             } else {
-              return this.__appendersCache[cacheId] = this.__appendersByName;
+              return this.__P_108_9[cacheId] = this.__P_108_3;
             }
           }
         }
 
-        return this.__appendersCache[cacheId] = appenders;
+        return this.__P_108_9[cacheId] = appenders;
       },
 
       /**
@@ -627,7 +581,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        *   "function", "array", "error", "map",
        *   "class", "instance", "node", "stringify", "unknown"
        */
-      __detect: function __detect(value) {
+      __P_108_12: function __P_108_12(value) {
         if (value === undefined) {
           return "undefined";
         } else if (value === null) {
@@ -676,8 +630,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {Map} Contains the keys <code>type</code>, <code>text</code> and
        * <code>trace</code>.
        */
-      __serialize: function __serialize(value, deep) {
-        var type = this.__detect(value);
+      __P_108_11: function __P_108_11(value, deep) {
+        var type = this.__P_108_12(value);
 
         var text = "unknown";
         var trace = [];
@@ -717,9 +671,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             break;
 
           case "instance":
-            text = value.basename + "[" + value.$$hash + "]";
-            break;
-
           case "class":
           case "stringify":
             text = value.toString();
@@ -740,7 +691,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
                   break;
                 }
 
-                text.push(this.__serialize(value[i], false));
+                text.push(this.__P_108_11(value[i], false));
               }
             } else {
               text = "[...(" + value.length + ")]";
@@ -770,7 +721,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
                 key = sorted[i];
-                temp = this.__serialize(value[key], false);
+                temp = this.__P_108_11(value[key], false);
                 temp.key = key;
                 text.push(temp);
               }
@@ -798,7 +749,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       var logs = qx.Bootstrap.$$logs;
 
       for (var i = 0; i < logs.length; i++) {
-        statics.__log(logs[i][0], logs[i][1]);
+        statics.__P_108_7(logs[i][0], logs[i][1]);
       }
 
       qx.Bootstrap.debug = statics.debug;
@@ -811,4 +762,4 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   qx.log.Logger.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Logger.js.map?dt=1564930735232
+//# sourceMappingURL=Logger.js.map?dt=1591463660275

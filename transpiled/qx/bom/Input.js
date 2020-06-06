@@ -10,7 +10,6 @@
         "usage": "dynamic",
         "require": true
       },
-      "qx.core.Assert": {},
       "qx.lang.Object": {},
       "qx.dom.Element": {},
       "qx.lang.Type": {},
@@ -74,7 +73,7 @@
     */
     statics: {
       /** @type {Map} Internal data structures with all supported input types */
-      __types: {
+      __P_248_0: {
         text: 1,
         textarea: 1,
         select: 1,
@@ -106,10 +105,7 @@
        * @return {Element} The created input node
        */
       create: function create(type, attributes, win) {
-        {
-          qx.core.Assert.assertKeyInMap(type, this.__types, "Unsupported input type.");
-        } // Work on a copy to not modify given attributes map
-
+        // Work on a copy to not modify given attributes map
         var attributes = attributes ? qx.lang.Object.clone(attributes) : {};
         var tag;
 
@@ -278,4 +274,4 @@
   qx.bom.Input.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Input.js.map?dt=1564930750262
+//# sourceMappingURL=Input.js.map?dt=1591463672260

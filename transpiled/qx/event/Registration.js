@@ -14,15 +14,11 @@
         "usage": "dynamic",
         "require": true
       },
-      "qx.log.Logger": {},
       "qx.core.ObjectRegistry": {},
       "qx.event.type.Event": {},
       "qx.event.Pool": {},
-      "qx.core.Assert": {},
       "qx.event.Utils": {},
-      "qx.Promise": {},
-      "qx.event.IEventHandler": {},
-      "qx.event.IEventDispatcher": {}
+      "qx.Promise": {}
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -67,7 +63,7 @@
        * Static list of all instantiated event managers. The key is the qooxdoo
        * hash value of the corresponding window
        */
-      __managers: {},
+      __P_23_0: {},
 
       /**
        * Get an instance of the event manager, which can handle events for the
@@ -78,10 +74,6 @@
        */
       getManager: function getManager(target) {
         if (target == null) {
-          {
-            qx.log.Logger.error("qx.event.Registration.getManager(null) was called!");
-            qx.log.Logger.trace(this);
-          }
           target = window;
         } else if (target.nodeType) {
           target = qx.dom.Node.getWindow(target);
@@ -90,11 +82,11 @@
         }
 
         var hash = target.$$hash || qx.core.ObjectRegistry.toHashCode(target);
-        var manager = this.__managers[hash];
+        var manager = this.__P_23_0[hash];
 
         if (!manager) {
           manager = new qx.event.Manager(target, this);
-          this.__managers[hash] = manager;
+          this.__P_23_0[hash] = manager;
         }
 
         return manager;
@@ -110,7 +102,7 @@
        */
       removeManager: function removeManager(mgr) {
         var id = mgr.getWindowId();
-        delete this.__managers[id];
+        delete this.__P_23_0[id];
       },
 
       /**
@@ -232,12 +224,7 @@
        * @return {qx.event.type.Event} An instance of the given class.
        */
       createEvent: function createEvent(type, clazz, args) {
-        {
-          if (arguments.length > 1 && clazz === undefined) {
-            throw new Error("Create event of type " + type + " with undefined class. Please use null to explicit fallback to default event type!");
-          }
-        } // Fallback to default
-
+        // Fallback to default
         if (clazz == null) {
           clazz = qx.event.type.Event;
         }
@@ -284,16 +271,7 @@
        * @return {Event} the event
        * @see #createEvent
        */
-      __fireEvent: function __fireEvent(target, type, clazz, args) {
-        {
-          if (arguments.length > 2 && clazz === undefined && args !== undefined) {
-            throw new Error("Create event of type " + type + " with undefined class. Please use null to explicit fallback to default event type!");
-          }
-
-          var msg = "Could not fire event '" + type + "' on target '" + (target ? target.classname : "undefined") + "': ";
-          qx.core.Assert.assertNotUndefined(target, msg + "Invalid event target.");
-          qx.core.Assert.assertNotNull(target, msg + "Invalid event target.");
-        }
+      __P_23_1: function __P_23_1(target, type, clazz, args) {
         var evt = this.createEvent(type, clazz || null, args);
         this.getManager(target).dispatchEvent(target, evt);
         return evt;
@@ -321,15 +299,6 @@
        * @see #createEvent
        */
       fireEvent: function fireEvent(target, type, clazz, args) {
-        {
-          if (arguments.length > 2 && clazz === undefined && args !== undefined) {
-            throw new Error("Create event of type " + type + " with undefined class. Please use null to explicit fallback to default event type!");
-          }
-
-          var msg = "Could not fire event '" + type + "' on target '" + (target ? target.classname : "undefined") + "': ";
-          qx.core.Assert.assertNotUndefined(target, msg + "Invalid event target.");
-          qx.core.Assert.assertNotNull(target, msg + "Invalid event target.");
-        }
         var evt = this.createEvent(type, clazz || null, args);
         var tracker = {};
         var self = this;
@@ -373,12 +342,7 @@
        * @return {Event} the event
        * @see #createEvent
        */
-      __fireNonBubblingEvent: function __fireNonBubblingEvent(target, type, clazz, args) {
-        {
-          if (arguments.length > 2 && clazz === undefined && args !== undefined) {
-            throw new Error("Create event of type " + type + " with undefined class. Please use null to explicit fallback to default event type!");
-          }
-        }
+      __P_23_2: function __P_23_2(target, type, clazz, args) {
         var mgr = this.getManager(target);
 
         if (!mgr.hasListener(target, type, false)) {
@@ -405,7 +369,7 @@
        * @see #createEvent
        */
       fireNonBubblingEvent: function fireNonBubblingEvent(target, type, clazz, args) {
-        var evt = this.__fireNonBubblingEvent.apply(this, arguments);
+        var evt = this.__P_23_2.apply(this, arguments);
 
         if (evt === null) {
           return true;
@@ -429,7 +393,7 @@
        * @see #createEvent
        */
       fireNonBubblingEventAsync: function fireNonBubblingEventAsync(target, type, clazz, args) {
-        var evt = this.__fireNonBubblingEvent.apply(this, arguments);
+        var evt = this.__P_23_2.apply(this, arguments);
 
         if (evt === null) {
           return qx.Promise.resolve(true);
@@ -460,7 +424,7 @@
       */
 
       /** @type {Array} Contains all known event handlers */
-      __handlers: [],
+      __P_23_3: [],
 
       /**
        * Register an event handler.
@@ -469,14 +433,11 @@
        * @throws {Error} if the handler does not have the IEventHandler interface.
        */
       addHandler: function addHandler(handler) {
-        {
-          qx.core.Assert.assertInterface(handler, qx.event.IEventHandler, "Invalid event handler.");
-        } // Append to list
-
-        this.__handlers.push(handler); // Re-sort list
+        // Append to list
+        this.__P_23_3.push(handler); // Re-sort list
 
 
-        this.__handlers.sort(function (a, b) {
+        this.__P_23_3.sort(function (a, b) {
           return a.PRIORITY - b.PRIORITY;
         });
       },
@@ -487,7 +448,7 @@
        * @return {qx.event.IEventHandler[]} registered event handlers
        */
       getHandlers: function getHandlers() {
-        return this.__handlers;
+        return this.__P_23_3;
       },
 
       /*
@@ -497,7 +458,7 @@
       */
 
       /** @type {Array} Contains all known event dispatchers */
-      __dispatchers: [],
+      __P_23_4: [],
 
       /**
        * Register an event dispatcher.
@@ -510,14 +471,11 @@
        * @throws {Error} if the dispatcher does not have the IEventHandler interface.
        */
       addDispatcher: function addDispatcher(dispatcher, priority) {
-        {
-          qx.core.Assert.assertInterface(dispatcher, qx.event.IEventDispatcher, "Invalid event dispatcher!");
-        } // Append to list
-
-        this.__dispatchers.push(dispatcher); // Re-sort list
+        // Append to list
+        this.__P_23_4.push(dispatcher); // Re-sort list
 
 
-        this.__dispatchers.sort(function (a, b) {
+        this.__P_23_4.sort(function (a, b) {
           return a.PRIORITY - b.PRIORITY;
         });
       },
@@ -528,11 +486,11 @@
        * @return {qx.event.IEventDispatcher[]} all registered event dispatcher
        */
       getDispatchers: function getDispatchers() {
-        return this.__dispatchers;
+        return this.__P_23_4;
       }
     }
   });
   qx.event.Registration.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Registration.js.map?dt=1564930735547
+//# sourceMappingURL=Registration.js.map?dt=1591463653009

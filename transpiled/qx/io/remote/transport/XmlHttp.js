@@ -1,4 +1,4 @@
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 (function () {
   var $$dbClassInfo = {
@@ -41,14 +41,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           "load": true,
           "className": "qx.bom.client.Engine"
         },
-        "qx.debug.io.remote.data": {},
         "engine.version": {
           "className": "qx.bom.client.Engine"
         },
         "browser.documentmode": {
           "className": "qx.bom.client.Browser"
-        },
-        "qx.debug.io.remote": {}
+        }
       }
     }
   };
@@ -145,7 +143,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       },
 
       /** The timeout for Xhr requests */
-      __timeout: 0,
+      __P_255_0: 0,
 
       /**
        * Sets the timeout for requests
@@ -155,14 +153,14 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        *  for code which has not made the transition to asynchronous I/O   
        */
       setTimeout: function setTimeout(timeout) {
-        this.__timeout = timeout;
+        this.__P_255_0 = timeout;
       },
 
       /**
        * Returns the timeout for requests
        */
       getTimeout: function getTimeout() {
-        return this.__timeout;
+        return this.__P_255_0;
       }
     },
 
@@ -196,9 +194,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         CORE METHODS
       ---------------------------------------------------------------------------
       */
-      __localRequest: false,
-      __lastReadyState: 0,
-      __request: null,
+      __P_255_1: false,
+      __P_255_2: 0,
+      __P_255_3: null,
 
       /**
        * Returns the native request object
@@ -206,12 +204,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {Object} native XmlHTTPRequest object
        */
       getRequest: function getRequest() {
-        if (this.__request === null) {
-          this.__request = qx.io.remote.transport.XmlHttp.createRequestObject();
-          this.__request.onreadystatechange = qx.lang.Function.bind(this._onreadystatechange, this);
+        if (this.__P_255_3 === null) {
+          this.__P_255_3 = qx.io.remote.transport.XmlHttp.createRequestObject();
+          this.__P_255_3.onreadystatechange = qx.lang.Function.bind(this._onreadystatechange, this);
         }
 
-        return this.__request;
+        return this.__P_255_3;
       },
 
       /*
@@ -225,7 +223,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        *
        */
       send: function send() {
-        this.__lastReadyState = 0;
+        this.__P_255_2 = 0;
         var vRequest = this.getRequest();
         var vMethod = this.getMethod();
         var vAsynchronous = this.getAsynchronous();
@@ -234,7 +232,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         // --------------------------------------
 
         var vLocalRequest = window.location.protocol === "file:" && !/^http(s){0,1}\:/.test(vUrl);
-        this.__localRequest = vLocalRequest; // --------------------------------------
+        this.__P_255_1 = vLocalRequest; // --------------------------------------
         //   Adding URL parameters
         // --------------------------------------
 
@@ -352,13 +350,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
         try {
-          {
-            if (qx.core.Environment.get("qx.debug.io.remote.data")) {
-              this.debug("Request: " + this.getData());
-            }
-          } // IE9 executes the call synchronous when the call is to file protocol
+          // IE9 executes the call synchronous when the call is to file protocol
           // See [BUG #4762] for details
-
           if (vLocalRequest && vAsynchronous && qx.core.Environment.get("engine.name") == "mshtml" && qx.core.Environment.get("engine.version") == 9 && qx.core.Environment.get("browser.documentmode") == 9) {
             qx.event.Timer.once(function () {
               vRequest.send(this.getData());
@@ -422,11 +415,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           case "aborted":
           case "failed":
           case "timeout":
-            {
-              if (qx.core.Environment.get("qx.debug.io.remote")) {
-                this.warn("Ignore Ready State Change");
-              }
-            }
             return;
         } // Checking status code
 
@@ -437,7 +425,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           // The status code is only meaningful when we reach ready state 4.
           // (Important for Opera since it goes through other states before
           // reaching 4, and the status code is not valid before 4 is reached.)
-          if (!qx.io.remote.Exchange.wasSuccessful(this.getStatusCode(), vReadyState, this.__localRequest)) {
+          if (!qx.io.remote.Exchange.wasSuccessful(this.getStatusCode(), vReadyState, this.__P_255_1)) {
             // Fix for bug #2272
             // The IE doesn't set the state to 'sending' even though the send method
             // is called. This only occurs if the server (which is called) goes
@@ -452,13 +440,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         } // Sometimes the xhr call skips the send state
 
 
-        if (vReadyState == 3 && this.__lastReadyState == 1) {
-          this.setState(qx.io.remote.Exchange._nativeMap[++this.__lastReadyState]);
+        if (vReadyState == 3 && this.__P_255_2 == 1) {
+          this.setState(qx.io.remote.Exchange._nativeMap[++this.__P_255_2]);
         } // Updating internal state
 
 
-        while (this.__lastReadyState < vReadyState) {
-          this.setState(qx.io.remote.Exchange._nativeMap[++this.__lastReadyState]);
+        while (this.__P_255_2 < vReadyState) {
+          this.setState(qx.io.remote.Exchange._nativeMap[++this.__P_255_2]);
         }
       }),
 
@@ -657,7 +645,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         var vStatus = this.getStatusCode();
         var vReadyState = this.getReadyState();
 
-        if (qx.io.remote.Exchange.wasSuccessful(vStatus, vReadyState, this.__localRequest)) {
+        if (qx.io.remote.Exchange.wasSuccessful(vStatus, vReadyState, this.__P_255_1)) {
           try {
             vResponseXML = this.getRequest().responseXML;
           } catch (ex) {}
@@ -709,47 +697,21 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         var state = this.getState();
 
         if (state !== "completed" && state != "failed") {
-          {
-            if (qx.core.Environment.get("qx.debug.io.remote")) {
-              this.warn("Transfer not complete or failed, ignoring content!");
-            }
-          }
           return null;
         }
 
-        {
-          if (qx.core.Environment.get("qx.debug.io.remote")) {
-            this.debug("Returning content for responseType: " + this.getResponseType());
-          }
-        }
         var vText = this.getResponseText();
 
         if (state == "failed") {
-          {
-            if (qx.core.Environment.get("qx.debug.io.remote.data")) {
-              this.debug("Failed: " + vText);
-            }
-          }
           return vText;
         }
 
         switch (this.getResponseType()) {
           case "text/plain":
           case "text/html":
-            {
-              if (qx.core.Environment.get("qx.debug.io.remote.data")) {
-                this.debug("Response: " + vText);
-              }
-            }
             return vText;
 
           case "application/json":
-            {
-              if (qx.core.Environment.get("qx.debug.io.remote.data")) {
-                this.debug("Response: " + vText);
-              }
-            }
-
             try {
               if (vText && vText.length > 0) {
                 var ret;
@@ -771,12 +733,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             }
 
           case "text/javascript":
-            {
-              if (qx.core.Environment.get("qx.debug.io.remote.data")) {
-                this.debug("Response: " + vText);
-              }
-            }
-
             try {
               if (vText && vText.length > 0) {
                 var ret = window.eval(vText);
@@ -791,11 +747,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
           case "application/xml":
             vText = this.getResponseXml();
-            {
-              if (qx.core.Environment.get("qx.debug.io.remote.data")) {
-                this.debug("Response: " + vText);
-              }
-            }
             return vText === 0 ? 0 : vText || null;
 
           default:
@@ -818,12 +769,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param old {var} Previous value
        */
       _applyState: function _applyState(value, old) {
-        {
-          if (qx.core.Environment.get("qx.debug.io.remote")) {
-            this.debug("State: " + value);
-          }
-        }
-
         switch (value) {
           case "created":
             this.fireEvent("created");
@@ -897,10 +842,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         }
       }
 
-      this.__request = null;
+      this.__P_255_3 = null;
     }
   });
   qx.io.remote.transport.XmlHttp.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=XmlHttp.js.map?dt=1564930750809
+//# sourceMappingURL=XmlHttp.js.map?dt=1591463673004

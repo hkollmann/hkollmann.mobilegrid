@@ -87,7 +87,7 @@
    *
    * *External Documentation*
    *
-   * <a href='http://manual.qooxdoo.org/${qxversion}/pages/layout/grid.html'>
+   * <a href='http://qooxdoo.org/docs/#layout/grid.md'>
    * Extended documentation</a> and links to demos of this layout in the qooxdoo manual.
    */
   qx.Class.define("qx.ui.layout.Grid", {
@@ -107,8 +107,8 @@
      */
     construct: function construct(spacingX, spacingY) {
       qx.ui.layout.Abstract.constructor.call(this);
-      this.__rowData = [];
-      this.__colData = [];
+      this.__P_123_0 = [];
+      this.__P_123_1 = [];
 
       if (spacingX) {
         this.setSpacingX(spacingX);
@@ -141,6 +141,19 @@
         check: "Integer",
         init: 0,
         apply: "_applyLayoutChange"
+      },
+
+      /**
+       * Allow growing of spanning cells' widths beyond the accumulated widths of the columns.
+       * The default behavior (init value false) is that the width of the spanning cell is
+       * determined by the accumulated width of the columns (plus spacing).
+       * Setting this property to true lets the cell width grow as needed to show
+       * the widget in the spanning cell, which also enlarges the width of the spanned columns.
+       */
+      allowGrowSpannedCellWidth: {
+        check: "Boolean",
+        init: false,
+        apply: "_applyLayoutChange"
       }
     },
 
@@ -151,36 +164,26 @@
     */
     members: {
       /** @type {Array} 2D array of grid cell data */
-      __grid: null,
-      __rowData: null,
-      __colData: null,
-      __colSpans: null,
-      __rowSpans: null,
-      __maxRowIndex: null,
-      __maxColIndex: null,
+      __P_123_2: null,
+      __P_123_0: null,
+      __P_123_1: null,
+      __P_123_3: null,
+      __P_123_4: null,
+      __P_123_5: null,
+      __P_123_6: null,
 
       /** @type {Array} cached row heights */
-      __rowHeights: null,
+      __P_123_7: null,
 
       /** @type {Array} cached column widths */
-      __colWidths: null,
+      __P_123_8: null,
       // overridden
-      verifyLayoutProperty: function verifyLayoutProperty(item, name, value) {
-        var layoutProperties = {
-          "row": 1,
-          "column": 1,
-          "rowSpan": 1,
-          "colSpan": 1
-        };
-        this.assert(layoutProperties[name] == 1, "The property '" + name + "' is not supported by the Grid layout!");
-        this.assertInteger(value);
-        this.assert(value >= 0, "Value must be positive");
-      },
+      verifyLayoutProperty: null,
 
       /**
        * Rebuild the internal representation of the grid
        */
-      __buildGrid: function __buildGrid() {
+      __P_123_9: function __P_123_9() {
         var grid = [];
         var colSpans = [];
         var rowSpans = [];
@@ -234,13 +237,13 @@
           }
         }
 
-        this.__grid = grid;
-        this.__colSpans = colSpans;
-        this.__rowSpans = rowSpans;
-        this.__maxRowIndex = maxRowIndex;
-        this.__maxColIndex = maxColIndex;
-        this.__rowHeights = null;
-        this.__colWidths = null; // Clear invalidation marker
+        this.__P_123_2 = grid;
+        this.__P_123_3 = colSpans;
+        this.__P_123_4 = rowSpans;
+        this.__P_123_5 = maxRowIndex;
+        this.__P_123_6 = maxColIndex;
+        this.__P_123_7 = null;
+        this.__P_123_8 = null; // Clear invalidation marker
 
         delete this._invalidChildrenCache;
       },
@@ -253,11 +256,11 @@
        * @param value {var} data to store
        */
       _setRowData: function _setRowData(row, key, value) {
-        var rowData = this.__rowData[row];
+        var rowData = this.__P_123_0[row];
 
         if (!rowData) {
-          this.__rowData[row] = {};
-          this.__rowData[row][key] = value;
+          this.__P_123_0[row] = {};
+          this.__P_123_0[row][key] = value;
         } else {
           rowData[key] = value;
         }
@@ -271,11 +274,11 @@
        * @param value {var} data to store
        */
       _setColumnData: function _setColumnData(column, key, value) {
-        var colData = this.__colData[column];
+        var colData = this.__P_123_1[column];
 
         if (!colData) {
-          this.__colData[column] = {};
-          this.__colData[column][key] = value;
+          this.__P_123_1[column] = {};
+          this.__P_123_1[column][key] = value;
         } else {
           colData[key] = value;
         }
@@ -311,12 +314,6 @@
        * @return {qx.ui.layout.Grid} This object (for chaining support)
        */
       setColumnAlign: function setColumnAlign(column, hAlign, vAlign) {
-        {
-          this.assertInteger(column, "Invalid parameter 'column'");
-          this.assertInArray(hAlign, ["left", "center", "right"]);
-          this.assertInArray(vAlign, ["top", "middle", "bottom"]);
-        }
-
         this._setColumnData(column, "hAlign", hAlign);
 
         this._setColumnData(column, "vAlign", vAlign);
@@ -334,7 +331,7 @@
        *     containing the vertical and horizontal column alignment.
        */
       getColumnAlign: function getColumnAlign(column) {
-        var colData = this.__colData[column] || {};
+        var colData = this.__P_123_1[column] || {};
         return {
           vAlign: colData.vAlign || "top",
           hAlign: colData.hAlign || "left"
@@ -358,12 +355,6 @@
        * @return {qx.ui.layout.Grid} This object (for chaining support)
        */
       setRowAlign: function setRowAlign(row, hAlign, vAlign) {
-        {
-          this.assertInteger(row, "Invalid parameter 'row'");
-          this.assertInArray(hAlign, ["left", "center", "right"]);
-          this.assertInArray(vAlign, ["top", "middle", "bottom"]);
-        }
-
         this._setRowData(row, "hAlign", hAlign);
 
         this._setRowData(row, "vAlign", vAlign);
@@ -381,7 +372,7 @@
        *     containing the vertical and horizontal row alignment.
        */
       getRowAlign: function getRowAlign(row) {
-        var rowData = this.__rowData[row] || {};
+        var rowData = this.__P_123_0[row] || {};
         return {
           vAlign: rowData.vAlign || "top",
           hAlign: rowData.hAlign || "left"
@@ -399,10 +390,10 @@
        */
       getCellWidget: function getCellWidget(row, column) {
         if (this._invalidChildrenCache) {
-          this.__buildGrid();
+          this.__P_123_9();
         }
 
-        var row = this.__grid[row] || {};
+        var row = this.__P_123_2[row] || {};
         return row[column] || null;
       },
 
@@ -413,10 +404,10 @@
        */
       getRowCount: function getRowCount() {
         if (this._invalidChildrenCache) {
-          this.__buildGrid();
+          this.__P_123_9();
         }
 
-        return this.__maxRowIndex + 1;
+        return this.__P_123_5 + 1;
       },
 
       /**
@@ -426,10 +417,10 @@
        */
       getColumnCount: function getColumnCount() {
         if (this._invalidChildrenCache) {
-          this.__buildGrid();
+          this.__P_123_9();
         }
 
-        return this.__maxColIndex + 1;
+        return this.__P_123_6 + 1;
       },
 
       /**
@@ -447,9 +438,9 @@
       getCellAlign: function getCellAlign(row, column) {
         var vAlign = "top";
         var hAlign = "left";
-        var rowData = this.__rowData[row];
-        var colData = this.__colData[column];
-        var widget = this.__grid[row][column];
+        var rowData = this.__P_123_0[row];
+        var colData = this.__P_123_1[column];
+        var widget = this.__P_123_2[row][column];
 
         if (widget) {
           var widgetProps = {
@@ -509,7 +500,7 @@
        * @return {Integer} The column's flex value
        */
       getColumnFlex: function getColumnFlex(column) {
-        var colData = this.__colData[column] || {};
+        var colData = this.__P_123_1[column] || {};
         return colData.flex !== undefined ? colData.flex : 0;
       },
 
@@ -536,7 +527,7 @@
        * @return {Integer} The row's flex value
        */
       getRowFlex: function getRowFlex(row) {
-        var rowData = this.__rowData[row] || {};
+        var rowData = this.__P_123_0[row] || {};
         var rowFlex = rowData.flex !== undefined ? rowData.flex : 0;
         return rowFlex;
       },
@@ -564,7 +555,7 @@
        * @return {Integer} The column's maximum width
        */
       getColumnMaxWidth: function getColumnMaxWidth(column) {
-        var colData = this.__colData[column] || {};
+        var colData = this.__P_123_1[column] || {};
         return colData.maxWidth !== undefined ? colData.maxWidth : Infinity;
       },
 
@@ -591,7 +582,7 @@
        * @return {Integer} The column's width
        */
       getColumnWidth: function getColumnWidth(column) {
-        var colData = this.__colData[column] || {};
+        var colData = this.__P_123_1[column] || {};
         return colData.width !== undefined ? colData.width : null;
       },
 
@@ -618,7 +609,7 @@
        * @return {Integer} The column's minimum width
        */
       getColumnMinWidth: function getColumnMinWidth(column) {
-        var colData = this.__colData[column] || {};
+        var colData = this.__P_123_1[column] || {};
         return colData.minWidth || 0;
       },
 
@@ -645,7 +636,7 @@
        * @return {Integer} The row's maximum width
        */
       getRowMaxHeight: function getRowMaxHeight(row) {
-        var rowData = this.__rowData[row] || {};
+        var rowData = this.__P_123_0[row] || {};
         return rowData.maxHeight || Infinity;
       },
 
@@ -672,7 +663,7 @@
        * @return {Integer} The row's width
        */
       getRowHeight: function getRowHeight(row) {
-        var rowData = this.__rowData[row] || {};
+        var rowData = this.__P_123_0[row] || {};
         return rowData.height !== undefined ? rowData.height : null;
       },
 
@@ -699,7 +690,7 @@
        * @return {Integer} The row's minimum width
        */
       getRowMinHeight: function getRowMinHeight(row) {
-        var rowData = this.__rowData[row] || {};
+        var rowData = this.__P_123_0[row] || {};
         return rowData.minHeight || 0;
       },
 
@@ -709,7 +700,7 @@
        * @param widget {qx.ui.core.LayoutItem} The widget to get the size for
        * @return {Map} a size hint map
        */
-      __getOuterSize: function __getOuterSize(widget) {
+      _getOuterSize: function _getOuterSize(widget) {
         var hint = widget.getSizeHint();
         var hMargins = widget.getMarginLeft() + widget.getMarginRight();
         var vMargins = widget.getMarginTop() + widget.getMarginBottom();
@@ -740,10 +731,10 @@
       _fixHeightsRowSpan: function _fixHeightsRowSpan(rowHeights) {
         var vSpacing = this.getSpacingY();
 
-        for (var i = 0, l = this.__rowSpans.length; i < l; i++) {
-          var widget = this.__rowSpans[i];
+        for (var i = 0, l = this.__P_123_4.length; i < l; i++) {
+          var widget = this.__P_123_4[i];
 
-          var hint = this.__getOuterSize(widget);
+          var hint = this._getOuterSize(widget);
 
           var widgetProps = widget.getLayoutProperties();
           var widgetRow = widgetProps.row;
@@ -842,10 +833,12 @@
       _fixWidthsColSpan: function _fixWidthsColSpan(colWidths) {
         var hSpacing = this.getSpacingX();
 
-        for (var i = 0, l = this.__colSpans.length; i < l; i++) {
-          var widget = this.__colSpans[i];
+        var colSpans = this._getColSpans();
 
-          var hint = this.__getOuterSize(widget);
+        for (var i = 0, l = colSpans.length; i < l; i++) {
+          var widget = colSpans[i];
+
+          var hint = this._getOuterSize(widget);
 
           var widgetProps = widget.getLayoutProperties();
           var widgetColumn = widgetProps.column;
@@ -875,11 +868,47 @@
 
 
           if (prefSpanWidth < hint.width) {
-            var colIncrements = qx.ui.layout.Util.computeFlexOffsets(colFlexes, hint.width, prefSpanWidth);
+            // Do not adapt column widths to the width
+            // of the spanning cell if allowGrowSpannedCellWidth property
+            // is set to false
+            // See https://github.com/qooxdoo/qooxdoo/issues/9871
+            if (!this.getAllowGrowSpannedCellWidth() || !qx.lang.Object.isEmpty(colFlexes)) {
+              var colIncrements = qx.ui.layout.Util.computeFlexOffsets(colFlexes, hint.width, prefSpanWidth);
 
-            for (var j = 0; j < widgetProps.colSpan; j++) {
-              offset = colIncrements[widgetColumn + j] ? colIncrements[widgetColumn + j].offset : 0;
-              colWidths[widgetColumn + j].width += offset;
+              for (var j = 0; j < widgetProps.colSpan; j++) {
+                offset = colIncrements[widgetColumn + j] ? colIncrements[widgetColumn + j].offset : 0;
+                colWidths[widgetColumn + j].width += offset;
+              } // col is too small and we have no flex value set
+
+            } else {
+              var totalSpacing = hSpacing * (widgetProps.colSpan - 1);
+              var availableWidth = hint.width - totalSpacing; // get the col width which every child would need to share the
+              // available width equally
+
+              var avgColWidth = Math.floor(availableWidth / widgetProps.colSpan); // get the width already used and the number of children which do
+              // not have at least that avg col width
+
+              var usedWidth = 0;
+              var colsNeedAddition = 0;
+
+              for (var k = 0; k < widgetProps.colSpan; k++) {
+                var currentWidth = colWidths[widgetColumn + k].width;
+                usedWidth += currentWidth;
+
+                if (currentWidth < avgColWidth) {
+                  colsNeedAddition++;
+                }
+              } // the difference of available and used needs to be shared among
+              // those not having the min size
+
+
+              var additionalColWidth = Math.floor((availableWidth - usedWidth) / colsNeedAddition); // add the extra width to the too small children
+
+              for (var k = 0; k < widgetProps.colSpan; k++) {
+                if (colWidths[widgetColumn + k].width < avgColWidth) {
+                  colWidths[widgetColumn + k].width += additionalColWidth;
+                }
+              }
             }
           } // If there is not enough space for the min size
           // increment the min column sizes.
@@ -904,13 +933,13 @@
        *     <code>height</code>.
        */
       _getRowHeights: function _getRowHeights() {
-        if (this.__rowHeights != null) {
-          return this.__rowHeights;
+        if (this.__P_123_7 != null) {
+          return this.__P_123_7;
         }
 
         var rowHeights = [];
-        var maxRowIndex = this.__maxRowIndex;
-        var maxColIndex = this.__maxColIndex;
+        var maxRowIndex = this.__P_123_5;
+        var maxColIndex = this.__P_123_6;
 
         for (var row = 0; row <= maxRowIndex; row++) {
           var minHeight = 0;
@@ -918,7 +947,7 @@
           var maxHeight = 0;
 
           for (var col = 0; col <= maxColIndex; col++) {
-            var widget = this.__grid[row][col];
+            var widget = this.__P_123_2[row][col];
 
             if (!widget) {
               continue;
@@ -932,7 +961,7 @@
               continue;
             }
 
-            var cellSize = this.__getOuterSize(widget);
+            var cellSize = this._getOuterSize(widget);
 
             if (this.getRowFlex(row) > 0) {
               minHeight = Math.max(minHeight, cellSize.minHeight);
@@ -959,11 +988,11 @@
           };
         }
 
-        if (this.__rowSpans.length > 0) {
+        if (this.__P_123_4.length > 0) {
           this._fixHeightsRowSpan(rowHeights);
         }
 
-        this.__rowHeights = rowHeights;
+        this.__P_123_7 = rowHeights;
         return rowHeights;
       },
 
@@ -975,13 +1004,13 @@
        *     <code>width</code>.
        */
       _getColWidths: function _getColWidths() {
-        if (this.__colWidths != null) {
-          return this.__colWidths;
+        if (this.__P_123_8 != null) {
+          return this.__P_123_8;
         }
 
         var colWidths = [];
-        var maxColIndex = this.__maxColIndex;
-        var maxRowIndex = this.__maxRowIndex;
+        var maxColIndex = this.__P_123_6;
+        var maxRowIndex = this.__P_123_5;
 
         for (var col = 0; col <= maxColIndex; col++) {
           var width = 0;
@@ -989,7 +1018,7 @@
           var maxWidth = Infinity;
 
           for (var row = 0; row <= maxRowIndex; row++) {
-            var widget = this.__grid[row][col];
+            var widget = this.__P_123_2[row][col];
 
             if (!widget) {
               continue;
@@ -1003,7 +1032,7 @@
               continue;
             }
 
-            var cellSize = this.__getOuterSize(widget);
+            var cellSize = this._getOuterSize(widget);
 
             minWidth = Math.max(minWidth, cellSize.minWidth);
             width = Math.max(width, cellSize.width);
@@ -1025,11 +1054,11 @@
           };
         }
 
-        if (this.__colSpans.length > 0) {
+        if (this._getColSpans().length > 0) {
           this._fixWidthsColSpan(colWidths);
         }
 
-        this.__colWidths = colWidths;
+        this.__P_123_8 = colWidths;
         return colWidths;
       },
 
@@ -1112,10 +1141,21 @@
 
         return qx.ui.layout.Util.computeFlexOffsets(flexibles, height, hint.height);
       },
+
+      /**
+       * Returns the internal private __colSpans array in order
+       * have a protected getter which can be used other methods
+       * to make them overridable
+       *
+       * @return {Array} the __colSpans array
+       */
+      _getColSpans: function _getColSpans() {
+        return this.__P_123_3;
+      },
       // overridden
       renderLayout: function renderLayout(availWidth, availHeight, padding) {
         if (this._invalidChildrenCache) {
-          this.__buildGrid();
+          this.__P_123_9();
         }
 
         var Util = qx.ui.layout.Util;
@@ -1127,8 +1167,8 @@
         var colStretchOffsets = this._getColumnFlexOffsets(availWidth);
 
         var colWidths = [];
-        var maxColIndex = this.__maxColIndex;
-        var maxRowIndex = this.__maxRowIndex;
+        var maxColIndex = this.__P_123_6;
+        var maxRowIndex = this.__P_123_5;
         var offset;
 
         for (var col = 0; col <= maxColIndex; col++) {
@@ -1155,7 +1195,7 @@
           var top = 0;
 
           for (var row = 0; row <= maxRowIndex; row++) {
-            var widget = this.__grid[row][col]; // ignore empty cells
+            var widget = this.__P_123_2[row][col]; // ignore empty cells
 
             if (!widget) {
               top += rowHeights[row] + vSpacing;
@@ -1203,13 +1243,13 @@
       // overridden
       invalidateLayoutCache: function invalidateLayoutCache() {
         qx.ui.layout.Grid.prototype.invalidateLayoutCache.base.call(this);
-        this.__colWidths = null;
-        this.__rowHeights = null;
+        this.__P_123_8 = null;
+        this.__P_123_7 = null;
       },
       // overridden
       _computeSizeHint: function _computeSizeHint() {
         if (this._invalidChildrenCache) {
-          this.__buildGrid();
+          this.__P_123_9();
         } // calculate col widths
 
 
@@ -1266,10 +1306,10 @@
     *****************************************************************************
     */
     destruct: function destruct() {
-      this.__grid = this.__rowData = this.__colData = this.__colSpans = this.__rowSpans = this.__colWidths = this.__rowHeights = null;
+      this.__P_123_2 = this.__P_123_0 = this.__P_123_1 = this.__P_123_3 = this.__P_123_4 = this.__P_123_8 = this.__P_123_7 = null;
     }
   });
   qx.ui.layout.Grid.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Grid.js.map?dt=1564930743172
+//# sourceMappingURL=Grid.js.map?dt=1591463661649

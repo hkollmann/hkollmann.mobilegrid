@@ -23,11 +23,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2006 STZ-IDA, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nTil Schneider (til132)\nSebastian Werner (wpbasti)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2006 STZ-IDA, Germany, http://www.stz-ida.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Til Schneider (til132)\n Sebastian Werner (wpbasti)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "The default header cell renderer."
+          "body": "<p>The default header cell renderer.</p>"
         }
       ]
     }
@@ -107,7 +107,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "ToolTip to show if the pointer hovers of the icon"
+            "body": "<p>ToolTip to show if the pointer hovers of the icon</p>"
           }
         ]
       },
@@ -123,7 +123,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>The owning object</p>"
+          }
+        ]
+      }
     },
     "qxObjectId": {
       "type": "property",
@@ -131,7 +139,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>{String} The ID of the object.</p>"
+          }
+        ]
+      }
     }
   },
   "members": {
@@ -150,24 +166,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "cellInfo {Map} A map containing the information about the cell to\n     create.",
-            "paramName": "cellInfo",
-            "description": " A map containing the information about the cell to\n     create.",
-            "type": "Map"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{qx.ui.core.Widget} the widget that renders the header cell.",
-            "type": "qx.ui.core.Widget",
-            "description": " the widget that renders the header cell."
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -193,23 +192,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "cellInfo {Map} A map containing the information about the cell to\n     create. This map has the same structure as in {@link #createHeaderCell}.",
-            "paramName": "cellInfo",
-            "description": " A map containing the information about the cell to\n     create. This map has the same structure as in {@link #createHeaderCell}.",
-            "type": "Map"
-          },
-          {
-            "name": "@param",
-            "body": "cellWidget {qx.ui.core.Widget} the widget that renders the header cell. This is\n     the same widget formally created by {@link #createHeaderCell}.",
-            "paramName": "cellWidget",
-            "description": " the widget that renders the header cell. This is\n     the same widget formally created by {@link #createHeaderCell}.",
-            "type": "qx.ui.core.Widget"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -279,7 +262,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -338,7 +329,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getToolTip": {
       "type": "function",

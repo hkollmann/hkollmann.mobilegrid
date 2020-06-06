@@ -21,11 +21,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2004-2011 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nTino Butz (tbtz)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2004-2011 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Tino Butz (tbtz)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "The navigation controller includes already a {@link qx.ui.mobile.navigationbar.NavigationBar}\nand a {@link qx.ui.mobile.container.Composite} container with a {@link qx.ui.mobile.layout.Card} layout.\nAll widgets that implement the {@link qx.ui.mobile.container.INavigation}\ninterface can be added to the container. The added widget provide the title\nwidget and the left/right container, which will be automatically merged into\nnavigation bar.\n\n*Example*\n\nHere is a little example of how to use the widget.\n\n<pre class='javascript'>\n  var container = new qx.ui.mobile.container.Navigation();\n  this.getRoot(container);\n  var page = new qx.ui.mobile.page.NavigationPage();\n  container.add(page);\n  page.show();\n</pre>"
+          "body": "<p>The navigation controller includes already a {@link qx.ui.mobile.navigationbar.NavigationBar}\n and a {@link qx.ui.mobile.container.Composite} container with a {@link qx.ui.mobile.layout.Card} layout.\n All widgets that implement the {@link qx.ui.mobile.container.INavigation}\n interface can be added to the container. The added widget provide the title\n widget and the left/right container, which will be automatically merged into\n navigation bar.\n<em>Example</em>\n Here is a little example of how to use the widget.\n </p>\n<pre class='javascript'>\n   var container = new qx.ui.mobile.container.Navigation();\n   this.getRoot(container);\n   var page = new qx.ui.mobile.page.NavigationPage();\n   container.add(page);\n   page.show();\n </pre>"
         }
       ]
     }
@@ -41,6 +41,14 @@
         "line": 61,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "properties": {
@@ -59,7 +67,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -79,7 +87,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>The owning object</p>"
+          }
+        ]
+      }
     },
     "qxObjectId": {
       "type": "property",
@@ -87,7 +103,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>{String} The ID of the object.</p>"
+          }
+        ]
+      }
     }
   },
   "events": {
@@ -106,7 +130,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Fired when the navigation bar gets updated"
+            "body": "<p>Fired when the navigation bar gets updated</p>"
           }
         ]
       },
@@ -172,25 +196,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "child {qx.ui.core.Widget} the widget to add.",
-            "paramName": "child",
-            "description": " the widget to add.",
-            "type": "qx.ui.core.Widget"
-          },
-          {
-            "name": "@param",
-            "body": "layoutProperties {Map?null} Optional layout data for widget.",
-            "paramName": "layoutProperties",
-            "description": " Optional layout data for widget.",
-            "optional": true,
-            "defaultValue": "null",
-            "type": "Map"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -217,16 +223,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "child {qx.ui.core.Widget} the widget to remove",
-            "paramName": "child",
-            "description": " the widget to remove",
-            "type": "qx.ui.core.Widget"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -253,7 +250,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the content container. Add all your widgets to this container."
+            "body": "<p>Returns the content container. Add all your widgets to this container.</p>"
           }
         ],
         "@return": [
@@ -283,7 +280,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the assigned card layout."
+            "body": "<p>Returns the assigned card layout.</p>"
           }
         ],
         "@return": [
@@ -318,7 +315,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the navigation bar."
+            "body": "<p>Returns the navigation bar.</p>"
           }
         ],
         "@return": [
@@ -348,7 +345,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Creates the content container."
+            "body": "<p>Creates the content container.</p>"
           }
         ],
         "@return": [
@@ -378,7 +375,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Handler for the \"animationStart\" event on the layout."
+            "body": "<p>Handler for the \"animationStart\" event on the layout.</p>"
           }
         ]
       },
@@ -400,7 +397,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Handler for the \"animationEnd\" event on the layout."
+            "body": "<p>Handler for the \"animationEnd\" event on the layout.</p>"
           }
         ]
       },
@@ -422,7 +419,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Event handler. Called when the \"updateLayout\" event occurs."
+            "body": "<p>Event handler. Called when the \"updateLayout\" event occurs.</p>"
           }
         ],
         "@param": [
@@ -453,7 +450,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Updates the navigation bar depending on the set widget."
+            "body": "<p>Updates the navigation bar depending on the set widget.</p>"
           }
         ],
         "@param": [
@@ -484,7 +481,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Creates the navigation bar."
+            "body": "<p>Creates the navigation bar.</p>"
           }
         ],
         "@return": [
@@ -558,7 +555,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.container.Composite",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -617,7 +622,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.container.Composite",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getDefaultCssClass": {
       "type": "function",
@@ -678,7 +691,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.container.Composite",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>defaultCssClass</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #defaultCssClass}."
+          }
+        ]
+      }
     },
     "getEnabled": {
       "type": "function",
@@ -764,7 +785,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.container.Composite",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>enabled</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #enabled}."
+          }
+        ]
+      }
     },
     "getName": {
       "type": "function",
@@ -825,7 +854,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.container.Composite",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>name</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #name}."
+          }
+        ]
+      }
     },
     "getAnonymous": {
       "type": "function",
@@ -911,7 +948,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.container.Composite",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>anonymous</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #anonymous}."
+          }
+        ]
+      }
     },
     "getId": {
       "type": "function",
@@ -972,7 +1017,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.container.Composite",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>id</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #id}."
+          }
+        ]
+      }
     },
     "getVisibility": {
       "type": "function",
@@ -1033,7 +1086,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.container.Composite",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>visibility</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #visibility}."
+          }
+        ]
+      }
     },
     "getActivatable": {
       "type": "function",
@@ -1119,7 +1180,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.container.Composite",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>activatable</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #activatable}."
+          }
+        ]
+      }
     },
     "getRotation": {
       "type": "function",
@@ -1180,7 +1249,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.container.Composite",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>rotation</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #rotation}."
+          }
+        ]
+      }
     },
     "getTransformUnit": {
       "type": "function",
@@ -1241,7 +1318,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.container.Composite",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>transformUnit</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #transformUnit}."
+          }
+        ]
+      }
     },
     "getScaleX": {
       "type": "function",
@@ -1302,7 +1387,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.container.Composite",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>scaleX</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #scaleX}."
+          }
+        ]
+      }
     },
     "getScaleY": {
       "type": "function",
@@ -1363,7 +1456,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.container.Composite",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>scaleY</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #scaleY}."
+          }
+        ]
+      }
     },
     "getTranslateX": {
       "type": "function",
@@ -1424,7 +1525,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.container.Composite",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>translateX</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #translateX}."
+          }
+        ]
+      }
     },
     "getTranslateY": {
       "type": "function",
@@ -1485,7 +1594,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.container.Composite",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>translateY</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #translateY}."
+          }
+        ]
+      }
     },
     "getTranslateZ": {
       "type": "function",
@@ -1546,7 +1663,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.ui.mobile.container.Composite",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>translateZ</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #translateZ}."
+          }
+        ]
+      }
     }
   },
   "destruct": {
@@ -1559,7 +1684,8 @@
         "line": 263,
         "column": 3
       }
-    }
+    },
+    "jsdoc": {}
   },
   "descendants": []
 }

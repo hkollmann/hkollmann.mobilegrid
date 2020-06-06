@@ -21,7 +21,7 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo mobile grid\nhttps:\n\nCopyright:\n2018 Henner Kollmann (Henner.Kollmann@gmx.de)\n\nLicense:\nMIT: https:\n\nThis software is provided under the same licensing terms as Qooxdoo,\nplease see the LICENSE file in the Qooxdoo project's top-level directory\nfor details.\n\nAuthors:\nHenner Kollmann (Henner.Kollmann@gmx.de)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo mobile grid\n   https://github.com/hkollmann/hkollmann.mobilegrid\n   Copyright:\n     2018 Henner Kollmann (Henner.Kollmann@gmx.de)\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     This software is provided under the same licensing terms as Qooxdoo,\n     please see the LICENSE file in the Qooxdoo project's top-level directory\n     for details.\n   Authors:\n    Henner Kollmann (Henner.Kollmann@gmx.de)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
@@ -31,7 +31,7 @@
       "@type": [
         {
           "name": "@type",
-          "body": "GridEvent\nspecial event type fired during grid creating."
+          "body": "GridEvent\n special event type fired during grid creating."
         }
       ]
     }
@@ -59,18 +59,18 @@
         "@param": [
           {
             "name": "@param",
-            "body": "canBubble {Boolean?false} Whether or not the event is a bubbling event.\n    If the event is bubbling, the bubbling can be stopped using\n    {@link #stopPropagation}",
+            "body": "canBubble {Boolean?false} Whether or not the event is a bubbling event.\n     If the event is bubbling, the bubbling can be stopped using\n     {@link #stopPropagation}",
             "paramName": "canBubble",
-            "description": " Whether or not the event is a bubbling event.\n    If the event is bubbling, the bubbling can be stopped using\n    {@link #stopPropagation}",
+            "description": " Whether or not the event is a bubbling event.\n     If the event is bubbling, the bubbling can be stopped using\n     {@link #stopPropagation}",
             "optional": true,
             "defaultValue": "false",
             "type": "Boolean"
           },
           {
             "name": "@param",
-            "body": "cancelable {Boolean?false} Whether or not an event can have its default\n    action prevented. The default action can either be the browser's\n    default action of a native event (e.g. open the context menu on a\n    right click) or the default action of a qooxdoo class (e.g. close\n    the window widget). The default action can be prevented by calling\n    {@link #preventDefault}",
+            "body": "cancelable {Boolean?false} Whether or not an event can have its default\n     action prevented. The default action can either be the browser's\n     default action of a native event (e.g. open the context menu on a\n     right click) or the default action of a qooxdoo class (e.g. close\n     the window widget). The default action can be prevented by calling\n     {@link #preventDefault}",
             "paramName": "cancelable",
-            "description": " Whether or not an event can have its default\n    action prevented. The default action can either be the browser's\n    default action of a native event (e.g. open the context menu on a\n    right click) or the default action of a qooxdoo class (e.g. close\n    the window widget). The default action can be prevented by calling\n    {@link #preventDefault}",
+            "description": " Whether or not an event can have its default\n     action prevented. The default action can either be the browser's\n     default action of a native event (e.g. open the context menu on a\n     right click) or the default action of a qooxdoo class (e.g. close\n     the window widget). The default action can be prevented by calling\n     {@link #preventDefault}",
             "optional": true,
             "defaultValue": "false",
             "type": "Boolean"
@@ -101,26 +101,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "override"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "embryo {qx.event.type.Event?null} Optional event class, which will\n    be configured using the data of this event instance. The event must be\n    an instance of this event class. If the value is <code>null</code>,\n    a new pooled instance is created.",
-            "paramName": "embryo",
-            "description": " Optional event class, which will\n    be configured using the data of this event instance. The event must be\n    an instance of this event class. If the value is <code>null</code>,\n    a new pooled instance is created.",
-            "optional": true,
-            "defaultValue": "null",
-            "type": "qx.event.type.Event"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{qx.event.type.Event} a clone of this class.",
-            "type": "qx.event.type.Event",
-            "description": " a clone of this class."
+            "body": "<p>override</p>"
           }
         ]
       },
@@ -251,7 +232,7 @@
       "mixin": false,
       "inherited": true,
       "access": "public",
-      "overriddenFrom": "qx.event.type.Event",
+      "overriddenFrom": "qx.core.Object",
       "property": "get",
       "jsdoc": {
         "@description": [
@@ -276,7 +257,7 @@
       "mixin": false,
       "inherited": true,
       "access": "public",
-      "overriddenFrom": "qx.event.type.Event",
+      "overriddenFrom": "qx.core.Object",
       "property": "set",
       "jsdoc": {
         "@description": [
@@ -302,8 +283,16 @@
       "mixin": false,
       "inherited": true,
       "access": "public",
-      "overriddenFrom": "qx.event.type.Event",
-      "property": "reset"
+      "overriddenFrom": "qx.core.Object",
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -312,7 +301,7 @@
       "mixin": false,
       "inherited": true,
       "access": "public",
-      "overriddenFrom": "qx.event.type.Event",
+      "overriddenFrom": "qx.core.Object",
       "property": "get",
       "jsdoc": {
         "@description": [
@@ -336,7 +325,7 @@
       "mixin": false,
       "inherited": true,
       "access": "public",
-      "overriddenFrom": "qx.event.type.Event",
+      "overriddenFrom": "qx.core.Object",
       "property": "set",
       "jsdoc": {
         "@description": [
@@ -361,8 +350,16 @@
       "mixin": false,
       "inherited": true,
       "access": "public",
-      "overriddenFrom": "qx.event.type.Event",
-      "property": "reset"
+      "overriddenFrom": "qx.core.Object",
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     }
   },
   "descendants": []

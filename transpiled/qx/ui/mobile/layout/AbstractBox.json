@@ -21,11 +21,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2004-2011 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nTino Butz (tbtz)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2004-2011 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Tino Butz (tbtz)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "Base class for all box layout managers."
+          "body": "<p>Base class for all box layout managers.</p>"
         }
       ]
     }
@@ -44,6 +44,47 @@
         "line": 51,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        },
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "alignX {String?null} Sets the {@link #alignX} property",
+          "paramName": "alignX",
+          "description": " Sets the {@link #alignX} property",
+          "optional": true,
+          "defaultValue": "null",
+          "type": "String"
+        },
+        {
+          "name": "@param",
+          "body": "alignY {String?null} Sets the {@link #alignY} property",
+          "paramName": "alignY",
+          "description": " Sets the {@link #alignY} property",
+          "optional": true,
+          "defaultValue": "null",
+          "type": "String"
+        },
+        {
+          "name": "@param",
+          "body": "reversed {Boolean?null} Sets the {@link #reversed} property",
+          "paramName": "reversed",
+          "description": " Sets the {@link #reversed} property",
+          "optional": true,
+          "defaultValue": "null",
+          "type": "Boolean"
+        }
+      ]
     }
   },
   "properties": {
@@ -62,7 +103,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Horizontal alignment of the whole children block."
+            "body": "<p>Horizontal alignment of the whole children block.</p>"
           }
         ]
       },
@@ -92,7 +133,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Vertical alignment of each child."
+            "body": "<p>Vertical alignment of each child.</p>"
           }
         ]
       },
@@ -122,7 +163,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Children will be displayed in reverse order."
+            "body": "<p>Children will be displayed in reverse order.</p>"
           }
         ]
       },
@@ -139,7 +180,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>The owning object</p>"
+          }
+        ]
+      }
     },
     "qxObjectId": {
       "type": "property",
@@ -147,7 +196,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>{String} The ID of the object.</p>"
+          }
+        ]
+      }
     }
   },
   "statics": {
@@ -166,7 +223,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The property to CSS mapping."
+            "body": "<p>The property to CSS mapping.</p>"
           }
         ]
       },
@@ -188,7 +245,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Supported child layout properties. Used to check if the property is allowed.\nList all supported child layout properties here."
+            "body": "<p>Supported child layout properties. Used to check if the property is allowed.\n List all supported child layout properties here.</p>"
           }
         ]
       },
@@ -212,15 +269,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Map} The supported child layout properties, e.g. <code>{\"property\":1}</code>",
-            "type": "Map",
-            "description": " The supported child layout properties, e.g. <code>{\"property\":1}</code>"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -246,33 +295,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "widget {qx.ui.mobile.core.Widget} The target widget",
-            "paramName": "widget",
-            "description": " The target widget",
-            "type": "qx.ui.mobile.core.Widget"
-          },
-          {
-            "name": "@param",
-            "body": "property {String?null} Optional. The layout property to set.",
-            "paramName": "property",
-            "description": " Optional. The layout property to set.",
-            "optional": true,
-            "defaultValue": "null",
-            "type": "String"
-          },
-          {
-            "name": "@param",
-            "body": "value {var?} Optional. The value of the layout property.",
-            "paramName": "value",
-            "description": " Optional. The value of the layout property.",
-            "optional": true,
-            "type": "var"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -298,16 +321,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "widget {qx.ui.mobile.core.Widget} The widget to connect to",
-            "paramName": "widget",
-            "description": " The widget to connect to",
-            "type": "qx.ui.mobile.core.Widget"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -333,16 +347,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "widget {qx.ui.mobile.core.Widget} The widget to connect to",
-            "paramName": "widget",
-            "description": " The widget to connect to",
-            "type": "qx.ui.mobile.core.Widget"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -368,7 +373,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -439,7 +444,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -498,7 +511,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getAlignX": {
       "type": "function",

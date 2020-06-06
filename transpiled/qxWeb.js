@@ -51,7 +51,7 @@
    * is used instead.
    *
    * For further details, take a look at the documentation in the
-   * <a href='http://manual.qooxdoo.org/${qxversion}/pages/website.html' target='_blank'>user manual</a>.
+   * <a href='http://qooxdoo.org/5.0.2/pages/website.html' target='_blank'>user manual</a>.
    *
    * @ignore(q)
    *
@@ -61,7 +61,7 @@
     extend: qx.type.BaseArray,
     statics: {
       // internal storage for all initializers
-      __init: [],
+      __P_172_0: [],
       // internal reference to the used qx namespace
       $$qx: qx,
 
@@ -105,8 +105,8 @@
 
         var col = qx.lang.Array.cast(clean, clazz);
 
-        for (var i = 0; i < qxWeb.__init.length; i++) {
-          qxWeb.__init[i].call(col);
+        for (var i = 0; i < qxWeb.__P_172_0.length; i++) {
+          qxWeb.__P_172_0[i].call(col);
         }
 
         return col;
@@ -121,11 +121,7 @@
        */
       $attach: function $attach(module, override) {
         for (var name in module) {
-          if (qxWeb.prototype[name] != undefined && Array.prototype[name] == undefined && override !== true) {
-            {
-              throw new Error("Method '" + name + "' already available.");
-            }
-          } else {
+          if (qxWeb.prototype[name] != undefined && Array.prototype[name] == undefined && override !== true) {} else {
             qxWeb.prototype[name] = module[name];
           }
         }
@@ -140,11 +136,6 @@
        */
       $attachStatic: function $attachStatic(module, override) {
         for (var name in module) {
-          {
-            if (qxWeb[name] != undefined && override !== true) {
-              throw new Error("Method '" + name + "' already available as static method.");
-            }
-          }
           qxWeb[name] = module[name];
         }
       },
@@ -196,7 +187,7 @@
        * @param init {Function} The initialization method for a module.
        */
       $attachInit: function $attachInit(init) {
-        this.__init.push(init);
+        this.__P_172_0.push(init);
       },
 
       /**
@@ -416,9 +407,6 @@
        * @ignore(debugger)
        */
       debug: function debug() {
-        {
-          debugger;
-        }
         return this;
       },
 
@@ -433,21 +421,6 @@
        *
        */
       logThis: function logThis() {
-        {
-          // loop over the collection elements to make sure we get the current content
-          // of the collection and not the reference values later (they might change depending on
-          // manipulation of the collection)
-          var elements = [];
-          this.forEach(function (item) {
-            elements.push(item);
-          });
-          var length = this.length;
-          console.group("*** Collection infos ***");
-          console.info("Length:", length);
-          console.info("Elements:", elements);
-          console.info("Instance:", this);
-          console.groupEnd();
-        }
         return this;
       },
 
@@ -502,4 +475,4 @@
   qxWeb.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=qxWeb.js.map?dt=1564930746593
+//# sourceMappingURL=qxWeb.js.map?dt=1591463666407

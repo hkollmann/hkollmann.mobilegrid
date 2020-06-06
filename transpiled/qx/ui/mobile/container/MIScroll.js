@@ -70,9 +70,9 @@
     *****************************************************************************
     */
     construct: function construct() {
-      this.__initScroll();
+      this.__P_149_0();
 
-      this.__registerEventListeners();
+      this.__P_149_1();
     },
 
     /*
@@ -81,7 +81,7 @@
     *****************************************************************************
     */
     members: {
-      __scroll: null,
+      __P_149_2: null,
 
       /**
        * Mixin method. Creates the scroll element.
@@ -158,8 +158,8 @@
             x = lowerLimitX;
           }
 
-          if (this.__scroll) {
-            this.__scroll.scrollTo(-x, -y, time);
+          if (this.__P_149_2) {
+            this.__P_149_2.scrollTo(-x, -y, time);
           } else {
             // Case when iScroll is not loaded yet, but user tries
             // to set a different scroll position. Position is applied on "__onScrollLoaded".
@@ -175,22 +175,19 @@
        *
        * @ignore(iScroll)
        */
-      __initScroll: function __initScroll() {
+      __P_149_0: function __P_149_0() {
         if (!window.iScroll) {
           {
-            var resource = "qx/mobile/js/iscroll.js";
+            var resource = "qx/mobile/js/iscroll.min.js";
           }
           var path = qx.util.ResourceManager.getInstance().toUri(resource);
-          {
-            path += "?" + new Date().getTime();
-          }
           var loader = new qx.bom.request.Script();
-          loader.on("load", this.__onScrollLoaded, this);
+          loader.on("load", this.__P_149_3, this);
           loader.open("GET", path);
           loader.send();
         } else {
           this.addListenerOnce("appear", function () {
-            this._setScroll(this.__createScrollInstance());
+            this._setScroll(this.__P_149_4());
           }, this);
         }
       },
@@ -201,7 +198,7 @@
        * @return {Object} The iScroll instance
        * @ignore(iScroll)
        */
-      __createScrollInstance: function __createScrollInstance() {
+      __P_149_4: function __P_149_4() {
         var defaultScrollProperties = this._getDefaultScrollProperties();
 
         var customScrollProperties = {};
@@ -286,7 +283,7 @@
       /**
        * Registers all needed event listener.
        */
-      __registerEventListeners: function __registerEventListeners() {
+      __P_149_1: function __P_149_1() {
         qx.event.Registration.addListener(window, "orientationchange", this._refresh, this);
         qx.event.Registration.addListener(window, "resize", this._refresh, this);
         this.addListener("touchmove", qx.bom.Event.stopPropagation);
@@ -296,7 +293,7 @@
       /**
        * Unregisters all needed event listener.
        */
-      __unregisterEventListeners: function __unregisterEventListeners() {
+      __P_149_5: function __P_149_5() {
         qx.event.Registration.removeListener(window, "orientationchange", this._refresh, this);
         qx.event.Registration.removeListener(window, "resize", this._refresh, this);
         this.removeListener("touchmove", qx.bom.Event.stopPropagation);
@@ -308,18 +305,14 @@
        *
        * @param request {qx.bom.request.Script} The Script request object
        */
-      __onScrollLoaded: function __onScrollLoaded(request) {
+      __P_149_3: function __P_149_3(request) {
         if (request.status < 400) {
           if (!this.isDisposed()) {
-            this._setScroll(this.__createScrollInstance());
+            this._setScroll(this.__P_149_4());
 
             this._scrollTo(this._currentX, this._currentY);
           }
-        } else {
-          {
-            this.error("Could not load iScroll");
-          }
-        }
+        } else {}
       },
 
       /**
@@ -328,7 +321,7 @@
        * @param scroll {Object} iScroll instance.
        */
       _setScroll: function _setScroll(scroll) {
-        this.__scroll = scroll;
+        this.__P_149_2 = scroll;
       },
 
       /**
@@ -336,8 +329,8 @@
        * Prevents any further scrolling of this container.
        */
       disable: function disable() {
-        if (this.__scroll) {
-          this.__scroll.disable();
+        if (this.__P_149_2) {
+          this.__P_149_2.disable();
         }
       },
 
@@ -345,8 +338,8 @@
        * Delegation method for iScroll. Enables the iScroll object.
        */
       enable: function enable() {
-        if (this.__scroll) {
-          this.__scroll.enable();
+        if (this.__P_149_2) {
+          this.__P_149_2.enable();
         }
       },
 
@@ -355,8 +348,8 @@
        * scrolling container.
        */
       _refresh: function _refresh() {
-        if (this.__scroll) {
-          this.__scroll.refresh();
+        if (this.__P_149_2) {
+          this.__P_149_2.refresh();
         }
       }
     },
@@ -367,17 +360,17 @@
     *****************************************************************************
     */
     destruct: function destruct() {
-      this.__unregisterEventListeners(); // Cleanup iScroll
+      this.__P_149_5(); // Cleanup iScroll
 
 
-      if (this.__scroll) {
-        this.__scroll.destroy();
+      if (this.__P_149_2) {
+        this.__P_149_2.destroy();
       }
 
-      this.__scroll = null;
+      this.__P_149_2 = null;
     }
   });
   qx.ui.mobile.container.MIScroll.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MIScroll.js.map?dt=1564930745399
+//# sourceMappingURL=MIScroll.js.map?dt=1591463664568

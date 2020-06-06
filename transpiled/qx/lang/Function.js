@@ -12,7 +12,6 @@
         "usage": "dynamic",
         "require": true
       },
-      "qx.core.Assert": {},
       "qx.event.GlobalError": {}
     },
     "environment": {
@@ -179,10 +178,7 @@
        * @return {Function} Wrapped function
        */
       create: function create(func, options) {
-        {
-          qx.core.Assert && qx.core.Assert.assertFunction(func, "Invalid parameter 'func'.");
-        } // Nothing to be done when there are no options.
-
+        // Nothing to be done when there are no options.
         if (!options) {
           return func;
         } // Check for at least one attribute.
@@ -193,14 +189,7 @@
         }
 
         return function (event) {
-          {
-            if (qx.core.Object && options.self && qx.Bootstrap.isObject(options.self) && options.self.isDisposed && qx.Bootstrap.isFunction(options.self.isDisposed)) {
-              if (options.self.isDisposed()) {
-                qx.core.Assert && qx.core.Assert.fail("Trying to call a bound function with a disposed object as context: " + options.self.toString() + " :: " + qx.lang.Function.getName(func));
-              }
-            }
-          } // Convert (and copy) incoming arguments
-
+          // Convert (and copy) incoming arguments
           var args = qx.lang.Array.fromArguments(arguments); // Prepend static arguments
 
           if (options.args) {
@@ -444,4 +433,4 @@
   qx.lang.Function.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Function.js.map?dt=1564930737724
+//# sourceMappingURL=Function.js.map?dt=1591463655266

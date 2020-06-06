@@ -1,4 +1,4 @@
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 (function () {
   var $$dbClassInfo = {
@@ -65,6 +65,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        *
        * @internal
        * @return {Boolean} <code>true</code> if ActiveX is available
+       *
+       * @ignore(window.ActiveXObject)
        */
       getActiveX: function getActiveX() {
         if (typeof window.ActiveXObject === "function") {
@@ -90,7 +92,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         // IE Support
         if (qx.bom.client.Plugin.getActiveX()) {
           try {
-            new ActiveXObject("Skype.Detection");
+            new window.ActiveXObject("Skype.Detection");
             return true;
           } catch (e) {}
         }
@@ -122,7 +124,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * Database of supported features.
        * Filled with additional data at initialization
        */
-      __db: {
+      __P_220_0: {
         quicktime: {
           plugin: ["QuickTime"],
           control: "QuickTimeCheckObject.QuickTimeCheck.1" // call returns boolean: instance.IsQuickTimeAvailable(0)
@@ -158,8 +160,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @internal
        */
       getQuicktimeVersion: function getQuicktimeVersion() {
-        var entry = qx.bom.client.Plugin.__db["quicktime"];
-        return qx.bom.client.Plugin.__getVersion(entry.control, entry.plugin);
+        var entry = qx.bom.client.Plugin.__P_220_0["quicktime"];
+        return qx.bom.client.Plugin.__P_220_1(entry.control, entry.plugin);
       },
 
       /**
@@ -169,8 +171,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @internal
        */
       getWindowsMediaVersion: function getWindowsMediaVersion() {
-        var entry = qx.bom.client.Plugin.__db["wmv"];
-        return qx.bom.client.Plugin.__getVersion(entry.control, entry.plugin, true);
+        var entry = qx.bom.client.Plugin.__P_220_0["wmv"];
+        return qx.bom.client.Plugin.__P_220_1(entry.control, entry.plugin, true);
       },
 
       /**
@@ -180,8 +182,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @internal
        */
       getDivXVersion: function getDivXVersion() {
-        var entry = qx.bom.client.Plugin.__db["divx"];
-        return qx.bom.client.Plugin.__getVersion(entry.control, entry.plugin);
+        var entry = qx.bom.client.Plugin.__P_220_0["divx"];
+        return qx.bom.client.Plugin.__P_220_1(entry.control, entry.plugin);
       },
 
       /**
@@ -191,8 +193,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @internal
        */
       getSilverlightVersion: function getSilverlightVersion() {
-        var entry = qx.bom.client.Plugin.__db["silverlight"];
-        return qx.bom.client.Plugin.__getVersion(entry.control, entry.plugin);
+        var entry = qx.bom.client.Plugin.__P_220_0["silverlight"];
+        return qx.bom.client.Plugin.__P_220_1(entry.control, entry.plugin);
       },
 
       /**
@@ -216,8 +218,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @internal
        */
       getPdfVersion: function getPdfVersion() {
-        var entry = qx.bom.client.Plugin.__db["pdf"];
-        return qx.bom.client.Plugin.__getVersion(entry.control, entry.plugin);
+        var entry = qx.bom.client.Plugin.__P_220_0["pdf"];
+        return qx.bom.client.Plugin.__P_220_1(entry.control, entry.plugin);
       },
 
       /**
@@ -226,8 +228,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @internal
        */
       getQuicktime: function getQuicktime() {
-        var entry = qx.bom.client.Plugin.__db["quicktime"];
-        return qx.bom.client.Plugin.__isAvailable(entry.control, entry.plugin);
+        var entry = qx.bom.client.Plugin.__P_220_0["quicktime"];
+        return qx.bom.client.Plugin.__P_220_2(entry.control, entry.plugin);
       },
 
       /**
@@ -236,8 +238,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @internal
        */
       getWindowsMedia: function getWindowsMedia() {
-        var entry = qx.bom.client.Plugin.__db["wmv"];
-        return qx.bom.client.Plugin.__isAvailable(entry.control, entry.plugin, true);
+        var entry = qx.bom.client.Plugin.__P_220_0["wmv"];
+        return qx.bom.client.Plugin.__P_220_2(entry.control, entry.plugin, true);
       },
 
       /**
@@ -246,8 +248,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @internal
        */
       getDivX: function getDivX() {
-        var entry = qx.bom.client.Plugin.__db["divx"];
-        return qx.bom.client.Plugin.__isAvailable(entry.control, entry.plugin);
+        var entry = qx.bom.client.Plugin.__P_220_0["divx"];
+        return qx.bom.client.Plugin.__P_220_2(entry.control, entry.plugin);
       },
 
       /**
@@ -256,8 +258,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @internal
        */
       getSilverlight: function getSilverlight() {
-        var entry = qx.bom.client.Plugin.__db["silverlight"];
-        return qx.bom.client.Plugin.__isAvailable(entry.control, entry.plugin);
+        var entry = qx.bom.client.Plugin.__P_220_0["silverlight"];
+        return qx.bom.client.Plugin.__P_220_2(entry.control, entry.plugin);
       },
 
       /**
@@ -280,8 +282,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @internal
        */
       getPdf: function getPdf() {
-        var entry = qx.bom.client.Plugin.__db["pdf"];
-        return qx.bom.client.Plugin.__isAvailable(entry.control, entry.plugin);
+        var entry = qx.bom.client.Plugin.__P_220_0["pdf"];
+        return qx.bom.client.Plugin.__P_220_2(entry.control, entry.plugin);
       },
 
       /**
@@ -295,8 +297,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        *   for IE11 plugins that aren't listed in navigator.plugins
        * @return {String} The version of the plugin as string.
        */
-      __getVersion: function __getVersion(activeXName, pluginNames, forceActiveX) {
-        var available = qx.bom.client.Plugin.__isAvailable(activeXName, pluginNames, forceActiveX); // don't check if the plugin is not available
+      __P_220_1: function __P_220_1(activeXName, pluginNames, forceActiveX) {
+        var available = qx.bom.client.Plugin.__P_220_2(activeXName, pluginNames, forceActiveX); // don't check if the plugin is not available
 
 
         if (!available) {
@@ -306,7 +308,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         if (qx.bom.client.Engine.getName() == "mshtml" && (qx.bom.client.Browser.getDocumentMode() < 11 || forceActiveX)) {
           try {
-            var obj = new ActiveXObject(activeXName);
+            var obj = new window.ActiveXObject(activeXName);
             var version; // pdf version detection
 
             if (obj.GetVersions && obj.GetVersions()) {
@@ -374,7 +376,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        *   for IE11 plugins that aren't listed in navigator.plugins
        * @return {Boolean} <code>true</code>, if the plugin available
        */
-      __isAvailable: function __isAvailable(activeXName, pluginNames, forceActiveX) {
+      __P_220_2: function __P_220_2(activeXName, pluginNames, forceActiveX) {
         // IE checks
         if (qx.bom.client.Engine.getName() == "mshtml" && (qx.bom.client.Browser.getDocumentMode() < 11 || forceActiveX)) {
           if (!this.getActiveX()) {
@@ -430,4 +432,4 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   qx.bom.client.Plugin.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Plugin.js.map?dt=1564930748588
+//# sourceMappingURL=Plugin.js.map?dt=1591463669754

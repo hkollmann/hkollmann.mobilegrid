@@ -13,7 +13,7 @@
         "column": 0
       },
       "end": {
-        "line": 475,
+        "line": 474,
         "column": 3
       }
     },
@@ -21,11 +21,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2004-2008 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Sebastian Werner (wpbasti)\n Andreas Ecker (ecker)\n Fabian Jakobs (fjakobs)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "The qx.locale.Manager provides static translation methods (like tr()) and\ngeneral locale information."
+          "body": "<p>The qx.locale.Manager provides static translation methods (like tr()) and\n general locale information.</p>"
         }
       ],
       "@require": [
@@ -60,6 +60,14 @@
         "line": 54,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "statics": {
@@ -70,7 +78,7 @@
           "column": 4
         },
         "end": {
-          "line": 79,
+          "line": 78,
           "column": 5
         }
       },
@@ -78,7 +86,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Translate a message"
+            "body": "<p>Translate a message</p>"
           }
         ],
         "@param": [
@@ -118,11 +126,11 @@
     "trn": {
       "location": {
         "start": {
-          "line": 94,
+          "line": 93,
           "column": 4
         },
         "end": {
-          "line": 107,
+          "line": 106,
           "column": 5
         }
       },
@@ -130,7 +138,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Translate a plural message\n\nDepending on the third argument the plural or the singular form is chosen."
+            "body": "<p>Translate a plural message\n Depending on the third argument the plural or the singular form is chosen.</p>"
           }
         ],
         "@param": [
@@ -184,11 +192,11 @@
     "trc": {
       "location": {
         "start": {
-          "line": 119,
+          "line": 118,
           "column": 4
         },
         "end": {
-          "line": 125,
+          "line": 124,
           "column": 5
         }
       },
@@ -196,7 +204,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Translate a message with translation hint (from developer addressed to translator)."
+            "body": "<p>Translate a message with translation hint (from developer addressed to translator).</p>"
           }
         ],
         "@param": [
@@ -243,11 +251,11 @@
     "trnc": {
       "location": {
         "start": {
-          "line": 140,
+          "line": 139,
           "column": 4
         },
         "end": {
-          "line": 151,
+          "line": 150,
           "column": 5
         }
       },
@@ -255,7 +263,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Translate a plural message with translation hint (from developer addressed to translator).\n\nDepending on the third argument the plural or the singular form is chosen."
+            "body": "<p>Translate a plural message with translation hint (from developer addressed to translator).\n Depending on the third argument the plural or the singular form is chosen.</p>"
           }
         ],
         "@param": [
@@ -316,11 +324,11 @@
     "marktr": {
       "location": {
         "start": {
-          "line": 159,
+          "line": 158,
           "column": 4
         },
         "end": {
-          "line": 161,
+          "line": 160,
           "column": 5
         }
       },
@@ -328,7 +336,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Mark the message for translation but return the original message."
+            "body": "<p>Mark the message for translation but return the original message.</p>"
           }
         ],
         "@param": [
@@ -357,11 +365,11 @@
     "locale": {
       "location": {
         "start": {
-          "line": 176,
+          "line": 175,
           "column": 4
         },
         "end": {
-          "line": 191,
+          "line": 190,
           "column": 5
         }
       },
@@ -369,7 +377,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "current locale. locale is an language code like de, de_AT, en, en_GB, fr, ..."
+            "body": "<p>current locale. locale is an language code like de, de<em>AT, en, en</em>GB, fr, …</p>"
           }
         ]
       },
@@ -385,7 +393,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>The owning object</p>"
+          }
+        ]
+      }
     },
     "qxObjectId": {
       "type": "property",
@@ -393,18 +409,26 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>{String} The ID of the object.</p>"
+          }
+        ]
+      }
     }
   },
   "members": {
     "__defaultLocale": {
       "location": {
         "start": {
-          "line": 206,
+          "line": 205,
           "column": 4
         },
         "end": {
-          "line": 206,
+          "line": 205,
           "column": 63
         }
       },
@@ -414,11 +438,11 @@
     "__locale": {
       "location": {
         "start": {
-          "line": 207,
+          "line": 206,
           "column": 4
         },
         "end": {
-          "line": 207,
+          "line": 206,
           "column": 19
         }
       },
@@ -428,11 +452,11 @@
     "__language": {
       "location": {
         "start": {
-          "line": 208,
+          "line": 207,
           "column": 4
         },
         "end": {
-          "line": 208,
+          "line": 207,
           "column": 21
         }
       },
@@ -442,11 +466,11 @@
     "__translations": {
       "location": {
         "start": {
-          "line": 209,
+          "line": 208,
           "column": 4
         },
         "end": {
-          "line": 209,
+          "line": 208,
           "column": 25
         }
       },
@@ -456,11 +480,11 @@
     "__locales": {
       "location": {
         "start": {
-          "line": 210,
+          "line": 209,
           "column": 4
         },
         "end": {
-          "line": 210,
+          "line": 209,
           "column": 20
         }
       },
@@ -470,11 +494,11 @@
     "__clientLocale": {
       "location": {
         "start": {
-          "line": 211,
+          "line": 210,
           "column": 4
         },
         "end": {
-          "line": 211,
+          "line": 210,
           "column": 25
         }
       },
@@ -484,11 +508,11 @@
     "getLanguage": {
       "location": {
         "start": {
-          "line": 220,
+          "line": 219,
           "column": 4
         },
         "end": {
-          "line": 222,
+          "line": 221,
           "column": 5
         }
       },
@@ -496,7 +520,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Get the language code of the current locale\n\nThis is the first part of a locale definition. The language for \"de_DE\" would be \"de\""
+            "body": "<p>Get the language code of the current locale\n This is the first part of a locale definition. The language for \"de_DE\" would be \"de\"</p>"
           }
         ],
         "@return": [
@@ -514,11 +538,11 @@
     "getTerritory": {
       "location": {
         "start": {
-          "line": 232,
+          "line": 231,
           "column": 4
         },
         "end": {
-          "line": 234,
+          "line": 233,
           "column": 5
         }
       },
@@ -526,7 +550,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Get the territory code of the current locale\n\nThis is the second part of a locale definition. The territory for \"de_DE\" would be \"DE\""
+            "body": "<p>Get the territory code of the current locale\n This is the second part of a locale definition. The territory for \"de_DE\" would be \"DE\"</p>"
           }
         ],
         "@return": [
@@ -544,11 +568,11 @@
     "getAvailableLocales": {
       "location": {
         "start": {
-          "line": 249,
+          "line": 248,
           "column": 4
         },
         "end": {
-          "line": 264,
+          "line": 263,
           "column": 5
         }
       },
@@ -556,7 +580,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Return the available application locales\n\nThis corresponds to the LOCALES setting in config.json. Without argument,\nit only returns the currently loaded locales, with an argument of true\nall locales that went into the build. This is particularly interesting if\nlocales were generated as dedicated I18N parts, and have to be loaded\nexplicitly before being available."
+            "body": "<p>Return the available application locales\n This corresponds to the LOCALES setting in config.json. Without argument,\n it only returns the currently loaded locales, with an argument of true\n all locales that went into the build. This is particularly interesting if\n locales were generated as dedicated I18N parts, and have to be loaded\n explicitly before being available.</p>"
           }
         ],
         "@param": [
@@ -585,11 +609,11 @@
     "__extractLanguage": {
       "location": {
         "start": {
-          "line": 273,
+          "line": 272,
           "column": 4
         },
         "end": {
-          "line": 288,
+          "line": 287,
           "column": 5
         }
       },
@@ -597,7 +621,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Extract the language part from a locale."
+            "body": "<p>Extract the language part from a locale.</p>"
           }
         ],
         "@param": [
@@ -624,11 +648,11 @@
     "_applyLocale": {
       "location": {
         "start": {
-          "line": 292,
+          "line": 291,
           "column": 4
         },
         "end": {
-          "line": 302,
+          "line": 301,
           "column": 5
         }
       },
@@ -636,7 +660,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -649,11 +673,11 @@
     "addTranslation": {
       "location": {
         "start": {
-          "line": 317,
+          "line": 316,
           "column": 4
         },
         "end": {
-          "line": 330,
+          "line": 329,
           "column": 5
         }
       },
@@ -661,7 +685,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Add a translation to the translation manager.\n\nIf <code>languageCode</code> already exists, its map will be updated with\n<code>translationMap</code> (new keys will be added, existing keys will be\noverwritten)."
+            "body": "<p>Add a translation to the translation manager.\n If <code>languageCode</code> already exists, its map will be updated with\n <code>translationMap</code> (new keys will be added, existing keys will be\n overwritten).</p>"
           }
         ],
         "@param": [
@@ -674,9 +698,9 @@
           },
           {
             "name": "@param",
-            "body": "translationMap {Map} mapping of message identifiers to message strings in the target\n                            language, e.g. <i>{\"greeting_short\" : \"Hello\"}</i>. Plural forms\n                            are separate keys.",
+            "body": "translationMap {Map} mapping of message identifiers to message strings in the target\n                             language, e.g. <i>{\"greeting_short\" : \"Hello\"}</i>. Plural forms\n                             are separate keys.",
             "paramName": "translationMap",
-            "description": " mapping of message identifiers to message strings in the target\n                            language, e.g. <i>{\"greeting_short\" : \"Hello\"}</i>. Plural forms\n                            are separate keys.",
+            "description": " mapping of message identifiers to message strings in the target\n                             language, e.g. <i>{\"greeting_short\" : \"Hello\"}</i>. Plural forms\n                             are separate keys.",
             "type": "Map"
           }
         ]
@@ -687,11 +711,11 @@
     "addLocale": {
       "location": {
         "start": {
-          "line": 343,
+          "line": 342,
           "column": 4
         },
         "end": {
-          "line": 356,
+          "line": 355,
           "column": 5
         }
       },
@@ -699,7 +723,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Add a localization to the localization manager.\n\nIf <code>localeCode</code> already exists, its map will be updated with\n<code>localeMap</code> (new keys will be added, existing keys will be overwritten)."
+            "body": "<p>Add a localization to the localization manager.\n If <code>localeCode</code> already exists, its map will be updated with\n <code>localeMap</code> (new keys will be added, existing keys will be overwritten).</p>"
           }
         ],
         "@param": [
@@ -712,9 +736,9 @@
           },
           {
             "name": "@param",
-            "body": "localeMap {Map} mapping of locale keys to the target locale values, e.g.\n                       <i>{\"cldr_date_format_short\" : \"M/d/yy\"}</i>.",
+            "body": "localeMap {Map} mapping of locale keys to the target locale values, e.g.\n                        <i>{\"cldr_date_format_short\" : \"M/d/yy\"}</i>.",
             "paramName": "localeMap",
-            "description": " mapping of locale keys to the target locale values, e.g.\n                       <i>{\"cldr_date_format_short\" : \"M/d/yy\"}</i>.",
+            "description": " mapping of locale keys to the target locale values, e.g.\n                        <i>{\"cldr_date_format_short\" : \"M/d/yy\"}</i>.",
             "type": "Map"
           }
         ]
@@ -725,11 +749,11 @@
     "translate": {
       "location": {
         "start": {
-          "line": 372,
+          "line": 371,
           "column": 4
         },
         "end": {
-          "line": 376,
+          "line": 375,
           "column": 5
         }
       },
@@ -737,7 +761,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Translate a message using the current locale and apply format string to the arguments.\n\nImplements the lookup chain locale (e.g. en_US) -> language (e.g. en) ->\ndefault locale (e.g. C). Localizes the arguments if possible and splices\nthem into the message. If qx.dynlocale is on, returns a {@link\nLocalizedString}."
+            "body": "<p>Translate a message using the current locale and apply format string to the arguments.\n Implements the lookup chain locale (e.g. en_US) -&gt; language (e.g. en) -&gt;\n default locale (e.g. C). Localizes the arguments if possible and splices\n them into the message. If qx.dynlocale is on, returns a {@link\n LocalizedString}.</p>"
           }
         ],
         "@param": [
@@ -780,11 +804,11 @@
     "localize": {
       "location": {
         "start": {
-          "line": 391,
+          "line": 390,
           "column": 4
         },
         "end": {
-          "line": 395,
+          "line": 394,
           "column": 5
         }
       },
@@ -792,7 +816,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Provide localization (CLDR) data.\n\nImplements the lookup chain locale (e.g. en_US) -> language (e.g. en) ->\ndefault locale (e.g. C). Localizes the arguments if possible and splices\nthem into the message. If qx.dynlocale is on, returns a {@link\nLocalizedString}."
+            "body": "<p>Provide localization (CLDR) data.\n Implements the lookup chain locale (e.g. en_US) -&gt; language (e.g. en) -&gt;\n default locale (e.g. C). Localizes the arguments if possible and splices\n them into the message. If qx.dynlocale is on, returns a {@link\n LocalizedString}.</p>"
           }
         ],
         "@param": [
@@ -835,11 +859,11 @@
     "__lookupAndExpand": {
       "location": {
         "start": {
-          "line": 412,
+          "line": 411,
           "column": 4
         },
         "end": {
-          "line": 473,
+          "line": 472,
           "column": 5
         }
       },
@@ -847,7 +871,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Look up an I18N key in a catalog and expand format strings.\n\nImplements the lookup chain locale (e.g. en_US) -> language (e.g. en) ->\ndefault locale (e.g. C). Localizes the arguments if possible and splices\nthem into the message. If qx.dynlocale is on, returns a {@link\nLocalizedString}."
+            "body": "<p>Look up an I18N key in a catalog and expand format strings.\n Implements the lookup chain locale (e.g. en_US) -&gt; language (e.g. en) -&gt;\n default locale (e.g. C). Localizes the arguments if possible and splices\n them into the message. If qx.dynlocale is on, returns a {@link\n LocalizedString}.</p>"
           }
         ],
         "@param": [
@@ -953,7 +977,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -1012,7 +1044,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getLocale": {
       "type": "function",

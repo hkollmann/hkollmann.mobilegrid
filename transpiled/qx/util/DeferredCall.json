@@ -21,11 +21,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2007-2008 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2007-2008 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Fabian Jakobs (fjakobs)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "This class represents a wrapper for functions, which should be called after\nthe current thread of JavaScript has finished and the control is returned to\nthe browser. The wrapped function will at most be called once after the control\nhas been given back to the browser, independent of the number of {@link #call}\ncalls.\n\nThis class does not need to be disposed, although doing so will cancel any\npending call"
+          "body": "<p>This class represents a wrapper for functions, which should be called after\n the current thread of JavaScript has finished and the control is returned to\n the browser. The wrapped function will at most be called once after the control\n has been given back to the browser, independent of the number of {@link #call}\n calls.\n This class does not need to be disposed, although doing so will cancel any\n pending call</p>"
         }
       ],
       "@require": [
@@ -47,6 +47,36 @@
         "line": 54,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        },
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "callback {Function} The callback",
+          "paramName": "callback",
+          "description": " The callback",
+          "type": "Function"
+        },
+        {
+          "name": "@param",
+          "body": "context {Object?window} the context in which the function will be called.",
+          "paramName": "context",
+          "description": " the context in which the function will be called.",
+          "optional": true,
+          "defaultValue": "window",
+          "type": "Object"
+        }
+      ]
     }
   },
   "members": {
@@ -107,7 +137,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Prevent the callback from being called."
+            "body": "<p>Prevent the callback from being called.</p>"
           }
         ]
       },
@@ -129,7 +159,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Issue a deferred call of the callback."
+            "body": "<p>Issue a deferred call of the callback.</p>"
           }
         ]
       },
@@ -151,7 +181,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Calls the callback directly."
+            "body": "<p>Calls the callback directly.</p>"
           }
         ]
       },
@@ -217,7 +247,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -276,7 +314,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     }
   },
   "destruct": {
@@ -289,6 +335,14 @@
         "line": 119,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DESTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "descendants": []

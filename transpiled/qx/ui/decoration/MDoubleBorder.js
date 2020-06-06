@@ -18,7 +18,6 @@
       "qx.bom.client.Css": {},
       "qx.theme.manager.Color": {},
       "qx.bom.Style": {},
-      "qx.log.Logger": {},
       "qx.util.ColorUtil": {}
     },
     "environment": {
@@ -69,8 +68,8 @@
     include: [qx.ui.decoration.MSingleBorder, qx.ui.decoration.MBackgroundImage],
     construct: function construct() {
       // override the methods of single border and background image
-      this._getDefaultInsetsForBorder = this.__getDefaultInsetsForDoubleBorder;
-      this._styleBorder = this.__styleDoubleBorder;
+      this._getDefaultInsetsForBorder = this.__P_165_0;
+      this._styleBorder = this.__P_165_1;
     },
 
     /*
@@ -178,7 +177,7 @@
        *
        * @param styles {Map} A map to add the styles.
        */
-      __styleDoubleBorder: function __styleDoubleBorder(styles) {
+      __P_165_1: function __P_165_1(styles) {
         var propName = qx.core.Environment.get("css.boxshadow");
         var color, innerColor, innerWidth;
 
@@ -245,7 +244,7 @@
         var innerOpacity = this.getInnerOpacity();
 
         if (innerOpacity < 1) {
-          this.__processInnerOpacity(innerColor, innerOpacity);
+          this.__P_165_2(innerColor, innerOpacity);
         } // inner border
 
 
@@ -322,11 +321,8 @@
        * @param innerColor {Map} map of top, right, bottom and left colors
        * @param innerOpacity {Number} alpha value
        */
-      __processInnerOpacity: function __processInnerOpacity(innerColor, innerOpacity) {
+      __P_165_2: function __P_165_2(innerColor, innerOpacity) {
         if (!qx.core.Environment.get("css.rgba")) {
-          {
-            qx.log.Logger.warn("innerOpacity is configured but the browser doesn't support RGBA colors.");
-          }
           return;
         }
 
@@ -337,13 +333,7 @@
           innerColor[edge] = rgbString;
         }
       },
-      _applyDoubleBorder: function _applyDoubleBorder() {
-        {
-          if (this._isInitialized()) {
-            throw new Error("This decorator is already in-use. Modification is not possible anymore!");
-          }
-        }
-      },
+      _applyDoubleBorder: function _applyDoubleBorder() {},
 
       /**
        * Implementation of the interface for the double border.
@@ -351,7 +341,7 @@
        * @return {Map} A map containing the default insets.
        *   (top, right, bottom, left)
        */
-      __getDefaultInsetsForDoubleBorder: function __getDefaultInsetsForDoubleBorder() {
+      __P_165_0: function __P_165_0() {
         return {
           top: this.getWidthTop() + this.getInnerWidthTop(),
           right: this.getWidthRight() + this.getInnerWidthRight(),
@@ -364,4 +354,4 @@
   qx.ui.decoration.MDoubleBorder.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MDoubleBorder.js.map?dt=1564930746218
+//# sourceMappingURL=MDoubleBorder.js.map?dt=1591463665900

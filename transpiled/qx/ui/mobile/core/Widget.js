@@ -23,7 +23,6 @@
       "qx.locale.MTranslation": {
         "require": true
       },
-      "qx.core.Assert": {},
       "qx.event.GlobalError": {
         "usage": "dynamic",
         "require": true
@@ -32,7 +31,6 @@
       "qx.ui.mobile.core.DomUpdatedHandler": {},
       "qx.dom.Element": {},
       "qx.lang.Array": {},
-      "qx.ui.mobile.layout.Abstract": {},
       "qx.bom.client.CssTransform": {},
       "qx.bom.element.Style": {},
       "qx.bom.element.Attribute": {},
@@ -90,7 +88,7 @@
       this._setContainerElement(this._createContainerElement()); // Init member variables
 
 
-      this.__children = [];
+      this.__P_88_0 = [];
       this.setId(this.getId());
       this.initDefaultCssClass();
       this.initName();
@@ -423,21 +421,21 @@
       ID_PREFIX: "qx_id_",
 
       /** @type {Map} Internal data structure to store widgets */
-      __registry: {},
+      __P_88_1: {},
 
       /** @type {Integer} Incremental counter of the current id */
-      __idCounter: 0,
+      __P_88_2: 0,
 
       /** @type {Integer} ID of the timeout for the DOM update */
-      __domUpdatedScheduleId: null,
+      __P_88_3: null,
 
       /**
        * Event handler. Called when the application is in shutdown.
        * @internal
        */
       onShutdown: function onShutdown() {
-        window.clearTimeout(qx.ui.mobile.core.Widget.__domUpdatedScheduleId);
-        delete qx.ui.mobile.core.Widget.__registry;
+        window.clearTimeout(qx.ui.mobile.core.Widget.__P_88_3);
+        delete qx.ui.mobile.core.Widget.__P_88_1;
       },
 
       /**
@@ -446,7 +444,7 @@
        * @internal
        */
       getCurrentId: function getCurrentId() {
-        return qx.ui.mobile.core.Widget.__idCounter;
+        return qx.ui.mobile.core.Widget.__P_88_2;
       },
 
       /**
@@ -458,10 +456,7 @@
        */
       registerWidget: function registerWidget(widget) {
         var id = widget.getId();
-        var registry = qx.ui.mobile.core.Widget.__registry;
-        {
-          qx.core.Assert.assertUndefined(registry[id], "Widget with the id '" + id + "' is already registered");
-        }
+        var registry = qx.ui.mobile.core.Widget.__P_88_1;
         registry[id] = widget;
       },
 
@@ -473,7 +468,7 @@
        * @internal
        */
       unregisterWidget: function unregisterWidget(id) {
-        delete qx.ui.mobile.core.Widget.__registry[id];
+        delete qx.ui.mobile.core.Widget.__P_88_1[id];
       },
 
       /**
@@ -483,7 +478,7 @@
         * @return {qx.ui.core.Widget} The widget with the given id
         */
       getWidgetById: function getWidgetById(id) {
-        return qx.ui.mobile.core.Widget.__registry[id];
+        return qx.ui.mobile.core.Widget.__P_88_1[id];
       },
 
       /**
@@ -493,8 +488,8 @@
        * @internal
        */
       scheduleDomUpdated: function scheduleDomUpdated() {
-        if (qx.ui.mobile.core.Widget.__domUpdatedScheduleId == null) {
-          qx.ui.mobile.core.Widget.__domUpdatedScheduleId = window.setTimeout(qx.ui.mobile.core.Widget.domUpdated, 0);
+        if (qx.ui.mobile.core.Widget.__P_88_3 == null) {
+          qx.ui.mobile.core.Widget.__P_88_3 = window.setTimeout(qx.ui.mobile.core.Widget.domUpdated, 0);
         }
       },
 
@@ -507,8 +502,8 @@
        */
       domUpdated: qx.event.GlobalError.observeMethod(function () {
         var clazz = qx.ui.mobile.core.Widget;
-        window.clearTimeout(clazz.__domUpdatedScheduleId);
-        clazz.__domUpdatedScheduleId = null;
+        window.clearTimeout(clazz.__P_88_3);
+        clazz.__P_88_3 = null;
         qx.event.handler.Appear.refresh();
         qx.ui.mobile.core.DomUpdatedHandler.refresh();
       }),
@@ -536,10 +531,6 @@
        *      Use null, when you want not to set the attribute.
        */
       addAttributeMapping: function addAttributeMapping(property, attribute, values) {
-        {
-          var attributeMapping = qx.ui.mobile.core.Widget.ATTRIBUTE_MAPPING;
-          qx.core.Assert.assertUndefined(attributeMapping[property], "Attribute mapping for " + property + " already exists");
-        }
         qx.ui.mobile.core.Widget.ATTRIBUTE_MAPPING[property] = {
           attribute: attribute,
           values: values
@@ -569,10 +560,6 @@
        *      Use null, when you want not to set the style.
        */
       addStyleMapping: function addStyleMapping(property, style, values) {
-        {
-          var styleMapping = qx.ui.mobile.core.Widget.STYLE_MAPPING;
-          qx.core.Assert.assertUndefined(styleMapping[property], "Style mapping for " + property + " already exists");
-        }
         qx.ui.mobile.core.Widget.STYLE_MAPPING[property] = {
           style: style,
           values: values
@@ -626,11 +613,11 @@
     *****************************************************************************
     */
     members: {
-      __containerElement: null,
-      __contentElement: null,
-      __layoutParent: null,
-      __children: null,
-      __layoutManager: null,
+      __P_88_4: null,
+      __P_88_5: null,
+      __P_88_6: null,
+      __P_88_0: null,
+      __P_88_7: null,
 
       /*
       ---------------------------------------------------------------------------
@@ -681,7 +668,7 @@
       _transformId: function _transformId(value) {
         if (value == null) {
           var clazz = qx.ui.mobile.core.Widget;
-          value = clazz.ID_PREFIX + clazz.__idCounter++;
+          value = clazz.ID_PREFIX + clazz.__P_88_2++;
         }
 
         return value;
@@ -731,17 +718,11 @@
        * @param layoutProperties {Map?null} Optional layout data for widget.
        */
       _add: function _add(child, layoutProperties) {
-        {
-          if (child.getLayoutParent() === this) {
-            throw new Error("The widget is already added this widget. Please remove it first.");
-          }
-        }
-
         this._initializeChildLayout(child, layoutProperties);
 
         this.getContentElement().appendChild(child.getContainerElement());
 
-        this.__children.push(child);
+        this.__P_88_0.push(child);
 
         this._domUpdated();
       },
@@ -758,10 +739,10 @@
       _addAt: function _addAt(child, index, options) {
         // When moving in the same widget, remove widget first
         if (child.getLayoutParent() == this) {
-          qx.lang.Array.remove(this.__children, child);
+          qx.lang.Array.remove(this.__P_88_0, child);
         }
 
-        var ref = this.__children[index];
+        var ref = this.__P_88_0[index];
 
         if (ref) {
           this._addBefore(child, ref, options);
@@ -778,14 +759,6 @@
        * @param layoutProperties {Map?null} Optional layout data for widget.
        */
       _addBefore: function _addBefore(child, beforeWidget, layoutProperties) {
-        {
-          if (child.getLayoutParent() === this) {
-            throw new Error("The widget is already added this widget. Please remove it first.");
-          }
-
-          this.assertInArray(beforeWidget, this._getChildren(), "The 'before' widget is not a child of this widget!");
-        }
-
         if (child == beforeWidget) {
           return;
         }
@@ -793,7 +766,7 @@
         this._initializeChildLayout(child, layoutProperties);
 
         this.getContentElement().insertBefore(child.getContainerElement(), beforeWidget.getContainerElement());
-        qx.lang.Array.insertBefore(this.__children, child, beforeWidget);
+        qx.lang.Array.insertBefore(this.__P_88_0, child, beforeWidget);
 
         this._domUpdated();
       },
@@ -806,14 +779,6 @@
        * @param layoutProperties {Map?null} Optional layout data for widget.
        */
       _addAfter: function _addAfter(child, afterWidget, layoutProperties) {
-        {
-          if (child.getLayoutParent() === this) {
-            throw new Error("The child is already added to this widget. Please remove it first.");
-          }
-
-          this.assertInArray(afterWidget, this._getChildren(), "The 'after' widget is not a child of this widget!");
-        }
-
         if (child == afterWidget) {
           return;
         }
@@ -832,7 +797,7 @@
           this.getContentElement().insertBefore(child.getContainerElement(), beforeWidget.getContainerElement());
         }
 
-        qx.lang.Array.insertAfter(this.__children, child, afterWidget);
+        qx.lang.Array.insertAfter(this.__P_88_0, child, afterWidget);
 
         this._domUpdated();
       },
@@ -854,11 +819,11 @@
        * @param index {Integer} Index of the widget to remove.
        */
       _removeAt: function _removeAt(index) {
-        if (!this.__children) {
+        if (!this.__P_88_0) {
           throw new Error("This widget has no children!");
         }
 
-        var child = this.__children[index];
+        var child = this.__P_88_0[index];
 
         this._remove(child);
       },
@@ -869,7 +834,7 @@
        */
       _removeAll: function _removeAll() {
         // create a copy of the array
-        var children = this.__children.concat();
+        var children = this.__P_88_0.concat();
 
         for (var i = 0, l = children.length; i < l; i++) {
           this._remove(children[i]);
@@ -887,7 +852,7 @@
        *   the given widget is no child of this layout.
        */
       _indexOf: function _indexOf(child) {
-        var children = this.__children;
+        var children = this.__P_88_0;
 
         if (!children) {
           return -1;
@@ -904,17 +869,17 @@
        * @internal
        */
       setLayoutParent: function setLayoutParent(parent) {
-        if (this.__layoutParent === parent) {
+        if (this.__P_88_6 === parent) {
           return;
         }
 
-        var oldParent = this.__layoutParent;
+        var oldParent = this.__P_88_6;
 
         if (oldParent && !oldParent.$$disposed) {
-          this.__layoutParent.removeChild(this);
+          this.__P_88_6.removeChild(this);
         }
 
-        this.__layoutParent = parent || null;
+        this.__P_88_6 = parent || null;
       },
 
       /**
@@ -925,7 +890,7 @@
        * @internal
        */
       removeChild: function removeChild(child) {
-        qx.lang.Array.remove(this.__children, child);
+        qx.lang.Array.remove(this.__P_88_0, child);
         this.getContentElement().removeChild(child.getContainerElement());
 
         var layout = this._getLayout();
@@ -941,7 +906,7 @@
        * @return {qx.ui.core.Widget} The parent of the widget
        */
       getLayoutParent: function getLayoutParent() {
-        return this.__layoutParent;
+        return this.__P_88_6;
       },
 
       /**
@@ -950,7 +915,7 @@
        * @return {qx.ui.core.Widget[]} The children of the widget
        */
       _getChildren: function _getChildren() {
-        return this.__children;
+        return this.__P_88_0;
       },
 
       /**
@@ -959,7 +924,7 @@
        * @return {Boolean} Whether the widget has children or not.
        */
       _hasChildren: function _hasChildren() {
-        return this.__children && this.__children.length > 0;
+        return this.__P_88_0 && this.__P_88_0.length > 0;
       },
 
       /*
@@ -977,19 +942,13 @@
        *     <code>null</code> to reset the layout.
        */
       _setLayout: function _setLayout(layout) {
-        {
-          if (layout) {
-            this.assertInstance(layout, qx.ui.mobile.layout.Abstract);
-          }
-        }
-
-        if (this.__layoutManager) {
-          this.__layoutManager.connectToWidget(null);
+        if (this.__P_88_7) {
+          this.__P_88_7.connectToWidget(null);
 
           for (var i = 0; i < this._getChildren().length; i++) {
             var child = this._getChildren()[i];
 
-            this.__layoutManager.disconnectFromChildWidget(child);
+            this.__P_88_7.disconnectFromChildWidget(child);
           }
         }
 
@@ -997,7 +956,7 @@
           layout.connectToWidget(this);
         }
 
-        this.__layoutManager = layout;
+        this.__P_88_7 = layout;
 
         this._domUpdated();
       },
@@ -1025,7 +984,7 @@
        * @return  {qx.ui.mobile.layout.Abstract} the layout manager of the widget.
        */
       _getLayout: function _getLayout() {
-        return this.__layoutManager;
+        return this.__P_88_7;
       },
 
       /**
@@ -1360,7 +1319,7 @@
        * @param action {String} The causing action that triggered the layout update.
        * @param properties {Map} The animation properties to set. Key / value pairs.
        */
-      __setVisibility: function __setVisibility(action, properties) {
+      __P_88_8: function __P_88_8(action, properties) {
         this.setVisibility(action);
         var parent = this.getLayoutParent();
 
@@ -1376,7 +1335,7 @@
        *
        */
       show: function show(properties) {
-        this.__setVisibility("visible", properties);
+        this.__P_88_8("visible", properties);
       },
 
       /**
@@ -1386,7 +1345,7 @@
        *
        */
       hide: function hide(properties) {
-        this.__setVisibility("hidden", properties);
+        this.__P_88_8("hidden", properties);
       },
 
       /**
@@ -1396,7 +1355,7 @@
        *
        */
       exclude: function exclude(properties) {
-        this.__setVisibility("excluded", properties);
+        this.__P_88_8("excluded", properties);
       },
 
       /**
@@ -1455,7 +1414,7 @@
        * @param element {Element} The container DOM element of the widget
        */
       _setContainerElement: function _setContainerElement(element) {
-        this.__containerElement = element;
+        this.__P_88_4 = element;
       },
 
       /**
@@ -1466,7 +1425,7 @@
        * @internal
        */
       getContainerElement: function getContainerElement() {
-        return this.__containerElement;
+        return this.__P_88_4;
       },
 
       /**
@@ -1477,11 +1436,11 @@
        * @internal
        */
       getContentElement: function getContentElement() {
-        if (!this.__contentElement) {
-          this.__contentElement = this._getContentElement();
+        if (!this.__P_88_5) {
+          this.__P_88_5 = this._getContentElement();
         }
 
-        return this.__contentElement;
+        return this.__P_88_5;
       },
 
       /**
@@ -1513,7 +1472,7 @@
           return;
         }
 
-        var parent = this.__layoutParent;
+        var parent = this.__P_88_6;
 
         if (parent) {
           parent._remove(this);
@@ -1539,13 +1498,13 @@
         }
       }
 
-      this.__layoutParent = this.__containerElement = this.__contentElement = null;
+      this.__P_88_6 = this.__P_88_4 = this.__P_88_5 = null;
 
-      if (this.__layoutManager) {
-        this.__layoutManager.dispose();
+      if (this.__P_88_7) {
+        this.__P_88_7.dispose();
       }
 
-      this.__layoutManager = null;
+      this.__P_88_7 = null;
     },
 
     /*
@@ -1560,4 +1519,4 @@
   qx.ui.mobile.core.Widget.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Widget.js.map?dt=1564930741455
+//# sourceMappingURL=Widget.js.map?dt=1591463658814

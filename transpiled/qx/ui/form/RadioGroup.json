@@ -29,11 +29,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\nChristian Hagendorn (chris_schmidt)\nMartin Wittemann (martinwittemann)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2004-2008 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Sebastian Werner (wpbasti)\n Andreas Ecker (ecker)\n Christian Hagendorn (chris_schmidt)\n Martin Wittemann (martinwittemann)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "The radio group handles a collection of items from which only one item\ncan be selected. Selection another item will deselect the previously selected\nitem.\n\nThis class is e.g. used to create radio groups or {@link qx.ui.form.RadioButton}\nor {@link qx.ui.toolbar.RadioButton} instances.\n\nWe also offer a widget for the same purpose which uses this class. So if\nyou like to act with a widget instead of a pure logic coupling of the\nwidgets, take a look at the {@link qx.ui.form.RadioButtonGroup} widget."
+          "body": "<p>The radio group handles a collection of items from which only one item\n can be selected. Selection another item will deselect the previously selected\n item.\n This class is e.g. used to create radio groups or {@link qx.ui.form.RadioButton}\n or {@link qx.ui.toolbar.RadioButton} instances.\n We also offer a widget for the same purpose which uses this class. So if\n you like to act with a widget instead of a pure logic coupling of the\n widgets, take a look at the {@link qx.ui.form.RadioButtonGroup} widget.</p>"
         }
       ]
     }
@@ -49,6 +49,27 @@
         "line": 73,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        },
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "varargs {qx.core.Object} A variable number of items, which are\n     initially added to the radio group, the first item will be selected.",
+          "paramName": "varargs",
+          "description": " A variable number of items, which are\n     initially added to the radio group, the first item will be selected.",
+          "type": "qx.core.Object"
+        }
+      ]
     }
   },
   "properties": {
@@ -67,7 +88,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The property name in each of the added widgets that is grouped"
+            "body": "<p>The property name in each of the added widgets that is grouped</p>"
           }
         ]
       },
@@ -94,7 +115,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The property name in each of the added widgets that is informed of the\nRadioGroup object it is a member of"
+            "body": "<p>The property name in each of the added widgets that is informed of the\n RadioGroup object it is a member of</p>"
           }
         ]
       },
@@ -120,7 +141,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Whether the radio group is enabled"
+            "body": "<p>Whether the radio group is enabled</p>"
           }
         ]
       },
@@ -147,7 +168,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Whether the selection should wrap around. This means that the successor of\nthe last item is the first item."
+            "body": "<p>Whether the selection should wrap around. This means that the successor of\n the last item is the first item.</p>"
           }
         ]
       },
@@ -172,7 +193,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "If is set to <code>true</code> the selection could be empty,\notherwise is always one <code>RadioButton</code> selected."
+            "body": "<p>If is set to <code>true</code> the selection could be empty,\n otherwise is always one <code>RadioButton</code> selected.</p>"
           }
         ]
       },
@@ -198,7 +219,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Flag signaling if the group at all is valid. All children will have the\nsame state."
+            "body": "<p>Flag signaling if the group at all is valid. All children will have the\n same state.</p>"
           }
         ]
       },
@@ -225,7 +246,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Flag signaling if the group is required."
+            "body": "<p>Flag signaling if the group is required.</p>"
           }
         ]
       },
@@ -251,7 +272,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Message which is shown in an invalid tooltip."
+            "body": "<p>Message which is shown in an invalid tooltip.</p>"
           }
         ]
       },
@@ -278,7 +299,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Message which is shown in an invalid tooltip if the {@link #required} is\nset to true."
+            "body": "<p>Message which is shown in an invalid tooltip if the {@link #required} is\n set to true.</p>"
           }
         ]
       },
@@ -295,7 +316,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>The owning object</p>"
+          }
+        ]
+      }
     },
     "qxObjectId": {
       "type": "property",
@@ -303,7 +332,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>{String} The ID of the object.</p>"
+          }
+        ]
+      }
     }
   },
   "members": {
@@ -350,11 +387,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nUTILITIES\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  UTILITIES\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Get all managed items"
+            "body": "<p>Get all managed items</p>"
           }
         ],
         "@return": [
@@ -384,11 +421,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nREGISTRY\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  REGISTRY\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Add the passed items to the radio group."
+            "body": "<p>Add the passed items to the radio group.</p>"
           }
         ],
         "@param": [
@@ -419,7 +456,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Remove an item from the radio group."
+            "body": "<p>Remove an item from the radio group.</p>"
           }
         ],
         "@param": [
@@ -450,7 +487,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns an array containing the group's items."
+            "body": "<p>Returns an array containing the group's items.</p>"
           }
         ],
         "@return": [
@@ -480,11 +517,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nLISTENER FOR ITEM CHANGES\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  LISTENER FOR ITEM CHANGES\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Event listener for <code>changeValue</code> event of every managed item."
+            "body": "<p>Event listener for <code>changeValue</code> event of every managed item.</p>"
           }
         ],
         "@param": [
@@ -515,11 +552,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nAPPLY ROUTINES\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  APPLY ROUTINES\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -544,7 +581,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -569,7 +606,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -594,7 +631,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -619,7 +656,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property apply"
+            "body": "<p>property apply</p>"
           }
         ]
       },
@@ -644,11 +681,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nSELECTION\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  SELECTION\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Select the item following the given item."
+            "body": "<p>Select the item following the given item.</p>"
           }
         ]
       },
@@ -670,7 +707,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Select the item previous the given item."
+            "body": "<p>Select the item previous the given item.</p>"
           }
         ]
       },
@@ -692,11 +729,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nHELPER METHODS FOR SELECTION API\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  HELPER METHODS FOR SELECTION API\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Returns the items for the selection."
+            "body": "<p>Returns the items for the selection.</p>"
           }
         ],
         "@return": [
@@ -726,15 +763,15 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns if the selection could be empty or not."
+            "body": "<p>Returns if the selection could be empty or not.</p>"
           }
         ],
         "@return": [
           {
             "name": "@return",
-            "body": "{Boolean} <code>true</code> If selection could be empty,\n   <code>false</code> otherwise.",
+            "body": "{Boolean} <code>true</code> If selection could be empty,\n    <code>false</code> otherwise.",
             "type": "Boolean",
-            "description": " <code>true</code> If selection could be empty,\n   <code>false</code> otherwise."
+            "description": " <code>true</code> If selection could be empty,\n    <code>false</code> otherwise."
           }
         ]
       },
@@ -756,7 +793,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns whether the item is selectable. In opposite to the default\nimplementation (which checks for visible items) every radio button\nwhich is part of the group is selected even if it is currently not visible."
+            "body": "<p>Returns whether the item is selectable. In opposite to the default\n implementation (which checks for visible items) every radio button\n which is part of the group is selected even if it is currently not visible.</p>"
           }
         ],
         "@param": [
@@ -771,9 +808,9 @@
         "@return": [
           {
             "name": "@return",
-            "body": "{Boolean} <code>true</code> if the item is part of the radio group\n   <code>false</code> otherwise.",
+            "body": "{Boolean} <code>true</code> if the item is part of the radio group\n    <code>false</code> otherwise.",
             "type": "Boolean",
-            "description": " <code>true</code> if the item is part of the radio group\n   <code>false</code> otherwise."
+            "description": " <code>true</code> if the item is part of the radio group\n    <code>false</code> otherwise."
           }
         ]
       },
@@ -795,7 +832,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Event handler for <code>changeSelection</code>."
+            "body": "<p>Event handler for <code>changeSelection</code>.</p>"
           }
         ],
         "@param": [
@@ -823,7 +860,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns an array of currently selected items.\n\nNote: The result is only a set of selected items, so the order can\ndiffer from the sequence in which the items were added."
+            "body": "<p>Returns an array of currently selected items.\n Note: The result is only a set of selected items, so the order can\n differ from the sequence in which the items were added.</p>"
           }
         ],
         "@return": [
@@ -848,7 +885,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Replaces current selection with the given items."
+            "body": "<p>Replaces current selection with the given items.</p>"
           }
         ],
         "@param": [
@@ -877,7 +914,15 @@
       "mixin": true,
       "inherited": true,
       "access": "public",
-      "overriddenFrom": "qx.ui.core.ISingleSelection"
+      "overriddenFrom": "qx.ui.core.ISingleSelection",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Clears the whole selection at once.</p>"
+          }
+        ]
+      }
     },
     "isSelected": {
       "type": "function",
@@ -891,7 +936,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Detects whether the given item is currently selected."
+            "body": "<p>Detects whether the given item is currently selected.</p>"
           }
         ],
         "@param": [
@@ -933,7 +978,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Whether the selection is empty."
+            "body": "<p>Whether the selection is empty.</p>"
           }
         ],
         "@return": [
@@ -958,15 +1003,15 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns all elements which are selectable."
+            "body": "<p>Returns all elements which are selectable.</p>"
           }
         ],
         "@param": [
           {
             "name": "@param",
-            "body": "all {Boolean} true for all selectables, false for the\n  selectables the user can interactively select",
+            "body": "all {Boolean} true for all selectables, false for the\n   selectables the user can interactively select",
             "paramName": "all",
-            "description": " true for all selectables, false for the\n  selectables the user can interactively select",
+            "description": " true for all selectables, false for the\n   selectables the user can interactively select",
             "type": "Boolean"
           }
         ],
@@ -992,11 +1037,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nVALUE PROPERTY\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  VALUE PROPERTY\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Sets the field model value. Should also update the UI."
+            "body": "<p>Sets the field model value. Should also update the UI.</p>"
           }
         ],
         "@param": [
@@ -1014,9 +1059,9 @@
         "@return": [
           {
             "name": "@return",
-            "body": "{null|Error} Should return an error when the type of\n model value is not compatible with the implementing class (the concrete field).",
+            "body": "{null|Error} Should return an error when the type of\n  model value is not compatible with the implementing class (the concrete field).",
             "type": "null|Error",
-            "description": " Should return an error when the type of\n model value is not compatible with the implementing class (the concrete field)."
+            "description": " Should return an error when the type of\n  model value is not compatible with the implementing class (the concrete field)."
           }
         ]
       }
@@ -1028,7 +1073,15 @@
       "mixin": true,
       "inherited": true,
       "access": "public",
-      "overriddenFrom": "qx.ui.form.IField"
+      "overriddenFrom": "qx.ui.form.IField",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Resets the model value to its initial value. Should also update the UI.</p>"
+          }
+        ]
+      }
     },
     "getValue": {
       "type": "function",
@@ -1042,7 +1095,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns a consistent and up-to-date model value.\n\nNote: returned value can also be a promise of type <code>Promise&lt;*|null&gt;</code>."
+            "body": "<p>Returns a consistent and up-to-date model value.\n Note: returned value can also be a promise of type <code>Promise&amp;lt;*|null&amp;gt;</code>.</p>"
           }
         ],
         "@return": [
@@ -1312,7 +1365,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Tries to set the selection using the given array containing the\nrepresentative models for the selectables."
+            "body": "<p>Tries to set the selection using the given array containing the\n representative models for the selectables.</p>"
           }
         ],
         "@param": [
@@ -1338,15 +1391,15 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns an array of the selected models."
+            "body": "<p>Returns an array of the selected models.</p>"
           }
         ],
         "@return": [
           {
             "name": "@return",
-            "body": "{Array} An array containing the models of the currently selected\n  items.",
+            "body": "{Array} An array containing the models of the currently selected\n   items.",
             "type": "Array",
-            "description": " An array containing the models of the currently selected\n  items."
+            "description": " An array containing the models of the currently selected\n   items."
           }
         ]
       }
@@ -1363,11 +1416,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nEVENT HANDLER\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  EVENT HANDLER\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Event listener for <code>changeSelected</code> event on single\nselection manager."
+            "body": "<p>Event listener for <code>changeSelected</code> event on single\n selection manager.</p>"
           }
         ],
         "@param": [
@@ -1393,7 +1446,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Return the selection manager if it is already exists, otherwise creates\nthe manager."
+            "body": "<p>Return the selection manager if it is already exists, otherwise creates\n the manager.</p>"
           }
         ],
         "@return": [
@@ -1413,7 +1466,15 @@
       "mixin": true,
       "inherited": true,
       "access": "private",
-      "overriddenFrom": "qx.ui.form.MModelSelection"
+      "overriddenFrom": "qx.ui.form.MModelSelection",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Handler for the selection change of the including class e.g. SelectBox,\n List, …\n It sets the new modelSelection via {@link #setModelSelection}.</p>"
+          }
+        ]
+      }
     },
     "__onModelSelectionArrayChange": {
       "type": "function",
@@ -1422,7 +1483,15 @@
       "mixin": true,
       "inherited": true,
       "access": "private",
-      "overriddenFrom": "qx.ui.form.MModelSelection"
+      "overriddenFrom": "qx.ui.form.MModelSelection",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Listener for the change of the internal model selection data array.</p>"
+          }
+        ]
+      }
     },
     "getQxOwner": {
       "type": "function",
@@ -1483,7 +1552,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -1542,7 +1619,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getGroupedProperty": {
       "type": "function",
@@ -2024,6 +2109,14 @@
         "line": 539,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DESTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "descendants": []

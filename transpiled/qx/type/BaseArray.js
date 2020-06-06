@@ -7,11 +7,14 @@
       "qx.lang.normalize.Array": {
         "require": true
       },
+      "qx.core.Environment": {
+        "defer": "load",
+        "require": true
+      },
       "qx.Bootstrap": {
         "usage": "dynamic",
         "require": true
-      },
-      "qx.core.Environment": {}
+      }
     },
     "environment": {
       "provided": [],
@@ -571,4 +574,4 @@
   qx.type.BaseArray.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=BaseArray.js.map?dt=1564930748899
+//# sourceMappingURL=BaseArray.js.map?dt=1591463670257

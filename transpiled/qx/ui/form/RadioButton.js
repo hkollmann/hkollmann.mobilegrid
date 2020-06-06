@@ -84,9 +84,6 @@
      * @param label {String?null} An optional label for the radio button.
      */
     construct: function construct(label) {
-      {
-        this.assertArgumentsCount(arguments, 0, 1);
-      }
       qx.ui.form.Button.constructor.call(this, label); // Add listeners
 
       this.addListener("execute", this._onExecute);
@@ -226,4 +223,4 @@
   qx.ui.form.RadioButton.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=RadioButton.js.map?dt=1564930750834
+//# sourceMappingURL=RadioButton.js.map?dt=1591463673055

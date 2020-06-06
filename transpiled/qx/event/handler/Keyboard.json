@@ -24,11 +24,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2004-2008 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Sebastian Werner (wpbasti)\n Andreas Ecker (ecker)\n Fabian Jakobs (fjakobs)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "This class provides unified key event handler for Internet Explorer,\nFirefox, Opera and Safari.\n\nNOTE: Instances of this class must be disposed of after use"
+          "body": "<p>This class provides unified key event handler for Internet Explorer,\n Firefox, Opera and Safari.\n NOTE: Instances of this class must be disposed of after use</p>"
         }
       ],
       "@require": [
@@ -50,6 +50,27 @@
         "line": 70,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        },
+        {
+          "name": "@description",
+          "body": "<p>Create a new instance</p>"
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "manager {qx.event.Manager} Event manager for the window to use",
+          "paramName": "manager",
+          "description": " Event manager for the window to use",
+          "type": "qx.event.Manager"
+        }
+      ]
     }
   },
   "statics": {
@@ -294,35 +315,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nEVENT HANDLER INTERFACE\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  EVENT HANDLER INTERFACE\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "interface implementation"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "target {var} The target to, which the event handler should\n    be attached",
-            "paramName": "target",
-            "description": " The target to, which the event handler should\n    be attached",
-            "type": "var"
-          },
-          {
-            "name": "@param",
-            "body": "type {String} event type",
-            "paramName": "type",
-            "description": " event type",
-            "type": "String"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Boolean} Whether the event handler can handle events of the\n    given type.",
-            "type": "Boolean",
-            "description": " Whether the event handler can handle events of the\n    given type."
+            "body": "<p>interface implementation</p>"
           }
         ]
       },
@@ -348,30 +345,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "interface implementation"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "target {var} The target to, which the event handler should\n    be attached",
-            "paramName": "target",
-            "description": " The target to, which the event handler should\n    be attached",
-            "type": "var"
-          },
-          {
-            "name": "@param",
-            "body": "type {String} event type",
-            "paramName": "type",
-            "description": " event type",
-            "type": "String"
-          },
-          {
-            "name": "@param",
-            "body": "capture {Boolean} Whether to attach the event to the\n        capturing phase or the bubbling phase of the event.",
-            "paramName": "capture",
-            "description": " Whether to attach the event to the\n        capturing phase or the bubbling phase of the event.",
-            "type": "Boolean"
+            "body": "<p>interface implementation</p>"
           }
         ]
       },
@@ -397,30 +371,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "interface implementation"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "target {var} The target from, which the event handler should\n    be removed",
-            "paramName": "target",
-            "description": " The target from, which the event handler should\n    be removed",
-            "type": "var"
-          },
-          {
-            "name": "@param",
-            "body": "type {String} event type",
-            "paramName": "type",
-            "description": " event type",
-            "type": "String"
-          },
-          {
-            "name": "@param",
-            "body": "capture {Boolean} Whether to attach the event to the\n        capturing phase or the bubbling phase of the event.",
-            "paramName": "capture",
-            "description": " Whether to attach the event to the\n        capturing phase or the bubbling phase of the event.",
-            "type": "Boolean"
+            "body": "<p>interface implementation</p>"
           }
         ]
       },
@@ -446,11 +397,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nHELPER\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  HELPER\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Fire a key input event with the given parameters"
+            "body": "<p>Fire a key input event with the given parameters</p>"
           }
         ],
         "@param": [
@@ -496,7 +447,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Fire a key up/down/press event with the given parameters"
+            "body": "<p>Fire a key up/down/press event with the given parameters</p>"
           }
         ],
         "@param": [
@@ -549,7 +500,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Get the target element for key events"
+            "body": "<p>Get the target element for key events</p>"
           }
         ],
         "@return": [
@@ -579,11 +530,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nOBSERVER INIT/STOP\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  OBSERVER INIT/STOP\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Initializes the native key event listeners."
+            "body": "<p>Initializes the native key event listeners.</p>"
           }
         ],
         "@signature": [
@@ -611,7 +562,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Stops the native key event listeners."
+            "body": "<p>Stops the native key event listeners.</p>"
           }
         ],
         "@signature": [
@@ -639,11 +590,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nNATIVE EVENT OBSERVERS\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  NATIVE EVENT OBSERVERS\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Low level handler for \"keyup\" and \"keydown\" events"
+            "body": "<p>Low level handler for \"keyup\" and \"keydown\" events</p>"
           }
         ],
         "@internal": [
@@ -686,7 +637,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "some keys like \"up\", \"down\", \"pageup\", \"pagedown\" do not bubble a\n\"keypress\" event in Firefox. To work around this bug we attach keypress\nlisteners directly to the input events.\n\nhttps:"
+            "body": "<p>some keys like \"up\", \"down\", \"pageup\", \"pagedown\" do not bubble a\n \"keypress\" event in Firefox. To work around this bug we attach keypress\n listeners directly to the input events.\n https://bugzilla.mozilla.org/show_bug.cgi?id=467513</p>"
           }
         ],
         "@signature": [
@@ -737,7 +688,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Low level key press handler"
+            "body": "<p>Low level key press handler</p>"
           }
         ],
         "@signature": [
@@ -774,11 +725,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nIDEAL KEY HANDLER\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  IDEAL KEY HANDLER\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Key handler for an idealized browser.\nRuns after the browser specific key handlers have normalized the key events."
+            "body": "<p>Key handler for an idealized browser.\n Runs after the browser specific key handlers have normalized the key events.</p>"
           }
         ],
         "@param": [
@@ -838,7 +789,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nKEY MAPS\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  KEY MAPS\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
@@ -876,11 +827,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nHELPER METHODS\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  HELPER METHODS\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "converts a key identifier back to a keycode"
+            "body": "<p>converts a key identifier back to a keycode</p>"
           }
         ],
         "@param": [
@@ -963,7 +914,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -1022,7 +981,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     }
   },
   "destruct": {
@@ -1035,6 +1002,14 @@
         "line": 623,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DESTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "defer": {
@@ -1047,6 +1022,14 @@
         "line": 648,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DEFER\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "descendants": []

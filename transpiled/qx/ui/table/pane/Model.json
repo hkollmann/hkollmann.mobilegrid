@@ -21,11 +21,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2006 STZ-IDA, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nTil Schneider (til132)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2006 STZ-IDA, Germany, http://www.stz-ida.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Til Schneider (til132)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "The model of a table pane. This model works as proxy to a\n{@link qx.ui.table.columnmodel.Basic} and manages the visual order of the columns shown in\na {@link Pane}."
+          "body": "<p>The model of a table pane. This model works as proxy to a\n {@link qx.ui.table.columnmodel.Basic} and manages the visual order of the columns shown in\n a {@link Pane}.</p>"
         }
       ]
     }
@@ -41,6 +41,27 @@
         "line": 47,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        },
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "tableColumnModel {qx.ui.table.columnmodel.Basic} The TableColumnModel of which this\n    model is the proxy.",
+          "paramName": "tableColumnModel",
+          "description": " The TableColumnModel of which this\n    model is the proxy.",
+          "type": "qx.ui.table.columnmodel.Basic"
+        }
+      ]
     }
   },
   "events": {
@@ -59,7 +80,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Fired when the model changed."
+            "body": "<p>Fired when the model changed.</p>"
           }
         ]
       },
@@ -113,7 +134,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The visible x position of the first column this model should contain."
+            "body": "<p>The visible x position of the first column this model should contain.</p>"
           }
         ]
       },
@@ -139,7 +160,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The maximum number of columns this model should contain. If -1 this model will\ncontain all remaining columns."
+            "body": "<p>The maximum number of columns this model should contain. If -1 this model will\n contain all remaining columns.</p>"
           }
         ]
       },
@@ -156,7 +177,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>The owning object</p>"
+          }
+        ]
+      }
     },
     "qxObjectId": {
       "type": "property",
@@ -164,7 +193,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>{String} The ID of the object.</p>"
+          }
+        ]
+      }
     }
   },
   "members": {
@@ -211,7 +248,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property modifier"
+            "body": "<p>property modifier</p>"
           }
         ]
       },
@@ -236,7 +273,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "property modifier"
+            "body": "<p>property modifier</p>"
           }
         ]
       },
@@ -261,7 +298,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Connects the table model to the column model"
+            "body": "<p>Connects the table model to the column model</p>"
           }
         ],
         "@param": [
@@ -292,7 +329,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Event handler. Called when the visibility of a column has changed."
+            "body": "<p>Event handler. Called when the visibility of a column has changed.</p>"
           }
         ],
         "@param": [
@@ -323,7 +360,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Event handler. Called when the cell renderer of a column has changed."
+            "body": "<p>Event handler. Called when the cell renderer of a column has changed.</p>"
           }
         ],
         "@param": [
@@ -354,7 +391,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the number of columns in this model."
+            "body": "<p>Returns the number of columns in this model.</p>"
           }
         ],
         "@return": [
@@ -384,7 +421,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the model index of the column at the position <code>xPos</code>."
+            "body": "<p>Returns the model index of the column at the position <code>xPos</code>.</p>"
           }
         ],
         "@param": [
@@ -423,7 +460,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the x position of the column <code>col</code>."
+            "body": "<p>Returns the x position of the column <code>col</code>.</p>"
           }
         ],
         "@param": [
@@ -462,7 +499,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Gets the position of the left side of a column (in pixels, relative to the\nleft side of the table pane).\n\nThis value corresponds to the sum of the widths of all columns left of the\ncolumn."
+            "body": "<p>Gets the position of the left side of a column (in pixels, relative to the\n left side of the table pane).\n This value corresponds to the sum of the widths of all columns left of the\n column.</p>"
           }
         ],
         "@param": [
@@ -501,7 +538,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the total width of all columns in the model."
+            "body": "<p>Returns the total width of all columns in the model.</p>"
           }
         ],
         "@return": [
@@ -575,7 +612,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -634,7 +679,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getFirstColumnX": {
       "type": "function",
@@ -779,6 +832,14 @@
         "line": 308,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DESTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "descendants": []

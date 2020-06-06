@@ -29,6 +29,7 @@
 
   /**
    * Utility class with type check for all native JavaScript data types.
+   *
    */
   qx.Bootstrap.define("qx.lang.Type", {
     statics: {
@@ -162,10 +163,23 @@
         // JavaScript null and a null returned from calling DOM.
         // e.q. by document.getElementById("ReturnedNull").
         return value !== null && (this.getClass(value) === "Error" || value instanceof Error);
+      },
+
+      /**
+       * Whether the value is a Promise.
+       *
+       * checks if value exists and has a function 'then'
+       *
+       * @param value {var} Value to check.
+       * @return {Boolean} Whether the value is a Promise.
+       *
+       */
+      isPromise: function isPromise(value) {
+        return value != null && this.isFunction(value.then);
       }
     }
   });
   qx.lang.Type.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Type.js.map?dt=1564930734799
+//# sourceMappingURL=Type.js.map?dt=1591463652513

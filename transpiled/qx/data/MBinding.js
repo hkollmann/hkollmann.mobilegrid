@@ -35,13 +35,7 @@
    * The source object will be <code>this</code>.
    */
   qx.Mixin.define("qx.data.MBinding", {
-    construct: function construct() {
-      // store the hash code for disposing object won't have a hash code after dispose.
-      this.__objectHash = this.toHashCode();
-    },
     members: {
-      __objectHash: null,
-
       /**
        * The bind method delegates the call to the
        * {@link qx.data.SingleValueBinding#bind} function. As source, the current
@@ -153,7 +147,7 @@
     },
     destruct: function destruct() {
       // restore the object hash for disposing the bindings
-      this.$$hash = this.__objectHash;
+      this.$$hash = this.$$discardedHashCode;
       this.removeAllBindings();
       delete this.$$hash;
     }
@@ -161,4 +155,4 @@
   qx.data.MBinding.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MBinding.js.map?dt=1564930740103
+//# sourceMappingURL=MBinding.js.map?dt=1591463657859

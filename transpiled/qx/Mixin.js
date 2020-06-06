@@ -1,5 +1,3 @@
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
@@ -105,10 +103,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           } // Validate incoming data
 
 
-          {
-            this.__validateConfig(name, config);
-          } // Create Interface from statics
-
+          // Create Interface from statics
           var mixin = config.statics ? config.statics : {};
           qx.Bootstrap.setDisplayNames(mixin, name);
 
@@ -307,22 +302,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       $$registry: {},
 
       /** @type {Map} allowed keys in mixin definition */
-      __allowedKeys: {
-        "include": "object",
-        // Mixin | Mixin[]
-        "statics": "object",
-        // Map
-        "members": "object",
-        // Map
-        "properties": "object",
-        // Map
-        "events": "object",
-        // Map
-        "destruct": "function",
-        // Function
-        "construct": "function" // Function
-
-      },
+      __P_13_0: null,
 
       /**
        * Validates incoming configuration and checks keys and values
@@ -331,53 +311,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param name {String} The name of the class
        * @param config {Map} Configuration map
        */
-      __validateConfig: function __validateConfig(name, config) {
-        // Validate keys
-        var allowed = this.__allowedKeys;
-
-        for (var key in config) {
-          if (!allowed[key]) {
-            throw new Error('The configuration key "' + key + '" in mixin "' + name + '" is not allowed!');
-          }
-
-          if (config[key] == null) {
-            throw new Error('Invalid key "' + key + '" in mixin "' + name + '"! The value is undefined/null!');
-          }
-
-          if (allowed[key] !== null && _typeof(config[key]) !== allowed[key]) {
-            throw new Error('Invalid type of key "' + key + '" in mixin "' + name + '"! The type of the key must be "' + allowed[key] + '"!');
-          }
-        } // Validate maps
-
-
-        var maps = ["statics", "members", "properties", "events"];
-
-        for (var i = 0, l = maps.length; i < l; i++) {
-          var key = maps[i];
-
-          if (config[key] !== undefined && (["Array", "RegExp", "Date"].indexOf(qx.Bootstrap.getClass(config[key])) != -1 || config[key].classname !== undefined)) {
-            throw new Error('Invalid key "' + key + '" in mixin "' + name + '"! The value needs to be a map!');
-          }
-        } // Validate includes
-
-
-        if (config.include) {
-          for (var i = 0, a = config.include, l = a.length; i < l; i++) {
-            if (a[i] == null) {
-              throw new Error("Includes of mixins must be mixins. The include number '" + (i + 1) + "' in mixin '" + name + "'is undefined/null!");
-            }
-
-            if (a[i].$$type !== "Mixin") {
-              throw new Error("Includes of mixins must be mixins. The include number '" + (i + 1) + "' in mixin '" + name + "'is not a mixin!");
-            }
-          }
-
-          this.checkCompatibility(config.include);
-        }
-      }
+      __P_13_1: function __P_13_1(name, config) {}
     }
   });
   qx.Mixin.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Mixin.js.map?dt=1564930734254
+//# sourceMappingURL=Mixin.js.map?dt=1591463651833

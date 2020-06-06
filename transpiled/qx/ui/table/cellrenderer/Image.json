@@ -21,11 +21,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2007 by Tartan Solutions, Inc, http:\n\nLicense:\nMIT: https:\n\nAuthors:\nDan Hummon\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2007 by Tartan Solutions, Inc, http://www.tartansolutions.com\n   License:\n     MIT: https://opensource.org/licenses/MIT\n   Authors:\n Dan Hummon\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "The image cell renderer renders image into table cells."
+          "body": "<p>The image cell renderer renders image into table cells.</p>"
         }
       ]
     }
@@ -41,6 +41,38 @@
         "line": 52,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        },
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "height {Integer?16} The height of the image. The default is 16.",
+          "paramName": "height",
+          "description": " The height of the image. The default is 16.",
+          "optional": true,
+          "defaultValue": "16",
+          "type": "Integer"
+        },
+        {
+          "name": "@param",
+          "body": "width {Integer?16} The width of the image. The default is 16.",
+          "paramName": "width",
+          "description": " The width of the image. The default is 16.",
+          "optional": true,
+          "defaultValue": "16",
+          "type": "Integer"
+        }
+      ]
     }
   },
   "members": {
@@ -101,24 +133,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "cellInfo {Map} The information about the cell.\n         See {@link qx.ui.table.cellrenderer.Abstract#createDataCellHtml}.",
-            "paramName": "cellInfo",
-            "description": " The information about the cell.\n         See {@link qx.ui.table.cellrenderer.Abstract#createDataCellHtml}.",
-            "type": "Map"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Map} A map having the following attributes:\n          <ul>\n          <li>\n            \"url\": (type string) must be the URL of the image to show.\n            The url given must either be managed by the {@link qx.util.ResourceManager}\n            or pre-loaded with {@link qx.io.ImageLoader}. This is to make sure that\n            the renderer knows the dimensions and the format of the image.\n          </li>\n          <li>\"imageWidth\": (type int) the width of the image in pixels.</li>\n          <li>\"imageHeight\": (type int) the height of the image in pixels.</li>\n          <li>\"tooltip\": (type string) must be the image tooltip text.</li>\n          </ul>",
-            "type": "Map",
-            "description": " A map having the following attributes:\n          <ul>\n          <li>\n            \"url\": (type string) must be the URL of the image to show.\n            The url given must either be managed by the {@link qx.util.ResourceManager}\n            or pre-loaded with {@link qx.io.ImageLoader}. This is to make sure that\n            the renderer knows the dimensions and the format of the image.\n          </li>\n          <li>\"imageWidth\": (type int) the width of the image in pixels.</li>\n          <li>\"imageHeight\": (type int) the height of the image in pixels.</li>\n          <li>\"tooltip\": (type string) must be the image tooltip text.</li>\n          </ul>"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -188,7 +203,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -247,7 +270,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getDefaultCellStyle": {
       "type": "function",
@@ -390,6 +421,14 @@
         "line": 99,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DESTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "descendants": []

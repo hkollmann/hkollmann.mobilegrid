@@ -24,11 +24,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2007-2008 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nFabian Jakobs (fjakobs)\nChristian Hagendorn (chris_schmidt)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2007-2008 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Sebastian Werner (wpbasti)\n Fabian Jakobs (fjakobs)\n Christian Hagendorn (chris_schmidt)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "This handler is used to normalize all focus/activation requirements\nand normalize all cross browser quirks in this area.\n\nNotes:\n\n* Webkit and Opera (before 9.5) do not support tabIndex for all elements\n(See also: https:\n\n* TabIndex is normally 0, which means all naturally focusable elements are focusable.\n* TabIndex > 0 means that the element is focusable and tabable\n* TabIndex < 0 means that the element, even if naturally possible, is not focusable.\n\nNOTE: Instances of this class must be disposed of after use"
+          "body": "<p>This handler is used to normalize all focus/activation requirements\n and normalize all cross browser quirks in this area.\n Notes:</p>\n<ul>\n<li>Webkit and Opera (before 9.5) do not support tabIndex for all elements\n(See also: https://bugs.webkit.org/show_bug.cgi?id=7138)</li>\n<li>TabIndex is normally 0, which means all naturally focusable elements are focusable.</li>\n<li>TabIndex &gt; 0 means that the element is focusable and tabable</li>\n<li>TabIndex &lt; 0 means that the element, even if naturally possible, is not focusable.\nNOTE: Instances of this class must be disposed of after use</li>\n</ul>"
         }
       ],
       "@use": [
@@ -50,6 +50,33 @@
         "line": 75,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        },
+        {
+          "name": "@description",
+          "body": "<p>Create a new instance</p>"
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "manager {qx.event.Manager} Event manager for the window to use",
+          "paramName": "manager",
+          "description": " Event manager for the window to use",
+          "type": "qx.event.Manager"
+        }
+      ],
+      "@ignore": [
+        {
+          "name": "@ignore",
+          "body": "qx.application.Inline"
+        }
+      ]
     }
   },
   "properties": {
@@ -68,7 +95,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The active DOM element"
+            "body": "<p>The active DOM element</p>"
           }
         ]
       },
@@ -93,7 +120,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The focussed DOM element"
+            "body": "<p>The focussed DOM element</p>"
           }
         ]
       },
@@ -109,7 +136,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>The owning object</p>"
+          }
+        ]
+      }
     },
     "qxObjectId": {
       "type": "property",
@@ -117,7 +152,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>{String} The ID of the object.</p>"
+          }
+        ]
+      }
     }
   },
   "statics": {
@@ -226,8 +269,7 @@
         "@type": [
           {
             "name": "@type",
-            "body": "{Map} See: http:",
-            "docComment": "//msdn.microsoft.com/en-us/library/ms534654(VS.85).aspx"
+            "body": "{Map} See: http://msdn.microsoft.com/en-us/library/ms534654(VS.85).aspx"
           }
         ]
       },
@@ -447,35 +489,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nEVENT HANDLER INTERFACE\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  EVENT HANDLER INTERFACE\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "interface implementation"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "target {var} The target to, which the event handler should\n    be attached",
-            "paramName": "target",
-            "description": " The target to, which the event handler should\n    be attached",
-            "type": "var"
-          },
-          {
-            "name": "@param",
-            "body": "type {String} event type",
-            "paramName": "type",
-            "description": " event type",
-            "type": "String"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Boolean} Whether the event handler can handle events of the\n    given type.",
-            "type": "Boolean",
-            "description": " Whether the event handler can handle events of the\n    given type."
+            "body": "<p>interface implementation</p>"
           }
         ]
       },
@@ -501,30 +519,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "interface implementation"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "target {var} The target to, which the event handler should\n    be attached",
-            "paramName": "target",
-            "description": " The target to, which the event handler should\n    be attached",
-            "type": "var"
-          },
-          {
-            "name": "@param",
-            "body": "type {String} event type",
-            "paramName": "type",
-            "description": " event type",
-            "type": "String"
-          },
-          {
-            "name": "@param",
-            "body": "capture {Boolean} Whether to attach the event to the\n        capturing phase or the bubbling phase of the event.",
-            "paramName": "capture",
-            "description": " Whether to attach the event to the\n        capturing phase or the bubbling phase of the event.",
-            "type": "Boolean"
+            "body": "<p>interface implementation</p>"
           }
         ]
       },
@@ -550,30 +545,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "interface implementation"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "target {var} The target from, which the event handler should\n    be removed",
-            "paramName": "target",
-            "description": " The target from, which the event handler should\n    be removed",
-            "type": "var"
-          },
-          {
-            "name": "@param",
-            "body": "type {String} event type",
-            "paramName": "type",
-            "description": " event type",
-            "type": "String"
-          },
-          {
-            "name": "@param",
-            "body": "capture {Boolean} Whether to attach the event to the\n        capturing phase or the bubbling phase of the event.",
-            "paramName": "capture",
-            "description": " Whether to attach the event to the\n        capturing phase or the bubbling phase of the event.",
-            "type": "Boolean"
+            "body": "<p>interface implementation</p>"
           }
         ]
       },
@@ -599,11 +571,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nFOCUS/BLUR USER INTERFACE\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  FOCUS/BLUR USER INTERFACE\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Focuses the given DOM element"
+            "body": "<p>Focuses the given DOM element</p>"
           }
         ],
         "@param": [
@@ -634,7 +606,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Activates the given DOM element"
+            "body": "<p>Activates the given DOM element</p>"
           }
         ],
         "@param": [
@@ -665,7 +637,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Blurs the given DOM element"
+            "body": "<p>Blurs the given DOM element</p>"
           }
         ],
         "@param": [
@@ -696,7 +668,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Deactivates the given DOM element"
+            "body": "<p>Deactivates the given DOM element</p>"
           }
         ],
         "@param": [
@@ -727,7 +699,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Tries to activate the given element. This checks whether\nthe activation is allowed first."
+            "body": "<p>Tries to activate the given element. This checks whether\n the activation is allowed first.</p>"
           }
         ],
         "@param": [
@@ -758,11 +730,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nHELPER\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  HELPER\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Shorthand to fire events from within this class."
+            "body": "<p>Shorthand to fire events from within this class.</p>"
           }
         ],
         "@param": [
@@ -822,7 +794,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nWINDOW FOCUS/BLUR SUPPORT\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  WINDOW FOCUS/BLUR SUPPORT\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
@@ -854,7 +826,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Helper for native event listeners to react on window blur"
+            "body": "<p>Helper for native event listeners to react on window blur</p>"
           }
         ]
       },
@@ -876,7 +848,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Helper for native event listeners to react on window focus"
+            "body": "<p>Helper for native event listeners to react on window focus</p>"
           }
         ]
       },
@@ -898,11 +870,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nNATIVE OBSERVER\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  NATIVE OBSERVER\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Initializes event listeners."
+            "body": "<p>Initializes event listeners.</p>"
           }
         ],
         "@signature": [
@@ -930,7 +902,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Disconnects event listeners."
+            "body": "<p>Disconnects event listeners.</p>"
           }
         ],
         "@signature": [
@@ -958,18 +930,17 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nNATIVE LISTENERS\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  NATIVE LISTENERS\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Native event listener for <code>draggesture</code> event\nsupported by gecko. Used to stop native drag and drop when\nselection is disabled."
+            "body": "<p>Native event listener for <code>draggesture</code> event\n supported by gecko. Used to stop native drag and drop when\n selection is disabled.</p>"
           }
         ],
         "@see": [
           {
             "name": "@see",
-            "body": "https:",
-            "docComment": "//developer.mozilla.org/en-US/docs/Drag_and_Drop"
+            "body": "https://developer.mozilla.org/en-US/docs/Drag_and_Drop"
           }
         ],
         "@signature": [
@@ -1006,7 +977,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Native event listener for <code>DOMFocusIn</code> or <code>focusin</code>\ndepending on the client's engine."
+            "body": "<p>Native event listener for <code>DOMFocusIn</code> or <code>focusin</code>\n depending on the client's engine.</p>"
           }
         ],
         "@signature": [
@@ -1043,7 +1014,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Native event listener for <code>DOMFocusOut</code> or <code>focusout</code>\ndepending on the client's engine."
+            "body": "<p>Native event listener for <code>DOMFocusOut</code> or <code>focusout</code>\n depending on the client's engine.</p>"
           }
         ],
         "@signature": [
@@ -1080,7 +1051,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Native event listener for <code>blur</code>."
+            "body": "<p>Native event listener for <code>blur</code>.</p>"
           }
         ],
         "@signature": [
@@ -1117,7 +1088,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Native event listener for <code>focus</code>."
+            "body": "<p>Native event listener for <code>focus</code>.</p>"
           }
         ],
         "@signature": [
@@ -1154,7 +1125,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Native event listener for <code>mousedown</code>."
+            "body": "<p>Native event listener for <code>mousedown</code>.</p>"
           }
         ],
         "@signature": [
@@ -1191,7 +1162,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Native event listener for <code>mouseup</code>."
+            "body": "<p>Native event listener for <code>mouseup</code>.</p>"
           }
         ],
         "@signature": [
@@ -1228,7 +1199,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Fix for bug #9331."
+            "body": "<p>Fix for bug #9331.</p>"
           }
         ],
         "@signature": [
@@ -1273,7 +1244,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Fix for bug #2602."
+            "body": "<p>Fix for bug #2602.</p>"
           }
         ],
         "@signature": [
@@ -1318,7 +1289,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Native event listener for <code>selectstart</code>."
+            "body": "<p>Native event listener for <code>selectstart</code>.</p>"
           }
         ],
         "@signature": [
@@ -1355,11 +1326,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nHELPER METHODS\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  HELPER METHODS\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Whether the given element is focusable. This is perfectly modeled to the\nbrowsers behavior and this way may differ in the various clients."
+            "body": "<p>Whether the given element is focusable. This is perfectly modeled to the\n browsers behavior and this way may differ in the various clients.</p>"
           }
         ],
         "@param": [
@@ -1398,7 +1369,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the next focusable parent element of an activated DOM element."
+            "body": "<p>Returns the next focusable parent element of an activated DOM element.</p>"
           }
         ],
         "@param": [
@@ -1437,7 +1408,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the next activatable element. May be the element itself.\nWorks a bit different than the method {@link #__findFocusableElement}\nas it looks up for a parent which is has a keep focus flag. When\nthere is such a parent it returns null otherwise the original\nincoming element."
+            "body": "<p>Returns the next activatable element. May be the element itself.\n Works a bit different than the method {@link #__findFocusableElement}\n as it looks up for a parent which is has a keep focus flag. When\n there is such a parent it returns null otherwise the original\n incoming element.</p>"
           }
         ],
         "@param": [
@@ -1476,7 +1447,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Whether the given el (or its content) should be selectable\nby the user."
+            "body": "<p>Whether the given el (or its content) should be selectable\n by the user.</p>"
           }
         ],
         "@param": [
@@ -1515,11 +1486,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nPROPERTY APPLY ROUTINES\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  PROPERTY APPLY ROUTINES\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "apply routine"
+            "body": "<p>apply routine</p>"
           }
         ]
       },
@@ -1544,7 +1515,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "apply routine"
+            "body": "<p>apply routine</p>"
           }
         ]
       },
@@ -1613,7 +1584,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -1672,7 +1651,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getActive": {
       "type": "function",
@@ -1817,6 +1804,14 @@
         "line": 1286,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DESTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "defer": {
@@ -1829,6 +1824,14 @@
         "line": 1303,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DEFER\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "descendants": []

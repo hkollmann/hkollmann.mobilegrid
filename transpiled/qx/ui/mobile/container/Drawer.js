@@ -87,24 +87,21 @@
       this.initPositionZ();
 
       if (parent) {
-        {
-          this.assertInstance(parent, qx.ui.mobile.container.Composite);
-        }
         parent.add(this);
       } else {
         qx.core.Init.getApplication().getRoot().add(this);
       }
 
       qx.core.Init.getApplication().addListener("back", this._onBack, this);
-      this.__parent = this.getLayoutParent();
+      this.__P_25_0 = this.getLayoutParent();
 
-      this.__parent.addCssClass("drawer-parent");
+      this.__P_25_0.addCssClass("drawer-parent");
 
-      this.__parent.addListener("swipe", this._onParentSwipe, this);
+      this.__P_25_0.addListener("swipe", this._onParentSwipe, this);
 
-      this.__parent.addListener("pointerdown", this._onParentPointerDown, this);
+      this.__P_25_0.addListener("pointerdown", this._onParentPointerDown, this);
 
-      this.__pointerStartPosition = [0, 0];
+      this.__P_25_1 = [0, 0];
       this.forceHide();
     },
 
@@ -191,10 +188,10 @@
     *****************************************************************************
     */
     members: {
-      __pointerStartPosition: null,
-      __parent: null,
-      __transitionEnabled: null,
-      __inTransition: null,
+      __P_25_1: null,
+      __P_25_0: null,
+      __P_25_2: null,
+      __P_25_3: null,
       // property apply
       _applyOrientation: function _applyOrientation(value, old) {
         this.removeCssClass(old);
@@ -207,10 +204,10 @@
         this.removeCssClass(old);
         this.addCssClass(value);
 
-        if (this.__parent) {
-          this.__parent.setTranslateX(0);
+        if (this.__P_25_0) {
+          this.__P_25_0.setTranslateX(0);
 
-          this.__parent.setTranslateY(0);
+          this.__P_25_0.setTranslateY(0);
         }
       },
       // property apply
@@ -231,32 +228,32 @@
       },
       // property apply
       _applyTransitionDuration: function _applyTransitionDuration(value, old) {
-        this.__transitionEnabled = value > 0;
+        this.__P_25_2 = value > 0;
       },
 
       /**
        * Shows the drawer.
        */
       show: function show() {
-        if (!this.isHidden() || this.__inTransition === true) {
+        if (!this.isHidden() || this.__P_25_3 === true) {
           return;
         }
 
-        this.__inTransition = true; // Make drawer visible before "changeVisibility" event is fired, after transition.
+        this.__P_25_3 = true; // Make drawer visible before "changeVisibility" event is fired, after transition.
 
         this._setStyle("visibility", "visible");
 
-        this.__parent.addCssClass("blocked");
+        this.__P_25_0.addCssClass("blocked");
 
         if (this.getPositionZ() == "below") {
           if (this.getOrientation() == "left") {
-            this.__parent.setTranslateX(this.getSize());
+            this.__P_25_0.setTranslateX(this.getSize());
           } else if (this.getOrientation() == "right") {
-            this.__parent.setTranslateX(-this.getSize());
+            this.__P_25_0.setTranslateX(-this.getSize());
           } else if (this.getOrientation() == "top") {
-            this.__parent.setTranslateY(this.getSize());
+            this.__P_25_0.setTranslateY(this.getSize());
           } else if (this.getOrientation() == "bottom") {
-            this.__parent.setTranslateY(-this.getSize());
+            this.__P_25_0.setTranslateY(-this.getSize());
           }
         }
 
@@ -272,7 +269,7 @@
 
             this._disableTransition();
 
-            this.__inTransition = false;
+            this.__P_25_3 = false;
             qx.bom.Element.removeListenerById(transitionTarget, listenerId);
           }, this);
           setTimeout(function () {
@@ -280,7 +277,7 @@
           }.bind(this), 0);
         } else {
           qx.ui.mobile.container.Drawer.prototype.show.base.call(this);
-          this.__inTransition = false;
+          this.__P_25_3 = false;
           this.removeCssClass("hidden");
         }
       },
@@ -289,16 +286,16 @@
        * Hides the drawer.
        */
       hide: function hide() {
-        if (this.isHidden() || this.__inTransition === true) {
+        if (this.isHidden() || this.__P_25_3 === true) {
           return;
         }
 
-        this.__inTransition = true;
+        this.__P_25_3 = true;
 
         if (this.getPositionZ() == "below") {
-          this.__parent.setTranslateX(0);
+          this.__P_25_0.setTranslateX(0);
 
-          this.__parent.setTranslateY(0);
+          this.__P_25_0.setTranslateY(0);
         }
 
         if (this.getTransitionDuration() > 0) {
@@ -313,9 +310,9 @@
 
             this._disableTransition();
 
-            this.__parent.removeCssClass("blocked");
+            this.__P_25_0.removeCssClass("blocked");
 
-            this.__inTransition = false;
+            this.__P_25_3 = false;
             qx.bom.Element.removeListenerById(transitionTarget, listenerId);
           }, this);
           setTimeout(function () {
@@ -324,9 +321,9 @@
         } else {
           qx.ui.mobile.container.Drawer.prototype.hide.base.call(this);
           this.addCssClass("hidden");
-          this.__inTransition = false;
+          this.__P_25_3 = false;
 
-          this.__parent.removeCssClass("blocked");
+          this.__P_25_0.removeCssClass("blocked");
         }
       },
 
@@ -339,12 +336,12 @@
         this._disableTransition();
 
         if (this.getPositionZ() == "below") {
-          this.__parent.setTranslateX(0);
+          this.__P_25_0.setTranslateX(0);
 
-          this.__parent.setTranslateY(0);
+          this.__P_25_0.setTranslateY(0);
         }
 
-        this.__parent.removeCssClass("blocked");
+        this.__P_25_0.removeCssClass("blocked");
 
         this.addCssClass("hidden");
       },
@@ -373,7 +370,7 @@
       */
       _getTransitionTarget: function _getTransitionTarget() {
         if (this.getPositionZ() == "below") {
-          return this.__parent;
+          return this.__P_25_0;
         } else {
           return this;
         }
@@ -412,14 +409,14 @@
        * @param evt {qx.module.event.Pointer} Handled pointer event.
        */
       _onParentPointerDown: function _onParentPointerDown(evt) {
-        this.__pointerStartPosition = [evt.getViewportLeft(), evt.getViewportTop()];
+        this.__P_25_1 = [evt.getViewportLeft(), evt.getViewportTop()];
         var isShown = !this.hasCssClass("hidden");
 
         if (isShown && this.isHideOnParentTap()) {
           var location = qx.bom.element.Location.get(this.getContainerElement());
           var orientation = this.getOrientation();
 
-          if (orientation == "left" && this.__pointerStartPosition[0] > location.right || orientation == "top" && this.__pointerStartPosition[1] > location.bottom || orientation == "bottom" && this.__pointerStartPosition[1] < location.top || orientation == "right" && this.__pointerStartPosition[0] < location.left) {
+          if (orientation == "left" && this.__P_25_1[0] > location.right || orientation == "top" && this.__P_25_1[1] > location.bottom || orientation == "bottom" && this.__P_25_1[1] < location.top || orientation == "right" && this.__P_25_1[0] < location.left) {
             // First event on overlayed page should be ignored.
             evt.preventDefault();
             this.hide();
@@ -438,7 +435,7 @@
         if (isHidden) {
           var location = qx.bom.element.Location.get(this.getContainerElement());
 
-          if (direction == "right" && this.getOrientation() == "left" && this.__pointerStartPosition[0] < location.right + this.getTapOffset() && this.__pointerStartPosition[0] > location.right || direction == "left" && this.getOrientation() == "right" && this.__pointerStartPosition[0] > location.left - this.getTapOffset() && this.__pointerStartPosition[0] < location.left || direction == "down" && this.getOrientation() == "top" && this.__pointerStartPosition[1] < this.getTapOffset() + location.bottom && this.__pointerStartPosition[1] > location.bottom || direction == "up" && this.getOrientation() == "bottom" && this.__pointerStartPosition[1] > location.top - this.getTapOffset() && this.__pointerStartPosition[1] < location.top) {
+          if (direction == "right" && this.getOrientation() == "left" && this.__P_25_1[0] < location.right + this.getTapOffset() && this.__P_25_1[0] > location.right || direction == "left" && this.getOrientation() == "right" && this.__P_25_1[0] > location.left - this.getTapOffset() && this.__P_25_1[0] < location.left || direction == "down" && this.getOrientation() == "top" && this.__P_25_1[1] < this.getTapOffset() + location.bottom && this.__P_25_1[1] > location.bottom || direction == "up" && this.getOrientation() == "bottom" && this.__P_25_1[1] > location.top - this.getTapOffset() && this.__P_25_1[1] < location.top) {
             this.show();
           }
         }
@@ -447,15 +444,15 @@
     destruct: function destruct() {
       qx.core.Init.getApplication().removeListener("back", this._onBack, this);
 
-      this.__parent.removeListener("swipe", this._onParentSwipe, this);
+      this.__P_25_0.removeListener("swipe", this._onParentSwipe, this);
 
-      this.__parent.removeListener("pointerdown", this._onParentPointerDown, this);
+      this.__P_25_0.removeListener("pointerdown", this._onParentPointerDown, this);
 
       qx.util.DisposeUtil.destroyContainer(this);
-      this.__pointerStartPosition = this.__parent = this.__transitionEnabled = null;
+      this.__P_25_1 = this.__P_25_0 = this.__P_25_2 = null;
     }
   });
   qx.ui.mobile.container.Drawer.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Drawer.js.map?dt=1564930736009
+//# sourceMappingURL=Drawer.js.map?dt=1591463653125

@@ -120,16 +120,6 @@
       * @return {Map} animation property map, intended for the usage with {@link qx.bom.element.Animation}
       */
       getAnimation: function getAnimation(animationName, direction, reverse) {
-        {
-          if (!reverse) {
-            this.assertNotUndefined(this._cardAnimationsMap[animationName], "Animation '" + animationName + "' is not defined.");
-            this.assertNotUndefined(this._cardAnimationsMap[animationName][direction], "Animation '" + animationName + " " + direction + "' is not defined.");
-          } else {
-            this.assertNotUndefined(this._cardAnimationsMap[animationName], "Animation Reverse'" + animationName + "' is not defined.");
-            this.assertNotUndefined(this._cardAnimationsMap[animationName]["reverse"], "Animation Reverse'" + animationName + "' is not defined.");
-            this.assertNotUndefined(this._cardAnimationsMap[animationName]["reverse"][direction], "Animation Reverse'" + animationName + " " + direction + "' is not defined.");
-          }
-        }
         var animation = this._cardAnimationsMap[animationName];
         var animationObject = {};
 
@@ -157,4 +147,4 @@
   qx.ui.mobile.layout.CardAnimation.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=CardAnimation.js.map?dt=1564930745839
+//# sourceMappingURL=CardAnimation.js.map?dt=1591463665265

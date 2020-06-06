@@ -72,9 +72,26 @@
     members: {
       // overridden
       _cloneNativeEvent: function _cloneNativeEvent(nativeEvent, clone) {
-        var clone = qx.event.type.Mouse.prototype._cloneNativeEvent.base.call(this, nativeEvent, clone);
+        var clone = qx.event.type.Mouse.prototype._cloneNativeEvent.base.call(this, nativeEvent, clone); // Fix for #9619 pointermove/mousemove events return wrong result in isLeftPressed()
+        // button only valid in button events. Undefined otherwise.
+        // see https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/button
 
-        clone.button = nativeEvent.button;
+
+        switch (nativeEvent.type) {
+          case "mousemove":
+          case "mouseenter":
+          case "mouseleave":
+          case "mouseover":
+          case "mouseout":
+            clone.button = -1;
+            break;
+
+          default:
+            clone.button = nativeEvent.button;
+            break;
+        }
+
+        clone.buttons = nativeEvent.buttons;
         clone.clientX = Math.round(nativeEvent.clientX);
         clone.clientY = Math.round(nativeEvent.clientY);
         clone.pageX = nativeEvent.pageX ? Math.round(nativeEvent.pageX) : undefined;
@@ -103,7 +120,7 @@
        *
        * @lint ignoreReferenceField(__buttonsDom2EventModel)
        */
-      __buttonsDom2EventModel: {
+      __P_215_0: {
         0: "left",
         2: "right",
         1: "middle"
@@ -114,7 +131,7 @@
        *
        * @lint ignoreReferenceField(__buttonsDom3EventModel)
        */
-      __buttonsDom3EventModel: {
+      __P_215_1: {
         0: "none",
         1: "left",
         2: "right",
@@ -126,7 +143,7 @@
        *
        * @lint ignoreReferenceField(__buttonsMshtmlEventModel)
        */
-      __buttonsMshtmlEventModel: {
+      __P_215_2: {
         1: "left",
         2: "right",
         4: "middle"
@@ -177,12 +194,12 @@
               // if the button value is -1, we should use the DOM level 3 .buttons attribute
               // the value -1 is only set for pointer events: http://msdn.microsoft.com/en-us/library/ie/ff974877(v=vs.85).aspx
               if (this._native.button === -1) {
-                return this.__buttonsDom3EventModel[this._native.buttons] || "none";
+                return this.__P_215_1[this._native.buttons] || "none";
               }
 
-              return this.__buttonsDom2EventModel[this._native.button] || "none";
+              return this.__P_215_0[this._native.button] || "none";
             } else {
-              return this.__buttonsMshtmlEventModel[this._native.button] || "none";
+              return this.__P_215_2[this._native.button] || "none";
             }
 
         }
@@ -315,4 +332,4 @@
   qx.event.type.Mouse.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Mouse.js.map?dt=1564930741180
+//# sourceMappingURL=Mouse.js.map?dt=1591463669452

@@ -21,11 +21,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2008 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2008 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Sebastian Werner (wpbasti)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "A selection manager, which handles the selection in widgets."
+          "body": "<p>A selection manager, which handles the selection in widgets.</p>"
         }
       ]
     }
@@ -41,6 +41,27 @@
         "line": 42,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        },
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "widget {qx.ui.core.Widget} The widget to connect to",
+          "paramName": "widget",
+          "description": " The widget to connect to",
+          "type": "qx.ui.core.Widget"
+        }
+      ]
     }
   },
   "members": {
@@ -73,28 +94,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nBASIC SUPPORT\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  BASIC SUPPORT\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "item {var} Any item",
-            "paramName": "item",
-            "description": " Any item",
-            "type": "var"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Boolean} <code>true</code> when the item is selectable",
-            "type": "Boolean",
-            "description": " <code>true</code> when the item is selectable"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -120,24 +124,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "item {var} Any item",
-            "paramName": "item",
-            "description": " Any item",
-            "type": "var"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{String} A valid hashcode",
-            "type": "String",
-            "description": " A valid hashcode"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -163,30 +150,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "item {var} Item to modify",
-            "paramName": "item",
-            "description": " Item to modify",
-            "type": "var"
-          },
-          {
-            "name": "@param",
-            "body": "type {String} Any of <code>selected</code>, <code>anchor</code> or <code>lead</code>",
-            "paramName": "type",
-            "description": " Any of <code>selected</code>, <code>anchor</code> or <code>lead</code>",
-            "type": "String"
-          },
-          {
-            "name": "@param",
-            "body": "enabled {Boolean} Whether the given style should be added or removed.",
-            "paramName": "enabled",
-            "description": " Whether the given style should be added or removed.",
-            "type": "Boolean"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -212,7 +176,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -238,7 +202,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -264,7 +228,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Helper to return the selectability of the item concerning the\nuser interaction."
+            "body": "<p>Helper to return the selectability of the item concerning the\n user interaction.</p>"
           }
         ],
         "@param": [
@@ -303,7 +267,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the connected widget."
+            "body": "<p>Returns the connected widget.</p>"
           }
         ],
         "@return": [
@@ -333,19 +297,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nDIMENSION AND LOCATION\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  DIMENSION AND LOCATION\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Map} Map with the keys <code>top</code>, <code>right</code>,\n   <code>bottom</code> and <code>left</code>.",
-            "type": "Map",
-            "description": " Map with the keys <code>top</code>, <code>right</code>,\n   <code>bottom</code> and <code>left</code>."
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -371,15 +327,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Map} Map with the keys <code>width</code> and <code>height</code>.",
-            "type": "Map",
-            "description": " Map with the keys <code>width</code> and <code>height</code>."
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -405,24 +353,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "item {var} Any item",
-            "paramName": "item",
-            "description": " Any item",
-            "type": "var"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Map} A map with the keys <code>left</code> and <code>right</code>.",
-            "type": "Map",
-            "description": " A map with the keys <code>left</code> and <code>right</code>."
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -448,24 +379,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "item {var} Any item",
-            "paramName": "item",
-            "description": " Any item",
-            "type": "var"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Map} A map with the keys <code>top</code> and <code>bottom</code>.",
-            "type": "Map",
-            "description": " A map with the keys <code>top</code> and <code>bottom</code>."
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -491,19 +405,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nSCROLL SUPPORT\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  SCROLL SUPPORT\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Map} Map with the keys <code>left</code> and <code>top</code>.",
-            "type": "Map",
-            "description": " Map with the keys <code>left</code> and <code>top</code>."
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -529,23 +435,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "xoff {Integer} Horizontal offset to scroll by",
-            "paramName": "xoff",
-            "description": " Horizontal offset to scroll by",
-            "type": "Integer"
-          },
-          {
-            "name": "@param",
-            "body": "yoff {Integer} Vertical offset to scroll by",
-            "paramName": "yoff",
-            "description": " Vertical offset to scroll by",
-            "type": "Integer"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -571,16 +461,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "item {var} Any item",
-            "paramName": "item",
-            "description": " Any item",
-            "type": "var"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -606,28 +487,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nQUERY SUPPORT\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  QUERY SUPPORT\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "all {Boolean} true for all selectables, false for the\n  selectables the user can interactively select",
-            "paramName": "all",
-            "description": " true for all selectables, false for the\n  selectables the user can interactively select",
-            "type": "Boolean"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Array} A list of items",
-            "type": "Array",
-            "description": " A list of items"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -653,31 +517,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "item1 {var} First item",
-            "paramName": "item1",
-            "description": " First item",
-            "type": "var"
-          },
-          {
-            "name": "@param",
-            "body": "item2 {var} Second item",
-            "paramName": "item2",
-            "description": " Second item",
-            "type": "var"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Array} List of items",
-            "type": "Array",
-            "description": " List of items"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -703,15 +543,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{var} The first selectable item",
-            "type": "var",
-            "description": " The first selectable item"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -737,15 +569,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{var} The last selectable item",
-            "type": "var",
-            "description": " The last selectable item"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -771,31 +595,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "item {var} Any item",
-            "paramName": "item",
-            "description": " Any item",
-            "type": "var"
-          },
-          {
-            "name": "@param",
-            "body": "relation {String} A valid relation: <code>above</code>,\n   <code>right</code>, <code>under</code> or <code>left</code>",
-            "paramName": "relation",
-            "description": " A valid relation: <code>above</code>,\n   <code>right</code>, <code>under</code> or <code>left</code>",
-            "type": "String"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{var} The related item",
-            "type": "var",
-            "description": " The related item"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -821,25 +621,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "lead {var} The current lead item",
-            "paramName": "lead",
-            "description": " The current lead item",
-            "type": "var"
-          },
-          {
-            "name": "@param",
-            "body": "up {Boolean?false} Which page key was pressed:\n  <code>up</code> or <code>down</code>.",
-            "paramName": "up",
-            "description": " Which page key was pressed:\n  <code>up</code> or <code>down</code>.",
-            "optional": true,
-            "defaultValue": "false",
-            "type": "Boolean"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -909,7 +691,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -968,7 +758,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getMode": {
       "type": "function",
@@ -1227,6 +1025,14 @@
         "line": 366,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DESTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "descendants": [

@@ -50,9 +50,7 @@
     */
     members: {
       // overridden
-      verifyLayoutProperty: function verifyLayoutProperty(item, name, value) {
-        this.assert(name == "column", "The property '" + name + "' is not supported by the MenuButton layout!");
-      },
+      verifyLayoutProperty: null,
       // overridden
       renderLayout: function renderLayout(availWidth, availHeight, padding) {
         var children = this._getLayoutChildren();
@@ -67,7 +65,7 @@
           columnChildren[column] = child;
         }
 
-        var menu = this.__getMenu(children[0]);
+        var menu = this.__P_206_0(children[0]);
 
         var columns = menu.getColumnSizes();
         var spacing = menu.getSpacingX(); // stretch label column
@@ -104,7 +102,7 @@
        * @param widget {qx.ui.core.Widget} the widget to get the menu for
        * @return {qx.ui.menu.Menu} the menu
        */
-      __getMenu: function __getMenu(widget) {
+      __P_206_0: function __P_206_0(widget) {
         while (!(widget instanceof qx.ui.menu.Menu)) {
           widget = widget.getLayoutParent();
         }
@@ -134,4 +132,4 @@
   qx.ui.menu.ButtonLayout.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=ButtonLayout.js.map?dt=1564930748035
+//# sourceMappingURL=ButtonLayout.js.map?dt=1591463668599

@@ -53,17 +53,7 @@
       ---------------------------------------------------------------------------
       */
       // overridden
-      verifyLayoutProperty: function verifyLayoutProperty(item, name, value) {
-        this.assert(name === "type" || name === "flex", "The property '" + name + "' is not supported by the split layout!");
-
-        if (name == "flex") {
-          this.assertNumber(value);
-        }
-
-        if (name == "type") {
-          this.assertString(value);
-        }
-      },
+      verifyLayoutProperty: null,
       // overridden
       renderLayout: function renderLayout(availWidth, availHeight, padding) {
         var children = this._getLayoutChildren();
@@ -205,4 +195,4 @@
   qx.ui.splitpane.VLayout.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=VLayout.js.map?dt=1564930744156
+//# sourceMappingURL=VLayout.js.map?dt=1591463663115

@@ -1,4 +1,4 @@
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 (function () {
   var $$dbClassInfo = {
@@ -194,6 +194,32 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       }
 
       return clazz;
+    },
+
+    /**
+     * Tests whether an object is an instance of qx.core.Object without using instanceof - this
+     * is only for certain low level instances which would otherwise cause a circular, load time 
+     * dependency
+     * 
+     * @param object {Object?} the object to test
+     * @return {Boolean} true if object is an instance of qx.core.Object
+     */
+    isQxCoreObject: function isQxCoreObject(object) {
+      if (object === object.constructor) {
+        return false;
+      }
+
+      var clz = object.constructor;
+
+      while (clz) {
+        if (clz.classname === "qx.core.Object") {
+          return true;
+        }
+
+        clz = clz.superclass;
+      }
+
+      return false;
     }
   };
   /**
@@ -313,6 +339,16 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       define: qx.Bootstrap.define,
 
       /**
+       * Tests whether an object is an instance of qx.core.Object without using instanceof - this
+       * is only for certain low level instances which would otherwise cause a circular, load time 
+       * dependency
+       * 
+       * @param object {Object?} the object to test
+       * @return {Boolean} true if object is an instance of qx.core.Object
+       */
+      isQxCoreObject: qx.Bootstrap.isQxCoreObject,
+
+      /**
        * Sets the display name of the given function
        *
        * @signature function(fcn, classname, name)
@@ -385,7 +421,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       },
 
       /** Private list of classes which have a defer method that needs to be executed */
-      __pendingDefers: [],
+      __P_14_0: [],
 
       /**
        * Adds a callback for a class so that it's defer method can be called, either after all classes
@@ -396,7 +432,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        */
       addPendingDefer: function addPendingDefer(clazz, cb) {
         if (qx.$$loader && qx.$$loader.delayDefer) {
-          this.__pendingDefers.push(clazz);
+          this.__P_14_0.push(clazz);
 
           clazz.$$pendingDefer = cb;
         } else {
@@ -489,8 +525,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         };
 
         if (!dbClassInfo) {
-          var pendingDefers = this.__pendingDefers;
-          this.__pendingDefers = [];
+          var pendingDefers = this.__P_14_0;
+          this.__P_14_0 = [];
           pendingDefers.forEach(execute);
           return;
         }
@@ -558,7 +594,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @internal
        * @type {String[]}
        */
-      __shadowedKeys: ["isPrototypeOf", "hasOwnProperty", "toLocaleString", "toString", "valueOf", "propertyIsEnumerable", "constructor"],
+      __P_14_1: ["isPrototypeOf", "hasOwnProperty", "toLocaleString", "toString", "valueOf", "propertyIsEnumerable", "constructor"],
 
       /**
        * Get the keys of a map as array as returned by a "for ... in" statement.
@@ -587,7 +623,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           // This is why this checks are needed.
 
 
-          var shadowedKeys = qx.Bootstrap.__shadowedKeys;
+          var shadowedKeys = qx.Bootstrap.__P_14_1;
 
           for (var i = 0, a = shadowedKeys, l = a.length; i < l; i++) {
             if (hasOwnProperty.call(map, a[i])) {
@@ -626,7 +662,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @internal
        * @type {Map}
        */
-      __classToTypeMap: {
+      __P_14_2: {
         "[object String]": "String",
         "[object Array]": "Array",
         "[object Object]": "Object",
@@ -635,6 +671,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         "[object Boolean]": "Boolean",
         "[object Date]": "Date",
         "[object Function]": "Function",
+        "[object AsyncFunction]": "Function",
         "[object Error]": "Error",
         "[object Blob]": "Blob",
         "[object ArrayBuffer]": "ArrayBuffer",
@@ -730,7 +767,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         }
 
         var classString = Object.prototype.toString.call(value);
-        return qx.Bootstrap.__classToTypeMap[classString] || classString.slice(8, -1);
+        return qx.Bootstrap.__P_14_2[classString] || classString.slice(8, -1);
       },
 
       /**
@@ -861,4 +898,4 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   qx.Bootstrap.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Bootstrap.js.map?dt=1564930734526
+//# sourceMappingURL=Bootstrap.js.map?dt=1591463652225

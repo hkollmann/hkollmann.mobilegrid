@@ -4,8 +4,7 @@
       "qx.Class": {
         "usage": "dynamic",
         "require": true
-      },
-      "qx.core.Assert": {}
+      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -91,11 +90,7 @@
        * @return {Boolean}
        */
       equals: function equals(x, y) {
-        {
-          qx.core.Assert.assertNumber(x);
-          qx.core.Assert.assertNumber(y);
-        } // 1e-14 is the relative difference.
-
+        // 1e-14 is the relative difference.
         return x === y || Math.abs(x - y) < Number.EPSILON || Math.abs(x - y) <= Math.max(Math.abs(x), Math.abs(y)) * 1e-14;
       }
     }
@@ -103,4 +98,4 @@
   qx.lang.Number.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Number.js.map?dt=1564930742150
+//# sourceMappingURL=Number.js.map?dt=1591463668305

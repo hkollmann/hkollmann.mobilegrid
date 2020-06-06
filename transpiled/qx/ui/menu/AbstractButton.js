@@ -20,6 +20,7 @@
       },
       "qx.ui.basic.Image": {},
       "qx.ui.basic.Label": {},
+      "qx.event.Timer": {},
       "qx.ui.menu.Manager": {},
       "qx.locale.Manager": {},
       "qx.core.ObjectRegistry": {}
@@ -252,7 +253,7 @@
       _onTap: function _onTap(e) {
         if (e.isLeftPressed()) {
           this.execute();
-          qx.ui.menu.Manager.getInstance().hideAll();
+          qx.event.Timer.once(qx.ui.menu.Manager.getInstance().hideAll, qx.ui.menu.Manager.getInstance(), 0);
         } // right click
         else {
             // only prevent contextmenu event if button has no further context menu.
@@ -378,4 +379,4 @@
   qx.ui.menu.AbstractButton.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=AbstractButton.js.map?dt=1564930743944
+//# sourceMappingURL=AbstractButton.js.map?dt=1591463662791

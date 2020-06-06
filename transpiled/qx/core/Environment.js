@@ -1,4 +1,4 @@
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 (function () {
   var $$dbClassInfo = {
@@ -41,14 +41,14 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
    * The most often used method should be {@link #get}, which returns the
    * current value for a given environment check.
    *
-   * All qooxdoo settings can be changed via the generator's config. See the manual
+   * All qooxdoo settings can be changed at compile time. See the manual
    * for more details about the environment key in the config. As you can see
    * from the methods API, there is no way to override an existing key. So if you
-   * need to change a qooxdoo setting, you have to use the generator to do so.
+   * need to change a qooxdoo setting, you have to use the compiler to do so.
    *
-   * The generator is also responsible for requiring the necessary implementation
+   * The compiler is also responsible for requiring the necessary implementation
    * classes for each check. When using a check of a new category, make sure to
-   * rebuild you application and let the generator include the necessary files.
+   * rebuild you application and let the compiler include the necessary files.
    *
    * The following table shows the available checks. If you are
    * interested in more details, check the reference to the implementation of
@@ -119,10 +119,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
    *     <tr>
    *       <td>css.gradient.linear</td><td><i>String</i> or <i>null</i></td><td><code>-moz-linear-gradient</code></td>
    *       <td>{@link qx.bom.client.Css#getLinearGradient}</td>
-   *     </tr>
-   *     <tr>
-   *       <td>css.gradient.filter</td><td><i>Boolean</i></td><td><code>true</code></td>
-   *       <td>{@link qx.bom.client.Css#getFilterGradient}</td>
    *     </tr>
    *     <tr>
    *       <td>css.gradient.radial</td><td><i>String</i> or <i>null</i></td><td><code>-moz-radial-gradient</code></td>
@@ -201,10 +197,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
    *       <td>{@link qx.bom.client.Css#getTextShadow}</td>
    *     </tr>
    *     <tr>
-   *       <td>css.textShadow.filter</td><td><i>Boolean</i></td><td><code>true</code></td>
-   *       <td>{@link qx.bom.client.Css#getFilterTextShadow}</td>
-   *     </tr>
-   *     <tr>
    *       <td>css.alphaimageloaderneeded</td><td><i>Boolean</i></td><td><code>false</code></td>
    *       <td>{@link qx.bom.client.Css#getAlphaImageLoaderNeeded}</td>
    *     </tr>
@@ -245,6 +237,14 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
    *     <tr>
    *       <td>ecmascript.mutationobserver</td><td><i>Boolean</i></td><td><code>true</code></td>
    *       <td>{@link qx.bom.client.EcmaScript#getMutationObserver}</td>
+   *     </tr>
+   *     <tr>
+   *       <td>ecmascript.bigint</td><td><i>Boolean</i></td><td><code>true</code></td>
+   *       <td>{@link qx.bom.client.EcmaScript#getBigInt}</td>
+   *     </tr>
+   *     <tr>
+   *       <td>ecmascript.bigint.tolocalestring</td><td><i>Boolean</i></td><td><code>true</code></td>
+   *       <td>{@link qx.bom.client.EcmaScript#getBigIntToLocaleString}</td>
    *     </tr>
    *     <tr>
    *       <td>ecmascript.array.indexof<td><i>Boolean</i></td><td><code>true</code></td>
@@ -875,7 +875,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       _asyncChecks: {},
 
       /** Internal cache for all checks. */
-      __cache: {},
+      __P_5_0: {},
 
       /**
        * Internal map for environment keys to check methods.
@@ -917,7 +917,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         "qx.automaticMemoryManagement": true,
         "qx.promise": true,
         "qx.promise.warnings": true,
-        "qx.promise.longStackTraces": true
+        "qx.promise.longStackTraces": true,
+        "qx.command.bindEnabled": false
       },
 
       /**
@@ -936,8 +937,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        */
       get: function get(key) {
         // check the cache
-        if (this.__cache[key] != undefined) {
-          return this.__cache[key];
+        if (this.__P_5_0[key] != undefined) {
+          return this.__P_5_0[key];
         } // search for a matching check
 
 
@@ -946,7 +947,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         if (check) {
           // execute the check and write the result in the cache
           var value = check();
-          this.__cache[key] = value;
+          this.__P_5_0[key] = value;
           return value;
         } // try class lookup
 
@@ -958,13 +959,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           var method = classAndMethod[1];
           var value = clazz[method](); // call the check method
 
-          this.__cache[key] = value;
+          this.__P_5_0[key] = value;
           return value;
         } // debug flag
 
 
         if (qx.Bootstrap.DEBUG) {
-          qx.Bootstrap.warn(key + " is not a valid key. Please see the API-doc of " + "qx.core.Environment for a list of predefined keys.");
+          qx.Bootstrap.warn("The environment key '" + key + "' is undefined.");
           qx.Bootstrap.trace(this);
         }
       },
@@ -1012,10 +1013,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         // check the cache
         var env = this;
 
-        if (this.__cache[key] != undefined) {
+        if (this.__P_5_0[key] != undefined) {
           // force async behavior
           window.setTimeout(function () {
-            callback.call(self, env.__cache[key]);
+            callback.call(self, env.__P_5_0[key]);
           }, 0);
           return;
         }
@@ -1024,7 +1025,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         if (check) {
           check(function (result) {
-            env.__cache[key] = result;
+            env.__P_5_0[key] = result;
             callback.call(self, result);
           });
           return;
@@ -1038,7 +1039,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           var method = classAndMethod[1];
           clazz[method](function (result) {
             // call the check method
-            env.__cache[key] = result;
+            env.__P_5_0[key] = result;
             callback.call(self, result);
           });
           return;
@@ -1046,7 +1047,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
         if (qx.Bootstrap.DEBUG) {
-          qx.Bootstrap.warn(key + " is not a valid key. Please see the API-doc of " + "qx.core.Environment for a list of predefined keys.");
+          qx.Bootstrap.warn("The environment key '" + key + "' is undefined.");
           qx.Bootstrap.trace(this);
         }
       },
@@ -1061,7 +1062,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        *   check of the key.
        */
       select: function select(key, values) {
-        return this.__pickFromValues(this.get(key), values);
+        return this.__P_5_1(this.get(key), values);
       },
 
       /**
@@ -1077,7 +1078,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        */
       selectAsync: function selectAsync(key, values, self) {
         this.getAsync(key, function (result) {
-          var value = this.__pickFromValues(key, values);
+          var value = this.__P_5_1(key, values);
 
           value.call(self, result);
         }, this);
@@ -1093,7 +1094,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param values {Map} A map containing some keys.
        * @return {var} The value stored as values[key] usually.
        */
-      __pickFromValues: function __pickFromValues(key, values) {
+      __P_5_1: function __P_5_1(key, values) {
         var value = values[key];
 
         if (values.hasOwnProperty(key)) {
@@ -1150,7 +1151,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param key {String} The key of the check.
        */
       invalidateCacheKey: function invalidateCacheKey(key) {
-        delete this.__cache[key];
+        delete this.__P_5_0[key];
       },
 
       /**
@@ -1173,7 +1174,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
             this._checks[key] = check; // otherwise, create a check function and use that
           } else {
-            this._checks[key] = this.__createCheck(check);
+            this._checks[key] = this.__P_5_2(check);
           }
         }
       },
@@ -1231,12 +1232,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       /**
        * Import checks from global qx.$$environment into the Environment class.
        */
-      __importFromGenerator: function __importFromGenerator() {
+      __P_5_3: function __P_5_3() {
         // import the environment map
         if (qx && qx.$$environment) {
           for (var key in qx.$$environment) {
             var value = qx.$$environment[key];
-            this._checks[key] = this.__createCheck(value);
+            this._checks[key] = this.__P_5_2(value);
           }
         }
       },
@@ -1245,7 +1246,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * Checks the URL for environment settings and imports these into the
        * Environment class.
        */
-      __importFromUrl: function __importFromUrl() {
+      __P_5_4: function __P_5_4() {
         if (window.document && window.document.location) {
           var urlChecks = window.document.location.search.slice(1).split("&");
 
@@ -1267,7 +1268,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
               value = parseFloat(value);
             }
 
-            this._checks[key] = this.__createCheck(value);
+            this._checks[key] = this.__P_5_2(value);
           }
         }
       },
@@ -1278,7 +1279,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param value {var} The value which should be returned.
        * @return {Function} A function which could be used by a test.
        */
-      __createCheck: function __createCheck(value) {
+      __P_5_2: function __P_5_2(value) {
         return qx.Bootstrap.bind(function (value) {
           return value;
         }, null, value);
@@ -1289,15 +1290,15 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       statics._initDefaultQxValues(); // load the checks from the generator
 
 
-      statics.__importFromGenerator(); // load the checks from the url
+      statics.__P_5_3(); // load the checks from the url
 
 
       if (statics.get("qx.allowUrlSettings") === true) {
-        statics.__importFromUrl();
+        statics.__P_5_4();
       }
     }
   });
   qx.core.Environment.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Environment.js.map?dt=1564930733203
+//# sourceMappingURL=Environment.js.map?dt=1591463650555

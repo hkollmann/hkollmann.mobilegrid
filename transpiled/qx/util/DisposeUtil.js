@@ -5,8 +5,7 @@
         "usage": "dynamic",
         "require": true
       },
-      "qx.core.ObjectRegistry": {},
-      "qx.core.Assert": {}
+      "qx.core.ObjectRegistry": {}
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -181,14 +180,6 @@
        *   qx.ui.container.SlideBar | qx.ui.container.Stack} Container to be destroyed
        */
       destroyContainer: function destroyContainer(container) {
-        {
-          if (qx.ui.mobile && container instanceof qx.ui.mobile.core.Widget) {
-            qx.core.Assert.assertTrue(this.__isChildrenContainer(container), "Container must be an instance of qx.ui.mobile.container.Composite.");
-          } else {
-            qx.core.Assert.assertQxWidget(container, "First argument must be a container widget!");
-            qx.core.Assert.assertTrue(this.__isChildrenContainer(container), "Container must be an instance of qx.ui.container.Composite or qx.ui.container.Scroll or qx.ui.container.Resizer or qx.ui.container.SlideBar or qx.ui.container.Stack!");
-          }
-        }
         var arr = [];
 
         this._collectContainerChildren(container, arr);
@@ -214,7 +205,7 @@
           var item = children[i];
           arr.push(item);
 
-          if (this.__isChildrenContainer(item)) {
+          if (this.__P_80_0(item)) {
             this._collectContainerChildren(item, arr);
           }
         }
@@ -227,7 +218,7 @@
        * @return {Boolean} <code>true</code> if the object is a container for
        * child widgets
        */
-      __isChildrenContainer: function __isChildrenContainer(obj) {
+      __P_80_0: function __P_80_0(obj) {
         var classes = [];
 
         if (qx.ui.mobile && obj instanceof qx.ui.mobile.core.Widget) {
@@ -249,4 +240,4 @@
   qx.util.DisposeUtil.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=DisposeUtil.js.map?dt=1564930740250
+//# sourceMappingURL=DisposeUtil.js.map?dt=1591463658103

@@ -23,11 +23,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2004-2011 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nTino Butz (tbtz)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2004-2011 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Tino Butz (tbtz)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "This class provides the <code>domupdated</code> event. The event is\ndelegated to all widget instances that have a\nlistener for the <code>domupdated</code> event registered."
+          "body": "<p>This class provides the <code>domupdated</code> event. The event is\n delegated to all widget instances that have a\n listener for the <code>domupdated</code> event registered.</p>"
         }
       ],
       "@internal": [
@@ -49,6 +49,27 @@
         "line": 52,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        },
+        {
+          "name": "@description",
+          "body": "<p>Create a new instance</p>"
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "manager {qx.event.Manager} Event manager for the window to use",
+          "paramName": "manager",
+          "description": " Event manager for the window to use",
+          "type": "qx.event.Manager"
+        }
+      ]
     }
   },
   "statics": {
@@ -179,7 +200,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Informs all handlers. Useful after massive DOM manipulations e.g.\nthrough {@link qx.ui.mobile.core.Widget}."
+            "body": "<p>Informs all handlers. Useful after massive DOM manipulations e.g.\n through {@link qx.ui.mobile.core.Widget}.</p>"
           }
         ]
       },
@@ -231,35 +252,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nEVENT HANDLER INTERFACE\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  EVENT HANDLER INTERFACE\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "interface implementation"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "target {var} The target to, which the event handler should\n    be attached",
-            "paramName": "target",
-            "description": " The target to, which the event handler should\n    be attached",
-            "type": "var"
-          },
-          {
-            "name": "@param",
-            "body": "type {String} event type",
-            "paramName": "type",
-            "description": " event type",
-            "type": "String"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Boolean} Whether the event handler can handle events of the\n    given type.",
-            "type": "Boolean",
-            "description": " Whether the event handler can handle events of the\n    given type."
+            "body": "<p>interface implementation</p>"
           }
         ]
       },
@@ -285,30 +282,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "interface implementation"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "target {var} The target to, which the event handler should\n    be attached",
-            "paramName": "target",
-            "description": " The target to, which the event handler should\n    be attached",
-            "type": "var"
-          },
-          {
-            "name": "@param",
-            "body": "type {String} event type",
-            "paramName": "type",
-            "description": " event type",
-            "type": "String"
-          },
-          {
-            "name": "@param",
-            "body": "capture {Boolean} Whether to attach the event to the\n        capturing phase or the bubbling phase of the event.",
-            "paramName": "capture",
-            "description": " Whether to attach the event to the\n        capturing phase or the bubbling phase of the event.",
-            "type": "Boolean"
+            "body": "<p>interface implementation</p>"
           }
         ]
       },
@@ -334,30 +308,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "interface implementation"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "target {var} The target from, which the event handler should\n    be removed",
-            "paramName": "target",
-            "description": " The target from, which the event handler should\n    be removed",
-            "type": "var"
-          },
-          {
-            "name": "@param",
-            "body": "type {String} event type",
-            "paramName": "type",
-            "description": " event type",
-            "type": "String"
-          },
-          {
-            "name": "@param",
-            "body": "capture {Boolean} Whether to attach the event to the\n        capturing phase or the bubbling phase of the event.",
-            "paramName": "capture",
-            "description": " Whether to attach the event to the\n        capturing phase or the bubbling phase of the event.",
-            "type": "Boolean"
+            "body": "<p>interface implementation</p>"
           }
         ]
       },
@@ -383,11 +334,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nUSER ACCESS\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  USER ACCESS\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "This method is called by all DOM tree modifying routines\nto inform the widgets."
+            "body": "<p>This method is called by all DOM tree modifying routines\n to inform the widgets.</p>"
           }
         ]
       },
@@ -453,7 +404,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -512,7 +471,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     }
   },
   "destruct": {
@@ -525,6 +492,14 @@
         "line": 196,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DESTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "defer": {
@@ -537,6 +512,14 @@
         "line": 210,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DEFER\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "descendants": []

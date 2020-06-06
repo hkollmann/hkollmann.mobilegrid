@@ -1,5 +1,3 @@
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
@@ -137,7 +135,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * A static reference to the property implementation in the case it
        * should be included.
        */
-      __Property: true ? qx.core.Property : null,
+      __P_2_0: true ? qx.core.Property : null,
 
       /*
       ---------------------------------------------------------------------------
@@ -237,50 +235,39 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         } // Validate incoming data
 
 
-        {
-          try {
-            this.__validateConfig(name, config);
-          } catch (ex) {
-            if (implicitType) {
-              ex.message = 'Assumed static class because no "extend" key was found. ' + ex.message;
-            }
-
-            throw ex;
-          }
-        } // Create the class
-
-        var clazz = this.__createClass(name, config.type, config.extend, config.statics, config.construct, config.destruct, config.include); // Initialise class and constructor/destructor annotations
+        // Create the class
+        var clazz = this.__P_2_1(name, config.type, config.extend, config.statics, config.construct, config.destruct, config.include); // Initialise class and constructor/destructor annotations
 
 
         ["@", "@construct", "@destruct"].forEach(function (id) {
-          this.__attachAnno(clazz, id, null, config[id]);
+          this.__P_2_2(clazz, id, null, config[id]);
         }, this); // Members, properties, events and mixins are only allowed for non-static classes
 
         if (config.extend) {
           // Attach properties
           if (config.properties) {
-            this.__addProperties(clazz, config.properties, true);
+            this.__P_2_3(clazz, config.properties, true);
           } // Attach members
 
 
           if (config.members) {
-            this.__addMembers(clazz, config.members, true, true, false);
+            this.__P_2_4(clazz, config.members, true, true, false);
           } // Process events
 
 
           if (config.events) {
-            this.__addEvents(clazz, config.events, true);
+            this.__P_2_5(clazz, config.events, true);
           } // Include mixins
           // Must be the last here to detect conflicts
 
 
           if (config.include) {
             for (var i = 0, l = config.include.length; i < l; i++) {
-              this.__addMixin(clazz, config.include[i], false);
+              this.__P_2_6(clazz, config.include[i], false);
             }
           }
         } // If config has a 'extend' key but it's null or undefined
-        else if (config.hasOwnProperty('extend') && true) {
+        else if (config.hasOwnProperty('extend') && false) {
             throw new Error('"extend" parameter is null or undefined');
           } // Process environment
 
@@ -294,24 +281,22 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         if (config.implement) {
           for (var i = 0, l = config.implement.length; i < l; i++) {
-            this.__addInterface(clazz, config.implement[i]);
+            this.__P_2_7(clazz, config.implement[i]);
           }
         }
 
-        {
-          this.__validateAbstractInterfaces(clazz);
-        } // Process defer
-
+        // Process defer
         if (config.defer) {
           config.defer.self = clazz;
           qx.Bootstrap.addPendingDefer(clazz, function () {
+            clazz = qx.Class.getByName(clazz.classname);
             config.defer(clazz, clazz.prototype, {
               add: function add(name, config) {
                 // build pseudo properties map
                 var properties = {};
                 properties[name] = config; // execute generic property handler
 
-                qx.Class.__addProperties(clazz, properties, true);
+                qx.Class.__P_2_3(clazz, properties, true);
               }
             });
           });
@@ -386,15 +371,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param mixin {Mixin} The mixin to be included.
        */
       include: function include(clazz, mixin) {
-        {
-          if (!mixin) {
-            throw new Error("The mixin to include into class '" + clazz.classname + "' is undefined/null!");
-          }
-
-          qx.Mixin.isCompatible(mixin, clazz);
-        }
-
-        qx.Class.__addMixin(clazz, mixin, false);
+        qx.Class.__P_2_6(clazz, mixin, false);
       },
 
       /**
@@ -404,22 +381,17 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * Please keep in mind that this functionality is not intended for regular
        * use, but as a formalized way (and a last resort) in order to patch
        * existing classes.
-       *
+       * 
        * <b>WARNING</b>: You may break working classes and features.
        *
        * @param clazz {Class} An existing class which should be modified by including a mixin.
        * @param mixin {Mixin} The mixin to be included.
+       * @return {Class} the new class definition
        */
       patch: function patch(clazz, mixin) {
-        {
-          if (!mixin) {
-            throw new Error("The mixin to patch class '" + clazz.classname + "' is undefined/null!");
-          }
+        qx.Class.__P_2_6(clazz, mixin, true);
 
-          qx.Mixin.isCompatible(mixin, clazz);
-        }
-
-        qx.Class.__addMixin(clazz, mixin, true);
+        return qx.Class.getByName(clazz.classname);
       },
 
       /**
@@ -757,48 +729,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       $$registry: qx.Bootstrap.$$registry,
 
       /** @type {Map} allowed keys in non-static class definition */
-      __allowedKeys: {
-        "@": "object",
-        "@construct": "object",
-        "@destruct": "object",
-        "type": "string",
-        // String
-        "extend": "function",
-        // Function
-        "implement": "object",
-        // Interface[]
-        "include": "object",
-        // Mixin[]
-        "construct": "function",
-        // Function
-        "statics": "object",
-        // Map
-        "properties": "object",
-        // Map
-        "members": "object",
-        // Map
-        "environment": "object",
-        // Map
-        "events": "object",
-        // Map
-        "defer": "function",
-        // Function
-        "destruct": "function" // Function
-
-      },
+      __P_2_8: null,
 
       /** @type {Map} allowed keys in static class definition */
-      __staticAllowedKeys: {
-        "@": "object",
-        "type": "string",
-        // String
-        "statics": "object",
-        // Map
-        "environment": "object",
-        // Map
-        "defer": "function" // Function
-
-      },
+      __P_2_9: null,
 
       /**
        * Validates an incoming configuration and checks for proper keys and values
@@ -807,107 +741,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param name {String} The name of the class
        * @param config {Map} Configuration map
        */
-      __validateConfig: function __validateConfig(name, config) {
-        // Validate type
-        if (config.type && !(config.type === "static" || config.type === "abstract" || config.type === "singleton")) {
-          throw new Error('Invalid type "' + config.type + '" definition for class "' + name + '"!');
-        } // Validate non-static class on the "extend" key
-
-
-        if (config.type && config.type !== "static" && !config.extend) {
-          throw new Error('Invalid config in class "' + name + '"! Every non-static class has to extend at least the "qx.core.Object" class.');
-        } // Validate keys
-
-
-        var allowed = config.type === "static" ? this.__staticAllowedKeys : this.__allowedKeys;
-
-        for (var key in config) {
-          if (!allowed[key]) {
-            throw new Error('The configuration key "' + key + '" in class "' + name + '" is not allowed!');
-          }
-
-          if (config[key] == null) {
-            throw new Error('Invalid key "' + key + '" in class "' + name + '"! The value is undefined/null!');
-          }
-
-          if (_typeof(config[key]) !== allowed[key]) {
-            throw new Error('Invalid type of key "' + key + '" in class "' + name + '"! The type of the key must be "' + allowed[key] + '"!');
-          }
-        } // Validate maps
-
-
-        var maps = ["statics", "properties", "members", "environment", "settings", "variants", "events"];
-
-        for (var i = 0, l = maps.length; i < l; i++) {
-          var key = maps[i];
-
-          if (config[key] !== undefined && (config[key].$$hash !== undefined || !qx.Bootstrap.isObject(config[key]))) {
-            throw new Error('Invalid key "' + key + '" in class "' + name + '"! The value needs to be a map!');
-          }
-        } // Validate include definition
-
-
-        if (config.include) {
-          if (qx.Bootstrap.getClass(config.include) === "Array") {
-            for (var i = 0, a = config.include, l = a.length; i < l; i++) {
-              if (a[i] == null || a[i].$$type !== "Mixin") {
-                throw new Error('The include definition in class "' + name + '" contains an invalid mixin at position ' + i + ': ' + a[i]);
-              }
-            }
-          } else {
-            throw new Error('Invalid include definition in class "' + name + '"! Only mixins and arrays of mixins are allowed!');
-          }
-        } // Validate implement definition
-
-
-        if (config.implement) {
-          if (qx.Bootstrap.getClass(config.implement) === "Array") {
-            for (var i = 0, a = config.implement, l = a.length; i < l; i++) {
-              if (a[i] == null || a[i].$$type !== "Interface") {
-                throw new Error('The implement definition in class "' + name + '" contains an invalid interface at position ' + i + ': ' + a[i]);
-              }
-            }
-          } else {
-            throw new Error('Invalid implement definition in class "' + name + '"! Only interfaces and arrays of interfaces are allowed!');
-          }
-        } // Check mixin compatibility
-
-
-        if (config.include) {
-          try {
-            qx.Mixin.checkCompatibility(config.include);
-          } catch (ex) {
-            throw new Error('Error in include definition of class "' + name + '"! ' + ex.message);
-          }
-        } // Validate environment
-
-
-        if (config.environment) {
-          for (var key in config.environment) {
-            if (key.substr(0, key.indexOf(".")) != name.substr(0, name.indexOf("."))) {
-              throw new Error('Forbidden environment setting "' + key + '" found in "' + name + '". It is forbidden to define a ' + 'environment setting for an external namespace!');
-            }
-          }
-        } // Validate settings
-
-
-        if (config.settings) {
-          for (var key in config.settings) {
-            if (key.substr(0, key.indexOf(".")) != name.substr(0, name.indexOf("."))) {
-              throw new Error('Forbidden setting "' + key + '" found in "' + name + '". It is forbidden to define a default setting for an external namespace!');
-            }
-          }
-        } // Validate variants
-
-
-        if (config.variants) {
-          for (var key in config.variants) {
-            if (key.substr(0, key.indexOf(".")) != name.substr(0, name.indexOf("."))) {
-              throw new Error('Forbidden variant "' + key + '" found in "' + name + '". It is forbidden to define a variant for an external namespace!');
-            }
-          }
-        }
-      },
+      __P_2_10: function __P_2_10(name, config) {},
 
       /**
        * Validates the interfaces required by abstract base classes
@@ -915,25 +749,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @signature function(clazz)
        * @param clazz {Class} The configured class.
        */
-      __validateAbstractInterfaces: function __validateAbstractInterfaces(clazz) {
-        var superclass = clazz.superclass;
-
-        while (superclass) {
-          if (superclass.$$classtype !== "abstract") {
-            break;
-          }
-
-          var interfaces = superclass.$$implements;
-
-          if (interfaces) {
-            for (var i = 0; i < interfaces.length; i++) {
-              qx.Interface.assert(clazz, interfaces[i], true);
-            }
-          }
-
-          superclass = superclass.superclass;
-        }
-      },
+      __P_2_11: function __P_2_11(clazz) {},
 
       /**
        * Attaches an annotation to a class
@@ -943,7 +759,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param key {String} Name of the annotated item
        * @param anno {Object} Annotation object
        */
-      __attachAnno: function __attachAnno(clazz, group, key, anno) {
+      __P_2_2: function __P_2_2(clazz, group, key, anno) {
         if (anno !== undefined) {
           if (clazz.$$annotations === undefined) {
             clazz.$$annotations = {};
@@ -976,7 +792,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param mixins {Mixin[]} array of mixins of the class
        * @return {Class} The generated class
        */
-      __createClass: function __createClass(name, type, extend, statics, construct, destruct, mixins) {
+      __P_2_1: function __P_2_1(name, type, extend, statics, construct, destruct, mixins) {
         var isStrictMode = function isStrictMode() {
           return typeof this == 'undefined';
         };
@@ -993,15 +809,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           if (extend) {
             // Create default constructor
             if (!construct) {
-              construct = this.__createDefaultConstructor();
+              construct = this.__P_2_12();
             }
 
-            if (this.__needsConstructorWrapper(extend, mixins)) {
-              clazz = this.__wrapConstructor(construct, name, type);
-            } else {
-              clazz = construct;
-            } // Add singleton getInstance()
-
+            clazz = this.__P_2_13(construct, name, type); // Add singleton getInstance()
 
             if (type === "singleton") {
               clazz.getInstance = this.getInstance;
@@ -1018,17 +829,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             for (var i = 0, a = Object.keys(statics), l = a.length; i < l; i++) {
               key = a[i];
               var staticValue = statics[key];
-              {
-                if (key.charAt(0) === '@') {
-                  if (statics[key.substring(1)] === undefined) {
-                    throw new Error('Annonation for static "' + key.substring(1) + '" of Class "' + clazz.classname + '" does not exist!');
-                  }
-
-                  if (key.charAt(1) === "_" && key.charAt(2) === "_") {
-                    throw new Error('Cannot annotate private static "' + key.substring(1) + '" of Class "' + clazz.classname);
-                  }
-                }
-              }
 
               if (key.charAt(0) === '@') {
                 continue;
@@ -1038,7 +838,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
                 clazz[key] = staticValue;
               } // Attach annotations
 
-              this.__attachAnno(clazz, "statics", key, statics["@" + key]);
+              this.__P_2_2(clazz, "statics", key, statics["@" + key]);
             }
           }
         } // Create namespace
@@ -1096,28 +896,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param events {Map} map of event names the class fires.
        * @param patch {Boolean ? false} Enable redefinition of event type?
        */
-      __addEvents: function __addEvents(clazz, events, patch) {
-        {
-          if (_typeof(events) !== "object" || qx.Bootstrap.getClass(events) === "Array") {
-            throw new Error(clazz.classname + ": the events must be defined as map!");
-          }
-
-          for (var key in events) {
-            if (typeof events[key] !== "string") {
-              throw new Error(clazz.classname + "/" + key + ": the event value needs to be a string with the class name of the event object which will be fired.");
-            }
-          } // Compare old and new event type/value if patching is disabled
-
-
-          if (clazz.$$events && patch !== true) {
-            for (var key in events) {
-              if (clazz.$$events[key] !== undefined && clazz.$$events[key] !== events[key]) {
-                throw new Error(clazz.classname + "/" + key + ": the event value/type cannot be changed from " + clazz.$$events[key] + " to " + events[key]);
-              }
-            }
-          }
-        }
-
+      __P_2_5: function __P_2_5(clazz, events, patch) {
         if (clazz.$$events) {
           for (var key in events) {
             clazz.$$events[key] = events[key];
@@ -1135,7 +914,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param patch {Boolean ? false} Overwrite property with the limitations of a property
                  which means you are able to refine but not to replace (esp. for new properties)
        */
-      __addProperties: function __addProperties(clazz, properties, patch) {
+      __P_2_3: function __P_2_3(clazz, properties, patch) {
         // check for the property module
         var config;
 
@@ -1148,10 +927,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         for (var name in properties) {
           config = properties[name]; // Check incoming configuration
 
-          {
-            this.__validateProperty(clazz, name, config, patch);
-          } // Store name into configuration
-
+          // Store name into configuration
           config.name = name; // Add config to local registry
 
           if (!config.refine) {
@@ -1178,24 +954,24 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
               event[config.event + "Async"] = "qx.event.type.Data";
             }
 
-            this.__addEvents(clazz, event, patch);
+            this.__P_2_5(clazz, event, patch);
           } // Remember inheritable properties
 
 
           if (config.inheritable) {
-            this.__Property.$$inheritable[name] = true;
+            this.__P_2_0.$$inheritable[name] = true;
 
             if (!proto.$$refreshInheritables) {
-              this.__Property.attachRefreshInheritables(clazz);
+              this.__P_2_0.attachRefreshInheritables(clazz);
             }
           }
 
           if (!config.refine) {
-            this.__Property.attachMethods(clazz, name, config);
+            this.__P_2_0.attachMethods(clazz, name, config);
           } // Add annotations
 
 
-          this.__attachAnno(clazz, "properties", name, config["@"]);
+          this.__P_2_2(clazz, "properties", name, config["@"]);
         }
       },
 
@@ -1208,67 +984,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param config {Map} configuration map
        * @param patch {Boolean ? false} enable refine/patch?
        */
-      __validateProperty: function __validateProperty(clazz, name, config, patch) {
-        // check for properties
-        var has = this.hasProperty(clazz, name);
-
-        if (has) {
-          var existingProperty = this.getPropertyDefinition(clazz, name);
-
-          if (config.refine && existingProperty.init === undefined) {
-            throw new Error("Could not refine an init value if there was previously no init value defined. Property '" + name + "' of class '" + clazz.classname + "'.");
-          }
-        }
-
-        if (!has && config.refine) {
-          throw new Error("Could not refine non-existent property: '" + name + "' of class: '" + clazz.classname + "'!");
-        }
-
-        if (has && !patch) {
-          throw new Error("Class " + clazz.classname + " already has a property: " + name + "!");
-        }
-
-        if (has && patch) {
-          if (!config.refine) {
-            throw new Error('Could not refine property "' + name + '" without a "refine" flag in the property definition! This class: ' + clazz.classname + ', original class: ' + this.getByProperty(clazz, name).classname + '.');
-          }
-
-          for (var key in config) {
-            if (key !== "init" && key !== "refine" && key !== "@") {
-              throw new Error("Class " + clazz.classname + " could not refine property: " + name + "! Key: " + key + " could not be refined!");
-            }
-          }
-        } // Check 0.7 keys
-
-
-        var allowed = config.group ? this.__Property.$$allowedGroupKeys : this.__Property.$$allowedKeys;
-
-        for (var key in config) {
-          if (allowed[key] === undefined) {
-            throw new Error('The configuration key "' + key + '" of property "' + name + '" in class "' + clazz.classname + '" is not allowed!');
-          }
-
-          if (config[key] === undefined) {
-            throw new Error('Invalid key "' + key + '" of property "' + name + '" in class "' + clazz.classname + '"! The value is undefined: ' + config[key]);
-          }
-
-          if (allowed[key] !== null && _typeof(config[key]) !== allowed[key]) {
-            throw new Error('Invalid type of key "' + key + '" of property "' + name + '" in class "' + clazz.classname + '"! The type of the key must be "' + allowed[key] + '"!');
-          }
-        }
-
-        if (config.transform != null) {
-          if (!(typeof config.transform === "string")) {
-            throw new Error('Invalid transform definition of property "' + name + '" in class "' + clazz.classname + '"! Needs to be a String.');
-          }
-        }
-
-        if (config.check != null) {
-          if (!qx.Bootstrap.isString(config.check) && !qx.Bootstrap.isArray(config.check) && !qx.Bootstrap.isFunction(config.check)) {
-            throw new Error('Invalid check definition of property "' + name + '" in class "' + clazz.classname + '"! Needs to be a String, Array or Function.');
-          }
-        }
-      },
+      __P_2_14: null,
 
       /**
        * Attach members to a class
@@ -1281,7 +997,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param wrap {Boolean ? false} Whether the member method should be wrapped.
        *     this is needed to allow base calls in patched mixin members.
        */
-      __addMembers: function __addMembers(clazz, members, patch, base, wrap) {
+      __P_2_4: function __P_2_4(clazz, members, patch, base, wrap) {
         var proto = clazz.prototype;
         var key, member;
         qx.Bootstrap.setDisplayNames(members, clazz.classname + ".prototype");
@@ -1289,33 +1005,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         for (var i = 0, a = Object.keys(members), l = a.length; i < l; i++) {
           key = a[i];
           member = members[key];
-          {
-            if (key.charAt(0) === '@') {
-              var annoKey = key.substring(1);
 
-              if (members[annoKey] === undefined && proto[annoKey] === undefined) {
-                throw new Error('Annonation for "' + annoKey + '" of Class "' + clazz.classname + '" does not exist!');
-              }
-
-              if (key.charAt(1) === "_" && key.charAt(2) === "_") {
-                throw new Error('Cannot annotate private member "' + key.substring(1) + '" of Class "' + clazz.classname);
-              }
-            } else {
-              if (proto[key] !== undefined && key.charAt(0) === "_" && key.charAt(1) === "_") {
-                throw new Error('Overwriting private member "' + key + '" of Class "' + clazz.classname + '" is not allowed!');
-              }
-
-              if (patch !== true && proto.hasOwnProperty(key)) {
-                throw new Error('Overwriting member "' + key + '" of Class "' + clazz.classname + '" is not allowed!');
-              }
-            }
-          } // Annotations are not members
-
+          // Annotations are not members
           if (key.charAt(0) === '@') {
             var annoKey = key.substring(1);
 
             if (members[annoKey] === undefined) {
-              this.__attachAnno(clazz, "members", annoKey, members[key]);
+              this.__P_2_2(clazz, "members", annoKey, members[key]);
             }
 
             continue;
@@ -1333,7 +1029,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           if (base !== false && member instanceof Function && member.$$type == null) {
             if (wrap == true) {
               // wrap "patched" mixin member
-              member = this.__mixinMemberWrapper(member, proto[key]);
+              member = this.__P_2_15(member, proto[key]);
             } else {
               // Configure extend (named base here)
               // Hint: proto[key] is not yet overwritten here
@@ -1348,7 +1044,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
           proto[key] = member; // Attach annotations
 
-          this.__attachAnno(clazz, "members", key, members["@" + key]);
+          this.__P_2_2(clazz, "members", key, members["@" + key]);
         }
       },
 
@@ -1360,7 +1056,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param base {Function} The overwritten method
        * @return {Function} the wrapped mixin member
        */
-      __mixinMemberWrapper: function __mixinMemberWrapper(member, base) {
+      __P_2_15: function __P_2_15(member, base) {
         if (base) {
           return function () {
             var oldBase = member.base;
@@ -1380,25 +1076,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param clazz {Class} class to add interface to
        * @param iface {Interface} the Interface to add
        */
-      __addInterface: function __addInterface(clazz, iface) {
-        {
-          if (!clazz || !iface) {
-            throw new Error("Incomplete parameters!");
-          } // This differs from mixins, we only check if the interface is already
-          // directly used by this class. It is allowed however, to have an interface
-          // included multiple times by extends in the interfaces etc.
-
-
-          if (this.hasOwnInterface(clazz, iface)) {
-            throw new Error('Interface "' + iface.name + '" is already used by Class "' + clazz.classname + '!');
-          } // Check interface and wrap members
-
-
-          if (clazz.$$classtype !== "abstract") {
-            qx.Interface.assert(clazz, iface, true);
-          }
-        } // Store interface reference
-
+      __P_2_7: function __P_2_7(clazz, iface) {
+        // Store interface reference
         var list = qx.Interface.flatten([iface]);
 
         if (clazz.$$implements) {
@@ -1411,93 +1090,15 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       },
 
       /**
-       * Wrap the constructor of an already existing clazz. This function will
-       * replace all references to the existing constructor with the new wrapped
-       * constructor.
-       *
-       * @param clazz {Class} The class to wrap
-       * @return {Class} The wrapped class
-       */
-      __retrospectWrapConstruct: function __retrospectWrapConstruct(clazz) {
-        var name = clazz.classname;
-
-        var wrapper = this.__wrapConstructor(clazz, name, clazz.$$classtype); // copy all keys from the wrapped constructor to the wrapper
-
-
-        for (var i = 0, a = Object.keys(clazz), l = a.length; i < l; i++) {
-          key = a[i];
-          wrapper[key] = clazz[key];
-        } // fix prototype
-
-
-        wrapper.prototype = clazz.prototype; // fix self references in members
-
-        var members = clazz.prototype;
-
-        for (var i = 0, a = Object.keys(members), l = a.length; i < l; i++) {
-          key = a[i];
-          var method = members[key]; // check if method is available because null values can be stored as
-          // init values on classes e.g. [BUG #3709]
-
-          if (method && method.self == clazz) {
-            method.self = wrapper;
-          }
-        } // fix base and superclass references in all defined classes
-
-
-        for (var key in this.$$registry) {
-          var construct = this.$$registry[key];
-
-          if (!construct) {
-            continue;
-          }
-
-          if (construct.base == clazz) {
-            construct.base = wrapper;
-          }
-
-          if (construct.superclass == clazz) {
-            construct.superclass = wrapper;
-          }
-
-          if (construct.$$original) {
-            if (construct.$$original.base == clazz) {
-              construct.$$original.base = wrapper;
-            }
-
-            if (construct.$$original.superclass == clazz) {
-              construct.$$original.superclass = wrapper;
-            }
-          }
-        }
-
-        qx.Bootstrap.createNamespace(name, wrapper);
-        this.$$registry[name] = wrapper;
-        return wrapper;
-      },
-
-      /**
        * Include all features of the mixin into the given class, recursively.
        *
        * @param clazz {Class} The class onto which the mixin should be attached.
        * @param mixin {Mixin} Include all features of this mixin
        * @param patch {Boolean} Overwrite existing fields, functions and properties
        */
-      __addMixin: function __addMixin(clazz, mixin, patch) {
-        {
-          if (!clazz || !mixin) {
-            throw new Error("Incomplete parameters!");
-          }
-        }
-
+      __P_2_6: function __P_2_6(clazz, mixin, patch) {
         if (this.hasMixin(clazz, mixin)) {
           return;
-        }
-
-        var isConstructorWrapped = clazz.$$original;
-
-        if (mixin.$$constructor && !isConstructorWrapped) {
-          clazz = this.__retrospectWrapConstruct(clazz);
         } // Attach content
 
 
@@ -1508,17 +1109,17 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           entry = list[i]; // Attach events
 
           if (entry.$$events) {
-            this.__addEvents(clazz, entry.$$events, patch);
+            this.__P_2_5(clazz, entry.$$events, patch);
           } // Attach properties (Properties are already readonly themselves, no patch handling needed)
 
 
           if (entry.$$properties) {
-            this.__addProperties(clazz, entry.$$properties, patch);
+            this.__P_2_3(clazz, entry.$$properties, patch);
           } // Attach members (Respect patch setting, but dont apply base variables)
 
 
           if (entry.$$members) {
-            this.__addMembers(clazz, entry.$$members, patch, patch, patch);
+            this.__P_2_4(clazz, entry.$$members, patch, patch, patch);
           }
         } // Store mixin reference
 
@@ -1544,48 +1145,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        *
        * @return {Function} The default constructor.
        */
-      __createDefaultConstructor: function __createDefaultConstructor() {
+      __P_2_12: function __P_2_12() {
         function defaultConstructor() {
           defaultConstructor.base.apply(this, arguments);
         }
 
         return defaultConstructor;
-      },
-
-      /**
-       * Checks if the constructor needs to be wrapped.
-       *
-       * @param base {Class} The base class.
-       * @param mixins {Mixin[]} All mixins which should be included.
-       * @return {Boolean} true, if the constructor needs to be wrapped.
-       */
-      __needsConstructorWrapper: function __needsConstructorWrapper(base, mixins) {
-        {
-          return true;
-        } // Check for base class mixin constructors
-
-        if (base && base.$$includes) {
-          var baseMixins = base.$$flatIncludes;
-
-          for (var i = 0, l = baseMixins.length; i < l; i++) {
-            if (baseMixins[i].$$constructor) {
-              return true;
-            }
-          }
-        } // check for direct mixin constructors
-
-
-        if (mixins) {
-          var flatMixins = qx.Mixin.flatten(mixins);
-
-          for (var i = 0, l = flatMixins.length; i < l; i++) {
-            if (flatMixins[i].$$constructor) {
-              return true;
-            }
-          }
-        }
-
-        return false;
       },
 
       /**
@@ -1597,27 +1162,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param type {String} the user specified class type
        * @return {Function} The wrapped constructor
        */
-      __wrapConstructor: function __wrapConstructor(construct, name, type) {
+      __P_2_13: function __P_2_13(construct, name, type) {
         var _wrapper = function wrapper() {
           var clazz = _wrapper;
-          {
-            // new keyword check
-            if (!(this instanceof clazz)) {
-              throw new Error("Please initialize '" + name + "' objects using the new keyword!");
-            } // add abstract and singleton checks
-
-
-            if (type === "abstract") {
-              if (this.classname === name) {
-                throw new Error("The class '," + name + "' is abstract! It is not possible to instantiate it.");
-              }
-            } else if (type === "singleton") {
-              if (!clazz.$$allowconstruct) {
-                throw new Error("The class '" + name + "' is a singleton! It is not possible to instantiate it directly. Use the static getInstance() method instead.");
-              }
-            }
-          } // Execute default constructor
-
+          // Execute default constructor
           var retval = clazz.$$original.apply(this, arguments); // Initialize local mixins
 
           if (clazz.$$includes) {
@@ -1630,13 +1178,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             }
           }
 
-          {
-            // Mark instance as initialized
-            if (this.classname === name) {
-              this.$$initialized = true;
-            }
-          } // Return optional return value
-
+          // Return optional return value
           return retval;
         };
 
@@ -1653,4 +1195,4 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   qx.Class.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Class.js.map?dt=1564930732803
+//# sourceMappingURL=Class.js.map?dt=1591463650217

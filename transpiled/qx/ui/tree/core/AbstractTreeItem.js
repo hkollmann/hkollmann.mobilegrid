@@ -53,7 +53,7 @@
     type: "abstract",
     construct: function construct(label) {
       qx.ui.tree.core.AbstractItem.constructor.call(this, label);
-      this.__children = [];
+      this.__P_184_0 = [];
     },
     properties: {
       /**
@@ -65,8 +65,8 @@
       }
     },
     members: {
-      __children: null,
-      __childrenContainer: null,
+      __P_184_0: null,
+      __P_184_1: null,
 
       /**
        * Returns the tree the tree item is connected to. If the item is not part of
@@ -210,13 +210,13 @@
        * @return {qx.ui.core.Widget} The children container
        */
       getChildrenContainer: function getChildrenContainer() {
-        if (!this.__childrenContainer) {
-          this.__childrenContainer = new qx.ui.container.Composite(new qx.ui.layout.VBox()).set({
+        if (!this.__P_184_1) {
+          this.__P_184_1 = new qx.ui.container.Composite(new qx.ui.layout.VBox()).set({
             visibility: this.isOpen() ? "visible" : "excluded"
           });
         }
 
-        return this.__childrenContainer;
+        return this.__P_184_1;
       },
 
       /**
@@ -225,7 +225,7 @@
        * @return {Boolean} Whether it has a children container
        */
       hasChildrenContainer: function hasChildrenContainer() {
-        return this.__childrenContainer;
+        return this.__P_184_1;
       },
 
       /**
@@ -260,11 +260,11 @@
        * @return {qx.ui.tree.core.AbstractTreeItem[]} An array of all child items.
        */
       getChildren: function getChildren() {
-        return this.__children;
+        return this.__P_184_0;
       },
       // overridden
       hasChildren: function hasChildren() {
-        return this.__children ? this.__children.length > 0 : false;
+        return this.__P_184_0 ? this.__P_184_0.length > 0 : false;
       },
 
       /**
@@ -319,7 +319,7 @@
       /**
        * Adds the item's children container to the parent's children container.
        */
-      __addChildrenToParent: function __addChildrenToParent() {
+      __P_184_2: function __P_184_2() {
         if (this.getParentChildrenContainer()) {
           this.getParentChildrenContainer()._addAfter(this.getChildrenContainer(), this);
         }
@@ -350,10 +350,10 @@
             container.add(treeItem.getChildrenContainer());
           }
 
-          this.__children.push(treeItem);
+          this.__P_184_0.push(treeItem);
 
           if (!hasChildren) {
-            this.__addChildrenToParent();
+            this.__P_184_2();
           }
 
           if (tree) {
@@ -374,11 +374,7 @@
        * @param index {Integer} position to insert into
        */
       addAt: function addAt(treeItem, index) {
-        {
-          this.assert(index <= this.__children.length && index >= 0, "Invalid child index: " + index);
-        }
-
-        if (index == this.__children.length) {
+        if (index == this.__P_184_0.length) {
           this.add(treeItem);
           return;
         }
@@ -392,17 +388,17 @@
         var container = this.getChildrenContainer();
         treeItem.setParent(this);
         var hasChildren = this.hasChildren();
-        var nextItem = this.__children[index];
+        var nextItem = this.__P_184_0[index];
         container.addBefore(treeItem, nextItem);
 
         if (treeItem.hasChildren()) {
           container.addAfter(treeItem.getChildrenContainer(), treeItem);
         }
 
-        qx.lang.Array.insertAt(this.__children, treeItem, index);
+        qx.lang.Array.insertAt(this.__P_184_0, treeItem, index);
 
         if (!hasChildren) {
-          this.__addChildrenToParent();
+          this.__P_184_2();
         }
 
         if (this.getTree()) {
@@ -418,18 +414,15 @@
        * @param before {qx.ui.tree.core.AbstractTreeItem} existing child to add the item before
        */
       addBefore: function addBefore(treeItem, before) {
-        {
-          this.assert(this.__children.indexOf(before) >= 0);
-        } // It's important to remove the item before the addAt is called
+        // It's important to remove the item before the addAt is called
         // otherwise the index calculation could be wrong
-
         var oldParent = treeItem.getParent();
 
         if (oldParent) {
           oldParent.remove(treeItem);
         }
 
-        this.addAt(treeItem, this.__children.indexOf(before));
+        this.addAt(treeItem, this.__P_184_0.indexOf(before));
       },
 
       /**
@@ -439,18 +432,15 @@
        * @param after {qx.ui.tree.core.AbstractTreeItem} existing child to add the item after
        */
       addAfter: function addAfter(treeItem, after) {
-        {
-          this.assert(this.__children.indexOf(after) >= 0);
-        } // It's important to remove the item before the addAt is called
+        // It's important to remove the item before the addAt is called
         // otherwise the index calculation could be wrong
-
         var oldParent = treeItem.getParent();
 
         if (oldParent) {
           oldParent.remove(treeItem);
         }
 
-        this.addAt(treeItem, this.__children.indexOf(after) + 1);
+        this.addAt(treeItem, this.__P_184_0.indexOf(after) + 1);
       },
 
       /**
@@ -471,7 +461,7 @@
         for (var i = 0, l = arguments.length; i < l; i++) {
           var treeItem = arguments[i];
 
-          if (this.__children.indexOf(treeItem) == -1) {
+          if (this.__P_184_0.indexOf(treeItem) == -1) {
             this.warn("Cannot remove treeitem '" + treeItem + "'. It is not a child of this tree item.");
             return;
           }
@@ -487,7 +477,7 @@
             }
           }
 
-          qx.lang.Array.remove(this.__children, treeItem);
+          qx.lang.Array.remove(this.__P_184_0, treeItem);
           treeItem.setParent(null);
           container.remove(treeItem);
         }
@@ -507,7 +497,7 @@
        * @param index {Integer} Index of the child to remove
        */
       removeAt: function removeAt(index) {
-        var item = this.__children[index];
+        var item = this.__P_184_0[index];
 
         if (item) {
           this.remove(item);
@@ -519,22 +509,22 @@
        */
       removeAll: function removeAll() {
         // create a copy for returning
-        var children = this.__children.concat();
+        var children = this.__P_184_0.concat();
 
-        for (var i = this.__children.length - 1; i >= 0; i--) {
-          this.remove(this.__children[i]);
+        for (var i = this.__P_184_0.length - 1; i >= 0; i--) {
+          this.remove(this.__P_184_0[i]);
         }
 
         return children;
       }
     },
     destruct: function destruct() {
-      this._disposeArray("__children");
+      this._disposeArray("__P_184_0");
 
-      this._disposeObjects("__childrenContainer");
+      this._disposeObjects("__P_184_1");
     }
   });
   qx.ui.tree.core.AbstractTreeItem.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=AbstractTreeItem.js.map?dt=1564930747074
+//# sourceMappingURL=AbstractTreeItem.js.map?dt=1591463667102

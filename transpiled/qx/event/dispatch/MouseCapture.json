@@ -21,11 +21,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2007-2008 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2007-2008 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Fabian Jakobs (fjakobs)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "Implementation of the Internet Explorer specific event capturing mode for\nmouse events http:\n\nThis class is used internally by {@link qx.event.Manager} to do mouse event\ncapturing."
+          "body": "<p>Implementation of the Internet Explorer specific event capturing mode for\n mouse events http://msdn2.microsoft.com/en-us/library/ms536742.aspx.\n This class is used internally by {@link qx.event.Manager} to do mouse event\n capturing.</p>"
         }
       ],
       "@use": [
@@ -55,6 +55,30 @@
         "line": 48,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "manager {qx.event.Manager} Event manager for the window to use",
+          "paramName": "manager",
+          "description": " Event manager for the window to use",
+          "type": "qx.event.Manager"
+        },
+        {
+          "name": "@param",
+          "body": "registration {qx.event.Registration} The event registration to use",
+          "paramName": "registration",
+          "description": " The event registration to use",
+          "type": "qx.event.Registration"
+        }
+      ]
     }
   },
   "statics": {
@@ -159,24 +183,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "target {var} The target which parent should be found",
-            "paramName": "target",
-            "description": " The target which parent should be found",
-            "type": "var"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{var} The parent of the given target",
-            "type": "var",
-            "description": " The parent of the given target"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -202,45 +209,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nEVENT DISPATCHER INTERFACE\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  EVENT DISPATCHER INTERFACE\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "target {Element|Event} The event dispatch target",
-            "paramName": "target",
-            "description": " The event dispatch target",
-            "type": [
-              "Element",
-              "Event"
-            ]
-          },
-          {
-            "name": "@param",
-            "body": "event {qx.event.type.Event} The event object",
-            "paramName": "event",
-            "description": " The event object",
-            "type": "qx.event.type.Event"
-          },
-          {
-            "name": "@param",
-            "body": "type {String} the event type",
-            "paramName": "type",
-            "description": " the event type",
-            "type": "String"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Boolean} Whether the event dispatcher is responsible for the this event",
-            "type": "Boolean",
-            "description": " Whether the event dispatcher is responsible for the this event"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -267,41 +240,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "target {Element|Event} The event dispatch target",
-            "paramName": "target",
-            "description": " The event dispatch target",
-            "type": [
-              "Element",
-              "Event"
-            ]
-          },
-          {
-            "name": "@param",
-            "body": "event {qx.event.type.Event} event object to dispatch",
-            "paramName": "event",
-            "description": " event object to dispatch",
-            "type": "qx.event.type.Event"
-          },
-          {
-            "name": "@param",
-            "body": "type {String} the event type",
-            "paramName": "type",
-            "description": " the event type",
-            "type": "String"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{qx.Promise?} a promise, if one or more of the event handlers returned a promise",
-            "type": "qx.Promise?",
-            "description": " a promise, if one or more of the event handlers returned a promise"
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -330,7 +269,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nHELPER\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  HELPER\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
@@ -362,11 +301,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nUSER ACCESS\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  USER ACCESS\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Set the given element as target for event"
+            "body": "<p>Set the given element as target for event</p>"
           }
         ],
         "@param": [
@@ -379,9 +318,9 @@
           },
           {
             "name": "@param",
-            "body": "containerCapture {Boolean?true} If true all events originating in\n  the container are captured. IF false events originating in the container\n  are not captured.",
+            "body": "containerCapture {Boolean?true} If true all events originating in\n   the container are captured. IF false events originating in the container\n   are not captured.",
             "paramName": "containerCapture",
-            "description": " If true all events originating in\n  the container are captured. IF false events originating in the container\n  are not captured.",
+            "description": " If true all events originating in\n   the container are captured. IF false events originating in the container\n   are not captured.",
             "optional": true,
             "defaultValue": "true",
             "type": "Boolean"
@@ -406,15 +345,15 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Get the element currently capturing events."
+            "body": "<p>Get the element currently capturing events.</p>"
           }
         ],
         "@return": [
           {
             "name": "@return",
-            "body": "{Element|null} The current capture element. This value may be\n   null.",
+            "body": "{Element|null} The current capture element. This value may be\n    null.",
             "type": "Element|null",
-            "description": " The current capture element. This value may be\n   null."
+            "description": " The current capture element. This value may be\n    null."
           }
         ]
       },
@@ -436,7 +375,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Stop capturing of mouse events."
+            "body": "<p>Stop capturing of mouse events.</p>"
           }
         ]
       },
@@ -458,7 +397,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Whether the browser should use native mouse capturing"
+            "body": "<p>Whether the browser should use native mouse capturing</p>"
           }
         ]
       },
@@ -480,7 +419,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "If the browser supports native mouse capturing, sets the mouse capture to\nthe object that belongs to the current document.\n\nPlease note that under Windows 7 (but not Windows 8), capturing is\nnot only applied to mouse events as expected, but also to native pointer events."
+            "body": "<p>If the browser supports native mouse capturing, sets the mouse capture to\n the object that belongs to the current document.\n Please note that under Windows 7 (but not Windows 8), capturing is\n not only applied to mouse events as expected, but also to native pointer events.</p>"
           }
         ],
         "@param": [
@@ -493,9 +432,9 @@
           },
           {
             "name": "@param",
-            "body": "containerCapture {Boolean?true} If true all events originating in\n  the container are captured. If false events originating in the container\n  are not captured.",
+            "body": "containerCapture {Boolean?true} If true all events originating in\n   the container are captured. If false events originating in the container\n   are not captured.",
             "paramName": "containerCapture",
-            "description": " If true all events originating in\n  the container are captured. If false events originating in the container\n  are not captured.",
+            "description": " If true all events originating in\n   the container are captured. If false events originating in the container\n   are not captured.",
             "optional": true,
             "defaultValue": "true",
             "type": "Boolean"
@@ -526,7 +465,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "If the browser supports native mouse capturing, removes mouse capture\nfrom the object in the current document."
+            "body": "<p>If the browser supports native mouse capturing, removes mouse capture\n from the object in the current document.</p>"
           }
         ],
         "@param": [
@@ -607,7 +546,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -666,7 +613,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     }
   },
   "defer": {
@@ -679,7 +634,8 @@
         "line": 266,
         "column": 3
       }
-    }
+    },
+    "jsdoc": {}
   },
   "descendants": []
 }

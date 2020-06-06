@@ -43,7 +43,7 @@
   qx.Mixin.define("qx.core.MEvent", {
     members: {
       /** @type {Class} Pointer to the regular event registration class */
-      __Registration: qx.event.Registration,
+      __P_78_0: qx.event.Registration,
 
       /**
        * Add event listener to this object.
@@ -63,7 +63,7 @@
        */
       addListener: function addListener(type, listener, self, capture) {
         if (!this.$$disposed) {
-          return this.__Registration.addListener(this, type, listener, self, capture);
+          return this.__P_78_0.addListener(this, type, listener, self, capture);
         }
 
         return null;
@@ -89,8 +89,10 @@
           context = this;
         }
 
+        var id; // store id in closure context
+
         var callback = function callback(e) {
-          self.removeListener(type, listener, context, capture);
+          self.removeListenerById(id);
           listener.call(context, e);
         }; // check for wrapped callback storage
 
@@ -101,8 +103,9 @@
         // used for more than one type [BUG #8038]
 
 
-        listener.$$wrapped_callback[type + this.$$hash] = callback;
-        return this.addListener(type, callback, context, capture);
+        listener.$$wrapped_callback[type + this.toHashCode()] = callback;
+        id = this.addListener(type, callback, context, capture);
+        return id;
       },
 
       /**
@@ -124,7 +127,7 @@
             listener = callback;
           }
 
-          return this.__Registration.removeListener(this, type, listener, self, capture);
+          return this.__P_78_0.removeListener(this, type, listener, self, capture);
         }
 
         return false;
@@ -139,7 +142,7 @@
        */
       removeListenerById: function removeListenerById(id) {
         if (!this.$$disposed) {
-          return this.__Registration.removeListenerById(this, id);
+          return this.__P_78_0.removeListenerById(this, id);
         }
 
         return false;
@@ -154,7 +157,7 @@
        * @return {Boolean} Whether the object has a listener of the given type.
        */
       hasListener: function hasListener(type, capture) {
-        return this.__Registration.hasListener(this, type, capture);
+        return this.__P_78_0.hasListener(this, type, capture);
       },
 
       /**
@@ -166,7 +169,7 @@
        */
       dispatchEvent: function dispatchEvent(evt) {
         if (!this.$$disposed) {
-          return this.__Registration.dispatchEvent(this, evt);
+          return this.__P_78_0.dispatchEvent(this, evt);
         }
 
         return true;
@@ -179,12 +182,12 @@
        * @param clazz {Class?qx.event.type.Event} The event class
        * @param args {Array?null} Arguments, which will be passed to
        *       the event's init method.
-       * @return {Boolean} Whether the event default was prevented or not.
+       * @return {Boolean|qx.Promise} whether the event default was prevented or not.
        *     Returns true, when the event was NOT prevented.
        */
       fireEvent: function fireEvent(type, clazz, args) {
         if (!this.$$disposed) {
-          return this.__Registration.fireEvent(this, type, clazz, args);
+          return this.__P_78_0.fireEvent(this, type, clazz, args);
         }
 
         return true;
@@ -204,7 +207,7 @@
        */
       fireNonBubblingEvent: function fireNonBubblingEvent(type, clazz, args) {
         if (!this.$$disposed) {
-          return this.__Registration.fireNonBubblingEvent(this, type, clazz, args);
+          return this.__P_78_0.fireNonBubblingEvent(this, type, clazz, args);
         }
 
         return true;
@@ -222,7 +225,7 @@
        *     right click) or the default action of a qooxdoo class (e.g. close
        *     the window widget). The default action can be prevented by calling
        *     {@link qx.event.type.Event#preventDefault}
-       * @return {Boolean} Whether the event default was prevented or not.
+       * @return {Boolean|qx.Promise} whether the event default was prevented or not.
        *     Returns true, when the event was NOT prevented.
        */
       fireDataEvent: function fireDataEvent(type, data, oldData, cancelable) {
@@ -231,7 +234,7 @@
             oldData = null;
           }
 
-          return this.__Registration.fireNonBubblingEvent(this, type, qx.event.type.Data, [data, oldData, !!cancelable]);
+          return this.__P_78_0.fireEvent(this, type, qx.event.type.Data, [data, oldData, !!cancelable]);
         }
 
         return true;
@@ -241,4 +244,4 @@
   qx.core.MEvent.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MEvent.js.map?dt=1564930740128
+//# sourceMappingURL=MEvent.js.map?dt=1591463657906

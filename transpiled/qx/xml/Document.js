@@ -101,6 +101,8 @@
        * @param namespaceUri {String ? null} The namespace URI of the document element to create or null.
        * @param qualifiedName {String ? null} The qualified name of the document element to be created or null.
        * @return {Document} empty XML object
+       *
+       * @ignore(ActiveXObject)
        */
       create: function create(namespaceUri, qualifiedName) {
         // ActiveX - This is the preferred way for IE9 as well since it has no XPath
@@ -141,6 +143,8 @@
        * @param str {String} the string to be parsed
        * @return {Document} XML document with given content
        * @signature function(str)
+       *
+       * @ignore(DOMParser)
        */
       fromString: function fromString(str) {
         // Legacy IE/ActiveX
@@ -195,4 +199,4 @@
   qx.xml.Document.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Document.js.map?dt=1564930745729
+//# sourceMappingURL=Document.js.map?dt=1591463665103

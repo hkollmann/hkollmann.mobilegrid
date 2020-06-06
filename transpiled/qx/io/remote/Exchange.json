@@ -23,11 +23,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http:\n2006 Derrell Lipman\n2006 STZ-IDA, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\nDerrell Lipman (derrell)\nAndreas Junghans (lucidcake)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2004-2008 1&amp;1 Internet AG, Germany, http://www.1und1.de\n     2006 Derrell Lipman\n     2006 STZ-IDA, Germany, http://www.stz-ida.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Sebastian Werner (wpbasti)\n Andreas Ecker (ecker)\n Derrell Lipman (derrell)\n Andreas Junghans (lucidcake)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "Transport layer to control which transport class (XmlHttp, Iframe or Script)\ncan be used.\n\nNOTE: Instances of this class must be disposed of after use"
+          "body": "<p>Transport layer to control which transport class (XmlHttp, Iframe or Script)\n can be used.\n NOTE: Instances of this class must be disposed of after use</p>"
         }
       ],
       "@use": [
@@ -59,6 +59,27 @@
         "line": 59,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        },
+        {
+          "name": "@description",
+          "body": "<p>Constructor method.</p>"
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "vRequest {qx.io.remote.Request} request object",
+          "paramName": "vRequest",
+          "description": " request object",
+          "type": "qx.io.remote.Request"
+        }
+      ]
     }
   },
   "events": {
@@ -77,7 +98,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Fired whenever a request is send"
+            "body": "<p>Fired whenever a request is send</p>"
           }
         ]
       },
@@ -99,7 +120,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Fired whenever a request is received"
+            "body": "<p>Fired whenever a request is received</p>"
           }
         ]
       },
@@ -121,7 +142,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Fired whenever a request is completed"
+            "body": "<p>Fired whenever a request is completed</p>"
           }
         ]
       },
@@ -143,7 +164,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Fired whenever a request is aborted"
+            "body": "<p>Fired whenever a request is aborted</p>"
           }
         ]
       },
@@ -165,7 +186,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Fired whenever a request has failed"
+            "body": "<p>Fired whenever a request has failed</p>"
           }
         ]
       },
@@ -187,7 +208,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Fired whenever a request has timed out"
+            "body": "<p>Fired whenever a request has timed out</p>"
           }
         ]
       },
@@ -211,15 +232,15 @@
         "@description": [
           {
             "name": "@description",
-            "body": "***********************************************************************\nClass data, properties and methods\n***********************************************************************"
+            "body": "<pre><code>*****************************************************************\n   Class data, properties and methods\n*****************************************************************\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nTRANSPORT TYPE HANDLING\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  TRANSPORT TYPE HANDLING\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Predefined order of types."
+            "body": "<p>Predefined order of types.</p>"
           }
         ],
         "@internal": [
@@ -247,7 +268,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Marker for initialized types."
+            "body": "<p>Marker for initialized types.</p>"
           }
         ],
         "@internal": [
@@ -275,7 +296,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Map of all available types."
+            "body": "<p>Map of all available types.</p>"
           }
         ],
         "@internal": [
@@ -303,7 +324,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Map of all supported types."
+            "body": "<p>Map of all supported types.</p>"
           }
         ],
         "@internal": [
@@ -331,7 +352,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Registers a transport type.\nAt the moment one out of XmlHttp, Iframe or Script."
+            "body": "<p>Registers a transport type.\n At the moment one out of XmlHttp, Iframe or Script.</p>"
           }
         ],
         "@param": [
@@ -369,7 +390,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Initializes the available type of transport classes and\nchecks for the supported ones."
+            "body": "<p>Initializes the available type of transport classes and\n checks for the supported ones.</p>"
           }
         ],
         "@throws": [
@@ -399,7 +420,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Checks which supported transport class can handle the request with the\ngiven content type."
+            "body": "<p>Checks which supported transport class can handle the request with the\n given content type.</p>"
           }
         ],
         "@param": [
@@ -428,9 +449,9 @@
         "@return": [
           {
             "name": "@return",
-            "body": "{Boolean} <code>true</code> if the transport implementation supports\nthe request's requirements",
+            "body": "{Boolean} <code>true</code> if the transport implementation supports\n the request's requirements",
             "type": "Boolean",
-            "description": " <code>true</code> if the transport implementation supports\nthe request's requirements"
+            "description": " <code>true</code> if the transport implementation supports\n the request's requirements"
           }
         ]
       },
@@ -452,11 +473,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nMAPPING\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  MAPPING\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "http:\n\n0: UNINITIALIZED\nThe object has been created, but not initialized (the open method has not been called).\n\n1: LOADING\nThe object has been created, but the send method has not been called.\n\n2: LOADED\nThe send method has been called, but the status and headers are not yet available.\n\n3: INTERACTIVE\nSome data has been received. Calling the responseBody and responseText properties at this state to obtain partial results will return an error, because status and response headers are not fully available.\n\n4: COMPLETED\nAll the data has been received, and the complete data is available in the"
+            "body": "<p>http://msdn.microsoft.com/en-us/library/ie/ms534359%28v=vs.85%29.aspx\n 0: UNINITIALIZED\n The object has been created, but not initialized (the open method has not been called).\n 1: LOADING\n The object has been created, but the send method has not been called.\n 2: LOADED\n The send method has been called, but the status and headers are not yet available.\n 3: INTERACTIVE\n Some data has been received. Calling the responseBody and responseText properties at this state to obtain partial results will return an error, because status and response headers are not fully available.\n 4: COMPLETED\n All the data has been received, and the complete data is available in the</p>"
           }
         ],
         "@internal": [
@@ -484,11 +505,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nUTILS\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  UTILS\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Called from the transport class when a request was completed."
+            "body": "<p>Called from the transport class when a request was completed.</p>"
           }
         ],
         "@param": [
@@ -541,7 +562,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Status code to string conversion"
+            "body": "<p>Status code to string conversion</p>"
           }
         ],
         "@param": [
@@ -582,7 +603,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Set the request to send with this transport."
+            "body": "<p>Set the request to send with this transport.</p>"
           }
         ]
       },
@@ -607,7 +628,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Set the implementation to use to send the request with.\n\n The implementation should be a subclass of qx.io.remote.transport.Abstract and\n must implement all methods in the transport API."
+            "body": "<p>Set the implementation to use to send the request with.\n  The implementation should be a subclass of qx.io.remote.transport.Abstract and\n  must implement all methods in the transport API.</p>"
           }
         ]
       },
@@ -633,7 +654,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Current state of the transport layer."
+            "body": "<p>Current state of the transport layer.</p>"
           }
         ]
       },
@@ -659,7 +680,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>The owning object</p>"
+          }
+        ]
+      }
     },
     "qxObjectId": {
       "type": "property",
@@ -667,7 +696,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>{String} The ID of the object.</p>"
+          }
+        ]
+      }
     }
   },
   "members": {
@@ -686,11 +723,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nCORE METHODS\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  CORE METHODS\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Sends the request."
+            "body": "<p>Sends the request.</p>"
           }
         ],
         "@return": [
@@ -726,7 +763,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Force the transport into the aborted (\"aborted\")\n state."
+            "body": "<p>Force the transport into the aborted (\"aborted\")\n  state.</p>"
           }
         ]
       },
@@ -748,7 +785,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Force the transport into the timeout state."
+            "body": "<p>Force the transport into the timeout state.</p>"
           }
         ]
       },
@@ -770,11 +807,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nPRIVATES\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  PRIVATES\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Disables the timer of the request to prevent that the timer is expiring\neven if the user handler (e.g. \"completed\") was already called."
+            "body": "<p>Disables the timer of the request to prevent that the timer is expiring\n even if the user handler (e.g. \"completed\") was already called.</p>"
           }
         ]
       },
@@ -796,11 +833,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nEVENT HANDLER\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  EVENT HANDLER\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Event listener for \"sending\" event."
+            "body": "<p>Event listener for \"sending\" event.</p>"
           }
         ],
         "@param": [
@@ -831,7 +868,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Event listener for \"receiving\" event."
+            "body": "<p>Event listener for \"receiving\" event.</p>"
           }
         ],
         "@param": [
@@ -862,7 +899,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Event listener for \"completed\" event."
+            "body": "<p>Event listener for \"completed\" event.</p>"
           }
         ],
         "@param": [
@@ -893,7 +930,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Event listener for \"abort\" event."
+            "body": "<p>Event listener for \"abort\" event.</p>"
           }
         ],
         "@param": [
@@ -924,7 +961,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Event listener for \"failed\" event."
+            "body": "<p>Event listener for \"failed\" event.</p>"
           }
         ],
         "@param": [
@@ -955,7 +992,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Event listener for \"timeout\" event."
+            "body": "<p>Event listener for \"timeout\" event.</p>"
           }
         ],
         "@param": [
@@ -986,11 +1023,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nAPPLY ROUTINES\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  APPLY ROUTINES\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Apply method for the implementation property."
+            "body": "<p>Apply method for the implementation property.</p>"
           }
         ],
         "@param": [
@@ -1031,7 +1068,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Apply method for the state property."
+            "body": "<p>Apply method for the state property.</p>"
           }
         ],
         "@param": [
@@ -1116,7 +1153,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -1175,7 +1220,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getRequest": {
       "type": "function",
@@ -1386,6 +1439,14 @@
         "line": 1063,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DESTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "descendants": []

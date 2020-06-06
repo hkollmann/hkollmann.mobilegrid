@@ -55,7 +55,7 @@
     extend: qx.ui.mobile.core.Widget,
     construct: function construct() {
       qx.ui.mobile.core.Widget.constructor.call(this);
-      this.__items = [];
+      this.__P_21_0 = [];
     },
     events: {
       addCell: "hkollmann.mobilegrid.event.type.GridEvent",
@@ -81,9 +81,9 @@
       getCell: function getCell(aRow, aCol) {
         var res = null;
 
-        if (this.__items) {
-          if (this.__items[aRow]) {
-            res = this.__items[aRow][aCol];
+        if (this.__P_21_0) {
+          if (this.__P_21_0[aRow]) {
+            res = this.__P_21_0[aRow][aCol];
           }
         }
 
@@ -96,7 +96,7 @@
        * @return {var} count of rows
        */
       getRowCount: function getRowCount() {
-        return this.__items.length;
+        return this.__P_21_0.length;
       },
 
       /**
@@ -105,7 +105,7 @@
        * @return {var} count of cols
        */
       getColCount: function getColCount() {
-        return this.__maxcols;
+        return this.__P_21_1;
       },
 
       /**
@@ -134,11 +134,11 @@
           throw new Error("No col given");
         }
 
-        if (!this.__items[aLayoutProperties.row]) {
-          this.__items[aLayoutProperties.row] = [];
+        if (!this.__P_21_0[aLayoutProperties.row]) {
+          this.__P_21_0[aLayoutProperties.row] = [];
         }
 
-        this.__items[aLayoutProperties.row][aLayoutProperties.col] = aItem;
+        this.__P_21_0[aLayoutProperties.row][aLayoutProperties.col] = aItem;
         aItem.$$layoutProperties = aLayoutProperties;
         qx.bom.element.Class.add(aItem.getContentElement(), aLayoutProperties["class"] || "cell");
 
@@ -146,9 +146,9 @@
           qx.bom.element.Style.setStyles(aItem.getContentElement(), aLayoutProperties.style);
         }
 
-        this.__render();
+        this.__P_21_2();
 
-        return this.__items[aLayoutProperties.row][aLayoutProperties.col];
+        return this.__P_21_0[aLayoutProperties.row][aLayoutProperties.col];
       },
 
       /**
@@ -156,15 +156,15 @@
        * @return
        */
       clear: function clear() {
-        for (var r = 0; r < this.__items.length; r++) {
-          if (this.__items[r]) {
-            for (var c = 0; c < this.__items[r].length; c++) {
-              this._disposeObjects(this.__items[r][c]);
+        for (var r = 0; r < this.__P_21_0.length; r++) {
+          if (this.__P_21_0[r]) {
+            for (var c = 0; c < this.__P_21_0[r].length; c++) {
+              this._disposeObjects(this.__P_21_0[r][c]);
             }
           }
         }
 
-        this.__render();
+        this.__P_21_2();
       },
 
       /**
@@ -178,33 +178,33 @@
        * renders the grid
        *
        */
-      __render: function __render() {
+      __P_21_2: function __P_21_2() {
         this._setHtml("");
 
         var maxcols = 0;
 
-        if (this.__items) {
-          for (var i = 0; i < this.__items.length; i++) {
-            if (this.__items[i]) {
-              maxcols = this.__items[i].length > maxcols ? this.__items[i].length : maxcols;
+        if (this.__P_21_0) {
+          for (var i = 0; i < this.__P_21_0.length; i++) {
+            if (this.__P_21_0[i]) {
+              maxcols = this.__P_21_0[i].length > maxcols ? this.__P_21_0[i].length : maxcols;
             }
           }
 
-          this.__maxcols = maxcols;
+          this.__P_21_1 = maxcols;
 
-          for (var r = 0; r < this.__items.length; r++) {
-            if (this.__items[r]) {
+          for (var r = 0; r < this.__P_21_0.length; r++) {
+            if (this.__P_21_0[r]) {
               var tr = qx.dom.Element.create("tr");
               var td;
               qx.bom.element.Class.add(tr, "grid-row");
               var c = -1;
               this.fireEvent("addRow", hkollmann.mobilegrid.event.type.GridEvent, [this, tr, r, c]);
 
-              for (c = 0; c < this.__items[r].length; c++) {
+              for (c = 0; c < this.__P_21_0[r].length; c++) {
                 td = qx.dom.Element.create("td");
                 qx.bom.element.Class.add(td, "grid-cell");
                 this.fireEvent("addCell", hkollmann.mobilegrid.event.type.GridEvent, [this, td, r, c]);
-                var item = this.__items[r][c];
+                var item = this.__P_21_0[r][c];
 
                 if (item) {
                   if (item.$$layoutProperties.colspan && item.$$layoutProperties.colspan > 1) {
@@ -242,11 +242,11 @@
       destruct: function destruct() {
         this.clear();
       },
-      __items: null,
-      __maxcols: null
+      __P_21_0: null,
+      __P_21_1: null
     }
   });
   hkollmann.mobilegrid.ui.container.Grid.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Grid.js.map?dt=1564930735865
+//# sourceMappingURL=Grid.js.map?dt=1591463652879

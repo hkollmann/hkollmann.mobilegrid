@@ -248,12 +248,7 @@
         } // Check if valid
 
 
-        {
-          if (styles.length === 0) {
-            throw new Error("Invalid Single decorator (zero border width). Use qx.ui.decorator.Background instead!");
-          }
-        } // Add basic styles
-
+        // Add basic styles
         styles.position = "absolute";
       },
 
@@ -284,16 +279,10 @@
         this._resetInsets();
       },
       // property apply
-      _applyStyle: function _applyStyle() {
-        {
-          if (this._isInitialized()) {
-            throw new Error("This decorator is already in-use. Modification is not possible anymore!");
-          }
-        }
-      }
+      _applyStyle: function _applyStyle() {}
     }
   });
   qx.ui.decoration.MSingleBorder.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MSingleBorder.js.map?dt=1564930748831
+//# sourceMappingURL=MSingleBorder.js.map?dt=1591463670113

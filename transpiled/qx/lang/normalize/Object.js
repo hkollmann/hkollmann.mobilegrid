@@ -9,7 +9,6 @@
         "usage": "dynamic",
         "require": true
       },
-      "qx.core.Assert": {},
       "qx.bom.client.EcmaScript": {
         "defer": "runtime"
       }
@@ -79,9 +78,6 @@
        * @return {Array} array of the values of the map
        */
       values: function values(map) {
-        {
-          qx.core.Assert && qx.core.Assert.assertMap(map, "Invalid argument 'map'");
-        }
         var arr = [];
         var keys = Object.keys(map);
 
@@ -134,4 +130,4 @@
   qx.lang.normalize.Object.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Object.js.map?dt=1564930734398
+//# sourceMappingURL=Object.js.map?dt=1591463652064

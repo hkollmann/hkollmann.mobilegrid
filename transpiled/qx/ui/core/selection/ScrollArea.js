@@ -117,7 +117,7 @@
 
               if (top < min) {
                 // Use previous one
-                found = i + 1;
+                found = i;
                 break;
               }
             } // Nothing found. Return first item.
@@ -154,8 +154,8 @@
               bottom = widget.getItemBottom(selectables[i]); // This item is out of the visible block
 
               if (bottom > max) {
-                // Use previous one
-                found = i - 1;
+                // Use next one
+                found = i;
                 break;
               }
             } // Nothing found. Return last item.
@@ -189,4 +189,4 @@
   qx.ui.core.selection.ScrollArea.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=ScrollArea.js.map?dt=1564930749038
+//# sourceMappingURL=ScrollArea.js.map?dt=1591463670480

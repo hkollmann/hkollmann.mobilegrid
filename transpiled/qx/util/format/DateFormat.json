@@ -23,11 +23,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2006 STZ-IDA, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nTil Schneider (til132)\nFabian Jakobs (fjakobs)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2006 STZ-IDA, Germany, http://www.stz-ida.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Til Schneider (til132)\n Fabian Jakobs (fjakobs)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "A formatter and parser for dates, see\nhttp:\n\nHere is a quick overview of the format pattern keys:\n<table>\n<tr><th>Key &nbsp;<th>Description\n<tr><td><code> G </code><td> era, e.g. \"AD\"\n<tr><td><code> y </code><td> year\n<tr><td><code> Y </code><td> week year\n<tr><td><code> u </code><td> extended year [Not supported yet]\n<tr><td><code> Q </code><td> quarter\n<tr><td><code> q </code><td> stand-alone quarter\n<tr><td><code> M </code><td> month\n<tr><td><code> L </code><td> stand-alone month\n<tr><td><code> I </code><td> chinese leap month [Not supported yet]\n<tr><td><code> w </code><td> week of year\n<tr><td><code> W </code><td> week of month\n<tr><td><code> d </code><td> day of month\n<tr><td><code> D </code><td> day of year\n<tr><td><code> F </code><td> day of week in month [Not supported yet]\n<tr><td><code> g </code><td> modified Julian day [Not supported yet]\n<tr><td><code> E </code><td> day of week\n<tr><td><code> e </code><td> local day of week\n<tr><td><code> c </code><td> stand-alone local day of week\n<tr><td><code> a </code><td> period of day (am or pm)\n<tr><td><code> h </code><td> 12-hour hour\n<tr><td><code> H </code><td> 24-hour hour\n<tr><td><code> K </code><td> hour [0-11]\n<tr><td><code> k </code><td> hour [1-24]\n<tr><td><code> j </code><td> special symbol [Not supported yet]\n<tr><td><code> m </code><td> minute\n<tr><td><code> s </code><td> second\n<tr><td><code> S </code><td> fractional second\n<tr><td><code> A </code><td> millisecond in day [Not supported yet]\n<tr><td><code> z </code><td> time zone, specific non-location format\n<tr><td><code> Z </code><td> time zone, rfc822/gmt format\n<tr><td><code> v </code><td> time zone, generic non-location format [Not supported yet]\n<tr><td><code> V </code><td> time zone, like z except metazone abbreviations [Not supported yet]\n</table>\n\n(This list is preliminary, not all format keys might be implemented). Most\nkeys support repetitions that influence the meaning of the format. Parts of the\nformat string that should not be interpreted as format keys have to be\nsingle-quoted.\n\nThe same format patterns will be used for both parsing and output formatting.\n\nNOTE: Instances of this class must be disposed of after use"
+          "body": "<p>A formatter and parser for dates, see\n http://www.unicode.org/reports/tr35/#Date<em>Format</em>Patterns\n Here is a quick overview of the format pattern keys:\n </p>\n<table>\n <tr><th>Key &nbsp;<th>Description\n <tr><td><code> G </code><td> era, e.g. \"AD\"\n <tr><td><code> y </code><td> year\n <tr><td><code> Y </code><td> week year\n <tr><td><code> u </code><td> extended year [Not supported yet]\n <tr><td><code> Q </code><td> quarter\n <tr><td><code> q </code><td> stand-alone quarter\n <tr><td><code> M </code><td> month\n <tr><td><code> L </code><td> stand-alone month\n <tr><td><code> I </code><td> chinese leap month [Not supported yet]\n <tr><td><code> w </code><td> week of year\n <tr><td><code> W </code><td> week of month\n <tr><td><code> d </code><td> day of month\n <tr><td><code> D </code><td> day of year\n <tr><td><code> F </code><td> day of week in month [Not supported yet]\n <tr><td><code> g </code><td> modified Julian day [Not supported yet]\n <tr><td><code> E </code><td> day of week\n <tr><td><code> e </code><td> local day of week\n <tr><td><code> c </code><td> stand-alone local day of week\n <tr><td><code> a </code><td> period of day (am or pm)\n <tr><td><code> h </code><td> 12-hour hour\n <tr><td><code> H </code><td> 24-hour hour\n <tr><td><code> K </code><td> hour [0-11]\n <tr><td><code> k </code><td> hour [1-24]\n <tr><td><code> j </code><td> special symbol [Not supported yet]\n <tr><td><code> m </code><td> minute\n <tr><td><code> s </code><td> second\n <tr><td><code> S </code><td> fractional second\n <tr><td><code> A </code><td> millisecond in day [Not supported yet]\n <tr><td><code> z </code><td> time zone, specific non-location format\n <tr><td><code> Z </code><td> time zone, rfc822/gmt format\n <tr><td><code> v </code><td> time zone, generic non-location format [Not supported yet]\n <tr><td><code> V </code><td> time zone, like z except metazone abbreviations [Not supported yet]\n </table>\n<p>(This list is preliminary, not all format keys might be implemented). Most\n keys support repetitions that influence the meaning of the format. Parts of the\n format string that should not be interpreted as format keys have to be\n single-quoted.\n The same format patterns will be used for both parsing and output formatting.\n NOTE: Instances of this class must be disposed of after use</p>"
         }
       ]
     }
@@ -43,6 +43,38 @@
         "line": 110,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        },
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "format {String|null} The format to use. If null, the locale's default\n format is used.",
+          "paramName": "format",
+          "description": " The format to use. If null, the locale's default\n format is used.",
+          "type": [
+            "String",
+            "null"
+          ]
+        },
+        {
+          "name": "@param",
+          "body": "locale {String?} optional locale to be used. In case this is not present, the {@link #locale} property of DateFormat\n will be following the {@link qx.locale.Manager#locale} property of qx.locale.Manager",
+          "paramName": "locale",
+          "description": " optional locale to be used. In case this is not present, the {@link #locale} property of DateFormat\n will be following the {@link qx.locale.Manager#locale} property of qx.locale.Manager",
+          "optional": true,
+          "type": "String"
+        }
+      ]
     }
   },
   "statics": {
@@ -61,7 +93,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Convenience factory that returns a <code>DateFomat</code> instance that\nuses a short date-only format. Beware that the overall layout of the\ndate/time format string is that of the locale in effect when the factory\nfunction is called.\n\nImplemented as a quasi-singleton, so beware of side effects."
+            "body": "<p>Convenience factory that returns a <code>DateFomat</code> instance that\n uses a short date-only format. Beware that the overall layout of the\n date/time format string is that of the locale in effect when the factory\n function is called.\n Implemented as a quasi-singleton, so beware of side effects.</p>"
           }
         ],
         "@return": [
@@ -91,7 +123,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Convenience factory that returns a <code>DateFomat</code> instance that\nuses a long date/time format. Beware that the overall layout of the\ndate/time format string is that of the locale in effect when the factory\nfunction is called.\n\nImplemented as a quasi-singleton, so beware of side effects."
+            "body": "<p>Convenience factory that returns a <code>DateFomat</code> instance that\n uses a long date/time format. Beware that the overall layout of the\n date/time format string is that of the locale in effect when the factory\n function is called.\n Implemented as a quasi-singleton, so beware of side effects.</p>"
           }
         ],
         "@return": [
@@ -127,7 +159,7 @@
         "@type": [
           {
             "name": "@type",
-            "body": "{Integer} The threshold until when a year should be assumed to belong to the\n  21st century (e.g. 12 -> 2012). Years over this threshold but below 100 will be\n  assumed to belong to the 20th century (e.g. 88 -> 1988). Years over 100 will be\n  used unchanged (e.g. 1792 -> 1792)."
+            "body": "{Integer} The threshold until when a year should be assumed to belong to the\n   21st century (e.g. 12 -> 2012). Years over this threshold but below 100 will be\n   assumed to belong to the 20th century (e.g. 88 -> 1988). Years over 100 will be\n   used unchanged (e.g. 1792 -> 1792)."
           }
         ]
       },
@@ -333,7 +365,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Fills a number with leading zeros (\"25\" -> \"0025\")."
+            "body": "<p>Fills a number with leading zeros (\"25\" -&gt; \"0025\").</p>"
           }
         ],
         "@param": [
@@ -379,7 +411,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the day in year of a date."
+            "body": "<p>Returns the day in year of a date.</p>"
           }
         ],
         "@param": [
@@ -418,7 +450,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the thursday in the same week as the date."
+            "body": "<p>Returns the thursday in the same week as the date.</p>"
           }
         ],
         "@param": [
@@ -457,7 +489,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the week in year of a date."
+            "body": "<p>Returns the week in year of a date.</p>"
           }
         ],
         "@param": [
@@ -496,7 +528,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the week in month of a date."
+            "body": "<p>Returns the week in month of a date.</p>"
           }
         ],
         "@param": [
@@ -535,7 +567,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the week year of a date. (that is the year of the week where this date happens to be)\nFor a week in the middle of the summer, the year is easily obtained, but for a week\nwhen New Year's Eve takes place, the year of that week is ambiguous.\nThe thursday day of that week is used to determine the year."
+            "body": "<p>Returns the week year of a date. (that is the year of the week where this date happens to be)\n For a week in the middle of the summer, the year is easily obtained, but for a week\n when New Year's Eve takes place, the year of that week is ambiguous.\n The thursday day of that week is used to determine the year.</p>"
           }
         ],
         "@param": [
@@ -574,7 +606,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns true if the year is a leap one."
+            "body": "<p>Returns true if the year is a leap one.</p>"
           }
         ],
         "@param": [
@@ -613,7 +645,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns a json object with month and day as keys."
+            "body": "<p>Returns a json object with month and day as keys.</p>"
           }
         ],
         "@param": [
@@ -659,7 +691,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the year of a date when we know the week year"
+            "body": "<p>Returns the year of a date when we know the week year</p>"
           }
         ],
         "@param": [
@@ -712,7 +744,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Sets the new value for locale property"
+            "body": "<p>Sets the new value for locale property</p>"
           }
         ],
         "@param": [
@@ -743,7 +775,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Resets the Locale"
+            "body": "<p>Resets the Locale</p>"
           }
         ]
       },
@@ -765,7 +797,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns the locale"
+            "body": "<p>Returns the locale</p>"
           }
         ]
       },
@@ -787,7 +819,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Formats a date."
+            "body": "<p>Formats a date.</p>"
           }
         ],
         "@param": [
@@ -830,7 +862,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Parses a date."
+            "body": "<p>Parses a date.</p>"
           }
         ],
         "@param": [
@@ -853,9 +885,9 @@
         "@throws": [
           {
             "name": "@throws",
-            "body": "{Error} If the format is not well formed or if the date string does not\n      match to the format.",
+            "body": "{Error} If the format is not well formed or if the date string does not\n       match to the format.",
             "type": "Error",
-            "description": " If the format is not well formed or if the date string does not\n      match to the format."
+            "description": " If the format is not well formed or if the date string does not\n       match to the format."
           }
         ]
       },
@@ -881,7 +913,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Helper method for {@link #format()} and {@link #parse()}.\nParses the date format."
+            "body": "<p>Helper method for {@link #format()} and {@link #parse()}.\n Parses the date format.</p>"
           }
         ]
       },
@@ -903,7 +935,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Initializes the parse feed.\n\nThe parse contains everything needed for parsing: The regular expression\n(in compiled and uncompiled form) and the used rules."
+            "body": "<p>Initializes the parse feed.\n The parse contains everything needed for parsing: The regular expression\n (in compiled and uncompiled form) and the used rules.</p>"
           }
         ],
         "@throws": [
@@ -933,7 +965,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Checks whether the rule matches the wildcard or not."
+            "body": "<p>Checks whether the rule matches the wildcard or not.</p>"
           }
         ],
         "@param": [
@@ -986,7 +1018,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Initializes the static parse rules."
+            "body": "<p>Initializes the static parse rules.</p>"
           }
         ]
       },
@@ -1052,7 +1084,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -1111,7 +1151,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     }
   },
   "descendants": []

@@ -77,4 +77,4 @@
   hkollmann.mobilegrid.demo.Demo.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Demo.js.map?dt=1564930732910
+//# sourceMappingURL=Demo.js.map?dt=1591463650290

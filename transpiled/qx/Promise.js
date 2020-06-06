@@ -1,4 +1,4 @@
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 (function () {
   var $$dbClassInfo = {
@@ -11,13 +11,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         "construct": true,
         "require": true
       },
-      "qx.lang.Array": {
-        "construct": true
-      },
       "qx.core.Assert": {
         "construct": true
       },
       "qx.data.Array": {},
+      "qx.lang.Array": {},
       "qx.log.Logger": {},
       "qx.bom.Event": {},
       "qx.event.GlobalError": {},
@@ -115,44 +113,25 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     construct: function construct(fn, context) {
       qx.core.Object.constructor.call(this);
 
-      qx.Promise.__initialize();
+      qx.Promise.__P_73_0();
 
       if (fn instanceof qx.Promise.Bluebird) {
-        this.__p = fn;
+        this.__P_73_1 = fn;
       } else if (fn) {
         if (context !== undefined && context !== null) {
           fn = fn.bind(context);
         }
 
-        {
-          var origFn = fn;
-          var self = this;
-
-          fn = function fn(resolve, reject) {
-            return origFn(resolve, function (reason) {
-              var args = qx.lang.Array.fromArguments(arguments);
-
-              if (reason === undefined) {
-                args.shift();
-                args.unshift(qx.Promise.__DEFAULT_ERROR);
-              } else if (reason && !(reason instanceof Error)) {
-                self.error("Calling reject with non-error object, createdAt=" + JSON.stringify(self.$$createdAt || null));
-              }
-
-              reject.apply(this, args);
-            });
-          };
-        }
-        this.__p = new qx.Promise.Bluebird(fn);
+        this.__P_73_1 = new qx.Promise.Bluebird(fn);
       } else {
-        this.__p = new qx.Promise.Bluebird(this.__externalPromise.bind(this));
+        this.__P_73_1 = new qx.Promise.Bluebird(this.__P_73_2.bind(this));
       }
 
-      qx.core.Assert.assertTrue(!this.__p.$$qxPromise);
-      this.__p.$$qxPromise = this;
+      qx.core.Assert.assertTrue(!this.__P_73_1.$$qxPromise);
+      this.__P_73_1.$$qxPromise = this;
 
       if (context !== undefined && context !== null) {
-        this.__p = this.__p.bind(context);
+        this.__P_73_1 = this.__P_73_1.bind(context);
       }
     },
 
@@ -160,15 +139,15 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
      * Destructor
      */
     destruct: function destruct() {
-      delete this.__p.$$qxPromise;
-      delete this.__p;
+      delete this.__P_73_1.$$qxPromise;
+      delete this.__P_73_1;
     },
     members: {
       /** The Promise */
-      __p: null,
+      __P_73_1: null,
 
       /** Stores data for completing the promise externally */
-      __external: null,
+      __P_73_3: null,
 
       /* *********************************************************************************
        * 
@@ -217,7 +196,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {qx.Promise} the new promise
        */
       bind: function bind(context) {
-        return qx.Promise.__wrap(this.__p.bind(context));
+        return qx.Promise.__P_73_4(this.__P_73_1.bind(context));
       },
 
       /**
@@ -418,8 +397,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       /**
        * External promise handler
        */
-      __externalPromise: function __externalPromise(resolve, reject) {
-        this.__external = {
+      __P_73_2: function __P_73_2(resolve, reject) {
+        this.__P_73_3 = {
           resolve: resolve,
           reject: reject,
           complete: false
@@ -429,31 +408,31 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       /**
        * Returns the data stored by __externalPromise, throws an exception once processed
        */
-      __getPendingExternal: function __getPendingExternal() {
-        if (!this.__external) {
+      __P_73_5: function __P_73_5() {
+        if (!this.__P_73_3) {
           throw new Error("Promise cannot be resolved externally");
         }
 
-        if (this.__external.complete) {
+        if (this.__P_73_3.complete) {
           throw new Error("Promise has already been resolved or rejected");
         }
 
-        this.__external.complete = true;
-        return this.__external;
+        this.__P_73_3.complete = true;
+        return this.__P_73_3;
       },
 
       /**
        * Resolves an external promise
        */
       resolve: function resolve(value) {
-        this.__getPendingExternal().resolve(value);
+        this.__P_73_5().resolve(value);
       },
 
       /**
        * Rejects an external promise
        */
       reject: function reject(reason) {
-        this.__getPendingExternal().reject(reason);
+        this.__P_73_5().reject(reason);
       },
 
       /* *********************************************************************************
@@ -466,10 +445,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * Helper method used to call Promise methods which iterate over an array
        */
       _callIterableMethod: function _callIterableMethod(methodName, args) {
-        args = qx.Promise.__bindArgs(args);
-        return qx.Promise.__wrap(this.__p.then(function (value) {
+        args = qx.Promise.__P_73_6(args);
+        return qx.Promise.__P_73_4(this.__P_73_1.then(function (value) {
           var newP = qx.Promise.Bluebird.resolve(value instanceof qx.data.Array ? value.toArray() : value);
-          return qx.Promise.__wrap(newP[methodName].apply(newP, args));
+          return qx.Promise.__P_73_4(newP[methodName].apply(newP, args));
         }));
       },
 
@@ -477,8 +456,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * Helper method used to call a Promise method
        */
       _callMethod: function _callMethod(methodName, args) {
-        args = qx.Promise.__bindArgs(args);
-        return qx.Promise.__wrap(this.__p[methodName].apply(this.__p, args));
+        args = qx.Promise.__P_73_6(args);
+        return qx.Promise.__P_73_4(this.__P_73_1[methodName].apply(this.__P_73_1, args));
       },
 
       /**
@@ -492,7 +471,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @deprecated {6.0} this API method is subject to change
        */
       toPromise: function toPromise() {
-        return this.__p;
+        return this.__P_73_1;
       }
     },
     statics: {
@@ -508,7 +487,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       /** This is used to suppress warnings about rejections without an Error object, only used if
        * the reason is undefined
        */
-      __DEFAULT_ERROR: new Error("Default Error"),
+      __P_73_7: new Error("Default Error"),
 
       /* *********************************************************************************
        * 
@@ -533,7 +512,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         if (value instanceof qx.Promise) {
           promise = value;
         } else {
-          promise = qx.Promise.__wrap(qx.Promise.Bluebird.resolve(value));
+          promise = qx.Promise.__P_73_4(qx.Promise.Bluebird.resolve(value));
         }
 
         if (context !== undefined) {
@@ -554,12 +533,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         if (reason === undefined) {
           args.shift();
-          args.unshift(qx.Promise.__DEFAULT_ERROR);
+          args.unshift(qx.Promise.__P_73_7);
         } else if (!(reason instanceof Error)) {
           qx.log.Logger.warn("Rejecting a promise with a non-Error value");
         }
 
-        var promise = qx.Promise.__callStaticMethod('reject', args, 0);
+        var promise = qx.Promise.__P_73_8('reject', args, 0);
 
         if (context !== undefined) {
           promise = promise.bind(context);
@@ -608,7 +587,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {qx.Promise}
        */
       all: function all(iterable) {
-        return qx.Promise.__callStaticMethod('all', arguments);
+        return qx.Promise.__P_73_8('all', arguments);
       },
 
       /**
@@ -618,7 +597,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {qx.Promise}
        */
       race: function race(iterable) {
-        return qx.Promise.__callStaticMethod('race', arguments);
+        return qx.Promise.__P_73_8('race', arguments);
       },
 
       /* *********************************************************************************
@@ -635,7 +614,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {qx.Promise}
        */
       any: function any(iterable) {
-        return qx.Promise.__callStaticMethod('any', arguments);
+        return qx.Promise.__P_73_8('any', arguments);
       },
 
       /**
@@ -649,7 +628,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {qx.Promise}
        */
       some: function some(iterable, count) {
-        return qx.Promise.__callStaticMethod('some', arguments);
+        return qx.Promise.__P_73_8('some', arguments);
       },
 
       /**
@@ -667,7 +646,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {qx.Promise}
        */
       forEach: function forEach(iterable, iterator) {
-        return qx.Promise.__callStaticMethod('each', arguments);
+        return qx.Promise.__P_73_8('each', arguments);
       },
 
       /**
@@ -695,7 +674,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {qx.Promise}
        */
       filter: function filter(iterable, iterator, options) {
-        return qx.Promise.__callStaticMethod('filter', arguments);
+        return qx.Promise.__P_73_8('filter', arguments);
       },
 
       /**
@@ -740,7 +719,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {qx.Promise}
        */
       map: function map(iterable, iterator, options) {
-        return qx.Promise.__callStaticMethod('map', arguments);
+        return qx.Promise.__P_73_8('map', arguments);
       },
 
       /**
@@ -779,7 +758,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {qx.Promise}
        */
       mapSeries: function mapSeries(iterable, iterator) {
-        return qx.Promise.__callStaticMethod('mapSeries', arguments);
+        return qx.Promise.__P_73_8('mapSeries', arguments);
       },
 
       /**
@@ -819,7 +798,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {qx.Promise}
        */
       reduce: function reduce(iterable, reducer, initialValue) {
-        return qx.Promise.__callStaticMethod('reduce', arguments);
+        return qx.Promise.__P_73_8('reduce', arguments);
       },
 
       /**
@@ -831,7 +810,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       method: function method(cb) {
         var wrappedCb = qx.Promise.Bluebird.method(cb);
         return function () {
-          return qx.Promise.__wrap(wrappedCb.apply(this, arguments));
+          return qx.Promise.__P_73_4(wrappedCb.apply(this, arguments));
         };
       },
 
@@ -850,7 +829,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {qx.Promise}
        */
       props: function props(input) {
-        return qx.Promise.__callStaticMethod('props', arguments);
+        return qx.Promise.__P_73_8('props', arguments);
       },
 
       /**
@@ -907,7 +886,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {qx.Promise}
        */
       promisify: function promisify(f, options) {
-        return qx.Promise.__callStaticMethod('promisify', arguments);
+        return qx.Promise.__P_73_8('promisify', arguments);
       },
 
       /* *********************************************************************************
@@ -920,7 +899,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * Called when the Bluebird Promise class is loaded
        * @param Promise {Class} the Promise class
        */
-      __attachBluebird: function __attachBluebird(Promise) {
+      __P_73_9: function __P_73_9(Promise) {
         qx.Promise.Bluebird = Promise;
         Promise.config({
           warnings: true,
@@ -930,25 +909,25 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       },
 
       /** Whether one-time initialisaton has happened */
-      __initialized: false,
+      __P_73_10: false,
 
       /**
        * One-time initializer
        */
-      __initialize: function __initialize() {
-        if (qx.Promise.__initialized) {
+      __P_73_0: function __P_73_0() {
+        if (qx.Promise.__P_73_10) {
           return;
         }
 
-        qx.Promise.__initialized = true;
-        qx.bom.Event.addNativeListener(window, "unhandledrejection", qx.Promise.__onUnhandledRejection.bind(this));
+        qx.Promise.__P_73_10 = true;
+        qx.bom.Event.addNativeListener(window, "unhandledrejection", qx.Promise.__P_73_11.bind(this));
       },
 
       /**
        * Handles unhandled errors and passes them through to Qooxdoo's global error handler
        * @param e {NativeEvent}
        */
-      __onUnhandledRejection: function __onUnhandledRejection(e) {
+      __P_73_11: function __P_73_11(e) {
         e.preventDefault();
         var reason = null;
 
@@ -969,7 +948,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param value {Object}
        * @return {Object}
        */
-      __wrap: function __wrap(value) {
+      __P_73_4: function __P_73_4(value) {
         if (value instanceof qx.Promise.Bluebird) {
           if (value.$$qxPromise) {
             value = value.$$qxPromise;
@@ -990,7 +969,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * 	this is used to determine whether the last value is for binding (default is 1)
        * @return {Array} array of new arguments with functions bound as necessary
        */
-      __bindArgs: function __bindArgs(args, minArgs) {
+      __P_73_6: function __P_73_6(args, minArgs) {
         args = qx.lang.Array.fromArguments(args);
 
         if (minArgs === undefined) {
@@ -1021,16 +1000,16 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param minArgs {Integer?} {@see __bindArgs}
        * @return {Object?}
        */
-      __callStaticMethod: function __callStaticMethod(methodName, args, minArgs) {
-        args = qx.Promise.__bindArgs(args, minArgs);
-        return qx.Promise.__wrap(qx.Promise.Bluebird[methodName].apply(qx.Promise.Bluebird, qx.Promise.__mapArgs(args)));
+      __P_73_8: function __P_73_8(methodName, args, minArgs) {
+        args = qx.Promise.__P_73_6(args, minArgs);
+        return qx.Promise.__P_73_4(qx.Promise.Bluebird[methodName].apply(qx.Promise.Bluebird, qx.Promise.__P_73_12(args)));
       },
 
       /**
        * Maps all arguments ready for passing to a Bluebird function; qx.data.Array are
        * translated to native arrays and qx.Promise to Promise.  This is not recursive.
        */
-      __mapArgs: function __mapArgs(args) {
+      __P_73_12: function __P_73_12(args) {
         var dest = [];
         args.forEach(function (arg) {
           if (arg instanceof qx.data.Array) {
@@ -1046,7 +1025,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     },
     defer: function defer(statics, members) {
       statics.Promise = statics.Native = window.Promise;
-      var debug = true;
+      var debug = false;
       qx.core.Environment.add("qx.promise.warnings", debug);
       qx.core.Environment.add("qx.promise.longStackTraces", false);
     }
@@ -1127,7 +1106,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
      * Features enabled: core, race, call_get, generators, map, nodeify, promisify, props, reduce, settle, some, using, timers, filter, any, each
      */
     !function (e) {
-      qx.Promise.__attachBluebird(e());
+      qx.Promise.__P_73_9(e());
     }(function () {
       var define, module, exports;
       return function e(t, n, r) {
@@ -2291,10 +2270,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
                 if (trace !== undefined) {
                   trace.attachExtraTrace(error);
-                } else if (!error.__stackCleaned__) {
+                } else if (!error.__P_73_13) {
                   var parsed = parseStackAndMessage(error);
                   util.notEnumerableProp(error, "stack", parsed.message + "\n" + parsed.stack.join("\n"));
-                  util.notEnumerableProp(error, "__stackCleaned__", true);
+                  util.notEnumerableProp(error, "__P_73_13", true);
                 }
               }
             }
@@ -2690,7 +2669,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             };
 
             CapturedTrace.prototype.attachExtraTrace = function (error) {
-              if (error.__stackCleaned__) return;
+              if (error.__P_73_13) return;
               this.uncycle();
               var parsed = parseStackAndMessage(error);
               var message = parsed.message;
@@ -2705,7 +2684,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
               removeCommonRoots(stacks);
               removeDuplicateOrEmptyJumps(stacks);
               util.notEnumerableProp(error, "stack", reconstructStack(message, stacks));
-              util.notEnumerableProp(error, "__stackCleaned__", true);
+              util.notEnumerableProp(error, "__P_73_13", true);
             };
 
             var captureStackTrace = function stackDetection() {
@@ -3031,7 +3010,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           }
 
           inherits(OperationalError, Error);
-          var errorTypes = Error["__BluebirdErrorTypes__"];
+          var errorTypes = Error["__P_73_14"];
 
           if (!errorTypes) {
             errorTypes = Objectfreeze({
@@ -3041,7 +3020,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
               RejectionError: OperationalError,
               AggregateError: AggregateError
             });
-            es5.defineProperty(Error, "__BluebirdErrorTypes__", {
+            es5.defineProperty(Error, "__P_73_14", {
               value: errorTypes,
               writable: false,
               enumerable: false,
@@ -5137,9 +5116,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
             var defaultSuffix = "Async";
             var defaultPromisified = {
-              __isPromisified__: true
+              __P_73_15: true
             };
-            var noCopyProps = ["arity", "length", "name", "arguments", "caller", "callee", "prototype", "__isPromisified__"];
+            var noCopyProps = ["arity", "length", "name", "arguments", "caller", "callee", "prototype", "__P_73_15"];
             var noCopyPropsPattern = new RegExp("^(?:" + noCopyProps.join("|") + ")$");
 
             var defaultFilter = function defaultFilter(name) {
@@ -5152,7 +5131,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
             function isPromisified(fn) {
               try {
-                return fn.__isPromisified__ === true;
+                return fn.__P_73_15 === true;
               } catch (e) {
                 return false;
               }
@@ -5203,7 +5182,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
             var makeNodePromisifiedEval;
 
-            function makeNodePromisifiedClosure(callback, receiver, _, fn, __, multiArgs) {
+            function makeNodePromisifiedClosure(callback, receiver, _, fn, __P_73_16, multiArgs) {
               var defaultThis = function () {
                 return this;
               }();
@@ -5234,7 +5213,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
                 return promise;
               }
 
-              util.notEnumerableProp(promisified, "__isPromisified__", true);
+              util.notEnumerableProp(promisified, "__P_73_15", true);
               return promisified;
             }
 
@@ -5255,7 +5234,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
                   var promisified = promisifier(fn, function () {
                     return makeNodePromisified(key, THIS, key, fn, suffix, multiArgs);
                   });
-                  util.notEnumerableProp(promisified, "__isPromisified__", true);
+                  util.notEnumerableProp(promisified, "__P_73_15", true);
                   obj[promisifiedKey] = promisified;
                 }
               }
@@ -6159,12 +6138,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
               return (this._bitField & 8454144) !== 0;
             };
 
-            Promise.prototype.__isCancelled = function () {
+            Promise.prototype.__P_73_17 = function () {
               return (this._bitField & 65536) === 65536;
             };
 
             Promise.prototype._isCancelled = function () {
-              return this._target().__isCancelled();
+              return this._target().__P_73_17();
             };
 
             Promise.prototype.isCancelled = function () {
@@ -6918,7 +6897,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
           function originatesFromRejection(e) {
             if (e == null) return false;
-            return e instanceof Error["__BluebirdErrorTypes__"].OperationalError || e["isOperational"] === true;
+            return e instanceof Error["__P_73_14"].OperationalError || e["isOperational"] === true;
           }
 
           function canAttachTrace(obj) {
@@ -7077,4 +7056,4 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   qx.Promise.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Promise.js.map?dt=1564930740041
+//# sourceMappingURL=Promise.js.map?dt=1591463657704

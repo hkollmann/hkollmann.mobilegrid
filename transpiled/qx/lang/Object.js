@@ -1,4 +1,4 @@
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 (function () {
   var $$dbClassInfo = {
@@ -61,10 +61,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @param map {Object} the map to clear
        */
       empty: function empty(map) {
-        {
-          qx.core.Assert && qx.core.Assert.assertMap(map, "Invalid argument 'map'");
-        }
-
         for (var key in map) {
           if (map.hasOwnProperty(key)) {
             delete map[key];
@@ -81,10 +77,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @lint ignoreUnused(key)
        */
       isEmpty: function isEmpty(map) {
-        {
-          qx.core.Assert && qx.core.Assert.assertMap(map, "Invalid argument 'map'");
-        }
-
         for (var key in map) {
           return false;
         }
@@ -171,7 +163,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {Boolean} The result of the comparison
        */
       equals: function equals(object1, object2) {
-        return qx.lang.Object.__equals(object1, object2, [], []);
+        return qx.lang.Object.__P_42_0(object1, object2, [], []);
       },
 
       /**
@@ -184,7 +176,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       * @return {Boolean} The result of the comparison
       *
       */
-      __equals: function __equals(object1, object2, aStack, bStack) {
+      __P_42_0: function __P_42_0(object1, object2, aStack, bStack) {
         // Identical objects are equal. `0 === -0`, but they aren't identical.
         // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
         if (object1 === object2) {
@@ -266,7 +258,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           if (result) {
             // Deep compare the contents, ignoring non-numeric properties.
             while (size--) {
-              if (!(result = qx.lang.Object.__equals(object1[size], object2[size], aStack, bStack))) {
+              if (!(result = qx.lang.Object.__P_42_0(object1[size], object2[size], aStack, bStack))) {
                 break;
               }
             }
@@ -278,7 +270,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
               // Count the expected number of properties.
               size++; // Deep compare each member.
 
-              if (!(result = Object.prototype.hasOwnProperty.call(object2, key) && qx.lang.Object.__equals(object1[key], object2[key], aStack, bStack))) {
+              if (!(result = Object.prototype.hasOwnProperty.call(object2, key) && qx.lang.Object.__P_42_0(object1[key], object2[key], aStack, bStack))) {
                 break;
               }
             }
@@ -312,9 +304,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {Object} inverted Map
        */
       invert: function invert(map) {
-        {
-          qx.core.Assert && qx.core.Assert.assertMap(map, "Invalid argument 'map'");
-        }
         var result = {};
 
         for (var key in map) {
@@ -334,10 +323,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {String|null} Name of the key (null if not found).
        */
       getKeyFromValue: function getKeyFromValue(map, value) {
-        {
-          qx.core.Assert && qx.core.Assert.assertMap(map, "Invalid argument 'map'");
-        }
-
         for (var key in map) {
           if (map.hasOwnProperty(key) && map[key] === value) {
             return key;
@@ -355,9 +340,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
        * @return {Boolean} Whether the value was found in the map.
        */
       contains: function contains(map, value) {
-        {
-          qx.core.Assert && qx.core.Assert.assertMap(map, "Invalid argument 'map'");
-        }
         return this.getKeyFromValue(map, value) !== null;
       },
 
@@ -372,20 +354,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       * @return {Map} the array converted to a map.
       */
       fromArray: function fromArray(array) {
-        {
-          qx.core.Assert && qx.core.Assert.assertArray(array, "Invalid argument 'array'");
-        }
         var obj = {};
 
         for (var i = 0, l = array.length; i < l; i++) {
-          {
-            switch (_typeof(array[i])) {
-              case "object":
-              case "function":
-              case "undefined":
-                throw new Error("Could not convert complex objects like " + array[i] + " at array index " + i + " to map syntax");
-            }
-          }
           obj[array[i].toString()] = true;
         }
 
@@ -396,4 +367,4 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   qx.lang.Object.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Object.js.map?dt=1564930736800
+//# sourceMappingURL=Object.js.map?dt=1591463654113

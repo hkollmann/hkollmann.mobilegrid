@@ -24,11 +24,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\nFabian Jakobs (fjakobs)\nChristian Hagendorn (chris_schmidt)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2004-2008 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Sebastian Werner (wpbasti)\n Andreas Ecker (ecker)\n Fabian Jakobs (fjakobs)\n Christian Hagendorn (chris_schmidt)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "This class provides an unified mouse event handler for Internet Explorer,\nFirefox, Opera and Safari\n\nNOTE: Instances of this class must be disposed of after use"
+          "body": "<p>This class provides an unified mouse event handler for Internet Explorer,\n Firefox, Opera and Safari\n NOTE: Instances of this class must be disposed of after use</p>"
         }
       ],
       "@require": [
@@ -56,6 +56,27 @@
         "line": 63,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n CONSTRUCTOR\n**********************************************************************\n</code></pre>"
+        },
+        {
+          "name": "@description",
+          "body": "<p>Create a new instance</p>"
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "manager {qx.event.Manager} Event manager for the window to use",
+          "paramName": "manager",
+          "description": " Event manager for the window to use",
+          "type": "qx.event.Manager"
+        }
+      ]
     }
   },
   "statics": {
@@ -314,35 +335,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nEVENT HANDLER INTERFACE\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  EVENT HANDLER INTERFACE\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "interface implementation"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "target {var} The target to, which the event handler should\n    be attached",
-            "paramName": "target",
-            "description": " The target to, which the event handler should\n    be attached",
-            "type": "var"
-          },
-          {
-            "name": "@param",
-            "body": "type {String} event type",
-            "paramName": "type",
-            "description": " event type",
-            "type": "String"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{Boolean} Whether the event handler can handle events of the\n    given type.",
-            "type": "Boolean",
-            "description": " Whether the event handler can handle events of the\n    given type."
+            "body": "<p>interface implementation</p>"
           }
         ]
       },
@@ -368,23 +365,23 @@
         "@description": [
           {
             "name": "@description",
-            "body": "interface implementation"
+            "body": "<p>interface implementation</p>"
           },
           {
             "name": "@description",
-            "body": "The iPhone requires for attaching mouse events natively to every element which"
+            "body": "<p>The iPhone requires for attaching mouse events natively to every element which</p>"
           },
           {
             "name": "@description",
-            "body": "should react on mouse events. As of version 3.0 it also requires to keep the"
+            "body": "<p>should react on mouse events. As of version 3.0 it also requires to keep the</p>"
           },
           {
             "name": "@description",
-            "body": "listeners as long as the event should work. In 2.0 it was enough to attach the"
+            "body": "<p>listeners as long as the event should work. In 2.0 it was enough to attach the</p>"
           },
           {
             "name": "@description",
-            "body": "listener once."
+            "body": "<p>listener once.</p>"
           }
         ]
       },
@@ -406,7 +403,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "interface implementation"
+            "body": "<p>interface implementation</p>"
           }
         ]
       },
@@ -428,11 +425,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nHELPER\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  HELPER\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Fire a mouse event with the given parameters"
+            "body": "<p>Fire a mouse event with the given parameters</p>"
           }
         ],
         "@param": [
@@ -477,7 +474,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Helper to prevent the next click."
+            "body": "<p>Helper to prevent the next click.</p>"
           }
         ],
         "@internal": [
@@ -505,11 +502,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nOBSERVER INIT\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  OBSERVER INIT\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Initializes the native mouse button event listeners."
+            "body": "<p>Initializes the native mouse button event listeners.</p>"
           }
         ],
         "@signature": [
@@ -537,7 +534,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Initializes the native mouse move event listeners."
+            "body": "<p>Initializes the native mouse move event listeners.</p>"
           }
         ],
         "@signature": [
@@ -565,7 +562,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Initializes the native mouse wheel event listeners."
+            "body": "<p>Initializes the native mouse wheel event listeners.</p>"
           }
         ],
         "@signature": [
@@ -593,11 +590,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nOBSERVER STOP\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  OBSERVER STOP\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Disconnects the native mouse button event listeners."
+            "body": "<p>Disconnects the native mouse button event listeners.</p>"
           }
         ],
         "@signature": [
@@ -625,7 +622,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Disconnects the native mouse move event listeners."
+            "body": "<p>Disconnects the native mouse move event listeners.</p>"
           }
         ],
         "@signature": [
@@ -653,7 +650,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Disconnects the native mouse wheel event listeners."
+            "body": "<p>Disconnects the native mouse wheel event listeners.</p>"
           }
         ],
         "@signature": [
@@ -681,11 +678,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nNATIVE EVENT OBSERVERS\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  NATIVE EVENT OBSERVERS\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Global handler for all mouse move related events like \"mousemove\",\n\"mouseout\" and \"mouseover\"."
+            "body": "<p>Global handler for all mouse move related events like \"mousemove\",\n \"mouseout\" and \"mouseover\".</p>"
           }
         ],
         "@signature": [
@@ -722,7 +719,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Global handler for all mouse button related events like \"mouseup\",\n\"mousedown\", \"click\", \"dblclick\" and \"contextmenu\"."
+            "body": "<p>Global handler for all mouse button related events like \"mouseup\",\n \"mousedown\", \"click\", \"dblclick\" and \"contextmenu\".</p>"
           }
         ],
         "@signature": [
@@ -759,7 +756,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Global handler for the mouse wheel event."
+            "body": "<p>Global handler for the mouse wheel event.</p>"
           }
         ],
         "@signature": [
@@ -796,11 +793,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nCROSS BROWSER SUPPORT FIXES\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  CROSS BROWSER SUPPORT FIXES\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "Normalizes the click sequence of right click events in Webkit and Opera.\nThe normalized sequence is:\n\n 1. mousedown  <- not fired by Webkit\n 2. mouseup  <- not fired by Webkit\n 3. contextmenu <- not fired by Opera"
+            "body": "<p>Normalizes the click sequence of right click events in Webkit and Opera.\n The normalized sequence is:</p>\n<ol>\n<li>mousedown  &lt;- not fired by Webkit</li>\n<li>mouseup  &lt;- not fired by Webkit</li>\n<li>contextmenu &lt;- not fired by Opera</li>\n</ol>"
           }
         ],
         "@param": [
@@ -851,7 +848,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Normalizes the click sequence of double click event in the Internet\nExplorer. The normalized sequence is:\n\n 1. mousedown\n 2. mouseup\n 3. click\n 4. mousedown  <- not fired by IE\n 5. mouseup\n 6. click  <- not fired by IE\n 7. dblclick\n\n Note: This fix is only applied, when the IE event model is used, otherwise\n the fix is ignored."
+            "body": "<p>Normalizes the click sequence of double click event in the Internet\n Explorer. The normalized sequence is:</p>\n<ol>\n<li>mousedown</li>\n<li>mouseup</li>\n<li>click</li>\n<li>mousedown  &lt;- not fired by IE</li>\n<li>mouseup</li>\n<li>click  &lt;- not fired by IE</li>\n<li>dblclick\nNote: This fix is only applied, when the IE event model is used, otherwise\nthe fix is ignored.</li>\n</ol>"
           }
         ],
         "@param": [
@@ -902,7 +899,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "If the mouseup event happens on a different target than the corresponding\nmousedown event the internet explorer dispatches a click event on the\nfirst common ancestor of both targets. The presence of this click event\nis essential for the qooxdoo widget system. All other browsers don't fire\nthe click event so it must be emulated."
+            "body": "<p>If the mouseup event happens on a different target than the corresponding\n mousedown event the internet explorer dispatches a click event on the\n first common ancestor of both targets. The presence of this click event\n is essential for the qooxdoo widget system. All other browsers don't fire\n the click event so it must be emulated.</p>"
           }
         ],
         "@param": [
@@ -997,7 +994,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -1056,7 +1061,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.core.Object",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     }
   },
   "destruct": {
@@ -1069,6 +1082,14 @@
         "line": 551,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DESTRUCTOR\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "defer": {
@@ -1081,6 +1102,14 @@
         "line": 565,
         "column": 3
       }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<pre><code>**********************************************************************\n DEFER\n**********************************************************************\n</code></pre>"
+        }
+      ]
     }
   },
   "descendants": []

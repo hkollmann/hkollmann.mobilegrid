@@ -70,7 +70,7 @@
     *****************************************************************************
     */
     members: {
-      __families: null,
+      __P_140_0: null,
       // property apply
       _applySources: function _applySources(value, old) {
         var families = [];
@@ -97,11 +97,6 @@
       _onWebFontChangeStatus: function _onWebFontChangeStatus(ev) {
         var result = ev.getData();
         this.fireDataEvent("changeStatus", result);
-        {
-          if (result.valid === false) {
-            this.warn("WebFont " + result.family + " was not applied, perhaps the source file could not be loaded.");
-          }
-        }
       },
 
       /**
@@ -118,4 +113,4 @@
   qx.bom.webfonts.WebFont.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=WebFont.js.map?dt=1564930744209
+//# sourceMappingURL=WebFont.js.map?dt=1591463663272

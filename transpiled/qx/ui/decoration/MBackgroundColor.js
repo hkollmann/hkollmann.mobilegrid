@@ -68,16 +68,10 @@
         }
       },
       // property apply
-      _applyBackgroundColor: function _applyBackgroundColor() {
-        {
-          if (this._isInitialized()) {
-            throw new Error("This decorator is already in-use. Modification is not possible anymore!");
-          }
-        }
-      }
+      _applyBackgroundColor: function _applyBackgroundColor() {}
     }
   });
   qx.ui.decoration.MBackgroundColor.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MBackgroundColor.js.map?dt=1564930746144
+//# sourceMappingURL=MBackgroundColor.js.map?dt=1591463665790

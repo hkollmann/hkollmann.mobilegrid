@@ -11,7 +11,6 @@
       },
       "qx.bom.client.Css": {},
       "qx.bom.Style": {},
-      "qx.log.Logger": {},
       "qx.bom.element.Style": {},
       "qx.bom.Document": {},
       "qx.dom.Node": {}
@@ -61,7 +60,7 @@
     */
     statics: {
       /** @type {Map} Internal data structure for __usesNativeBorderBox() */
-      __nativeBorderBox: {
+      __P_96_0: {
         tags: {
           button: true,
           select: true
@@ -82,8 +81,8 @@
        * @param element {Element} DOM element to query
        * @return {Boolean} true when the element uses "border-box" independently from the doctype
        */
-      __usesNativeBorderBox: function __usesNativeBorderBox(element) {
-        var map = this.__nativeBorderBox;
+      __P_96_1: function __P_96_1(element) {
+        var map = this.__P_96_0;
         return map.tags[element.tagName.toLowerCase()] || map.types[element.type];
       },
 
@@ -97,12 +96,7 @@
         if (qx.core.Environment.get("css.boxsizing")) {
           var prop = qx.bom.Style.getCssName(qx.core.Environment.get("css.boxsizing"));
           return prop + ":" + value + ";";
-        } else {
-          {
-            qx.log.Logger.warn(this, "This client does not support dynamic modification of the boxSizing property.");
-            qx.log.Logger.trace();
-          }
-        }
+        } else {}
       },
 
       /**
@@ -117,7 +111,7 @@
         }
 
         if (qx.bom.Document.isStandardMode(qx.dom.Node.getWindow(element))) {
-          if (!this.__usesNativeBorderBox(element)) {
+          if (!this.__P_96_1(element)) {
             return "content-box";
           }
         }
@@ -136,16 +130,8 @@
           // IE8 bombs when trying to apply an unsupported value
           try {
             element.style[qx.core.Environment.get("css.boxsizing")] = value;
-          } catch (ex) {
-            {
-              qx.log.Logger.warn(this, "This client does not support the boxSizing value", value);
-            }
-          }
-        } else {
-          {
-            qx.log.Logger.warn(this, "This client does not support dynamic modification of the boxSizing property.");
-          }
-        }
+          } catch (ex) {}
+        } else {}
       },
 
       /**
@@ -161,4 +147,4 @@
   qx.bom.element.BoxSizing.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=BoxSizing.js.map?dt=1564930741788
+//# sourceMappingURL=BoxSizing.js.map?dt=1591463659531

@@ -14,7 +14,6 @@
       },
       "qx.bom.client.Engine": {},
       "qx.data.Array": {},
-      "qx.core.Assert": {},
       "qx.lang.Type": {}
     },
     "environment": {
@@ -299,10 +298,6 @@
         // an arr as second argument.
 
 
-        {
-          qx.core.Assert && qx.core.Assert.assertArray(arr1, "The first parameter must be an array.");
-          qx.core.Assert && qx.core.Assert.assertArray(arr2, "The second parameter must be an array.");
-        }
         Array.prototype.push.apply(arr1, arr2);
         return arr1;
       },
@@ -323,10 +318,6 @@
         // an arr as second argument.
 
 
-        {
-          qx.core.Assert && qx.core.Assert.assertArray(arr1, "The first parameter must be an array.");
-          qx.core.Assert && qx.core.Assert.assertArray(arr2, "The second parameter must be an array.");
-        }
         arr2.forEach(function (item) {
           var index = arr1.indexOf(item);
 
@@ -426,9 +417,6 @@
        * @return {Number | null} The highest of all values or undefined if array is empty.
        */
       max: function max(arr) {
-        {
-          qx.core.Assert && qx.core.Assert.assertArray(arr, "Parameter must be an array.");
-        }
         var i,
             len = arr.length,
             result = arr[0];
@@ -450,9 +438,6 @@
        * @return {Number | null} The lowest of all values or undefined if array is empty.
        */
       min: function min(arr) {
-        {
-          qx.core.Assert && qx.core.Assert.assertArray(arr, "Parameter must be an array.");
-        }
         var i,
             len = arr.length,
             result = arr[0];
@@ -646,4 +631,4 @@
   qx.lang.Array.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Array.js.map?dt=1564930737176
+//# sourceMappingURL=Array.js.map?dt=1591463654556

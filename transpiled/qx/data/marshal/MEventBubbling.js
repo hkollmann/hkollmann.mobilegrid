@@ -92,27 +92,27 @@
        */
       _registerEventChaining: function _registerEventChaining(value, old, name) {
         // if an old value is given, remove the old listener if possible
-        if (old != null && old.getUserData && old.getUserData("idBubble-" + this.$$hash) != null) {
-          var listeners = old.getUserData("idBubble-" + this.$$hash);
+        if (old != null && old.getUserData && old.getUserData("idBubble-" + this.toHashCode()) != null) {
+          var listeners = old.getUserData("idBubble-" + this.toHashCode());
 
           for (var i = 0; i < listeners.length; i++) {
             old.removeListenerById(listeners[i]);
           }
 
-          old.setUserData("idBubble-" + this.$$hash, null);
+          old.setUserData("idBubble-" + this.toHashCode(), null);
         } // if the child supports chaining
 
 
         if (value instanceof qx.core.Object && qx.Class.hasMixin(value.constructor, qx.data.marshal.MEventBubbling)) {
           // create the listener
-          var listener = qx.lang.Function.bind(this.__changePropertyListener, this, name); // add the listener
+          var listener = qx.lang.Function.bind(this.__P_174_0, this, name); // add the listener
 
           var id = value.addListener("changeBubble", listener, this);
-          var listeners = value.getUserData("idBubble-" + this.$$hash);
+          var listeners = value.getUserData("idBubble-" + this.toHashCode());
 
           if (listeners == null) {
             listeners = [];
-            value.setUserData("idBubble-" + this.$$hash, listeners);
+            value.setUserData("idBubble-" + this.toHashCode(), listeners);
           }
 
           listeners.push(id);
@@ -127,7 +127,7 @@
        * @param e {qx.event.type.Data} The date event fired by the property
        *   change.
        */
-      __changePropertyListener: function __changePropertyListener(name, e) {
+      __P_174_0: function __P_174_0(name, e) {
         var data = e.getData();
         var value = data.value;
         var old = data.old; // if the target is an array
@@ -180,4 +180,4 @@
   qx.data.marshal.MEventBubbling.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MEventBubbling.js.map?dt=1564930746663
+//# sourceMappingURL=MEventBubbling.js.map?dt=1591463666532

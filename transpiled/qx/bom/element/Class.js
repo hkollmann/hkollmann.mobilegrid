@@ -1,4 +1,4 @@
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 (function () {
   var $$dbClassInfo = {
@@ -14,8 +14,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       },
       "qx.bom.client.Html": {
         "require": true
-      },
-      "qx.log.Logger": {}
+      }
     },
     "environment": {
       "provided": [],
@@ -76,10 +75,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     */
     statics: {
       /** @type {RegExp} Regular expressions to split class names */
-      __splitter: /\s+/g,
+      __P_89_0: /\s+/g,
 
       /** @type {RegExp} String trim regular expression. */
-      __trim: /^\s+|\s+$/g,
+      __P_89_1: /^\s+|\s+$/g,
 
       /**
        * Adds a className to the given element
@@ -131,7 +130,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           var old = element.className;
 
           if (old) {
-            result = old.split(this.__splitter);
+            result = old.split(this.__P_89_0);
 
             for (var i = 0, l = result.length; i < l; i++) {
               keys[result[i]] = true;
@@ -164,17 +163,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             if (qx.Bootstrap.getClass(className) == 'SVGAnimatedString') {
               className = className.baseVal;
             } else {
-              {
-                qx.log.Logger.warn(this, "className for element " + element + " cannot be determined");
-              }
               className = '';
             }
           }
 
           if (typeof className === 'undefined') {
-            {
-              qx.log.Logger.warn(this, "className for element " + element + " is undefined");
-            }
             className = '';
           }
         }
@@ -238,7 +231,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         },
         "default": function _default(element, classes) {
           var reg = new RegExp("\\b" + classes.join("\\b|\\b") + "\\b", "g");
-          return element.className = element.className.replace(reg, "").replace(this.__trim, "").replace(this.__splitter, " ");
+          return element.className = element.className.replace(reg, "").replace(this.__P_89_1, "").replace(this.__P_89_0, " ");
         }
       }[qx.core.Environment.get("html.classlist") ? "native" : "default"],
 
@@ -293,4 +286,4 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   qx.bom.element.Class.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Class.js.map?dt=1564930741492
+//# sourceMappingURL=Class.js.map?dt=1591463658863

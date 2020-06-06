@@ -77,7 +77,7 @@
      */
     construct: function construct(barPosition) {
       qx.ui.core.Widget.constructor.call(this);
-      this.__barPositionToState = {
+      this.__P_138_0 = {
         top: "barTop",
         right: "barRight",
         bottom: "barBottom",
@@ -89,7 +89,7 @@
       this._createChildControl("pane"); // Create manager
 
 
-      var mgr = this.__radioGroup = this._createRadioGroupInstance();
+      var mgr = this.__P_138_1 = this._createRadioGroupInstance();
 
       mgr.setWrap(false);
       mgr.addListener("changeSelection", this._onChangeSelection, this); // Initialize bar position
@@ -143,7 +143,7 @@
     */
     members: {
       /** @type {qx.ui.form.RadioGroup} instance containing the radio group */
-      __radioGroup: null,
+      __P_138_1: null,
 
       /**
        * setValue implements part of the {@link qx.ui.form.IField} interface.
@@ -252,11 +252,6 @@
        * @param page {qx.ui.tabview.Page} The page which should be added.
        */
       add: function add(page) {
-        {
-          if (!(page instanceof qx.ui.tabview.Page)) {
-            throw new Error("Incompatible child for TabView: " + page);
-          }
-        }
         var button = page.getButton();
         var bar = this.getChildControl("bar");
         var pane = this.getChildControl("pane"); // Exclude page
@@ -266,10 +261,10 @@
         bar.add(button);
         pane.add(page); // Register button
 
-        this.__radioGroup.add(button); // Add state to page
+        this.__P_138_1.add(button); // Add state to page
 
 
-        page.addState(this.__barPositionToState[this.getBarPosition()]); // Update states
+        page.addState(this.__P_138_0[this.getBarPosition()]); // Update states
 
         page.addState("lastTab");
         var children = this.getChildren();
@@ -291,11 +286,6 @@
        * @param index {Integer?null} Optional position where to add the page.
        */
       addAt: function addAt(page, index) {
-        {
-          if (!(page instanceof qx.ui.tabview.Page)) {
-            throw new Error("Incompatible child for TabView: " + page);
-          }
-        }
         var children = this.getChildren();
 
         if (!(index == null) && index > children.length) {
@@ -315,10 +305,10 @@
         bar.addAt(button, index);
         pane.addAt(page, index); // Register button
 
-        this.__radioGroup.add(button); // Add state to page
+        this.__P_138_1.add(button); // Add state to page
 
 
-        page.addState(this.__barPositionToState[this.getBarPosition()]); // Update states
+        page.addState(this.__P_138_0[this.getBarPosition()]); // Update states
 
         children = this.getChildren();
 
@@ -364,10 +354,10 @@
         bar.remove(button);
         pane.remove(page); // Remove the button from the radio group
 
-        this.__radioGroup.remove(button); // Remove state from page
+        this.__P_138_1.remove(button); // Remove state from page
 
 
-        page.removeState(this.__barPositionToState[this.getBarPosition()]); // Update states
+        page.removeState(this.__P_138_0[this.getBarPosition()]); // Update states
 
         if (page.hasState("firstTab")) {
           page.removeState("firstTab");
@@ -413,7 +403,7 @@
        * @return {qx.ui.form.RadioGroup} the radio group.
        */
       getRadioGroup: function getRadioGroup() {
-        return this.__radioGroup;
+        return this.__P_138_1;
       },
 
       /*
@@ -423,7 +413,7 @@
       */
 
       /** @type {Map} Maps the bar position to an appearance state */
-      __barPositionToState: null,
+      __P_138_0: null,
 
       /**
        * Apply method for the placeBarOnTop-Property.
@@ -459,7 +449,7 @@
         var i, l; // Toggle state to bar
 
         if (old) {
-          var oldState = this.__barPositionToState[old]; // Update bar
+          var oldState = this.__P_138_0[old]; // Update bar
 
           bar.removeState(oldState); // Update pane
 
@@ -471,7 +461,7 @@
         }
 
         if (value) {
-          var newState = this.__barPositionToState[value]; // Update bar
+          var newState = this.__P_138_0[value]; // Update bar
 
           bar.addState(newState); // Update pane
 
@@ -498,7 +488,7 @@
        * @return {qx.ui.tabview.Page[]} List of items.
        */
       getSelection: function getSelection() {
-        var buttons = this.__radioGroup.getSelection();
+        var buttons = this.__P_138_1.getSelection();
 
         var result = [];
 
@@ -523,14 +513,14 @@
           buttons.push(items[i].getChildControl("button"));
         }
 
-        this.__radioGroup.setSelection(buttons);
+        this.__P_138_1.setSelection(buttons);
       },
 
       /**
        * Clears the whole selection at once.
        */
       resetSelection: function resetSelection() {
-        this.__radioGroup.resetSelection();
+        this.__P_138_1.resetSelection();
       },
 
       /**
@@ -542,7 +532,7 @@
        */
       isSelected: function isSelected(item) {
         var button = item.getChildControl("button");
-        return this.__radioGroup.isSelected(button);
+        return this.__P_138_1.isSelected(button);
       },
 
       /**
@@ -551,7 +541,7 @@
        * @return {Boolean} Whether the selection is empty.
        */
       isSelectionEmpty: function isSelectionEmpty() {
-        return this.__radioGroup.isSelectionEmpty();
+        return this.__P_138_1.isSelectionEmpty();
       },
 
       /**
@@ -562,7 +552,7 @@
        *   selectables the user can interactively select
        */
       getSelectables: function getSelectables(all) {
-        var buttons = this.__radioGroup.getSelectables(all);
+        var buttons = this.__P_138_1.getSelectables(all);
 
         var result = [];
 
@@ -652,12 +642,12 @@
     *****************************************************************************
     */
     destruct: function destruct() {
-      this._disposeObjects("__radioGroup");
+      this._disposeObjects("__P_138_1");
 
-      this.__barPositionToState = null;
+      this.__P_138_0 = null;
     }
   });
   qx.ui.tabview.TabView.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=TabView.js.map?dt=1564930744086
+//# sourceMappingURL=TabView.js.map?dt=1591463663017

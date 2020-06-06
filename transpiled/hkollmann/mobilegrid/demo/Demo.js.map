@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": [
-    "/home/travis/build/hkollmann/hkollmann.mobilegrid/source/class/hkollmann/mobilegrid/demo/Demo.js"
+    "/home/runner/work/hkollmann.mobilegrid/hkollmann.mobilegrid/source/class/hkollmann/mobilegrid/demo/Demo.js"
   ],
   "names": [
     "qx",

@@ -1,12 +1,25 @@
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
+        "require": true
+      },
       "qx.Mixin": {
         "usage": "dynamic",
         "require": true
       },
       "qx.Class": {},
       "qx.util.PropertyUtil": {}
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.command.bindEnabled": {
+          "load": true
+        }
+      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -70,9 +83,9 @@
     *****************************************************************************
     */
     members: {
-      __executableBindingIds: null,
-      __semaphore: false,
-      __executeListenerId: null,
+      __P_186_0: null,
+      __P_186_1: false,
+      __P_186_2: null,
 
       /**
        * @type {Map} Set of properties, which will by synced from the command to the
@@ -80,7 +93,10 @@
        *
        * @lint ignoreReferenceField(_bindableProperties)
        */
-      _bindableProperties: ["label", "icon", "toolTipText", "value", "menu"],
+      _bindableProperties: qx.core.Environment.select("qx.command.bindEnabled", {
+        "true": ["enabled", "label", "icon", "toolTipText", "value", "menu"],
+        "false": ["label", "icon", "toolTipText", "value", "menu"]
+      }),
 
       /**
        * Initiate the execute action.
@@ -89,10 +105,10 @@
         var cmd = this.getCommand();
 
         if (cmd) {
-          if (this.__semaphore) {
-            this.__semaphore = false;
+          if (this.__P_186_1) {
+            this.__P_186_1 = false;
           } else {
-            this.__semaphore = true;
+            this.__P_186_1 = true;
             cmd.execute(this);
           }
         }
@@ -105,15 +121,15 @@
        *
        * @param e {qx.event.type.Event} The execute event of the command.
        */
-      __onCommandExecute: function __onCommandExecute(e) {
+      __P_186_3: function __P_186_3(e) {
         if (this.isEnabled()) {
-          if (this.__semaphore) {
-            this.__semaphore = false;
+          if (this.__P_186_1) {
+            this.__P_186_1 = false;
             return;
           }
 
           if (this.isEnabled()) {
-            this.__semaphore = true;
+            this.__P_186_1 = true;
             this.execute();
           }
         }
@@ -122,18 +138,18 @@
       _applyCommand: function _applyCommand(value, old) {
         // execute forwarding
         if (old != null) {
-          old.removeListenerById(this.__executeListenerId);
+          old.removeListenerById(this.__P_186_2);
         }
 
         if (value != null) {
-          this.__executeListenerId = value.addListener("execute", this.__onCommandExecute, this);
+          this.__P_186_2 = value.addListener("execute", this.__P_186_3, this);
         } // binding stuff
 
 
-        var ids = this.__executableBindingIds;
+        var ids = this.__P_186_0;
 
         if (ids == null) {
-          this.__executableBindingIds = ids = {};
+          this.__P_186_0 = ids = {};
         }
 
         var selfPropertyValue;
@@ -178,10 +194,10 @@
     destruct: function destruct() {
       this._applyCommand(null, this.getCommand());
 
-      this.__executableBindingIds = null;
+      this.__P_186_0 = null;
     }
   });
   qx.ui.core.MExecutable.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MExecutable.js.map?dt=1564930747244
+//# sourceMappingURL=MExecutable.js.map?dt=1591463667314

@@ -21,11 +21,11 @@
       "@description": [
         {
           "name": "@description",
-          "body": "***********************************************************************\n\nqooxdoo - the new era of web development\n\nhttp:\n\nCopyright:\n2004-2008 1&1 Internet AG, Germany, http:\n\nLicense:\nMIT: https:\nSee the LICENSE file in the project's top-level directory for details.\n\nAuthors:\nSebastian Werner (wpbasti)\nAndreas Ecker (ecker)\n\n***********************************************************************"
+          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo - the new era of web development\n   http://qooxdoo.org\n   Copyright:\n     2004-2008 1&amp;1 Internet AG, Germany, http://www.1und1.de\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n   Authors:\n Sebastian Werner (wpbasti)\n Andreas Ecker (ecker)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
         },
         {
           "name": "@description",
-          "body": "This class is used to work with the result of a HTTP request."
+          "body": "<p>This class is used to work with the result of a HTTP request.</p>"
         }
       ]
     }
@@ -47,11 +47,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nPROPERTIES\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  PROPERTIES\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "State of the response."
+            "body": "<p>State of the response.</p>"
           }
         ]
       },
@@ -76,7 +76,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Status code of the response."
+            "body": "<p>Status code of the response.</p>"
           }
         ]
       },
@@ -101,7 +101,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Content of the response."
+            "body": "<p>Content of the response.</p>"
           }
         ]
       },
@@ -125,7 +125,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "The headers of the response."
+            "body": "<p>The headers of the response.</p>"
           }
         ]
       },
@@ -142,7 +142,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>The owning object</p>"
+          }
+        ]
+      }
     },
     "qxObjectId": {
       "type": "property",
@@ -150,7 +158,15 @@
       "abstract": false,
       "mixin": true,
       "access": "public",
-      "overriddenFrom": "qx.core.MObjectId"
+      "overriddenFrom": "qx.core.MObjectId",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>{String} The ID of the object.</p>"
+          }
+        ]
+      }
     }
   },
   "members": {
@@ -183,30 +199,11 @@
         "@description": [
           {
             "name": "@description",
-            "body": "---------------------------------------------------------------------------\nUSER METHODS\n---------------------------------------------------------------------------"
+            "body": "<pre><code>---------------------------------------------------------------------------\n  USER METHODS\n---------------------------------------------------------------------------\n</code></pre>"
           },
           {
             "name": "@description",
-            "body": "overridden"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "embryo {qx.event.type.Event?null} Optional event class, which will\n    be configured using the data of this event instance. The event must be\n    an instance of this event class. If the value is <code>null</code>,\n    a new pooled instance is created.",
-            "paramName": "embryo",
-            "description": " Optional event class, which will\n    be configured using the data of this event instance. The event must be\n    an instance of this event class. If the value is <code>null</code>,\n    a new pooled instance is created.",
-            "optional": true,
-            "defaultValue": "null",
-            "type": "qx.event.type.Event"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{qx.event.type.Event} a clone of this class.",
-            "type": "qx.event.type.Event",
-            "description": " a clone of this class."
+            "body": "<p>overridden</p>"
           }
         ]
       },
@@ -233,7 +230,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Returns a specific response header"
+            "body": "<p>Returns a specific response header</p>"
           }
         ],
         "@param": [
@@ -272,7 +269,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "Keep lower-cased shadow of response headers for later\ncase-insensitive matching."
+            "body": "<p>Keep lower-cased shadow of response headers for later\n case-insensitive matching.</p>"
           }
         ],
         "@param": [
@@ -357,7 +354,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.event.type.Event",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxOwner</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxOwner}."
+          }
+        ]
+      }
     },
     "getQxObjectId": {
       "type": "function",
@@ -416,7 +421,15 @@
       "inherited": true,
       "access": "public",
       "overriddenFrom": "qx.event.type.Event",
-      "property": "reset"
+      "property": "reset",
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "Resets the user value of the property <code>qxObjectId</code>.\n\nThe computed value falls back to the next available value e.g. appearance, init or inheritance value depending on the property configuration and value availability.\n\nFor further details take a look at the property definition: {@link #qxObjectId}."
+          }
+        ]
+      }
     },
     "getState": {
       "type": "function",

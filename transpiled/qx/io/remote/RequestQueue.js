@@ -34,8 +34,7 @@
         "io.maxrequests": {
           "load": true,
           "className": "qx.bom.client.Transport"
-        },
-        "qx.debug.io.remote": {}
+        }
       }
     }
   };
@@ -84,13 +83,13 @@
     */
     construct: function construct() {
       qx.core.Object.constructor.call(this);
-      this.__queue = [];
-      this.__active = [];
-      this.__totalRequests = 0; // timeout handling
+      this.__P_200_0 = [];
+      this.__P_200_1 = [];
+      this.__P_200_2 = 0; // timeout handling
 
-      this.__timer = new qx.event.Timer(500);
+      this.__P_200_3 = new qx.event.Timer(500);
 
-      this.__timer.addListener("interval", this._oninterval, this);
+      this.__P_200_3.addListener("interval", this._oninterval, this);
     },
 
     /*
@@ -139,10 +138,10 @@
     *****************************************************************************
     */
     members: {
-      __queue: null,
-      __active: null,
-      __totalRequests: null,
-      __timer: null,
+      __P_200_0: null,
+      __P_200_1: null,
+      __P_200_2: null,
+      __P_200_3: null,
 
       /*
       ---------------------------------------------------------------------------
@@ -156,7 +155,7 @@
        * @return {qx.io.remote.Request[]} The list of queued requests
        */
       getRequestQueue: function getRequestQueue() {
-        return this.__queue;
+        return this.__P_200_0;
       },
 
       /**
@@ -167,22 +166,13 @@
        *   wrapped in an instance of {@link qx.io.remote.Exchange}
        */
       getActiveQueue: function getActiveQueue() {
-        return this.__active;
+        return this.__P_200_1;
       },
 
       /**
        * Generates debug output
        */
-      _debug: function _debug() {
-        {
-          if (qx.core.Environment.get("qx.debug.io.remote")) {
-            // Debug output
-            var vText = this.__active.length + "/" + (this.__queue.length + this.__active.length);
-            this.debug("Progress: " + vText);
-            window.status = "Request-Queue Progress: " + vText;
-          }
-        }
-      },
+      _debug: function _debug() {},
 
       /**
        * Checks the queue if any request is left to send and uses the transport
@@ -195,8 +185,8 @@
         this._debug(); // Check queues and stop timer if not needed anymore
 
 
-        if (this.__active.length == 0 && this.__queue.length == 0) {
-          this.__timer.stop();
+        if (this.__P_200_1.length == 0 && this.__P_200_0.length == 0) {
+          this.__P_200_3.stop();
         } // Checking if enabled
 
 
@@ -205,22 +195,22 @@
         } // Checking active queue fill
 
 
-        if (this.__queue.length == 0 || this.__queue[0].isAsynchronous() && this.__active.length >= this.getMaxConcurrentRequests()) {
+        if (this.__P_200_0.length == 0 || this.__P_200_0[0].isAsynchronous() && this.__P_200_1.length >= this.getMaxConcurrentRequests()) {
           return;
         } // Checking number of total requests
 
 
-        if (this.getMaxTotalRequests() != null && this.__totalRequests >= this.getMaxTotalRequests()) {
+        if (this.getMaxTotalRequests() != null && this.__P_200_2 >= this.getMaxTotalRequests()) {
           return;
         }
 
-        var vRequest = this.__queue.shift();
+        var vRequest = this.__P_200_0.shift();
 
         var vTransport = new qx.io.remote.Exchange(vRequest); // Increment counter
 
-        this.__totalRequests++; // Add to active queue
+        this.__P_200_2++; // Add to active queue
 
-        this.__active.push(vTransport); // Debug output
+        this.__P_200_1.push(vTransport); // Debug output
 
 
         this._debug(); // Establish event connection between qx.io.remote.Exchange and me.
@@ -237,7 +227,7 @@
 
         vTransport.send(); // Retry
 
-        if (this.__queue.length > 0) {
+        if (this.__P_200_0.length > 0) {
           this._check();
         }
       },
@@ -250,7 +240,7 @@
        */
       _remove: function _remove(vTransport) {
         // Remove from active transports
-        qx.lang.Array.remove(this.__active, vTransport); // Dispose transport object
+        qx.lang.Array.remove(this.__P_200_1, vTransport); // Dispose transport object
 
         vTransport.dispose(); // Check again
 
@@ -262,7 +252,7 @@
         EVENT HANDLING
       ---------------------------------------------------------------------------
       */
-      __activeCount: 0,
+      __P_200_4: 0,
 
       /**
        * Listens for the "sending" event of the transport object and increases
@@ -271,14 +261,6 @@
        * @param e {qx.event.type.Event} event object
        */
       _onsending: function _onsending(e) {
-        {
-          if (qx.core.Environment.get("qx.debug.io.remote")) {
-            this.__activeCount++;
-            e.getTarget()._counted = true;
-            this.debug("ActiveCount: " + this.__activeCount);
-          }
-        }
-
         e.getTarget().getRequest()._onsending(e);
       },
 
@@ -299,16 +281,8 @@
        * @param e {qx.event.type.Event} event object
        */
       _oncompleted: function _oncompleted(e) {
-        {
-          if (qx.core.Environment.get("qx.debug.io.remote")) {
-            if (e.getTarget()._counted) {
-              this.__activeCount--;
-              this.debug("ActiveCount: " + this.__activeCount);
-            }
-          }
-        } // delegate the event to the handler method of the request depending
+        // delegate the event to the handler method of the request depending
         // on the current type of the event ( completed|aborted|timeout|failed )
-
         var request = e.getTarget().getRequest();
         var requestHandler = "_on" + e.getType(); // remove the request from the queue,
         // keep local reference, see [BUG #4422]
@@ -348,10 +322,10 @@
        * @param e {qx.event.type.Event} event object
        */
       _oninterval: function _oninterval(e) {
-        var vActive = this.__active;
+        var vActive = this.__P_200_1;
 
         if (vActive.length == 0) {
-          this.__timer.stop();
+          this.__P_200_3.stop();
 
           return;
         }
@@ -401,7 +375,7 @@
           this._check();
         }
 
-        this.__timer.setEnabled(value);
+        this.__P_200_3.setEnabled(value);
       },
 
       /*
@@ -419,15 +393,15 @@
         vRequest.setState("queued");
 
         if (vRequest.isAsynchronous()) {
-          this.__queue.push(vRequest);
+          this.__P_200_0.push(vRequest);
         } else {
-          this.__queue.unshift(vRequest);
+          this.__P_200_0.unshift(vRequest);
         }
 
         this._check();
 
         if (this.getEnabled()) {
-          this.__timer.start();
+          this.__P_200_3.start();
         }
       },
 
@@ -446,8 +420,8 @@
 
         if (vTransport) {
           vTransport.abort();
-        } else if (this.__queue.includes(vRequest)) {
-          qx.lang.Array.remove(this.__queue, vRequest);
+        } else if (this.__P_200_0.includes(vRequest)) {
+          qx.lang.Array.remove(this.__P_200_0, vRequest);
         }
       }
     },
@@ -458,14 +432,14 @@
     *****************************************************************************
     */
     destruct: function destruct() {
-      this._disposeArray("__active");
+      this._disposeArray("__P_200_1");
 
-      this._disposeObjects("__timer");
+      this._disposeObjects("__P_200_3");
 
-      this.__queue = null;
+      this.__P_200_0 = null;
     }
   });
   qx.io.remote.RequestQueue.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=RequestQueue.js.map?dt=1564930747926
+//# sourceMappingURL=RequestQueue.js.map?dt=1591463668412

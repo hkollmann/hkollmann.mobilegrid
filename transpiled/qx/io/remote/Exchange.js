@@ -23,12 +23,6 @@
       "qx.io.remote.transport.XmlHttp": {},
       "qx.event.Registration": {},
       "qx.io.remote.Response": {}
-    },
-    "environment": {
-      "provided": [],
-      "required": {
-        "qx.debug.io.remote": {}
-      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -284,11 +278,6 @@
           switch (vStatusCode) {
             case -1:
               // Not Available (OK for readystates: MSXML<4=1-3, MSXML>3=1-2, Gecko=1)
-              {
-                if (qx.core.Environment.get("qx.debug.io.remote") && vReadyState > 3) {
-                  qx.log.Logger.debug(this, "Failed with statuscode: -1 at readyState " + vReadyState);
-                }
-              }
               return vReadyState < 4;
 
             case 200: // OK
@@ -311,11 +300,6 @@
 
             case 206:
               // Partial Content
-              {
-                if (qx.core.Environment.get("qx.debug.io.remote") && vReadyState === 4) {
-                  qx.log.Logger.debug(this, "Failed with statuscode: 206 (Partial content while being complete!)");
-                }
-              }
               return vReadyState !== 4;
 
             case 300: // Multiple Choices
@@ -372,11 +356,6 @@
 
             case 505:
               // HTTP Version not supported
-              {
-                if (qx.core.Environment.get("qx.debug.io.remote")) {
-                  qx.log.Logger.debug(this, "Failed with typical HTTP statuscode: " + vStatusCode);
-                }
-              }
               return false;
             // The following case labels are wininet.dll error codes that may
             // be encountered.
@@ -393,11 +372,6 @@
             case 12152: // See above comments for variable status.
 
             case 13030:
-              {
-                if (qx.core.Environment.get("qx.debug.io.remote")) {
-                  qx.log.Logger.debug(this, "Failed with MSHTML specific HTTP statuscode: " + vStatusCode);
-                }
-              }
               return false;
 
             default:
@@ -655,11 +629,6 @@
             }
 
             try {
-              {
-                if (qx.core.Environment.get("qx.debug.io.remote")) {
-                  this.debug("Using implementation: " + vTransportImpl.classname);
-                }
-              }
               vTransport = new vTransportImpl();
               this.setImplementation(vTransport);
               vTransport.setUseBasicHttpAuth(vRequest.getUseBasicHttpAuth());
@@ -685,18 +654,8 @@
         var vImplementation = this.getImplementation();
 
         if (vImplementation) {
-          {
-            if (qx.core.Environment.get("qx.debug.io.remote")) {
-              this.debug("Abort: implementation " + vImplementation.toHashCode());
-            }
-          }
           vImplementation.abort();
         } else {
-          {
-            if (qx.core.Environment.get("qx.debug.io.remote")) {
-              this.debug("Abort: forcing state to be aborted");
-            }
-          }
           this.setState("aborted");
         }
       },
@@ -723,7 +682,7 @@
         } // Disable future timeouts in case user handler blocks
 
 
-        this.__disableRequestTimeout();
+        this.__P_233_0();
       },
 
       /*
@@ -737,7 +696,7 @@
        * even if the user handler (e.g. "completed") was already called.
        *
        */
-      __disableRequestTimeout: function __disableRequestTimeout() {
+      __P_233_0: function __P_233_0() {
         var vRequest = this.getRequest();
 
         if (vRequest) {
@@ -885,12 +844,6 @@
        * @param old {var} Previous value
        */
       _applyState: function _applyState(value, old) {
-        {
-          if (qx.core.Environment.get("qx.debug.io.remote")) {
-            this.debug("State: " + old + " => " + value);
-          }
-        }
-
         switch (value) {
           case "sending":
             this.fireEvent("sending");
@@ -912,7 +865,7 @@
             } // Disable future timeouts in case user handler blocks
 
 
-            this.__disableRequestTimeout();
+            this.__P_233_0();
 
             if (this.hasListener(value)) {
               var vResponse = qx.event.Registration.createEvent(value, qx.io.remote.Response);
@@ -928,11 +881,6 @@
 
                 if (vContent === null) {
                   // Nope.  Change COMPLETED to FAILED.
-                  {
-                    if (qx.core.Environment.get("qx.debug.io.remote")) {
-                      this.debug("Altered State: " + value + " => failed");
-                    }
-                  }
                   value = "failed";
                 }
               } else if (value == "failed") {
@@ -983,4 +931,4 @@
   qx.io.remote.Exchange.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Exchange.js.map?dt=1564930749482
+//# sourceMappingURL=Exchange.js.map?dt=1591463671131
