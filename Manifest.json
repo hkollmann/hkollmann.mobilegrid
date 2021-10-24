@@ -12,7 +12,7 @@
         "email": "Henner DOT Kollmann AT gmx DOT de"
       }
     ],
-    "version": "1.0.9"
+    "version": "1.0.10"
   },
   "provides": {
     "namespace": "hkollmann.mobilegrid",
@@ -30,5 +30,6 @@
   "requires": {
     "@qooxdoo/compiler": "^1.0.0-beta",
     "@qooxdoo/framework": "^6.0.0-alpha"
-  }
+  },
+  "requires.@qooxdoo/framework": "^6.0.0-alpha"
 }
