@@ -1,15 +1,15 @@
 {
   "libraries": {
-    "hkollmann.mobilegrid": "1.0.9",
-    "qxl.apiviewer": "1.0.4",
+    "hkollmann.mobilegrid": "1.0.10",
     "qxl.versionlabel": "1.0.1",
+    "qxl.apiviewer": "1.0.4",
     "qx": "6.0.2"
   },
   "environmentHash": "2c34221e3f854eb5b52edcdee45856e03152a3f1",
   "compilerVersion": "1.0.3",
   "classInfo": {
     "hkollmann.mobilegrid.demo.Application": {
-      "mtime": "2021-10-24T08:36:17.932Z",
+      "mtime": "2021-10-24T08:37:03.102Z",
       "libraryName": "hkollmann.mobilegrid",
       "dependsOn": {
         "qx.Class": {
@@ -256,7 +256,7 @@
       ]
     },
     "hkollmann.mobilegrid.demo.Demo": {
-      "mtime": "2021-10-24T08:36:17.932Z",
+      "mtime": "2021-10-24T08:37:03.102Z",
       "libraryName": "hkollmann.mobilegrid",
       "dependsOn": {
         "qx.Class": {
@@ -1628,7 +1628,7 @@
       "hasDefer": null
     },
     "hkollmann.mobilegrid.ui.container.Grid": {
-      "mtime": "2021-10-24T08:36:17.932Z",
+      "mtime": "2021-10-24T08:37:03.102Z",
       "libraryName": "hkollmann.mobilegrid",
       "dependsOn": {
         "hkollmann.mobilegrid.event.type.GridEvent": {
@@ -4989,7 +4989,7 @@
       "hasDefer": true
     },
     "hkollmann.mobilegrid.event.type.GridEvent": {
-      "mtime": "2021-10-24T08:36:17.932Z",
+      "mtime": "2021-10-24T08:37:03.102Z",
       "libraryName": "hkollmann.mobilegrid",
       "dependsOn": {
         "qx.Class": {
