@@ -10,7 +10,9 @@
         "require": true
       },
       "qx.bom.Document": {},
-      "qx.bom.client.OperatingSystem": {}
+      "qx.bom.client.OperatingSystem": {
+        "require": true
+      }
     },
     "environment": {
       "provided": [],
@@ -298,4 +300,4 @@
   qx.bom.Viewport.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Viewport.js.map?dt=1591463653053
+//# sourceMappingURL=Viewport.js.map?dt=1635064645286

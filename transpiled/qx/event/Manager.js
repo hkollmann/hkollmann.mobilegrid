@@ -21,7 +21,8 @@
         "construct": true
       },
       "qx.event.GlobalError": {
-        "construct": true
+        "construct": true,
+        "require": true
       },
       "qx.util.DeferredCall": {
         "construct": true
@@ -537,14 +538,14 @@
         // Identical operator does not work in IE (as of version 7) because
         // document.parentWindow is not identical to window. Crazy stuff.
         else if (target == this.__P_91_0) {
-            isWindow = true;
-            key = "WIN_" + type;
-          } else if (target.classname) {
-            isObject = true;
-            key = "QX_" + target.classname + "_" + type;
-          } else {
-            key = "UNKNOWN_" + target + "_" + type;
-          }
+          isWindow = true;
+          key = "WIN_" + type;
+        } else if (target.classname) {
+          isObject = true;
+          key = "QX_" + target.classname + "_" + type;
+        } else {
+          key = "UNKNOWN_" + target + "_" + type;
+        }
 
         var cache = this.__P_91_6;
 
@@ -913,4 +914,4 @@
   qx.event.Manager.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Manager.js.map?dt=1591463659020
+//# sourceMappingURL=Manager.js.map?dt=1635064651603

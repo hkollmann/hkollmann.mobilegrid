@@ -15,7 +15,9 @@
       "qx.util.ResourceManager": {},
       "qx.bom.request.Script": {},
       "qx.lang.Object": {},
-      "qx.bom.client.Scroll": {},
+      "qx.bom.client.Scroll": {
+        "require": true
+      },
       "qx.lang.Array": {},
       "qx.event.Registration": {},
       "qx.bom.Event": {}
@@ -373,4 +375,4 @@
   qx.ui.mobile.container.MIScroll.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MIScroll.js.map?dt=1591463664568
+//# sourceMappingURL=MIScroll.js.map?dt=1635064657374

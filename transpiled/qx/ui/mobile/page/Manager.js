@@ -18,7 +18,8 @@
         "construct": true
       },
       "qx.bom.client.Device": {
-        "construct": true
+        "construct": true,
+        "require": true
       },
       "qx.event.Registration": {
         "construct": true
@@ -598,4 +599,4 @@
   qx.ui.mobile.page.Manager.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Manager.js.map?dt=1591463650436
+//# sourceMappingURL=Manager.js.map?dt=1635064642240

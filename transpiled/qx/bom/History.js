@@ -17,9 +17,13 @@
       "qx.bom.client.Event": {
         "require": true
       },
-      "qx.bom.client.Browser": {},
+      "qx.bom.client.Browser": {
+        "require": true
+      },
       "qx.bom.HashHistory": {},
-      "qx.bom.client.Engine": {},
+      "qx.bom.client.Engine": {
+        "require": true
+      },
       "qx.bom.IframeHistory": {},
       "qx.bom.NativeHistory": {},
       "qx.lang.Type": {},
@@ -194,17 +198,17 @@
             this.$$instance = new qx.bom.HashHistory();
           } // in iframe + IE<9
           else if (runsInIframe && qx.core.Environment.get("engine.name") == "mshtml" && qx.core.Environment.get("browser.documentmode") < 9) {
-              this.$$instance = new qx.bom.IframeHistory();
-            } // browser with hashChange event
-            else if (this.SUPPORTS_HASH_CHANGE_EVENT) {
-                this.$$instance = new qx.bom.NativeHistory();
-              } // IE without hashChange event
-              else if (qx.core.Environment.get("engine.name") == "mshtml") {
-                  this.$$instance = new qx.bom.IframeHistory();
-                } // fallback
-                else {
-                    this.$$instance = new qx.bom.NativeHistory();
-                  }
+            this.$$instance = new qx.bom.IframeHistory();
+          } // browser with hashChange event
+          else if (this.SUPPORTS_HASH_CHANGE_EVENT) {
+            this.$$instance = new qx.bom.NativeHistory();
+          } // IE without hashChange event
+          else if (qx.core.Environment.get("engine.name") == "mshtml") {
+            this.$$instance = new qx.bom.IframeHistory();
+          } // fallback
+          else {
+            this.$$instance = new qx.bom.NativeHistory();
+          }
         }
 
         return this.$$instance;
@@ -321,7 +325,7 @@
        */
       navigateBack: function navigateBack() {
         qx.event.Timer.once(function () {
-          history.back();
+          window.history.back();
         }, this, 100);
       },
 
@@ -331,7 +335,7 @@
        */
       navigateForward: function navigateForward() {
         qx.event.Timer.once(function () {
-          history.forward();
+          window.history.forward();
         }, this, 100);
       },
 
@@ -396,4 +400,4 @@
   qx.bom.History.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=History.js.map?dt=1591463656215
+//# sourceMappingURL=History.js.map?dt=1635064648636

@@ -78,4 +78,4 @@
   hkollmann.mobilegrid.event.type.GridEvent.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=GridEvent.js.map?dt=1591463658660
+//# sourceMappingURL=GridEvent.js.map?dt=1635064651254

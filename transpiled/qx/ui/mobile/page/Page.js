@@ -23,10 +23,12 @@
         "defer": "runtime"
       },
       "qx.bom.client.PhoneGap": {
-        "defer": "runtime"
+        "defer": "load",
+        "require": true
       },
       "qx.bom.client.OperatingSystem": {
-        "defer": "runtime"
+        "defer": "load",
+        "require": true
       },
       "qx.core.Init": {}
     },
@@ -438,4 +440,4 @@
   qx.ui.mobile.page.Page.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Page.js.map?dt=1591463658525
+//# sourceMappingURL=Page.js.map?dt=1635064651100

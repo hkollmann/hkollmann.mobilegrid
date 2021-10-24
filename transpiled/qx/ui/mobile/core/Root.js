@@ -18,7 +18,8 @@
         "construct": true
       },
       "qx.bom.client.OperatingSystem": {
-        "construct": true
+        "construct": true,
+        "require": true
       },
       "qx.event.Registration": {
         "construct": true
@@ -27,7 +28,8 @@
         "construct": true
       },
       "qx.bom.client.Css": {
-        "construct": true
+        "construct": true,
+        "require": true
       },
       "qx.bom.element.Style": {
         "construct": true
@@ -319,4 +321,4 @@
   qx.ui.mobile.core.Root.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Root.js.map?dt=1591463652778
+//# sourceMappingURL=Root.js.map?dt=1635064644995

@@ -29,7 +29,9 @@
         "usage": "dynamic",
         "require": true
       },
-      "qx.bom.client.OperatingSystem": {},
+      "qx.bom.client.OperatingSystem": {
+        "require": true
+      },
       "qx.bom.Viewport": {},
       "qx.event.type.Orientation": {}
     },
@@ -251,4 +253,4 @@
   qx.event.handler.Orientation.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Orientation.js.map?dt=1591463669491
+//# sourceMappingURL=Orientation.js.map?dt=1635064662241

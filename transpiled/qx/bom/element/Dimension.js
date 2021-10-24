@@ -10,7 +10,9 @@
         "require": true
       },
       "qx.bom.element.Style": {},
-      "qx.bom.client.Engine": {},
+      "qx.bom.client.Engine": {
+        "require": true
+      },
       "qx.dom.Node": {}
     },
     "environment": {
@@ -214,4 +216,4 @@
   qx.bom.element.Dimension.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Dimension.js.map?dt=1591463658468
+//# sourceMappingURL=Dimension.js.map?dt=1635064651040

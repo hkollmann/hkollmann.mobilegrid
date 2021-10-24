@@ -67,8 +67,7 @@
      *   <code>text</code>, <code>textarea</code>, <code>select</code>,
      *   <code>checkbox</code>, <code>radio</code>, <code>password</code>,
      *   <code>hidden</code>, <code>submit</code>, <code>image</code>,
-     *   <code>file</code>, <code>search</code>, <code>reset</code>,
-     *   <code>select</code> and <code>textarea</code>.
+     *   <code>file</code>, <code>search</code>, and <code>reset</code>.
      * @param styles {Map?null} optional map of CSS styles, where the key is the name
      *    of the style and the value is the value to use.
      * @param attributes {Map?null} optional map of element attributes, where the
@@ -257,4 +256,4 @@
   qx.html.Input.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Input.js.map?dt=1591463670580
+//# sourceMappingURL=Input.js.map?dt=1635064663309

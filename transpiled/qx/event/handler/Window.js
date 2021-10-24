@@ -33,7 +33,9 @@
       },
       "qx.lang.Function": {},
       "qx.bom.Event": {},
-      "qx.event.GlobalError": {}
+      "qx.event.GlobalError": {
+        "require": true
+      }
     },
     "environment": {
       "provided": [],
@@ -260,4 +262,4 @@
   qx.event.handler.Window.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Window.js.map?dt=1591463657803
+//# sourceMappingURL=Window.js.map?dt=1635064650339

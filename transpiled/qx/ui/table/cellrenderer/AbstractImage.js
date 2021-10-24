@@ -18,7 +18,9 @@
       },
       "qx.util.ResourceManager": {},
       "qx.io.ImageLoader": {},
-      "qx.bom.client.Css": {},
+      "qx.bom.client.Css": {
+        "require": true
+      },
       "qx.bom.element.Decoration": {}
     },
     "environment": {
@@ -69,7 +71,7 @@
       var clazz = qx.ui.table.cellrenderer.AbstractImage;
 
       if (!clazz.stylesheet) {
-        clazz.stylesheet = qx.bom.Stylesheet.createElement(".qooxdoo-table-cell-icon {  text-align:center;  padding-top:1px;}");
+        clazz.stylesheet = qx.bom.Stylesheet.createElement(".qooxdoo-table-cell-icon {  text-align:center;}");
       }
     },
 
@@ -110,8 +112,6 @@
       __P_199_0: 16,
       __P_199_1: 16,
       __P_199_2: null,
-      // overridden
-      _insetY: 2,
 
       /**
        * Identifies the Image to show. This is a template method, which must be
@@ -232,7 +232,7 @@
             width: this.__P_199_2.width + "px",
             height: this.__P_199_2.height + "px",
             display: qx.core.Environment.get("css.inlineblock"),
-            verticalAlign: "top",
+            verticalAlign: "middle",
             position: "static"
           };
 
@@ -270,4 +270,4 @@
   qx.ui.table.cellrenderer.AbstractImage.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=AbstractImage.js.map?dt=1591463668357
+//# sourceMappingURL=AbstractImage.js.map?dt=1635064661147

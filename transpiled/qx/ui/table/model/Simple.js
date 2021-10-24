@@ -76,6 +76,12 @@
           }
         }
 
+        if (obj1 == null && obj2 !== null) {
+          return -1;
+        } else if (obj2 == null && obj1 !== null) {
+          return 1;
+        }
+
         return obj1 > obj2 ? 1 : obj1 == obj2 ? 0 : -1;
       },
 
@@ -97,6 +103,12 @@
           if (result != null) {
             return result;
           }
+        }
+
+        if (obj1 == null && obj2 !== null) {
+          return -1;
+        } else if (obj2 == null && obj1 !== null) {
+          return 1;
         }
 
         return obj1 > obj2 ? 1 : obj1 == obj2 ? 0 : -1;
@@ -123,6 +135,12 @@
           }
         }
 
+        if (obj1 == null && obj2 !== null) {
+          return 1;
+        } else if (obj2 == null && obj1 !== null) {
+          return -1;
+        }
+
         return obj1 < obj2 ? 1 : obj1 == obj2 ? 0 : -1;
       },
 
@@ -144,6 +162,12 @@
           if (result != null) {
             return result;
           }
+        }
+
+        if (obj1 == null && obj2 !== null) {
+          return 1;
+        } else if (obj2 == null && obj1 !== null) {
+          return -1;
         }
 
         return obj1 < obj2 ? 1 : obj1 == obj2 ? 0 : -1;
@@ -583,8 +607,10 @@
       setRows: function setRows(rowArr, startIndex, clearSorting) {
         if (startIndex == null) {
           startIndex = 0;
-        } // Prepare the rowArr so it can be used for apply
+        } // store the original length before we alter rowArr for use in splice.apply
 
+
+        var rowArrLength = rowArr.length; // Prepare the rowArr so it can be used for apply
 
         rowArr.splice(0, 0, startIndex, rowArr.length); // Replace rows
 
@@ -592,7 +618,7 @@
 
         var data = {
           firstRow: startIndex,
-          lastRow: this._rowArr.length - 1,
+          lastRow: startIndex + rowArrLength - 1,
           firstColumn: 0,
           lastColumn: this.getColumnCount() - 1
         };
@@ -688,4 +714,4 @@
   qx.ui.table.model.Simple.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Simple.js.map?dt=1591463661787
+//# sourceMappingURL=Simple.js.map?dt=1635064654602

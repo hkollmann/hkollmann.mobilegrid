@@ -47,7 +47,9 @@
       "qx.ui.basic.Image": {},
       "qx.ui.form.Button": {},
       "qx.event.type.Event": {},
-      "qx.bom.client.Engine": {}
+      "qx.bom.client.Engine": {
+        "require": true
+      }
     },
     "environment": {
       "provided": [],
@@ -1081,4 +1083,4 @@
   qx.ui.window.Window.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Window.js.map?dt=1591463670999
+//# sourceMappingURL=Window.js.map?dt=1635064663725

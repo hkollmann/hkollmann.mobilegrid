@@ -21,10 +21,6 @@
       "@description": [
         {
           "name": "@description",
-          "body": "<pre><code>*****************************************************************\n</code></pre>\n<p>qooxdoo mobile grid\n   https://github.com/hkollmann/hkollmann.mobilegrid\n   Copyright:\n     2018 Henner Kollmann (Henner.Kollmann@gmx.de)\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     This software is provided under the same licensing terms as Qooxdoo,\n     please see the LICENSE file in the Qooxdoo project's top-level directory\n     for details.\n   Authors:\n    Henner Kollmann (Henner.Kollmann@gmx.de)\n    <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong></em>*</p>"
-        },
-        {
-          "name": "@description",
           "body": ""
         },
         {

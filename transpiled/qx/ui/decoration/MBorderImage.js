@@ -11,7 +11,9 @@
       },
       "qx.util.AliasManager": {},
       "qx.util.ResourceManager": {},
-      "qx.bom.client.Css": {},
+      "qx.bom.client.Css": {
+        "require": true
+      },
       "qx.bom.Style": {}
     },
     "environment": {
@@ -281,4 +283,4 @@
   qx.ui.decoration.MBorderImage.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MBorderImage.js.map?dt=1591463666000
+//# sourceMappingURL=MBorderImage.js.map?dt=1635064658857

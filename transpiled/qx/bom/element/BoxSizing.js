@@ -9,7 +9,9 @@
         "usage": "dynamic",
         "require": true
       },
-      "qx.bom.client.Css": {},
+      "qx.bom.client.Css": {
+        "require": true
+      },
       "qx.bom.Style": {},
       "qx.bom.element.Style": {},
       "qx.bom.Document": {},
@@ -147,4 +149,4 @@
   qx.bom.element.BoxSizing.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=BoxSizing.js.map?dt=1591463659531
+//# sourceMappingURL=BoxSizing.js.map?dt=1635064652196

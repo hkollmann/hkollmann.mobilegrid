@@ -35,8 +35,12 @@
         "defer": "runtime",
         "require": true
       },
-      "qx.bom.client.Engine": {},
-      "qx.bom.client.Browser": {},
+      "qx.bom.client.Engine": {
+        "require": true
+      },
+      "qx.bom.client.Browser": {
+        "require": true
+      },
       "qx.bom.Event": {},
       "qx.event.Utils": {},
       "qx.event.type.Data": {}
@@ -230,4 +234,4 @@
   qx.event.handler.Pointer.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Pointer.js.map?dt=1591463665073
+//# sourceMappingURL=Pointer.js.map?dt=1635064657955

@@ -38,7 +38,9 @@
         "construct": true
       },
       "qx.util.ResourceManager": {},
-      "qx.bom.client.Engine": {},
+      "qx.bom.client.Engine": {
+        "require": true
+      },
       "qxl.apiviewer.dao.Class": {},
       "qx.util.LibraryManager": {},
       "qx.util.StringBuilder": {},
@@ -756,4 +758,4 @@
   qxl.apiviewer.ui.ClassViewer.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=ClassViewer.js.map?dt=1591463668923
+//# sourceMappingURL=ClassViewer.js.map?dt=1635064661715

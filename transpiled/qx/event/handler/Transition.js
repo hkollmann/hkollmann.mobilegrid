@@ -38,10 +38,12 @@
       },
       "qx.event.type.Event": {},
       "qx.bom.client.CssAnimation": {
-        "defer": "runtime"
+        "defer": "load",
+        "require": true
       },
       "qx.bom.client.CssTransition": {
-        "defer": "runtime"
+        "defer": "load",
+        "require": true
       }
     },
     "environment": {
@@ -343,4 +345,4 @@
   qx.event.handler.Transition.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Transition.js.map?dt=1591463665236
+//# sourceMappingURL=Transition.js.map?dt=1635064658104

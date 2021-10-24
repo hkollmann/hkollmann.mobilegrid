@@ -58,7 +58,8 @@
         "require": true
       },
       "qx.bom.client.Event": {
-        "defer": "runtime"
+        "defer": "load",
+        "require": true
       }
     },
     "environment": {
@@ -270,4 +271,4 @@
   qx.event.handler.Touch.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Touch.js.map?dt=1591463664897
+//# sourceMappingURL=Touch.js.map?dt=1635064657718

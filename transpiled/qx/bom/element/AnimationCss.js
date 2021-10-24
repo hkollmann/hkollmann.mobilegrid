@@ -20,7 +20,8 @@
       "qx.bom.element.Transform": {},
       "qx.bom.Style": {},
       "qx.bom.client.OperatingSystem": {
-        "defer": "runtime"
+        "defer": "load",
+        "require": true
       }
     },
     "environment": {
@@ -394,4 +395,4 @@
   qx.bom.element.AnimationCss.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=AnimationCss.js.map?dt=1591463669910
+//# sourceMappingURL=AnimationCss.js.map?dt=1635064662693

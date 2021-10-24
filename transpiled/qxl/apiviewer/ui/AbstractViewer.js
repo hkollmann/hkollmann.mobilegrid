@@ -20,7 +20,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       "qxl.apiviewer.ObjectRegistry": {
         "construct": true
       },
-      "qx.bom.client.Engine": {},
+      "qx.bom.client.Engine": {
+        "require": true
+      },
       "qx.dev.Tokenizer": {},
       "qx.util.StringBuilder": {},
       "qx.Promise": {},
@@ -456,4 +458,4 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   qxl.apiviewer.ui.AbstractViewer.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=AbstractViewer.js.map?dt=1591463671413
+//# sourceMappingURL=AbstractViewer.js.map?dt=1635064664117

@@ -36,7 +36,9 @@
       "qx.bom.Stylesheet": {},
       "qx.bom.element.Cursor": {},
       "qx.dom.Node": {},
-      "qx.bom.client.Event": {},
+      "qx.bom.client.Event": {
+        "require": true
+      },
       "qx.bom.Event": {}
     },
     "environment": {
@@ -315,4 +317,4 @@
   qx.ui.root.Abstract.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Abstract.js.map?dt=1591463659707
+//# sourceMappingURL=Abstract.js.map?dt=1635064652365

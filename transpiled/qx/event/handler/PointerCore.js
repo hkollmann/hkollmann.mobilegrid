@@ -35,7 +35,9 @@
       "qx.event.Emitter": {},
       "qx.bom.Event": {},
       "qx.event.type.dom.Pointer": {},
-      "qx.bom.client.OperatingSystem": {},
+      "qx.bom.client.OperatingSystem": {
+        "require": true
+      },
       "qx.lang.Array": {},
       "qx.event.Utils": {}
     },
@@ -553,4 +555,4 @@
   qx.event.handler.PointerCore.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=PointerCore.js.map?dt=1591463669703
+//# sourceMappingURL=PointerCore.js.map?dt=1635064662486

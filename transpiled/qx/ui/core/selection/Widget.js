@@ -258,6 +258,14 @@
         return null;
       },
       // overridden
+      _getFirstVisibleSelectable: function _getFirstVisibleSelectable() {
+        return this._getFirstSelectable();
+      },
+      // overridden
+      _getLastVisibleSelectable: function _getLastVisibleSelectable() {
+        return this._getLastSelectable();
+      },
+      // overridden
       _getRelatedSelectable: function _getRelatedSelectable(item, relation) {
         var vertical = this.__P_247_0.getOrientation() === "vertical";
 
@@ -308,4 +316,4 @@
   qx.ui.core.selection.Widget.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Widget.js.map?dt=1591463672196
+//# sourceMappingURL=Widget.js.map?dt=1635064664857

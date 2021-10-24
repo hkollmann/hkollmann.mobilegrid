@@ -17,7 +17,9 @@
       "qx.ui.mobile.layout.CardAnimation": {
         "construct": true
       },
-      "qx.bom.client.CssTransform": {},
+      "qx.bom.client.CssTransform": {
+        "require": true
+      },
       "qx.bom.AnimationFrame": {},
       "qx.ui.mobile.core.MResize": {},
       "qx.event.Registration": {},
@@ -371,4 +373,4 @@
   qx.ui.mobile.layout.Card.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Card.js.map?dt=1591463659375
+//# sourceMappingURL=Card.js.map?dt=1635064652012

@@ -9,7 +9,9 @@
         "usage": "dynamic",
         "require": true
       },
-      "qx.bom.client.Css": {},
+      "qx.bom.client.Css": {
+        "require": true
+      },
       "qx.lang.Type": {},
       "qx.util.ColorUtil": {},
       "qx.theme.manager.Color": {}
@@ -419,4 +421,4 @@
   qx.ui.decoration.MLinearBackgroundGradient.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MLinearBackgroundGradient.js.map?dt=1591463665960
+//# sourceMappingURL=MLinearBackgroundGradient.js.map?dt=1635064658820

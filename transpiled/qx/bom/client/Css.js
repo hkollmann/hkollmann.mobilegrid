@@ -13,7 +13,9 @@
         "usage": "dynamic",
         "require": true
       },
-      "qx.bom.client.Engine": {},
+      "qx.bom.client.Engine": {
+        "require": true
+      },
       "qx.bom.client.Browser": {}
     },
     "environment": {
@@ -57,7 +59,7 @@
    */
   qx.Bootstrap.define("qx.bom.client.Css", {
     statics: {
-      __P_71_0: null,
+      __P_29_0: null,
 
       /**
        * Checks what box model is used in the current environment.
@@ -252,7 +254,7 @@
        * @internal
        */
       getLinearGradient: function getLinearGradient() {
-        qx.bom.client.Css.__P_71_0 = false;
+        qx.bom.client.Css.__P_29_0 = false;
         var value = "linear-gradient(0deg, #fff, #000)";
         var el = document.createElement("div");
         var style = qx.bom.Style.getAppliedStyle(el, "backgroundImage", value);
@@ -263,7 +265,7 @@
           var style = qx.bom.Style.getAppliedStyle(el, "backgroundImage", value, false);
 
           if (style) {
-            qx.bom.client.Css.__P_71_0 = true;
+            qx.bom.client.Css.__P_29_0 = true;
           }
         } // not supported
 
@@ -306,11 +308,11 @@
        * @internal
        */
       getLegacyWebkitGradient: function getLegacyWebkitGradient() {
-        if (qx.bom.client.Css.__P_71_0 === null) {
+        if (qx.bom.client.Css.__P_29_0 === null) {
           qx.bom.client.Css.getLinearGradient();
         }
 
-        return qx.bom.client.Css.__P_71_0;
+        return qx.bom.client.Css.__P_29_0;
       },
 
       /**
@@ -498,4 +500,4 @@
   qx.bom.client.Css.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Css.js.map?dt=1591463656450
+//# sourceMappingURL=Css.js.map?dt=1635064645746

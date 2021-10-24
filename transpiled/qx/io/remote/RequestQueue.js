@@ -1,6 +1,9 @@
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
+      "qx.bom.client.Transport": {
+        "require": true
+      },
       "qx.core.Environment": {
         "defer": "load",
         "usage": "dynamic",
@@ -19,9 +22,6 @@
       },
       "qx.event.Timer": {
         "construct": true
-      },
-      "qx.bom.client.Transport": {
-        "require": true
       },
       "qx.io.remote.Exchange": {},
       "qx.lang.Array": {},
@@ -70,6 +70,7 @@
    * NOTE: Instances of this class must be disposed of after use
    *
    * @internal
+   * @require(qx.bom.client.Transport)
    */
   qx.Class.define("qx.io.remote.RequestQueue", {
     type: "singleton",
@@ -442,4 +443,4 @@
   qx.io.remote.RequestQueue.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=RequestQueue.js.map?dt=1591463668412
+//# sourceMappingURL=RequestQueue.js.map?dt=1635064661191

@@ -12,8 +12,12 @@
       "qx.event.type.Dom": {
         "require": true
       },
-      "qx.bom.client.Browser": {},
-      "qx.bom.client.Engine": {},
+      "qx.bom.client.Browser": {
+        "require": true
+      },
+      "qx.bom.client.Engine": {
+        "require": true
+      },
       "qx.dom.Node": {},
       "qx.bom.Viewport": {}
     },
@@ -332,4 +336,4 @@
   qx.event.type.Mouse.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Mouse.js.map?dt=1591463669452
+//# sourceMappingURL=Mouse.js.map?dt=1635064662211

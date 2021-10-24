@@ -46,8 +46,12 @@
         "require": true
       },
       "qx.lang.Function": {},
-      "qx.bom.client.Engine": {},
-      "qx.bom.client.Browser": {},
+      "qx.bom.client.Engine": {
+        "require": true
+      },
+      "qx.bom.client.Browser": {
+        "require": true
+      },
       "qx.bom.Event": {},
       "qx.bom.client.Event": {},
       "qx.event.type.Pointer": {},
@@ -271,4 +275,4 @@
   qx.event.handler.Gesture.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Gesture.js.map?dt=1591463659890
+//# sourceMappingURL=Gesture.js.map?dt=1635064652538

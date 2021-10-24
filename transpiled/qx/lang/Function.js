@@ -12,7 +12,9 @@
         "usage": "dynamic",
         "require": true
       },
-      "qx.event.GlobalError": {}
+      "qx.event.GlobalError": {
+        "require": true
+      }
     },
     "environment": {
       "provided": [],
@@ -433,4 +435,4 @@
   qx.lang.Function.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Function.js.map?dt=1591463655266
+//# sourceMappingURL=Function.js.map?dt=1635064647773

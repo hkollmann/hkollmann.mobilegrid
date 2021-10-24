@@ -9,16 +9,27 @@
         "usage": "dynamic",
         "require": true
       },
-      "qx.bom.client.Engine": {},
-      "qx.bom.client.Browser": {},
-      "qx.bom.client.CssTransition": {},
+      "qx.bom.client.Event": {
+        "require": true
+      },
+      "qx.bom.client.Engine": {
+        "require": true
+      },
+      "qx.bom.client.Browser": {
+        "require": true
+      },
+      "qx.bom.client.CssTransition": {
+        "require": true
+      },
       "qx.bom.Style": {},
       "qx.lang.String": {}
     },
     "environment": {
       "provided": [],
       "required": {
-        "event.passive": {},
+        "event.passive": {
+          "className": "qx.bom.client.Event"
+        },
         "engine.name": {
           "className": "qx.bom.client.Engine"
         },
@@ -257,9 +268,9 @@
           return !target.dispatchEvent(evt);
         } // dispatch for IE
         else {
-            var evt = document.createEventObject();
-            return target.fireEvent("on" + type, evt);
-          }
+          var evt = document.createEventObject();
+          return target.fireEvent("on" + type, evt);
+        }
       },
 
       /**
@@ -354,4 +365,4 @@
   qx.bom.Event.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Event.js.map?dt=1591463658437
+//# sourceMappingURL=Event.js.map?dt=1635064651005

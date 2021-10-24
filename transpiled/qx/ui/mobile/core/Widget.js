@@ -31,7 +31,9 @@
       "qx.ui.mobile.core.DomUpdatedHandler": {},
       "qx.dom.Element": {},
       "qx.lang.Array": {},
-      "qx.bom.client.CssTransform": {},
+      "qx.bom.client.CssTransform": {
+        "require": true
+      },
       "qx.bom.element.Style": {},
       "qx.bom.element.Attribute": {},
       "qx.bom.element.Class": {},
@@ -1519,4 +1521,4 @@
   qx.ui.mobile.core.Widget.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Widget.js.map?dt=1591463658814
+//# sourceMappingURL=Widget.js.map?dt=1635064651411

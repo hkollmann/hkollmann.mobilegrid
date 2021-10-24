@@ -27,7 +27,7 @@
       },
       "qx.bom.client.Engine": {
         "construct": true,
-        "defer": "runtime",
+        "defer": "load",
         "require": true
       },
       "qx.event.Registration": {
@@ -501,14 +501,14 @@
           return this._fireSequenceEvent(domEvent, eventType, keyIdentifier);
         } // Use: charCode
         else {
-            keyIdentifier = qx.event.util.Keyboard.charCodeToIdentifier(charCode);
-            var tracker = {};
-            var self = this;
-            qx.event.Utils.track(tracker, this._fireSequenceEvent(domEvent, "keypress", keyIdentifier));
-            return qx.event.Utils.then(tracker, function () {
-              return self._fireInputEvent(domEvent, charCode);
-            });
-          }
+          keyIdentifier = qx.event.util.Keyboard.charCodeToIdentifier(charCode);
+          var tracker = {};
+          var self = this;
+          qx.event.Utils.track(tracker, this._fireSequenceEvent(domEvent, "keypress", keyIdentifier));
+          return qx.event.Utils.then(tracker, function () {
+            return self._fireInputEvent(domEvent, charCode);
+          });
+        }
       },
 
       /*
@@ -588,4 +588,4 @@
   qx.event.handler.Keyboard.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Keyboard.js.map?dt=1591463659976
+//# sourceMappingURL=Keyboard.js.map?dt=1635064652612

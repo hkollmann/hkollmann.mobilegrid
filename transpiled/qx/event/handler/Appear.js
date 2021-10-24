@@ -24,8 +24,12 @@
         "require": true
       },
       "qx.core.ObjectRegistry": {},
-      "qx.bom.client.Engine": {},
-      "qx.bom.client.Browser": {},
+      "qx.bom.client.Engine": {
+        "require": true
+      },
+      "qx.bom.client.Browser": {
+        "require": true
+      },
       "qx.event.Utils": {}
     },
     "environment": {
@@ -234,4 +238,4 @@
   qx.event.handler.Appear.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Appear.js.map?dt=1591463660499
+//# sourceMappingURL=Appear.js.map?dt=1635064653194

@@ -11,7 +11,9 @@
       },
       "qx.lang.Type": {},
       "qx.lang.Function": {},
-      "qx.event.GlobalError": {},
+      "qx.event.GlobalError": {
+        "require": true
+      },
       "qx.bom.client.Engine": {}
     },
     "environment": {
@@ -338,4 +340,4 @@
   qx.io.ImageLoader.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=ImageLoader.js.map?dt=1591463666609
+//# sourceMappingURL=ImageLoader.js.map?dt=1635064659515

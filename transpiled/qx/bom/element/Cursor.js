@@ -11,10 +11,12 @@
       },
       "qx.bom.element.Style": {},
       "qx.bom.client.Engine": {
-        "defer": "runtime"
+        "defer": "load",
+        "require": true
       },
       "qx.bom.client.Browser": {
-        "defer": "runtime"
+        "defer": "load",
+        "require": true
       }
     },
     "environment": {
@@ -125,4 +127,4 @@
   qx.bom.element.Cursor.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Cursor.js.map?dt=1591463659475
+//# sourceMappingURL=Cursor.js.map?dt=1635064652132

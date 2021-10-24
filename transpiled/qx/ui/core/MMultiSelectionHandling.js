@@ -418,4 +418,4 @@
   qx.ui.core.MMultiSelectionHandling.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MMultiSelectionHandling.js.map?dt=1591463666930
+//# sourceMappingURL=MMultiSelectionHandling.js.map?dt=1635064659811

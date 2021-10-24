@@ -58,4 +58,4 @@
   hkollmann.mobilegrid.demo.Application.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Application.js.map?dt=1591463649713
+//# sourceMappingURL=Application.js.map?dt=1635064641155

@@ -19,7 +19,8 @@
       },
       "qx.bom.client.Engine": {
         "construct": true,
-        "defer": "runtime"
+        "defer": "load",
+        "require": true
       },
       "qx.bom.Iframe": {
         "construct": true
@@ -606,4 +607,4 @@
   qx.io.remote.transport.Iframe.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Iframe.js.map?dt=1591463672855
+//# sourceMappingURL=Iframe.js.map?dt=1635064665518

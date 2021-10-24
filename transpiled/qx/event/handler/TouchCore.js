@@ -20,10 +20,16 @@
         "require": true
       },
       "qx.lang.Function": {},
-      "qx.bom.client.Event": {},
-      "qx.bom.client.Engine": {},
+      "qx.bom.client.Event": {
+        "require": true
+      },
+      "qx.bom.client.Engine": {
+        "require": true
+      },
       "qx.bom.Event": {},
-      "qx.bom.client.Browser": {},
+      "qx.bom.client.Browser": {
+        "require": true
+      },
       "qx.bom.element.Style": {}
     },
     "environment": {
@@ -479,4 +485,4 @@
   qx.event.handler.TouchCore.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=TouchCore.js.map?dt=1591463669557
+//# sourceMappingURL=TouchCore.js.map?dt=1635064662310

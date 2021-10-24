@@ -29,7 +29,9 @@
         "defer": "runtime",
         "require": true
       },
-      "qx.bom.client.Browser": {},
+      "qx.bom.client.Browser": {
+        "require": true
+      },
       "qx.bom.Event": {},
       "qx.event.type.Data": {},
       "qx.event.GlobalError": {
@@ -546,4 +548,4 @@
   qx.event.handler.Input.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Input.js.map?dt=1591463665032
+//# sourceMappingURL=Input.js.map?dt=1635064657913

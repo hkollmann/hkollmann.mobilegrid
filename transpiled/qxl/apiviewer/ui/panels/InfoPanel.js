@@ -36,7 +36,9 @@
       "qx.Promise": {},
       "qxl.apiviewer.UiModel": {},
       "qxl.apiviewer.dao.ClassItem": {},
-      "qx.bom.client.Engine": {}
+      "qx.bom.client.Engine": {
+        "require": true
+      }
     },
     "environment": {
       "provided": [],
@@ -1305,4 +1307,4 @@
   qxl.apiviewer.ui.panels.InfoPanel.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=InfoPanel.js.map?dt=1591463671658
+//# sourceMappingURL=InfoPanel.js.map?dt=1635064664372

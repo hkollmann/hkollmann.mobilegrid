@@ -13,7 +13,9 @@
         "require": true
       },
       "qx.bom.element.Decoration": {},
-      "qx.bom.client.Engine": {}
+      "qx.bom.client.Engine": {
+        "require": true
+      }
     },
     "environment": {
       "provided": [],
@@ -225,4 +227,4 @@
   qx.html.Image.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Image.js.map?dt=1591463666647
+//# sourceMappingURL=Image.js.map?dt=1635064659547

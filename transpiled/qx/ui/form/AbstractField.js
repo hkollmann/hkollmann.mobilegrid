@@ -23,14 +23,19 @@
       "qx.ui.form.MForm": {
         "require": true
       },
-      "qx.bom.client.Engine": {},
-      "qx.bom.client.Browser": {},
+      "qx.bom.client.Engine": {
+        "require": true
+      },
+      "qx.bom.client.Browser": {
+        "require": true
+      },
       "qx.theme.manager.Color": {},
       "qx.ui.style.Stylesheet": {
         "defer": "runtime"
       },
       "qx.bom.client.Css": {
-        "construct": true
+        "construct": true,
+        "require": true
       },
       "qx.locale.Manager": {
         "construct": true,
@@ -44,8 +49,8 @@
       "qx.html.Element": {},
       "qx.bom.Label": {},
       "qx.ui.core.queue.Layout": {},
-      "qx.event.type.Data": {},
       "qx.lang.Type": {},
+      "qx.event.type.Data": {},
       "qx.html.Label": {},
       "qx.bom.Stylesheet": {}
     },
@@ -257,6 +262,17 @@
       liveUpdate: {
         check: "Boolean",
         init: false
+      },
+
+      /**
+       * Fire a {@link #changeValue} event whenever the content of the
+       * field matches the given regular expression. Accepts both regular
+       * expression objects as well as strings for input.
+       */
+      liveUpdateOnRxMatch: {
+        check: "RegExp",
+        transform: "_string2RegExp",
+        init: null
       },
 
       /**
@@ -524,6 +540,14 @@
           this.getContentElement().removeAttribute("maxLength");
         }
       },
+      // property transform
+      _string2RegExp: function _string2RegExp(value, old) {
+        if (qx.lang.Type.isString(value)) {
+          value = new RegExp(value);
+        }
+
+        return value;
+      },
       // overridden
       tabFocus: function tabFocus() {
         qx.ui.form.AbstractField.prototype.tabFocus.base.call(this);
@@ -578,6 +602,13 @@
 
           if (this.getLiveUpdate()) {
             this.__P_185_9(value);
+          } // check for the liveUpdateOnRxMatch change event
+          else {
+            var fireRx = this.getLiveUpdateOnRxMatch();
+
+            if (fireRx && value.match(fireRx)) {
+              this.__P_185_9(value);
+            }
           }
         }
       },
@@ -1021,4 +1052,4 @@
   qx.ui.form.AbstractField.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=AbstractField.js.map?dt=1591463667237
+//# sourceMappingURL=AbstractField.js.map?dt=1635064660068

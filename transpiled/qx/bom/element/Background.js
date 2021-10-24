@@ -9,7 +9,9 @@
         "usage": "dynamic",
         "require": true
       },
-      "qx.bom.client.Engine": {},
+      "qx.bom.client.Engine": {
+        "require": true
+      },
       "qx.util.ResourceManager": {}
     },
     "environment": {
@@ -191,4 +193,4 @@
   qx.bom.element.Background.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Background.js.map?dt=1591463670280
+//# sourceMappingURL=Background.js.map?dt=1635064663058

@@ -15,7 +15,9 @@
       "qx.ui.decoration.MBackgroundImage": {
         "require": true
       },
-      "qx.bom.client.Css": {},
+      "qx.bom.client.Css": {
+        "require": true
+      },
       "qx.theme.manager.Color": {},
       "qx.bom.Style": {},
       "qx.util.ColorUtil": {}
@@ -354,4 +356,4 @@
   qx.ui.decoration.MDoubleBorder.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MDoubleBorder.js.map?dt=1591463665900
+//# sourceMappingURL=MDoubleBorder.js.map?dt=1635064658764

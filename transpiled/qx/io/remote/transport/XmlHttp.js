@@ -23,7 +23,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       },
       "qx.xml.Document": {},
       "qx.lang.Function": {},
-      "qx.bom.client.Browser": {},
+      "qx.bom.client.Browser": {
+        "require": true
+      },
       "qx.event.Timer": {},
       "qx.event.GlobalError": {
         "usage": "dynamic",
@@ -848,4 +850,4 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   qx.io.remote.transport.XmlHttp.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=XmlHttp.js.map?dt=1591463673004
+//# sourceMappingURL=XmlHttp.js.map?dt=1635064665673

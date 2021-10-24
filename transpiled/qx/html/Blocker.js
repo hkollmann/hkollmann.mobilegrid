@@ -18,7 +18,8 @@
         "construct": true
       },
       "qx.bom.client.Engine": {
-        "construct": true
+        "construct": true,
+        "require": true
       },
       "qx.util.ResourceManager": {
         "construct": true
@@ -128,4 +129,4 @@
   qx.html.Blocker.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Blocker.js.map?dt=1591463668576
+//# sourceMappingURL=Blocker.js.map?dt=1635064661361

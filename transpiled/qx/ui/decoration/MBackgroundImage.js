@@ -12,8 +12,12 @@
       "qx.lang.Type": {},
       "qx.util.AliasManager": {},
       "qx.util.ResourceManager": {},
-      "qx.bom.client.Engine": {},
-      "qx.bom.client.Browser": {}
+      "qx.bom.client.Engine": {
+        "require": true
+      },
+      "qx.bom.client.Browser": {
+        "require": true
+      }
     },
     "environment": {
       "provided": [],
@@ -220,4 +224,4 @@
   qx.ui.decoration.MBackgroundImage.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MBackgroundImage.js.map?dt=1591463670143
+//# sourceMappingURL=MBackgroundImage.js.map?dt=1635064662913

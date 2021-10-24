@@ -10,7 +10,9 @@
         "require": true
       },
       "qx.bom.element.Style": {},
-      "qx.bom.client.Scroll": {}
+      "qx.bom.client.Scroll": {
+        "require": true
+      }
     },
     "environment": {
       "provided": [],
@@ -152,4 +154,4 @@
   qx.ui.mobile.core.MResize.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MResize.js.map?dt=1591463664177
+//# sourceMappingURL=MResize.js.map?dt=1635064656952

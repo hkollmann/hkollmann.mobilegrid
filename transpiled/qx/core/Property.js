@@ -896,7 +896,7 @@
           code.push('}');
 
           if (true && (!config.check || config.check != "qx.Promise")) {
-            code.push('var promise;', 'if (value instanceof qx.Promise) ', 'promise = value.then(set.bind(this));', 'else ', 'promise = set.apply(this, arguments);');
+            code.push('var promise;', 'if (value instanceof qx.Promise || value instanceof Promise) ', 'promise = value.then(set.bind(this));', 'else ', 'promise = set.apply(this, arguments);');
 
             if (variant == "setImpl") {
               code.push("return promise;");
@@ -1173,24 +1173,24 @@
           // the themed value, so the themed value has no chance to ever get used,
           // when there is an user value, too.
           else if (variant === "setThemed") {
-              code.push('computed=this.', this.$$store.theme[name], '=value;');
-            } else if (variant === "resetThemed") {
-              // Delete entry
-              code.push('delete this.', this.$$store.theme[name], ';'); // Fallback to init value
+            code.push('computed=this.', this.$$store.theme[name], '=value;');
+          } else if (variant === "resetThemed") {
+            // Delete entry
+            code.push('delete this.', this.$$store.theme[name], ';'); // Fallback to init value
 
-              code.push('if(this.', this.$$store.init[name], '!==undefined){');
-              code.push('computed=this.', this.$$store.init[name], ';');
-              code.push('this.', this.$$store.useinit[name], '=true;');
-              code.push('}');
-            } else if (variant === "init") {
-              if (incomingValue) {
-                code.push('this.', this.$$store.init[name], '=value;');
-              }
-
-              code.push('computed=this.', this.$$store.theme[name], ';');
-            } else if (variant === "refresh") {
-              code.push('computed=this.', this.$$store.theme[name], ';');
+            code.push('if(this.', this.$$store.init[name], '!==undefined){');
+            code.push('computed=this.', this.$$store.init[name], ';');
+            code.push('this.', this.$$store.useinit[name], '=true;');
+            code.push('}');
+          } else if (variant === "init") {
+            if (incomingValue) {
+              code.push('this.', this.$$store.init[name], '=value;');
             }
+
+            code.push('computed=this.', this.$$store.theme[name], ';');
+          } else if (variant === "refresh") {
+            code.push('computed=this.', this.$$store.theme[name], ';');
+          }
 
           code.push('}');
         } // OLD = INIT VALUE
@@ -1209,18 +1209,18 @@
         // higher priority than the init value, so the init value has no chance to ever get used,
         // when there is an user or themed value, too.
         else if (variant === "setImpl" || variant === "setRuntime" || variant === "setThemed" || variant === "refresh") {
-            code.push('delete this.', this.$$store.useinit[name], ';');
+          code.push('delete this.', this.$$store.useinit[name], ';');
 
-            if (variant === "setRuntime") {
-              code.push('computed=this.', this.$$store.runtime[name], '=value;');
-            } else if (variant === "setImpl") {
-              code.push('computed=this.', this.$$store.user[name], '=value;');
-            } else if (variant === "setThemed") {
-              code.push('computed=this.', this.$$store.theme[name], '=value;');
-            } else if (variant === "refresh") {
-              code.push('computed=this.', this.$$store.init[name], ';');
-            }
+          if (variant === "setRuntime") {
+            code.push('computed=this.', this.$$store.runtime[name], '=value;');
+          } else if (variant === "setImpl") {
+            code.push('computed=this.', this.$$store.user[name], '=value;');
+          } else if (variant === "setThemed") {
+            code.push('computed=this.', this.$$store.theme[name], '=value;');
+          } else if (variant === "refresh") {
+            code.push('computed=this.', this.$$store.init[name], ';');
           }
+        }
 
         code.push('}'); // OLD = NONE
         // reset(), resetRuntime() and resetStyle() are impossible because otherwise there
@@ -1374,7 +1374,7 @@
        */
       __P_15_26: function __P_15_26(code, config, name, variant, refresh) {
         // Execute user configured setter
-        code.push('var promise;');
+        code.push("var self=this;", 'var promise;');
 
         if (config.apply) {
           code.push('promise = this.', config.apply, '(computed, old, "', name, '", "', variant, '");');
@@ -1384,12 +1384,12 @@
           code.push("function fire() {", "var promiseData = qx.Promise.resolve(computed);", "var promise = promiseData;"); // Fire event
 
           if (config.event) {
-            code.push("var reg=qx.event.Registration;", "if(reg.hasListener(this, '", config.event, "')) {", "promise = reg.fireEventAsync(this, '", config.event, "', qx.event.type.Data, [computed, old]", ");", "promise = promise.then(function() { return computed; });", "}", "if(reg.hasListener(this, '", config.event, "Async'))", "promise = promise.then(function() {", "return reg.fireEventAsync(this, '", config.event, "Async', qx.event.type.Data, [promiseData, old]", ");", "}, this);");
+            code.push("var reg=qx.event.Registration;", "if(reg.hasListener(self, '", config.event, "')) {", "promise = reg.fireEventAsync(self, '", config.event, "', qx.event.type.Data, [computed, old]", ");", "promise = promise.then(function() { return computed; });", "}", "if(reg.hasListener(self, '", config.event, "Async'))", "promise = promise.then(function() {", "return reg.fireEventAsync(self, '", config.event, "Async', qx.event.type.Data, [promiseData, old]", ");", "});");
           } // Emit code to update the inherited values of child objects
 
 
           if (refresh) {
-            code.push('var a=this._getChildren();', 'if(a)', 'for(var i=0,l=a.length;i<l;i++){', 'if(a[i].', this.$$method.refresh[name], ')', 'a[i].', this.$$method.refresh[name], '(backup);', '}');
+            code.push('var a=self._getChildren();', 'if(a)', 'for(var i=0,l=a.length;i<l;i++){', 'if(a[i].', this.$$method.refresh[name], ')', 'a[i].', this.$$method.refresh[name], '(backup);', '}');
           }
 
           code.push("return promise;", "}");
@@ -1397,28 +1397,28 @@
           code.push("function fire() {", "  var tracker={};"); // Fire event
 
           if (config.event) {
-            code.push("var reg=qx.event.Registration;", "if(reg.hasListener(this, '", config.event, "'))", "qx.event.Utils.track(tracker, reg.fireEvent(this, '", config.event, "', qx.event.type.Data, [computed, old]", "));");
+            code.push("var reg=qx.event.Registration;", "if(reg.hasListener(self, '", config.event, "'))", "qx.event.Utils.track(tracker, reg.fireEvent(self, '", config.event, "', qx.event.type.Data, [computed, old]", "));");
             {
-              code.push("if(reg.hasListener(this, '", config.event, "Async'))", "qx.event.Utils.then(tracker, function() {\n  return reg.fireEventAsync(this, '", config.event, "Async', qx.event.type.Data, [qx.Promise.resolve(computed), old]", ");\n});");
+              code.push("if(reg.hasListener(self, '", config.event, "Async'))", "qx.event.Utils.then(tracker, function() {\n  return reg.fireEventAsync(self, '", config.event, "Async', qx.event.type.Data, [qx.Promise.resolve(computed), old]", ");\n});");
             }
           } // Emit code to update the inherited values of child objects
 
 
           if (refresh) {
-            code.push('var a=this._getChildren();', 'if(a)', 'for(var i=0,l=a.length;i<l;i++){', 'if(a[i].', this.$$method.refresh[name], ')', 'a[i].', this.$$method.refresh[name], '(backup);', '}');
+            code.push('var a=self._getChildren();', 'if(a)', 'for(var i=0,l=a.length;i<l;i++){', 'if(a[i].', this.$$method.refresh[name], ')', 'a[i].', this.$$method.refresh[name], '(backup);', '}');
           }
 
           code.push("if (tracker.promise)\n", "  return tracker.promise.then(function() { return computed; });", "return computed;", "}");
         }
 
         {
-          code.push("if(promise instanceof qx.Promise) return promise.then(fire, this); ");
+          code.push("if(promise instanceof qx.Promise || promise instanceof Promise) return promise.then(fire); ");
         }
-        code.push("return fire.call(this);");
+        code.push("return fire();");
       }
     }
   });
   qx.core.Property.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Property.js.map?dt=1591463652459
+//# sourceMappingURL=Property.js.map?dt=1635064644617

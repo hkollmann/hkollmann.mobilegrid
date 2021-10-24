@@ -86,16 +86,16 @@
     construct: function construct(manager) {
       qx.core.Object.constructor.call(this); // Define shorthands
 
-      this.__P_37_0 = manager;
-      this.__P_37_1 = manager.getWindow().document.documentElement; // Initialize listener
+      this.__P_38_0 = manager;
+      this.__P_38_1 = manager.getWindow().document.documentElement; // Initialize listener
 
-      this.__P_37_0.addListener(this.__P_37_1, "longtap", this._onLongtap, this);
+      this.__P_38_0.addListener(this.__P_38_1, "longtap", this._onLongtap, this);
 
-      this.__P_37_0.addListener(this.__P_37_1, "pointerdown", this._onPointerdown, this, true);
+      this.__P_38_0.addListener(this.__P_38_1, "pointerdown", this._onPointerdown, this, true);
 
       qx.event.Registration.addListener(window, "blur", this._onWindowBlur, this); // Initialize data structures
 
-      this.__P_37_2();
+      this.__P_38_2();
     },
 
     /*
@@ -152,21 +152,21 @@
     *****************************************************************************
     */
     members: {
-      __P_37_0: null,
-      __P_37_1: null,
-      __P_37_3: null,
-      __P_37_4: null,
-      __P_37_5: null,
-      __P_37_6: null,
-      __P_37_7: null,
-      __P_37_8: null,
-      __P_37_9: null,
-      __P_37_10: null,
-      __P_37_11: false,
-      __P_37_12: false,
-      __P_37_13: false,
-      __P_37_14: null,
-      __P_37_15: null,
+      __P_38_0: null,
+      __P_38_1: null,
+      __P_38_3: null,
+      __P_38_4: null,
+      __P_38_5: null,
+      __P_38_6: null,
+      __P_38_7: null,
+      __P_38_8: null,
+      __P_38_9: null,
+      __P_38_10: null,
+      __P_38_11: false,
+      __P_38_12: false,
+      __P_38_13: false,
+      __P_38_14: null,
+      __P_38_15: null,
 
       /*
       ---------------------------------------------------------------------------
@@ -194,7 +194,7 @@
        * @param type {String} The type to add
        */
       addType: function addType(type) {
-        this.__P_37_5[type] = true;
+        this.__P_38_5[type] = true;
       },
 
       /**
@@ -204,7 +204,7 @@
        * @param action {String} The action to add
        */
       addAction: function addAction(action) {
-        this.__P_37_6[action] = true;
+        this.__P_38_6[action] = true;
       },
 
       /**
@@ -214,7 +214,7 @@
        * @return {Boolean} Whether the type is supported
        */
       supportsType: function supportsType(type) {
-        return !!this.__P_37_5[type];
+        return !!this.__P_38_5[type];
       },
 
       /**
@@ -224,7 +224,7 @@
        * @return {Boolean} Whether the action is supported
        */
       supportsAction: function supportsAction(type) {
-        return !!this.__P_37_6[type];
+        return !!this.__P_38_6[type];
       },
 
       /**
@@ -233,9 +233,9 @@
        * @param isAllowed {Boolean} False if a drop should be disallowed
        */
       setDropAllowed: function setDropAllowed(isAllowed) {
-        this.__P_37_12 = isAllowed;
+        this.__P_38_12 = isAllowed;
 
-        this.__P_37_16();
+        this.__P_38_16();
       },
 
       /**
@@ -251,25 +251,25 @@
        * @return {var} The result data in a promise
        */
       getData: function getData(type) {
-        if (!this.__P_37_12 || !this.__P_37_3) {
+        if (!this.__P_38_12 || !this.__P_38_3) {
           throw new Error("This method must not be used outside the drop event listener!");
         }
 
-        if (!this.__P_37_5[type]) {
+        if (!this.__P_38_5[type]) {
           throw new Error("Unsupported data type: " + type + "!");
         }
 
-        if (!this.__P_37_8[type]) {
-          this.__P_37_9 = type;
+        if (!this.__P_38_8[type]) {
+          this.__P_38_9 = type;
 
-          this.__P_37_17("droprequest", this.__P_37_4, this.__P_37_3, false, false);
+          this.__P_38_17("droprequest", this.__P_38_4, this.__P_38_3, false, false);
         }
 
-        if (!this.__P_37_8[type]) {
+        if (!this.__P_38_8[type]) {
           throw new Error("Please use a droprequest listener to the drag source to fill the manager with data!");
         }
 
-        return this.__P_37_8[type] || null;
+        return this.__P_38_8[type] || null;
       },
 
       /**
@@ -281,30 +281,30 @@
        * @return {qx.Promise} The result data in a promise
        */
       getDataAsync: function getDataAsync(type) {
-        if (!this.__P_37_12 || !this.__P_37_3) {
+        if (!this.__P_38_12 || !this.__P_38_3) {
           throw new Error("This method must not be used outside the drop event listener!");
         }
 
-        if (!this.__P_37_5[type]) {
+        if (!this.__P_38_5[type]) {
           throw new Error("Unsupported data type: " + type + "!");
         }
 
         var tracker = {};
         var self = this;
 
-        if (!this.__P_37_8[type]) {
+        if (!this.__P_38_8[type]) {
           qx.event.Utils.then(tracker, function () {
-            self.__P_37_9 = type;
-            return self.__P_37_17("droprequest", self.__P_37_4, self.__P_37_3, false);
+            self.__P_38_9 = type;
+            return self.__P_38_17("droprequest", self.__P_38_4, self.__P_38_3, false);
           });
         }
 
         return qx.event.Utils.then(tracker, function () {
-          if (!this.__P_37_8[type]) {
+          if (!this.__P_38_8[type]) {
             throw new Error("Please use a droprequest listener to the drag source to fill the manager with data!");
           }
 
-          return this.__P_37_8[type] || null;
+          return this.__P_38_8[type] || null;
         });
       },
 
@@ -315,9 +315,9 @@
        *    <code>alias</code>
        */
       getCurrentAction: function getCurrentAction() {
-        this.__P_37_16();
+        this.__P_38_16();
 
-        return this.__P_37_10;
+        return this.__P_38_10;
       },
 
       /**
@@ -328,8 +328,8 @@
        */
       getCurrentActionAsync: function getCurrentActionAsync() {
         var self = this;
-        return qx.Promise.resolve(self.__P_37_16()).then(function () {
-          return self.__P_37_10;
+        return qx.Promise.resolve(self.__P_38_16()).then(function () {
+          return self.__P_38_10;
         });
       },
 
@@ -338,7 +338,7 @@
        * @return {qx.ui.core.Widget} The widget on which the drag started.
        */
       getDragTarget: function getDragTarget() {
-        return this.__P_37_14;
+        return this.__P_38_14;
       },
 
       /**
@@ -349,7 +349,7 @@
        * @param data {var} Any data to store
        */
       addData: function addData(type, data) {
-        this.__P_37_8[type] = data;
+        this.__P_38_8[type] = data;
       },
 
       /**
@@ -358,7 +358,7 @@
        * @return {String} The last requested data type
        */
       getCurrentType: function getCurrentType() {
-        return this.__P_37_9;
+        return this.__P_38_9;
       },
 
       /**
@@ -367,7 +367,7 @@
        * @return {Boolean} active drag session
        */
       isSessionActive: function isSessionActive() {
-        return this.__P_37_11;
+        return this.__P_38_11;
       },
 
       /*
@@ -379,11 +379,11 @@
       /**
        * Rebuilds the internal data storage used during a drag&drop session
        */
-      __P_37_2: function __P_37_2() {
-        this.__P_37_5 = {};
-        this.__P_37_6 = {};
-        this.__P_37_7 = {};
-        this.__P_37_8 = {};
+      __P_38_2: function __P_38_2() {
+        this.__P_38_5 = {};
+        this.__P_38_6 = {};
+        this.__P_38_7 = {};
+        this.__P_38_8 = {};
       },
 
       /**
@@ -393,18 +393,18 @@
        *
        * @return {qx.Promise|null}
        */
-      __P_37_16: function __P_37_16() {
-        if (this.__P_37_4 == null) {
+      __P_38_16: function __P_38_16() {
+        if (this.__P_38_4 == null) {
           {
             return qx.Promise.reject();
           }
         }
 
-        var actions = this.__P_37_6;
-        var keys = this.__P_37_7;
+        var actions = this.__P_38_6;
+        var keys = this.__P_38_7;
         var current = null;
 
-        if (this.__P_37_12) {
+        if (this.__P_38_12) {
           if (keys.Shift && keys.Control && actions.alias) {
             current = "alias";
           } else if (keys.Shift && keys.Alt && actions.copy) {
@@ -426,20 +426,20 @@
 
         var self = this;
         var tracker = {};
-        var old = this.__P_37_10;
+        var old = this.__P_38_10;
 
         if (current != old) {
-          if (this.__P_37_3) {
+          if (this.__P_38_3) {
             qx.event.Utils["catch"](function () {
-              self.__P_37_13 = false;
+              self.__P_38_13 = false;
               current = null;
             });
             qx.event.Utils.then(tracker, function () {
-              self.__P_37_10 = current;
-              return self.__P_37_17("dragchange", self.__P_37_3, self.__P_37_4, true);
+              self.__P_38_10 = current;
+              return self.__P_38_17("dragchange", self.__P_38_3, self.__P_38_4, true);
             });
             qx.event.Utils.then(tracker, function (validAction) {
-              self.__P_37_13 = validAction;
+              self.__P_38_13 = validAction;
 
               if (!validAction) {
                 current = null;
@@ -450,8 +450,8 @@
 
         return qx.event.Utils.then(tracker, function () {
           if (current != old) {
-            self.__P_37_10 = current;
-            return self.__P_37_17("dragchange", self.__P_37_4, self.__P_37_3, false);
+            self.__P_38_10 = current;
+            return self.__P_38_17("dragchange", self.__P_38_4, self.__P_38_3, false);
           }
         });
       },
@@ -469,7 +469,7 @@
        * @return {qx.Promise|Boolean} <code>true</code> if the event's default behavior was
        * not prevented
        */
-      __P_37_17: function __P_37_17(type, target, relatedTarget, cancelable, original, async) {
+      __P_38_17: function __P_38_17(type, target, relatedTarget, cancelable, original, async) {
         var Registration = qx.event.Registration;
         var dragEvent = Registration.createEvent(type, qx.event.type.Drag, [cancelable, original]);
 
@@ -497,7 +497,7 @@
        * @param elem {Element} The element to query
        * @return {Element} The next parent element which is draggable. May also be <code>null</code>
        */
-      __P_37_18: function __P_37_18(elem) {
+      __P_38_18: function __P_38_18(elem) {
         while (elem && elem.nodeType == 1) {
           if (elem.getAttribute("qxDraggable") == "on") {
             return elem;
@@ -517,7 +517,7 @@
        * @param elem {Element} The element to query
        * @return {Element} The next parent element which is droppable. May also be <code>null</code>
        */
-      __P_37_19: function __P_37_19(elem) {
+      __P_38_19: function __P_38_19(elem) {
         while (elem && elem.nodeType == 1) {
           if (elem.getAttribute("qxDroppable") == "on") {
             return elem;
@@ -537,45 +537,45 @@
       clearSession: function clearSession() {
         //this.debug("clearSession");
         // Deregister from root events
-        this.__P_37_0.removeListener(this.__P_37_1, "pointermove", this._onPointermove, this);
+        this.__P_38_0.removeListener(this.__P_38_1, "pointermove", this._onPointermove, this);
 
-        this.__P_37_0.removeListener(this.__P_37_1, "pointerup", this._onPointerup, this, true);
+        this.__P_38_0.removeListener(this.__P_38_1, "pointerup", this._onPointerup, this, true);
 
-        this.__P_37_0.removeListener(this.__P_37_1, "keydown", this._onKeyDown, this, true);
+        this.__P_38_0.removeListener(this.__P_38_1, "keydown", this._onKeyDown, this, true);
 
-        this.__P_37_0.removeListener(this.__P_37_1, "keyup", this._onKeyUp, this, true);
+        this.__P_38_0.removeListener(this.__P_38_1, "keyup", this._onKeyUp, this, true);
 
-        this.__P_37_0.removeListener(this.__P_37_1, "keypress", this._onKeyPress, this, true);
+        this.__P_38_0.removeListener(this.__P_38_1, "keypress", this._onKeyPress, this, true);
 
-        this.__P_37_0.removeListener(this.__P_37_1, "roll", this._onRoll, this, true);
+        this.__P_38_0.removeListener(this.__P_38_1, "roll", this._onRoll, this, true);
 
         var tracker = {};
         var self = this; // Fire dragend event
 
-        if (this.__P_37_4) {
+        if (this.__P_38_4) {
           qx.event.Utils.then(tracker, function () {
-            return self.__P_37_17("dragend", self.__P_37_4, self.__P_37_3, false);
+            return self.__P_38_17("dragend", self.__P_38_4, self.__P_38_3, false);
           });
         }
 
         return qx.event.Utils.then(tracker, function () {
           // Cleanup
-          self.__P_37_12 = false;
-          self.__P_37_3 = null;
+          self.__P_38_12 = false;
+          self.__P_38_3 = null;
 
-          if (self.__P_37_14) {
-            self.__P_37_14.removeState("drag");
+          if (self.__P_38_14) {
+            self.__P_38_14.removeState("drag");
 
-            self.__P_37_14 = null;
+            self.__P_38_14 = null;
           } // Clear init
           //self.debug("Clearing drag target");
 
 
-          self.__P_37_4 = null;
-          self.__P_37_11 = false;
-          self.__P_37_15 = null;
+          self.__P_38_4 = null;
+          self.__P_38_11 = false;
+          self.__P_38_15 = null;
 
-          self.__P_37_2();
+          self.__P_38_2();
         });
       },
 
@@ -597,7 +597,7 @@
         } // prevent scrolling
 
 
-        this.__P_37_0.addListener(this.__P_37_1, "roll", this._onRoll, this, true);
+        this.__P_38_0.addListener(this.__P_38_1, "roll", this._onRoll, this, true);
 
         return this._start(e);
       },
@@ -620,22 +620,22 @@
         // be created after the first start event
 
 
-        var target = this.__P_37_15 ? this.__P_37_15.target : e.getTarget();
+        var target = this.__P_38_15 ? this.__P_38_15.target : e.getTarget();
 
-        var draggable = this.__P_37_18(target);
+        var draggable = this.__P_38_18(target);
 
         if (draggable) {
           // This is the source target
           //this.debug("Setting dragtarget = " + draggable);
-          this.__P_37_4 = draggable;
-          var widgetOriginalTarget = qx.ui.core.Widget.getWidgetByElement(this.__P_37_15.original);
+          this.__P_38_4 = draggable;
+          var widgetOriginalTarget = qx.ui.core.Widget.getWidgetByElement(this.__P_38_15.original);
 
           while (widgetOriginalTarget && widgetOriginalTarget.isAnonymous()) {
             widgetOriginalTarget = widgetOriginalTarget.getLayoutParent();
           }
 
           if (widgetOriginalTarget) {
-            this.__P_37_14 = widgetOriginalTarget;
+            this.__P_38_14 = widgetOriginalTarget;
             widgetOriginalTarget.addState("drag");
           } // fire cancelable dragstart
 
@@ -644,10 +644,10 @@
           var tracker = {};
           qx.event.Utils["catch"](function () {
             //self.debug("dragstart FAILED, setting __sessionActive=false");
-            self.__P_37_11 = false;
+            self.__P_38_11 = false;
           });
           qx.event.Utils.then(tracker, function () {
-            return self.__P_37_17("dragstart", self.__P_37_4, self.__P_37_3, true, e);
+            return self.__P_38_17("dragstart", self.__P_38_4, self.__P_38_3, true, e);
           });
           return qx.event.Utils.then(tracker, function (validAction) {
             if (!validAction) {
@@ -655,13 +655,13 @@
             } //self.debug("dragstart ok, setting __sessionActive=true")
 
 
-            self.__P_37_0.addListener(self.__P_37_1, "keydown", self._onKeyDown, self, true);
+            self.__P_38_0.addListener(self.__P_38_1, "keydown", self._onKeyDown, self, true);
 
-            self.__P_37_0.addListener(self.__P_37_1, "keyup", self._onKeyUp, self, true);
+            self.__P_38_0.addListener(self.__P_38_1, "keyup", self._onKeyUp, self, true);
 
-            self.__P_37_0.addListener(self.__P_37_1, "keypress", self._onKeyPress, self, true);
+            self.__P_38_0.addListener(self.__P_38_1, "keypress", self._onKeyPress, self, true);
 
-            self.__P_37_11 = true;
+            self.__P_38_11 = true;
           });
         }
       },
@@ -672,16 +672,16 @@
        */
       _onPointerdown: function _onPointerdown(e) {
         if (e.isPrimary()) {
-          this.__P_37_15 = {
+          this.__P_38_15 = {
             target: e.getTarget(),
             original: e.getOriginalTarget(),
             left: e.getDocumentLeft(),
             top: e.getDocumentTop()
           };
 
-          this.__P_37_0.addListener(this.__P_37_1, "pointermove", this._onPointermove, this);
+          this.__P_38_0.addListener(this.__P_38_1, "pointermove", this._onPointermove, this);
 
-          this.__P_37_0.addListener(this.__P_37_1, "pointerup", this._onPointerup, this, true);
+          this.__P_38_0.addListener(this.__P_38_1, "pointerup", this._onPointerup, this, true);
         }
       },
 
@@ -703,7 +703,7 @@
           return self.clearSession();
         }); // start the drag session for mouse
 
-        if (!self.__P_37_11 && e.getPointerType() == "mouse") {
+        if (!self.__P_38_11 && e.getPointerType() == "mouse") {
           var delta = self._getDelta(e); // if the mouse moved a bit in any direction
 
 
@@ -719,7 +719,7 @@
 
         return qx.event.Utils.then(tracker, function () {
           // check if the session has been activated
-          if (!self.__P_37_11) {
+          if (!self.__P_38_11) {
             //self.debug("not active");
             return;
           }
@@ -727,7 +727,7 @@
           var tracker = {};
           qx.event.Utils.then(tracker, function () {
             //self.debug("active, firing drag");
-            return self.__P_37_17("drag", self.__P_37_4, self.__P_37_3, true, e);
+            return self.__P_38_17("drag", self.__P_38_4, self.__P_38_3, true, e);
           });
           qx.event.Utils.then(tracker, function (validAction) {
             if (!validAction) {
@@ -738,7 +738,7 @@
 
             var el = e.getTarget();
 
-            if (self.__P_37_15.target === el) {
+            if (self.__P_38_15.target === el) {
               // on touch devices the native events return wrong elements as target (its always the element where the dragging started)
               el = e.getNativeEvent().view.document.elementFromPoint(e.getDocumentLeft(), e.getDocumentTop());
             }
@@ -760,53 +760,53 @@
             }
 
             if (el !== cursorEl) {
-              var droppable = self.__P_37_19(el); // new drop target detected
+              var droppable = self.__P_38_19(el); // new drop target detected
 
 
-              if (droppable && droppable != self.__P_37_3) {
-                var dropLeaveTarget = self.__P_37_3;
-                self.__P_37_12 = true; // initial value should be true
+              if (droppable && droppable != self.__P_38_3) {
+                var dropLeaveTarget = self.__P_38_3;
+                self.__P_38_12 = true; // initial value should be true
 
-                self.__P_37_3 = droppable;
+                self.__P_38_3 = droppable;
                 var innerTracker = {};
                 qx.event.Utils["catch"](innerTracker, function () {
-                  self.__P_37_3 = null;
-                  self.__P_37_12 = false;
+                  self.__P_38_3 = null;
+                  self.__P_38_12 = false;
                 }); // fire dragleave for previous drop target
 
                 if (dropLeaveTarget) {
                   qx.event.Utils.then(innerTracker, function () {
-                    return self.__P_37_17("dragleave", dropLeaveTarget, self.__P_37_4, false, e);
+                    return self.__P_38_17("dragleave", dropLeaveTarget, self.__P_38_4, false, e);
                   });
                 }
 
                 qx.event.Utils.then(innerTracker, function () {
-                  return self.__P_37_17("dragover", droppable, self.__P_37_4, true, e);
+                  return self.__P_38_17("dragover", droppable, self.__P_38_4, true, e);
                 });
                 return qx.event.Utils.then(innerTracker, function (validDrop) {
-                  self.__P_37_12 = validDrop;
+                  self.__P_38_12 = validDrop;
                 });
               } // only previous drop target
-              else if (!droppable && self.__P_37_3) {
-                  var innerTracker = {};
-                  qx.event.Utils.then(innerTracker, function () {
-                    return self.__P_37_17("dragleave", self.__P_37_3, self.__P_37_4, false, e);
-                  });
-                  return qx.event.Utils.then(innerTracker, function () {
-                    self.__P_37_3 = null;
-                    self.__P_37_12 = false;
-                    return self.__P_37_16();
-                  });
-                }
+              else if (!droppable && self.__P_38_3) {
+                var innerTracker = {};
+                qx.event.Utils.then(innerTracker, function () {
+                  return self.__P_38_17("dragleave", self.__P_38_3, self.__P_38_4, false, e);
+                });
+                return qx.event.Utils.then(innerTracker, function () {
+                  self.__P_38_3 = null;
+                  self.__P_38_12 = false;
+                  return self.__P_38_16();
+                });
+              }
             }
           });
           return qx.event.Utils.then(tracker, function () {
             // Reevaluate current action
-            var keys = self.__P_37_7;
+            var keys = self.__P_38_7;
             keys.Control = e.isCtrlPressed();
             keys.Shift = e.isShiftPressed();
             keys.Alt = e.isAltPressed();
-            return self.__P_37_16();
+            return self.__P_38_16();
           });
         });
       },
@@ -820,13 +820,13 @@
        * @return {Map} containing the deltaX as x, and deltaY as y.
        */
       _getDelta: function _getDelta(e) {
-        if (!this.__P_37_15) {
+        if (!this.__P_38_15) {
           return null;
         }
 
-        var deltaX = e.getDocumentLeft() - this.__P_37_15.left;
+        var deltaX = e.getDocumentLeft() - this.__P_38_15.left;
 
-        var deltaY = e.getDocumentTop() - this.__P_37_15.top;
+        var deltaY = e.getDocumentTop() - this.__P_38_15.top;
 
         return {
           "x": deltaX,
@@ -846,15 +846,15 @@
         var tracker = {};
         var self = this; // Fire drop event in success case
 
-        if (this.__P_37_12 && this.__P_37_13) {
+        if (this.__P_38_12 && this.__P_38_13) {
           qx.event.Utils.then(tracker, function () {
-            return self.__P_37_17("drop", self.__P_37_3, self.__P_37_4, false, e);
+            return self.__P_38_17("drop", self.__P_38_3, self.__P_38_4, false, e);
           });
         }
 
         return qx.event.Utils.then(tracker, function () {
           // Stop event
-          if (e.getTarget() == self.__P_37_4) {
+          if (e.getTarget() == self.__P_38_4) {
             e.stopPropagation();
           } // Clean up
 
@@ -892,9 +892,9 @@
           case "Alt":
           case "Control":
           case "Shift":
-            if (!this.__P_37_7[iden]) {
-              this.__P_37_7[iden] = true;
-              return this.__P_37_16();
+            if (!this.__P_38_7[iden]) {
+              this.__P_38_7[iden] = true;
+              return this.__P_38_16();
             }
 
         }
@@ -912,9 +912,9 @@
           case "Alt":
           case "Control":
           case "Shift":
-            if (this.__P_37_7[iden]) {
-              this.__P_37_7[iden] = false;
-              return this.__P_37_16();
+            if (this.__P_38_7[iden]) {
+              this.__P_38_7[iden] = false;
+              return this.__P_38_16();
             }
 
         }
@@ -943,7 +943,7 @@
     destruct: function destruct() {
       qx.event.Registration.removeListener(window, "blur", this._onWindowBlur, this); // Clear fields
 
-      this.__P_37_4 = this.__P_37_3 = this.__P_37_0 = this.__P_37_1 = this.__P_37_5 = this.__P_37_6 = this.__P_37_7 = this.__P_37_8 = null;
+      this.__P_38_4 = this.__P_38_3 = this.__P_38_0 = this.__P_38_1 = this.__P_38_5 = this.__P_38_6 = this.__P_38_7 = this.__P_38_8 = null;
     },
 
     /*
@@ -958,4 +958,4 @@
   qx.event.handler.DragDrop.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=DragDrop.js.map?dt=1591463653834
+//# sourceMappingURL=DragDrop.js.map?dt=1635064646222

@@ -16,15 +16,23 @@
       "qx.bom.client.Device": {
         "require": true
       },
-      "qx.bom.client.Engine": {},
-      "qx.bom.client.Browser": {},
-      "qx.bom.client.Event": {},
+      "qx.bom.client.Engine": {
+        "require": true
+      },
+      "qx.bom.client.Browser": {
+        "require": true
+      },
+      "qx.bom.client.Event": {
+        "require": true
+      },
       "qx.bom.Event": {},
       "qx.bom.AnimationFrame": {},
       "qx.lang.Function": {},
       "qx.event.type.dom.Custom": {},
       "qx.util.Wheel": {},
-      "qx.bom.client.OperatingSystem": {},
+      "qx.bom.client.OperatingSystem": {
+        "require": true
+      },
       "qx.event.Timer": {}
     },
     "environment": {
@@ -975,4 +983,4 @@
   qx.event.handler.GestureCore.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=GestureCore.js.map?dt=1591463665517
+//# sourceMappingURL=GestureCore.js.map?dt=1635064658393
