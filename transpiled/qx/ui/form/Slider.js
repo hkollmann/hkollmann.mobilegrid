@@ -1034,4 +1034,4 @@
   qx.ui.form.Slider.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Slider.js.map?dt=1645800092448
+//# sourceMappingURL=Slider.js.map?dt=1645800271568

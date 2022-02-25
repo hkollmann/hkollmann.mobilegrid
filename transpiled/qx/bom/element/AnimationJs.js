@@ -580,4 +580,4 @@
   qx.bom.element.AnimationJs.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=AnimationJs.js.map?dt=1645800089225
+//# sourceMappingURL=AnimationJs.js.map?dt=1645800268843
