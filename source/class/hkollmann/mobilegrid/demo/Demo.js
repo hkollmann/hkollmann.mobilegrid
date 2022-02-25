@@ -23,30 +23,32 @@
  * demo class for mobile grid
  */
 qx.Class.define("hkollmann.mobilegrid.demo.Demo", {
-  extend : qx.ui.mobile.page.NavigationPage,
-  include : [qx.locale.MTranslation],
-  construct : function() {
-    this.base(arguments);
+  extend: qx.ui.mobile.page.NavigationPage,
+  include: [qx.locale.MTranslation],
+  construct() {
+    super();
     this.setTitle(this.tr("Simple Demo"));
   },
-  members : {
+  members: {
     /**
      *
      * @overridden
      */
-    _initialize: function() {
-      this.base(arguments);
+    _initialize() {
+      super._initialize();
       var grid = new hkollmann.mobilegrid.ui.container.Grid();
       for (var r = 0; r < 5; r++) {
         for (var c = 0; c < 5; c++) {
-          var lbl = new qx.ui.mobile.basic.Label(this.tr("col %1, row %2", c, r));
+          var lbl = new qx.ui.mobile.basic.Label(
+            this.tr("col %1, row %2", c, r)
+          );
           grid.add(lbl, {
-            row : r,
-            col : c
+            row: r,
+            col: c,
           });
         }
       }
       this.getContent().add(grid);
-    }
-  }
+    },
+  },
 });

@@ -23,10 +23,10 @@
  * special event type fired during grid creating.
  */
 qx.Class.define("hkollmann.mobilegrid.event.type.GridEvent", {
-  extend : qx.event.type.Event,
-  members : {
-    init : function(grid, DOMElement, row, col, canBubble) {
-      this.base(arguments, canBubble, false);
+  extend: qx.event.type.Event,
+  members: {
+    init(grid, DOMElement, row, col, canBubble) {
+      super.init(canBubble, false);
       this.__row = row;
       this.__col = col;
       this.__grid = grid;
@@ -34,29 +34,29 @@ qx.Class.define("hkollmann.mobilegrid.event.type.GridEvent", {
       return this;
     },
     // override
-    clone : function(embryo) {
-      var clone = this.base(arguments, embryo);
+    clone(embryo) {
+      var clone = super.clone(embryo);
       clone.__grid = this.__grid;
       clone.__row = this.__row;
       clone.__col = this.__col;
       clone.__DOMElement = this.__DOMElement;
       return clone;
     },
-    getGrid : function() {
+    getGrid() {
       return this.__grid;
     },
-    getDOMElement : function() {
+    getDOMElement() {
       return this.__DOMElement;
     },
-    getRow : function() {
+    getRow() {
       return this.__row;
     },
-    getCol : function() {
+    getCol() {
       return this.__col;
     },
-    __grid : null,
-    __row : null,
-    __col : null,
-    __DOMElement : null
-  }
+    __grid: null,
+    __row: null,
+    __col: null,
+    __DOMElement: null,
+  },
 });

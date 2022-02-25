@@ -21,15 +21,15 @@
  * @asset(hkollmann/mobilegrid/*)
  */
 qx.Class.define("hkollmann.mobilegrid.demo.Application", {
-  extend : qx.application.Mobile,
-  members : {
+  extend: qx.application.Mobile,
+  members: {
     /**
      * This method contains the initial application code and gets called
      * during startup of the application
      */
-    main : function() {
+    main() {
       // Call super class
-      this.base(arguments);
+      super.main();
 
       // Enable logging in debug variant
       if (qx.core.Environment.get("qx.debug")) {
@@ -42,10 +42,9 @@ qx.Class.define("hkollmann.mobilegrid.demo.Application", {
 
       var demo = new hkollmann.mobilegrid.demo.Demo();
       var manager = new qx.ui.mobile.page.Manager(false);
-      manager.addDetail([
-        demo
-      ]);
+      manager.addDetail([demo]);
+
       demo.show();
-    }
-  }
+    },
+  },
 });

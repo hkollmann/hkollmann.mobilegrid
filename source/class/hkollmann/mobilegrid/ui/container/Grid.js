@@ -28,26 +28,27 @@
  * mobile wigdet. Each cell can be styled by css class or css style.
  */
 qx.Class.define("hkollmann.mobilegrid.ui.container.Grid", {
-  extend : qx.ui.mobile.core.Widget,
-  construct : function() {
-    this.base(arguments);
+  extend: qx.ui.mobile.core.Widget,
+  construct() {
+    super();
     this.__items = [];
   },
-  events : {
-    addCell : "hkollmann.mobilegrid.event.type.GridEvent",
-    addRow  : "hkollmann.mobilegrid.event.type.GridEvent"
+  events: {
+    addCell: "hkollmann.mobilegrid.event.type.GridEvent",
+    addRow: "hkollmann.mobilegrid.event.type.GridEvent",
   },
 
-  properties : {
+  properties: {
     /**
      * overridden
      */
-    defaultCssClass : {
-      refine : true,
-      init : "grid"
-    }
+    defaultCssClass: {
+      refine: true,
+      init: "grid",
+    },
   },
-  members : {
+
+  members: {
     /**
      * get the cell widget at row/col
      *
@@ -55,7 +56,7 @@ qx.Class.define("hkollmann.mobilegrid.ui.container.Grid", {
      * @param aCol {Array} col to fetch
      * @return {var} widget at row/col
      */
-    getCell : function(aRow, aCol) {
+    getCell(aRow, aCol) {
       var res = null;
       if (this.__items) {
         if (this.__items[aRow]) {
@@ -70,7 +71,7 @@ qx.Class.define("hkollmann.mobilegrid.ui.container.Grid", {
      *
      * @return {var} count of rows
      */
-    getRowCount : function() {
+    getRowCount() {
       return this.__items.length;
     },
 
@@ -79,7 +80,7 @@ qx.Class.define("hkollmann.mobilegrid.ui.container.Grid", {
      *
      * @return {var} count of cols
      */
-    getColCount : function() {
+    getColCount() {
       return this.__maxcols;
     },
 
@@ -96,7 +97,7 @@ qx.Class.define("hkollmann.mobilegrid.ui.container.Grid", {
      *         style  : special style for div element
      * @return {var} the added item
      */
-    add : function(aItem, aLayoutProperties) {
+    add(aItem, aLayoutProperties) {
       if (aLayoutProperties === null) {
         throw new Error("No properties given");
       }
@@ -111,9 +112,15 @@ qx.Class.define("hkollmann.mobilegrid.ui.container.Grid", {
       }
       this.__items[aLayoutProperties.row][aLayoutProperties.col] = aItem;
       aItem.$$layoutProperties = aLayoutProperties;
-      qx.bom.element.Class.add(aItem.getContentElement(), aLayoutProperties.class || "cell");
+      qx.bom.element.Class.add(
+        aItem.getContentElement(),
+        aLayoutProperties.class || "cell"
+      );
       if (aLayoutProperties.style) {
-        qx.bom.element.Style.setStyles(aItem.getContentElement(), aLayoutProperties.style);
+        qx.bom.element.Style.setStyles(
+          aItem.getContentElement(),
+          aLayoutProperties.style
+        );
       }
       this.__render();
       return this.__items[aLayoutProperties.row][aLayoutProperties.col];
@@ -123,7 +130,7 @@ qx.Class.define("hkollmann.mobilegrid.ui.container.Grid", {
      * clears the whole grid
      * @return
      */
-    clear : function() {
+    clear() {
       for (var r = 0; r < this.__items.length; r++) {
         if (this.__items[r]) {
           for (var c = 0; c < this.__items[r].length; c++) {
@@ -137,7 +144,7 @@ qx.Class.define("hkollmann.mobilegrid.ui.container.Grid", {
     /**
      *  overridden
      */
-    _getTagName : function() {
+    _getTagName() {
       return "table";
     },
 
@@ -145,13 +152,16 @@ qx.Class.define("hkollmann.mobilegrid.ui.container.Grid", {
      * renders the grid
      *
      */
-    __render : function() {
+    __render() {
       this._setHtml("");
       var maxcols = 0;
       if (this.__items) {
         for (var i = 0; i < this.__items.length; i++) {
           if (this.__items[i]) {
-            maxcols = (this.__items[i].length > maxcols) ? this.__items[i].length : maxcols;
+            maxcols =
+              this.__items[i].length > maxcols
+                ? this.__items[i].length
+                : maxcols;
           }
         }
         this.__maxcols = maxcols;
@@ -161,26 +171,48 @@ qx.Class.define("hkollmann.mobilegrid.ui.container.Grid", {
             var td;
             qx.bom.element.Class.add(tr, "grid-row");
             var c = -1;
-            this.fireEvent("addRow", hkollmann.mobilegrid.event.type.GridEvent, [this, tr, r, c]);
+            this.fireEvent(
+              "addRow",
+              hkollmann.mobilegrid.event.type.GridEvent,
+              [this, tr, r, c]
+            );
             for (c = 0; c < this.__items[r].length; c++) {
               td = qx.dom.Element.create("td");
               qx.bom.element.Class.add(td, "grid-cell");
-              this.fireEvent("addCell", hkollmann.mobilegrid.event.type.GridEvent, [this, td, r, c]);
+              this.fireEvent(
+                "addCell",
+                hkollmann.mobilegrid.event.type.GridEvent,
+                [this, td, r, c]
+              );
               var item = this.__items[r][c];
               if (item) {
-                if (item.$$layoutProperties.colspan && (item.$$layoutProperties.colspan > 1)) {
-                  qx.bom.element.Attribute.set(td, "colspan", item.$$layoutProperties.colspan);
+                if (
+                  item.$$layoutProperties.colspan &&
+                  item.$$layoutProperties.colspan > 1
+                ) {
+                  qx.bom.element.Attribute.set(
+                    td,
+                    "colspan",
+                    item.$$layoutProperties.colspan
+                  );
                   c += item.$$layoutProperties.colspan - 1;
                 }
-                if (item.$$layoutProperties.rowspan && (item.$$layoutProperties.rowspan > 1)) {
-                  qx.bom.element.Attribute.set(td, "rowspan", item.$$layoutProperties.rowspan);
+                if (
+                  item.$$layoutProperties.rowspan &&
+                  item.$$layoutProperties.rowspan > 1
+                ) {
+                  qx.bom.element.Attribute.set(
+                    td,
+                    "rowspan",
+                    item.$$layoutProperties.rowspan
+                  );
                 }
                 var e = item.getContainerElement();
                 td.appendChild(e);
               }
               tr.appendChild(td);
             }
-            for (;c < maxcols; c++) {
+            for (; c < maxcols; c++) {
               td = qx.dom.Element.create("td");
               tr.appendChild(td);
             }
@@ -194,10 +226,10 @@ qx.Class.define("hkollmann.mobilegrid.ui.container.Grid", {
     /**
      * destructor
      */
-    destruct : function() {
+    destruct() {
       this.clear();
     },
-    __items : null,
-    __maxcols : null
-  }
+    __items: null,
+    __maxcols: null,
+  },
 });
