@@ -9,11 +9,11 @@
   "clazz": {
     "location": {
       "start": {
-        "line": 27,
+        "line": 28,
         "column": 0
       },
       "end": {
-        "line": 249,
+        "line": 250,
         "column": 3
       }
     },
@@ -29,6 +29,12 @@
           "name": "@internal",
           "body": ""
         }
+      ],
+      "@ignore": [
+        {
+          "name": "@ignore",
+          "body": "process.*"
+        }
       ]
     }
   },
@@ -37,11 +43,11 @@
     "getName": {
       "location": {
         "start": {
-          "line": 36,
+          "line": 37,
           "column": 4
         },
         "end": {
-          "line": 103,
+          "line": 100,
           "column": 5
         }
       },
@@ -65,6 +71,12 @@
             "name": "@internal",
             "body": ""
           }
+        ],
+        "@ignore": [
+          {
+            "name": "@ignore",
+            "body": "process.*"
+          }
         ]
       },
       "type": "function",
@@ -73,11 +85,11 @@
     "__ids": {
       "location": {
         "start": {
-          "line": 108,
+          "line": 103,
           "column": 4
         },
         "end": {
-          "line": 157,
+          "line": 154,
           "column": 5
         }
       },
@@ -95,7 +107,7 @@
     "getVersion": {
       "location": {
         "start": {
-          "line": 167,
+          "line": 163,
           "column": 4
         },
         "end": {
@@ -131,11 +143,11 @@
     "__getVersionForDesktopOs": {
       "location": {
         "start": {
-          "line": 187,
+          "line": 186,
           "column": 4
         },
         "end": {
-          "line": 201,
+          "line": 200,
           "column": 5
         }
       },
@@ -170,11 +182,11 @@
     "__getVersionForMobileOs": {
       "location": {
         "start": {
-          "line": 209,
+          "line": 207,
           "column": 4
         },
         "end": {
-          "line": 242,
+          "line": 243,
           "column": 5
         }
       },
@@ -210,15 +222,14 @@
   "defer": {
     "location": {
       "start": {
-        "line": 245,
-        "column": 10
+        "line": 246,
+        "column": 2
       },
       "end": {
-        "line": 248,
+        "line": 249,
         "column": 3
       }
-    },
-    "jsdoc": {}
+    }
   },
   "descendants": []
 }

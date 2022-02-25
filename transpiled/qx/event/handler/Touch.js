@@ -122,10 +122,10 @@
      */
     construct: function construct(manager) {
       // Define shorthands
-      this.__P_153_0 = manager;
-      this.__P_153_1 = manager.getWindow();
-      this.__P_153_2 = this.__P_153_1.document;
-      qx.event.handler.TouchCore.apply(this, [this.__P_153_2]);
+      this.__P_157_0 = manager;
+      this.__P_157_1 = manager.getWindow();
+      this.__P_157_2 = this.__P_157_1.document;
+      qx.event.handler.TouchCore.apply(this, [this.__P_157_2]);
     },
 
     /*
@@ -157,9 +157,9 @@
 
       /** @type {Map} Mapping of mouse events to touch events */
       MOUSE_TO_TOUCH_MAPPING: {
-        "mousedown": "touchstart",
-        "mousemove": "touchmove",
-        "mouseup": "touchend"
+        mousedown: "touchstart",
+        mousemove: "touchmove",
+        mouseup: "touchend"
       }
     },
 
@@ -169,11 +169,11 @@
     *****************************************************************************
     */
     members: {
-      __P_153_0: null,
-      __P_153_1: null,
-      __P_153_2: null,
+      __P_157_0: null,
+      __P_157_1: null,
+      __P_157_2: null,
       // Checks if the mouse movement is happening while simulating a touch event
-      __P_153_3: false,
+      __P_157_3: false,
 
       /*
       ---------------------------------------------------------------------------
@@ -215,7 +215,7 @@
         } // Fire user action event
 
 
-        qx.event.Registration.fireEvent(this.__P_153_1, "useraction", qx.event.type.Data, [type]);
+        qx.event.Registration.fireEvent(this.__P_157_1, "useraction", qx.event.type.Data, [type]);
       },
 
       /*
@@ -238,9 +238,9 @@
        * Dispose this object
        */
       dispose: function dispose() {
-        this.__P_153_4("dispose");
+        this.__P_157_4("dispose");
 
-        this.__P_153_0 = this.__P_153_1 = this.__P_153_2 = null;
+        this.__P_157_0 = this.__P_157_1 = this.__P_157_2 = null;
       },
 
       /**
@@ -249,7 +249,7 @@
        * @param method {String} Name of the overridden method.
        * @param args {Array} Arguments.
        */
-      __P_153_4: function __P_153_4(method, args) {
+      __P_157_4: function __P_157_4(method, args) {
         qx.event.handler.TouchCore.prototype[method].apply(this, args || []);
       }
     },
@@ -271,4 +271,4 @@
   qx.event.handler.Touch.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Touch.js.map?dt=1635064697956
+//# sourceMappingURL=Touch.js.map?dt=1645800084938

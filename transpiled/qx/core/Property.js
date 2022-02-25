@@ -1,6 +1,11 @@
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
+        "require": true
+      },
       "qx.Bootstrap": {
         "usage": "dynamic",
         "require": true
@@ -8,7 +13,16 @@
       "qx.event.type.Data": {},
       "qx.event.dispatch.Direct": {},
       "qx.Promise": {},
-      "qx.lang.String": {}
+      "qx.lang.String": {},
+      "qx.Class": {}
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.debug": {
+          "load": true
+        }
+      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -203,42 +217,42 @@
        * The keys could be used in the check of the properties
        */
       __P_15_1: {
-        "Boolean": 'qx.core.Assert.assertBoolean(value, msg) || true',
-        "String": 'qx.core.Assert.assertString(value, msg) || true',
-        "Number": 'qx.core.Assert.assertNumber(value, msg) || true',
-        "Integer": 'qx.core.Assert.assertInteger(value, msg) || true',
-        "PositiveNumber": 'qx.core.Assert.assertPositiveNumber(value, msg) || true',
-        "PositiveInteger": 'qx.core.Assert.assertPositiveInteger(value, msg) || true',
-        "Error": 'qx.core.Assert.assertInstance(value, Error, msg) || true',
-        "RegExp": 'qx.core.Assert.assertInstance(value, RegExp, msg) || true',
-        "Object": 'qx.core.Assert.assertObject(value, msg) || true',
-        "Array": 'qx.core.Assert.assertArray(value, msg) || true',
-        "Map": 'qx.core.Assert.assertMap(value, msg) || true',
-        "Function": 'qx.core.Assert.assertFunction(value, msg) || true',
-        "Date": 'qx.core.Assert.assertInstance(value, Date, msg) || true',
-        "Node": 'value !== null && value.nodeType !== undefined',
-        "Element": 'value !== null && value.nodeType === 1 && value.attributes',
-        "Document": 'value !== null && value.nodeType === 9 && value.documentElement',
-        "Window": 'value !== null && value.document',
-        "Event": 'value !== null && value.type !== undefined',
-        "Class": 'value !== null && value.$$type === "Class"',
-        "Mixin": 'value !== null && value.$$type === "Mixin"',
-        "Interface": 'value !== null && value.$$type === "Interface"',
-        "Theme": 'value !== null && value.$$type === "Theme"',
-        "Color": 'qx.lang.Type.isString(value) && qx.util.ColorUtil.isValidPropertyValue(value)',
-        "Decorator": 'value !== null && qx.theme.manager.Decoration.getInstance().isValidPropertyValue(value)',
-        "Font": 'value !== null && qx.theme.manager.Font.getInstance().isDynamic(value)'
+        Boolean: "qx.core.Assert.assertBoolean(value, msg) || true",
+        String: "qx.core.Assert.assertString(value, msg) || true",
+        Number: "qx.core.Assert.assertNumber(value, msg) || true",
+        Integer: "qx.core.Assert.assertInteger(value, msg) || true",
+        PositiveNumber: "qx.core.Assert.assertPositiveNumber(value, msg) || true",
+        PositiveInteger: "qx.core.Assert.assertPositiveInteger(value, msg) || true",
+        Error: "qx.core.Assert.assertInstance(value, Error, msg) || true",
+        RegExp: "qx.core.Assert.assertInstance(value, RegExp, msg) || true",
+        Object: "qx.core.Assert.assertObject(value, msg) || true",
+        Array: "qx.core.Assert.assertArray(value, msg) || true",
+        Map: "qx.core.Assert.assertMap(value, msg) || true",
+        Function: "qx.core.Assert.assertFunction(value, msg) || true",
+        Date: "qx.core.Assert.assertInstance(value, Date, msg) || true",
+        Node: "value !== null && value.nodeType !== undefined",
+        Element: "value !== null && value.nodeType === 1 && value.attributes",
+        Document: "value !== null && value.nodeType === 9 && value.documentElement",
+        Window: "value !== null && value.document",
+        Event: "value !== null && value.type !== undefined",
+        Class: 'value !== null && value.$$type === "Class"',
+        Mixin: 'value !== null && value.$$type === "Mixin"',
+        Interface: 'value !== null && value.$$type === "Interface"',
+        Theme: 'value !== null && value.$$type === "Theme"',
+        Color: "qx.lang.Type.isString(value) && qx.util.ColorUtil.isValidPropertyValue(value)",
+        Decorator: "value !== null && qx.theme.manager.Decoration.getInstance().isValidPropertyValue(value)",
+        Font: "value !== null && qx.theme.manager.Font.getInstance().isDynamic(value)"
       },
 
       /**
        * Contains types from {@link #__checks} list which need to be dereferenced
        */
       __P_15_2: {
-        "Node": true,
-        "Element": true,
-        "Document": true,
-        "Window": true,
-        "Event": true
+        Node: true,
+        Element: true,
+        Document: true,
+        Window: true,
+        Event: true
       },
 
       /**
@@ -628,12 +642,12 @@
 
       /** @type {Map} Internal data field for error messages used by {@link #error} */
       __P_15_11: {
-        0: 'Could not change or apply init value after constructing phase!',
-        1: 'Requires exactly one argument!',
-        2: 'Undefined value is not allowed!',
-        3: 'Does not allow any arguments!',
-        4: 'Null value is not allowed!',
-        5: 'Is invalid!'
+        0: "Could not change or apply init value after constructing phase!",
+        1: "Requires exactly one argument!",
+        2: "Undefined value is not allowed!",
+        3: "Does not allow any arguments!",
+        4: "Null value is not allowed!",
+        5: "Is invalid!"
       },
 
       /**
@@ -746,46 +760,46 @@
           return code;
         }
 
-        code.push('if(this.', store.runtime[name], '!==undefined)');
-        code.push('return this.', store.runtime[name], ';');
+        code.push("if(this.", store.runtime[name], "!==undefined)");
+        code.push("return this.", store.runtime[name], ";");
 
         if (config.inheritable) {
-          code.push('else if(this.', store.inherit[name], '!==undefined)');
-          code.push('return this.', store.inherit[name], ';');
-          code.push('else ');
+          code.push("else if(this.", store.inherit[name], "!==undefined)");
+          code.push("return this.", store.inherit[name], ";");
+          code.push("else ");
         }
 
-        code.push('if(this.', store.user[name], '!==undefined)');
-        code.push('return this.', store.user[name], ';');
+        code.push("if(this.", store.user[name], "!==undefined)");
+        code.push("return this.", store.user[name], ";");
 
         if (config.themeable) {
-          code.push('else if(this.', store.theme[name], '!==undefined)');
-          code.push('return this.', store.theme[name], ';');
+          code.push("else if(this.", store.theme[name], "!==undefined)");
+          code.push("return this.", store.theme[name], ";");
         }
 
         if (config.deferredInit && config.init === undefined) {
-          code.push('else if(this.', store.init[name], '!==undefined)');
-          code.push('return this.', store.init[name], ';');
+          code.push("else if(this.", store.init[name], "!==undefined)");
+          code.push("return this.", store.init[name], ";");
         }
 
-        code.push('else ');
+        code.push("else ");
 
         if (config.init !== undefined) {
           if (config.inheritable) {
-            code.push('var init=this.', store.init[name], ';');
+            code.push("var init=this.", store.init[name], ";");
 
             if (config.nullable) {
-              code.push('if(init==qx.core.Property.$$inherit)init=null;');
+              code.push("if(init==qx.core.Property.$$inherit)init=null;");
             }
 
-            code.push('return init;');
+            code.push("return init;");
           } else {
-            code.push('return this.', store.init[name], ';');
+            code.push("return this.", store.init[name], ";");
           }
         } else if (config.inheritable || config.nullable) {
-          code.push('return null;');
+          code.push("return null;");
         } else {
-          code.push('throw new Error("Property ', name, ' of an instance of ', clazz.classname, ' is not (yet) ready!");');
+          code.push('throw new Error("Property ', name, " of an instance of ", clazz.classname, ' is not (yet) ready!");');
         }
 
         return code;
@@ -841,10 +855,10 @@
         var upname = qx.lang.String.firstUp(name);
 
         if (variant == "setAsync") {
-          code.push('return qx.Promise.resolve(this.$$set' + upname + "Impl.apply(this, arguments));");
+          code.push("return qx.Promise.resolve(this.$$set" + upname + "Impl.apply(this, arguments));");
           return code;
         } else if (variant == "set") {
-          code.push('this.$$set' + upname + "Impl.apply(this, arguments);", 'return value;');
+          code.push("this.$$set" + upname + "Impl.apply(this, arguments);", "return value;");
           return code;
         }
 
@@ -870,7 +884,7 @@
         }
 
         if (config.inheritable) {
-          code.push('var inherit=prop.$$inherit;');
+          code.push("var inherit=prop.$$inherit;");
         }
 
         if (!hasCallback) {
@@ -892,19 +906,19 @@
 
 
         if (incomingValue) {
-          code.unshift('function set(value){');
-          code.push('}');
+          code.unshift("function set(value){");
+          code.push("}");
 
           if (true && (!config.check || config.check != "qx.Promise")) {
-            code.push('var promise;', 'if (value instanceof qx.Promise || value instanceof Promise) ', 'promise = value.then(set.bind(this));', 'else ', 'promise = set.apply(this, arguments);');
+            code.push("var promise;", "if (qx.Promise.isPromise(value)) ", "promise = value.then(set.bind(this));", "else ", "promise = set.apply(this, arguments);");
 
             if (variant == "setImpl") {
               code.push("return promise;");
             } else {
-              code.push('return value;');
+              code.push("return value;");
             }
           } else {
-            code.push('set.apply(this, arguments);', 'return value;');
+            code.push("set.apply(this, arguments);", "return value;");
           }
         }
 
@@ -942,21 +956,21 @@
        * @param name {String} name of the property
        */
       __P_15_17: function __P_15_17(code, clazz, config, name) {
-        code.push('var equ=');
+        code.push("var equ=");
 
         if (typeof config.isEqual === "function") {
-          code.push('function(a,b){return !!', clazz.classname, '.$$properties.', name, '.isEqual.call(this,a,b);};');
+          code.push("function(a,b){return !!", clazz.classname, ".$$properties.", name, ".isEqual.call(this,a,b);};");
         } else if (typeof config.isEqual === "string") {
           var members = clazz.prototype; // Name of member?
 
           if (members[config.isEqual] !== undefined) {
-            code.push('this.', config.isEqual, ';');
-          } else // 'inline' code
-            {
-              code.push('function(a,b){return !!(', config.isEqual, ');};');
-            }
+            code.push("this.", config.isEqual, ";");
+          } // 'inline' code
+          else {
+            code.push("function(a,b){return !!(", config.isEqual, ");};");
+          }
         } else if (typeof config.isEqual === "undefined") {
-          code.push('function(a,b){return a===b;};');
+          code.push("function(a,b){return a===b;};");
         } else {
           throw new Error("Invalid type for 'isEqual' attribute of property '" + name + "' in class '" + clazz.classname + "'");
         }
@@ -974,7 +988,7 @@
       __P_15_18: function __P_15_18(code, config, name, variant, incomingValue) {
         {
           if (!config.nullable || config.check || config.inheritable) {
-            code.push('var prop=qx.core.Property;');
+            code.push("var prop=qx.core.Property;");
           } // Undefined check
 
 
@@ -996,7 +1010,7 @@
         // Call user-provided transform method, if one is provided.  Transform
         // method should either throw an error or return the new value.
         if (config.transform) {
-          code.push('value=this.', config.transform, '(value, old);');
+          code.push("value=this.", config.transform, "(value, old);");
         } // Call user-provided validate method, if one is provided.  Validate
         // method should either throw an error or do nothing.
 
@@ -1004,10 +1018,10 @@
         if (config.validate) {
           // if it is a string
           if (typeof config.validate === "string") {
-            code.push('this.', config.validate, '(value);'); // if its a function otherwise
+            code.push("this.", config.validate, "(value);"); // if its a function otherwise
           } else if (config.validate instanceof Function) {
-            code.push(clazz.classname, '.$$properties.', name);
-            code.push('.validate.call(this, value);');
+            code.push(clazz.classname, ".$$properties.", name);
+            code.push(".validate.call(this, value);");
           }
         }
       },
@@ -1024,9 +1038,9 @@
         var resetValue = variant === "reset" || variant === "resetThemed" || variant === "resetRuntime";
 
         if (incomingValue) {
-          code.push('if(equ.call(this,this.', store, ',value))return value;');
+          code.push("if(equ.call(this,this.", store, ",value))return value;");
         } else if (resetValue) {
-          code.push('if(this.', store, '===undefined)return;');
+          code.push("if(this.", store, "===undefined)return;");
         }
       },
 
@@ -1041,7 +1055,50 @@
        * @param name {String} name of the property
        * @param variant {String} Method variant.
        */
-      __P_15_27: undefined,
+      __P_15_27: qx.core.Environment.select("qx.debug", {
+        "true": function _true(code, config, clazz, name, variant) {
+          // Null check
+          if (!config.nullable) {
+            code.push('if(value===null)prop.error(this,4,"', name, '","', variant, '",value);');
+          } // Processing check definition
+
+
+          if (config.check !== undefined) {
+            code.push("var msg = \"Invalid incoming value for property '" + name + "' of class '" + clazz.classname + "'\";"); // Accept "null"
+
+            if (config.nullable) {
+              code.push("if(value!==null)");
+            } // Inheritable properties always accept "inherit" as value
+
+
+            if (config.inheritable) {
+              code.push("if(value!==inherit)");
+            }
+
+            code.push("if(");
+
+            if (this.__P_15_1[config.check] !== undefined) {
+              code.push("!(", this.__P_15_1[config.check], ")");
+            } else if (qx.Class.isDefined(config.check)) {
+              code.push('qx.core.Assert.assertInstance(value, qx.Class.getByName("', config.check, '"), msg)');
+            } else if (qx.Interface && qx.Interface.isDefined(config.check)) {
+              code.push('qx.core.Assert.assertInterface(value, qx.Interface.getByName("', config.check, '"), msg)');
+            } else if (typeof config.check === "function") {
+              code.push("!", clazz.classname, ".$$properties.", name);
+              code.push(".check.call(this, value)");
+            } else if (typeof config.check === "string") {
+              code.push("!(", config.check, ")");
+            } else if (config.check instanceof Array) {
+              code.push("qx.core.Assert.assertInArray(value, ", clazz.classname, ".$$properties.", name, ".check, msg)");
+            } else {
+              throw new Error("Could not add check to property " + name + " of class " + clazz.classname);
+            }
+
+            code.push(')prop.error(this,5,"', name, '","', variant, '",value);');
+          }
+        },
+        "false": undefined
+      }),
 
       /**
        * Emit code to store the incoming value
@@ -1053,22 +1110,22 @@
        */
       __P_15_22: function __P_15_22(code, name, variant, incomingValue) {
         if (variant === "setRuntime") {
-          code.push('this.', this.$$store.runtime[name], '=value;');
+          code.push("this.", this.$$store.runtime[name], "=value;");
         } else if (variant === "resetRuntime") {
-          code.push('if(this.', this.$$store.runtime[name], '!==undefined)');
-          code.push('delete this.', this.$$store.runtime[name], ';');
+          code.push("if(this.", this.$$store.runtime[name], "!==undefined)");
+          code.push("delete this.", this.$$store.runtime[name], ";");
         } else if (variant === "setImpl") {
-          code.push('this.', this.$$store.user[name], '=value;');
+          code.push("this.", this.$$store.user[name], "=value;");
         } else if (variant === "reset") {
-          code.push('if(this.', this.$$store.user[name], '!==undefined)');
-          code.push('delete this.', this.$$store.user[name], ';');
+          code.push("if(this.", this.$$store.user[name], "!==undefined)");
+          code.push("delete this.", this.$$store.user[name], ";");
         } else if (variant === "setThemed") {
-          code.push('this.', this.$$store.theme[name], '=value;');
+          code.push("this.", this.$$store.theme[name], "=value;");
         } else if (variant === "resetThemed") {
-          code.push('if(this.', this.$$store.theme[name], '!==undefined)');
-          code.push('delete this.', this.$$store.theme[name], ';');
+          code.push("if(this.", this.$$store.theme[name], "!==undefined)");
+          code.push("delete this.", this.$$store.theme[name], ";");
         } else if (variant === "init" && incomingValue) {
-          code.push('this.', this.$$store.init[name], '=value;');
+          code.push("this.", this.$$store.init[name], "=value;");
         }
       },
 
@@ -1083,170 +1140,170 @@
        * @param incomingValue {Boolean} Whether the setter has an incoming value
        */
       __P_15_23: function __P_15_23(code, config, name, variant, incomingValue) {
-        code.push('var computed;'); // OLD = RUNTIME VALUE
+        code.push("var computed;"); // OLD = RUNTIME VALUE
 
-        code.push('if(this.', this.$$store.runtime[name], '!==undefined){');
+        code.push("if(this.", this.$$store.runtime[name], "!==undefined){");
 
         if (variant === "setRuntime") {
           // Replace it with new value
-          code.push('computed=this.', this.$$store.runtime[name], '=value;');
+          code.push("computed=this.", this.$$store.runtime[name], "=value;");
         } else if (variant === "resetRuntime") {
           // Delete field
-          code.push('delete this.', this.$$store.runtime[name], ';'); // Complex computation of new value
+          code.push("delete this.", this.$$store.runtime[name], ";"); // Complex computation of new value
 
-          code.push('if(this.', this.$$store.user[name], '!==undefined)');
-          code.push('computed=this.', this.$$store.user[name], ';');
-          code.push('else if(this.', this.$$store.theme[name], '!==undefined)');
-          code.push('computed=this.', this.$$store.theme[name], ';');
-          code.push('else if(this.', this.$$store.init[name], '!==undefined){');
-          code.push('computed=this.', this.$$store.init[name], ';');
-          code.push('this.', this.$$store.useinit[name], '=true;');
-          code.push('}');
+          code.push("if(this.", this.$$store.user[name], "!==undefined)");
+          code.push("computed=this.", this.$$store.user[name], ";");
+          code.push("else if(this.", this.$$store.theme[name], "!==undefined)");
+          code.push("computed=this.", this.$$store.theme[name], ";");
+          code.push("else if(this.", this.$$store.init[name], "!==undefined){");
+          code.push("computed=this.", this.$$store.init[name], ";");
+          code.push("this.", this.$$store.useinit[name], "=true;");
+          code.push("}");
         } else {
           // Use runtime value as it has higher priority
-          code.push('computed=this.', this.$$store.runtime[name], ';'); // Store incoming value
+          code.push("computed=this.", this.$$store.runtime[name], ";"); // Store incoming value
 
           if (variant === "setImpl") {
-            code.push('this.', this.$$store.user[name], '=value;');
+            code.push("this.", this.$$store.user[name], "=value;");
           } else if (variant === "reset") {
-            code.push('delete this.', this.$$store.user[name], ';');
+            code.push("delete this.", this.$$store.user[name], ";");
           } else if (variant === "setThemed") {
-            code.push('this.', this.$$store.theme[name], '=value;');
+            code.push("this.", this.$$store.theme[name], "=value;");
           } else if (variant === "resetThemed") {
-            code.push('delete this.', this.$$store.theme[name], ';');
+            code.push("delete this.", this.$$store.theme[name], ";");
           } else if (variant === "init" && incomingValue) {
-            code.push('this.', this.$$store.init[name], '=value;');
+            code.push("this.", this.$$store.init[name], "=value;");
           }
         }
 
-        code.push('}'); // OLD = USER VALUE
+        code.push("}"); // OLD = USER VALUE
 
-        code.push('else if(this.', this.$$store.user[name], '!==undefined){');
+        code.push("else if(this.", this.$$store.user[name], "!==undefined){");
 
         if (variant === "setImpl") {
           // Replace it with new value
-          code.push('computed=this.', this.$$store.user[name], '=value;');
+          code.push("computed=this.", this.$$store.user[name], "=value;");
         } else if (variant === "reset") {
           // Delete field
-          code.push('delete this.', this.$$store.user[name], ';'); // Complex computation of new value
+          code.push("delete this.", this.$$store.user[name], ";"); // Complex computation of new value
 
-          code.push('if(this.', this.$$store.runtime[name], '!==undefined)');
-          code.push('computed=this.', this.$$store.runtime[name], ';');
-          code.push('if(this.', this.$$store.theme[name], '!==undefined)');
-          code.push('computed=this.', this.$$store.theme[name], ';');
-          code.push('else if(this.', this.$$store.init[name], '!==undefined){');
-          code.push('computed=this.', this.$$store.init[name], ';');
-          code.push('this.', this.$$store.useinit[name], '=true;');
-          code.push('}');
+          code.push("if(this.", this.$$store.runtime[name], "!==undefined)");
+          code.push("computed=this.", this.$$store.runtime[name], ";");
+          code.push("if(this.", this.$$store.theme[name], "!==undefined)");
+          code.push("computed=this.", this.$$store.theme[name], ";");
+          code.push("else if(this.", this.$$store.init[name], "!==undefined){");
+          code.push("computed=this.", this.$$store.init[name], ";");
+          code.push("this.", this.$$store.useinit[name], "=true;");
+          code.push("}");
         } else {
           if (variant === "setRuntime") {
             // Use runtime value where it has higher priority
-            code.push('computed=this.', this.$$store.runtime[name], '=value;');
+            code.push("computed=this.", this.$$store.runtime[name], "=value;");
           } else if (config.inheritable) {
             // Use user value where it has higher priority
-            code.push('computed=this.', this.$$store.user[name], ';');
+            code.push("computed=this.", this.$$store.user[name], ";");
           } else {
             // Use user value where it has higher priority
-            code.push('computed=this.', this.$$store.user[name], ';');
+            code.push("computed=this.", this.$$store.user[name], ";");
           } // Store incoming value
 
 
           if (variant === "setThemed") {
-            code.push('this.', this.$$store.theme[name], '=value;');
+            code.push("this.", this.$$store.theme[name], "=value;");
           } else if (variant === "resetThemed") {
-            code.push('delete this.', this.$$store.theme[name], ';');
+            code.push("delete this.", this.$$store.theme[name], ";");
           } else if (variant === "init" && incomingValue) {
-            code.push('this.', this.$$store.init[name], '=value;');
+            code.push("this.", this.$$store.init[name], "=value;");
           }
         }
 
-        code.push('}'); // OLD = THEMED VALUE
+        code.push("}"); // OLD = THEMED VALUE
 
         if (config.themeable) {
-          code.push('else if(this.', this.$$store.theme[name], '!==undefined){');
+          code.push("else if(this.", this.$$store.theme[name], "!==undefined){");
 
           if (variant === "setRuntime") {
-            code.push('computed=this.', this.$$store.runtime[name], '=value;');
+            code.push("computed=this.", this.$$store.runtime[name], "=value;");
           } else if (variant === "setImpl") {
-            code.push('computed=this.', this.$$store.user[name], '=value;');
+            code.push("computed=this.", this.$$store.user[name], "=value;");
           } // reset() is impossible, because the user has higher priority than
           // the themed value, so the themed value has no chance to ever get used,
           // when there is an user value, too.
           else if (variant === "setThemed") {
-            code.push('computed=this.', this.$$store.theme[name], '=value;');
+            code.push("computed=this.", this.$$store.theme[name], "=value;");
           } else if (variant === "resetThemed") {
             // Delete entry
-            code.push('delete this.', this.$$store.theme[name], ';'); // Fallback to init value
+            code.push("delete this.", this.$$store.theme[name], ";"); // Fallback to init value
 
-            code.push('if(this.', this.$$store.init[name], '!==undefined){');
-            code.push('computed=this.', this.$$store.init[name], ';');
-            code.push('this.', this.$$store.useinit[name], '=true;');
-            code.push('}');
+            code.push("if(this.", this.$$store.init[name], "!==undefined){");
+            code.push("computed=this.", this.$$store.init[name], ";");
+            code.push("this.", this.$$store.useinit[name], "=true;");
+            code.push("}");
           } else if (variant === "init") {
             if (incomingValue) {
-              code.push('this.', this.$$store.init[name], '=value;');
+              code.push("this.", this.$$store.init[name], "=value;");
             }
 
-            code.push('computed=this.', this.$$store.theme[name], ';');
+            code.push("computed=this.", this.$$store.theme[name], ";");
           } else if (variant === "refresh") {
-            code.push('computed=this.', this.$$store.theme[name], ';');
+            code.push("computed=this.", this.$$store.theme[name], ";");
           }
 
-          code.push('}');
+          code.push("}");
         } // OLD = INIT VALUE
 
 
-        code.push('else if(this.', this.$$store.useinit[name], '){');
+        code.push("else if(this.", this.$$store.useinit[name], "){");
 
         if (variant === "init") {
           if (incomingValue) {
-            code.push('computed=this.', this.$$store.init[name], '=value;');
+            code.push("computed=this.", this.$$store.init[name], "=value;");
           } else {
-            code.push('computed=this.', this.$$store.init[name], ';');
+            code.push("computed=this.", this.$$store.init[name], ";");
           } // useinit flag is already initialized
 
         } // reset(), resetRuntime() and resetStyle() are impossible, because the user and themed values have a
         // higher priority than the init value, so the init value has no chance to ever get used,
         // when there is an user or themed value, too.
         else if (variant === "setImpl" || variant === "setRuntime" || variant === "setThemed" || variant === "refresh") {
-          code.push('delete this.', this.$$store.useinit[name], ';');
+          code.push("delete this.", this.$$store.useinit[name], ";");
 
           if (variant === "setRuntime") {
-            code.push('computed=this.', this.$$store.runtime[name], '=value;');
+            code.push("computed=this.", this.$$store.runtime[name], "=value;");
           } else if (variant === "setImpl") {
-            code.push('computed=this.', this.$$store.user[name], '=value;');
+            code.push("computed=this.", this.$$store.user[name], "=value;");
           } else if (variant === "setThemed") {
-            code.push('computed=this.', this.$$store.theme[name], '=value;');
+            code.push("computed=this.", this.$$store.theme[name], "=value;");
           } else if (variant === "refresh") {
-            code.push('computed=this.', this.$$store.init[name], ';');
+            code.push("computed=this.", this.$$store.init[name], ";");
           }
         }
 
-        code.push('}'); // OLD = NONE
+        code.push("}"); // OLD = NONE
         // reset(), resetRuntime() and resetStyle() are impossible because otherwise there
         // is already an old value
 
         if (variant === "setImpl" || variant === "setRuntime" || variant === "setThemed" || variant === "init") {
-          code.push('else{');
+          code.push("else{");
 
           if (variant === "setRuntime") {
-            code.push('computed=this.', this.$$store.runtime[name], '=value;');
+            code.push("computed=this.", this.$$store.runtime[name], "=value;");
           } else if (variant === "setImpl") {
-            code.push('computed=this.', this.$$store.user[name], '=value;');
+            code.push("computed=this.", this.$$store.user[name], "=value;");
           } else if (variant === "setThemed") {
-            code.push('computed=this.', this.$$store.theme[name], '=value;');
+            code.push("computed=this.", this.$$store.theme[name], "=value;");
           } else if (variant === "init") {
             if (incomingValue) {
-              code.push('computed=this.', this.$$store.init[name], '=value;');
+              code.push("computed=this.", this.$$store.init[name], "=value;");
             } else {
-              code.push('computed=this.', this.$$store.init[name], ';');
+              code.push("computed=this.", this.$$store.init[name], ";");
             }
 
-            code.push('this.', this.$$store.useinit[name], '=true;');
+            code.push("this.", this.$$store.useinit[name], "=true;");
           } // refresh() will work with the undefined value, later
 
 
-          code.push('}');
+          code.push("}");
         }
       },
 
@@ -1259,31 +1316,31 @@
        */
       __P_15_19: function __P_15_19(code, config, name) {
         if (config.inheritable) {
-          code.push('var old=this.', this.$$store.inherit[name], ';');
+          code.push("var old=this.", this.$$store.inherit[name], ";");
         } else {
-          code.push('var old;');
+          code.push("var old;");
         } // OLD = RUNTIME VALUE
 
 
-        code.push('if(this.', this.$$store.runtime[name], '!==undefined){');
-        code.push('old=this.', this.$$store.runtime[name], ';');
-        code.push('}'); // OLD = USER VALUE
+        code.push("if(this.", this.$$store.runtime[name], "!==undefined){");
+        code.push("old=this.", this.$$store.runtime[name], ";");
+        code.push("}"); // OLD = USER VALUE
 
         if (!config.inheritable) {
-          code.push('else if(this.', this.$$store.user[name], '!==undefined){');
-          code.push('old=this.', this.$$store.user[name], ';');
-          code.push('}'); // OLD = THEMED VALUE
+          code.push("else if(this.", this.$$store.user[name], "!==undefined){");
+          code.push("old=this.", this.$$store.user[name], ";");
+          code.push("}"); // OLD = THEMED VALUE
 
           if (config.themeable) {
-            code.push('else if(this.', this.$$store.theme[name], '!==undefined){');
-            code.push('old=this.', this.$$store.theme[name], ';');
-            code.push('}');
+            code.push("else if(this.", this.$$store.theme[name], "!==undefined){");
+            code.push("old=this.", this.$$store.theme[name], ";");
+            code.push("}");
           } // OLD = INIT VALUE
 
 
-          code.push('else if(this.', this.$$store.useinit[name], '){');
-          code.push('old=this.', this.$$store.init[name], ';');
-          code.push('}');
+          code.push("else if(this.", this.$$store.useinit[name], "){");
+          code.push("old=this.", this.$$store.init[name], ";");
+          code.push("}");
         }
       },
 
@@ -1296,45 +1353,45 @@
        * @param variant {String} Method variant.
        */
       __P_15_24: function __P_15_24(code, config, name, variant) {
-        code.push('if(computed===undefined||computed===inherit){');
+        code.push("if(computed===undefined||computed===inherit){");
 
         if (variant === "refresh") {
-          code.push('computed=value;');
+          code.push("computed=value;");
         } else {
-          code.push('var pa=this.getLayoutParent();if(pa)computed=pa.', this.$$store.inherit[name], ';');
+          code.push("var pa=this.getLayoutParent();if(pa)computed=pa.", this.$$store.inherit[name], ";");
         } // Fallback to init value if inheritance was unsuccessful
 
 
-        code.push('if((computed===undefined||computed===inherit)&&');
-        code.push('this.', this.$$store.init[name], '!==undefined&&');
-        code.push('this.', this.$$store.init[name], '!==inherit){');
-        code.push('computed=this.', this.$$store.init[name], ';');
-        code.push('this.', this.$$store.useinit[name], '=true;');
-        code.push('}else{');
-        code.push('delete this.', this.$$store.useinit[name], ';}');
-        code.push('}'); // Compare old/new computed value
+        code.push("if((computed===undefined||computed===inherit)&&");
+        code.push("this.", this.$$store.init[name], "!==undefined&&");
+        code.push("this.", this.$$store.init[name], "!==inherit){");
+        code.push("computed=this.", this.$$store.init[name], ";");
+        code.push("this.", this.$$store.useinit[name], "=true;");
+        code.push("}else{");
+        code.push("delete this.", this.$$store.useinit[name], ";}");
+        code.push("}"); // Compare old/new computed value
 
-        code.push('if(equ.call(this,old,computed))return value;'); // Note: At this point computed can be "inherit" or "undefined".
+        code.push("if(equ.call(this,old,computed))return value;"); // Note: At this point computed can be "inherit" or "undefined".
         // Normalize "inherit" to undefined and delete inherited value
 
-        code.push('if(computed===inherit){');
-        code.push('computed=undefined;delete this.', this.$$store.inherit[name], ';');
-        code.push('}'); // Only delete inherited value
+        code.push("if(computed===inherit){");
+        code.push("computed=undefined;delete this.", this.$$store.inherit[name], ";");
+        code.push("}"); // Only delete inherited value
 
-        code.push('else if(computed===undefined)');
-        code.push('delete this.', this.$$store.inherit[name], ';'); // Store inherited value
+        code.push("else if(computed===undefined)");
+        code.push("delete this.", this.$$store.inherit[name], ";"); // Store inherited value
 
-        code.push('else this.', this.$$store.inherit[name], '=computed;'); // Protect against normalization
+        code.push("else this.", this.$$store.inherit[name], "=computed;"); // Protect against normalization
 
-        code.push('var backup=computed;'); // After storage finally normalize computed and old value
+        code.push("var backup=computed;"); // After storage finally normalize computed and old value
 
         if (config.init !== undefined && variant !== "init") {
-          code.push('if(old===undefined)old=this.', this.$$store.init[name], ";");
+          code.push("if(old===undefined)old=this.", this.$$store.init[name], ";");
         } else {
-          code.push('if(old===undefined)old=null;');
+          code.push("if(old===undefined)old=null;");
         }
 
-        code.push('if(computed===undefined||computed==inherit)computed=null;');
+        code.push("if(computed===undefined||computed==inherit)computed=null;");
       },
 
       /**
@@ -1350,16 +1407,16 @@
         // Properties which are not inheritable have no possibility to get
         // undefined at this position. (Hint: set(), setRuntime() and setThemed() only allow non undefined values)
         if (variant !== "setImpl" && variant !== "setRuntime" && variant !== "setThemed") {
-          code.push('if(computed===undefined)computed=null;');
+          code.push("if(computed===undefined)computed=null;");
         } // Compare old/new computed value
 
 
-        code.push('if(equ.call(this,old,computed))return value;'); // Normalize old value
+        code.push("if(equ.call(this,old,computed))return value;"); // Normalize old value
 
         if (config.init !== undefined && variant !== "init") {
-          code.push('if(old===undefined)old=this.', this.$$store.init[name], ";");
+          code.push("if(old===undefined)old=this.", this.$$store.init[name], ";");
         } else {
-          code.push('if(old===undefined)old=null;');
+          code.push("if(old===undefined)old=null;");
         }
       },
 
@@ -1374,10 +1431,10 @@
        */
       __P_15_26: function __P_15_26(code, config, name, variant, refresh) {
         // Execute user configured setter
-        code.push("var self=this;", 'var promise;');
+        code.push("var self=this;", "var promise;");
 
         if (config.apply) {
-          code.push('promise = this.', config.apply, '(computed, old, "', name, '", "', variant, '");');
+          code.push("promise = this.", config.apply, '(computed, old, "', name, '", "', variant, '");');
         }
 
         if (config.async) {
@@ -1389,7 +1446,7 @@
 
 
           if (refresh) {
-            code.push('var a=self._getChildren();', 'if(a)', 'for(var i=0,l=a.length;i<l;i++){', 'if(a[i].', this.$$method.refresh[name], ')', 'a[i].', this.$$method.refresh[name], '(backup);', '}');
+            code.push("var a=self._getChildren();", "if(a)", "for(var i=0,l=a.length;i<l;i++){", "if(a[i].", this.$$method.refresh[name], ")", "a[i].", this.$$method.refresh[name], "(backup);", "}");
           }
 
           code.push("return promise;", "}");
@@ -1405,14 +1462,14 @@
 
 
           if (refresh) {
-            code.push('var a=self._getChildren();', 'if(a)', 'for(var i=0,l=a.length;i<l;i++){', 'if(a[i].', this.$$method.refresh[name], ')', 'a[i].', this.$$method.refresh[name], '(backup);', '}');
+            code.push("var a=self._getChildren();", "if(a)", "for(var i=0,l=a.length;i<l;i++){", "if(a[i].", this.$$method.refresh[name], ")", "a[i].", this.$$method.refresh[name], "(backup);", "}");
           }
 
           code.push("if (tracker.promise)\n", "  return tracker.promise.then(function() { return computed; });", "return computed;", "}");
         }
 
         {
-          code.push("if(promise instanceof qx.Promise || promise instanceof Promise) return promise.then(fire); ");
+          code.push("if(qx.Promise.isPromise(promise)) return promise.then(fire); ");
         }
         code.push("return fire();");
       }
@@ -1421,4 +1478,4 @@
   qx.core.Property.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Property.js.map?dt=1635064685972
+//# sourceMappingURL=Property.js.map?dt=1645800074118

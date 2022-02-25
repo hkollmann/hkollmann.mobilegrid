@@ -54,7 +54,7 @@
    * Transports requests to a server using dynamic script tags.
    *
    * This class should not be used directly by client programmers.
-   * 
+   *
    * NOTE: Instances of this class must be disposed of after use
    *
    */
@@ -69,14 +69,14 @@
     */
     construct: function construct() {
       qx.io.remote.transport.Abstract.constructor.call(this);
-      var vUniqueId = ++qx.io.remote.transport.Script.__P_254_0;
+      var vUniqueId = ++qx.io.remote.transport.Script.__P_263_0;
 
       if (vUniqueId >= 2000000000) {
-        qx.io.remote.transport.Script.__P_254_0 = vUniqueId = 1;
+        qx.io.remote.transport.Script.__P_263_0 = vUniqueId = 1;
       }
 
-      this.__P_254_1 = null;
-      this.__P_254_0 = vUniqueId;
+      this.__P_263_1 = null;
+      this.__P_263_0 = vUniqueId;
     },
 
     /*
@@ -90,7 +90,7 @@
        *
        * @internal
        */
-      __P_254_0: 0,
+      __P_263_0: 0,
 
       /**
        * Registry for all script transport instances.
@@ -155,11 +155,11 @@
        * @internal
        */
       _numericMap: {
-        "uninitialized": 1,
-        "loading": 2,
-        "loaded": 2,
-        "interactive": 3,
-        "complete": 4
+        uninitialized: 1,
+        loading: 2,
+        loaded: 2,
+        interactive: 3,
+        complete: 4
       },
 
       /**
@@ -189,9 +189,9 @@
     *****************************************************************************
     */
     members: {
-      __P_254_2: 0,
-      __P_254_1: null,
-      __P_254_0: null,
+      __P_263_2: 0,
+      __P_263_1: null,
+      __P_263_0: null,
 
       /*
       ---------------------------------------------------------------------------
@@ -208,7 +208,7 @@
         //   Adding parameters
         // --------------------------------------
 
-        vUrl += (vUrl.indexOf("?") >= 0 ? "&" : "?") + qx.io.remote.transport.Script.ScriptTransport_ID_PARAM + "=" + this.__P_254_0;
+        vUrl += (vUrl.indexOf("?") >= 0 ? "&" : "?") + qx.io.remote.transport.Script.ScriptTransport_ID_PARAM + "=" + this.__P_263_0;
         var vParameters = this.getParameters();
         var vParametersList = [];
 
@@ -241,14 +241,14 @@
           vUrl += "&" + qx.io.remote.transport.Script.ScriptTransport_DATA_PARAM + "=" + encodeURIComponent(vData);
         }
 
-        qx.io.remote.transport.Script._instanceRegistry[this.__P_254_0] = this;
-        this.__P_254_1 = document.createElement("script"); // IE needs this (it ignores the
+        qx.io.remote.transport.Script._instanceRegistry[this.__P_263_0] = this;
+        this.__P_263_1 = document.createElement("script"); // IE needs this (it ignores the
         // encoding from the header sent by the
         // server for dynamic script tags)
 
-        this.__P_254_1.charset = "utf-8";
-        this.__P_254_1.src = vUrl;
-        document.body.appendChild(this.__P_254_1);
+        this.__P_263_1.charset = "utf-8";
+        this.__P_263_1.src = vUrl;
+        document.body.appendChild(this.__P_263_1);
       },
 
       /**
@@ -268,8 +268,8 @@
         } // Updating internal state
 
 
-        while (this.__P_254_2 < vReadyState) {
-          this.setState(qx.io.remote.Exchange._nativeMap[++this.__P_254_2]);
+        while (this.__P_263_2 < vReadyState) {
+          this.setState(qx.io.remote.Exchange._nativeMap[++this.__P_263_2]);
         }
       },
 
@@ -402,15 +402,15 @@
     *****************************************************************************
     */
     destruct: function destruct() {
-      if (this.__P_254_1) {
-        delete qx.io.remote.transport.Script._instanceRegistry[this.__P_254_0];
-        document.body.removeChild(this.__P_254_1);
+      if (this.__P_263_1) {
+        delete qx.io.remote.transport.Script._instanceRegistry[this.__P_263_0];
+        document.body.removeChild(this.__P_263_1);
       }
 
-      this.__P_254_1 = this._responseContent = null;
+      this.__P_263_1 = this._responseContent = null;
     }
   });
   qx.io.remote.transport.Script.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Script.js.map?dt=1635064705323
+//# sourceMappingURL=Script.js.map?dt=1645800092250

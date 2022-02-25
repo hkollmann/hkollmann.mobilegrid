@@ -42,6 +42,7 @@
    * directly. Please check its class comment for details how to use it.
    *
    * @internal
+   * @ignore(process.*)
    */
   qx.Bootstrap.define("qx.bom.client.OperatingSystem", {
     statics: {
@@ -49,8 +50,24 @@
        * Checks for the name of the operating system.
        * @return {String} The name of the operating system.
        * @internal
+       * @ignore(process.*)
+       *
        */
       getName: function getName() {
+        if (typeof process != "undefined" && process.platform) {
+          var MAP = {
+            win32: "win",
+            darwin: "osx",
+            linux: "linux",
+            aix: "unix",
+            freebsd: "unix",
+            openbsd: "unix",
+            sunos: "unix",
+            android: "android"
+          };
+          return MAP[process.platform] || "";
+        }
+
         if (!navigator) {
           return "";
         }
@@ -85,7 +102,7 @@
       },
 
       /** Maps user agent names to system IDs */
-      __P_82_0: {
+      __P_84_0: {
         // Windows
         "Windows NT 10.0": "10",
         "Windows NT 6.3": "8.1",
@@ -100,10 +117,12 @@
         "Win 9x 4.90": "me",
         "Windows CE": "ce",
         "Windows 98": "98",
-        "Win98": "98",
+        Win98: "98",
         "Windows 95": "95",
-        "Win95": "95",
+        Win95: "95",
         // OS X
+        "Mac OS X 10_15": "10.15",
+        "Mac OS X 10_14": "10.14",
         "Mac OS X 10_13": "10.13",
         "Mac OS X 10.13": "10.13",
         "Mac OS X 10_12": "10.12",
@@ -142,10 +161,10 @@
        *   could not be detected.
        */
       getVersion: function getVersion() {
-        var version = qx.bom.client.OperatingSystem.__P_82_1(navigator.userAgent);
+        var version = qx.bom.client.OperatingSystem.__P_84_1(navigator.userAgent);
 
         if (version == null) {
-          version = qx.bom.client.OperatingSystem.__P_82_2(navigator.userAgent);
+          version = qx.bom.client.OperatingSystem.__P_84_2(navigator.userAgent);
         }
 
         if (version != null) {
@@ -160,18 +179,18 @@
        * @param userAgent {String} userAgent parameter, needed for detection.
        * @return {String} version number as string or null.
        */
-      __P_82_1: function __P_82_1(userAgent) {
+      __P_84_1: function __P_84_1(userAgent) {
         var str = [];
 
-        for (var key in qx.bom.client.OperatingSystem.__P_82_0) {
+        for (var key in qx.bom.client.OperatingSystem.__P_84_0) {
           str.push(key);
         }
 
-        var reg = new RegExp("(" + str.join("|").replace(/\./g, "\.") + ")", "g");
+        var reg = new RegExp("(" + str.join("|").replace(/\./g, ".") + ")", "g");
         var match = reg.exec(userAgent);
 
         if (match && match[1]) {
-          return qx.bom.client.OperatingSystem.__P_82_0[match[1]];
+          return qx.bom.client.OperatingSystem.__P_84_0[match[1]];
         }
 
         return null;
@@ -182,7 +201,7 @@
        * @param userAgent {String} userAgent parameter, needed for detection.
        * @return {String} version number as string or null.
        */
-      __P_82_2: function __P_82_2(userAgent) {
+      __P_84_2: function __P_84_2(userAgent) {
         var windows = userAgent.indexOf("Windows Phone") != -1;
         var android = userAgent.indexOf("Android") != -1;
         var iOs = userAgent.match(/(iPad|iPhone|iPod)/i) ? true : false;
@@ -225,4 +244,4 @@
   qx.bom.client.OperatingSystem.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=OperatingSystem.js.map?dt=1635064691686
+//# sourceMappingURL=OperatingSystem.js.map?dt=1645800079522

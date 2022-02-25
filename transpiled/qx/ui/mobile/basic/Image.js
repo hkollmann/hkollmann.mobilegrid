@@ -137,7 +137,7 @@
         var resourceManager = qx.util.ResourceManager.getInstance();
         var source = value;
 
-        if (source && source.indexOf('data:') != 0) {
+        if (source && source.indexOf("data:") != 0) {
           var uri = resourceManager.toUri(source);
 
           if (resourceManager.has(source)) {
@@ -154,7 +154,7 @@
           }
 
           if (!qx.io.ImageLoader.isFailed(uri) && !qx.io.ImageLoader.isLoaded(uri)) {
-            qx.io.ImageLoader.load(uri, this.__P_221_0, this);
+            qx.io.ImageLoader.load(uri, this.__P_225_0, this);
           }
         }
 
@@ -162,21 +162,21 @@
       },
 
       /**
-      * Event handler for "changeAppScale" on application root.
-      * Reloads the image source.
-      */
+       * Event handler for "changeAppScale" on application root.
+       * Reloads the image source.
+       */
       _onChangeAppScale: function _onChangeAppScale() {
         this._applySource(this.getSource());
       },
 
       /**
-      * Creates an overlay for this image which shows the image defined by the parameter 'highResSource',
-      * but has the same size and position as the source image.
-      * The original image widget is hidden by this method.
-      *
-      * @param highResSource {String} Image source of the high-resolution image.
-      * @param lowResSource {String} Image source of the low-resolution image.
-      */
+       * Creates an overlay for this image which shows the image defined by the parameter 'highResSource',
+       * but has the same size and position as the source image.
+       * The original image widget is hidden by this method.
+       *
+       * @param highResSource {String} Image source of the high-resolution image.
+       * @param lowResSource {String} Image source of the low-resolution image.
+       */
       _createHighResolutionOverlay: function _createHighResolutionOverlay(highResSource, lowResSource) {
         // Replace the source through transparent pixel for making the high-resolution background image visible.
         var resourceManager = qx.util.ResourceManager.getInstance();
@@ -200,7 +200,7 @@
        * @param source {String} Image source which was loaded
        * @param imageInfo {Map} Dimensions of the loaded image
        */
-      __P_221_0: function __P_221_0(source, imageInfo) {
+      __P_225_0: function __P_225_0(source, imageInfo) {
         // Ignore the callback on already disposed images
         if (this.$$disposed === true) {
           return;
@@ -251,4 +251,4 @@
   qx.ui.mobile.basic.Image.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Image.js.map?dt=1635064702542
+//# sourceMappingURL=Image.js.map?dt=1645800089066

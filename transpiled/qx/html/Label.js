@@ -6,6 +6,7 @@
         "require": true
       },
       "qx.html.Element": {
+        "construct": true,
         "require": true
       },
       "qx.bom.Label": {}
@@ -43,39 +44,50 @@
   qx.Class.define("qx.html.Label", {
     extend: qx.html.Element,
 
+    /**
+     * Creates a new Image
+     *
+     * @see constructor for {Element}
+     */
+    construct: function construct(tagName, styles, attributes) {
+      qx.html.Element.constructor.call(this, tagName, styles, attributes);
+      this.registerProperty("value", null, this._setValueProperty);
+    },
+
     /*
     *****************************************************************************
        MEMBERS
     *****************************************************************************
     */
     members: {
-      __P_139_0: null,
+      __P_141_0: null,
 
       /*
       ---------------------------------------------------------------------------
         ELEMENT API
       ---------------------------------------------------------------------------
       */
-      // overridden
-      _applyProperty: function _applyProperty(name, value) {
-        qx.html.Label.prototype._applyProperty.base.call(this, name, value);
 
-        if (name == "value") {
-          var element = this.getDomElement();
-          qx.bom.Label.setValue(element, value);
-        }
+      /**
+       * Implementation of setter for the "value" property
+       *
+       * @param value {String?} value to set
+       */
+      _setValueProperty: function _setValueProperty(value) {
+        var element = this.getDomElement();
+        qx.bom.Label.setValue(element, value);
       },
       // overridden
       _createDomElement: function _createDomElement() {
-        var rich = this.__P_139_0;
+        var rich = this.__P_141_0;
         var el = qx.bom.Label.create(this._content, rich);
-        el.style.overflow = 'hidden';
+        el.style.overflow = "hidden";
         return el;
       },
       // overridden
       // be sure that style attributes are merged and not overwritten
-      _copyData: function _copyData(fromMarkup) {
-        return qx.html.Label.prototype._copyData.base.call(this, true);
+      _copyData: function _copyData(fromMarkup, propertiesFromDom) {
+        return qx.html.Label.superclass.prototype._copyData.call(this, true, propertiesFromDom);
       },
 
       /*
@@ -99,11 +111,11 @@
 
         value = !!value;
 
-        if (this.__P_139_0 == value) {
+        if (this.__P_141_0 == value) {
           return this;
         }
 
-        this.__P_139_0 = value;
+        this.__P_141_0 = value;
         return this;
       },
 
@@ -141,4 +153,4 @@
   qx.html.Label.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Label.js.map?dt=1635064696555
+//# sourceMappingURL=Label.js.map?dt=1645800083660

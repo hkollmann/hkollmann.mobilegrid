@@ -59,7 +59,7 @@
       qx.html.Element.constructor.call(this);
 
       if (elem != null) {
-        this.useElement(elem);
+        this.useNode(elem);
       }
     },
 
@@ -77,9 +77,9 @@
        * @param elem {Element} the dom element to set
        * @throws {Error} if the element is assigned again
        */
-      useElement: function useElement(elem) {
+      useNode: function useNode(elem) {
         // Base call
-        qx.html.Root.prototype.useElement.base.call(this, elem); // Mark as root
+        qx.html.Root.superclass.prototype.useNode.call(this, elem); // Mark as root
 
         this.setRoot(true); // Register for synchronization
 
@@ -90,4 +90,4 @@
   qx.html.Root.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Root.js.map?dt=1635064693189
+//# sourceMappingURL=Root.js.map?dt=1645800080776

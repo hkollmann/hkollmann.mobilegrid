@@ -56,7 +56,7 @@
        * @overridden
        */
       _initialize: function _initialize() {
-        hkollmann.mobilegrid.demo.Demo.prototype._initialize.base.call(this);
+        hkollmann.mobilegrid.demo.Demo.superclass.prototype._initialize.call(this);
 
         var grid = new hkollmann.mobilegrid.ui.container.Grid();
 
@@ -77,4 +77,4 @@
   hkollmann.mobilegrid.demo.Demo.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Demo.js.map?dt=1635064683620
+//# sourceMappingURL=Demo.js.map?dt=1645800071946

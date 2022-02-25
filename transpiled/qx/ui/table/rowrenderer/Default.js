@@ -199,9 +199,9 @@
           }
         }
 
-        rowStyle.push(';color:');
+        rowStyle.push(";color:");
         rowStyle.push(rowInfo.selected ? this._colors.colSelected : this._colors.colNormal);
-        rowStyle.push(';border-bottom: 1px solid ', this._colors.horLine);
+        rowStyle.push(";border-bottom: 1px solid ", this._colors.horLine);
         return rowStyle.join("");
       },
       getRowClass: function getRowClass(rowInfo) {
@@ -238,7 +238,7 @@
        *   div tag for the row.
        */
       getRowAttributes: function getRowAttributes(rowInfo) {
-        return "";
+        return "role=row "; // Space important!
       }
     },
 
@@ -258,4 +258,4 @@
   qx.ui.table.rowrenderer.Default.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Default.js.map?dt=1635064700468
+//# sourceMappingURL=Default.js.map?dt=1645800087290

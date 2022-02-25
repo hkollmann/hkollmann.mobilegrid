@@ -53,6 +53,12 @@
         },
         "browser.documentmode": {
           "className": "qx.bom.client.Browser"
+        },
+        "browser.name": {
+          "className": "qx.bom.client.Browser"
+        },
+        "browser.version": {
+          "className": "qx.bom.client.Browser"
         }
       }
     }
@@ -119,15 +125,15 @@
      */
     construct: function construct(manager) {
       // Define shorthands
-      this.__P_156_0 = manager;
-      this.__P_156_1 = manager.getWindow();
-      this.__P_156_2 = this.__P_156_1.document;
-      qx.event.handler.PointerCore.apply(this, [this.__P_156_2]);
+      this.__P_160_0 = manager;
+      this.__P_160_1 = manager.getWindow();
+      this.__P_160_2 = this.__P_160_1.document;
+      qx.event.handler.PointerCore.apply(this, [this.__P_160_2]);
     },
     members: {
-      __P_156_0: null,
-      __P_156_1: null,
-      __P_156_2: null,
+      __P_160_0: null,
+      __P_160_1: null,
+      __P_160_2: null,
       // interface implementation
       canHandleEvent: function canHandleEvent(target, type) {},
       // interface implementation
@@ -173,11 +179,14 @@
         type = qx.event.handler.PointerCore.MSPOINTER_TO_POINTER_MAPPING[type] || type;
 
         if (target && target.nodeType) {
-          qx.event.type.dom.Pointer.normalize(domEvent); // ensure compatibility with native events for IE8
+          qx.event.type.dom.Pointer.normalize(domEvent);
 
-          try {
-            domEvent.srcElement = target;
-          } catch (ex) {// Nothing - cannot change properties in strict mode
+          if (qx.core.Environment.get("browser.name") === "msie" && qx.core.Environment.get("browser.version") < 9) {
+            // ensure compatibility with native events for IE8
+            try {
+              domEvent.srcElement = target;
+            } catch (ex) {// Nothing - cannot change properties in strict mode
+            }
           }
 
           var tracker = {};
@@ -187,12 +196,12 @@
           });
           qx.event.Utils.then(tracker, function () {
             if ((domEvent.getPointerType() !== "mouse" || domEvent.button <= qx.event.handler.PointerCore.LEFT_BUTTON) && (type == "pointerdown" || type == "pointerup" || type == "pointermove" || type == "pointercancel")) {
-              return qx.event.Registration.fireEvent(self.__P_156_2, qx.event.handler.PointerCore.POINTER_TO_GESTURE_MAPPING[type], qx.event.type.Pointer, [domEvent, target, null, false, false]);
+              return qx.event.Registration.fireEvent(self.__P_160_2, qx.event.handler.PointerCore.POINTER_TO_GESTURE_MAPPING[type], qx.event.type.Pointer, [domEvent, target, null, false, false]);
             }
           });
           qx.event.Utils.then(tracker, function () {
             // Fire user action event
-            return qx.event.Registration.fireEvent(self.__P_156_1, "useraction", qx.event.type.Data, [type]);
+            return qx.event.Registration.fireEvent(self.__P_160_1, "useraction", qx.event.type.Data, [type]);
           });
           return tracker.promise;
         }
@@ -211,9 +220,9 @@
        * Dispose this object
        */
       dispose: function dispose() {
-        this.__P_156_3("dispose");
+        this.__P_160_3("dispose");
 
-        this.__P_156_0 = this.__P_156_1 = this.__P_156_2 = null;
+        this.__P_160_0 = this.__P_160_1 = this.__P_160_2 = null;
       },
 
       /**
@@ -222,7 +231,7 @@
        * @param method {String} Name of the overridden method.
        * @param args {Array} Arguments.
        */
-      __P_156_3: function __P_156_3(method, args) {
+      __P_160_3: function __P_160_3(method, args) {
         qx.event.handler.PointerCore.prototype[method].apply(this, args || []);
       }
     },
@@ -234,4 +243,4 @@
   qx.event.handler.Pointer.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Pointer.js.map?dt=1635064698100
+//# sourceMappingURL=Pointer.js.map?dt=1645800085073

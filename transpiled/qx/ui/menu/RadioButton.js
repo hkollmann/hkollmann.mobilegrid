@@ -65,7 +65,12 @@
      * @param menu {qx.ui.menu.Menu} Initial sub menu
      */
     construct: function construct(label, menu) {
-      qx.ui.menu.AbstractButton.constructor.call(this); // Initialize with incoming arguments
+      qx.ui.menu.AbstractButton.constructor.call(this); // ARIA attrs
+      // Important: (Grouped) radio btns should be children of a div with role 'radiogroup'
+
+      var contentEl = this.getContentElement();
+      contentEl.setAttribute("role", "radio");
+      contentEl.setAttribute("aria-checked", false); // Initialize with incoming arguments
 
       if (label != null) {
         this.setLabel(label);
@@ -112,6 +117,8 @@
        MEMBERS
     *****************************************************************************
     */
+
+    /* eslint-disable @qooxdoo/qx/no-refs-in-members */
     members: {
       // overridden (from MExecutable to keep the icon out of the binding)
 
@@ -121,7 +128,9 @@
       _bindableProperties: ["enabled", "label", "toolTipText", "value", "menu"],
       // property apply
       _applyValue: function _applyValue(value, old) {
-        value ? this.addState("checked") : this.removeState("checked");
+        value ? this.addState("checked") : this.removeState("checked"); // ARIA attrs
+
+        this.getContentElement().setAttribute("aria-checked", Boolean(value));
       },
       // property apply
       _applyGroup: function _applyGroup(value, old) {
@@ -153,4 +162,4 @@
   qx.ui.menu.RadioButton.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=RadioButton.js.map?dt=1635064689305
+//# sourceMappingURL=RadioButton.js.map?dt=1645800077312

@@ -21,7 +21,7 @@
         "column": 0
       },
       "end": {
-        "line": 518,
+        "line": 506,
         "column": 3
       }
     },
@@ -44,12 +44,12 @@
   "construct": {
     "location": {
       "start": {
-        "line": 56,
-        "column": 14
+        "line": 54,
+        "column": 2
       },
       "end": {
-        "line": 57,
-        "column": 3
+        "line": 54,
+        "column": 16
       }
     },
     "jsdoc": {
@@ -65,12 +65,12 @@
     "$$type": {
       "location": {
         "start": {
-          "line": 71,
+          "line": 64,
           "column": 4
         },
         "end": {
-          "line": 71,
-          "column": 21
+          "line": 64,
+          "column": 20
         }
       },
       "jsdoc": {
@@ -89,12 +89,12 @@
     "__Property": {
       "location": {
         "start": {
-          "line": 87,
+          "line": 74,
           "column": 4
         },
         "end": {
-          "line": 87,
-          "column": 85
+          "line": 76,
+          "column": 12
         }
       },
       "type": "variable",
@@ -103,11 +103,11 @@
     "toHashCode": {
       "location": {
         "start": {
-          "line": 101,
+          "line": 89,
           "column": 4
         },
         "end": {
-          "line": 110,
+          "line": 101,
           "column": 5
         }
       },
@@ -133,11 +133,11 @@
     "toUuid": {
       "location": {
         "start": {
-          "line": 118,
+          "line": 108,
           "column": 4
         },
         "end": {
-          "line": 124,
+          "line": 114,
           "column": 5
         }
       },
@@ -163,11 +163,11 @@
     "setExplicitUuid": {
       "location": {
         "start": {
-          "line": 138,
+          "line": 127,
           "column": 4
         },
         "end": {
-          "line": 143,
+          "line": 132,
           "column": 5
         }
       },
@@ -194,11 +194,11 @@
     "base": {
       "location": {
         "start": {
-          "line": 163,
+          "line": 155,
           "column": 4
         },
         "end": {
-          "line": 180,
+          "line": 175,
           "column": 5
         }
       },
@@ -206,7 +206,7 @@
         "@description": [
           {
             "name": "@description",
-            "body": "<p>Call the same method of the super class.</p>"
+            "body": "<p>Call the same method of the super class.\n Either the compiler translate all calls to this.base\n into mypkg.MyBaseClass.prototype.myMethod.call(this, 123);\n this method is still needed for use in compile.js or playground\n which are not precompiled</p>"
           }
         ],
         "@param": [
@@ -241,11 +241,11 @@
     "self": {
       "location": {
         "start": {
-          "line": 189,
+          "line": 183,
           "column": 4
         },
         "end": {
-          "line": 191,
+          "line": 185,
           "column": 5
         }
       },
@@ -280,11 +280,11 @@
     "clone": {
       "location": {
         "start": {
-          "line": 211,
+          "line": 201,
           "column": 4
         },
         "end": {
-          "line": 235,
+          "line": 223,
           "column": 5
         }
       },
@@ -310,12 +310,12 @@
     "__userData": {
       "location": {
         "start": {
-          "line": 245,
+          "line": 232,
           "column": 4
         },
         "end": {
-          "line": 245,
-          "column": 21
+          "line": 232,
+          "column": 20
         }
       },
       "jsdoc": {
@@ -338,11 +338,11 @@
     "setUserData": {
       "location": {
         "start": {
-          "line": 254,
+          "line": 240,
           "column": 4
         },
         "end": {
-          "line": 261,
+          "line": 246,
           "column": 5
         }
       },
@@ -376,11 +376,11 @@
     "getUserData": {
       "location": {
         "start": {
-          "line": 270,
+          "line": 254,
           "column": 4
         },
         "end": {
-          "line": 277,
+          "line": 260,
           "column": 5
         }
       },
@@ -415,11 +415,11 @@
     "resetUserData": {
       "location": {
         "start": {
-          "line": 282,
+          "line": 265,
           "column": 4
         },
         "end": {
-          "line": 284,
+          "line": 267,
           "column": 5
         }
       },
@@ -437,11 +437,11 @@
     "isDisposed": {
       "location": {
         "start": {
-          "line": 297,
+          "line": 280,
           "column": 4
         },
         "end": {
-          "line": 299,
+          "line": 282,
           "column": 5
         }
       },
@@ -467,11 +467,11 @@
     "isDisposing": {
       "location": {
         "start": {
-          "line": 308,
+          "line": 290,
           "column": 4
         },
         "end": {
-          "line": 310,
+          "line": 292,
           "column": 5
         }
       },
@@ -497,11 +497,11 @@
     "dispose": {
       "location": {
         "start": {
-          "line": 317,
+          "line": 298,
           "column": 4
         },
         "end": {
-          "line": 396,
+          "line": 393,
           "column": 5
         }
       },
@@ -519,11 +519,11 @@
     "_disposeObjects": {
       "location": {
         "start": {
-          "line": 412,
+          "line": 407,
           "column": 4
         },
         "end": {
-          "line": 414,
+          "line": 409,
           "column": 5
         }
       },
@@ -550,11 +550,11 @@
     "_disposeSingletonObjects": {
       "location": {
         "start": {
-          "line": 423,
+          "line": 417,
           "column": 4
         },
         "end": {
-          "line": 425,
+          "line": 419,
           "column": 5
         }
       },
@@ -581,11 +581,11 @@
     "_disposeArray": {
       "location": {
         "start": {
-          "line": 434,
+          "line": 427,
           "column": 4
         },
         "end": {
-          "line": 436,
+          "line": 429,
           "column": 5
         }
       },
@@ -612,11 +612,11 @@
     "_disposeMap": {
       "location": {
         "start": {
-          "line": 445,
+          "line": 437,
           "column": 4
         },
         "end": {
-          "line": 447,
+          "line": 439,
           "column": 5
         }
       },
@@ -693,69 +693,6 @@
             "body": "{var} Returns the internal id for that binding. This can be used\n   for referencing the binding e.g. for removing. This is not an atomic\n   id so you can't you use it as a hash-map index.",
             "type": "var",
             "description": " Returns the internal id for that binding. This can be used\n   for referencing the binding e.g. for removing. This is not an atomic\n   id so you can't you use it as a hash-map index."
-          }
-        ],
-        "@throws": [
-          {
-            "name": "@throws",
-            "body": "{qx.core.AssertionError} If the event is no data event or\n   there is no property definition for object and property (source and\n   target).",
-            "type": "qx.core.AssertionError",
-            "description": " If the event is no data event or\n   there is no property definition for object and property (source and\n   target)."
-          }
-        ]
-      }
-    },
-    "bindAsync": {
-      "type": "function",
-      "name": "bindAsync",
-      "abstract": false,
-      "mixin": true,
-      "inherited": true,
-      "access": "public",
-      "overriddenFrom": "qx.data.MBinding",
-      "jsdoc": {
-        "@description": [
-          {
-            "name": "@description",
-            "body": "<p>The bind method delegates the call to the\n {@link qx.data.SingleValueBinding#bind} function. As source, the current\n object (this) will be used.</p>"
-          }
-        ],
-        "@param": [
-          {
-            "name": "@param",
-            "body": "sourcePropertyChain {String} The property chain which represents\n   the source property.",
-            "paramName": "sourcePropertyChain",
-            "description": " The property chain which represents\n   the source property.",
-            "type": "String"
-          },
-          {
-            "name": "@param",
-            "body": "targetObject {qx.core.Object} The object which the source should\n   be bind to.",
-            "paramName": "targetObject",
-            "description": " The object which the source should\n   be bind to.",
-            "type": "qx.core.Object"
-          },
-          {
-            "name": "@param",
-            "body": "targetProperty {String} The property name of the target object.",
-            "paramName": "targetProperty",
-            "description": " The property name of the target object.",
-            "type": "String"
-          },
-          {
-            "name": "@param",
-            "body": "options {Map} A map containing the options. See\n   {@link qx.data.SingleValueBinding#bind} for more\n   information.",
-            "paramName": "options",
-            "description": " A map containing the options. See\n   {@link qx.data.SingleValueBinding#bind} for more\n   information.",
-            "type": "Map"
-          }
-        ],
-        "@return": [
-          {
-            "name": "@return",
-            "body": "{qx.Promise} A promise which is resolved when the initial value\n \t has been set on the target.  Note that this does NOT resolve when subsequent\n   values are returned.  The promise value is the internal id for that binding.\n   The id can be used for referencing the binding e.g. for removing. This is not\n   an atomic id so you can't you use it as a hash-map index.",
-            "type": "qx.Promise",
-            "description": " A promise which is resolved when the initial value\n \t has been set on the target.  Note that this does NOT resolve when subsequent\n   values are returned.  The promise value is the internal id for that binding.\n   The id can be used for referencing the binding e.g. for removing. This is not\n   an atomic id so you can't you use it as a hash-map index."
           }
         ],
         "@throws": [
@@ -1685,11 +1622,11 @@
         "@param": [
           {
             "name": "@param",
-            "body": "data {Map | String} a map of property values. The key is the name of the property.",
+            "body": "data {Object | String} a map of property values. The key is the name of the property.",
             "paramName": "data",
             "description": " a map of property values. The key is the name of the property.",
             "type": [
-              "Map",
+              "Object",
               "String"
             ]
           },
@@ -2206,6 +2143,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -2229,6 +2167,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }
@@ -3916,11 +3855,11 @@
   "destruct": {
     "location": {
       "start": {
-        "line": 471,
-        "column": 13
+        "line": 458,
+        "column": 2
       },
       "end": {
-        "line": 517,
+        "line": 505,
         "column": 3
       }
     },
@@ -3939,7 +3878,6 @@
     "qx.ui.core.LayoutItem",
     "qx.util.ObjectPool",
     "qx.theme.manager.Decoration",
-    "qx.html.Element",
     "qx.locale.Manager",
     "qx.theme.manager.Appearance",
     "qx.ui.form.RadioGroup",
@@ -3964,6 +3902,7 @@
     "qx.event.handler.Keyboard",
     "qx.event.handler.Capture",
     "qx.event.handler.UserAction",
+    "qx.html.Node",
     "qx.event.handler.Appear",
     "qx.event.handler.Focus",
     "qx.core.Id",
@@ -3973,7 +3912,6 @@
     "qx.util.ValueManager",
     "qx.ui.layout.Abstract",
     "qxl.apiviewer.TreeUtil",
-    "qx.io.remote.Request",
     "qx.ui.core.Blocker",
     "qx.ui.menu.Manager",
     "qx.bom.Font",
@@ -3987,11 +3925,13 @@
     "qx.event.handler.Element",
     "qx.event.handler.Offline",
     "qx.event.handler.Input",
+    "qx.event.handler.Video",
     "qx.ui.mobile.layout.Abstract",
     "qx.event.handler.Transition",
     "qx.ui.mobile.layout.CardAnimation",
     "qx.theme.manager.Icon",
     "qx.ui.decoration.Abstract",
+    "qx.html.Factory",
     "qx.util.DeferredCallManager",
     "qx.event.Idle",
     "qx.util.placement.Placement",
@@ -4001,26 +3941,27 @@
     "qx.ui.table.selection.Manager",
     "qx.ui.table.selection.Model",
     "qx.ui.table.pane.Model",
-    "qx.io.remote.RequestQueue",
     "qx.ui.popup.Manager",
     "qx.ui.core.SingleSelectionManager",
     "qx.bom.webfonts.Manager",
+    "qx.io.remote.Request",
     "qxl.apiviewer.dao.Param",
     "qx.event.handler.Orientation",
     "qx.ui.table.headerrenderer.Default",
     "qx.ui.table.columnmodel.resizebehavior.Abstract",
     "qx.ui.core.DragDropScrolling",
     "qx.ui.table.cellrenderer.Abstract",
-    "qx.io.remote.Exchange",
     "qx.event.AcceleratingTimer",
     "qx.bom.webfonts.Validator",
     "qxl.apiviewer.ui.panels.InfoPanel",
     "qx.event.handler.Iframe",
+    "qx.io.remote.RequestQueue",
     "qx.util.format.NumberFormat",
     "qx.util.format.DateFormat",
     "qx.ui.table.celleditor.AbstractField",
     "qx.ui.window.Manager",
     "qx.dev.Tokenizer",
+    "qx.io.remote.Exchange",
     "qx.ui.core.selection.Abstract",
     "qx.io.remote.transport.Abstract"
   ]

@@ -1,6 +1,11 @@
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
+        "require": true
+      },
       "qx.Class": {
         "usage": "dynamic",
         "require": true
@@ -9,6 +14,14 @@
         "require": true
       },
       "qx.lang.Type": {}
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.promise": {
+          "load": true
+        }
+      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -80,17 +93,26 @@
        *  it's encapulated in a function for `then`
        * @return {qx.Promise|Object?}
        */
-      track: function track(tracker, fn) {
-        if (typeof fn !== "function" && !qx.lang.Type.isPromise(fn)) {
-          fn = function (value) {
-            return function () {
-              return value;
-            };
-          }(fn);
-        }
+      track: qx.core.Environment.select("qx.promise", {
+        "true": function _true(tracker, fn) {
+          if (typeof fn !== "function" && !qx.lang.Type.isPromise(fn)) {
+            fn = function (value) {
+              return function () {
+                return value;
+              };
+            }(fn);
+          }
 
-        return this.then(tracker, fn);
-      },
+          return this.then(tracker, fn);
+        },
+        "false": function _false(tracker, fn) {
+          if (typeof fn === "function") {
+            return fn();
+          }
+
+          return fn;
+        }
+      }),
 
       /**
        * Helper method to store a promise in a tracker
@@ -99,7 +121,7 @@
        * @param newPromise {qx.Promise} the new promise
        * @return {qx.Promise} the new promise
        */
-      __P_92_0: function __P_92_0(tracker, newPromise) {
+      __P_94_0: function __P_94_0(tracker, newPromise) {
         tracker.promise = newPromise;
         return tracker.promise;
       },
@@ -111,55 +133,70 @@
        * @param fn {Function} the function to call when previous promises are complete
        * @return {qx.Promise?} the new promise, or the return value from `fn` if no promises are in use
        */
-      then: function then(tracker, fn) {
-        if (tracker.rejected) {
-          return null;
-        }
-
-        if (tracker.promise) {
-          if (qx.lang.Type.isPromise(fn)) {
-            this.__P_92_0(tracker, tracker.promise.then(fn));
-          } else {
-            var self = this;
-
-            this.__P_92_0(tracker, tracker.promise.then(function (result) {
-              if (tracker.rejected) {
-                return null;
-              }
-
-              result = fn(result);
-
-              if (result === qx.event.Utils.ABORT) {
-                return self.reject(tracker);
-              }
-
-              return result;
-            }));
+      then: qx.core.Environment.select("qx.promise", {
+        "true": function _true(tracker, fn) {
+          if (tracker.rejected) {
+            return null;
           }
 
-          this.__P_92_1(tracker);
+          if (tracker.promise) {
+            if (qx.lang.Type.isPromise(fn)) {
+              this.__P_94_0(tracker, tracker.promise.then(fn));
+            } else {
+              var self = this;
 
-          return tracker.promise;
+              this.__P_94_0(tracker, tracker.promise.then(function (result) {
+                if (tracker.rejected) {
+                  return null;
+                }
+
+                result = fn(result);
+
+                if (result === qx.event.Utils.ABORT) {
+                  return self.reject(tracker);
+                }
+
+                return result;
+              }));
+            }
+
+            this.__P_94_1(tracker);
+
+            return tracker.promise;
+          }
+
+          if (qx.lang.Type.isPromise(fn)) {
+            return this.__P_94_2(tracker, fn);
+          }
+
+          var result = fn(tracker.result);
+
+          if (qx.lang.Type.isPromise(result)) {
+            return this.__P_94_2(tracker, result);
+          }
+
+          tracker.result = result;
+
+          if (result === qx.event.Utils.ABORT) {
+            return this.reject(tracker);
+          }
+
+          return result;
+        },
+        "false": function _false(tracker, fn) {
+          if (tracker.rejected) {
+            return null;
+          }
+
+          var result = tracker.result = fn(tracker.result);
+
+          if (result === qx.event.Utils.ABORT) {
+            return this.reject(tracker);
+          }
+
+          return result;
         }
-
-        if (qx.lang.Type.isPromise(fn)) {
-          return this.__P_92_2(tracker, fn);
-        }
-
-        var result = fn(tracker.result);
-
-        if (qx.lang.Type.isPromise(result)) {
-          return this.__P_92_2(tracker, result);
-        }
-
-        tracker.result = result;
-
-        if (result === qx.event.Utils.ABORT) {
-          return this.reject(tracker);
-        }
-
-        return result;
-      },
+      }),
 
       /**
        * Helper method to append a promise after the current one
@@ -168,16 +205,16 @@
        * @param newPromise {qx.Promise} the new promise
        * @return {qx.Promise} the new promise
        */
-      __P_92_2: function __P_92_2(tracker, newPromise) {
+      __P_94_2: function __P_94_2(tracker, newPromise) {
         if (tracker.promise) {
-          this.__P_92_0(tracker, tracker.promise.then(function () {
+          this.__P_94_0(tracker, tracker.promise.then(function () {
             return newPromise;
           }));
         } else {
-          this.__P_92_0(tracker, newPromise);
+          this.__P_94_0(tracker, newPromise);
         }
 
-        this.__P_92_1(tracker);
+        this.__P_94_1(tracker);
 
         return tracker.promise;
       },
@@ -200,7 +237,7 @@
           throw new Error("Rejecting Event");
         }
 
-        var result = this.__P_92_3(tracker);
+        var result = this.__P_94_3(tracker);
 
         return result === undefined ? this.ABORT : result;
       },
@@ -210,10 +247,10 @@
        *
        * @param tracker {Object} the tracker object
        */
-      __P_92_1: function __P_92_1(tracker) {
+      __P_94_1: function __P_94_1(tracker) {
         if (tracker.promise && tracker["catch"]) {
           if (!tracker.promise["qx.event.Utils.hasCatcher"]) {
-            this.__P_92_0(tracker, tracker.promise["catch"](this.__P_92_3.bind(this, tracker)));
+            this.__P_94_0(tracker, tracker.promise["catch"](this.__P_94_3.bind(this, tracker)));
 
             tracker.promise["qx.event.Utils.hasCatcher"] = true;
           }
@@ -227,7 +264,7 @@
        *
        * @param tracker {Object} the tracker object
        */
-      __P_92_3: function __P_92_3(tracker, err) {
+      __P_94_3: function __P_94_3(tracker, err) {
         var fn = tracker["catch"];
 
         if (fn) {
@@ -272,7 +309,7 @@
           tracker["catch"] = fn;
         }
 
-        this.__P_92_1(tracker);
+        this.__P_94_1(tracker);
       },
 
       /**
@@ -307,40 +344,53 @@
        * @param ignoreAbort {Boolean?} whether to ignore the "ABORT" return value
        * @return {qx.Promise|Object?}
        */
-      series: function series(arr, fn, ignoreAbort) {
-        var tracker = {};
+      series: qx.core.Environment.select("qx.promise", {
+        "true": function _true(arr, fn, ignoreAbort) {
+          var tracker = {};
 
-        for (var index = 0; index < arr.length; index++) {
-          var result = fn(arr[index], index);
+          for (var index = 0; index < arr.length; index++) {
+            var result = fn(arr[index], index);
 
-          if (result instanceof qx.Promise) {
-            for (++index; index < arr.length; index++) {
-              (function (item, index) {
-                result = result.then(function () {
-                  var tmp = fn(item, index);
+            if (qx.Promise.isPromise(result)) {
+              for (++index; index < arr.length; index++) {
+                (function (item, index) {
+                  result = result.then(function () {
+                    var tmp = fn(item, index);
 
-                  if (!ignoreAbort && tmp === qx.event.Utils.ABORT) {
-                    throw new Error("Rejecting in series()");
-                  }
+                    if (!ignoreAbort && tmp === qx.event.Utils.ABORT) {
+                      throw new Error("Rejecting in series()");
+                    }
 
-                  return tmp;
-                });
-              })(arr[index], index);
+                    return tmp;
+                  });
+                })(arr[index], index);
+              }
+
+              return result;
             }
 
-            return result;
+            if (!ignoreAbort && result === qx.event.Utils.ABORT) {
+              return this.reject(tracker);
+            }
           }
 
-          if (!ignoreAbort && result === qx.event.Utils.ABORT) {
-            return this.reject(tracker);
+          return null;
+        },
+        "false": function _false(arr, fn, ignoreAbort) {
+          var tracker = {};
+
+          for (var index = 0; index < arr.length; index++) {
+            var result = fn(arr[index], index);
+
+            if (!ignoreAbort && result === qx.event.Utils.ABORT) {
+              return this.reject(tracker);
+            }
           }
         }
-
-        return null;
-      }
+      })
     }
   });
   qx.event.Utils.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Utils.js.map?dt=1635064692570
+//# sourceMappingURL=Utils.js.map?dt=1645800080266

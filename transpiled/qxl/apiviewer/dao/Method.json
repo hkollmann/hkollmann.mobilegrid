@@ -13,8 +13,8 @@
         "column": 0
       },
       "end": {
-        "line": 102,
-        "column": 5
+        "line": 111,
+        "column": 3
       }
     },
     "jsdoc": {}
@@ -23,26 +23,25 @@
   "construct": {
     "location": {
       "start": {
-        "line": 25,
-        "column": 16
+        "line": 24,
+        "column": 2
       },
       "end": {
-        "line": 43,
-        "column": 5
+        "line": 45,
+        "column": 3
       }
-    },
-    "jsdoc": {}
+    }
   },
   "members": {
     "_params": {
       "location": {
         "start": {
-          "line": 46,
-          "column": 6
+          "line": 48,
+          "column": 4
         },
         "end": {
-          "line": 46,
-          "column": 19
+          "line": 48,
+          "column": 17
         }
       },
       "type": "variable",
@@ -51,12 +50,12 @@
     "_return": {
       "location": {
         "start": {
-          "line": 47,
-          "column": 6
+          "line": 49,
+          "column": 4
         },
         "end": {
-          "line": 47,
-          "column": 19
+          "line": 49,
+          "column": 17
         }
       },
       "type": "variable",
@@ -65,12 +64,12 @@
     "_throws": {
       "location": {
         "start": {
-          "line": 48,
-          "column": 6
+          "line": 50,
+          "column": 4
         },
         "end": {
-          "line": 48,
-          "column": 19
+          "line": 50,
+          "column": 17
         }
       },
       "type": "variable",
@@ -79,12 +78,12 @@
     "_propertyName": {
       "location": {
         "start": {
-          "line": 49,
-          "column": 6
+          "line": 51,
+          "column": 4
         },
         "end": {
-          "line": 49,
-          "column": 25
+          "line": 51,
+          "column": 23
         }
       },
       "type": "variable",
@@ -93,12 +92,12 @@
     "_applyFor": {
       "location": {
         "start": {
-          "line": 50,
-          "column": 6
+          "line": 52,
+          "column": 4
         },
         "end": {
-          "line": 50,
-          "column": 21
+          "line": 52,
+          "column": 19
         }
       },
       "type": "variable",
@@ -107,12 +106,12 @@
     "isStatic": {
       "location": {
         "start": {
-          "line": 52,
-          "column": 6
+          "line": 54,
+          "column": 4
         },
         "end": {
-          "line": 54,
-          "column": 7
+          "line": 56,
+          "column": 5
         }
       },
       "type": "function",
@@ -121,12 +120,12 @@
     "isAbstract": {
       "location": {
         "start": {
-          "line": 56,
-          "column": 6
+          "line": 58,
+          "column": 4
         },
         "end": {
-          "line": 58,
-          "column": 7
+          "line": 60,
+          "column": 5
         }
       },
       "type": "function",
@@ -135,12 +134,12 @@
     "isConstructor": {
       "location": {
         "start": {
-          "line": 60,
-          "column": 6
+          "line": 62,
+          "column": 4
         },
         "end": {
-          "line": 62,
-          "column": 7
+          "line": 64,
+          "column": 5
         }
       },
       "type": "function",
@@ -149,12 +148,12 @@
     "isFromProperty": {
       "location": {
         "start": {
-          "line": 64,
-          "column": 6
+          "line": 66,
+          "column": 4
         },
         "end": {
-          "line": 66,
-          "column": 7
+          "line": 68,
+          "column": 5
         }
       },
       "type": "function",
@@ -163,12 +162,12 @@
     "isDeprecated": {
       "location": {
         "start": {
-          "line": 71,
-          "column": 6
+          "line": 73,
+          "column": 4
         },
         "end": {
-          "line": 73,
-          "column": 7
+          "line": 78,
+          "column": 5
         }
       },
       "jsdoc": {
@@ -195,12 +194,12 @@
     "getParams": {
       "location": {
         "start": {
-          "line": 75,
-          "column": 6
+          "line": 80,
+          "column": 4
         },
         "end": {
-          "line": 77,
-          "column": 7
+          "line": 82,
+          "column": 5
         }
       },
       "type": "function",
@@ -209,12 +208,12 @@
     "getReturn": {
       "location": {
         "start": {
-          "line": 79,
-          "column": 6
+          "line": 84,
+          "column": 4
         },
         "end": {
-          "line": 81,
-          "column": 7
+          "line": 86,
+          "column": 5
         }
       },
       "type": "function",
@@ -223,12 +222,12 @@
     "getThrows": {
       "location": {
         "start": {
-          "line": 83,
-          "column": 6
+          "line": 88,
+          "column": 4
         },
         "end": {
-          "line": 85,
-          "column": 7
+          "line": 90,
+          "column": 5
         }
       },
       "type": "function",
@@ -237,12 +236,12 @@
     "getFromProperty": {
       "location": {
         "start": {
-          "line": 87,
-          "column": 6
+          "line": 92,
+          "column": 4
         },
         "end": {
-          "line": 89,
-          "column": 7
+          "line": 96,
+          "column": 5
         }
       },
       "type": "function",
@@ -251,12 +250,12 @@
     "getApplyFor": {
       "location": {
         "start": {
-          "line": 91,
-          "column": 6
+          "line": 98,
+          "column": 4
         },
         "end": {
-          "line": 93,
-          "column": 7
+          "line": 100,
+          "column": 5
         }
       },
       "type": "function",
@@ -265,12 +264,12 @@
     "isRequiredByInterface": {
       "location": {
         "start": {
-          "line": 98,
-          "column": 6
+          "line": 105,
+          "column": 4
         },
         "end": {
-          "line": 100,
-          "column": 7
+          "line": 109,
+          "column": 5
         }
       },
       "jsdoc": {
@@ -382,6 +381,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -406,6 +406,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }

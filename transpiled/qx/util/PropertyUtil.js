@@ -93,22 +93,22 @@
       },
 
       /**
-      * Sets the user value of the given property
-      *
-      * @param object {Object} The object to access
-      * @param propertyName {String} The name of the property
-      * @param value {var} The value to set
-      */
+       * Sets the user value of the given property
+       *
+       * @param object {Object} The object to access
+       * @param propertyName {String} The name of the property
+       * @param value {var} The value to set
+       */
       setUserValue: function setUserValue(object, propertyName, value) {
         object["$$user_" + propertyName] = value;
       },
 
       /**
-      * Deletes the user value of the given property
-      *
-      * @param object {Object} The object to access
-      * @param propertyName {String} The name of the property
-      */
+       * Deletes the user value of the given property
+       *
+       * @param object {Object} The object to access
+       * @param propertyName {String} The name of the property
+       */
       deleteUserValue: function deleteUserValue(object, propertyName) {
         delete object["$$user_" + propertyName];
       },
@@ -131,22 +131,22 @@
       },
 
       /**
-      * Sets the init value of the given property
-      *
-      * @param object {Object} The object to access
-      * @param propertyName {String} The name of the property
-      * @param value {var} The value to set
-      */
+       * Sets the init value of the given property
+       *
+       * @param object {Object} The object to access
+       * @param propertyName {String} The name of the property
+       * @param value {var} The value to set
+       */
       setInitValue: function setInitValue(object, propertyName, value) {
         object["$$init_" + propertyName] = value;
       },
 
       /**
-      * Deletes the init value of the given property
-      *
-      * @param object {Object} The object to access
-      * @param propertyName {String} The name of the property
-      */
+       * Deletes the init value of the given property
+       *
+       * @param object {Object} The object to access
+       * @param propertyName {String} The name of the property
+       */
       deleteInitValue: function deleteInitValue(object, propertyName) {
         delete object["$$init_" + propertyName];
       },
@@ -169,22 +169,22 @@
       },
 
       /**
-      * Sets the theme value of the given property
-      *
-      * @param object {Object} The object to access
-      * @param propertyName {String} The name of the property
-      * @param value {var} The value to set
-      */
+       * Sets the theme value of the given property
+       *
+       * @param object {Object} The object to access
+       * @param propertyName {String} The name of the property
+       * @param value {var} The value to set
+       */
       setThemeValue: function setThemeValue(object, propertyName, value) {
         object["$$theme_" + propertyName] = value;
       },
 
       /**
-      * Deletes the theme value of the given property
-      *
-      * @param object {Object} The object to access
-      * @param propertyName {String} The name of the property
-      */
+       * Deletes the theme value of the given property
+       *
+       * @param object {Object} The object to access
+       * @param propertyName {String} The name of the property
+       */
       deleteThemeValue: function deleteThemeValue(object, propertyName) {
         delete object["$$theme_" + propertyName];
       },
@@ -200,7 +200,7 @@
        *
        * @param object {Object} The object to access
        * @param propertyName {String} The name of the property
-      * @param value {var} The value to set
+       * @param value {var} The value to set
        */
       setThemed: function setThemed(object, propertyName, value) {
         var styler = qx.core.Property.$$method.setThemed;
@@ -208,11 +208,11 @@
       },
 
       /**
-      * Resets a themed property
-      *
-      * @param object {Object} The object to access
-      * @param propertyName {String} The name of the property
-      */
+       * Resets a themed property
+       *
+       * @param object {Object} The object to access
+       * @param propertyName {String} The name of the property
+       */
       resetThemed: function resetThemed(object, propertyName) {
         var unstyler = qx.core.Property.$$method.resetThemed;
         object[unstyler[propertyName]]();
@@ -222,4 +222,4 @@
   qx.util.PropertyUtil.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=PropertyUtil.js.map?dt=1635064693435
+//# sourceMappingURL=PropertyUtil.js.map?dt=1645800080977

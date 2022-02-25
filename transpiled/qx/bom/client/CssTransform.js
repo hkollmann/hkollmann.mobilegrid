@@ -69,11 +69,11 @@
 
         if (name != null) {
           return {
-            "name": name,
-            "style": qx.bom.client.CssTransform.getStyle(),
-            "origin": qx.bom.client.CssTransform.getOrigin(),
+            name: name,
+            style: qx.bom.client.CssTransform.getStyle(),
+            origin: qx.bom.client.CssTransform.getOrigin(),
             "3d": qx.bom.client.CssTransform.get3D(),
-            "perspective": qx.bom.client.CssTransform.getPerspective(),
+            perspective: qx.bom.client.CssTransform.getPerspective(),
             "perspective-origin": qx.bom.client.CssTransform.getPerspectiveOrigin(),
             "backface-visibility": qx.bom.client.CssTransform.getBackFaceVisibility()
           };
@@ -159,4 +159,4 @@
   qx.bom.client.CssTransform.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=CssTransform.js.map?dt=1635064697820
+//# sourceMappingURL=CssTransform.js.map?dt=1645800084811

@@ -1,6 +1,11 @@
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
+        "require": true
+      },
       "qx.Class": {
         "usage": "dynamic",
         "require": true
@@ -9,6 +14,14 @@
         "require": true
       },
       "qx.ui.layout.Util": {}
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.debug": {
+          "load": true
+        }
+      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -53,7 +66,20 @@
       ---------------------------------------------------------------------------
       */
       // overridden
-      verifyLayoutProperty: null,
+      verifyLayoutProperty: qx.core.Environment.select("qx.debug", {
+        "true": function _true(item, name, value) {
+          this.assert(name === "type" || name === "flex", "The property '" + name + "' is not supported by the split layout!");
+
+          if (name == "flex") {
+            this.assertNumber(value);
+          }
+
+          if (name == "type") {
+            this.assertString(value);
+          }
+        },
+        "false": null
+      }),
       // overridden
       renderLayout: function renderLayout(availWidth, availHeight, padding) {
         var children = this._getLayoutChildren();
@@ -83,11 +109,11 @@
           var beginFlex = begin.getLayoutProperties().flex;
           var endFlex = end.getLayoutProperties().flex;
 
-          if (beginFlex == null) {
+          if (beginFlex === undefined || beginFlex === null) {
             beginFlex = 1;
           }
 
-          if (endFlex == null) {
+          if (endFlex === undefined || endFlex === null) {
             endFlex = 1;
           }
 
@@ -195,4 +221,4 @@
   qx.ui.splitpane.VLayout.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=VLayout.js.map?dt=1635064696412
+//# sourceMappingURL=VLayout.js.map?dt=1645800083542

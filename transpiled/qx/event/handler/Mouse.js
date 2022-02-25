@@ -24,23 +24,25 @@
       "qx.core.IDisposable": {
         "require": true
       },
+      "qx.lang.Function": {
+        "construct": true
+      },
       "qx.event.Registration": {
         "defer": "runtime",
         "require": true
       },
+      "qx.bom.Event": {},
       "qx.bom.client.OperatingSystem": {
         "require": true
       },
-      "qx.bom.Event": {},
-      "qx.event.type.MouseWheel": {},
-      "qx.event.type.Mouse": {},
-      "qx.event.type.Data": {},
-      "qx.lang.Function": {},
-      "qx.bom.client.Event": {},
       "qx.event.GlobalError": {
         "usage": "dynamic",
         "require": true
       },
+      "qx.event.type.Mouse": {},
+      "qx.event.type.MouseWheel": {},
+      "qx.event.type.Data": {},
+      "qx.bom.client.Event": {},
       "qx.bom.client.Engine": {
         "require": true
       },
@@ -50,7 +52,6 @@
       "provided": [],
       "required": {
         "os.name": {
-          "load": true,
           "className": "qx.bom.client.OperatingSystem"
         },
         "engine.name": {
@@ -91,6 +92,7 @@
    *
    * @require(qx.event.handler.UserAction)
    * @ignore(qx.event.handler.DragDrop)
+   * @ignore(performance.now)
    */
   qx.Class.define("qx.event.handler.Mouse", {
     extend: qx.core.Object,
@@ -110,9 +112,10 @@
     construct: function construct(manager) {
       qx.core.Object.constructor.call(this); // Define shorthands
 
-      this.__P_152_0 = manager;
-      this.__P_152_1 = manager.getWindow();
-      this.__P_152_2 = this.__P_152_1.document; // Initialize observers
+      this.__P_156_0 = manager;
+      this.__P_156_1 = manager.getWindow();
+      this.__P_156_2 = this.__P_156_1.document;
+      this.__P_156_3 = qx.lang.Function.listener(this._onNative, this); // Initialize observers
 
       this._initButtonObserver();
 
@@ -132,16 +135,24 @@
 
       /** @type {Map} Supported event types */
       SUPPORTED_TYPES: {
-        mousemove: 1,
-        mouseover: 1,
-        mouseout: 1,
-        mousedown: 1,
-        mouseup: 1,
-        click: 1,
         auxclick: 1,
-        dblclick: 1,
+        click: 1,
         contextmenu: 1,
+        dblclick: 1,
+        mousedown: 1,
+        mouseenter: 1,
+        mouseleave: 1,
+        mousemove: 1,
+        mouseout: 1,
+        mouseover: 1,
+        mouseup: 1,
         mousewheel: 1
+      },
+
+      /** @type{Map} these event types cannot be attached to the root (the document), they must be attached to the element itself */
+      NON_BUBBLING_EVENTS: {
+        mouseenter: true,
+        mouseleave: true
       },
 
       /** @type {Integer} Which target check to use */
@@ -157,15 +168,18 @@
     *****************************************************************************
     */
     members: {
-      __P_152_3: null,
-      __P_152_4: null,
-      __P_152_5: null,
-      __P_152_6: null,
-      __P_152_7: null,
-      __P_152_0: null,
-      __P_152_1: null,
-      __P_152_2: null,
-      __P_152_8: null,
+      __P_156_4: null,
+      __P_156_5: null,
+      __P_156_6: null,
+      __P_156_7: null,
+      __P_156_8: null,
+      __P_156_0: null,
+      __P_156_1: null,
+      __P_156_2: null,
+      __P_156_9: null,
+
+      /** @type{Function} wrapper for `_onNative`, bound as a native listener */
+      __P_156_3: null,
 
       /*
       ---------------------------------------------------------------------------
@@ -174,24 +188,45 @@
       */
       // interface implementation
       canHandleEvent: function canHandleEvent(target, type) {},
-      // interface implementation
-      // The iPhone requires for attaching mouse events natively to every element which
-      // should react on mouse events. As of version 3.0 it also requires to keep the
-      // listeners as long as the event should work. In 2.0 it was enough to attach the
-      // listener once.
-      registerEvent: qx.core.Environment.get("os.name") === "ios" ? function (target, type, capture) {
-        target["on" + type] = function () {
-          return null;
-        };
-      } : function () {
-        return null;
+
+      /**
+       * @Override
+       */
+      registerEvent: function registerEvent(target, type, capture) {
+        if (qx.event.handler.Mouse.NON_BUBBLING_EVENTS[type]) {
+          qx.bom.Event.addNativeListener(target, type, this.__P_156_3);
+        } else if (qx.core.Environment.get("os.name") === "ios") {
+          // The iPhone requires for attaching mouse events natively to every element which
+          // should react on mouse events. As of version 3.0 it also requires to keep the
+          // listeners as long as the event should work. In 2.0 it was enough to attach the
+          // listener once.
+          target["on" + type] = function () {
+            return null;
+          };
+        }
       },
-      // interface implementation
-      unregisterEvent: qx.core.Environment.get("os.name") === "ios" ? function (target, type, capture) {
-        target["on" + type] = undefined;
-      } : function () {
-        return null;
+
+      /**
+       * @Override
+       */
+      unregisterEvent: function unregisterEvent(target, type, capture) {
+        if (qx.event.handler.Mouse.NON_BUBBLING_EVENTS[type]) {
+          qx.bom.Event.removeNativeListener(target, type, this.__P_156_3);
+        } else if (qx.core.Environment.get("os.name") === "ios") {
+          target["on" + type] = undefined;
+        }
       },
+
+      /**
+       * Default event handler for events that do not bubble
+       *
+       * @signature function(domEvent, eventId)
+       * @param domEvent {Event} Native event
+       */
+      _onNative: qx.event.GlobalError.observeMethod(function (domEvent) {
+        var target = qx.bom.Event.getTarget(domEvent);
+        qx.event.Registration.fireNonBubblingEvent(target, domEvent.type, qx.event.type.Mouse, [domEvent, target, undefined, undefined, domEvent.cancelable]);
+      }),
 
       /*
       ---------------------------------------------------------------------------
@@ -206,7 +241,7 @@
        * @param type {String} type of the event
        * @param target {Element} event target
        */
-      __P_152_9: function __P_152_9(domEvent, type, target) {
+      __P_156_10: function __P_156_10(domEvent, type, target) {
         if (!target) {
           target = qx.bom.Event.getTarget(domEvent);
         } // we need a true node for the fireEvent
@@ -219,7 +254,7 @@
         } // Fire user action event
 
 
-        qx.event.Registration.fireEvent(this.__P_152_1, "useraction", qx.event.type.Data, [type || domEvent.type]);
+        qx.event.Registration.fireEvent(this.__P_156_1, "useraction", qx.event.type.Data, [type || domEvent.type]);
       },
 
       /**
@@ -227,7 +262,7 @@
        * @internal
        */
       preventNextClick: function preventNextClick() {
-        this.__P_152_8 = true;
+        this.__P_156_9 = true;
       },
 
       /*
@@ -242,14 +277,14 @@
        * @signature function()
        */
       _initButtonObserver: function _initButtonObserver() {
-        this.__P_152_3 = qx.lang.Function.listener(this._onButtonEvent, this);
+        this.__P_156_4 = qx.lang.Function.listener(this._onButtonEvent, this);
         var Event = qx.bom.Event;
-        Event.addNativeListener(this.__P_152_2, "mousedown", this.__P_152_3);
-        Event.addNativeListener(this.__P_152_2, "mouseup", this.__P_152_3);
-        Event.addNativeListener(this.__P_152_2, "click", this.__P_152_3);
-        Event.addNativeListener(this.__P_152_2, "auxclick", this.__P_152_3);
-        Event.addNativeListener(this.__P_152_2, "dblclick", this.__P_152_3);
-        Event.addNativeListener(this.__P_152_2, "contextmenu", this.__P_152_3);
+        Event.addNativeListener(this.__P_156_2, "mousedown", this.__P_156_4);
+        Event.addNativeListener(this.__P_156_2, "mouseup", this.__P_156_4);
+        Event.addNativeListener(this.__P_156_2, "click", this.__P_156_4);
+        Event.addNativeListener(this.__P_156_2, "auxclick", this.__P_156_4);
+        Event.addNativeListener(this.__P_156_2, "dblclick", this.__P_156_4);
+        Event.addNativeListener(this.__P_156_2, "contextmenu", this.__P_156_4);
       },
 
       /**
@@ -258,11 +293,11 @@
        * @signature function()
        */
       _initMoveObserver: function _initMoveObserver() {
-        this.__P_152_4 = qx.lang.Function.listener(this._onMoveEvent, this);
+        this.__P_156_5 = qx.lang.Function.listener(this._onMoveEvent, this);
         var Event = qx.bom.Event;
-        Event.addNativeListener(this.__P_152_2, "mousemove", this.__P_152_4);
-        Event.addNativeListener(this.__P_152_2, "mouseover", this.__P_152_4);
-        Event.addNativeListener(this.__P_152_2, "mouseout", this.__P_152_4);
+        Event.addNativeListener(this.__P_156_2, "mousemove", this.__P_156_5);
+        Event.addNativeListener(this.__P_156_2, "mouseout", this.__P_156_5);
+        Event.addNativeListener(this.__P_156_2, "mouseover", this.__P_156_5);
       },
 
       /**
@@ -271,9 +306,9 @@
        * @signature function()
        */
       _initWheelObserver: function _initWheelObserver() {
-        this.__P_152_5 = qx.lang.Function.listener(this._onWheelEvent, this);
-        var data = qx.bom.client.Event.getMouseWheel(this.__P_152_1);
-        qx.bom.Event.addNativeListener(data.target, data.type, this.__P_152_5);
+        this.__P_156_6 = qx.lang.Function.listener(this._onWheelEvent, this);
+        var data = qx.bom.client.Event.getMouseWheel(this.__P_156_1);
+        qx.bom.Event.addNativeListener(data.target, data.type, this.__P_156_6);
       },
 
       /*
@@ -289,11 +324,11 @@
        */
       _stopButtonObserver: function _stopButtonObserver() {
         var Event = qx.bom.Event;
-        Event.removeNativeListener(this.__P_152_2, "mousedown", this.__P_152_3);
-        Event.removeNativeListener(this.__P_152_2, "mouseup", this.__P_152_3);
-        Event.removeNativeListener(this.__P_152_2, "click", this.__P_152_3);
-        Event.removeNativeListener(this.__P_152_2, "dblclick", this.__P_152_3);
-        Event.removeNativeListener(this.__P_152_2, "contextmenu", this.__P_152_3);
+        Event.removeNativeListener(this.__P_156_2, "mousedown", this.__P_156_4);
+        Event.removeNativeListener(this.__P_156_2, "mouseup", this.__P_156_4);
+        Event.removeNativeListener(this.__P_156_2, "click", this.__P_156_4);
+        Event.removeNativeListener(this.__P_156_2, "dblclick", this.__P_156_4);
+        Event.removeNativeListener(this.__P_156_2, "contextmenu", this.__P_156_4);
       },
 
       /**
@@ -303,9 +338,9 @@
        */
       _stopMoveObserver: function _stopMoveObserver() {
         var Event = qx.bom.Event;
-        Event.removeNativeListener(this.__P_152_2, "mousemove", this.__P_152_4);
-        Event.removeNativeListener(this.__P_152_2, "mouseover", this.__P_152_4);
-        Event.removeNativeListener(this.__P_152_2, "mouseout", this.__P_152_4);
+        Event.removeNativeListener(this.__P_156_2, "mousemove", this.__P_156_5);
+        Event.removeNativeListener(this.__P_156_2, "mouseover", this.__P_156_5);
+        Event.removeNativeListener(this.__P_156_2, "mouseout", this.__P_156_5);
       },
 
       /**
@@ -314,8 +349,8 @@
        * @signature function()
        */
       _stopWheelObserver: function _stopWheelObserver() {
-        var data = qx.bom.client.Event.getMouseWheel(this.__P_152_1);
-        qx.bom.Event.removeNativeListener(data.target, data.type, this.__P_152_5);
+        var data = qx.bom.client.Event.getMouseWheel(this.__P_156_1);
+        qx.bom.Event.removeNativeListener(data.target, data.type, this.__P_156_6);
       },
 
       /*
@@ -332,7 +367,7 @@
        * @param domEvent {Event} DOM event
        */
       _onMoveEvent: qx.event.GlobalError.observeMethod(function (domEvent) {
-        this.__P_152_9(domEvent);
+        this.__P_156_10(domEvent);
       }),
 
       /**
@@ -346,8 +381,8 @@
         var type = domEvent.type;
         var target = qx.bom.Event.getTarget(domEvent);
 
-        if (type == "click" && this.__P_152_8) {
-          delete this.__P_152_8;
+        if (type == "click" && this.__P_156_9) {
+          delete this.__P_156_9;
           return;
         } // Safari (and maybe gecko) takes text nodes as targets for events
         // See: http://www.quirksmode.org/js/events_properties.html
@@ -360,39 +395,39 @@
         } // prevent click events on drop during Drag&Drop [BUG #6846]
 
 
-        var isDrag = qx.event.handler.DragDrop && this.__P_152_0.getHandler(qx.event.handler.DragDrop).isSessionActive();
+        var isDrag = qx.event.handler.DragDrop && this.__P_156_0.getHandler(qx.event.handler.DragDrop).isSessionActive();
 
         if (isDrag && type == "click") {
           return;
         }
 
-        if (this.__P_152_10) {
-          this.__P_152_10(domEvent, type, target);
+        if (this.__P_156_11) {
+          this.__P_156_11(domEvent, type, target);
         }
 
-        this.__P_152_9(domEvent, type, target);
+        this.__P_156_10(domEvent, type, target);
         /*
          * In order to normalize middle button click events we
          * need to fire an artificial click event if the client
          * fires auxclick events for non primary buttons instead.
-         * 
+         *
          * See https://github.com/qooxdoo/qooxdoo/issues/9268
          */
 
 
         if (type == "auxclick" && domEvent.button == 1) {
-          this.__P_152_9(domEvent, "click", target);
+          this.__P_156_10(domEvent, "click", target);
         }
 
-        if (this.__P_152_11) {
-          this.__P_152_11(domEvent, type, target);
+        if (this.__P_156_12) {
+          this.__P_156_12(domEvent, type, target);
         }
 
-        if (this.__P_152_12 && !isDrag) {
-          this.__P_152_12(domEvent, type, target);
+        if (this.__P_156_13 && !isDrag) {
+          this.__P_156_13(domEvent, type, target);
         }
 
-        this.__P_152_6 = type;
+        this.__P_156_7 = type;
       }),
 
       /**
@@ -402,7 +437,7 @@
        * @param domEvent {Event} DOM event
        */
       _onWheelEvent: qx.event.GlobalError.observeMethod(function (domEvent) {
-        this.__P_152_9(domEvent, "mousewheel");
+        this.__P_156_10(domEvent, "mousewheel");
       }),
 
       /*
@@ -425,10 +460,10 @@
        *
        * @signature function(domEvent, type, target)
        */
-      __P_152_11: qx.core.Environment.select("engine.name", {
-        "opera": function opera(domEvent, type, target) {
+      __P_156_12: qx.core.Environment.select("engine.name", {
+        opera: function opera(domEvent, type, target) {
           if (type == "mouseup" && domEvent.button == 2) {
-            this.__P_152_9(domEvent, "contextmenu", target);
+            this.__P_156_10(domEvent, "contextmenu", target);
           }
         },
         "default": null
@@ -455,18 +490,18 @@
        *
        * @signature function(domEvent, type, target)
        */
-      __P_152_10: qx.core.Environment.select("engine.name", {
-        "mshtml": function mshtml(domEvent, type, target) {
+      __P_156_11: qx.core.Environment.select("engine.name", {
+        mshtml: function mshtml(domEvent, type, target) {
           // Do only apply the fix when the event is from the IE event model,
           // otherwise do not apply the fix.
           if (domEvent.target !== undefined) {
             return;
           }
 
-          if (type == "mouseup" && this.__P_152_6 == "click") {
-            this.__P_152_9(domEvent, "mousedown", target);
+          if (type == "mouseup" && this.__P_156_7 == "click") {
+            this.__P_156_10(domEvent, "mousedown", target);
           } else if (type == "dblclick") {
-            this.__P_152_9(domEvent, "click", target);
+            this.__P_156_10(domEvent, "click", target);
           }
         },
         "default": null
@@ -485,20 +520,20 @@
        *
        * @signature function(domEvent, type, target)
        */
-      __P_152_12: qx.core.Environment.select("engine.name", {
-        "mshtml": null,
+      __P_156_13: qx.core.Environment.select("engine.name", {
+        mshtml: null,
         "default": function _default(domEvent, type, target) {
           switch (type) {
             case "mousedown":
-              this.__P_152_7 = target;
+              this.__P_156_8 = target;
               break;
 
             case "mouseup":
-              if (target !== this.__P_152_7) {
-                var commonParent = qx.dom.Hierarchy.getCommonParent(target, this.__P_152_7);
+              if (target !== this.__P_156_8) {
+                var commonParent = qx.dom.Hierarchy.getCommonParent(target, this.__P_156_8);
 
                 if (commonParent) {
-                  this.__P_152_9(domEvent, "click", commonParent);
+                  this.__P_156_10(domEvent, "click", commonParent);
                 }
               }
 
@@ -519,7 +554,7 @@
 
       this._stopWheelObserver();
 
-      this.__P_152_0 = this.__P_152_1 = this.__P_152_2 = this.__P_152_7 = null;
+      this.__P_156_0 = this.__P_156_1 = this.__P_156_2 = this.__P_156_8 = null;
     },
 
     /*
@@ -534,4 +569,4 @@
   qx.event.handler.Mouse.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Mouse.js.map?dt=1635064697901
+//# sourceMappingURL=Mouse.js.map?dt=1645800084880

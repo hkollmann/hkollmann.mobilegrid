@@ -31,6 +31,7 @@
         "os.name": {
           "className": "qx.bom.client.OperatingSystem"
         },
+        "qx.debug.startupTimings": {},
         "qx.application": {}
       }
     }
@@ -67,7 +68,7 @@
     *****************************************************************************
     */
     statics: {
-      __P_76_0: null,
+      __P_78_0: null,
 
       /**
        * Returns the instantiated qooxdoo application.
@@ -75,7 +76,7 @@
        * @return {qx.core.Object} The application instance.
        */
       getApplication: function getApplication() {
-        return this.__P_76_0 || null;
+        return this.__P_78_0 || null;
       },
 
       /**
@@ -84,7 +85,7 @@
        *
        */
       ready: function ready() {
-        if (this.__P_76_0) {
+        if (this.__P_78_0) {
           return;
         }
 
@@ -100,22 +101,31 @@
           qx.log.Logger.warn("Could not detect operating system!");
         }
 
-        qx.log.Logger.debug(this, "Load runtime: " + (new Date() - qx.Bootstrap.LOADSTART) + "ms");
+        if (qx.core.Environment.get("qx.debug.startupTimings")) {
+          qx.log.Logger.debug(this, "Load runtime: " + (new Date() - qx.Bootstrap.LOADSTART) + "ms");
+        }
+
         var app = qx.core.Environment.get("qx.application");
         var clazz = qx.Class.getByName(app);
 
         if (clazz) {
-          this.__P_76_0 = new clazz();
+          this.__P_78_0 = new clazz();
           var start = new Date();
 
-          this.__P_76_0.main();
+          this.__P_78_0.main();
 
-          qx.log.Logger.debug(this, "Main runtime: " + (new Date() - start) + "ms");
+          if (qx.core.Environment.get("qx.debug.startupTimings")) {
+            qx.log.Logger.debug(this, "Main runtime: " + (new Date() - start) + "ms");
+          }
+
           var start = new Date();
 
-          this.__P_76_0.finalize();
+          this.__P_78_0.finalize();
 
-          qx.log.Logger.debug(this, "Finalize runtime: " + (new Date() - start) + "ms");
+          if (qx.core.Environment.get("qx.debug.startupTimings")) {
+            qx.log.Logger.debug(this, "Finalize runtime: " + (new Date() - start) + "ms");
+          }
+
           qx.event.handler.Application.onAppInstanceInitialized();
         } else {
           qx.log.Logger.warn("Missing application class: " + app);
@@ -128,8 +138,8 @@
        *
        * @param e {qx.event.type.Native} Incoming beforeunload event.
        */
-      __P_76_1: function __P_76_1(e) {
-        var app = this.__P_76_0;
+      __P_78_1: function __P_78_1(e) {
+        var app = this.__P_78_0;
 
         if (app) {
           app.close();
@@ -141,8 +151,8 @@
        * created application instance.
        *
        */
-      __P_76_2: function __P_76_2() {
-        var app = this.__P_76_0;
+      __P_78_2: function __P_78_2() {
+        var app = this.__P_78_0;
 
         if (app) {
           app.terminate();
@@ -153,4 +163,4 @@
   qx.core.BaseInit.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=BaseInit.js.map?dt=1635064691302
+//# sourceMappingURL=BaseInit.js.map?dt=1645800079176

@@ -144,7 +144,7 @@
        * qx.ui.decoration.MLinearBackgroundGradient decorations are used.
        */
       orderGradientsFront: {
-        check: 'Boolean',
+        check: "Boolean",
         init: false
       }
     },
@@ -159,21 +159,21 @@
         }
 
         if ("background" in styles) {
-          if (!qx.lang.Type.isArray(styles['background'])) {
-            styles['background'] = [styles['background']];
+          if (!qx.lang.Type.isArray(styles["background"])) {
+            styles["background"] = [styles["background"]];
           }
         } else {
-          styles['background'] = [];
+          styles["background"] = [];
         }
 
-        var backgroundImageProperties = ['backgroundImage', 'backgroundRepeat', 'backgroundPositionY', 'backgroundPositionX', 'backgroundOrigin'];
+        var backgroundImageProperties = ["backgroundImage", "backgroundRepeat", "backgroundPositionY", "backgroundPositionX", "backgroundOrigin"];
         (function (images, repeats, tops, lefts, origins) {
           for (var i = 0; i < images.length; i++) {
             var image = images[i];
             var repeat = repeats[i];
             var top = tops[i] || 0;
             var left = lefts[i] || 0;
-            var origin = origins[i] || '';
+            var origin = origins[i] || "";
 
             if (top == null) {
               top = 0;
@@ -194,9 +194,9 @@
             var id = qx.util.AliasManager.getInstance().resolve(image);
             var source = qx.util.ResourceManager.getInstance().toUri(id);
             var attrs = {
-              image: 'url(' + source + ')',
+              image: "url(" + source + ")",
               position: left + " " + top,
-              repeat: 'repeat',
+              repeat: "repeat",
               origin: origin
             };
 
@@ -206,8 +206,8 @@
               attrs.repeat = repeat;
             }
 
-            var imageMarkup = [attrs.image, attrs.position + ('size' in attrs ? ' / ' + attrs.size : ''), attrs.repeat, attrs.origin];
-            styles["background"][this.getOrderGradientsFront() ? 'push' : 'unshift'](imageMarkup.join(' '));
+            var imageMarkup = [attrs.image, attrs.position + ("size" in attrs ? " / " + attrs.size : ""), attrs.repeat, attrs.origin];
+            styles["background"][this.getOrderGradientsFront() ? "push" : "unshift"](imageMarkup.join(" "));
 
             if (false && source && source.endsWith(".png") && (repeat == "scale" || repeat == "no-repeat") && qx.core.Environment.get("engine.name") == "mshtml" && qx.core.Environment.get("browser.documentmode") < 9) {
               this.warn("Background PNGs with repeat == 'scale' or repeat == 'no-repeat' are not supported in this client! The image's resource id is '" + id + "'");
@@ -224,4 +224,4 @@
   qx.ui.decoration.MBackgroundImage.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MBackgroundImage.js.map?dt=1635064702878
+//# sourceMappingURL=MBackgroundImage.js.map?dt=1645800089333

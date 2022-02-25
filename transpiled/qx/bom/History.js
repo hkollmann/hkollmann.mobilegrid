@@ -154,7 +154,7 @@
     */
     construct: function construct() {
       qx.core.Object.constructor.call(this);
-      this._baseUrl = window.location.href.split('#')[0] + '#';
+      this._baseUrl = window.location.href.split("#")[0] + "#";
       this._titles = {};
 
       this._setInitialState();
@@ -170,7 +170,7 @@
        * Fired when the user moved in the history. The data property of the event
        * holds the state, which was passed to {@link #addToHistory}.
        */
-      "request": "qx.event.type.Data"
+      request: "qx.event.type.Data"
     },
 
     /*
@@ -400,4 +400,4 @@
   qx.bom.History.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=History.js.map?dt=1635064689736
+//# sourceMappingURL=History.js.map?dt=1645800077688

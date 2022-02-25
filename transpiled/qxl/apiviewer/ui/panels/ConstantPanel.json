@@ -13,7 +13,7 @@
         "column": 0
       },
       "end": {
-        "line": 130,
+        "line": 137,
         "column": 3
       }
     },
@@ -23,25 +23,24 @@
   "construct": {
     "location": {
       "start": {
-        "line": 27,
-        "column": 13
+        "line": 26,
+        "column": 2
       },
       "end": {
-        "line": 29,
+        "line": 28,
         "column": 3
       }
-    },
-    "jsdoc": {}
+    }
   },
   "members": {
     "canDisplayItem": {
       "location": {
         "start": {
-          "line": 36,
+          "line": 34,
           "column": 4
         },
         "end": {
-          "line": 38,
+          "line": 36,
           "column": 5
         }
       },
@@ -69,11 +68,11 @@
     "getPanelItemObjects": {
       "location": {
         "start": {
-          "line": 40,
+          "line": 38,
           "column": 4
         },
         "end": {
-          "line": 42,
+          "line": 40,
           "column": 5
         }
       },
@@ -87,11 +86,11 @@
     "itemHasDetails": {
       "location": {
         "start": {
-          "line": 51,
+          "line": 49,
           "column": 4
         },
         "end": {
-          "line": 58,
+          "line": 56,
           "column": 5
         }
       },
@@ -137,11 +136,11 @@
     "getItemTypeHtml": {
       "location": {
         "start": {
-          "line": 61,
+          "line": 58,
           "column": 4
         },
         "end": {
-          "line": 63,
+          "line": 60,
           "column": 5
         }
       },
@@ -181,11 +180,11 @@
     "getItemTitleHtml": {
       "location": {
         "start": {
-          "line": 66,
+          "line": 62,
           "column": 4
         },
         "end": {
-          "line": 68,
+          "line": 67,
           "column": 5
         }
       },
@@ -225,11 +224,11 @@
     "getItemTextHtml": {
       "location": {
         "start": {
-          "line": 79,
+          "line": 77,
           "column": 4
         },
         "end": {
-          "line": 90,
+          "line": 98,
           "column": 5
         }
       },
@@ -282,11 +281,11 @@
     "__hasConstantValueHtml": {
       "location": {
         "start": {
-          "line": 99,
+          "line": 106,
           "column": 4
         },
         "end": {
-          "line": 101,
+          "line": 108,
           "column": 5
         }
       },
@@ -321,11 +320,11 @@
     "__createConstantValueHtml": {
       "location": {
         "start": {
-          "line": 110,
+          "line": 116,
           "column": 4
         },
         "end": {
-          "line": 126,
+          "line": 135,
           "column": 5
         }
       },
@@ -445,6 +444,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -469,6 +469,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }

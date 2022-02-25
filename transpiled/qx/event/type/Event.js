@@ -2,6 +2,11 @@
   var $$dbClassInfo = {
     "dependsOn": {
       "qx.event.Registration": {},
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
+        "require": true
+      },
       "qx.Class": {
         "usage": "dynamic",
         "require": true
@@ -11,6 +16,14 @@
       },
       "qx.event.Pool": {},
       "qx.Promise": {}
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.promise": {
+          "load": true
+        }
+      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -185,38 +198,53 @@
        * Adds a promise to the list of promises returned by event handlers
        * @param promise {qx.Promise} the promise to add
        */
-      addPromise: function addPromise(promise) {
-        if (this._promises === null) {
-          this._promises = [promise];
-        } else {
-          this._promises.push(promise);
+      addPromise: qx.core.Environment.select("qx.promise", {
+        "true": function _true(promise) {
+          if (this._promises === null) {
+            this._promises = [promise];
+          } else {
+            this._promises.push(promise);
+          }
+        },
+        "false": function _false() {
+          throw new Error(this.classname + ".addPromise not supported because qx.promise==false");
         }
-      },
+      }),
 
       /**
        * Returns the array of promises, or null if there are no promises
        * @return {qx.Promise[]?}
        */
-      getPromises: function getPromises() {
-        return this._promises;
-      },
+      getPromises: qx.core.Environment.select("qx.promise", {
+        "true": function _true() {
+          return this._promises;
+        },
+        "false": function _false() {
+          throw new Error(this.classname + ".getPromises not supported because qx.promise==false");
+        }
+      }),
 
       /**
        * Returns a promise for this event; if the event is defaultPrevented, the promise
        * is a rejected promise, otherwise it is fulfilled.  The promise returned will only
        * be fulfilled when the promises added via {@link addPromise} are also fulfilled
        */
-      promise: function promise() {
-        if (this.getDefaultPrevented()) {
-          return qx.Promise.reject();
-        }
+      promise: qx.core.Environment.select("qx.promise", {
+        "true": function _true() {
+          if (this.getDefaultPrevented()) {
+            return qx.Promise.reject();
+          }
 
-        if (this._promises === null) {
-          return qx.Promise.resolve(true);
-        }
+          if (this._promises === null) {
+            return qx.Promise.resolve(true);
+          }
 
-        return qx.Promise.all(this._promises);
-      },
+          return qx.Promise.all(this._promises);
+        },
+        "false": function _false() {
+          throw new Error(this.classname + ".promise not supported because qx.promise==false");
+        }
+      }),
 
       /**
        * Get whether the default action has been prevented
@@ -396,4 +424,4 @@
   qx.event.type.Event.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Event.js.map?dt=1635064692507
+//# sourceMappingURL=Event.js.map?dt=1645800080210

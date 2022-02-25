@@ -8,6 +8,9 @@
       "qx.core.Object": {
         "construct": true,
         "require": true
+      },
+      "qx.util.DeferredCall": {
+        "construct": true
       }
     }
   };
@@ -53,6 +56,9 @@
     construct: function construct(tableColumnModel) {
       qx.core.Object.constructor.call(this);
       this.setTableColumnModel(tableColumnModel);
+      this.__P_203_0 = new qx.util.DeferredCall(function () {
+        this.fireEvent(qx.ui.table.pane.Model.EVENT_TYPE_MODEL_CHANGED);
+      }, this);
     },
 
     /*
@@ -62,7 +68,7 @@
     */
     events: {
       /** Fired when the model changed. */
-      "modelChanged": "qx.event.type.Event"
+      modelChanged: "qx.event.type.Event"
     },
 
     /*
@@ -105,17 +111,20 @@
     *****************************************************************************
     */
     members: {
-      __P_197_0: null,
-      __P_197_1: null,
+      __P_203_1: null,
+      __P_203_2: null,
+      __P_203_0: null,
       // property modifier
       _applyFirstColumnX: function _applyFirstColumnX(value, old) {
-        this.__P_197_0 = null;
-        this.fireEvent(qx.ui.table.pane.Model.EVENT_TYPE_MODEL_CHANGED);
+        this.__P_203_1 = null;
+
+        this.__P_203_0.schedule();
       },
       // property modifier
       _applyMaxColumnCount: function _applyMaxColumnCount(value, old) {
-        this.__P_197_0 = null;
-        this.fireEvent(qx.ui.table.pane.Model.EVENT_TYPE_MODEL_CHANGED);
+        this.__P_203_1 = null;
+
+        this.__P_203_0.schedule();
       },
 
       /**
@@ -124,19 +133,19 @@
        * @param tableColumnModel {qx.ui.table.columnmodel.Basic} the column model
        */
       setTableColumnModel: function setTableColumnModel(tableColumnModel) {
-        if (this.__P_197_1) {
-          this.__P_197_1.removeListener("visibilityChangedPre", this._onColVisibilityChanged, this);
+        if (this.__P_203_2) {
+          this.__P_203_2.removeListener("visibilityChangedPre", this._onColVisibilityChanged, this);
 
-          this.__P_197_1.removeListener("headerCellRendererChanged", this._onHeaderCellRendererChanged, this);
+          this.__P_203_2.removeListener("headerCellRendererChanged", this._onHeaderCellRendererChanged, this);
         }
 
-        this.__P_197_1 = tableColumnModel;
+        this.__P_203_2 = tableColumnModel;
 
-        this.__P_197_1.addListener("visibilityChangedPre", this._onColVisibilityChanged, this);
+        this.__P_203_2.addListener("visibilityChangedPre", this._onColVisibilityChanged, this);
 
-        this.__P_197_1.addListener("headerCellRendererChanged", this._onHeaderCellRendererChanged, this);
+        this.__P_203_2.addListener("headerCellRendererChanged", this._onHeaderCellRendererChanged, this);
 
-        this.__P_197_0 = null;
+        this.__P_203_1 = null;
       },
 
       /**
@@ -145,8 +154,9 @@
        * @param evt {Map} the event.
        */
       _onColVisibilityChanged: function _onColVisibilityChanged(evt) {
-        this.__P_197_0 = null;
-        this.fireEvent(qx.ui.table.pane.Model.EVENT_TYPE_MODEL_CHANGED);
+        this.__P_203_1 = null;
+
+        this.__P_203_0.schedule();
       },
 
       /**
@@ -155,7 +165,7 @@
        * @param evt {Map} the event.
        */
       _onHeaderCellRendererChanged: function _onHeaderCellRendererChanged(evt) {
-        this.fireEvent(qx.ui.table.pane.Model.EVENT_TYPE_MODEL_CHANGED);
+        this.__P_203_0.schedule();
       },
 
       /**
@@ -164,20 +174,20 @@
        * @return {Integer} the number of columns in this model.
        */
       getColumnCount: function getColumnCount() {
-        if (this.__P_197_0 == null) {
+        if (this.__P_203_1 == null) {
           var firstX = this.getFirstColumnX();
           var maxColCount = this.getMaxColumnCount();
 
-          var totalColCount = this.__P_197_1.getVisibleColumnCount();
+          var totalColCount = this.__P_203_2.getVisibleColumnCount();
 
           if (maxColCount == -1 || firstX + maxColCount > totalColCount) {
-            this.__P_197_0 = totalColCount - firstX;
+            this.__P_203_1 = totalColCount - firstX;
           } else {
-            this.__P_197_0 = maxColCount;
+            this.__P_203_1 = maxColCount;
           }
         }
 
-        return this.__P_197_0;
+        return this.__P_203_1;
       },
 
       /**
@@ -188,7 +198,7 @@
        */
       getColumnAtX: function getColumnAtX(xPos) {
         var firstX = this.getFirstColumnX();
-        return this.__P_197_1.getVisibleColumnAtX(firstX + xPos);
+        return this.__P_203_2.getVisibleColumnAtX(firstX + xPos);
       },
 
       /**
@@ -200,7 +210,7 @@
       getX: function getX(col) {
         var firstX = this.getFirstColumnX();
         var maxColCount = this.getMaxColumnCount();
-        var x = this.__P_197_1.getVisibleX(col) - firstX;
+        var x = this.__P_203_2.getVisibleX(col) - firstX;
 
         if (x >= 0 && (maxColCount == -1 || x < maxColCount)) {
           return x;
@@ -230,7 +240,7 @@
             return left;
           }
 
-          left += this.__P_197_1.getColumnWidth(currCol);
+          left += this.__P_203_2.getColumnWidth(currCol);
         }
 
         return -1;
@@ -247,7 +257,7 @@
 
         for (var x = 0; x < colCount; x++) {
           var col = this.getColumnAtX(x);
-          totalWidth += this.__P_197_1.getColumnWidth(col);
+          totalWidth += this.__P_203_2.getColumnWidth(col);
         }
 
         return totalWidth;
@@ -260,16 +270,18 @@
     *****************************************************************************
     */
     destruct: function destruct() {
-      if (this.__P_197_1) {
-        this.__P_197_1.removeListener("visibilityChangedPre", this._onColVisibilityChanged, this);
+      if (this.__P_203_2) {
+        this.__P_203_2.removeListener("visibilityChangedPre", this._onColVisibilityChanged, this);
 
-        this.__P_197_1.removeListener("headerCellRendererChanged", this._onHeaderCellRendererChanged, this);
+        this.__P_203_2.removeListener("headerCellRendererChanged", this._onHeaderCellRendererChanged, this);
       }
 
-      this.__P_197_1 = null;
+      this.__P_203_2 = null;
+
+      this._disposeObjects("__P_203_0");
     }
   });
   qx.ui.table.pane.Model.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Model.js.map?dt=1635064700940
+//# sourceMappingURL=Model.js.map?dt=1645800087740

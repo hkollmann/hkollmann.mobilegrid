@@ -18,6 +18,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       "qx.lang.Array": {},
       "qx.log.Logger": {},
       "qx.bom.Event": {},
+      "qx.lang.Type": {},
       "qx.event.GlobalError": {},
       "qx.core.Environment": {
         "defer": "runtime"
@@ -50,35 +51,35 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
    ************************************************************************ */
 
   /**
-   * This class adds Promise/A+ support to Qooxdoo, as specified at 
+   * This class adds Promise/A+ support to Qooxdoo, as specified at
    * https://github.com/promises-aplus/promises-spec and using the Bluebird Promise
-   * library (http://bluebirdjs.com/) to implement it.  The official Promise/A+ API) 
-   * is mirrored exactly, and a number of extension methods are added with the BluebirdJS 
+   * library (http://bluebirdjs.com/) to implement it.  The official Promise/A+ API)
+   * is mirrored exactly, and a number of extension methods are added with the BluebirdJS
    * API for inspiration (many/most of the extension functions are taken verbatim).
-   * 
+   *
    * There are two ways to bind a 'this' value to callbacks - the first is to
    * append a context method to methods like then(), and the second is to specify
    * the context as the second parameter to the constructor and all callbacks will
    * be bound to that value.
-   * 
+   *
    * For example:
-   * 
+   *
    * <pre class="javascript">
    *   var promise = new qx.Promise(myAsyncFunction, this);
    *   promise.then(function() {
    *     // 'this' is preserved from the outer scope
    *   });
-   *   
+   *
    *   // ... is the same as: ...
    *   var promise = new qx.Promise(myAsyncFunction);
    *   promise.then(function() {
    *     // 'this' is preserved from the outer scope
    *   }, this);
    * </pre>
-   * 
+   *
    * If you have an existing qx.Promise and want to bind all callbacks, use the
    * bind() method - but note that it returns a new promise:
-   * 
+   *
    *  <pre class="javascript">
    *    var promise = someMethodThatReturnsAPromise();
    *    var boundPromise = promise.bind(this);
@@ -86,52 +87,55 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
    *      // 'this' is preserved from the outer scope
    *    }, this);
    *  </pre>
-   * 
+   *
    */
 
-  /* 
+  /**
    @ignore(process.*)
    @ignore(global.*)
    @ignore(Symbol.*)
    @ignore(chrome.*)
-   
   */
+
+  /* global global, setImmediate, chrome, _dereq_ */
+
+  /* eslint-disable no-global-assign */
   qx.Class.define("qx.Promise", {
     extend: qx.core.Object,
 
     /**
      * Constructor.
-     * 
+     *
      * The promise function is called with two parameters, functions which are to be called
      * when the promise is fulfilled or rejected respectively.  If you do not provide any
      * parameters, the promise can be externally resolved or rejected by calling the
      * <code>resolve()</code> or <code>reject()</code> methods.
-     * 
+     *
      * @param fn {Function} the promise function called with <code>(resolve, reject)</code>
      * @param context {Object?} optional context for all callbacks
      */
     construct: function construct(fn, context) {
       qx.core.Object.constructor.call(this);
 
-      qx.Promise.__P_73_0();
+      qx.Promise.__P_74_0();
 
       if (fn instanceof qx.Promise.Bluebird) {
-        this.__P_73_1 = fn;
+        this.__P_74_1 = fn;
       } else if (fn) {
         if (context !== undefined && context !== null) {
           fn = fn.bind(context);
         }
 
-        this.__P_73_1 = new qx.Promise.Bluebird(fn);
+        this.__P_74_1 = new qx.Promise.Bluebird(fn);
       } else {
-        this.__P_73_1 = new qx.Promise.Bluebird(this.__P_73_2.bind(this));
+        this.__P_74_1 = new qx.Promise.Bluebird(this.__P_74_2.bind(this));
       }
 
-      qx.core.Assert.assertTrue(!this.__P_73_1.$$qxPromise);
-      this.__P_73_1.$$qxPromise = this;
+      qx.core.Assert.assertTrue(!this.__P_74_1.$$qxPromise);
+      this.__P_74_1.$$qxPromise = this;
 
       if (context !== undefined && context !== null) {
-        this.__P_73_1 = this.__P_73_1.bind(context);
+        this.__P_74_1 = this.__P_74_1.bind(context);
       }
     },
 
@@ -139,70 +143,70 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
      * Destructor
      */
     destruct: function destruct() {
-      delete this.__P_73_1.$$qxPromise;
-      delete this.__P_73_1;
+      delete this.__P_74_1.$$qxPromise;
+      delete this.__P_74_1;
     },
     members: {
       /** The Promise */
-      __P_73_1: null,
+      __P_74_1: null,
 
       /** Stores data for completing the promise externally */
-      __P_73_3: null,
+      __P_74_3: null,
 
       /* *********************************************************************************
-       * 
+       *
        * Promise API methods
-       * 
+       *
        */
 
       /**
        * Returns a promise which is determined by the functions <code>onFulfilled</code>
        * and <code>onRejected</code>.
-       * 
-       * @param onFulfilled {Function} called when the Promise is fulfilled. This function 
+       *
+       * @param onFulfilled {Function} called when the Promise is fulfilled. This function
        *  has one argument, the fulfillment value.
-       * @param onRejected {Function?} called when the Promise is rejected. This function 
+       * @param onRejected {Function?} called when the Promise is rejected. This function
        *  has one argument, the rejection reason.
        * @return {qx.Promise}
        */
       then: function then(onFulfilled, onRejected) {
-        return this._callMethod('then', arguments);
+        return this._callMethod("then", arguments);
       },
 
       /**
-       * Appends a rejection handler callback to the promise, and returns a new promise 
-       * resolving to the return value of the callback if it is called, or to its original 
+       * Appends a rejection handler callback to the promise, and returns a new promise
+       * resolving to the return value of the callback if it is called, or to its original
        * fulfillment value if the promise is instead fulfilled.
-       * 
-       * @param onRejected {Function?} called when the Promise is rejected. This function 
+       *
+       * @param onRejected {Function?} called when the Promise is rejected. This function
        *  has one argument, the rejection reason.
-       * @return {qx.Promise} a qx.Promise is rejected if onRejected throws an error or 
+       * @return {qx.Promise} a qx.Promise is rejected if onRejected throws an error or
        *  returns a Promise which is itself rejected; otherwise, it is resolved.
        */
       "catch": function _catch(onRejected) {
-        return this._callMethod('catch', arguments);
+        return this._callMethod("catch", arguments);
       },
 
       /* *********************************************************************************
-       * 
+       *
        * Extension Promise methods
-       * 
+       *
        */
 
       /**
        * Creates a new qx.Promise with the 'this' set to a different context
-       * 
+       *
        * @param context {Object} the 'this' context for the new Promise
        * @return {qx.Promise} the new promise
        */
       bind: function bind(context) {
-        return qx.Promise.__P_73_4(this.__P_73_1.bind(context));
+        return qx.Promise.__P_74_4(this.__P_74_1.bind(context));
       },
 
       /**
-       * Like calling <code>.then</code>, but the fulfillment value must be an array, which is flattened 
+       * Like calling <code>.then</code>, but the fulfillment value must be an array, which is flattened
        * to the formal parameters of the fulfillment handler.
-       * 
+       *
        * For example:
        * <pre>
        * qx.Promise.all([
@@ -217,103 +221,103 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        *   }
        * });
        * </pre>
-       * 
+       *
        * @param fulfilledHandler {Function} called when the Promises are fulfilled.
        * @return {qx.Promise}
        */
       spread: function spread(fulfilledHandler) {
-        return this._callMethod('spread', arguments);
+        return this._callMethod("spread", arguments);
       },
 
       /**
        * Appends a handler that will be called regardless of this promise's fate. The handler
        * is not allowed to modify the value of the promise
-       * 
-       * @param handler {Function?} called when the Promise is fulfilled or rejected. This function 
+       *
+       * @param handler {Function?} called when the Promise is fulfilled or rejected. This function
        *  has no arguments, but can return a promise
        * @return {qx.Promise} a qx.Promise chained from this promise
        */
       "finally": function _finally(onRejected) {
-        return this._callMethod('finally', arguments);
+        return this._callMethod("finally", arguments);
       },
 
       /**
        * Cancel this promise. Will not do anything if this promise is already settled.
        */
       cancel: function cancel() {
-        return this._callMethod('cancel', arguments);
+        return this._callMethod("cancel", arguments);
       },
 
       /**
        * Same as {@link qx.Promise.all} except that it iterates over the value of this promise, when
-       * it is fulfilled; for example, if this Promise resolves to an Iterable (eg an Array), 
-       * <code>.all</code> will return a Promise that waits for all promises in that Iterable to be 
+       * it is fulfilled; for example, if this Promise resolves to an Iterable (eg an Array),
+       * <code>.all</code> will return a Promise that waits for all promises in that Iterable to be
        * fullfilled.  The Iterable can be a mix of values and Promises
-       * 
+       *
        * @return {qx.Promise}
        */
       all: function all() {
-        return this._callIterableMethod('all', arguments);
+        return this._callIterableMethod("all", arguments);
       },
 
       /**
        * Same as {@link qx.Promise.race} except that it iterates over the value of this promise, when
-       * it is fulfilled; for example, if this Promise resolves to an Iterable (eg an Array), 
-       * <code>.race</code> will return a Promise that waits until the first promise in that Iterable 
+       * it is fulfilled; for example, if this Promise resolves to an Iterable (eg an Array),
+       * <code>.race</code> will return a Promise that waits until the first promise in that Iterable
        * has been fullfilled.  The Iterable can be a mix of values and Promises
-       * 
+       *
        * @return {qx.Promise}
        */
       race: function race(iterable) {
-        return this._callIterableMethod('race', arguments);
+        return this._callIterableMethod("race", arguments);
       },
 
       /**
        * Same as {@link qx.Promise.some} except that it iterates over the value of this promise, when
-       * it is fulfilled.  Like <code>some</code>, with 1 as count. However, if the promise fulfills, 
+       * it is fulfilled.  Like <code>some</code>, with 1 as count. However, if the promise fulfills,
        * the fulfillment value is not an array of 1 but the value directly.
-       * 
+       *
        * @return {qx.Promise}
        */
       any: function any(iterable) {
-        return this._callIterableMethod('any', arguments);
+        return this._callIterableMethod("any", arguments);
       },
 
       /**
        * Same as {@link qx.Promise.some} except that it iterates over the value of this promise, when
-       * it is fulfilled; return a promise that is fulfilled as soon as count promises are fulfilled 
+       * it is fulfilled; return a promise that is fulfilled as soon as count promises are fulfilled
        * in the array. The fulfillment value is an array with count values in the order they were fulfilled.
-       * 
+       *
        * @param iterable {Iterable} An iterable object, such as an Array
        * @param count {Integer}
        * @return {qx.Promise}
        */
       some: function some(iterable, count) {
-        return this._callIterableMethod('some', arguments);
+        return this._callIterableMethod("some", arguments);
       },
 
       /**
        * Same as {@link qx.Promise.forEach} except that it iterates over the value of this promise, when
-       * it is fulfilled; iterates over the values with the given <code>iterator</code> function with the signature 
-       * <code>(value, index, length)</code> where <code>value</code> is the resolved value. Iteration happens 
+       * it is fulfilled; iterates over the values with the given <code>iterator</code> function with the signature
+       * <code>(value, index, length)</code> where <code>value</code> is the resolved value. Iteration happens
        * serially. If any promise is rejected the returned promise is rejected as well.
-       * 
-       * Resolves to the original array unmodified, this method is meant to be used for side effects. If the iterator 
-       * function returns a promise or a thenable, then the result of the promise is awaited, before continuing with 
+       *
+       * Resolves to the original array unmodified, this method is meant to be used for side effects. If the iterator
+       * function returns a promise or a thenable, then the result of the promise is awaited, before continuing with
        * next iteration.
-       * 
+       *
        * @param iterable {Iterable} An iterable object, such as an Array
        * @param iterator {Function} the callback, with <code>(value, index, length)</code>
        * @return {qx.Promise}
        */
       forEach: function forEach(iterable, iterator) {
-        return this._callIterableMethod('each', arguments);
+        return this._callIterableMethod("each", arguments);
       },
 
       /**
-       * Same as {@link qx.Promise.filter} except that it iterates over the value of this promise, when it is fulfilled; 
+       * Same as {@link qx.Promise.filter} except that it iterates over the value of this promise, when it is fulfilled;
        * iterates over all the values into an array and filter the array to another using the given filterer function.
-       * 
+       *
        * @param iterable {Iterable} An iterable object, such as an Array
        * @param iterator {Function} the callback, with <code>(value, index, length)</code>
        * @param options {Object?} options; can be:
@@ -321,22 +325,22 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        * @return {qx.Promise}
        */
       filter: function filter(iterable, iterator, options) {
-        return this._callIterableMethod('filter', arguments);
+        return this._callIterableMethod("filter", arguments);
       },
 
       /**
-       * Same as {@link qx.Promise.map} except that it iterates over the value of this promise, when it is fulfilled; 
+       * Same as {@link qx.Promise.map} except that it iterates over the value of this promise, when it is fulfilled;
        * iterates over all the values into an array and map the array to another using the given mapper function.
-       * 
-       * Promises returned by the mapper function are awaited for and the returned promise doesn't fulfill 
-       * until all mapped promises have fulfilled as well. If any promise in the array is rejected, or 
+       *
+       * Promises returned by the mapper function are awaited for and the returned promise doesn't fulfill
+       * until all mapped promises have fulfilled as well. If any promise in the array is rejected, or
        * any promise returned by the mapper function is rejected, the returned promise is rejected as well.
-       * 
-       * The mapper function for a given item is called as soon as possible, that is, when the promise 
-       * for that item's index in the input array is fulfilled. This doesn't mean that the result array 
-       * has items in random order, it means that .map can be used for concurrency coordination unlike 
+       *
+       * The mapper function for a given item is called as soon as possible, that is, when the promise
+       * for that item's index in the input array is fulfilled. This doesn't mean that the result array
+       * has items in random order, it means that .map can be used for concurrency coordination unlike
        * .all.
-       * 
+       *
        * @param iterable {Iterable} An iterable object, such as an Array
        * @param iterator {Function} the callback, with <code>(value, index, length)</code>
        * @param options {Object?} options; can be:
@@ -344,61 +348,61 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        * @return {qx.Promise}
        */
       map: function map(iterable, iterator, options) {
-        return this._callIterableMethod('map', arguments);
+        return this._callIterableMethod("map", arguments);
       },
 
       /**
        * Same as {@link qx.Promise.mapSeries} except that it iterates over the value of this promise, when
-       * it is fulfilled; iterates over all the values into an array and iterate over the array serially, 
+       * it is fulfilled; iterates over all the values into an array and iterate over the array serially,
        * in-order.
-       * 
-       * Returns a promise for an array that contains the values returned by the iterator function in their 
-       * respective positions. The iterator won't be called for an item until its previous item, and the 
-       * promise returned by the iterator for that item are fulfilled. This results in a mapSeries kind of 
+       *
+       * Returns a promise for an array that contains the values returned by the iterator function in their
+       * respective positions. The iterator won't be called for an item until its previous item, and the
+       * promise returned by the iterator for that item are fulfilled. This results in a mapSeries kind of
        * utility but it can also be used simply as a side effect iterator similar to Array#forEach.
-       * 
-       * If any promise in the input array is rejected or any promise returned by the iterator function is 
+       *
+       * If any promise in the input array is rejected or any promise returned by the iterator function is
        * rejected, the result will be rejected as well.
-       * 
+       *
        * @param iterable {Iterable} An iterable object, such as an Array
        * @param iterator {Function} the callback, with <code>(value, index, length)</code>
        * @return {qx.Promise}
        */
       mapSeries: function mapSeries(iterable, iterator) {
-        return this._callIterableMethod('mapSeries', arguments);
+        return this._callIterableMethod("mapSeries", arguments);
       },
 
       /**
        * Same as {@link qx.Promise.reduce} except that it iterates over the value of this promise, when
-       * it is fulfilled; iterates over all the values in the <code>Iterable</code> into an array and 
+       * it is fulfilled; iterates over all the values in the <code>Iterable</code> into an array and
        * reduce the array to a value using the given reducer function.
-       * 
-       * If the reducer function returns a promise, then the result of the promise is awaited, before 
-       * continuing with next iteration. If any promise in the array is rejected or a promise returned 
+       *
+       * If the reducer function returns a promise, then the result of the promise is awaited, before
+       * continuing with next iteration. If any promise in the array is rejected or a promise returned
        * by the reducer function is rejected, the result is rejected as well.
-       * 
-       * If initialValue is undefined (or a promise that resolves to undefined) and the iterable contains 
-       * only 1 item, the callback will not be called and the iterable's single item is returned. If the 
-       * iterable is empty, the callback will not be called and initialValue is returned (which may be 
+       *
+       * If initialValue is undefined (or a promise that resolves to undefined) and the iterable contains
+       * only 1 item, the callback will not be called and the iterable's single item is returned. If the
+       * iterable is empty, the callback will not be called and initialValue is returned (which may be
        * undefined).
-       * 
-       * qx.Promise.reduce will start calling the reducer as soon as possible, this is why you might want to 
+       *
+       * qx.Promise.reduce will start calling the reducer as soon as possible, this is why you might want to
        * use it over qx.Promise.all (which awaits for the entire array before you can call Array#reduce on it).
-       * 
+       *
        * @param iterable {Iterable} An iterable object, such as an Array
        * @param reducer {Function} the callback, with <code>(value, index, length)</code>
        * @param initialValue {Object?} optional initial value
        * @return {qx.Promise}
        */
       reduce: function reduce(iterable, reducer, initialValue) {
-        return this._callIterableMethod('reduce', arguments);
+        return this._callIterableMethod("reduce", arguments);
       },
 
       /**
        * External promise handler
        */
-      __P_73_2: function __P_73_2(resolve, reject) {
-        this.__P_73_3 = {
+      __P_74_2: function __P_74_2(resolve, reject) {
+        this.__P_74_3 = {
           resolve: resolve,
           reject: reject,
           complete: false
@@ -408,47 +412,47 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       /**
        * Returns the data stored by __externalPromise, throws an exception once processed
        */
-      __P_73_5: function __P_73_5() {
-        if (!this.__P_73_3) {
+      __P_74_5: function __P_74_5() {
+        if (!this.__P_74_3) {
           throw new Error("Promise cannot be resolved externally");
         }
 
-        if (this.__P_73_3.complete) {
+        if (this.__P_74_3.complete) {
           throw new Error("Promise has already been resolved or rejected");
         }
 
-        this.__P_73_3.complete = true;
-        return this.__P_73_3;
+        this.__P_74_3.complete = true;
+        return this.__P_74_3;
       },
 
       /**
        * Resolves an external promise
        */
       resolve: function resolve(value) {
-        this.__P_73_5().resolve(value);
+        this.__P_74_5().resolve(value);
       },
 
       /**
        * Rejects an external promise
        */
       reject: function reject(reason) {
-        this.__P_73_5().reject(reason);
+        this.__P_74_5().reject(reason);
       },
 
       /* *********************************************************************************
-       * 
+       *
        * Utility methods
-       * 
+       *
        */
 
       /**
        * Helper method used to call Promise methods which iterate over an array
        */
       _callIterableMethod: function _callIterableMethod(methodName, args) {
-        args = qx.Promise.__P_73_6(args);
-        return qx.Promise.__P_73_4(this.__P_73_1.then(function (value) {
+        args = qx.Promise.__P_74_6(args);
+        return qx.Promise.__P_74_4(this.__P_74_1.then(function (value) {
           var newP = qx.Promise.Bluebird.resolve(value instanceof qx.data.Array ? value.toArray() : value);
-          return qx.Promise.__P_73_4(newP[methodName].apply(newP, args));
+          return qx.Promise.__P_74_4(newP[methodName].apply(newP, args));
         }));
       },
 
@@ -456,22 +460,22 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        * Helper method used to call a Promise method
        */
       _callMethod: function _callMethod(methodName, args) {
-        args = qx.Promise.__P_73_6(args);
-        return qx.Promise.__P_73_4(this.__P_73_1[methodName].apply(this.__P_73_1, args));
+        args = qx.Promise.__P_74_6(args);
+        return qx.Promise.__P_74_4(this.__P_74_1[methodName].apply(this.__P_74_1, args));
       },
 
       /**
        * Returns the actual Promise implementation.
-       * 
-       * Note that Bluebird is the current implementation, and may change without 
-       * notice in the future; if you use this API you accept that this is a private 
+       *
+       * Note that Bluebird is the current implementation, and may change without
+       * notice in the future; if you use this API you accept that this is a private
        * implementation detail exposed for debugging or diagnosis purposes only.  For
        * this reason, the toPromise() method is listed as deprecated starting from the
-       * first release  
+       * first release
        * @deprecated {6.0} this API method is subject to change
        */
       toPromise: function toPromise() {
-        return this.__P_73_1;
+        return this.__P_74_1;
       }
     },
     statics: {
@@ -487,21 +491,42 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       /** This is used to suppress warnings about rejections without an Error object, only used if
        * the reason is undefined
        */
-      __P_73_7: new Error("Default Error"),
+      __P_74_7: new Error("Default Error"),
 
       /* *********************************************************************************
-       * 
+       *
        * Promise API methods
-       * 
+       *
        */
 
       /**
-       * Returns a Promise object that is resolved with the given value. If the value is a thenable (i.e. 
-       * has a then method), the returned promise will "follow" that thenable, adopting its eventual 
-       * state; otherwise the returned promise will be fulfilled with the value. Generally, if you 
-       * don't know if a value is a promise or not, Promise.resolve(value) it instead and work with 
+       * Detects whether the value is a promise.
+       *
+       * Note that this is not an `instanceof` check and while it may look odd to just test whether
+       * there is a property called `then` which is a Function, that's the actual spec -
+       * @see https://promisesaplus.com/
+       *
+       * The difficulty is that it also needs to have a `.finally` and `.catch` methods in order to
+       * always be routinely useful; it's debatable what we can do about that here - if the calling code
+       * definitely requires a promise then it can use `.resolve` to upgrade it or make sure that it is
+       * a fully featured promise.  In this function, we detect that it is thenable, and then give a warning
+       * if it is not catchable.
+       *
+       * @param {*} value
+       * @returns {Boolean} true if it is a promise
+       */
+      isPromise: function isPromise(value) {
+        if (!value || typeof value.then != "function") return false;
+        return true;
+      },
+
+      /**
+       * Returns a Promise object that is resolved with the given value. If the value is a thenable (i.e.
+       * has a then method), the returned promise will "follow" that thenable, adopting its eventual
+       * state; otherwise the returned promise will be fulfilled with the value. Generally, if you
+       * don't know if a value is a promise or not, Promise.resolve(value) it instead and work with
        * the return value as a promise.
-       * 
+       *
        * @param value {Object}
        * @param context {Object?} optional context for callbacks to be bound to
        * @return {qx.Promise}
@@ -512,7 +537,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         if (value instanceof qx.Promise) {
           promise = value;
         } else {
-          promise = qx.Promise.__P_73_4(qx.Promise.Bluebird.resolve(value));
+          promise = qx.Promise.__P_74_4(qx.Promise.Bluebird.resolve(value));
         }
 
         if (context !== undefined) {
@@ -533,12 +558,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
         if (reason === undefined) {
           args.shift();
-          args.unshift(qx.Promise.__P_73_7);
+          args.unshift(qx.Promise.__P_74_7);
         } else if (!(reason instanceof Error)) {
           qx.log.Logger.warn("Rejecting a promise with a non-Error value");
         }
 
-        var promise = qx.Promise.__P_73_8('reject', args, 0);
+        var promise = qx.Promise.__P_74_8("reject", args, 0);
 
         if (context !== undefined) {
           promise = promise.bind(context);
@@ -548,10 +573,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       },
 
       /**
-       * Returns a promise that resolves when all of the promises in the object properties have resolved, 
+       * Returns a promise that resolves when all of the promises in the object properties have resolved,
        * or rejects with the reason of the first passed promise that rejects.  The result of each property
        * is placed back in the object, replacing the promise.  Note that non-promise values are untouched.
-       * 
+       *
        * @param value {var} An object
        * @return {qx.Promise}
        */
@@ -561,7 +586,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           var names = [];
 
           for (var name in value) {
-            if (value.hasOwnProperty(name) && value[name] instanceof qx.Promise) {
+            if (value.hasOwnProperty(name) && qx.Promise.isPromise(value[name])) {
               arr.push(value[name]);
               names.push(name);
             }
@@ -575,85 +600,85 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           });
         }
 
-        return value instanceof qx.Promise ? value.then(action) : action(value);
+        return qx.Promise.isPromise(value) ? value.then(action) : action(value);
       },
 
       /**
-       * Returns a promise that resolves when all of the promises in the iterable argument have resolved, 
-       * or rejects with the reason of the first passed promise that rejects.  Note that non-promise values 
+       * Returns a promise that resolves when all of the promises in the iterable argument have resolved,
+       * or rejects with the reason of the first passed promise that rejects.  Note that non-promise values
        * are untouched.
-       * 
+       *
        * @param iterable {Iterable} An iterable object, such as an Array
        * @return {qx.Promise}
        */
       all: function all(iterable) {
-        return qx.Promise.__P_73_8('all', arguments);
+        return qx.Promise.__P_74_8("all", arguments);
       },
 
       /**
-       * Returns a promise that resolves or rejects as soon as one of the promises in the iterable resolves 
+       * Returns a promise that resolves or rejects as soon as one of the promises in the iterable resolves
        * or rejects, with the value or reason from that promise.
        * @param iterable {Iterable} An iterable object, such as an Array
        * @return {qx.Promise}
        */
       race: function race(iterable) {
-        return qx.Promise.__P_73_8('race', arguments);
+        return qx.Promise.__P_74_8("race", arguments);
       },
 
       /* *********************************************************************************
-       * 
+       *
        * Extension API methods
-       * 
+       *
        */
 
       /**
-       * Like Promise.some, with 1 as count. However, if the promise fulfills, the fulfillment value is not an 
+       * Like Promise.some, with 1 as count. However, if the promise fulfills, the fulfillment value is not an
        * array of 1 but the value directly.
-       * 
+       *
        * @param iterable {Iterable} An iterable object, such as an Array
        * @return {qx.Promise}
        */
       any: function any(iterable) {
-        return qx.Promise.__P_73_8('any', arguments);
+        return qx.Promise.__P_74_8("any", arguments);
       },
 
       /**
-       * Given an Iterable (arrays are Iterable), or a promise of an Iterable, which produces promises (or a mix 
-       * of promises and values), iterate over all the values in the Iterable into an array and return a promise 
-       * that is fulfilled as soon as count promises are fulfilled in the array. The fulfillment value is an 
+       * Given an Iterable (arrays are Iterable), or a promise of an Iterable, which produces promises (or a mix
+       * of promises and values), iterate over all the values in the Iterable into an array and return a promise
+       * that is fulfilled as soon as count promises are fulfilled in the array. The fulfillment value is an
        * array with count values in the order they were fulfilled.
-       * 
+       *
        * @param iterable {Iterable} An iterable object, such as an Array
        * @param count {Integer}
        * @return {qx.Promise}
        */
       some: function some(iterable, count) {
-        return qx.Promise.__P_73_8('some', arguments);
+        return qx.Promise.__P_74_8("some", arguments);
       },
 
       /**
-       * Iterate over an array, or a promise of an array, which contains promises (or a mix of promises and values) 
-       * with the given <code>iterator</code> function with the signature <code>(value, index, length)</code> where 
-       * <code>value</code> is the resolved value of a respective promise in the input array. Iteration happens 
+       * Iterate over an array, or a promise of an array, which contains promises (or a mix of promises and values)
+       * with the given <code>iterator</code> function with the signature <code>(value, index, length)</code> where
+       * <code>value</code> is the resolved value of a respective promise in the input array. Iteration happens
        * serially. If any promise in the input array is rejected the returned promise is rejected as well.
-       * 
-       * Resolves to the original array unmodified, this method is meant to be used for side effects. If the iterator 
-       * function returns a promise or a thenable, then the result of the promise is awaited, before continuing with 
+       *
+       * Resolves to the original array unmodified, this method is meant to be used for side effects. If the iterator
+       * function returns a promise or a thenable, then the result of the promise is awaited, before continuing with
        * next iteration.
-       * 
+       *
        * @param iterable {Iterable} An iterable object, such as an Array
        * @param iterator {Function} the callback, with <code>(value, index, length)</code>
        * @return {qx.Promise}
        */
       forEach: function forEach(iterable, iterator) {
-        return qx.Promise.__P_73_8('each', arguments);
+        return qx.Promise.__P_74_8("each", arguments);
       },
 
       /**
-       * Given an Iterable(arrays are Iterable), or a promise of an Iterable, which produces promises (or a mix of 
-       * promises and values), iterate over all the values in the Iterable into an array and filter the array to 
+       * Given an Iterable(arrays are Iterable), or a promise of an Iterable, which produces promises (or a mix of
+       * promises and values), iterate over all the values in the Iterable into an array and filter the array to
        * another using the given filterer function.
-       * 
+       *
        * It is essentially an efficient shortcut for doing a .map and then Array#filter:
        * <pre>
        *   qx.Promise.map(valuesToBeFiltered, function(value, index, length) {
@@ -666,7 +691,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        *       });
        *   });
        * </pre>
-       * 
+       *
        * @param iterable {Iterable} An iterable object, such as an Array
        * @param iterator {Function} the callback, with <code>(value, index, length)</code>
        * @param options {Object?} options; can be:
@@ -674,26 +699,26 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        * @return {qx.Promise}
        */
       filter: function filter(iterable, iterator, options) {
-        return qx.Promise.__P_73_8('filter', arguments);
+        return qx.Promise.__P_74_8("filter", arguments);
       },
 
       /**
-       * Given an <code>Iterable</code> (arrays are <code>Iterable</code>), or a promise of an 
-       * <code>Iterable</code>, which produces promises (or a mix of promises and values), iterate over 
-       * all the values in the <code>Iterable</code> into an array and map the array to another using 
+       * Given an <code>Iterable</code> (arrays are <code>Iterable</code>), or a promise of an
+       * <code>Iterable</code>, which produces promises (or a mix of promises and values), iterate over
+       * all the values in the <code>Iterable</code> into an array and map the array to another using
        * the given mapper function.
-       * 
-       * Promises returned by the mapper function are awaited for and the returned promise doesn't fulfill 
-       * until all mapped promises have fulfilled as well. If any promise in the array is rejected, or 
+       *
+       * Promises returned by the mapper function are awaited for and the returned promise doesn't fulfill
+       * until all mapped promises have fulfilled as well. If any promise in the array is rejected, or
        * any promise returned by the mapper function is rejected, the returned promise is rejected as well.
-       * 
-       * The mapper function for a given item is called as soon as possible, that is, when the promise 
-       * for that item's index in the input array is fulfilled. This doesn't mean that the result array 
-       * has items in random order, it means that .map can be used for concurrency coordination unlike 
+       *
+       * The mapper function for a given item is called as soon as possible, that is, when the promise
+       * for that item's index in the input array is fulfilled. This doesn't mean that the result array
+       * has items in random order, it means that .map can be used for concurrency coordination unlike
        * .all.
-       * 
+       *
        * A common use of Promise.map is to replace the .push+Promise.all boilerplate:
-       * 
+       *
        * <pre>
        *   var promises = [];
        *   for (var i = 0; i < fileNames.length; ++i) {
@@ -702,7 +727,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        *   qx.Promise.all(promises).then(function() {
        *       console.log("done");
        *   });
-       *   
+       *
        *   // Using Promise.map:
        *   qx.Promise.map(fileNames, function(fileName) {
        *       // Promise.map awaits for returned promises as well.
@@ -711,7 +736,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        *       console.log("done");
        *   });
        * </pre>
-       * 
+       *
        * @param iterable {Iterable} An iterable object, such as an Array
        * @param iterator {Function} the callback, with <code>(value, index, length)</code>
        * @param options {Object?} options; can be:
@@ -719,25 +744,25 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        * @return {qx.Promise}
        */
       map: function map(iterable, iterator, options) {
-        return qx.Promise.__P_73_8('map', arguments);
+        return qx.Promise.__P_74_8("map", arguments);
       },
 
       /**
-       * Given an <code>Iterable</code>(arrays are <code>Iterable</code>), or a promise of an 
-       * <code>Iterable</code>, which produces promises (or a mix of promises and values), iterate over 
-       * all the values in the <code>Iterable</code> into an array and iterate over the array serially, 
+       * Given an <code>Iterable</code>(arrays are <code>Iterable</code>), or a promise of an
+       * <code>Iterable</code>, which produces promises (or a mix of promises and values), iterate over
+       * all the values in the <code>Iterable</code> into an array and iterate over the array serially,
        * in-order.
-       * 
-       * Returns a promise for an array that contains the values returned by the iterator function in their 
-       * respective positions. The iterator won't be called for an item until its previous item, and the 
-       * promise returned by the iterator for that item are fulfilled. This results in a mapSeries kind of 
+       *
+       * Returns a promise for an array that contains the values returned by the iterator function in their
+       * respective positions. The iterator won't be called for an item until its previous item, and the
+       * promise returned by the iterator for that item are fulfilled. This results in a mapSeries kind of
        * utility but it can also be used simply as a side effect iterator similar to Array#forEach.
-       * 
-       * If any promise in the input array is rejected or any promise returned by the iterator function is 
+       *
+       * If any promise in the input array is rejected or any promise returned by the iterator function is
        * rejected, the result will be rejected as well.
-       * 
+       *
        * Example where .mapSeries(the instance method) is used for iterating with side effects:
-       * 
+       *
        * <pre>
        * // Source: http://jakearchibald.com/2014/es7-async-functions/
        * function loadStory() {
@@ -752,28 +777,28 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        *     .then(function() { document.querySelector('.spinner').style.display = 'none'; });
        * }
        * </pre>
-       * 
+       *
        * @param iterable {Iterable} An iterable object, such as an Array
        * @param iterator {Function} the callback, with <code>(value, index, length)</code>
        * @return {qx.Promise}
        */
       mapSeries: function mapSeries(iterable, iterator) {
-        return qx.Promise.__P_73_8('mapSeries', arguments);
+        return qx.Promise.__P_74_8("mapSeries", arguments);
       },
 
       /**
-       * Given an <code>Iterable</code> (arrays are <code>Iterable</code>), or a promise of an 
-       * <code>Iterable</code>, which produces promises (or a mix of promises and values), iterate 
-       * over all the values in the <code>Iterable</code> into an array and reduce the array to a 
+       * Given an <code>Iterable</code> (arrays are <code>Iterable</code>), or a promise of an
+       * <code>Iterable</code>, which produces promises (or a mix of promises and values), iterate
+       * over all the values in the <code>Iterable</code> into an array and reduce the array to a
        * value using the given reducer function.
-       * 
-       * If the reducer function returns a promise, then the result of the promise is awaited, before 
-       * continuing with next iteration. If any promise in the array is rejected or a promise returned 
+       *
+       * If the reducer function returns a promise, then the result of the promise is awaited, before
+       * continuing with next iteration. If any promise in the array is rejected or a promise returned
        * by the reducer function is rejected, the result is rejected as well.
-       * 
-       * Read given files sequentially while summing their contents as an integer. Each file contains 
+       *
+       * Read given files sequentially while summing their contents as an integer. Each file contains
        * just the text 10.
-       * 
+       *
        * <pre>
        *   qx.Promise.reduce(["file1.txt", "file2.txt", "file3.txt"], function(total, fileName) {
        *       return fs.readFileAsync(fileName, "utf8").then(function(contents) {
@@ -783,26 +808,26 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        *       //Total is 30
        *   });
        * </pre>
-       * 
-       * If initialValue is undefined (or a promise that resolves to undefined) and the iterable contains 
-       * only 1 item, the callback will not be called and the iterable's single item is returned. If the 
-       * iterable is empty, the callback will not be called and initialValue is returned (which may be 
+       *
+       * If initialValue is undefined (or a promise that resolves to undefined) and the iterable contains
+       * only 1 item, the callback will not be called and the iterable's single item is returned. If the
+       * iterable is empty, the callback will not be called and initialValue is returned (which may be
        * undefined).
-       * 
-       * Promise.reduce will start calling the reducer as soon as possible, this is why you might want to 
+       *
+       * Promise.reduce will start calling the reducer as soon as possible, this is why you might want to
        * use it over Promise.all (which awaits for the entire array before you can call Array#reduce on it).
-       * 
+       *
        * @param iterable {Iterable} An iterable object, such as an Array
        * @param reducer {Function} the callback, with <code>(value, index, length)</code>
        * @param initialValue {Object?} optional initial value
        * @return {qx.Promise}
        */
       reduce: function reduce(iterable, reducer, initialValue) {
-        return qx.Promise.__P_73_8('reduce', arguments);
+        return qx.Promise.__P_74_8("reduce", arguments);
       },
 
       /**
-       * Returns a new function that wraps the given function fn. The new function will always return a promise that is 
+       * Returns a new function that wraps the given function fn. The new function will always return a promise that is
        * fulfilled with the original functions return values or rejected with thrown exceptions from the original function.
        * @param cb {Function}
        * @return {Function}
@@ -810,26 +835,26 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       method: function method(cb) {
         var wrappedCb = qx.Promise.Bluebird.method(cb);
         return function () {
-          return qx.Promise.__P_73_4(wrappedCb.apply(this, arguments));
+          return qx.Promise.__P_74_4(wrappedCb.apply(this, arguments));
         };
       },
 
       /**
-       * Like .all but for object properties or Maps* entries instead of iterated values. Returns a promise that 
-       * is fulfilled when all the properties of the object or the Map's' values** are fulfilled. The promise's 
-       * fulfillment value is an object or a Map with fulfillment values at respective keys to the original object 
-       * or a Map. If any promise in the object or Map rejects, the returned promise is rejected with the rejection 
+       * Like .all but for object properties or Maps* entries instead of iterated values. Returns a promise that
+       * is fulfilled when all the properties of the object or the Map's' values** are fulfilled. The promise's
+       * fulfillment value is an object or a Map with fulfillment values at respective keys to the original object
+       * or a Map. If any promise in the object or Map rejects, the returned promise is rejected with the rejection
        * reason.
-       * 
-       * If object is a trusted Promise, then it will be treated as a promise for object rather than for its 
-       * properties. All other objects (except Maps) are treated for their properties as is returned by 
+       *
+       * If object is a trusted Promise, then it will be treated as a promise for object rather than for its
+       * properties. All other objects (except Maps) are treated for their properties as is returned by
        * Object.keys - the object's own enumerable properties.
-       * 
+       *
        * @param input {Object} An Object
        * @return {qx.Promise}
        */
       props: function props(input) {
-        return qx.Promise.__P_73_8('props', arguments);
+        return qx.Promise.__P_74_8("props", arguments);
       },
 
       /**
@@ -882,24 +907,24 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        *   The sole user option in this map is <code>context</code>, which may
        *   be specified to arrange for the provided callback function to be
        *   called in the specified context.
-       *   
+       *
        * @return {qx.Promise}
        */
       promisify: function promisify(f, options) {
-        return qx.Promise.__P_73_8('promisify', arguments);
+        return qx.Promise.__P_74_8("promisify", arguments);
       },
 
       /* *********************************************************************************
-       * 
+       *
        * Internal API methods
-       * 
+       *
        */
 
       /**
        * Called when the Bluebird Promise class is loaded
        * @param Promise {Class} the Promise class
        */
-      __P_73_9: function __P_73_9(Promise) {
+      __P_74_9: function __P_74_9(Promise) {
         qx.Promise.Bluebird = Promise;
         Promise.config({
           warnings: true,
@@ -909,26 +934,35 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       },
 
       /** Whether one-time initialisaton has happened */
-      __P_73_10: false,
+      __P_74_10: false,
 
       /**
        * One-time initializer
        */
-      __P_73_0: function __P_73_0() {
-        if (qx.Promise.__P_73_10) {
+      __P_74_0: function __P_74_0() {
+        if (qx.Promise.__P_74_10) {
           return;
         }
 
-        qx.Promise.__P_73_10 = true;
-        qx.bom.Event.addNativeListener(window, "unhandledrejection", qx.Promise.__P_73_11.bind(this));
+        qx.Promise.__P_74_10 = true;
+        var isNode = typeof process !== "undefined";
+
+        if (isNode) {
+          process.on("unhandledRejection", qx.Promise.__P_74_11.bind(this));
+        } else {
+          qx.bom.Event.addNativeListener(window, "unhandledrejection", qx.Promise.__P_74_11.bind(this));
+        }
       },
 
       /**
        * Handles unhandled errors and passes them through to Qooxdoo's global error handler
        * @param e {NativeEvent}
        */
-      __P_73_11: function __P_73_11(e) {
-        e.preventDefault();
+      __P_74_11: function __P_74_11(e) {
+        if (qx.lang.Type.isFunction(e.preventDefault)) {
+          e.preventDefault();
+        }
+
         var reason = null;
 
         if (e instanceof Error) {
@@ -948,7 +982,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        * @param value {Object}
        * @return {Object}
        */
-      __P_73_4: function __P_73_4(value) {
+      __P_74_4: function __P_74_4(value) {
         if (value instanceof qx.Promise.Bluebird) {
           if (value.$$qxPromise) {
             value = value.$$qxPromise;
@@ -969,7 +1003,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        * 	this is used to determine whether the last value is for binding (default is 1)
        * @return {Array} array of new arguments with functions bound as necessary
        */
-      __P_73_6: function __P_73_6(args, minArgs) {
+      __P_74_6: function __P_74_6(args, minArgs) {
         args = qx.lang.Array.fromArguments(args);
 
         if (minArgs === undefined) {
@@ -1000,16 +1034,16 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        * @param minArgs {Integer?} {@see __bindArgs}
        * @return {Object?}
        */
-      __P_73_8: function __P_73_8(methodName, args, minArgs) {
-        args = qx.Promise.__P_73_6(args, minArgs);
-        return qx.Promise.__P_73_4(qx.Promise.Bluebird[methodName].apply(qx.Promise.Bluebird, qx.Promise.__P_73_12(args)));
+      __P_74_8: function __P_74_8(methodName, args, minArgs) {
+        args = qx.Promise.__P_74_6(args, minArgs);
+        return qx.Promise.__P_74_4(qx.Promise.Bluebird[methodName].apply(qx.Promise.Bluebird, qx.Promise.__P_74_12(args)));
       },
 
       /**
        * Maps all arguments ready for passing to a Bluebird function; qx.data.Array are
        * translated to native arrays and qx.Promise to Promise.  This is not recursive.
        */
-      __P_73_12: function __P_73_12(args) {
+      __P_74_12: function __P_74_12(args) {
         var dest = [];
         args.forEach(function (arg) {
           if (arg instanceof qx.data.Array) {
@@ -1030,6 +1064,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       qx.core.Environment.add("qx.promise.longStackTraces", false);
     }
   });
+  /*eslint curly: ["off"]*/
+
   /**
    * @lint ignoreUnused(exports)
    * @lint ignoreUnused(module)
@@ -1071,26 +1107,26 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
    * @ignore(process.versions.node.split)
    * @ignore(promise)
    * @ignore(Promise)
-   * @ignore(self) 
+   * @ignore(self)
    * @ignore(setImmediate)
    */
 
   (function () {
     /* @preserve
      * The MIT License (MIT)
-     * 
+     *
      * Copyright (c) 2013-2015 Petka Antonov
-     * 
+     *
      * Permission is hereby granted, free of charge, to any person obtaining a copy
      * of this software and associated documentation files (the "Software"), to deal
      * in the Software without restriction, including without limitation the rights
      * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
      * copies of the Software, and to permit persons to whom the Software is
      * furnished to do so, subject to the following conditions:
-     * 
+     *
      * The above copyright notice and this permission notice shall be included in
      * all copies or substantial portions of the Software.
-     * 
+     *
      * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
      * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
      * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
@@ -1098,7 +1134,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
      * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
      * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
      * THE SOFTWARE.
-     * 
+     *
      */
 
     /**
@@ -1106,7 +1142,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
      * Features enabled: core, race, call_get, generators, map, nodeify, promisify, props, reduce, settle, some, using, timers, filter, any, each
      */
     !function (e) {
-      qx.Promise.__P_73_9(e());
+      qx.Promise.__P_74_9(e());
     }(function () {
       var define, module, exports;
       return function e(t, n, r) {
@@ -1117,6 +1153,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
               if (!u && a) return a(o, true);
               if (i) return i(o, true);
               var f = new Error("Cannot find module '" + o + "'");
+              /* eslint-disable-next-line no-sequences */
+
               throw f.code = "MODULE_NOT_FOUND", f;
             }
 
@@ -1500,7 +1538,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
             Promise.prototype.call = function (methodName) {
               var args = [].slice.call(arguments, 1);
-              ;
               args.push(methodName);
               return this._then(caller, undefined, undefined, args, undefined);
             };
@@ -2151,13 +2188,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
             Promise.prototype._onCancel = function () {};
 
-            Promise.prototype._setOnCancel = function (handler) {
-              ;
-            };
+            Promise.prototype._setOnCancel = function (handler) {};
 
-            Promise.prototype._attachCancellationCallback = function (onCancel) {
-              ;
-            };
+            Promise.prototype._attachCancellationCallback = function (onCancel) {};
 
             Promise.prototype._captureStackTrace = function () {};
 
@@ -2165,10 +2198,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
             Promise.prototype._clearCancellationData = function () {};
 
-            Promise.prototype._propagateFrom = function (parent, flags) {
-              ;
-              ;
-            };
+            Promise.prototype._propagateFrom = function (parent, flags) {};
 
             function cancellationExecute(executor, resolve, reject) {
               var promise = this;
@@ -2270,10 +2300,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
                 if (trace !== undefined) {
                   trace.attachExtraTrace(error);
-                } else if (!error.__P_73_13) {
+                } else if (!error.__P_74_13) {
                   var parsed = parseStackAndMessage(error);
                   util.notEnumerableProp(error, "stack", parsed.message + "\n" + parsed.stack.join("\n"));
-                  util.notEnumerableProp(error, "__P_73_13", true);
+                  util.notEnumerableProp(error, "__P_74_13", true);
                 }
               }
             }
@@ -2669,7 +2699,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             };
 
             CapturedTrace.prototype.attachExtraTrace = function (error) {
-              if (error.__P_73_13) return;
+              if (error.__P_74_13) return;
               this.uncycle();
               var parsed = parseStackAndMessage(error);
               var message = parsed.message;
@@ -2684,7 +2714,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
               removeCommonRoots(stacks);
               removeDuplicateOrEmptyJumps(stacks);
               util.notEnumerableProp(error, "stack", reconstructStack(message, stacks));
-              util.notEnumerableProp(error, "__P_73_13", true);
+              util.notEnumerableProp(error, "__P_74_13", true);
             };
 
             var captureStackTrace = function stackDetection() {
@@ -3452,7 +3482,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
                 maybePromise = maybePromise._target();
                 var bitField = maybePromise._bitField;
-                ;
 
                 if ((bitField & 50397184) === 0) {
                   this._yieldedPromise = maybePromise;
@@ -3535,8 +3564,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
               }
 
               var args = [].slice.call(arguments);
-              ;
-              if (fn) args.pop();
+
+              if (fn) {
+                args.pop();
+              }
+
               var ret = new PromiseArray(args).promise();
               return fn !== undefined ? ret.spread(fn) : ret;
             };
@@ -3625,7 +3657,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
                 if (maybePromise instanceof Promise) {
                   maybePromise = maybePromise._target();
                   var bitField = maybePromise._bitField;
-                  ;
 
                   if ((bitField & 50397184) === 0) {
                     if (limit >= 1) this._inFlight++;
@@ -3862,7 +3893,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
                 promise._fulfill(value);
               } else {
                 var args = [].slice.call(arguments, 1);
-                ;
 
                 promise._fulfill(args);
               }
@@ -4793,35 +4823,35 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             Promise.Promise = Promise;
             Promise.version = "3.4.5";
 
-            _dereq_('./map.js')(Promise, PromiseArray, apiRejection, tryConvertToPromise, INTERNAL, debug);
+            _dereq_("./map.js")(Promise, PromiseArray, apiRejection, tryConvertToPromise, INTERNAL, debug);
 
-            _dereq_('./call_get.js')(Promise);
+            _dereq_("./call_get.js")(Promise);
 
-            _dereq_('./using.js')(Promise, apiRejection, tryConvertToPromise, createContext, INTERNAL, debug);
+            _dereq_("./using.js")(Promise, apiRejection, tryConvertToPromise, createContext, INTERNAL, debug);
 
-            _dereq_('./timers.js')(Promise, INTERNAL, debug);
+            _dereq_("./timers.js")(Promise, INTERNAL, debug);
 
-            _dereq_('./generators.js')(Promise, apiRejection, INTERNAL, tryConvertToPromise, Proxyable, debug);
+            _dereq_("./generators.js")(Promise, apiRejection, INTERNAL, tryConvertToPromise, Proxyable, debug);
 
-            _dereq_('./nodeify.js')(Promise);
+            _dereq_("./nodeify.js")(Promise);
 
-            _dereq_('./promisify.js')(Promise, INTERNAL);
+            _dereq_("./promisify.js")(Promise, INTERNAL);
 
-            _dereq_('./props.js')(Promise, PromiseArray, tryConvertToPromise, apiRejection);
+            _dereq_("./props.js")(Promise, PromiseArray, tryConvertToPromise, apiRejection);
 
-            _dereq_('./race.js')(Promise, INTERNAL, tryConvertToPromise, apiRejection);
+            _dereq_("./race.js")(Promise, INTERNAL, tryConvertToPromise, apiRejection);
 
-            _dereq_('./reduce.js')(Promise, PromiseArray, apiRejection, tryConvertToPromise, INTERNAL, debug);
+            _dereq_("./reduce.js")(Promise, PromiseArray, apiRejection, tryConvertToPromise, INTERNAL, debug);
 
-            _dereq_('./settle.js')(Promise, PromiseArray, debug);
+            _dereq_("./settle.js")(Promise, PromiseArray, debug);
 
-            _dereq_('./some.js')(Promise, PromiseArray, apiRejection);
+            _dereq_("./some.js")(Promise, PromiseArray, apiRejection);
 
-            _dereq_('./filter.js')(Promise, INTERNAL);
+            _dereq_("./filter.js")(Promise, INTERNAL);
 
-            _dereq_('./each.js')(Promise, INTERNAL);
+            _dereq_("./each.js")(Promise, INTERNAL);
 
-            _dereq_('./any.js')(Promise);
+            _dereq_("./any.js")(Promise);
 
             util.toFastProperties(Promise);
             util.toFastProperties(Promise.prototype);
@@ -4832,8 +4862,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
               p._rejectionHandler0 = value;
               p._promise0 = value;
               p._receiver0 = value;
-            } // Complete slack tracking, opt out of field-type tracking and           
-            // stabilize map                                                         
+            } // Complete slack tracking, opt out of field-type tracking and
+            // stabilize map
 
 
             fillTypes({
@@ -4937,7 +4967,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
               if (values instanceof Promise) {
                 values = values._target();
                 var bitField = values._bitField;
-                ;
                 this._values = values;
 
                 if ((bitField & 50397184) === 0) {
@@ -5116,9 +5145,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
             var defaultSuffix = "Async";
             var defaultPromisified = {
-              __P_73_14: true
+              __P_74_14: true
             };
-            var noCopyProps = ["arity", "length", "name", "arguments", "caller", "callee", "prototype", "__P_73_14"];
+            var noCopyProps = ["arity", "length", "name", "arguments", "caller", "callee", "prototype", "__P_74_14"];
             var noCopyPropsPattern = new RegExp("^(?:" + noCopyProps.join("|") + ")$");
 
             var defaultFilter = function defaultFilter(name) {
@@ -5131,7 +5160,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
             function isPromisified(fn) {
               try {
-                return fn.__P_73_14 === true;
+                return fn.__P_74_14 === true;
               } catch (e) {
                 return false;
               }
@@ -5182,7 +5211,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
             var makeNodePromisifiedEval;
 
-            function makeNodePromisifiedClosure(callback, receiver, _, fn, __P_73_15, multiArgs) {
+            function makeNodePromisifiedClosure(callback, receiver, _, fn, __P_74_15, multiArgs) {
               var defaultThis = function () {
                 return this;
               }();
@@ -5213,7 +5242,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
                 return promise;
               }
 
-              util.notEnumerableProp(promisified, "__P_73_14", true);
+              util.notEnumerableProp(promisified, "__P_74_14", true);
               return promisified;
             }
 
@@ -5234,7 +5263,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
                   var promisified = promisifier(fn, function () {
                     return makeNodePromisified(key, THIS, key, fn, suffix, multiArgs);
                   });
-                  util.notEnumerableProp(promisified, "__P_73_14", true);
+                  util.notEnumerableProp(promisified, "__P_74_14", true);
                   obj[promisifiedKey] = promisified;
                 }
               }
@@ -5446,7 +5475,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           function arrayMove(src, srcIndex, dst, dstIndex, len) {
             for (var j = 0; j < len; ++j) {
               dst[j + dstIndex] = src[j + srcIndex];
-              src[j + srcIndex] = void 0;
+              src[j + srcIndex] = undefined;
             }
           }
 
@@ -6138,12 +6167,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
               return (this._bitField & 8454144) !== 0;
             };
 
-            Promise.prototype.__P_73_16 = function () {
+            Promise.prototype.__P_74_16 = function () {
               return (this._bitField & 65536) === 65536;
             };
 
             Promise.prototype._isCancelled = function () {
-              return this._target().__P_73_16();
+              return this._target().__P_74_16();
             };
 
             Promise.prototype.isCancelled = function () {
@@ -6858,7 +6887,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             }
 
             return obj;
-            eval(obj);
           }
 
           var rident = /^[a-z$_][a-z$_0-9]*$/i;
@@ -7056,4 +7084,4 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   qx.Promise.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Promise.js.map?dt=1635064691189
+//# sourceMappingURL=Promise.js.map?dt=1645800079033

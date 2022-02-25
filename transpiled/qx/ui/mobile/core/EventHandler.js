@@ -80,7 +80,7 @@
     */
     construct: function construct() {
       qx.core.Object.constructor.call(this);
-      this.__P_150_0 = qx.event.Registration.getManager(window);
+      this.__P_154_0 = qx.event.Registration.getManager(window);
     },
 
     /*
@@ -161,11 +161,11 @@
 
       /** @type {Integer} Whether the method "canHandleEvent" must be called */
       IGNORE_CAN_HANDLE: false,
-      __P_150_1: null,
-      __P_150_2: null,
-      __P_150_3: null,
-      __P_150_4: null,
-      __P_150_5: null,
+      __P_154_1: null,
+      __P_154_2: null,
+      __P_154_3: null,
+      __P_154_4: null,
+      __P_154_5: null,
 
       /**
        * Event handler. Called when the pointerdown event occurs.
@@ -174,17 +174,17 @@
        *
        * @param domEvent {qx.event.type.Pointer} The pointerdown event
        */
-      __P_150_6: function __P_150_6(domEvent) {
+      __P_154_6: function __P_154_6(domEvent) {
         if (!domEvent.isPrimary()) {
           return;
         }
 
         var EventHandler = qx.ui.mobile.core.EventHandler;
-        EventHandler.__P_150_2 = qx.bom.Viewport.getScrollLeft();
-        EventHandler.__P_150_3 = qx.bom.Viewport.getScrollTop();
-        EventHandler.__P_150_4 = domEvent.getScreenTop();
+        EventHandler.__P_154_2 = qx.bom.Viewport.getScrollLeft();
+        EventHandler.__P_154_3 = qx.bom.Viewport.getScrollTop();
+        EventHandler.__P_154_4 = domEvent.getScreenTop();
 
-        EventHandler.__P_150_7();
+        EventHandler.__P_154_7();
 
         var target = domEvent.getTarget();
 
@@ -192,10 +192,10 @@
           target = target.parentNode;
         }
 
-        EventHandler.__P_150_1 = target;
-        EventHandler.__P_150_8 = window.setTimeout(function () {
-          EventHandler.__P_150_8 = null;
-          var target = EventHandler.__P_150_1;
+        EventHandler.__P_154_1 = target;
+        EventHandler.__P_154_8 = window.setTimeout(function () {
+          EventHandler.__P_154_8 = null;
+          var target = EventHandler.__P_154_1;
 
           if (target && qx.bom.element.Attribute.get(target, "data-selectable") != "false") {
             qx.bom.element.Class.add(target, "active");
@@ -209,8 +209,8 @@
        *
        * @param domEvent {qx.event.type.Pointer} The pointerup event
        */
-      __P_150_9: function __P_150_9(domEvent) {
-        qx.ui.mobile.core.EventHandler.__P_150_10();
+      __P_154_9: function __P_154_9(domEvent) {
+        qx.ui.mobile.core.EventHandler.__P_154_10();
       },
 
       /**
@@ -220,51 +220,51 @@
        *
        * @param domEvent {qx.event.type.Pointer} The pointermove event
        */
-      __P_150_11: function __P_150_11(domEvent) {
+      __P_154_11: function __P_154_11(domEvent) {
         if (!domEvent.isPrimary()) {
           return;
         }
 
         var EventHandler = qx.ui.mobile.core.EventHandler;
 
-        var deltaY = domEvent.getScreenTop() - EventHandler.__P_150_4;
+        var deltaY = domEvent.getScreenTop() - EventHandler.__P_154_4;
 
-        if (EventHandler.__P_150_1 && Math.abs(deltaY) >= qx.event.handler.GestureCore.TAP_MAX_DISTANCE[domEvent.getPointerType()]) {
-          EventHandler.__P_150_10();
+        if (EventHandler.__P_154_1 && Math.abs(deltaY) >= qx.event.handler.GestureCore.TAP_MAX_DISTANCE[domEvent.getPointerType()]) {
+          EventHandler.__P_154_10();
         }
 
-        if (EventHandler.__P_150_1 && (EventHandler.__P_150_2 != qx.bom.Viewport.getScrollLeft() || EventHandler.__P_150_3 != qx.bom.Viewport.getScrollTop())) {
-          EventHandler.__P_150_10();
+        if (EventHandler.__P_154_1 && (EventHandler.__P_154_2 != qx.bom.Viewport.getScrollLeft() || EventHandler.__P_154_3 != qx.bom.Viewport.getScrollTop())) {
+          EventHandler.__P_154_10();
         }
       },
 
       /**
        * Cancels the active state timer.
        */
-      __P_150_7: function __P_150_7() {
+      __P_154_7: function __P_154_7() {
         var EventHandler = qx.ui.mobile.core.EventHandler;
 
-        if (EventHandler.__P_150_8) {
-          window.clearTimeout(EventHandler.__P_150_8);
-          EventHandler.__P_150_8 = null;
+        if (EventHandler.__P_154_8) {
+          window.clearTimeout(EventHandler.__P_154_8);
+          EventHandler.__P_154_8 = null;
         }
       },
 
       /**
        * Removes the <code>active</class> class from the active target.
        */
-      __P_150_10: function __P_150_10() {
+      __P_154_10: function __P_154_10() {
         var EventHandler = qx.ui.mobile.core.EventHandler;
 
-        EventHandler.__P_150_7();
+        EventHandler.__P_154_7();
 
-        var activeTarget = EventHandler.__P_150_1;
+        var activeTarget = EventHandler.__P_154_1;
 
         if (activeTarget) {
           qx.bom.element.Class.remove(activeTarget, "active");
         }
 
-        EventHandler.__P_150_1 = null;
+        EventHandler.__P_154_1 = null;
       }
     },
 
@@ -274,7 +274,7 @@
     *****************************************************************************
     */
     members: {
-      __P_150_0: null,
+      __P_154_0: null,
       // interface implementation
       canHandleEvent: function canHandleEvent(target, type) {
         return target instanceof qx.ui.mobile.core.Widget;
@@ -326,7 +326,7 @@
         var capture = domEvent.getEventPhase() == qx.event.type.Event.CAPTURING_PHASE;
         var type = domEvent.getType();
 
-        var listeners = this.__P_150_0.getListeners(currentWidget, type, capture);
+        var listeners = this.__P_154_0.getListeners(currentWidget, type, capture);
 
         if (!listeners || listeners.length === 0) {
           return;
@@ -374,7 +374,7 @@
     *****************************************************************************
     */
     destruct: function destruct() {
-      this.__P_150_0 = null;
+      this.__P_154_0 = null;
     },
 
     /*
@@ -384,13 +384,13 @@
     */
     defer: function defer(statics) {
       qx.event.Registration.addHandler(statics);
-      qx.event.Registration.addListener(document, "pointerdown", statics.__P_150_6);
-      qx.event.Registration.addListener(document, "pointerup", statics.__P_150_9);
-      qx.event.Registration.addListener(document, "pointercancel", statics.__P_150_9);
-      qx.event.Registration.addListener(document, "pointermove", statics.__P_150_11);
+      qx.event.Registration.addListener(document, "pointerdown", statics.__P_154_6);
+      qx.event.Registration.addListener(document, "pointerup", statics.__P_154_9);
+      qx.event.Registration.addListener(document, "pointercancel", statics.__P_154_9);
+      qx.event.Registration.addListener(document, "pointermove", statics.__P_154_11);
     }
   });
   qx.ui.mobile.core.EventHandler.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=EventHandler.js.map?dt=1635064697746
+//# sourceMappingURL=EventHandler.js.map?dt=1645800084750

@@ -57,7 +57,7 @@
        * Due to that, the <code>getOldData</code> method will always return null
        * because the old data is contained in the map.
        */
-      "changeBubble": "qx.event.type.Data"
+      changeBubble: "qx.event.type.Data"
     },
     members: {
       /**
@@ -105,7 +105,7 @@
 
         if (value instanceof qx.core.Object && qx.Class.hasMixin(value.constructor, qx.data.marshal.MEventBubbling)) {
           // create the listener
-          var listener = qx.lang.Function.bind(this.__P_174_0, this, name); // add the listener
+          var listener = qx.lang.Function.bind(this.__P_180_0, this, name); // add the listener
 
           var id = value.addListener("changeBubble", listener, this);
           var listeners = value.getUserData("idBubble-" + this.toHashCode());
@@ -127,7 +127,7 @@
        * @param e {qx.event.type.Data} The date event fired by the property
        *   change.
        */
-      __P_174_0: function __P_174_0(name, e) {
+      __P_180_0: function __P_180_0(name, e) {
         var data = e.getData();
         var value = data.value;
         var old = data.old; // if the target is an array
@@ -180,4 +180,4 @@
   qx.data.marshal.MEventBubbling.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MEventBubbling.js.map?dt=1635064699560
+//# sourceMappingURL=MEventBubbling.js.map?dt=1645800086418

@@ -9,11 +9,11 @@
   "clazz": {
     "location": {
       "start": {
-        "line": 29,
+        "line": 30,
         "column": 0
       },
       "end": {
-        "line": 112,
+        "line": 113,
         "column": 3
       }
     },
@@ -29,6 +29,12 @@
           "name": "@internal",
           "body": ""
         }
+      ],
+      "@require": [
+        {
+          "name": "@require",
+          "body": "qx.bom.client.OperatingSystem"
+        }
       ]
     }
   },
@@ -37,11 +43,11 @@
     "getLocale": {
       "location": {
         "start": {
-          "line": 44,
+          "line": 43,
           "column": 4
         },
         "end": {
-          "line": 53,
+          "line": 52,
           "column": 5
         }
       },
@@ -73,11 +79,11 @@
     "getVariant": {
       "location": {
         "start": {
-          "line": 63,
+          "line": 61,
           "column": 4
         },
         "end": {
-          "line": 74,
+          "line": 72,
           "column": 5
         }
       },
@@ -109,11 +115,11 @@
     "__getNavigatorLocale": {
       "location": {
         "start": {
-          "line": 82,
+          "line": 79,
           "column": 4
         },
         "end": {
-          "line": 103,
+          "line": 105,
           "column": 5
         }
       },
@@ -140,15 +146,14 @@
   "defer": {
     "location": {
       "start": {
-        "line": 107,
-        "column": 10
+        "line": 108,
+        "column": 2
       },
       "end": {
-        "line": 111,
+        "line": 112,
         "column": 3
       }
-    },
-    "jsdoc": {}
+    }
   },
   "descendants": []
 }

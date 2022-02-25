@@ -104,7 +104,7 @@
         var desc = classNode.getDescription();
 
         if (desc != "") {
-          descHtml.add("<div class=\"class-description\">", qxl.apiviewer.ui.panels.InfoPanel.resolveLinkAttributes(desc, classNode), "</div>");
+          descHtml.add('<div class="class-description">', qxl.apiviewer.ui.panels.InfoPanel.resolveLinkAttributes(desc, classNode), "</div>");
         }
 
         return qx.Promise.resolve(descHtml.get());
@@ -114,4 +114,4 @@
   qxl.apiviewer.ui.PackageViewer.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=PackageViewer.js.map?dt=1635064701495
+//# sourceMappingURL=PackageViewer.js.map?dt=1645800088159

@@ -9,11 +9,11 @@
   "clazz": {
     "location": {
       "start": {
-        "line": 68,
+        "line": 69,
         "column": 0
       },
       "end": {
-        "line": 1011,
+        "line": 1063,
         "column": 3
       }
     },
@@ -22,6 +22,28 @@
         {
           "name": "@description",
           "body": "<p>This class adds Promise/A+ support to Qooxdoo, as specified at\n https://github.com/promises-aplus/promises-spec and using the Bluebird Promise\n library (http://bluebirdjs.com/) to implement it.  The official Promise/A+ API)\n is mirrored exactly, and a number of extension methods are added with the BluebirdJS\n API for inspiration (many/most of the extension functions are taken verbatim).\n There are two ways to bind a 'this' value to callbacks - the first is to\n append a context method to methods like then(), and the second is to specify\n the context as the second parameter to the constructor and all callbacks will\n be bound to that value.\n For example:\n </p>\n<pre class=\"javascript\">\n   var promise = new qx.Promise(myAsyncFunction, this);\n   promise.then(function() {\n\n   });\n\n   var promise = new qx.Promise(myAsyncFunction);\n   promise.then(function() {\n\n   }, this);\n </pre>\n<p>If you have an existing qx.Promise and want to bind all callbacks, use the\n bind() method - but note that it returns a new promise:\n  </p>\n<pre class=\"javascript\">\n    var promise = someMethodThatReturnsAPromise();\n    var boundPromise = promise.bind(this);\n    boundPromise.then(function() {\n\n    }, this);\n  </pre>"
+        },
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@ignore": [
+        {
+          "name": "@ignore",
+          "body": "process.*"
+        },
+        {
+          "name": "@ignore",
+          "body": "global.*"
+        },
+        {
+          "name": "@ignore",
+          "body": "Symbol.*"
+        },
+        {
+          "name": "@ignore",
+          "body": "chrome.*"
         }
       ]
     }
@@ -30,11 +52,11 @@
   "construct": {
     "location": {
       "start": {
-        "line": 82,
-        "column": 13
+        "line": 83,
+        "column": 2
       },
       "end": {
-        "line": 116,
+        "line": 120,
         "column": 3
       }
     },
@@ -67,11 +89,11 @@
   "destruct": {
     "location": {
       "start": {
-        "line": 121,
-        "column": 12
+        "line": 125,
+        "column": 2
       },
       "end": {
-        "line": 124,
+        "line": 128,
         "column": 3
       }
     },
@@ -88,11 +110,11 @@
     "__p": {
       "location": {
         "start": {
-          "line": 128,
+          "line": 132,
           "column": 4
         },
         "end": {
-          "line": 128,
+          "line": 132,
           "column": 13
         }
       },
@@ -110,11 +132,11 @@
     "__external": {
       "location": {
         "start": {
-          "line": 131,
+          "line": 135,
           "column": 4
         },
         "end": {
-          "line": 131,
+          "line": 135,
           "column": 20
         }
       },
@@ -132,11 +154,11 @@
     "then": {
       "location": {
         "start": {
-          "line": 151,
+          "line": 153,
           "column": 4
         },
         "end": {
-          "line": 153,
+          "line": 155,
           "column": 5
         }
       },
@@ -179,11 +201,11 @@
     "catch": {
       "location": {
         "start": {
-          "line": 165,
+          "line": 167,
           "column": 4
         },
         "end": {
-          "line": 167,
+          "line": 169,
           "column": 5
         }
       },
@@ -839,11 +861,11 @@
     "_callIterableMethod": {
       "location": {
         "start": {
-          "line": 430,
+          "line": 426,
           "column": 4
         },
         "end": {
-          "line": 436,
+          "line": 437,
           "column": 5
         }
       },
@@ -861,11 +883,11 @@
     "_callMethod": {
       "location": {
         "start": {
-          "line": 441,
+          "line": 442,
           "column": 4
         },
         "end": {
-          "line": 444,
+          "line": 445,
           "column": 5
         }
       },
@@ -883,11 +905,11 @@
     "toPromise": {
       "location": {
         "start": {
-          "line": 456,
+          "line": 457,
           "column": 4
         },
         "end": {
-          "line": 458,
+          "line": 459,
           "column": 5
         }
       },
@@ -996,6 +1018,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -1020,6 +1043,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }
@@ -1134,14 +1158,56 @@
       "type": "variable",
       "access": "private"
     },
-    "resolve": {
+    "isPromise": {
       "location": {
         "start": {
-          "line": 495,
+          "line": 499,
           "column": 4
         },
         "end": {
-          "line": 506,
+          "line": 515,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Detects whether the value is a promise.\n Note that this is not an <code>instanceof</code> check and while it may look odd to just test whether\n there is a property called <code>then</code> which is a Function, that's the actual spec -</p>"
+          }
+        ],
+        "@see": [
+          {
+            "name": "@see",
+            "body": "https://promisesaplus.com/\n The difficulty is that it also needs to have a <code>.finally</code> and <code>.catch</code> methods in order to\n always be routinely useful; it's debatable what we can do about that here - if the calling code\n definitely requires a promise then it can use <code>.resolve</code> to upgrade it or make sure that it is\n a fully featured promise.  In this function, we detect that it is thenable, and then give a warning\n if it is not catchable."
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "{*} value"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} true if it is a promise",
+            "type": "Boolean",
+            "description": " true if it is a promise"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "resolve": {
+      "location": {
+        "start": {
+          "line": 528,
+          "column": 4
+        },
+        "end": {
+          "line": 539,
           "column": 5
         }
       },
@@ -1181,11 +1247,11 @@
     "reject": {
       "location": {
         "start": {
-          "line": 514,
+          "line": 547,
           "column": 4
         },
         "end": {
-          "line": 527,
+          "line": 560,
           "column": 5
         }
       },
@@ -1229,11 +1295,11 @@
     "allOf": {
       "location": {
         "start": {
-          "line": 537,
+          "line": 570,
           "column": 4
         },
         "end": {
-          "line": 556,
+          "line": 588,
           "column": 5
         }
       },
@@ -1268,11 +1334,11 @@
     "all": {
       "location": {
         "start": {
-          "line": 566,
+          "line": 598,
           "column": 4
         },
         "end": {
-          "line": 568,
+          "line": 600,
           "column": 5
         }
       },
@@ -1307,11 +1373,11 @@
     "race": {
       "location": {
         "start": {
-          "line": 576,
+          "line": 608,
           "column": 4
         },
         "end": {
-          "line": 578,
+          "line": 610,
           "column": 5
         }
       },
@@ -1346,11 +1412,11 @@
     "any": {
       "location": {
         "start": {
-          "line": 595,
+          "line": 625,
           "column": 4
         },
         "end": {
-          "line": 597,
+          "line": 627,
           "column": 5
         }
       },
@@ -1385,11 +1451,11 @@
     "some": {
       "location": {
         "start": {
-          "line": 609,
+          "line": 639,
           "column": 4
         },
         "end": {
-          "line": 611,
+          "line": 641,
           "column": 5
         }
       },
@@ -1428,11 +1494,11 @@
     "forEach": {
       "location": {
         "start": {
-          "line": 627,
+          "line": 657,
           "column": 4
         },
         "end": {
-          "line": 629,
+          "line": 659,
           "column": 5
         }
       },
@@ -1474,11 +1540,11 @@
     "filter": {
       "location": {
         "start": {
-          "line": 655,
+          "line": 685,
           "column": 4
         },
         "end": {
-          "line": 657,
+          "line": 687,
           "column": 5
         }
       },
@@ -1528,11 +1594,11 @@
     "map": {
       "location": {
         "start": {
-          "line": 700,
+          "line": 730,
           "column": 4
         },
         "end": {
-          "line": 702,
+          "line": 732,
           "column": 5
         }
       },
@@ -1582,11 +1648,11 @@
     "mapSeries": {
       "location": {
         "start": {
-          "line": 739,
+          "line": 769,
           "column": 4
         },
         "end": {
-          "line": 741,
+          "line": 771,
           "column": 5
         }
       },
@@ -1628,11 +1694,11 @@
     "reduce": {
       "location": {
         "start": {
-          "line": 779,
+          "line": 809,
           "column": 4
         },
         "end": {
-          "line": 781,
+          "line": 811,
           "column": 5
         }
       },
@@ -1682,11 +1748,11 @@
     "method": {
       "location": {
         "start": {
-          "line": 789,
+          "line": 819,
           "column": 4
         },
         "end": {
-          "line": 794,
+          "line": 824,
           "column": 5
         }
       },
@@ -1718,11 +1784,11 @@
     "props": {
       "location": {
         "start": {
-          "line": 810,
+          "line": 840,
           "column": 4
         },
         "end": {
-          "line": 812,
+          "line": 842,
           "column": 5
         }
       },
@@ -1757,11 +1823,11 @@
     "promisify": {
       "location": {
         "start": {
-          "line": 868,
+          "line": 897,
           "column": 4
         },
         "end": {
-          "line": 870,
+          "line": 899,
           "column": 5
         }
       },
@@ -1804,11 +1870,11 @@
     "__attachBluebird": {
       "location": {
         "start": {
-          "line": 884,
+          "line": 911,
           "column": 4
         },
         "end": {
-          "line": 891,
+          "line": 918,
           "column": 5
         }
       },
@@ -1835,11 +1901,11 @@
     "__initialized": {
       "location": {
         "start": {
-          "line": 894,
+          "line": 921,
           "column": 4
         },
         "end": {
-          "line": 894,
+          "line": 921,
           "column": 24
         }
       },
@@ -1857,11 +1923,11 @@
     "__initialize": {
       "location": {
         "start": {
-          "line": 899,
+          "line": 926,
           "column": 4
         },
         "end": {
-          "line": 908,
+          "line": 950,
           "column": 5
         }
       },
@@ -1879,11 +1945,11 @@
     "__onUnhandledRejection": {
       "location": {
         "start": {
-          "line": 914,
+          "line": 956,
           "column": 4
         },
         "end": {
-          "line": 926,
+          "line": 975,
           "column": 5
         }
       },
@@ -1907,11 +1973,11 @@
     "__wrap": {
       "location": {
         "start": {
-          "line": 933,
+          "line": 982,
           "column": 4
         },
         "end": {
-          "line": 942,
+          "line": 991,
           "column": 5
         }
       },
@@ -1943,11 +2009,11 @@
     "__bindArgs": {
       "location": {
         "start": {
-          "line": 953,
+          "line": 1002,
           "column": 4
         },
         "end": {
-          "line": 970,
+          "line": 1019,
           "column": 5
         }
       },
@@ -1987,11 +2053,11 @@
     "__callStaticMethod": {
       "location": {
         "start": {
-          "line": 979,
+          "line": 1028,
           "column": 4
         },
         "end": {
-          "line": 982,
+          "line": 1036,
           "column": 5
         }
       },
@@ -2041,11 +2107,11 @@
     "__mapArgs": {
       "location": {
         "start": {
-          "line": 988,
+          "line": 1042,
           "column": 4
         },
         "end": {
-          "line": 1002,
+          "line": 1054,
           "column": 5
         }
       },
@@ -2064,15 +2130,14 @@
   "defer": {
     "location": {
       "start": {
-        "line": 1005,
-        "column": 9
+        "line": 1057,
+        "column": 2
       },
       "end": {
-        "line": 1010,
+        "line": 1062,
         "column": 3
       }
-    },
-    "jsdoc": {}
+    }
   },
   "descendants": []
 }

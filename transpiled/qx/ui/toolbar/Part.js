@@ -135,7 +135,7 @@
             break;
         }
 
-        return control || qx.ui.toolbar.Part.prototype._createChildControlImpl.base.call(this, id);
+        return control || qx.ui.toolbar.Part.superclass.prototype._createChildControlImpl.call(this, id);
       },
       // overridden
       getChildrenContainer: function getChildrenContainer() {
@@ -188,8 +188,6 @@
             children[i].removeState("left");
           }
         }
-
-        ;
       },
 
       /**
@@ -225,4 +223,4 @@
   qx.ui.toolbar.Part.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Part.js.map?dt=1635064689000
+//# sourceMappingURL=Part.js.map?dt=1645800077024

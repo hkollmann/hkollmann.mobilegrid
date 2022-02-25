@@ -6,6 +6,7 @@
         "require": true
       },
       "qx.ui.toolbar.CheckBox": {
+        "construct": true,
         "require": true
       },
       "qx.ui.form.MModelProperty": {
@@ -53,6 +54,21 @@
 
     /*
     *****************************************************************************
+       CONSTRUCTOR
+    *****************************************************************************
+    */
+    construct: function construct(label, icon) {
+      qx.ui.toolbar.CheckBox.constructor.call(this, label, icon); // ARIA attrs
+      // Important: (Grouped) radio btns should be children of a div with role 'radiogroup'
+
+      var contentEl = this.getContentElement();
+      contentEl.setAttribute("role", "radio");
+      contentEl.setAttribute("aria-checked", false);
+      contentEl.removeAttribute("aria-pressed");
+    },
+
+    /*
+    *****************************************************************************
        MEMBERS
     *****************************************************************************
     */
@@ -64,7 +80,12 @@
       */
       // overridden
       _applyValue: function _applyValue(value, old) {
-        qx.ui.toolbar.RadioButton.prototype._applyValue.base.call(this, value, old);
+        qx.ui.toolbar.RadioButton.superclass.prototype._applyValue.call(this, value, old); // ARIA attrs
+
+
+        var contentEl = this.getContentElement();
+        contentEl.removeAttribute("aria-pressed");
+        contentEl.setAttribute("aria-checked", Boolean(value));
 
         if (value) {
           var grp = this.getGroup();
@@ -89,4 +110,4 @@
   qx.ui.toolbar.RadioButton.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=RadioButton.js.map?dt=1635064689020
+//# sourceMappingURL=RadioButton.js.map?dt=1645800077040

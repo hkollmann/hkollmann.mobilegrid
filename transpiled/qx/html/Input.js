@@ -67,7 +67,8 @@
      *   <code>text</code>, <code>textarea</code>, <code>select</code>,
      *   <code>checkbox</code>, <code>radio</code>, <code>password</code>,
      *   <code>hidden</code>, <code>submit</code>, <code>image</code>,
-     *   <code>file</code>, <code>search</code>, and <code>reset</code>.
+     *   <code>file</code>, <code>search</code>, <code>reset</code>,
+     *   <code>select</code> and <code>textarea</code>.
      * @param styles {Map?null} optional map of CSS styles, where the key is the name
      *    of the style and the value is the value to use.
      * @param attributes {Map?null} optional map of element attributes, where the
@@ -82,7 +83,9 @@
       }
 
       qx.html.Element.constructor.call(this, nodeName, styles, attributes);
-      this.__P_229_0 = type;
+      this.__P_231_0 = type;
+      this.registerProperty("value", this._getValueProperty, this._setValueProperty);
+      this.registerProperty("wrap", null, this._setWrapProperty);
     },
 
     /*
@@ -91,38 +94,60 @@
     *****************************************************************************
     */
     members: {
-      __P_229_0: null,
+      __P_231_0: null,
       // used for webkit only
-      __P_229_1: null,
-      __P_229_2: null,
+      __P_231_1: null,
+      __P_231_2: null,
 
       /*
       ---------------------------------------------------------------------------
         ELEMENT API
       ---------------------------------------------------------------------------
       */
+      _useNodeImpl: function _useNodeImpl(domNode, newChildren) {
+        qx.html.Input.superclass.prototype._useNodeImpl.call(this, domNode, newChildren);
+      },
       //overridden
       _createDomElement: function _createDomElement() {
-        return qx.bom.Input.create(this.__P_229_0);
+        return qx.bom.Input.create(this.__P_231_0);
       },
-      // overridden
-      _applyProperty: function _applyProperty(name, value) {
-        qx.html.Input.prototype._applyProperty.base.call(this, name, value);
 
+      /**
+       * Implementation of setter for the "value" property
+       *
+       * @param value {String?} value to set
+       */
+      _setValueProperty: function _setValueProperty(value) {
         var element = this.getDomElement();
+        qx.bom.Input.setValue(element, value);
+      },
 
-        if (name === "value") {
-          qx.bom.Input.setValue(element, value);
-        } else if (name === "wrap") {
-          qx.bom.Input.setWrap(element, value); // qx.bom.Input#setWrap has the side-effect that the CSS property
-          // overflow is set via DOM methods, causing queue and DOM to get
-          // out of sync. Mirror all overflow properties to handle the case
-          // when group and x/y property differ.
+      /**
+       * Implementation of getter for the "value" property
+       *
+       * @return {String?} value on the dom
+       */
+      _getValueProperty: function _getValueProperty() {
+        var element = this.getDomElement();
+        var value = qx.bom.Input.getValue(element);
+        return value;
+      },
 
-          this.setStyle("overflow", element.style.overflow, true);
-          this.setStyle("overflowX", element.style.overflowX, true);
-          this.setStyle("overflowY", element.style.overflowY, true);
-        }
+      /**
+       * Implementation of setter for the "wrap" property
+       *
+       * @param value {String?} value to set
+       */
+      _setWrapProperty: function _setWrapProperty(value) {
+        var element = this.getDomElement();
+        qx.bom.Input.setWrap(element, value); // qx.bom.Input#setWrap has the side-effect that the CSS property
+        // overflow is set via DOM methods, causing queue and DOM to get
+        // out of sync. Mirror all overflow properties to handle the case
+        // when group and x/y property differ.
+
+        this.setStyle("overflow", element.style.overflow, true);
+        this.setStyle("overflowX", element.style.overflowX, true);
+        this.setStyle("overflowY", element.style.overflowY, true);
       },
 
       /**
@@ -137,19 +162,19 @@
        * @param value {Boolean} true, if the input element should be enabled.
        */
       setEnabled: function setEnabled(value) {
-        this.__P_229_2 = value;
+        this.__P_231_2 = value;
         this.setAttribute("disabled", value === false);
 
         if (qx.core.Environment.get("engine.name") == "webkit") {
           if (!value) {
             this.setStyles({
-              "userModify": "read-only",
-              "userSelect": "none"
+              userModify: "read-only",
+              userSelect: "none"
             });
           } else {
             this.setStyles({
-              "userModify": null,
-              "userSelect": this.__P_229_1 ? null : "none"
+              userModify: null,
+              userSelect: this.__P_231_1 ? null : "none"
             });
           }
         }
@@ -164,13 +189,13 @@
        * @param value {Boolean} True, if the element should be selectable.
        */
       setSelectable: qx.core.Environment.select("engine.name", {
-        "webkit": function webkit(value) {
-          this.__P_229_1 = value; // Only apply the value when it is enabled
+        webkit: function webkit(value) {
+          this.__P_231_1 = value; // Only apply the value when it is enabled
 
-          qx.html.Input.prototype.setSelectable.base.call(this, this.__P_229_2 && value);
+          qx.html.Input.superclass.prototype.setSelectable.call(this, this.__P_231_2 && value);
         },
         "default": function _default(value) {
-          qx.html.Input.prototype.setSelectable.base.call(this, value);
+          qx.html.Input.superclass.prototype.setSelectable.call(this, value);
         }
       }),
 
@@ -228,7 +253,7 @@
        * @return {qx.html.Input} This instance for for chaining support.
        */
       setWrap: function setWrap(wrap, direct) {
-        if (this.__P_229_0 === "textarea") {
+        if (this.__P_231_0 === "textarea") {
           this._setProperty("wrap", wrap, direct);
         } else {
           throw new Error("Text wrapping is only support by textareas!");
@@ -245,7 +270,7 @@
        * @return {Boolean} Whether wrapping is enabled or disabled.
        */
       getWrap: function getWrap() {
-        if (this.__P_229_0 === "textarea") {
+        if (this.__P_231_0 === "textarea") {
           return this._getProperty("wrap");
         } else {
           throw new Error("Text wrapping is only support by textareas!");
@@ -256,4 +281,4 @@
   qx.html.Input.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Input.js.map?dt=1635064703282
+//# sourceMappingURL=Input.js.map?dt=1645800089484

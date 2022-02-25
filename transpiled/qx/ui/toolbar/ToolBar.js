@@ -67,7 +67,9 @@
     *****************************************************************************
     */
     construct: function construct() {
-      qx.ui.core.Widget.constructor.call(this); // add needed layout
+      qx.ui.core.Widget.constructor.call(this); // ARIA attrs
+
+      this.getContentElement().setAttribute("role", "toolbar"); // add needed layout
 
       this._setLayout(new qx.ui.layout.HBox()); // initialize the overflow handling
 
@@ -138,10 +140,10 @@
     */
     events: {
       /** Fired if an item will be hidden by the {@link #overflowHandling}.*/
-      "hideItem": "qx.event.type.Data",
+      hideItem: "qx.event.type.Data",
 
       /** Fired if an item will be shown by the {@link #overflowHandling}.*/
-      "showItem": "qx.event.type.Data"
+      showItem: "qx.event.type.Data"
     },
 
     /*
@@ -160,7 +162,7 @@
       // overridden
       _computeSizeHint: function _computeSizeHint() {
         // get the original hint
-        var hint = qx.ui.toolbar.ToolBar.prototype._computeSizeHint.base.call(this);
+        var hint = qx.ui.toolbar.ToolBar.superclass.prototype._computeSizeHint.call(this);
 
         if (true && this.getOverflowHandling()) {
           var minWidth = 0; // if an overflow widget is given, use its width + spacing as min width
@@ -341,9 +343,8 @@
           if (item && item.getVisibility && item.getVisibility() == "visible") {
             return item;
           }
-        }
+        } // if there is non found by priority, check all available widgets
 
-        ; // if there is non found by priority, check all available widgets
 
         var children = this._getChildren();
 
@@ -359,8 +360,6 @@
             return child;
           }
         }
-
-        ;
       },
 
       /**
@@ -415,9 +414,8 @@
 
           for (var i = 0; i < this.__P_61_0.length; i++) {
             this.__P_61_0[i].setVisibility("visible");
-          }
+          } // reset the removed items
 
-          ; // reset the removed items
 
           this.__P_61_0 = [];
         }
@@ -488,8 +486,6 @@
             children[i].setShow(value);
           }
         }
-
-        ;
       },
 
       /*
@@ -499,7 +495,7 @@
       */
       // overridden
       _add: function _add(child, options) {
-        qx.ui.toolbar.ToolBar.prototype._add.base.call(this, child, options); // sync the show property (bug #6743) - but only if show wasn't explicitly set for the child (bug #6823)
+        qx.ui.toolbar.ToolBar.superclass.prototype._add.call(this, child, options); // sync the show property (bug #6743) - but only if show wasn't explicitly set for the child (bug #6823)
 
 
         if (child.setShow && !qx.util.PropertyUtil.getUserValue(child, "show")) {
@@ -512,7 +508,7 @@
       },
       // overridden
       _addAt: function _addAt(child, index, options) {
-        qx.ui.toolbar.ToolBar.prototype._addAt.base.call(this, child, index, options); // sync the show property (bug #6743) - but only if show wasn't explicitly set for the child (bug #6823)
+        qx.ui.toolbar.ToolBar.superclass.prototype._addAt.call(this, child, index, options); // sync the show property (bug #6743) - but only if show wasn't explicitly set for the child (bug #6823)
 
 
         if (child.setShow && !qx.util.PropertyUtil.getUserValue(child, "show")) {
@@ -525,7 +521,7 @@
       },
       // overridden
       _addBefore: function _addBefore(child, before, options) {
-        qx.ui.toolbar.ToolBar.prototype._addBefore.base.call(this, child, before, options); // sync the show property (bug #6743) - but only if show wasn't explicitly set for the child (bug #6823)
+        qx.ui.toolbar.ToolBar.superclass.prototype._addBefore.call(this, child, before, options); // sync the show property (bug #6743) - but only if show wasn't explicitly set for the child (bug #6823)
 
 
         if (child.setShow && !qx.util.PropertyUtil.getUserValue(child, "show")) {
@@ -538,7 +534,7 @@
       },
       // overridden
       _addAfter: function _addAfter(child, after, options) {
-        qx.ui.toolbar.ToolBar.prototype._addAfter.base.call(this, child, after, options); // sync the show property (bug #6743) - but only if show wasn't explicitly set for the child (bug #6823)
+        qx.ui.toolbar.ToolBar.superclass.prototype._addAfter.call(this, child, after, options); // sync the show property (bug #6743) - but only if show wasn't explicitly set for the child (bug #6823)
 
 
         if (child.setShow && !qx.util.PropertyUtil.getUserValue(child, "show")) {
@@ -551,7 +547,7 @@
       },
       // overridden
       _remove: function _remove(child) {
-        qx.ui.toolbar.ToolBar.prototype._remove.base.call(this, child);
+        qx.ui.toolbar.ToolBar.superclass.prototype._remove.call(this, child);
 
         var newWidth = this.getSizeHint().width - child.getSizeHint().width - 2 * this.getSpacing();
 
@@ -561,7 +557,7 @@
       _removeAt: function _removeAt(index) {
         var child = this._getChildren()[index];
 
-        qx.ui.toolbar.ToolBar.prototype._removeAt.base.call(this, index);
+        qx.ui.toolbar.ToolBar.superclass.prototype._removeAt.call(this, index);
 
         var newWidth = this.getSizeHint().width - child.getSizeHint().width - 2 * this.getSpacing();
 
@@ -571,7 +567,7 @@
       },
       // overridden
       _removeAll: function _removeAll() {
-        var children = qx.ui.toolbar.ToolBar.prototype._removeAll.base.call(this);
+        var children = qx.ui.toolbar.ToolBar.superclass.prototype._removeAll.call(this);
 
         this._recalculateOverflow(null, 0);
 
@@ -641,4 +637,4 @@
   qx.ui.toolbar.ToolBar.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=ToolBar.js.map?dt=1635064688960
+//# sourceMappingURL=ToolBar.js.map?dt=1645800076996

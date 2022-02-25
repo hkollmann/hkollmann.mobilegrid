@@ -1,12 +1,25 @@
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
+        "require": true
+      },
       "qx.Class": {
         "usage": "dynamic",
         "require": true
       },
       "qx.ui.layout.Abstract": {
         "require": true
+      }
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.debug": {
+          "load": true
+        }
       }
     }
   };
@@ -82,7 +95,12 @@
       ---------------------------------------------------------------------------
       */
       // overridden
-      verifyLayoutProperty: null,
+      verifyLayoutProperty: qx.core.Environment.select("qx.debug", {
+        "true": function _true(item, name, value) {
+          this.assert(false, "The property '" + name + "' is not supported by the Grow layout!");
+        },
+        "false": null
+      }),
       // overridden
       renderLayout: function renderLayout(availWidth, availHeight, padding) {
         var children = this._getLayoutChildren();
@@ -149,4 +167,4 @@
   qx.ui.layout.Grow.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Grow.js.map?dt=1635064695677
+//# sourceMappingURL=Grow.js.map?dt=1645800082953

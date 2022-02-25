@@ -46,8 +46,8 @@
     },
     events: {
       /** This event if dispatched if one of the internal links is tapped */
-      "classLinkTapped": "qx.event.type.Data",
-      "changeSelection": "qx.event.type.Data"
+      classLinkTapped: "qx.event.type.Data",
+      changeSelection: "qx.event.type.Data"
     },
     members: {
       isLoaded: function isLoaded(callback) {
@@ -70,6 +70,7 @@
        * Callback for internal links to other classes/items.
        * This code is called directly from the generated HTML of the
        * class viewer.
+       * @param itemName
        */
       onSelectItem: function onSelectItem(itemName) {
         this.fireDataEvent("classLinkTapped", itemName);
@@ -124,4 +125,4 @@
   qxl.apiviewer.TabViewController.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=TabViewController.js.map?dt=1635064689696
+//# sourceMappingURL=TabViewController.js.map?dt=1645800077651

@@ -74,7 +74,7 @@
     implement: [qx.ui.decoration.IDecorator],
     include: [qx.ui.decoration.MBackgroundColor, qx.ui.decoration.MBorderRadius, qx.ui.decoration.MBoxShadow, qx.ui.decoration.MDoubleBorder, qx.ui.decoration.MLinearBackgroundGradient, qx.ui.decoration.MBorderImage, qx.ui.decoration.MTransition],
     members: {
-      __P_104_0: false,
+      __P_106_0: false,
 
       /**
        * Returns the configured padding minus the border width.
@@ -136,11 +136,11 @@
 
         for (var name in styles) {
           if (qx.lang.Type.isArray(styles[name])) {
-            styles[name] = styles[name].join(', ');
+            styles[name] = styles[name].join(", ");
           }
         }
 
-        this.__P_104_0 = true;
+        this.__P_106_0 = true;
         return styles;
       },
       // overridden
@@ -182,15 +182,15 @@
       },
       // overridden
       _isInitialized: function _isInitialized() {
-        return this.__P_104_0;
+        return this.__P_106_0;
       },
 
       /**
-      * Ensures that every propertyValue specified in propertyNames is an array.
-      * The value arrays are extended and repeated to match in length.
-      * @param propertyNames {Array} Array containing the propertyNames.
-      * @return {Array} Array containing the extended value arrays.
-      */
+       * Ensures that every propertyValue specified in propertyNames is an array.
+       * The value arrays are extended and repeated to match in length.
+       * @param propertyNames {Array} Array containing the propertyNames.
+       * @return {Array} Array containing the extended value arrays.
+       */
       _getExtendedPropertyValueArrays: function _getExtendedPropertyValueArrays(propertyNames) {
         // transform non-array values to an array containing that value
         var propertyValues = propertyNames.map(function (propName) {
@@ -201,7 +201,7 @@
           }
 
           return value;
-        }, this); // Because it's possible to set multiple values for a property there's 
+        }, this); // Because it's possible to set multiple values for a property there's
         // a chance that not all properties have the same number of values set.
         // Extend the value arrays by repeating existing values until all
         // arrays match in length.
@@ -211,18 +211,18 @@
         }));
 
         for (var i = 0; i < propertyValues.length; i++) {
-          this.__P_104_1(propertyValues[i], items);
+          this.__P_106_1(propertyValues[i], items);
         }
 
         return propertyValues;
       },
 
       /**
-      * Extends an array up to the given length by repeating the elements already present.
-      * @param array {Array} Incoming array. Has to contain at least one element.
-      * @param to {Integer} Desired length. Must be greater than or equal to the the length of arr.
-      */
-      __P_104_1: function __P_104_1(array, to) {
+       * Extends an array up to the given length by repeating the elements already present.
+       * @param array {Array} Incoming array. Has to contain at least one element.
+       * @param to {Integer} Desired length. Must be greater than or equal to the the length of arr.
+       */
+      __P_106_1: function __P_106_1(array, to) {
         var initial = array.length;
 
         while (array.length < to) {
@@ -234,4 +234,4 @@
   qx.ui.decoration.Decorator.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Decorator.js.map?dt=1635064693489
+//# sourceMappingURL=Decorator.js.map?dt=1645800081009

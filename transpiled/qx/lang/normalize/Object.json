@@ -37,12 +37,12 @@
     "keys": {
       "location": {
         "start": {
-          "line": 40,
+          "line": 38,
           "column": 4
         },
         "end": {
-          "line": 40,
-          "column": 28
+          "line": 38,
+          "column": 27
         }
       },
       "jsdoc": {
@@ -82,11 +82,11 @@
     "values": {
       "location": {
         "start": {
-          "line": 48,
+          "line": 46,
           "column": 4
         },
         "end": {
-          "line": 61,
+          "line": 60,
           "column": 5
         }
       },
@@ -121,7 +121,7 @@
     "is": {
       "location": {
         "start": {
-          "line": 74,
+          "line": 72,
           "column": 4
         },
         "end": {
@@ -173,7 +173,7 @@
     "assign": {
       "location": {
         "start": {
-          "line": 96,
+          "line": 95,
           "column": 4
         },
         "end": {
@@ -227,14 +227,13 @@
     "location": {
       "start": {
         "line": 120,
-        "column": 10
+        "column": 2
       },
       "end": {
         "line": 140,
         "column": 3
       }
-    },
-    "jsdoc": {}
+    }
   },
   "descendants": []
 }

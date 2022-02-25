@@ -91,7 +91,7 @@
       },
       // overridden
       _getCellClass: function _getCellClass(cellInfo) {
-        var cellClass = qx.ui.table.cellrenderer.Default.prototype._getCellClass.base.call(this, cellInfo);
+        var cellClass = qx.ui.table.cellrenderer.Default.superclass.prototype._getCellClass.call(this, cellInfo);
 
         if (!cellClass) {
           return "";
@@ -157,4 +157,4 @@
   qx.ui.table.cellrenderer.Default.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Default.js.map?dt=1635064703393
+//# sourceMappingURL=Default.js.map?dt=1645800089817

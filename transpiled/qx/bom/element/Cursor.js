@@ -72,7 +72,7 @@
     */
     statics: {
       /** Internal helper structure to map cursor values to supported ones */
-      __P_95_0: {},
+      __P_97_0: {},
 
       /**
        * Compiles the given cursor into a CSS compatible string.
@@ -81,7 +81,7 @@
        * @return {String} CSS string
        */
       compile: function compile(cursor) {
-        return "cursor:" + (this.__P_95_0[cursor] || cursor) + ";";
+        return "cursor:" + (this.__P_97_0[cursor] || cursor) + ";";
       },
 
       /**
@@ -104,7 +104,7 @@
        * @param value {String} New cursor value to set
        */
       set: function set(element, value) {
-        element.style.cursor = this.__P_95_0[value] || value;
+        element.style.cursor = this.__P_97_0[value] || value;
       },
 
       /**
@@ -119,12 +119,12 @@
     defer: function defer(statics) {
       // < IE 9
       if (qx.core.Environment.get("engine.name") == "mshtml" && (parseFloat(qx.core.Environment.get("engine.version")) < 9 || qx.core.Environment.get("browser.documentmode") < 9) && !qx.core.Environment.get("browser.quirksmode")) {
-        statics.__P_95_0["nesw-resize"] = "ne-resize";
-        statics.__P_95_0["nwse-resize"] = "nw-resize";
+        statics.__P_97_0["nesw-resize"] = "ne-resize";
+        statics.__P_97_0["nwse-resize"] = "nw-resize";
       }
     }
   });
   qx.bom.element.Cursor.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Cursor.js.map?dt=1635064692890
+//# sourceMappingURL=Cursor.js.map?dt=1645800080530

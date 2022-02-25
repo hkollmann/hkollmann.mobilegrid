@@ -148,7 +148,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             }
           }
 
-          ;
           return clone;
         }
 
@@ -167,15 +166,15 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       },
 
       /**
-      * Internal recursive comparison function for equals
-      *
-      * @param object1 {Object} the object that is compared to
-      * @param object2 {Object} the object that is compared with
-      * @param aStack {Object} Stack of object1 sub-objects to be traversed
-      * @param bStack {Object} Stack of object2 sub-objects to be traversed
-      * @return {Boolean} The result of the comparison
-      *
-      */
+       * Internal recursive comparison function for equals
+       *
+       * @param object1 {Object} the object that is compared to
+       * @param object2 {Object} the object that is compared with
+       * @param aStack {Object} Stack of object1 sub-objects to be traversed
+       * @param bStack {Object} Stack of object2 sub-objects to be traversed
+       * @return {Boolean} The result of the comparison
+       *
+       */
       __P_43_0: function __P_43_0(object1, object2, aStack, bStack) {
         // Identical objects are equal. `0 === -0`, but they aren't identical.
         // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
@@ -197,29 +196,29 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
         switch (className) {
           // Strings, numbers, dates, and booleans are compared by value.
-          case '[object String]':
+          case "[object String]":
             // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
             // equivalent to `new String("5")`.
             return object1 == String(object2);
 
-          case '[object Number]':
+          case "[object Number]":
             // `NaN`s are equivalent, but non-reflexive. An `egal` comparison is performed for
             // other numeric values.
             return object1 != +object1 ? object2 != +object2 : object1 == 0 ? 1 / object1 == 1 / object2 : object1 == +object2;
 
-          case '[object Date]':
-          case '[object Boolean]':
+          case "[object Date]":
+          case "[object Boolean]":
             // Coerce dates and booleans to numeric primitive values. Dates are compared by their
             // millisecond representations. Note that invalid dates with millisecond representations
             // of `NaN` are not equivalent.
             return +object1 == +object2;
           // RegExps are compared by their source patterns and flags.
 
-          case '[object RegExp]':
+          case "[object RegExp]":
             return object1.source == object2.source && object1.global == object2.global && object1.multiline == object2.multiline && object1.ignoreCase == object2.ignoreCase;
         }
 
-        if (_typeof(object1) != 'object' || _typeof(object2) != 'object') {
+        if (_typeof(object1) != "object" || _typeof(object2) != "object") {
           return false;
         } // Assume equality for cyclic structures. The algorithm for detecting cyclic
         // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
@@ -240,7 +239,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         var aCtor = object1.constructor,
             bCtor = object2.constructor;
 
-        if (aCtor !== bCtor && !(qx.Bootstrap.isFunction(aCtor) && aCtor instanceof aCtor && qx.Bootstrap.isFunction(bCtor) && bCtor instanceof bCtor) && 'constructor' in object1 && 'constructor' in object2) {
+        if (aCtor !== bCtor && !(qx.Bootstrap.isFunction(aCtor) && aCtor instanceof aCtor && qx.Bootstrap.isFunction(bCtor) && bCtor instanceof bCtor) && "constructor" in object1 && "constructor" in object2) {
           return false;
         } // Add the first object to the stack of traversed objects.
 
@@ -250,7 +249,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         var size = 0,
             result = true; // Recursively compare objects and arrays.
 
-        if (className == '[object Array]') {
+        if (className == "[object Array]") {
           // Compare array lengths to determine if a deep comparison is necessary.
           size = object1.length;
           result = size == object2.length;
@@ -344,15 +343,15 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       },
 
       /**
-      * Convert an array into a map.
-      *
-      * All elements of the array become keys of the returned map by
-      * calling <code>toString</code> on the array elements. The values of the
-      * map are set to <code>true</code>
-      *
-      * @param array {Array} array to convert
-      * @return {Map} the array converted to a map.
-      */
+       * Convert an array into a map.
+       *
+       * All elements of the array become keys of the returned map by
+       * calling <code>toString</code> on the array elements. The values of the
+       * map are set to <code>true</code>
+       *
+       * @param array {Array} array to convert
+       * @return {Map} the array converted to a map.
+       */
       fromArray: function fromArray(array) {
         var obj = {};
 
@@ -367,4 +366,4 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   qx.lang.Object.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Object.js.map?dt=1635064687744
+//# sourceMappingURL=Object.js.map?dt=1645800075982

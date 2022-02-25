@@ -1,6 +1,11 @@
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
+        "require": true
+      },
       "qx.Class": {
         "usage": "dynamic",
         "require": true
@@ -11,6 +16,14 @@
       },
       "qx.ui.layout.Util": {},
       "qx.theme.manager.Decoration": {}
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.debug": {
+          "load": true
+        }
+      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -67,14 +80,14 @@
    *   flex value to zero.
    * </li>
    * <li><strong>flexShrink</strong> <em>(Boolean)</em>: Only valid if `flex` is
-   *    set to a non-zero value, `flexShrink` tells the layout to force the child 
+   *    set to a non-zero value, `flexShrink` tells the layout to force the child
    *    widget to shink if there is not enough space available for all of the children.
    *    This is used in scenarios such as when the child insists that it has a `minWidth`
-   *    but there simply is not enough space to support that minimum width, so the 
-   *    overflow has to be cut off.  This setting allows the container to pick 
+   *    but there simply is not enough space to support that minimum width, so the
+   *    overflow has to be cut off.  This setting allows the container to pick
    *    which children are able to have their `minWidth` sacrificed.  Without this
    *    setting, one oversized child can force later children out of view, regardless
-   *    of `flex` settings 
+   *    of `flex` settings
    * </li>
    * <li><strong>width</strong> <em>(String)</em>: Allows to define a percent
    *   width for the item. The width in percent, if specified, is used instead
@@ -263,7 +276,21 @@
       ---------------------------------------------------------------------------
       */
       // overridden
-      verifyLayoutProperty: null,
+      verifyLayoutProperty: qx.core.Environment.select("qx.debug", {
+        "true": function _true(item, name, value) {
+          if (name === "width") {
+            this.assertMatch(value, qx.ui.layout.Util.PERCENT_VALUE);
+          } else if (name === "flex") {
+            this.assertNumber(value);
+            this.assert(value >= 0);
+          } else if (name === "flexShrink") {
+            this.assertBoolean(value);
+          } else {
+            this.assert(false, "The property '" + name + "' is not supported by the HBox layout!");
+          }
+        },
+        "false": null
+      }),
       // overridden
       renderLayout: function renderLayout(availWidth, availHeight, padding) {
         // Rebuild flex/width caches
@@ -489,4 +516,4 @@
   qx.ui.layout.HBox.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=HBox.js.map?dt=1635064689540
+//# sourceMappingURL=HBox.js.map?dt=1645800077521

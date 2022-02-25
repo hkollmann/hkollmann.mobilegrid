@@ -40,7 +40,7 @@
     */
     events: {
       /** Fires after the selection was modified */
-      "changeSelection": "qx.event.type.Data"
+      changeSelection: "qx.event.type.Data"
     },
 
     /*
@@ -113,4 +113,4 @@
   qx.ui.core.ISingleSelection.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=ISingleSelection.js.map?dt=1635064695619
+//# sourceMappingURL=ISingleSelection.js.map?dt=1645800082905

@@ -119,7 +119,7 @@
      * @param source {String?null} The URL of the image to display.
      */
     construct: function construct(source) {
-      this.__P_119_0 = {};
+      this.__P_123_0 = {};
       qx.ui.core.Widget.constructor.call(this);
 
       if (source) {
@@ -233,16 +233,16 @@
     *****************************************************************************
     */
     members: {
-      __P_119_1: null,
-      __P_119_2: null,
-      __P_119_3: null,
-      __P_119_0: null,
-      __P_119_4: null,
-      __P_119_5: null,
-      __P_119_6: 0,
+      __P_123_1: null,
+      __P_123_2: null,
+      __P_123_3: null,
+      __P_123_0: null,
+      __P_123_4: null,
+      __P_123_5: null,
+      __P_123_6: 0,
       // overridden
       _onChangeTheme: function _onChangeTheme() {
-        qx.ui.basic.Image.prototype._onChangeTheme.base.call(this); // restyle source (theme change might have changed the resolved url)
+        qx.ui.basic.Image.superclass.prototype._onChangeTheme.call(this); // restyle source (theme change might have changed the resolved url)
 
 
         this._styleSource();
@@ -255,39 +255,39 @@
       */
       // overridden
       getContentElement: function getContentElement() {
-        return this.__P_119_7();
+        return this.__P_123_7();
       },
       // overridden
       _createContentElement: function _createContentElement() {
-        return this.__P_119_7();
+        return this.__P_123_7();
       },
       // overridden
       _getContentHint: function _getContentHint() {
         return {
-          width: this.__P_119_1 || 0,
-          height: this.__P_119_2 || 0
+          width: this.__P_123_1 || 0,
+          height: this.__P_123_2 || 0
         };
       },
       // overridden
       _applyDecorator: function _applyDecorator(value, old) {
-        qx.ui.basic.Image.prototype._applyDecorator.base.call(this, value, old);
+        qx.ui.basic.Image.superclass.prototype._applyDecorator.call(this, value, old);
 
         var source = this.getSource();
         source = qx.util.AliasManager.getInstance().resolve(source);
         var el = this.getContentElement();
 
-        if (this.__P_119_5) {
+        if (this.__P_123_5) {
           el = el.getChild(0);
         }
 
-        this.__P_119_8(el, source);
+        this.__P_123_8(el, source);
       },
       // overridden
       _applyTextColor: function _applyTextColor(value) {
-        if (this.__P_119_9() === "font") {
+        if (this.__P_123_9() === "font") {
           var el = this.getContentElement();
 
-          if (this.__P_119_5) {
+          if (this.__P_123_5) {
             el = el.getChild(0);
           }
 
@@ -300,16 +300,16 @@
       },
       // overridden
       _applyPadding: function _applyPadding(value, old, name) {
-        qx.ui.basic.Image.prototype._applyPadding.base.call(this, value, old, name);
+        qx.ui.basic.Image.superclass.prototype._applyPadding.call(this, value, old, name);
 
         var element = this.getContentElement();
 
-        if (this.__P_119_5) {
+        if (this.__P_123_5) {
           element.getChild(0).setStyles({
             top: this.getPaddingTop() || 0,
             left: this.getPaddingLeft() || 0
           });
-        } else if (this.__P_119_9() === 'font') {
+        } else if (this.__P_123_9() === "font") {
           element.setStyles({
             top: this.getPaddingTop() || 0,
             left: this.getPaddingLeft() || 0
@@ -319,10 +319,10 @@
         }
       },
       renderLayout: function renderLayout(left, top, width, height) {
-        qx.ui.basic.Image.prototype.renderLayout.base.call(this, left, top, width, height);
+        qx.ui.basic.Image.superclass.prototype.renderLayout.call(this, left, top, width, height);
         var element = this.getContentElement();
 
-        if (this.__P_119_5) {
+        if (this.__P_123_5) {
           element.getChild(0).setStyles({
             width: width - (this.getPaddingLeft() || 0) - (this.getPaddingRight() || 0),
             height: height - (this.getPaddingTop() || 0) - (this.getPaddingBottom() || 0),
@@ -339,7 +339,7 @@
       */
       // property apply, overridden
       _applyEnabled: function _applyEnabled(value, old) {
-        qx.ui.basic.Image.prototype._applyEnabled.base.call(this, value, old);
+        qx.ui.basic.Image.superclass.prototype._applyEnabled.call(this, value, old);
 
         if (this.getSource()) {
           this._styleSource();
@@ -365,8 +365,8 @@
        * Remembers the mode to keep track which contentElement is currently in use.
        * @param mode {String} internal mode (alphaScaled|scaled|nonScaled)
        */
-      __P_119_10: function __P_119_10(mode) {
-        this.__P_119_3 = mode;
+      __P_123_10: function __P_123_10(mode) {
+        this.__P_123_3 = mode;
       },
 
       /**
@@ -375,12 +375,12 @@
        *
        * @return {String} current internal mode
        */
-      __P_119_9: function __P_119_9() {
-        if (this.__P_119_3 == null) {
+      __P_123_9: function __P_123_9() {
+        if (this.__P_123_3 == null) {
           var source = this.getSource();
 
           if (source && qx.lang.String.startsWith(source, "@")) {
-            this.__P_119_3 = "font";
+            this.__P_123_3 = "font";
           }
 
           var isPng = false;
@@ -390,15 +390,15 @@
           }
 
           if (this.getScale() && isPng && qx.core.Environment.get("css.alphaimageloaderneeded")) {
-            this.__P_119_3 = "alphaScaled";
+            this.__P_123_3 = "alphaScaled";
           } else if (this.getScale()) {
-            this.__P_119_3 = "scaled";
+            this.__P_123_3 = "scaled";
           } else {
-            this.__P_119_3 = "nonScaled";
+            this.__P_123_3 = "nonScaled";
           }
         }
 
-        return this.__P_119_3;
+        return this.__P_123_3;
       },
 
       /**
@@ -407,7 +407,7 @@
        * @param mode {String} internal mode
        * @return {qx.html.Image} suitable image content element
        */
-      __P_119_11: function __P_119_11(mode) {
+      __P_123_11: function __P_123_11(mode) {
         var scale;
         var tagName;
         var clazz = qx.html.Image;
@@ -436,11 +436,11 @@
         }
 
         var element = new clazz(tagName);
-        element.connectWidget(this);
+        element.connectObject(this);
         element.setStyles({
-          "overflowX": "hidden",
-          "overflowY": "hidden",
-          "boxSizing": "border-box"
+          overflowX: "hidden",
+          overflowY: "hidden",
+          boxSizing: "border-box"
         });
 
         if (mode == "font") {
@@ -449,8 +449,8 @@
           element.setScale(scale);
 
           if (qx.core.Environment.get("css.alphaimageloaderneeded")) {
-            var wrapper = this.__P_119_5 = new qx.html.Element("div");
-            element.connectWidget(this);
+            var wrapper = this.__P_123_5 = new qx.html.Element("div");
+            element.connectObject(this);
             wrapper.setStyle("position", "absolute");
             wrapper.add(element);
             return wrapper;
@@ -465,21 +465,21 @@
        *
        * @return {qx.html.Image} suitable image contentElement
        */
-      __P_119_7: function __P_119_7() {
+      __P_123_7: function __P_123_7() {
         if (this.$$disposed) {
           return null;
         }
 
-        var mode = this.__P_119_9();
+        var mode = this.__P_123_9();
 
-        if (this.__P_119_0[mode] == null) {
-          this.__P_119_0[mode] = this.__P_119_11(mode);
+        if (this.__P_123_0[mode] == null) {
+          this.__P_123_0[mode] = this.__P_123_11(mode);
         }
 
-        var element = this.__P_119_0[mode];
+        var element = this.__P_123_0[mode];
 
-        if (!this.__P_119_4) {
-          this.__P_119_4 = element;
+        if (!this.__P_123_4) {
+          this.__P_123_4 = element;
         }
 
         return element;
@@ -496,28 +496,28 @@
         var source = AliasManager.resolve(this.getSource());
         var element = this.getContentElement();
 
-        if (this.__P_119_5) {
+        if (this.__P_123_5) {
           element = element.getChild(0);
         }
 
         if (!source) {
-          this.__P_119_12(element);
+          this.__P_123_12(element);
 
           return;
         }
 
-        this.__P_119_13(source);
+        this.__P_123_13(source);
 
         if (qx.core.Environment.get("engine.name") == "mshtml" && (parseInt(qx.core.Environment.get("engine.version"), 10) < 9 || qx.core.Environment.get("browser.documentmode") < 9)) {
           var repeat = this.getScale() ? "scale" : "no-repeat";
           element.tagNameHint = qx.bom.element.Decoration.getTagName(repeat, source);
         }
 
-        var contentEl = this.__P_119_14(); // Detect if the image registry knows this image
+        var contentEl = this.__P_123_14(); // Detect if the image registry knows this image
 
 
         if (ResourceManager.isFontUri(source)) {
-          this.__P_119_15(contentEl, source);
+          this.__P_123_15(contentEl, source);
 
           var color = this.getTextColor();
 
@@ -535,21 +535,21 @@
 
             var backgroundSize = imageWidth + "px, " + imageHeight + "px";
 
-            this.__P_119_4.setStyle("background-size", backgroundSize);
+            this.__P_123_4.setStyle("background-size", backgroundSize);
 
             this.setSource(highResolutionSource);
             source = highResolutionSource;
           }
 
-          this.__P_119_15(contentEl, source);
+          this.__P_123_15(contentEl, source);
 
-          this.__P_119_16();
+          this.__P_123_16();
         } else if (qx.io.ImageLoader.isLoaded(source)) {
-          this.__P_119_17(contentEl, source);
+          this.__P_123_17(contentEl, source);
 
-          this.__P_119_16();
+          this.__P_123_16();
         } else {
-          this.__P_119_18(contentEl, source);
+          this.__P_123_18(contentEl, source);
         }
       },
 
@@ -559,26 +559,26 @@
        * helper will be called, if you try to load a managed image or an
        * previously loaded unmanaged image.
        */
-      __P_119_16: function __P_119_16() {
-        this.__P_119_6++;
+      __P_123_16: function __P_123_16() {
+        this.__P_123_6++;
         qx.bom.AnimationFrame.request(function (rId) {
           // prevent firing of the event if source changed in the meantime
-          if (rId === this.__P_119_6) {
+          if (rId === this.__P_123_6) {
             this.fireEvent("loaded");
           } else {
             this.fireEvent("aborted");
           }
-        }.bind(this, this.__P_119_6));
+        }.bind(this, this.__P_123_6));
       },
 
       /**
        * Returns the content element.
        * @return {qx.html.Image} content element
        */
-      __P_119_14: function __P_119_14() {
-        var contentEl = this.__P_119_4;
+      __P_123_14: function __P_123_14() {
+        var contentEl = this.__P_123_4;
 
-        if (this.__P_119_5) {
+        if (this.__P_123_5) {
           contentEl = contentEl.getChild(0);
         }
 
@@ -591,42 +591,42 @@
        *
        * @param source {String} source of the image
        */
-      __P_119_13: qx.core.Environment.select("engine.name", {
-        "mshtml": function mshtml(source) {
+      __P_123_13: qx.core.Environment.select("engine.name", {
+        mshtml: function mshtml(source) {
           var alphaImageLoader = qx.core.Environment.get("css.alphaimageloaderneeded");
           var isPng = source.endsWith(".png");
           var isFont = source.startsWith("@");
 
           if (isFont) {
-            this.__P_119_10("font");
+            this.__P_123_10("font");
           } else if (alphaImageLoader && isPng) {
-            if (this.getScale() && this.__P_119_9() != "alphaScaled") {
-              this.__P_119_10("alphaScaled");
-            } else if (!this.getScale() && this.__P_119_9() != "nonScaled") {
-              this.__P_119_10("nonScaled");
+            if (this.getScale() && this.__P_123_9() != "alphaScaled") {
+              this.__P_123_10("alphaScaled");
+            } else if (!this.getScale() && this.__P_123_9() != "nonScaled") {
+              this.__P_123_10("nonScaled");
             }
           } else {
-            if (this.getScale() && this.__P_119_9() != "scaled") {
-              this.__P_119_10("scaled");
-            } else if (!this.getScale() && this.__P_119_9() != "nonScaled") {
-              this.__P_119_10("nonScaled");
+            if (this.getScale() && this.__P_123_9() != "scaled") {
+              this.__P_123_10("scaled");
+            } else if (!this.getScale() && this.__P_123_9() != "nonScaled") {
+              this.__P_123_10("nonScaled");
             }
           }
 
-          this.__P_119_19(this.__P_119_7());
+          this.__P_123_19(this.__P_123_7());
         },
         "default": function _default(source) {
           var isFont = source && qx.lang.String.startsWith(source, "@");
 
           if (isFont) {
-            this.__P_119_10("font");
-          } else if (this.getScale() && this.__P_119_9() != "scaled") {
-            this.__P_119_10("scaled");
-          } else if (!this.getScale() && this.__P_119_9() != "nonScaled") {
-            this.__P_119_10("nonScaled");
+            this.__P_123_10("font");
+          } else if (this.getScale() && this.__P_123_9() != "scaled") {
+            this.__P_123_10("scaled");
+          } else if (!this.getScale() && this.__P_123_9() != "nonScaled") {
+            this.__P_123_10("nonScaled");
           }
 
-          this.__P_119_19(this.__P_119_7());
+          this.__P_123_19(this.__P_123_7());
         }
       }),
 
@@ -635,8 +635,8 @@
        *
        * @param elementToAdd {qx.html.Image} content element to add
        */
-      __P_119_19: function __P_119_19(elementToAdd) {
-        var currentContentElement = this.__P_119_4;
+      __P_123_19: function __P_123_19(elementToAdd) {
+        var currentContentElement = this.__P_123_4;
 
         if (currentContentElement != elementToAdd) {
           if (currentContentElement != null) {
@@ -652,7 +652,7 @@
             } // Don't transfer background image when switching from image to icon font
 
 
-            if (this.__P_119_9() === "font") {
+            if (this.__P_123_9() === "font") {
               delete styles.backgroundImage;
             } // Copy dimension and location of the current content element
 
@@ -668,7 +668,7 @@
             styles.left = parseInt(currentContentElement.getStyle("left") || insets.left) + pixel;
             styles.top = parseInt(currentContentElement.getStyle("top") || insets.top) + pixel;
             styles.zIndex = 10;
-            var newEl = this.__P_119_5 ? elementToAdd.getChild(0) : elementToAdd;
+            var newEl = this.__P_123_5 ? elementToAdd.getChild(0) : elementToAdd;
             newEl.setStyles(styles, true);
             newEl.setSelectable(this.getSelectable());
 
@@ -701,7 +701,7 @@
               newEl.setValue("");
             }
 
-            var currentEl = this.__P_119_14();
+            var currentEl = this.__P_123_14();
 
             newEl.tagNameHint = hint;
             newEl.setAttribute("class", currentEl.getAttribute("class")); // Flush elements to make sure the DOM elements are created.
@@ -723,7 +723,7 @@
               newDomEl.$$hash = currentHash;
             }
 
-            this.__P_119_4 = elementToAdd;
+            this.__P_123_4 = elementToAdd;
           }
         }
       },
@@ -734,7 +734,7 @@
        * @param el {Element} image DOM element
        * @param source {String} source path
        */
-      __P_119_15: function __P_119_15(el, source) {
+      __P_123_15: function __P_123_15(el, source) {
         var ResourceManager = qx.util.ResourceManager.getInstance();
         var isFont = ResourceManager.isFontUri(source); // Try to find a disabled image in registry
 
@@ -770,26 +770,40 @@
             width = this.getWidth() || hint.width;
             height = this.getHeight() || hint.height;
           } else {
-            var font = qx.theme.manager.Font.getInstance().resolve(source.match(/@([^/]+)/)[1]);
+            var font = this.__P_123_20(source);
+
             var size = parseInt(source.split("/")[2] || font.getSize(), 10);
             width = ResourceManager.getImageWidth(source) || size;
             height = ResourceManager.getImageHeight(source) || size;
           }
 
-          this.__P_119_20(width, height);
+          this.__P_123_21(width, height);
 
-          this.__P_119_8(el, source); // Apply source
+          this.__P_123_8(el, source); // Apply source
 
         } else {
           // Apply source
-          this.__P_119_8(el, source); // Compare with old sizes and relayout if necessary
+          this.__P_123_8(el, source); // Compare with old sizes and relayout if necessary
 
 
-          this.__P_119_20(ResourceManager.getImageWidth(source), ResourceManager.getImageHeight(source));
+          this.__P_123_21(ResourceManager.getImageWidth(source), ResourceManager.getImageHeight(source));
+        }
+      },
+      __P_123_22: function __P_123_22(el, width, height) {
+        if (this.getScale()) {
+          el.setStyle("fontSize", (width > height ? height : width) + "px");
+        } else {
+          var source = this.getSource();
+          var sparts = source.split("/");
+
+          var font = this.__P_123_20(source);
+
+          var size = parseInt(sparts[2] || font.getSize());
+          el.setStyle("fontSize", size + "px");
         }
       },
       _applyDimension: function _applyDimension() {
-        qx.ui.basic.Image.prototype._applyDimension.base.call(this);
+        qx.ui.basic.Image.superclass.prototype._applyDimension.call(this);
 
         var isFont = this.getSource() && qx.lang.String.startsWith(this.getSource(), "@");
 
@@ -797,18 +811,14 @@
           var el = this.getContentElement();
 
           if (el) {
-            if (this.getScale()) {
-              var hint = this.getSizeHint();
-              var width = this.getWidth() || hint.width || 40;
-              var height = this.getHeight() || hint.height || 40;
-              el.setStyle("fontSize", (width > height ? height : width) + "px");
-            } else {
-              var font = qx.theme.manager.Font.getInstance().resolve(this.getSource().match(/@([^/]+)/)[1]);
-              el.setStyle("fontSize", font.getSize() + "px");
-            }
+            var hint = this.getSizeHint();
+            var width = this.getWidth() || hint.width || 40;
+            var height = this.getHeight() || hint.height || 40;
+
+            this.__P_123_22(el, width, height);
           }
         } else {
-          this.__P_119_20();
+          this.__P_123_21();
         }
       },
 
@@ -818,16 +828,16 @@
        * @param el {Element} image DOM element
        * @param source {String} source path
        */
-      __P_119_17: function __P_119_17(el, source) {
+      __P_123_17: function __P_123_17(el, source) {
         var ImageLoader = qx.io.ImageLoader; // Apply source
 
-        this.__P_119_8(el, source); // Compare with old sizes and relayout if necessary
+        this.__P_123_8(el, source); // Compare with old sizes and relayout if necessary
 
 
         var width = ImageLoader.getWidth(source);
         var height = ImageLoader.getHeight(source);
 
-        this.__P_119_20(width, height);
+        this.__P_123_21(width, height);
       },
 
       /**
@@ -836,14 +846,14 @@
        * @param el {Element} image DOM element
        * @param source {String} source path
        */
-      __P_119_18: function __P_119_18(el, source) {
+      __P_123_18: function __P_123_18(el, source) {
         var ImageLoader = qx.io.ImageLoader;
 
         // only try to load the image if it not already failed
         if (!ImageLoader.isFailed(source)) {
-          ImageLoader.load(source, this.__P_119_21, this);
+          ImageLoader.load(source, this.__P_123_23, this);
         } else {
-          this.__P_119_12(el);
+          this.__P_123_12(el);
         }
       },
 
@@ -852,7 +862,7 @@
        *
        * @param el {Element} image DOM element
        */
-      __P_119_12: function __P_119_12(el) {
+      __P_123_12: function __P_123_12(el) {
         if (el != null) {
           if (el instanceof qx.html.Image) {
             el.resetSource();
@@ -860,6 +870,15 @@
             el.resetValue();
           }
         }
+      },
+      __P_123_20: function __P_123_20(source) {
+        var font = qx.theme.manager.Font.getInstance().resolve(source.match(/@([^/]+)/)[1]);
+
+        if (typeof font == "string") {
+          throw new Error("Cannot find font in virtual image source: '".concat(source, "'"));
+        }
+
+        return font;
       },
 
       /**
@@ -869,19 +888,14 @@
        * @param el {Element} image DOM element
        * @param source {String} source path
        */
-      __P_119_8: function __P_119_8(el, source) {
+      __P_123_8: function __P_123_8(el, source) {
         var isFont = source && qx.lang.String.startsWith(source, "@");
 
         if (isFont) {
-          var sparts = source.split("/");
-          var fontSource = source;
-
-          if (sparts.length > 2) {
-            fontSource = sparts[0] + "/" + sparts[1];
-          }
-
           var ResourceManager = qx.util.ResourceManager.getInstance();
-          var font = qx.theme.manager.Font.getInstance().resolve(source.match(/@([^/]+)/)[1]);
+
+          var font = this.__P_123_20(source);
+
           var fontStyles = qx.lang.Object.clone(font.getStyles());
           delete fontStyles.color;
           el.setStyles(fontStyles);
@@ -890,22 +904,10 @@
           el.setStyle("verticalAlign", "middle");
           el.setStyle("textAlign", "center");
 
-          if (this.getScale()) {
-            el.setStyle("fontSize", (this.__P_119_1 > this.__P_119_2 ? this.__P_119_2 : this.__P_119_1) + "px");
-          } else {
-            var size = parseInt(sparts[2] || qx.theme.manager.Font.getInstance().resolve(source.match(/@([^/]+)/)[1]).getSize());
-            el.setStyle("fontSize", size + "px");
-          }
+          this.__P_123_22(el, this.__P_123_1, this.__P_123_2);
 
-          var resource = ResourceManager.getData(fontSource);
-
-          if (resource) {
-            el.setValue(String.fromCharCode(resource[2]));
-          } else {
-            var charCode = parseInt(qx.theme.manager.Font.getInstance().resolve(source.match(/@([^/]+)\/(.*)$/)[2]), 16);
-            el.setValue(String.fromCharCode(charCode));
-          }
-
+          var charCode = ResourceManager.fromFontUriToCharCode(source);
+          el.setValue(String.fromCharCode(charCode));
           return;
         } else if (el.getNodeName() == "div") {
           // checks if a decorator already set.
@@ -923,9 +925,10 @@
 
               var decoratorStyle = decorator.getStyles(true);
               var combinedStyles = {
-                "backgroundImage": attr.style.backgroundImage,
-                "backgroundPosition": attr.style.backgroundPosition || "0 0",
-                "backgroundRepeat": attr.style.backgroundRepeat || "no-repeat"
+                backgroundImage: attr.style.backgroundImage,
+                backgroundPosition: attr.style.backgroundPosition || "0 0",
+                backgroundRepeat: attr.style.backgroundRepeat || "no-repeat",
+                position: "absolute"
               };
 
               if (hasBackground) {
@@ -953,6 +956,7 @@
 
         if (el.setSource) {
           el.setSource(source);
+          el.setStyle("position", "absolute");
         }
       },
 
@@ -962,7 +966,7 @@
        * @param source {String} Image source which was loaded
        * @param imageInfo {Map} Dimensions of the loaded image
        */
-      __P_119_21: function __P_119_21(source, imageInfo) {
+      __P_123_23: function __P_123_23(source, imageInfo) {
         // Ignore the callback on already disposed images
         if (this.$$disposed === true) {
           return;
@@ -986,7 +990,7 @@
         } // Update image
 
 
-        this.__P_119_17(this.__P_119_14(), source);
+        this.__P_123_17(this.__P_123_14(), source);
       },
 
       /**
@@ -995,13 +999,13 @@
        * @param width {Integer} width of the image
        * @param height {Integer} height of the image
        */
-      __P_119_20: function __P_119_20(width, height) {
+      __P_123_21: function __P_123_21(width, height) {
         if (width === undefined) {
-          width = this.__P_119_1;
+          width = this.__P_123_1;
         }
 
         if (height === undefined) {
-          height = this.__P_119_2;
+          height = this.__P_123_2;
         }
 
         if (this._recalc(width, height)) {
@@ -1024,7 +1028,7 @@
         var ratio = originalHeight / originalWidth;
 
         switch (this.getForceRatio()) {
-          case 'height':
+          case "height":
             if (maxHeight !== null && height > maxHeight) {
               height = maxHeight;
               width = height / ratio;
@@ -1040,7 +1044,7 @@
 
             break;
 
-          case 'width':
+          case "width":
             if (maxWidth !== null && width > maxWidth) {
               width = maxWidth;
               height = width * ratio;
@@ -1056,8 +1060,8 @@
 
             break;
 
-          case 'auto':
-          case 'bestfit':
+          case "auto":
+          case "bestfit":
             if (maxWidth !== null && width > maxWidth) {
               width = maxWidth;
               height = width * ratio;
@@ -1082,9 +1086,9 @@
         width = Math.round(width);
         height = Math.round(height);
 
-        if (width != this.__P_119_1 || height != this.__P_119_2) {
-          this.__P_119_1 = width;
-          this.__P_119_2 = height;
+        if (width != this.__P_123_1 || height != this.__P_123_2) {
+          this.__P_123_1 = width;
+          this.__P_123_2 = height;
           return true;
         }
 
@@ -1098,22 +1102,22 @@
     *****************************************************************************
     */
     destruct: function destruct() {
-      for (var mode in this.__P_119_0) {
-        if (this.__P_119_0.hasOwnProperty(mode)) {
-          this.__P_119_0[mode].disconnectWidget(this);
+      for (var mode in this.__P_123_0) {
+        if (this.__P_123_0.hasOwnProperty(mode)) {
+          this.__P_123_0[mode].disconnectObject(this);
         }
       }
 
-      delete this.__P_119_4;
+      delete this.__P_123_4;
 
-      if (this.__P_119_5) {
-        delete this.__P_119_5;
+      if (this.__P_123_5) {
+        delete this.__P_123_5;
       }
 
-      this._disposeMap("__P_119_0");
+      this._disposeMap("__P_123_0");
     }
   });
   qx.ui.basic.Image.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Image.js.map?dt=1635064694581
+//# sourceMappingURL=Image.js.map?dt=1645800082096

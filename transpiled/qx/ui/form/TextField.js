@@ -96,13 +96,13 @@
       _renderContentElement: function _renderContentElement(innerHeight, element) {
         if (qx.core.Environment.get("engine.name") == "mshtml" && (parseInt(qx.core.Environment.get("engine.version"), 10) < 9 || qx.core.Environment.get("browser.documentmode") < 9)) {
           element.setStyles({
-            "line-height": innerHeight + 'px'
+            "line-height": innerHeight + "px"
           });
         }
       },
       // overridden
       _createContentElement: function _createContentElement() {
-        var el = qx.ui.form.TextField.prototype._createContentElement.base.call(this);
+        var el = qx.ui.form.TextField.superclass.prototype._createContentElement.call(this);
 
         var deviceType = qx.core.Environment.get("device.type");
 
@@ -114,9 +114,9 @@
       },
 
       /**
-      * Close the virtual keyboard if the Enter key is pressed.
-      * @param evt {qx.event.type.KeySequence} the keypress event.
-      */
+       * Close the virtual keyboard if the Enter key is pressed.
+       * @param evt {qx.event.type.KeySequence} the keypress event.
+       */
       _onKeyPress: function _onKeyPress(evt) {
         // On return
         if (evt.getKeyIdentifier() == "Enter") {
@@ -140,4 +140,4 @@
   qx.ui.form.TextField.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=TextField.js.map?dt=1635064695079
+//# sourceMappingURL=TextField.js.map?dt=1645800082503

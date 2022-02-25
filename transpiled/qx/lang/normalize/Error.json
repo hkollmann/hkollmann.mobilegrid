@@ -9,11 +9,11 @@
   "clazz": {
     "location": {
       "start": {
-        "line": 25,
+        "line": 26,
         "column": 0
       },
       "end": {
-        "line": 61,
+        "line": 59,
         "column": 3
       }
     },
@@ -37,15 +37,14 @@
   "defer": {
     "location": {
       "start": {
-        "line": 55,
-        "column": 10
+        "line": 53,
+        "column": 2
       },
       "end": {
-        "line": 60,
+        "line": 58,
         "column": 3
       }
-    },
-    "jsdoc": {}
+    }
   },
   "descendants": []
 }

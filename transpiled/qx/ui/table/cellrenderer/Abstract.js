@@ -6,6 +6,7 @@
       },
       "qx.core.Environment": {
         "defer": "load",
+        "usage": "dynamic",
         "require": true
       },
       "qx.Class": {
@@ -32,6 +33,9 @@
     "environment": {
       "provided": [],
       "required": {
+        "qx.dyntheme": {
+          "load": true
+        },
         "css.boxsizing": {
           "className": "qx.bom.client.Css"
         },
@@ -76,8 +80,8 @@
       qx.core.Object.constructor.call(this);
       var cr = qx.ui.table.cellrenderer.Abstract;
 
-      if (!cr.__P_232_0) {
-        cr.__P_232_0 = qx.ui.table.cellrenderer.Abstract;
+      if (!cr.__P_237_0) {
+        cr.__P_237_0 = qx.ui.table.cellrenderer.Abstract;
 
         this._createStyleSheet(); // add dynamic theme listener
 
@@ -103,11 +107,14 @@
        * Handler for the theme change.
        * @signature function()
        */
-      _onChangeTheme: function _onChangeTheme() {
-        qx.bom.Stylesheet.removeAllRules(qx.ui.table.cellrenderer.Abstract.__P_232_0.stylesheet);
+      _onChangeTheme: qx.core.Environment.select("qx.dyntheme", {
+        "true": function _true() {
+          qx.bom.Stylesheet.removeAllRules(qx.ui.table.cellrenderer.Abstract.__P_237_0.stylesheet);
 
-        this._createStyleSheet();
-      },
+          this._createStyleSheet();
+        },
+        "false": null
+      }),
 
       /**
        * the sum of the horizontal insets. This is needed to compute the box model
@@ -143,7 +150,7 @@
           stylesheet += ".qooxdoo-table-cell {" + qx.bom.element.BoxSizing.compile("content-box") + "}";
         }
 
-        qx.ui.table.cellrenderer.Abstract.__P_232_0.stylesheet = qx.bom.Stylesheet.createElement(stylesheet);
+        qx.ui.table.cellrenderer.Abstract.__P_237_0.stylesheet = qx.bom.Stylesheet.createElement(stylesheet);
       },
 
       /**
@@ -173,17 +180,19 @@
       },
 
       /**
-        * Retrieve any extra attributes the cell renderer wants applied to this
-        * cell.
-        *
-        * @param cellInfo {Map} The information about the cell.
-        *          See {@link qx.ui.table.cellrenderer.Abstract#createDataCellHtml}.
-        *
-        * @return {String}
-        *   The extra attributes to be applied to this cell.
-        */
+       * Retrieve any extra attributes the cell renderer wants applied to this
+       * cell.
+       *
+       * @param cellInfo {Map} The information about the cell.
+       *          See {@link qx.ui.table.cellrenderer.Abstract#createDataCellHtml}.
+       *
+       * @return {String}
+       *   The extra attributes to be applied to this cell.
+       */
       _getCellAttributes: function _getCellAttributes(cellInfo) {
-        return "";
+        var cellId = "qooxdoo-table-cell-" + cellInfo.table.toHashCode() + "-" + cellInfo.row + "-" + cellInfo.col;
+        var readOnly = cellInfo.editable !== null && cellInfo.editable !== undefined ? !cellInfo.editable : true;
+        return "id=" + cellId + " role=gridcell aria-readonly=" + readOnly;
       },
 
       /**
@@ -224,7 +233,7 @@
       },
       // interface implementation
       createDataCellHtml: function createDataCellHtml(cellInfo, htmlArr) {
-        htmlArr.push('<div class="', this._getCellClass(cellInfo), '" style="', 'left:', cellInfo.styleLeft, 'px;', this._getCellSizeStyle(cellInfo.styleWidth, cellInfo.styleHeight, this._insetX, this._insetY), this._getCellStyle(cellInfo), '" ', 'data-qx-table-cell-row="', cellInfo.row, '" ', 'data-qx-table-cell-col="', cellInfo.col, '" ', this._getCellAttributes(cellInfo), '>' + this._getContentHtml(cellInfo), '</div>');
+        htmlArr.push('<div class="', this._getCellClass(cellInfo), '" style="', "left:", cellInfo.styleLeft, "px;", this._getCellSizeStyle(cellInfo.styleWidth, cellInfo.styleHeight, this._insetX, this._insetY), this._getCellStyle(cellInfo), '" ', 'data-qx-table-cell-row="', cellInfo.row, '" ', 'data-qx-table-cell-col="', cellInfo.col, '" ', this._getCellAttributes(cellInfo), ">" + this._getContentHtml(cellInfo), "</div>");
       }
     },
     destruct: function destruct() {
@@ -237,4 +246,4 @@
   qx.ui.table.cellrenderer.Abstract.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Abstract.js.map?dt=1635064703693
+//# sourceMappingURL=Abstract.js.map?dt=1645800090091

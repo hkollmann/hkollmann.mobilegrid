@@ -74,11 +74,11 @@
             break;
         }
 
-        return control || qx.ui.menu.MenuSlideBar.prototype._createChildControlImpl.base.call(this, id);
+        return control || qx.ui.menu.MenuSlideBar.superclass.prototype._createChildControlImpl.call(this, id);
       }
     }
   });
   qx.ui.menu.MenuSlideBar.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MenuSlideBar.js.map?dt=1635064696140
+//# sourceMappingURL=MenuSlideBar.js.map?dt=1645800083317

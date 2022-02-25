@@ -83,7 +83,7 @@
     members: {
       // overridden
       _cloneNativeEvent: function _cloneNativeEvent(nativeEvent, clone) {
-        var clone = qx.event.type.Dom.prototype._cloneNativeEvent.base.call(this, nativeEvent, clone);
+        var clone = qx.event.type.Dom.superclass.prototype._cloneNativeEvent.call(this, nativeEvent, clone);
 
         clone.shiftKey = nativeEvent.shiftKey;
         clone.ctrlKey = nativeEvent.ctrlKey;
@@ -136,7 +136,7 @@
 
       /**
        * Return in a bit map, which lock keys are pressed. The constants
-       * {@link #CAPSLOCK_MASK}, {@link #NUMLOCK_MASK}, and {@link #SCROLLLOCK_MASK} 
+       * {@link #CAPSLOCK_MASK}, {@link #NUMLOCK_MASK}, and {@link #SCROLLLOCK_MASK}
        * define the bit positions of the corresponding keys.
        *
        * @return {Integer} A bit map with the locked keys.
@@ -197,28 +197,28 @@
       },
 
       /**
-        * Returns whether the caps-lock modifier is active
-        *
-        * @return {Boolean} whether the CapsLock key is pressed.
-        */
+       * Returns whether the caps-lock modifier is active
+       *
+       * @return {Boolean} whether the CapsLock key is pressed.
+       */
       isCapsLocked: function isCapsLocked() {
         return this._native.capsLock;
       },
 
       /**
-        * Returns whether the num-lock modifier is active
-        *
-        * @return {Boolean} whether the NumLock key is pressed.
-        */
+       * Returns whether the num-lock modifier is active
+       *
+       * @return {Boolean} whether the NumLock key is pressed.
+       */
       isNumLocked: function isNumLocked() {
         return this._native.numLock;
       },
 
       /**
-        * Returns whether the scroll-lock modifier is active
-        *
-        * @return {Boolean} whether the ScrollLock key is pressed.
-        */
+       * Returns whether the scroll-lock modifier is active
+       *
+       * @return {Boolean} whether the ScrollLock key is pressed.
+       */
       isScrollLocked: function isScrollLocked() {
         return this._native.scrollLock;
       },
@@ -243,4 +243,4 @@
   qx.event.type.Dom.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Dom.js.map?dt=1635064702812
+//# sourceMappingURL=Dom.js.map?dt=1645800088968

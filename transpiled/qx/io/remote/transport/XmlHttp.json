@@ -11,11 +11,11 @@
   "clazz": {
     "location": {
       "start": {
-        "line": 27,
+        "line": 28,
         "column": 0
       },
       "end": {
-        "line": 1016,
+        "line": 943,
         "column": 3
       }
     },
@@ -33,11 +33,11 @@
     "handles": {
       "location": {
         "start": {
-          "line": 46,
+          "line": 44,
           "column": 4
         },
         "end": {
-          "line": 54,
+          "line": 57,
           "column": 5
         }
       },
@@ -61,11 +61,11 @@
     "createRequestObject": {
       "location": {
         "start": {
-          "line": 63,
+          "line": 67,
           "column": 4
         },
         "end": {
-          "line": 89,
+          "line": 91,
           "column": 6
         }
       },
@@ -89,6 +89,12 @@
             "name": "@signature",
             "body": "function()"
           }
+        ],
+        "@ignore": [
+          {
+            "name": "@ignore",
+            "body": "XMLHttpRequest"
+          }
         ]
       },
       "type": "variable",
@@ -97,11 +103,11 @@
     "isSupported": {
       "location": {
         "start": {
-          "line": 97,
+          "line": 98,
           "column": 4
         },
         "end": {
-          "line": 99,
+          "line": 100,
           "column": 5
         }
       },
@@ -149,11 +155,11 @@
     "setTimeout": {
       "location": {
         "start": {
-          "line": 113,
+          "line": 112,
           "column": 4
         },
         "end": {
-          "line": 115,
+          "line": 114,
           "column": 5
         }
       },
@@ -177,11 +183,11 @@
     "getTimeout": {
       "location": {
         "start": {
-          "line": 121,
+          "line": 119,
           "column": 4
         },
         "end": {
-          "line": 123,
+          "line": 121,
           "column": 5
         }
       },
@@ -201,11 +207,11 @@
     "parseJson": {
       "location": {
         "start": {
-          "line": 142,
+          "line": 138,
           "column": 4
         },
         "end": {
-          "line": 146,
+          "line": 141,
           "column": 5
         }
       },
@@ -260,12 +266,12 @@
     "__localRequest": {
       "location": {
         "start": {
-          "line": 164,
+          "line": 157,
           "column": 4
         },
         "end": {
-          "line": 164,
-          "column": 26
+          "line": 157,
+          "column": 25
         }
       },
       "jsdoc": {},
@@ -275,12 +281,12 @@
     "__lastReadyState": {
       "location": {
         "start": {
-          "line": 165,
+          "line": 158,
           "column": 4
         },
         "end": {
-          "line": 165,
-          "column": 24
+          "line": 158,
+          "column": 23
         }
       },
       "type": "variable",
@@ -289,12 +295,12 @@
     "__request": {
       "location": {
         "start": {
-          "line": 166,
+          "line": 159,
           "column": 4
         },
         "end": {
-          "line": 166,
-          "column": 20
+          "line": 159,
+          "column": 19
         }
       },
       "type": "variable",
@@ -303,11 +309,11 @@
     "getRequest": {
       "location": {
         "start": {
-          "line": 174,
+          "line": 166,
           "column": 4
         },
         "end": {
-          "line": 183,
+          "line": 176,
           "column": 5
         }
       },
@@ -333,11 +339,11 @@
     "send": {
       "location": {
         "start": {
-          "line": 198,
+          "line": 188,
           "column": 4
         },
         "end": {
-          "line": 401,
+          "line": 389,
           "column": 5
         }
       },
@@ -359,11 +365,11 @@
     "failedLocally": {
       "location": {
         "start": {
-          "line": 411,
+          "line": 398,
           "column": 4
         },
         "end": {
-          "line": 421,
+          "line": 407,
           "column": 5
         }
       },
@@ -381,11 +387,11 @@
     "_onreadystatechange": {
       "location": {
         "start": {
-          "line": 439,
+          "line": 422,
           "column": 4
         },
         "end": {
-          "line": 489,
+          "line": 478,
           "column": 6
         }
       },
@@ -418,11 +424,11 @@
     "getReadyState": {
       "location": {
         "start": {
-          "line": 507,
+          "line": 493,
           "column": 4
         },
         "end": {
-          "line": 516,
+          "line": 501,
           "column": 5
         }
       },
@@ -448,11 +454,11 @@
     "setRequestHeader": {
       "location": {
         "start": {
-          "line": 533,
+          "line": 515,
           "column": 4
         },
         "end": {
-          "line": 535,
+          "line": 517,
           "column": 5
         }
       },
@@ -490,11 +496,11 @@
     "getResponseHeader": {
       "location": {
         "start": {
-          "line": 563,
+          "line": 542,
           "column": 4
         },
         "end": {
-          "line": 572,
+          "line": 550,
           "column": 5
         }
       },
@@ -533,11 +539,11 @@
     "getStringResponseHeaders": {
       "location": {
         "start": {
-          "line": 580,
+          "line": 557,
           "column": 4
         },
         "end": {
-          "line": 595,
+          "line": 569,
           "column": 5
         }
       },
@@ -563,11 +569,11 @@
     "getResponseHeaders": {
       "location": {
         "start": {
-          "line": 603,
+          "line": 576,
           "column": 4
         },
         "end": {
-          "line": 623,
+          "line": 593,
           "column": 5
         }
       },
@@ -597,11 +603,11 @@
     "getStatusCode": {
       "location": {
         "start": {
-          "line": 639,
+          "line": 606,
           "column": 4
         },
         "end": {
-          "line": 655,
+          "line": 620,
           "column": 5
         }
       },
@@ -631,11 +637,11 @@
     "getStatusText": {
       "location": {
         "start": {
-          "line": 664,
+          "line": 628,
           "column": 4
         },
         "end": {
-          "line": 673,
+          "line": 636,
           "column": 5
         }
       },
@@ -665,11 +671,11 @@
     "getResponseText": {
       "location": {
         "start": {
-          "line": 691,
+          "line": 651,
           "column": 4
         },
         "end": {
-          "line": 705,
+          "line": 661,
           "column": 5
         }
       },
@@ -699,11 +705,11 @@
     "getResponseXml": {
       "location": {
         "start": {
-          "line": 716,
+          "line": 671,
           "column": 4
         },
         "end": {
-          "line": 759,
+          "line": 721,
           "column": 5
         }
       },
@@ -741,11 +747,11 @@
     "getFetchedLength": {
       "location": {
         "start": {
-          "line": 767,
+          "line": 728,
           "column": 4
         },
         "end": {
-          "line": 771,
+          "line": 731,
           "column": 5
         }
       },
@@ -775,11 +781,11 @@
     "getResponseContent": {
       "location": {
         "start": {
-          "line": 779,
+          "line": 738,
           "column": 4
         },
         "end": {
-          "line": 903,
+          "line": 842,
           "column": 5
         }
       },
@@ -805,11 +811,11 @@
     "_applyState": {
       "location": {
         "start": {
-          "line": 921,
+          "line": 857,
           "column": 4
         },
         "end": {
-          "line": 966,
+          "line": 899,
           "column": 5
         }
       },
@@ -932,6 +938,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -956,6 +963,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }
@@ -1914,11 +1922,11 @@
   "defer": {
     "location": {
       "start": {
-        "line": 977,
-        "column": 10
+        "line": 908,
+        "column": 2
       },
       "end": {
-        "line": 982,
+        "line": 915,
         "column": 3
       }
     },
@@ -1927,11 +1935,11 @@
   "destruct": {
     "location": {
       "start": {
-        "line": 993,
-        "column": 13
+        "line": 923,
+        "column": 2
       },
       "end": {
-        "line": 1015,
+        "line": 942,
         "column": 3
       }
     },

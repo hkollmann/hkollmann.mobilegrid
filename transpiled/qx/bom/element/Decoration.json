@@ -13,7 +13,7 @@
         "column": 0
       },
       "end": {
-        "line": 637,
+        "line": 642,
         "column": 3
       }
     },
@@ -31,12 +31,12 @@
     "DEBUG": {
       "location": {
         "start": {
-          "line": 38,
+          "line": 36,
           "column": 4
         },
         "end": {
-          "line": 38,
-          "column": 17
+          "line": 36,
+          "column": 16
         }
       },
       "jsdoc": {
@@ -59,12 +59,12 @@
     "__warnings": {
       "location": {
         "start": {
-          "line": 41,
+          "line": 39,
           "column": 4
         },
         "end": {
-          "line": 41,
-          "column": 19
+          "line": 39,
+          "column": 18
         }
       },
       "jsdoc": {
@@ -87,11 +87,11 @@
     "__alphaFixRepeats": {
       "location": {
         "start": {
-          "line": 44,
+          "line": 42,
           "column": 4
         },
         "end": {
-          "line": 55,
+          "line": 51,
           "column": 6
         }
       },
@@ -115,11 +115,11 @@
     "__repeatToTagname": {
       "location": {
         "start": {
-          "line": 59,
+          "line": 54,
           "column": 4
         },
         "end": {
-          "line": 68,
+          "line": 62,
           "column": 5
         }
       },
@@ -143,11 +143,11 @@
     "update": {
       "location": {
         "start": {
-          "line": 82,
+          "line": 75,
           "column": 4
         },
         "end": {
-          "line": 116,
+          "line": 122,
           "column": 5
         }
       },
@@ -195,11 +195,11 @@
     "create": {
       "location": {
         "start": {
-          "line": 129,
+          "line": 134,
           "column": 4
         },
         "end": {
-          "line": 173,
+          "line": 176,
           "column": 5
         }
       },
@@ -248,11 +248,11 @@
     "getTagName": {
       "location": {
         "start": {
-          "line": 187,
+          "line": 189,
           "column": 4
         },
         "end": {
-          "line": 196,
+          "line": 200,
           "column": 5
         }
       },
@@ -296,11 +296,11 @@
     "getAttributes": {
       "location": {
         "start": {
-          "line": 208,
+          "line": 211,
           "column": 4
         },
         "end": {
-          "line": 264,
+          "line": 263,
           "column": 5
         }
       },
@@ -349,11 +349,11 @@
     "__normalizeWidthHeight": {
       "location": {
         "start": {
-          "line": 274,
+          "line": 272,
           "column": 4
         },
         "end": {
-          "line": 283,
+          "line": 280,
           "column": 5
         }
       },
@@ -398,11 +398,11 @@
     "__getDimension": {
       "location": {
         "start": {
-          "line": 294,
+          "line": 290,
           "column": 4
         },
         "end": {
-          "line": 305,
+          "line": 302,
           "column": 5
         }
       },
@@ -437,11 +437,11 @@
     "processAlphaFix": {
       "location": {
         "start": {
-          "line": 318,
+          "line": 314,
           "column": 4
         },
         "end": {
-          "line": 336,
+          "line": 334,
           "column": 5
         }
       },
@@ -490,11 +490,11 @@
     "__processScale": {
       "location": {
         "start": {
-          "line": 348,
+          "line": 345,
           "column": 4
         },
         "end": {
-          "line": 359,
+          "line": 355,
           "column": 5
         }
       },
@@ -543,11 +543,11 @@
     "__processScaleXScaleY": {
       "location": {
         "start": {
-          "line": 372,
+          "line": 367,
           "column": 4
         },
         "end": {
-          "line": 426,
+          "line": 423,
           "column": 5
         }
       },
@@ -596,11 +596,11 @@
     "__getStylesForClippedScaleX": {
       "location": {
         "start": {
-          "line": 438,
+          "line": 434,
           "column": 4
         },
         "end": {
-          "line": 457,
+          "line": 455,
           "column": 5
         }
       },
@@ -649,11 +649,11 @@
     "__getStylesForClippedScaleY": {
       "location": {
         "start": {
-          "line": 469,
+          "line": 466,
           "column": 4
         },
         "end": {
-          "line": 488,
+          "line": 487,
           "column": 5
         }
       },
@@ -702,11 +702,11 @@
     "__processRepeats": {
       "location": {
         "start": {
-          "line": 500,
+          "line": 498,
           "column": 4
         },
         "end": {
-          "line": 574,
+          "line": 582,
           "column": 5
         }
       },
@@ -755,11 +755,11 @@
     "__getStylesForSingleRepeat": {
       "location": {
         "start": {
-          "line": 584,
+          "line": 591,
           "column": 4
         },
         "end": {
-          "line": 617,
+          "line": 622,
           "column": 5
         }
       },
@@ -800,11 +800,11 @@
     "__checkForPotentialClippedImage": {
       "location": {
         "start": {
-          "line": 625,
+          "line": 629,
           "column": 4
         },
         "end": {
-          "line": 635,
+          "line": 640,
           "column": 5
         }
       },

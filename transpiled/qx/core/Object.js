@@ -35,8 +35,8 @@
       },
       "qx.core.IDisposable": {},
       "qx.util.Uuid": {},
-      "qx.util.DisposeUtil": {},
-      "qx.event.Registration": {}
+      "qx.event.Registration": {},
+      "qx.util.DisposeUtil": {}
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -139,7 +139,7 @@
 
       /**
        * Returns a UUID for this object
-       * 
+       *
        * @return {String} a UUID
        */
       toUuid: function toUuid() {
@@ -154,11 +154,11 @@
        * Sets a UUID; normally set automatically, you would only set this manually
        * if you have a very special reason to do so - for example, you are using UUIDs which are
        * synchronized from a special source, eg remote server.
-       * 
+       *
        * This can only be called once, and only if it has not been automatically allocated.  If
        * you really do need to call this, call it as soon after construction as possible to avoid
-       * an exception.  
-       * 
+       * an exception.
+       *
        * @param uuid {String} an ID which is unique across the whole application
        */
       setExplicitUuid: function setExplicitUuid(uuid) {
@@ -181,15 +181,26 @@
       /**
        * Call the same method of the super class.
        *
+       * Either the compiler translate all calls to this.base
+       * into mypkg.MyBaseClass.prototype.myMethod.call(this, 123);
+       * this method is still needed for use in compile.js or playground
+       * which are not precompiled
+       *
        * @param args {IArguments} the arguments variable of the calling method
        * @param varargs {var?} variable number of arguments passed to the overwritten function
        * @return {var} the return value of the method of the base class.
        */
       base: function base(args, varargs) {
+        var func = args.callee.base;
+
+        if (!func) {
+          func = this[args.callee.name].base;
+        }
+
         if (arguments.length === 1) {
-          return args.callee.base.call(this);
+          return func.call(this);
         } else {
-          return args.callee.base.apply(this, Array.prototype.slice.call(arguments, 1));
+          return func.apply(this, Array.prototype.slice.call(arguments, 1));
         }
       },
 
@@ -298,7 +309,7 @@
       },
 
       /**
-       * Returns true if the object is being disposed, ie this.dispose() has started but 
+       * Returns true if the object is being disposed, ie this.dispose() has started but
        * not finished
        *
        * @return {Boolean} Whether the object is being disposed
@@ -323,7 +334,13 @@
         this.$$instance = null;
         this.$$allowconstruct = null; // Debug output
 
-        // Deconstructor support for classes
+        // Remove all listeners.
+        //
+        // This must be done early, since it calls
+        // qx.core.ObjectRegistry.toHashCode(target) which would add a
+        // hash code back in after code here has cleaned it up.
+        qx.event.Registration.removeAllListeners(this); // Deconstructor support for classes
+
         var clazz = this.constructor;
         var mixins;
 
@@ -457,4 +474,4 @@
   qx.core.Object.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Object.js.map?dt=1635064686114
+//# sourceMappingURL=Object.js.map?dt=1645800074301

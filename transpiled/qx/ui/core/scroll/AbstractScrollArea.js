@@ -127,10 +127,10 @@
     },
     events: {
       /** Fired as soon as the scroll animation in X direction ends. */
-      scrollAnimationXEnd: 'qx.event.type.Event',
+      scrollAnimationXEnd: "qx.event.type.Event",
 
       /** Fired as soon as the scroll animation in Y direction ends. */
-      scrollAnimationYEnd: 'qx.event.type.Event'
+      scrollAnimationYEnd: "qx.event.type.Event"
     },
 
     /*
@@ -295,7 +295,7 @@
             break;
         }
 
-        return control || qx.ui.core.scroll.AbstractScrollArea.prototype._createChildControlImpl.base.call(this, id);
+        return control || qx.ui.core.scroll.AbstractScrollArea.superclass.prototype._createChildControlImpl.call(this, id);
       },
 
       /*
@@ -644,4 +644,4 @@
   qx.ui.core.scroll.AbstractScrollArea.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=AbstractScrollArea.js.map?dt=1635064699863
+//# sourceMappingURL=AbstractScrollArea.js.map?dt=1645800086708

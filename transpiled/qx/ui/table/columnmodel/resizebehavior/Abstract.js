@@ -139,7 +139,6 @@
           return null;
         }
 
-        ;
         var scrollerParentWidth = scrollerArr[0].getLayoutParent().getBounds().width;
         var lastScroller = scrollerArr[scrollerArr.length - 1];
         scrollerParentWidth -= lastScroller.getPaneInsetRight();
@@ -150,4 +149,4 @@
   qx.ui.table.columnmodel.resizebehavior.Abstract.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Abstract.js.map?dt=1635064703455
+//# sourceMappingURL=Abstract.js.map?dt=1645800089869

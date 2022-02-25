@@ -42,9 +42,9 @@
     *****************************************************************************
     */
     statics: {
-      /** 
+      /**
        * @type {Boolean} Whether the application is in the shutdown phase
-       * @deprecated {6.0} shutdown is not a valid mechanism to terminate apps 
+       * @deprecated {6.0} shutdown is not a valid mechanism to terminate apps
        * */
       inShutDown: false,
 
@@ -127,7 +127,7 @@
 
       /**
        * Creates a hash code
-       * 
+       *
        * @return {String}
        */
       createHashCode: function createHashCode() {
@@ -191,7 +191,7 @@
       /**
        * Disposing all registered object and cleaning up registry. This is
        * automatically executed at application shutdown.
-       * 
+       *
        * @deprecated {6.0} shutdown is not a valid means to clean up because destruction order
        * is not defined and dispose()/destructors are deprecated in favour of automatic
        * garbage collection
@@ -251,7 +251,7 @@
 
       /**
        * Returns the next hash code that will be used.
-       * 
+       *
        * @return {Integer} The next hash code
        * @internal
        */
@@ -297,4 +297,4 @@
   qx.core.ObjectRegistry.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=ObjectRegistry.js.map?dt=1635064688511
+//# sourceMappingURL=ObjectRegistry.js.map?dt=1645800076652

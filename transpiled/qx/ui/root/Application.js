@@ -175,6 +175,7 @@
           // contain a body tag explicitly. Unfortunately, it cannot be added
           // here dynamically.
           if (!doc.body) {
+            /* eslint-disable-next-line no-alert */
             window.alert("The application could not be started due to a missing body tag in the HTML file!");
           }
         } // Apply application layout
@@ -189,12 +190,12 @@
         doc.body.appendChild(elem);
         var root = new qx.html.Root(elem);
         root.setStyles({
-          "position": "absolute",
-          "overflowX": "hidden",
-          "overflowY": "hidden"
+          position: "absolute",
+          overflowX: "hidden",
+          overflowY: "hidden"
         }); // Store reference to the widget in the DOM element.
 
-        root.connectWidget(this);
+        root.connectObject(this);
         return root;
       },
 
@@ -234,7 +235,7 @@
           throw new Error("The root widget does not support 'left', or 'top' paddings!");
         }
 
-        qx.ui.root.Application.prototype._applyPadding.base.call(this, value, old, name);
+        qx.ui.root.Application.superclass.prototype._applyPadding.call(this, value, old, name);
       },
 
       /**
@@ -267,7 +268,7 @@
         }
 
         qx.dom.Element.remove(this.getContentElement().getDomElement());
-        qx.ui.root.Application.prototype.destroy.base.call(this);
+        qx.ui.root.Application.superclass.prototype.destroy.call(this);
       }
     },
 
@@ -283,4 +284,4 @@
   qx.ui.root.Application.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Application.js.map?dt=1635064687129
+//# sourceMappingURL=Application.js.map?dt=1645800075357

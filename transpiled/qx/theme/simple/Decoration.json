@@ -4,7 +4,9 @@
   "name": "Decoration",
   "superClass": null,
   "interfaces": [],
-  "mixins": [],
+  "mixins": [
+    "qx.test.MDecoration"
+  ],
   "functionName": null,
   "clazz": {
     "location": {
@@ -13,7 +15,7 @@
         "column": 0
       },
       "end": {
-        "line": 1239,
+        "line": 1019,
         "column": 3
       }
     },
@@ -30,11 +32,11 @@
   "aliases": {
     "location": {
       "start": {
-        "line": 24,
+        "line": 25,
         "column": 2
       },
       "end": {
-        "line": 26,
+        "line": 27,
         "column": 3
       }
     },

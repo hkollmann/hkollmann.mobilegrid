@@ -42,7 +42,7 @@
        * Fired when the widget is executed. Sets the "data" property of the
        * event to the object that issued the command.
        */
-      "execute": "qx.event.type.Data"
+      execute: "qx.event.type.Data"
     },
 
     /*
@@ -82,4 +82,4 @@
   qx.ui.form.IExecutable.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=IExecutable.js.map?dt=1635064700239
+//# sourceMappingURL=IExecutable.js.map?dt=1645800087071

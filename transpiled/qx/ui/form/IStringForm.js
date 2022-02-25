@@ -44,7 +44,7 @@
     */
     events: {
       /** Fired when the value was modified */
-      "changeValue": "qx.event.type.Data"
+      changeValue: "qx.event.type.Data"
     },
 
     /*
@@ -84,4 +84,4 @@
   qx.ui.form.IStringForm.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=IStringForm.js.map?dt=1635064696464
+//# sourceMappingURL=IStringForm.js.map?dt=1645800083578

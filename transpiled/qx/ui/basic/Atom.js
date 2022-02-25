@@ -191,6 +191,8 @@
        MEMBERS
     *****************************************************************************
     */
+
+    /* eslint-disable @qooxdoo/qx/no-refs-in-members */
     members: {
       // overridden
       _createChildControlImpl: function _createChildControlImpl(id, hash) {
@@ -224,7 +226,7 @@
             break;
         }
 
-        return control || qx.ui.basic.Atom.prototype._createChildControlImpl.base.call(this, id);
+        return control || qx.ui.basic.Atom.superclass.prototype._createChildControlImpl.call(this, id);
       },
       // overridden
 
@@ -305,7 +307,7 @@
       },
       // overridden
       _applySelectable: function _applySelectable(value, old) {
-        qx.ui.basic.Atom.prototype._applySelectable.base.call(this, value, old);
+        qx.ui.basic.Atom.superclass.prototype._applySelectable.call(this, value, old);
 
         var label = this.getChildControl("label", true);
 
@@ -318,4 +320,4 @@
   qx.ui.basic.Atom.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Atom.js.map?dt=1635064700191
+//# sourceMappingURL=Atom.js.map?dt=1645800087038

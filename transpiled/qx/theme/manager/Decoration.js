@@ -73,7 +73,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
   /**
    * Manager for decoration themes
-   * 
+   *
    * NOTE: Instances of this class must be disposed of after use
    *
    */
@@ -157,7 +157,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
         var css = "";
-        var styles = instance.getStyles(true); // Sort the styles so that more specific styles come after the group styles, 
+        var styles = instance.getStyles(true); // Sort the styles so that more specific styles come after the group styles,
         // eg background-color comes after background. The sort order is alphabetical
         // so that short cut rules come before actual
 
@@ -204,7 +204,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           qx.ui.style.Stylesheet.getInstance().removeRule(selector);
         }
 
-        ;
         this.__P_44_0 = [];
       },
 
@@ -252,7 +251,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           // follow the include chain to the topmost decorator entry
           if (currentEntry.include && theme.decorations[currentEntry.include]) {
             recurseDecoratorInclude(theme.decorations[currentEntry.include], currentEntry.include);
-          } // apply styles from the included decorator, 
+          } // apply styles from the included decorator,
           // overwriting existing values.
 
 
@@ -389,4 +388,4 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   qx.theme.manager.Decoration.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Decoration.js.map?dt=1635064687797
+//# sourceMappingURL=Decoration.js.map?dt=1645800076027

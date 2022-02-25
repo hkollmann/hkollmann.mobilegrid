@@ -53,7 +53,9 @@
      * @param menu {qx.ui.menu.Menu} Initial sub menu
      */
     construct: function construct(label, icon, command, menu) {
-      qx.ui.menu.AbstractButton.constructor.call(this); // Initialize with incoming arguments
+      qx.ui.menu.AbstractButton.constructor.call(this); // ARIA attrs
+
+      this.getContentElement().setAttribute("role", "button"); // Initialize with incoming arguments
 
       if (label != null) {
         this.setLabel(label);
@@ -105,11 +107,11 @@
           return;
         }
 
-        qx.ui.menu.Button.prototype._onTap.base.call(this, e);
+        qx.ui.menu.Button.superclass.prototype._onTap.call(this, e);
       }
     }
   });
   qx.ui.menu.Button.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Button.js.map?dt=1635064689267
+//# sourceMappingURL=Button.js.map?dt=1645800077280

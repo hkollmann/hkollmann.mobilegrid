@@ -47,7 +47,7 @@
 
   /**
    * A formatter and parser for numbers.
-   * 
+   *
    * NOTE: Instances of this class must be disposed of after use
    *
    */
@@ -262,7 +262,7 @@
         // use the escaped separators for regexp
         var groupSepEsc = qx.lang.String.escapeRegexpChars(qx.locale.Number.getGroupSeparator(this.getLocale()) + "");
         var decimalSepEsc = qx.lang.String.escapeRegexpChars(qx.locale.Number.getDecimalSeparator(this.getLocale()) + "");
-        var regex = new RegExp("^(" + qx.lang.String.escapeRegexpChars(this.getPrefix()) + ')?([-+]){0,1}' + '([0-9]{1,3}(?:' + groupSepEsc + '{0,1}[0-9]{3}){0,}){0,1}' + '(' + decimalSepEsc + '\\d+){0,1}(' + qx.lang.String.escapeRegexpChars(this.getPostfix()) + ")?$");
+        var regex = new RegExp("^(" + qx.lang.String.escapeRegexpChars(this.getPrefix()) + ")?([-+]){0,1}" + "([0-9]{1,3}(?:" + groupSepEsc + "{0,1}[0-9]{3}){0,}){0,1}" + "(" + decimalSepEsc + "\\d+){0,1}(" + qx.lang.String.escapeRegexpChars(this.getPostfix()) + ")?$");
         var hit = regex.exec(str);
 
         if (hit == null) {
@@ -296,4 +296,4 @@
   qx.util.format.NumberFormat.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=NumberFormat.js.map?dt=1635064704888
+//# sourceMappingURL=NumberFormat.js.map?dt=1645800091283

@@ -13,7 +13,7 @@
         "column": 0
       },
       "end": {
-        "line": 226,
+        "line": 233,
         "column": 3
       }
     },
@@ -43,11 +43,11 @@
     "getName": {
       "location": {
         "start": {
-          "line": 56,
+          "line": 54,
           "column": 4
         },
         "end": {
-          "line": 114,
+          "line": 56,
           "column": 5
         }
       },
@@ -76,14 +76,53 @@
       "type": "function",
       "access": "public"
     },
-    "getVersion": {
+    "detectName": {
       "location": {
         "start": {
-          "line": 122,
+          "line": 64,
           "column": 4
         },
         "end": {
-          "line": 162,
+          "line": 116,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Examines the user agent of the browser to determine the browser name</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "agent {String} the user agent string",
+            "paramName": "agent",
+            "description": " the user agent string",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String} The name of the current browser.",
+            "type": "String",
+            "description": " The name of the current browser."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getVersion": {
+      "location": {
+        "start": {
+          "line": 123,
+          "column": 4
+        },
+        "end": {
+          "line": 169,
           "column": 5
         }
       },
@@ -115,11 +154,11 @@
     "getDocumentMode": {
       "location": {
         "start": {
-          "line": 171,
+          "line": 177,
           "column": 4
         },
         "end": {
-          "line": 176,
+          "line": 182,
           "column": 5
         }
       },
@@ -151,11 +190,11 @@
     "getQuirksMode": {
       "location": {
         "start": {
-          "line": 185,
+          "line": 190,
           "column": 4
         },
         "end": {
-          "line": 193,
+          "line": 199,
           "column": 5
         }
       },
@@ -187,11 +226,11 @@
     "__agents": {
       "location": {
         "start": {
-          "line": 199,
+          "line": 204,
           "column": 4
         },
         "end": {
-          "line": 217,
+          "line": 224,
           "column": 37
         }
       },
@@ -210,15 +249,14 @@
   "defer": {
     "location": {
       "start": {
-        "line": 220,
-        "column": 10
+        "line": 227,
+        "column": 2
       },
       "end": {
-        "line": 225,
+        "line": 232,
         "column": 3
       }
-    },
-    "jsdoc": {}
+    }
   },
   "descendants": []
 }

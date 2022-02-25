@@ -1,6 +1,11 @@
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
+        "require": true
+      },
       "qx.Class": {
         "usage": "dynamic",
         "require": true
@@ -11,6 +16,14 @@
       },
       "qx.ui.layout.Util": {},
       "qx.theme.manager.Decoration": {}
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.debug": {
+          "load": true
+        }
+      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -253,7 +266,22 @@
       ---------------------------------------------------------------------------
       */
       // overridden
-      verifyLayoutProperty: null,
+      verifyLayoutProperty: qx.core.Environment.select("qx.debug", {
+        "true": function _true(item, name, value) {
+          if (name == "height") {
+            this.assertMatch(value, qx.ui.layout.Util.PERCENT_VALUE);
+          } else if (name == "flex") {
+            // flex
+            this.assertNumber(value);
+            this.assert(value >= 0);
+          } else if (name == "flexShrink") {
+            this.assertBoolean(value);
+          } else {
+            this.assert(false, "The property '" + name + "' is not supported by the VBox layout!");
+          }
+        },
+        "false": null
+      }),
       // overridden
       renderLayout: function renderLayout(availWidth, availHeight, padding) {
         // Rebuild flex/height caches
@@ -478,4 +506,4 @@
   qx.ui.layout.VBox.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=VBox.js.map?dt=1635064688621
+//# sourceMappingURL=VBox.js.map?dt=1645800076752

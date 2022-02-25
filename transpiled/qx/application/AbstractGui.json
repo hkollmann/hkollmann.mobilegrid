@@ -17,7 +17,7 @@
         "column": 0
       },
       "end": {
-        "line": 123,
+        "line": 111,
         "column": 3
       }
     },
@@ -44,12 +44,12 @@
     "__root": {
       "location": {
         "start": {
-          "line": 42,
+          "line": 38,
           "column": 4
         },
         "end": {
-          "line": 42,
-          "column": 17
+          "line": 38,
+          "column": 16
         }
       },
       "jsdoc": {
@@ -72,11 +72,11 @@
     "_createRootWidget": {
       "location": {
         "start": {
-          "line": 52,
+          "line": 47,
           "column": 4
         },
         "end": {
-          "line": 54,
+          "line": 49,
           "column": 5
         }
       },
@@ -102,11 +102,11 @@
     "getRoot": {
       "location": {
         "start": {
-          "line": 68,
+          "line": 62,
           "column": 4
         },
         "end": {
-          "line": 70,
+          "line": 64,
           "column": 5
         }
       },
@@ -132,11 +132,11 @@
     "main": {
       "location": {
         "start": {
-          "line": 74,
+          "line": 67,
           "column": 4
         },
         "end": {
-          "line": 92,
+          "line": 86,
           "column": 5
         }
       },
@@ -151,11 +151,11 @@
     "finalize": {
       "location": {
         "start": {
-          "line": 96,
+          "line": 89,
           "column": 4
         },
         "end": {
-          "line": 98,
+          "line": 91,
           "column": 5
         }
       },
@@ -170,11 +170,11 @@
     "render": {
       "location": {
         "start": {
-          "line": 105,
+          "line": 97,
           "column": 4
         },
         "end": {
-          "line": 107,
+          "line": 99,
           "column": 5
         }
       },
@@ -192,11 +192,11 @@
     "close": {
       "location": {
         "start": {
-          "line": 111,
+          "line": 102,
           "column": 4
         },
         "end": {
-          "line": 114,
+          "line": 104,
           "column": 5
         }
       },
@@ -211,11 +211,11 @@
     "terminate": {
       "location": {
         "start": {
-          "line": 118,
+          "line": 107,
           "column": 4
         },
         "end": {
-          "line": 121,
+          "line": 109,
           "column": 5
         }
       },
@@ -559,6 +559,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -583,6 +584,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }

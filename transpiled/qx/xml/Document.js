@@ -71,6 +71,10 @@
    * * <a href="http://msdn2.microsoft.com/en-us/library/ms764622.aspx">MSXML GUIDs and ProgIDs</a>
    * * <a href="https://developer.mozilla.org/en-US/docs/Parsing_and_serializing_XML">MDN Parsing and Serializing XML</a>
    */
+
+  /* global ActiveXObject */
+
+  /* global window */
   qx.Bootstrap.define("qx.xml.Document", {
     statics: {
       /** @type {String} ActiveX class name of DOMDocument (IE specific) */
@@ -119,7 +123,7 @@
           }
 
           if (qualifiedName) {
-            var str = '<\?xml version="1.0" encoding="utf-8"?>\n<';
+            var str = '<?xml version="1.0" encoding="utf-8"?>\n<';
             str += qualifiedName;
 
             if (namespaceUri) {
@@ -202,4 +206,4 @@
   qx.xml.Document.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Document.js.map?dt=1635064698130
+//# sourceMappingURL=Document.js.map?dt=1645800085114

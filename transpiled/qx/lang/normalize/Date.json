@@ -9,11 +9,11 @@
   "clazz": {
     "location": {
       "start": {
-        "line": 26,
+        "line": 32,
         "column": 0
       },
       "end": {
-        "line": 133,
+        "line": 157,
         "column": 3
       }
     },
@@ -29,6 +29,12 @@
           "name": "@group",
           "body": "Polyfill"
         }
+      ],
+      "@deprecated": [
+        {
+          "name": "@deprecated",
+          "body": "{7.0}\n  This normalizer handles Date.parse and Date.now. The former has\n  been standardized since IE version 3, and the latter, since IE\n  version 9, both ancient. There is no need for this normalizer any\n  longer."
+        }
       ]
     }
   },
@@ -37,11 +43,11 @@
     "now": {
       "location": {
         "start": {
-          "line": 38,
+          "line": 42,
           "column": 4
         },
         "end": {
-          "line": 40,
+          "line": 44,
           "column": 5
         }
       },
@@ -67,11 +73,11 @@
     "parse": {
       "location": {
         "start": {
-          "line": 59,
+          "line": 62,
           "column": 4
         },
         "end": {
-          "line": 118,
+          "line": 139,
           "column": 5
         }
       },
@@ -107,15 +113,14 @@
   "defer": {
     "location": {
       "start": {
-        "line": 121,
-        "column": 10
+        "line": 142,
+        "column": 2
       },
       "end": {
-        "line": 132,
+        "line": 156,
         "column": 3
       }
-    },
-    "jsdoc": {}
+    }
   },
   "descendants": []
 }

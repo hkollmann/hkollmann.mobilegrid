@@ -78,10 +78,10 @@
     */
     events: {
       /** Fired when the lifecycle method {@link #start} of any {@link qx.ui.mobile.page.Page page} is called */
-      "start": "qx.event.type.Event",
+      start: "qx.event.type.Event",
 
       /** Fired when the lifecycle method {@link #stop} of any {@link qx.ui.mobile.page.Page page} is called */
-      "stop": "qx.event.type.Event",
+      stop: "qx.event.type.Event",
 
       /**
        * Fired when the method {@link qx.ui.mobile.page.Page#back} is called. It is possible to prevent
@@ -89,10 +89,10 @@
        * {@link qx.event.type.Event#preventDefault}. Data indicating whether the action
        * was triggered by a key event or not.
        */
-      "back": "qx.event.type.Data",
+      back: "qx.event.type.Data",
 
       /** Fired when a {@link qx.ui.mobile.dialog.Popup popup} appears on screen. */
-      "popup": "qx.event.type.Event"
+      popup: "qx.event.type.Event"
     },
 
     /*
@@ -157,4 +157,4 @@
   qx.application.Mobile.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Mobile.js.map?dt=1635064683584
+//# sourceMappingURL=Mobile.js.map?dt=1645800071920

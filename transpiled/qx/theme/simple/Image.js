@@ -49,7 +49,7 @@
        * @internal
        */
       URLS: {
-        "blank": "qx/static/blank.png",
+        blank: "qx/static/blank.png",
         // checkbox
         "checkbox-checked": "decoration/checkbox/checked.png",
         "checkbox-undetermined": "decoration/checkbox/undetermined.png",
@@ -110,4 +110,4 @@
   qx.theme.simple.Image.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Image.js.map?dt=1635064687052
+//# sourceMappingURL=Image.js.map?dt=1645800075303

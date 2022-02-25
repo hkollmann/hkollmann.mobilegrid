@@ -109,14 +109,14 @@
        * @return {Boolean} true when containing document is in quirks mode
        */
       isQuirksMode: qx.core.Environment.select("engine.name", {
-        "mshtml": function mshtml(win) {
+        mshtml: function mshtml(win) {
           if (qx.core.Environment.get("engine.version") >= 8) {
             return (win || window).document.documentMode === 5;
           } else {
             return (win || window).document.compatMode !== "CSS1Compat";
           }
         },
-        "webkit": function webkit(win) {
+        webkit: function webkit(win) {
           if (document.compatMode === undefined) {
             var el = (win || window).document.createElement("div");
             el.style.cssText = "position:absolute;width:0;height:0;width:1";
@@ -210,4 +210,4 @@
   qx.bom.Document.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Document.js.map?dt=1635064692599
+//# sourceMappingURL=Document.js.map?dt=1645800080292

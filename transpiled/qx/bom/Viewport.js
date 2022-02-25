@@ -211,10 +211,10 @@
             "-270": 90,
             "-180": 180,
             "-90": -90,
-            "0": 0,
-            "90": 90,
-            "180": 180,
-            "270": -90
+            0: 0,
+            90: 90,
+            180: 180,
+            270: -90
           };
         } else {
           // Device orientation is not equal to own understanding of orientation
@@ -222,10 +222,10 @@
             "-270": 180,
             "-180": -90,
             "-90": 0,
-            "0": 90,
-            "90": 180,
-            "180": -90,
-            "270": 0
+            0: 90,
+            90: 180,
+            180: -90,
+            270: 0
           };
         }
       },
@@ -300,4 +300,4 @@
   qx.bom.Viewport.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Viewport.js.map?dt=1635064686605
+//# sourceMappingURL=Viewport.js.map?dt=1645800074881

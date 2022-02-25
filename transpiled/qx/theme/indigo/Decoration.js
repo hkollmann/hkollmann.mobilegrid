@@ -39,7 +39,7 @@
       decoration: "qx/decoration/Simple"
     },
     decorations: {
-      "window": {
+      window: {
         style: {
           width: 1,
           color: "window-border",
@@ -71,7 +71,7 @@
           backgroundColor: "white"
         }
       },
-      "statusbar": {
+      statusbar: {
         style: {
           widthTop: 1,
           colorTop: "border-main",
@@ -94,4 +94,4 @@
   qx.theme.indigo.Decoration.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Decoration.js.map?dt=1635064685168
+//# sourceMappingURL=Decoration.js.map?dt=1645800073318

@@ -6,7 +6,6 @@
         "require": true
       },
       "qx.ui.form.MenuButton": {
-        "construct": true,
         "require": true
       },
       "qx.ui.toolbar.ToolBar": {},
@@ -42,17 +41,6 @@
 
     /*
     *****************************************************************************
-       CONSTRUCTOR
-    *****************************************************************************
-    */
-    construct: function construct(label, icon, menu) {
-      qx.ui.form.MenuButton.constructor.call(this, label, icon, menu);
-      this.removeListener("keydown", this._onKeyDown);
-      this.removeListener("keyup", this._onKeyUp);
-    },
-
-    /*
-    *****************************************************************************
        PROPERTIES
     *****************************************************************************
     */
@@ -64,10 +52,6 @@
       show: {
         refine: true,
         init: "inherit"
-      },
-      focusable: {
-        refine: true,
-        init: false
       }
     },
 
@@ -105,7 +89,7 @@
       },
       // overridden
       open: function open(selectFirst) {
-        qx.ui.menubar.Button.prototype.open.base.call(this, selectFirst);
+        qx.ui.menubar.Button.superclass.prototype.open.call(this, selectFirst);
         var menubar = this.getMenuBar();
 
         if (menubar) {
@@ -146,7 +130,7 @@
       },
       // overridden
       _onPointerUp: function _onPointerUp(e) {
-        qx.ui.menubar.Button.prototype._onPointerUp.base.call(this, e); // Set state 'pressed' to visualize that the menu is open.
+        qx.ui.menubar.Button.superclass.prototype._onPointerUp.call(this, e); // Set state 'pressed' to visualize that the menu is open.
 
 
         var menu = this.getMenu();
@@ -186,4 +170,4 @@
   qx.ui.menubar.Button.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Button.js.map?dt=1635064695749
+//# sourceMappingURL=Button.js.map?dt=1645800082985

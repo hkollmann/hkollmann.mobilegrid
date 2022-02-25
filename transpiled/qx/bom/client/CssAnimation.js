@@ -73,13 +73,13 @@
 
         if (name != null) {
           return {
-            "name": name,
+            name: name,
             "play-state": qx.bom.client.CssAnimation.getPlayState(),
             "start-event": qx.bom.client.CssAnimation.getAnimationStart(),
             "iteration-event": qx.bom.client.CssAnimation.getAnimationIteration(),
             "end-event": qx.bom.client.CssAnimation.getAnimationEnd(),
             "fill-mode": qx.bom.client.CssAnimation.getFillMode(),
-            "keyframes": qx.bom.client.CssAnimation.getKeyFrames()
+            keyframes: qx.bom.client.CssAnimation.getKeyFrames()
           };
         }
 
@@ -128,11 +128,11 @@
         }
 
         var mapping = {
-          "msAnimation": "MSAnimationStart",
-          "WebkitAnimation": "webkitAnimationStart",
-          "MozAnimation": "animationstart",
-          "OAnimation": "oAnimationStart",
-          "animation": "animationstart"
+          msAnimation: "MSAnimationStart",
+          WebkitAnimation: "webkitAnimationStart",
+          MozAnimation: "animationstart",
+          OAnimation: "oAnimationStart",
+          animation: "animationstart"
         };
         return mapping[this.getName()];
       },
@@ -149,11 +149,11 @@
         }
 
         var mapping = {
-          "msAnimation": "MSAnimationIteration",
-          "WebkitAnimation": "webkitAnimationIteration",
-          "MozAnimation": "animationiteration",
-          "OAnimation": "oAnimationIteration",
-          "animation": "animationiteration"
+          msAnimation: "MSAnimationIteration",
+          WebkitAnimation: "webkitAnimationIteration",
+          MozAnimation: "animationiteration",
+          OAnimation: "oAnimationIteration",
+          animation: "animationiteration"
         };
         return mapping[this.getName()];
       },
@@ -170,11 +170,11 @@
         }
 
         var mapping = {
-          "msAnimation": "MSAnimationEnd",
-          "WebkitAnimation": "webkitAnimationEnd",
-          "MozAnimation": "animationend",
-          "OAnimation": "oAnimationEnd",
-          "animation": "animationend"
+          msAnimation: "MSAnimationEnd",
+          WebkitAnimation: "webkitAnimationEnd",
+          MozAnimation: "animationend",
+          OAnimation: "oAnimationEnd",
+          animation: "animationend"
         };
         return mapping[this.getName()];
       },
@@ -194,7 +194,6 @@
           keyFrames.push(key);
         }
 
-        ;
         keyFrames.unshift("@keyframes");
         var sheet = qx.bom.Stylesheet.createElement();
 
@@ -205,7 +204,6 @@
           } catch (e) {}
         }
 
-        ;
         return null;
       },
 
@@ -225,7 +223,6 @@
           }
         }
 
-        ;
         return null;
       }
     },
@@ -237,4 +234,4 @@
   qx.bom.client.CssAnimation.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=CssAnimation.js.map?dt=1635064699083
+//# sourceMappingURL=CssAnimation.js.map?dt=1645800085958

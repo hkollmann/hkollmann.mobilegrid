@@ -105,8 +105,56 @@
         };
       },
 
+      /**
+       * Returns the outer height of the given element, including height, vertical padding, and vertical borders
+       *
+       * @param element {Element} element to query
+       * @param includeMargins {Boolean?} whether to include margins in teh
+       * @return {Integer} the height of the element
+       */
+      getOuterHeight: function getOuterHeight(element, includeMargins) {
+        if (includeMargins) {
+          var marginTop = parseInt(document.defaultView.getComputedStyle(element, "").getPropertyValue("margin-top"), 10);
+          var marginBottom = parseInt(document.defaultView.getComputedStyle(element, "").getPropertyValue("margin-bottom"), 10);
+          return element.offsetHeight + marginTop + marginBottom;
+        }
+
+        return element.offsetHeight;
+      },
+
+      /**
+       * Returns the outer width of the given element, including height, vertical padding, and vertical borders
+       *
+       * @param element {Element} element to query
+       * @param includeMargins {Boolean?} whether to include margins in teh
+       * @return {Integer} the width of the element
+       */
+      getOuterWidth: function getOuterWidth(element, includeMargins) {
+        if (includeMargins) {
+          var marginLeft = parseInt(document.defaultView.getComputedStyle(element, "").getPropertyValue("margin-left"), 10);
+          var marginRight = parseInt(document.defaultView.getComputedStyle(element, "").getPropertyValue("margin-right"), 10);
+          return element.offsetWidth + marginLeft + marginRight;
+        }
+
+        return element.offsetWidth;
+      },
+
+      /**
+       * Returns the outer size of the given element, including height, vertical padding, and vertical borders
+       *
+       * @param element {Element} element to query
+       * @param includeMargins {Boolean?} whether to include margins in teh
+       * @return {Map} map containing the width and height of the element
+       */
+      getOuterSize: function getOuterSize(element, includeMargins) {
+        return {
+          width: this.getOuterWidth(element, includeMargins),
+          height: this.getOuterHeight(element, includeMargins)
+        };
+      },
+
       /** @type {Map} Contains all overflow values where scrollbars are invisible */
-      __P_85_0: {
+      __P_87_0: {
         visible: true,
         hidden: true
       },
@@ -131,7 +179,7 @@
         var paddingLeft = parseInt(Style.get(element, "paddingLeft") || "0px", 10);
         var paddingRight = parseInt(Style.get(element, "paddingRight") || "0px", 10);
 
-        if (this.__P_85_0[overflowX]) {
+        if (this.__P_87_0[overflowX]) {
           var contentWidth = element.clientWidth;
 
           if (qx.core.Environment.get("engine.name") == "opera" || qx.dom.Node.isBlockNode(element)) {
@@ -185,7 +233,7 @@
         var paddingTop = parseInt(Style.get(element, "paddingTop") || "0px", 10);
         var paddingBottom = parseInt(Style.get(element, "paddingBottom") || "0px", 10);
 
-        if (this.__P_85_0[overflowY]) {
+        if (this.__P_87_0[overflowY]) {
           return element.clientHeight - paddingTop - paddingBottom;
         } else {
           if (element.clientHeight >= element.scrollHeight) {
@@ -216,4 +264,4 @@
   qx.bom.element.Dimension.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Dimension.js.map?dt=1635064691881
+//# sourceMappingURL=Dimension.js.map?dt=1645800079694

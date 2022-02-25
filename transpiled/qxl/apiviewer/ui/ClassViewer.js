@@ -127,59 +127,59 @@
       PRIMITIVES: {
         "var": true,
         "void": true,
-        "undefined": true,
-        "arguments": true,
+        undefined: true,
+        arguments: true,
         "null": true,
-        "varargs": true,
-        "Boolean": true,
-        "String": true,
-        "Number": true,
-        "Integer": true,
-        "PositiveNumber": true,
-        "PositiveInteger": true,
-        "Float": true,
-        "Double": true,
-        "Color": true,
-        "Error": true,
-        "RegExp": true,
-        "Object": true,
-        "Array": true,
-        "Map": true,
-        "Function": true,
-        "Date": true,
-        "Node": true,
-        "Element": true,
-        "Document": true,
-        "Window": true,
-        "Event": true
+        varargs: true,
+        Boolean: true,
+        String: true,
+        Number: true,
+        Integer: true,
+        PositiveNumber: true,
+        PositiveInteger: true,
+        Float: true,
+        Double: true,
+        Color: true,
+        Error: true,
+        RegExp: true,
+        Object: true,
+        Array: true,
+        Map: true,
+        Function: true,
+        Date: true,
+        Node: true,
+        Element: true,
+        Document: true,
+        Window: true,
+        Event: true
       },
       MDC_LINKS: {
-        "Event": "https://developer.mozilla.org/en/DOM/event",
-        "Window": "https://developer.mozilla.org/en/DOM/window",
-        "Document": "https://developer.mozilla.org/en/DOM/document",
-        "Element": "https://developer.mozilla.org/en/DOM/element",
-        "Node": "https://developer.mozilla.org/en/DOM/node",
-        "Date": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date",
-        "Function": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function",
-        "Array": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array",
-        "Object": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object",
-        "Map": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object",
-        "RegExp": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp",
-        "Error": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error",
-        "Number": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number",
-        "Boolean": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean",
-        "String": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String",
-        "undefined": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/undefined",
-        "arguments": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/arguments",
-        "Font": "https://developer.mozilla.org/en/CSS/font",
-        "Color": "https://developer.mozilla.org/en/CSS/color"
+        Event: "https://developer.mozilla.org/en/DOM/event",
+        Window: "https://developer.mozilla.org/en/DOM/window",
+        Document: "https://developer.mozilla.org/en/DOM/document",
+        Element: "https://developer.mozilla.org/en/DOM/element",
+        Node: "https://developer.mozilla.org/en/DOM/node",
+        Date: "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date",
+        Function: "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function",
+        Array: "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array",
+        Object: "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object",
+        Map: "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object",
+        RegExp: "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp",
+        Error: "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error",
+        Number: "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number",
+        Boolean: "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean",
+        String: "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String",
+        undefined: "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/undefined",
+        arguments: "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/arguments",
+        Font: "https://developer.mozilla.org/en/CSS/font",
+        Color: "https://developer.mozilla.org/en/CSS/color"
       },
 
       /**
        * {Map} Replacement rules for placeholders in the source view URI.
        * Functions will be called with the current @link{qxl.apiviewer.dao.Node} as the
        * only parameter and must return a string.
-      * */
+       * */
       SOURCE_VIEW_MACROS: {
         classFilePath: function classFilePath(node) {
           var classNode = node.getClass ? node.getClass() : node;
@@ -193,9 +193,9 @@
           return "0";
         },
         qxGitBranch: function qxGitBranch(node) {
-          return qx.core.Environment.get("qx.revision") ? // e.g. "master:47ac02f"
-          qx.core.Environment.get("qx.revision").split(":")[1] : qx.core.Environment.get("qx.version") ? // e.g. "2.1.2"
-          "release_" + qx.core.Environment.get("qx.version").replace(/\./g, "_") : "master";
+          return qx.core.Environment.get("qx.revision") // e.g. "master:47ac02f"
+          ? qx.core.Environment.get("qx.revision").split(":")[1] : qx.core.Environment.get("qx.version") // e.g. "2.1.2"
+          ? "release_" + qx.core.Environment.get("qx.version").replace(/\./g, "_") : "master";
         }
       },
 
@@ -210,7 +210,7 @@
        */
       createImageHtml: function createImageHtml(imgUrl, tooltip, styleAttributes) {
         if (typeof imgUrl == "string") {
-          return "<img src=\"" + qx.util.ResourceManager.getInstance().toUri(imgUrl) + "\" class=\"img\"" + (styleAttributes ? " style=\"" + styleAttributes + "\"" : "") + "/>";
+          return '<img src="' + qx.util.ResourceManager.getInstance().toUri(imgUrl) + '" class="img"' + (styleAttributes ? ' style="' + styleAttributes + '"' : "") + "/>";
         }
 
         if (styleAttributes) {
@@ -239,9 +239,9 @@
         var style;
 
         if (qx.core.Environment.get("engine.name") == "webkit") {
-          html = "<span style=\"display:inline;position:relative;top:-2px;width:" + width + "px;height:" + height + "px" + (styleAttributes ? ";" + styleAttributes : "") + "\">";
+          html = '<span style="display:inline;position:relative;top:-2px;width:' + width + "px;height:" + height + "px" + (styleAttributes ? ";" + styleAttributes : "") + '">';
         } else {
-          html = "<span style=\"display:inline-block;display:inline;padding-right:18px;position:relative;top:-2px;left:0;width:" + width + "px;height:" + height + "px" + (styleAttributes ? ";" + styleAttributes : "") + "\">";
+          html = '<span style="display:inline-block;display:inline;padding-right:18px;position:relative;top:-2px;left:0;width:' + width + "px;height:" + height + "px" + (styleAttributes ? ";" + styleAttributes : "") + '">';
         }
 
         if (qx.core.Environment.get("engine.name") == "webkit") {
@@ -256,10 +256,10 @@
           html += "<img";
 
           if (toolTip) {
-            html += " title=\"" + toolTip + "\"";
+            html += ' title="' + toolTip + '"';
           }
 
-          html += " style=\"" + style + "\" src=\"" + qx.util.ResourceManager.getInstance().toUri(imgUrlArr[i]) + "\"/>";
+          html += ' style="' + style + '" src="' + qx.util.ResourceManager.getInstance().toUri(imgUrlArr[i]) + '"/>';
         }
 
         html += "</span>";
@@ -348,7 +348,7 @@
 
         var titleHtml = new qx.util.StringBuilder();
         titleHtml.add("<small>", classNode.getPackageName(), "</small>");
-        titleHtml.add("<span class=\"type\">");
+        titleHtml.add('<span class="type">');
 
         if (classNode.isAbstract()) {
           titleHtml.add("Abstract ");
@@ -363,7 +363,7 @@
         var sourceUri = qxl.apiviewer.ui.ClassViewer.getSourceUri(classNode);
 
         if (sourceUri) {
-          className = "<a href=\"" + sourceUri + "\" target=\"_blank\" title=\"View Source\">" + className + "</a>";
+          className = '<a href="' + sourceUri + '" target="_blank" title="View Source">' + className + "</a>";
         }
 
         titleHtml.add(qxl.apiviewer.ui.panels.InfoPanel.setTitleClass(classNode, className));
@@ -391,7 +391,7 @@
           tocItem.innerHTML = qxl.apiviewer.ui.ClassViewer.createImageHtml(panel.getPanelIcon(), panel.getPanelTitle()) + " ";
           q(tocItem).on("tap", function (firstItem) {
             return function () {
-              this.__P_210_0(firstItem, firstItem.getName());
+              this.__P_213_0(firstItem);
 
               qx.bom.element.Scroll.intoView(panel.getTitleElement(), null, "left", "top");
 
@@ -416,6 +416,7 @@
       },
 
       /**
+       * @param classNode
        * @return {Promise}
        */
       _getDescriptionHtml: function _getDescriptionHtml(classNode) {
@@ -437,7 +438,7 @@
         var classHtml = new qx.util.StringBuilder(); // Add the class description
 
         if (desc !== "") {
-          classHtml.add("<div class=\"class-description\">", qxl.apiviewer.ui.panels.InfoPanel.resolveLinkAttributes(desc, classNode), "</div>");
+          classHtml.add('<div class="class-description">', qxl.apiviewer.ui.panels.InfoPanel.resolveLinkAttributes(desc, classNode), "</div>");
         }
 
         var seeAlso = qxl.apiviewer.ui.panels.InfoPanel.createSeeAlsoHtml(classNode);
@@ -451,29 +452,29 @@
         }
 
         if (classNode.getErrors().length > 0) {
-          classHtml.add("<div class=\"class-description\">", qxl.apiviewer.ui.panels.InfoPanel.createErrorHtml(classNode, classNode), "</div>");
+          classHtml.add('<div class="class-description">', qxl.apiviewer.ui.panels.InfoPanel.createErrorHtml(classNode, classNode), "</div>");
         } // Add the class hierarchy
 
 
         if (classNode.getType() === "interface") {
-          classHtml.add(this.__P_210_1(classNode));
+          classHtml.add(this.__P_213_1(classNode));
         } else {
-          classHtml.add(this.__P_210_2(classNode));
+          classHtml.add(this.__P_213_2(classNode));
         }
 
         return classNode.getChildClasses().then(function (childClasses) {
-          classHtml.add(_this2.__P_210_3(childClasses, "Direct " + subObjectsName + ":"));
-          classHtml.add(_this2.__P_210_3(classNode.getInterfaces(), "Implemented interfaces:"));
-          classHtml.add(_this2.__P_210_3(classNode.getMixins(), "Included mixins:"));
+          classHtml.add(_this2.__P_213_3(childClasses, "Direct " + subObjectsName + ":"));
+          classHtml.add(_this2.__P_213_3(classNode.getInterfaces(), "Implemented interfaces:"));
+          classHtml.add(_this2.__P_213_3(classNode.getMixins(), "Included mixins:"));
           return classNode.getImplementations();
         }).then(function (classes) {
-          classHtml.add(_this2.__P_210_3(classes, "Implementations of this interface:"));
+          classHtml.add(_this2.__P_213_3(classes, "Implementations of this interface:"));
           return classNode.getIncluder();
         }).then(function (classes) {
-          classHtml.add(_this2.__P_210_3(classes, "Classes including this mixin:"));
+          classHtml.add(_this2.__P_213_3(classes, "Classes including this mixin:"));
 
           if (classNode.isDeprecated()) {
-            classHtml.add("<h2 class=\"warning\">", "Deprecated:", "</h2>");
+            classHtml.add('<h2 class="warning">', "Deprecated:", "</h2>");
             classHtml.add("<p>");
             desc = classNode.getDeprecationText();
 
@@ -487,7 +488,7 @@
           }
 
           if (classNode.isInternal()) {
-            classHtml.add("<h2 class=\"warning\">", "Internal:", "</h2>");
+            classHtml.add('<h2 class="warning">', "Internal:", "</h2>");
             classHtml.add("<p>");
             var type = classNode.getType();
 
@@ -511,7 +512,7 @@
        * @param title {String} headline
        * @return {String} HTML Fragement
        */
-      __P_210_3: function __P_210_3(dependentClasses, title) {
+      __P_213_3: function __P_213_3(dependentClasses, title) {
         var result = "";
 
         if (dependentClasses.length > 0) {
@@ -537,12 +538,12 @@
        * @param classNode {qxl.apiviewer.dao.Class} class node
        * @return {String} HTML fragemnt
        */
-      __P_210_2: function __P_210_2(classNode) {
+      __P_213_2: function __P_213_2(classNode) {
         var ClassViewer = qxl.apiviewer.ui.ClassViewer; // Create the class hierarchy
 
         var classHtml = new qx.util.StringBuilder("<h2>", "Inheritance hierarchy:", "</h2>");
         var classHierarchy = classNode.getClassHierarchy(true);
-        classHtml.add(ClassViewer.createImageHtml("qxl/apiviewer/image/class18.gif"), "<span style=\"white-space: nowrap;\"><a href=\"https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object\" target=\"_blank\" title=\"Object\">Object</a></span>");
+        classHtml.add(ClassViewer.createImageHtml("qxl/apiviewer/image/class18.gif"), '<span style="white-space: nowrap;"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" target="_blank" title="Object">Object</a></span>');
         var indent = 0;
 
         for (var i = classHierarchy.length - 1; i >= 0; i--) {
@@ -560,7 +561,7 @@
               // it is safe to get the name of the type of the object as below, because only standard native objects are used here.
               // the method below returns Object for user defined objects
               var name = Object.prototype.toString.call(new classHierarchy[i]()).match(/^\[object (.*)\]$/)[1];
-              classHtml.add("<span style=\"white-space: nowrap;\"><a href=\"" + qxl.apiviewer.ui.ClassViewer.MDC_LINKS[name] + "\" target=\"_blank\" title=\"" + name + "\">" + name + "</a></span>");
+              classHtml.add('<span style="white-space: nowrap;"><a href="' + qxl.apiviewer.ui.ClassViewer.MDC_LINKS[name] + '" target="_blank" title="' + name + '">' + name + "</a></span>");
             }
           } else {
             classHtml.add(classHierarchy[i].getFullName());
@@ -579,7 +580,7 @@
        * @param classNode {qxl.apiviewer.dao.Class} class node
        * @return {String} HTML fragemnt
        */
-      __P_210_1: function __P_210_1(classNode) {
+      __P_213_1: function __P_213_1(classNode) {
         var ClassViewer = qxl.apiviewer.ui.ClassViewer;
         var TreeUtil = qxl.apiviewer.TreeUtil;
         var InfoPanel = qxl.apiviewer.ui.panels.InfoPanel;
@@ -623,15 +624,15 @@
       showItem: function showItem(itemName) {
         var itemNode;
         var nameMap = {
-          "event": "events",
-          "method_public": "methods",
-          "method_protected": "methods",
-          "method_private": "methods",
-          "property": "properties",
-          "property_private": "properties",
-          "property_protected": "properties",
-          "constant": "constants",
-          "childcontrol": "childControls"
+          event: "events",
+          method_public: "methods",
+          method_protected: "methods",
+          method_private: "methods",
+          property: "properties",
+          property_private: "properties",
+          property_protected: "properties",
+          constant: "constants",
+          childcontrol: "childControls"
         }; // special handling for constructor methods since the constructor
         // cannot be obtained with the "getItem" (which works on lists)
 
@@ -653,7 +654,7 @@
         } // Show properties, private or protected methods if they are hidden
 
 
-        this.__P_210_0(itemNode, itemName);
+        this.__P_213_0(itemNode);
 
         var panel = this._getPanelForItemNode(itemNode);
 
@@ -688,11 +689,9 @@
       /**
        * Programatically enables the button to show private, protected function or
        * properties so that the selected item can be shown.
-       *
-       * @param itemName {String} the name of the item to highlight.
-       * @param itemName {String} The doc node of the item
+       * @param itemNode
        */
-      __P_210_0: function __P_210_0(itemNode, itemName) {
+      __P_213_0: function __P_213_0(itemNode) {
         var uiModel = qxl.apiviewer.UiModel.getInstance(); // Check for property
 
         if (itemNode.isFromProperty && itemNode.isFromProperty()) {
@@ -758,4 +757,4 @@
   qxl.apiviewer.ui.ClassViewer.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=ClassViewer.js.map?dt=1635064701589
+//# sourceMappingURL=ClassViewer.js.map?dt=1645800088246

@@ -1,12 +1,25 @@
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
+        "require": true
+      },
       "qx.Mixin": {
         "usage": "dynamic",
         "require": true
       },
       "qx.data.SingleValueBinding": {},
       "qx.Promise": {}
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.promise": {
+          "load": true
+        }
+      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -78,26 +91,31 @@
        *
        * @return {qx.Promise} A promise which is resolved when the initial value
        * 	 has been set on the target.  Note that this does NOT resolve when subsequent
-       *   values are returned.  The promise value is the internal id for that binding. 
-       *   The id can be used for referencing the binding e.g. for removing. This is not 
+       *   values are returned.  The promise value is the internal id for that binding.
+       *   The id can be used for referencing the binding e.g. for removing. This is not
        *   an atomic id so you can't you use it as a hash-map index.
        *
        * @throws {qx.core.AssertionError} If the event is no data event or
        *   there is no property definition for object and property (source and
        *   target).
        */
-      bindAsync: function bindAsync(sourcePropertyChain, targetObject, targetProperty, options) {
-        var id = qx.data.SingleValueBinding.bind(this, sourcePropertyChain, targetObject, targetProperty, options);
+      bindAsync: qx.core.Environment.select("qx.promise", {
+        "true": function _true(sourcePropertyChain, targetObject, targetProperty, options) {
+          var id = qx.data.SingleValueBinding.bind(this, sourcePropertyChain, targetObject, targetProperty, options);
 
-        if (id.initialPromise) {
-          return id.initialPromise.then(function () {
-            id.initialPromise = null;
-            return id;
-          });
-        } else {
-          return qx.Promise.resolve(id);
+          if (id.initialPromise) {
+            return id.initialPromise.then(function () {
+              id.initialPromise = null;
+              return id;
+            });
+          } else {
+            return qx.Promise.resolve(id);
+          }
+        },
+        "false": function _false(sourcePropertyChain, targetObject, targetProperty, options) {
+          return this.bind(sourcePropertyChain, targetObject, targetProperty, options);
         }
-      },
+      }),
 
       /**
        * Removes the binding with the given id from the current object. The
@@ -155,4 +173,4 @@
   qx.data.MBinding.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MBinding.js.map?dt=1635064691329
+//# sourceMappingURL=MBinding.js.map?dt=1645800079199

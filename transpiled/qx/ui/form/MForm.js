@@ -1,12 +1,25 @@
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
+        "require": true
+      },
       "qx.Mixin": {
         "usage": "dynamic",
         "require": true
       },
       "qx.locale.Manager": {
         "construct": true
+      }
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.dynlocale": {
+          "load": true
+        }
       }
     }
   };
@@ -36,7 +49,7 @@
   qx.Mixin.define("qx.ui.form.MForm", {
     construct: function construct() {
       {
-        qx.locale.Manager.getInstance().addListener("changeLocale", this.__P_183_0, this);
+        qx.locale.Manager.getInstance().addListener("changeLocale", this.__P_189_0, this);
       }
     },
     properties: {
@@ -91,29 +104,32 @@
        * @signature function(e)
        * @param e {Event} the change event
        */
-      __P_183_0: function __P_183_0(e) {
-        // invalid message
-        var invalidMessage = this.getInvalidMessage();
+      __P_189_0: qx.core.Environment.select("qx.dynlocale", {
+        "true": function _true(e) {
+          // invalid message
+          var invalidMessage = this.getInvalidMessage();
 
-        if (invalidMessage && invalidMessage.translate) {
-          this.setInvalidMessage(invalidMessage.translate());
-        } // required invalid message
+          if (invalidMessage && invalidMessage.translate) {
+            this.setInvalidMessage(invalidMessage.translate());
+          } // required invalid message
 
 
-        var requiredInvalidMessage = this.getRequiredInvalidMessage();
+          var requiredInvalidMessage = this.getRequiredInvalidMessage();
 
-        if (requiredInvalidMessage && requiredInvalidMessage.translate) {
-          this.setRequiredInvalidMessage(requiredInvalidMessage.translate());
-        }
-      }
+          if (requiredInvalidMessage && requiredInvalidMessage.translate) {
+            this.setRequiredInvalidMessage(requiredInvalidMessage.translate());
+          }
+        },
+        "false": null
+      })
     },
     destruct: function destruct() {
       {
-        qx.locale.Manager.getInstance().removeListener("changeLocale", this.__P_183_0, this);
+        qx.locale.Manager.getInstance().removeListener("changeLocale", this.__P_189_0, this);
       }
     }
   });
   qx.ui.form.MForm.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MForm.js.map?dt=1635064699966
+//# sourceMappingURL=MForm.js.map?dt=1645800086804

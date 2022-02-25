@@ -77,7 +77,11 @@
       this.addListener("keydown", this._onKeyDown);
       this.addListener("keyup", this._onKeyUp); // register execute event
 
-      this.addListener("execute", this._onExecute, this);
+      this.addListener("execute", this._onExecute, this); // ARIA attrs
+
+      var contentEl = this.getContentElement();
+      contentEl.setAttribute("role", "button");
+      contentEl.setAttribute("aria-pressed", false);
     },
 
     /*
@@ -114,13 +118,13 @@
       },
 
       /**
-      * Whether the button has a third state. Use this for tri-state checkboxes.
-      *
-      * When enabled, the value null of the property value stands for "undetermined",
-      * while true is mapped to "enabled" and false to "disabled" as usual. Note
-      * that the value property is set to false initially.
-      *
-      */
+       * Whether the button has a third state. Use this for tri-state checkboxes.
+       *
+       * When enabled, the value null of the property value stands for "undetermined",
+       * while true is mapped to "enabled" and false to "disabled" as usual. Note
+       * that the value property is set to false initially.
+       *
+       */
       triState: {
         check: "Boolean",
         apply: "_applyTriState",
@@ -154,22 +158,26 @@
        */
       _applyValue: function _applyValue(value, old) {
         value ? this.addState("checked") : this.removeState("checked");
+        var ariaPressed = Boolean(value);
 
         if (this.isTriState()) {
           if (value === null) {
+            ariaPressed = "mixed";
             this.addState("undetermined");
           } else if (old === null) {
             this.removeState("undetermined");
           }
         }
+
+        this.getContentElement().setAttribute("aria-pressed", ariaPressed);
       },
 
       /**
-      * Apply value property when triState property is modified.
-      *
-      * @param value {Boolean} Current value
-      * @param old {Boolean} Previous value
-      */
+       * Apply value property when triState property is modified.
+       *
+       * @param value {Boolean} Current value
+       * @param old {Boolean} Previous value
+       */
       _applyTriState: function _applyTriState(value, old) {
         this._applyValue(this.getValue());
       },
@@ -321,4 +329,4 @@
   qx.ui.form.ToggleButton.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=ToggleButton.js.map?dt=1635064695112
+//# sourceMappingURL=ToggleButton.js.map?dt=1645800082536

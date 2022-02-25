@@ -25,7 +25,6 @@
       "qx.ui.table.cellrenderer.Image": {},
       "qxl.apiviewer.TreeUtil": {},
       "qxl.apiviewer.dao.Class": {},
-      "qx.io.remote.Request": {},
       "qx.core.Init": {},
       "qxl.apiviewer.UiModel": {},
       "qx.ui.popup.Popup": {},
@@ -153,17 +152,17 @@
           colSpan: 2
         });
         this.__P_58_4 = {
-          "PACKAGE": 0,
-          "ENTRY": 4,
-          "CLASS": 1,
-          "INTERFACE": 1,
-          "METHOD_PUB": 2,
-          "METHOD_PROT": 2,
-          "METHOD_PRIV": 2,
-          "PROPERTY_PUB": 4,
-          "EVENT": 5,
-          "CONSTANT": 3,
-          "CHILDCONTROL": 6
+          PACKAGE: 0,
+          ENTRY: 4,
+          CLASS: 1,
+          INTERFACE: 1,
+          METHOD_PUB: 2,
+          METHOD_PROT: 2,
+          METHOD_PRIV: 2,
+          PROPERTY_PUB: 4,
+          EVENT: 5,
+          CONSTANT: 3,
+          CHILDCONTROL: 6
         };
         this.__P_58_3 = new qx.data.Array([true, true, true, true, true, true, true]);
         var types = ["Packages", "Classes, Mixins, Interfaces", "Methods", "Constants", "Properties", "Events", "Child Controls"];
@@ -290,9 +289,7 @@
 
         this.add(table, {
           flex: 1
-        }); // Load index file
-        //      qx.event.Timer.once(this._load, this, 0);
-        // Give keyboard focus to the search field
+        }); // Give keyboard focus to the search field
 
         this.sinput.focus(); // Submit events
 
@@ -526,27 +523,27 @@
       _sortByIcons: function _sortByIcons(a, b) {
         var icons = {
           "package": 0,
-          "class_abstract": 1,
+          class_abstract: 1,
           "class": 2,
-          "class_singleton": 3,
-          "class_static": 4,
-          "class_warning": 5,
-          "class_static_warning": 6,
-          "class_abstract_warning": 7,
-          "class_singleton_warning": 8,
+          class_singleton: 3,
+          class_static: 4,
+          class_warning: 5,
+          class_static_warning: 6,
+          class_abstract_warning: 7,
+          class_singleton_warning: 8,
           "interface": 9,
-          "mixin": 10,
-          "mixin_warning": 11,
-          "method_public": 12,
-          "method_protected": 13,
-          "method_private": 14,
-          "property": 15,
-          "property_protected": 16,
-          "property_private": 17,
-          "event": 18,
-          "constructor": 19,
-          "constant": 20,
-          "childcontrol": 21
+          mixin: 10,
+          mixin_warning: 11,
+          method_public: 12,
+          method_protected: 13,
+          method_private: 14,
+          property: 15,
+          property_protected: 16,
+          property_private: 17,
+          event: 18,
+          constructor: 19,
+          constant: 20,
+          childcontrol: 21
         }; // Get the filename
 
         var aType = a[0];
@@ -571,34 +568,6 @@
         }
 
         return aType - bType;
-      },
-
-      /**
-       * Load the api index
-       * @lint ignoreDeprecated(eval)
-       */
-      _load: function _load() {
-        var url = "./script/apiindex.json";
-        var req = new qx.io.remote.Request(url);
-        req.setAsynchronous(true);
-        req.setTimeout(30000); // 30 sec
-
-        req.setProhibitCaching(false);
-        req.addListener("completed", function (evt) {
-          /* eslint-disable-next-line no-eval */
-          this.apiindex = eval("(" + evt.getContent() + ")");
-
-          if (this.__P_58_5) {
-            setTimeout(function () {
-              this.sinput.setValue(this.__P_58_5);
-              this.__P_58_5 = null;
-            }.bind(this), 0);
-          }
-        }, this);
-        req.addListener("failed", function (evt) {
-          this.warn("Couldn't load file: " + url);
-        }, this);
-        req.send();
       },
 
       /**
@@ -687,4 +656,4 @@
   qxl.apiviewer.ui.SearchView.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=SearchView.js.map?dt=1635064688761
+//# sourceMappingURL=SearchView.js.map?dt=1645800076874

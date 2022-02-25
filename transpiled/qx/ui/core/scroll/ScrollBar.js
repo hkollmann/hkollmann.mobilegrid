@@ -105,7 +105,7 @@
     },
     events: {
       /** Change event for the value. */
-      "scrollAnimationEnd": "qx.event.type.Event"
+      scrollAnimationEnd: "qx.event.type.Event"
     },
 
     /*
@@ -189,17 +189,17 @@
     *****************************************************************************
     */
     members: {
-      __P_246_0: 2,
-      __P_246_1: 0,
+      __P_252_0: 2,
+      __P_252_1: 0,
       // overridden
       _computeSizeHint: function _computeSizeHint() {
-        var hint = qx.ui.core.scroll.ScrollBar.prototype._computeSizeHint.base.call(this);
+        var hint = qx.ui.core.scroll.ScrollBar.superclass.prototype._computeSizeHint.call(this);
 
         if (this.getOrientation() === "horizontal") {
-          this.__P_246_1 = hint.minWidth;
+          this.__P_252_1 = hint.minWidth;
           hint.minWidth = 0;
         } else {
-          this.__P_246_1 = hint.minHeight;
+          this.__P_252_1 = hint.minHeight;
           hint.minHeight = 0;
         }
 
@@ -207,10 +207,10 @@
       },
       // overridden
       renderLayout: function renderLayout(left, top, width, height) {
-        var changes = qx.ui.core.scroll.ScrollBar.prototype.renderLayout.base.call(this, left, top, width, height);
+        var changes = qx.ui.core.scroll.ScrollBar.superclass.prototype.renderLayout.call(this, left, top, width, height);
         var horizontal = this.getOrientation() === "horizontal";
 
-        if (this.__P_246_1 >= (horizontal ? width : height)) {
+        if (this.__P_252_1 >= (horizontal ? width : height)) {
           this.getChildControl("button-begin").setVisibility("hidden");
           this.getChildControl("button-end").setVisibility("hidden");
         } else {
@@ -259,7 +259,7 @@
             break;
         }
 
-        return control || qx.ui.core.scroll.ScrollBar.prototype._createChildControlImpl.base.call(this, id);
+        return control || qx.ui.core.scroll.ScrollBar.superclass.prototype._createChildControlImpl.call(this, id);
       },
 
       /*
@@ -285,7 +285,9 @@
       },
       // property apply
       _applyOrientation: function _applyOrientation(value, old) {
-        // Dispose old layout
+        // ARIA attrs
+        this.getContentElement().setAttribute("aria-orientation", value); // Dispose old layout
+
         var oldLayout = this._getLayout();
 
         if (oldLayout) {
@@ -429,11 +431,11 @@
         var sliderSize = this.getChildControl("slider").getInnerSize();
 
         if (this.getOrientation() == "vertical") {
-          if (sliderSize.height < knobHint.minHeight + this.__P_246_0) {
+          if (sliderSize.height < knobHint.minHeight + this.__P_252_0) {
             hideKnob = true;
           }
         } else {
-          if (sliderSize.width < knobHint.minWidth + this.__P_246_0) {
+          if (sliderSize.width < knobHint.minWidth + this.__P_252_0) {
             hideKnob = true;
           }
         }
@@ -449,4 +451,4 @@
   qx.ui.core.scroll.ScrollBar.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=ScrollBar.js.map?dt=1635064704670
+//# sourceMappingURL=ScrollBar.js.map?dt=1645800091127

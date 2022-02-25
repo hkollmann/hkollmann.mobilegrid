@@ -73,7 +73,7 @@
     */
     statics: {
       /** @type {Map} Internal data structures with all supported input types */
-      __P_248_0: {
+      __P_251_0: {
         text: 1,
         textarea: 1,
         select: 1,
@@ -245,7 +245,7 @@
        * @param wrap {Boolean} Whether to turn text wrap on or off.
        */
       setWrap: qx.core.Environment.select("engine.name", {
-        "mshtml": function mshtml(element, wrap) {
+        mshtml: function mshtml(element, wrap) {
           var wrapValue = wrap ? "soft" : "off"; // Explicitly set overflow-y CSS property to auto when wrapped,
           // allowing the vertical scroll-bar to appear if necessary
 
@@ -253,13 +253,13 @@
           element.wrap = wrapValue;
           element.style.overflowY = styleValue;
         },
-        "gecko": function gecko(element, wrap) {
+        gecko: function gecko(element, wrap) {
           var wrapValue = wrap ? "soft" : "off";
           var styleValue = wrap ? "" : "auto";
           element.setAttribute("wrap", wrapValue);
           element.style.overflow = styleValue;
         },
-        "webkit": function webkit(element, wrap) {
+        webkit: function webkit(element, wrap) {
           var wrapValue = wrap ? "soft" : "off";
           var styleValue = wrap ? "" : "auto";
           element.setAttribute("wrap", wrapValue);
@@ -274,4 +274,4 @@
   qx.bom.Input.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Input.js.map?dt=1635064704763
+//# sourceMappingURL=Input.js.map?dt=1645800091068

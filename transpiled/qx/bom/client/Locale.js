@@ -1,11 +1,14 @@
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
+      "qx.bom.client.OperatingSystem": {
+        "require": true,
+        "defer": "runtime"
+      },
       "qx.Bootstrap": {
         "usage": "dynamic",
         "require": true
       },
-      "qx.bom.client.OperatingSystem": {},
       "qx.lang.Type": {},
       "qx.core.Environment": {
         "defer": "runtime"
@@ -45,6 +48,7 @@
    * directly. Please check its class comment for details how to use it.
    *
    * @internal
+   * @require(qx.bom.client.OperatingSystem)
    */
   qx.Bootstrap.define("qx.bom.client.Locale", {
     /*
@@ -59,7 +63,7 @@
        * @internal
        */
       getLocale: function getLocale() {
-        var locale = qx.bom.client.Locale.__P_117_0();
+        var locale = qx.bom.client.Locale.__P_121_0();
 
         var index = locale.indexOf("-");
 
@@ -78,7 +82,7 @@
        * @internal
        */
       getVariant: function getVariant() {
-        var locale = qx.bom.client.Locale.__P_117_0();
+        var locale = qx.bom.client.Locale.__P_121_0();
 
         var variant = "";
         var index = locale.indexOf("-");
@@ -95,7 +99,7 @@
        *
        * @return {String} The language set by the navigator.
        */
-      __P_117_0: function __P_117_0() {
+      __P_121_0: function __P_121_0() {
         var locale = navigator.userLanguage || navigator.language || ""; // Android Bug: Android does not return the system language from the
         // navigator language before version 4.4.x. Try to parse the language
         // from the userAgent.
@@ -127,4 +131,4 @@
   qx.bom.client.Locale.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Locale.js.map?dt=1635064694297
+//# sourceMappingURL=Locale.js.map?dt=1645800081864

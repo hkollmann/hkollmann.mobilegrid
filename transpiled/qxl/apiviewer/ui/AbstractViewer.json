@@ -13,8 +13,8 @@
         "column": 0
       },
       "end": {
-        "line": 411,
-        "column": 5
+        "line": 399,
+        "column": 3
       }
     },
     "jsdoc": {}
@@ -26,25 +26,24 @@
   "construct": {
     "location": {
       "start": {
-        "line": 31,
-        "column": 16
+        "line": 30,
+        "column": 2
       },
       "end": {
-        "line": 50,
-        "column": 5
+        "line": 49,
+        "column": 3
       }
-    },
-    "jsdoc": {}
+    }
   },
   "properties": {
     "docNode": {
       "location": {
         "start": {
-          "line": 56,
+          "line": 53,
           "column": 4
         },
         "end": {
-          "line": 61,
+          "line": 58,
           "column": 5
         }
       },
@@ -66,11 +65,11 @@
     "showInherited": {
       "location": {
         "start": {
-          "line": 64,
+          "line": 61,
           "column": 4
         },
         "end": {
-          "line": 68,
+          "line": 65,
           "column": 5
         }
       },
@@ -92,11 +91,11 @@
     "showIncluded": {
       "location": {
         "start": {
-          "line": 71,
+          "line": 68,
           "column": 4
         },
         "end": {
-          "line": 75,
+          "line": 72,
           "column": 5
         }
       },
@@ -118,11 +117,11 @@
     "expandProperties": {
       "location": {
         "start": {
-          "line": 78,
+          "line": 75,
           "column": 4
         },
         "end": {
-          "line": 82,
+          "line": 79,
           "column": 5
         }
       },
@@ -144,11 +143,11 @@
     "showProtected": {
       "location": {
         "start": {
-          "line": 85,
+          "line": 82,
           "column": 4
         },
         "end": {
-          "line": 89,
+          "line": 86,
           "column": 5
         }
       },
@@ -170,11 +169,11 @@
     "showPrivate": {
       "location": {
         "start": {
-          "line": 92,
+          "line": 89,
           "column": 4
         },
         "end": {
-          "line": 96,
+          "line": 93,
           "column": 5
         }
       },
@@ -196,11 +195,11 @@
     "showInternal": {
       "location": {
         "start": {
-          "line": 99,
+          "line": 96,
           "column": 4
         },
         "end": {
-          "line": 103,
+          "line": 100,
           "column": 5
         }
       },
@@ -224,11 +223,11 @@
     "fixLinks": {
       "location": {
         "start": {
-          "line": 115,
+          "line": 109,
           "column": 4
         },
         "end": {
-          "line": 123,
+          "line": 117,
           "column": 5
         }
       },
@@ -255,11 +254,11 @@
     "highlightCode": {
       "location": {
         "start": {
-          "line": 126,
+          "line": 119,
           "column": 4
         },
         "end": {
-          "line": 147,
+          "line": 145,
           "column": 5
         }
       },
@@ -271,12 +270,12 @@
     "synced": {
       "location": {
         "start": {
-          "line": 153,
+          "line": 149,
           "column": 4
         },
         "end": {
-          "line": 153,
-          "column": 36
+          "line": 149,
+          "column": 33
         }
       },
       "name": "synced",
@@ -287,12 +286,12 @@
     "_infoPanelHash": {
       "location": {
         "start": {
-          "line": 158,
+          "line": 153,
           "column": 4
         },
         "end": {
-          "line": 158,
-          "column": 25
+          "line": 153,
+          "column": 24
         }
       },
       "type": "variable",
@@ -301,12 +300,12 @@
     "_infoPanels": {
       "location": {
         "start": {
-          "line": 159,
+          "line": 154,
           "column": 4
         },
         "end": {
-          "line": 159,
-          "column": 22
+          "line": 154,
+          "column": 21
         }
       },
       "type": "variable",
@@ -315,11 +314,11 @@
     "__valid": {
       "location": {
         "start": {
-          "line": 160,
+          "line": 155,
           "column": 4
         },
         "end": {
-          "line": 160,
+          "line": 155,
           "column": 18
         }
       },
@@ -329,11 +328,11 @@
     "_init": {
       "location": {
         "start": {
-          "line": 162,
+          "line": 157,
           "column": 4
         },
         "end": {
-          "line": 165,
+          "line": 160,
           "column": 5
         }
       },
@@ -343,11 +342,11 @@
     "__initHtml": {
       "location": {
         "start": {
-          "line": 167,
+          "line": 162,
           "column": 4
         },
         "end": {
-          "line": 192,
+          "line": 187,
           "column": 5
         }
       },
@@ -357,11 +356,11 @@
     "_getTitleHtml": {
       "location": {
         "start": {
-          "line": 201,
+          "line": 196,
           "column": 4
         },
         "end": {
-          "line": 203,
+          "line": 198,
           "column": 5
         }
       },
@@ -402,11 +401,11 @@
     "_getTocHtml": {
       "location": {
         "start": {
-          "line": 205,
+          "line": 200,
           "column": 4
         },
         "end": {
-          "line": 207,
+          "line": 202,
           "column": 5
         }
       },
@@ -416,11 +415,11 @@
     "_getDescriptionHtml": {
       "location": {
         "start": {
-          "line": 210,
+          "line": 204,
           "column": 4
         },
         "end": {
-          "line": 212,
+          "line": 206,
           "column": 5
         }
       },
@@ -430,11 +429,11 @@
     "_syncHtml": {
       "location": {
         "start": {
-          "line": 220,
+          "line": 213,
           "column": 4
         },
         "end": {
-          "line": 242,
+          "line": 235,
           "column": 5
         }
       },
@@ -452,11 +451,11 @@
     "isValid": {
       "location": {
         "start": {
-          "line": 244,
+          "line": 237,
           "column": 4
         },
         "end": {
-          "line": 246,
+          "line": 239,
           "column": 5
         }
       },
@@ -466,11 +465,11 @@
     "addInfoPanel": {
       "location": {
         "start": {
-          "line": 248,
+          "line": 241,
           "column": 4
         },
         "end": {
-          "line": 251,
+          "line": 244,
           "column": 5
         }
       },
@@ -480,11 +479,11 @@
     "getPanels": {
       "location": {
         "start": {
-          "line": 254,
+          "line": 246,
           "column": 4
         },
         "end": {
-          "line": 256,
+          "line": 248,
           "column": 5
         }
       },
@@ -494,11 +493,11 @@
     "getPanelFromHashCode": {
       "location": {
         "start": {
-          "line": 259,
+          "line": 250,
           "column": 4
         },
         "end": {
-          "line": 261,
+          "line": 252,
           "column": 5
         }
       },
@@ -508,11 +507,11 @@
     "_updatePanels": {
       "location": {
         "start": {
-          "line": 269,
+          "line": 259,
           "column": 4
         },
         "end": {
-          "line": 278,
+          "line": 269,
           "column": 5
         }
       },
@@ -544,11 +543,11 @@
     "_updatePanelsWithInheritedMembers": {
       "location": {
         "start": {
-          "line": 286,
+          "line": 277,
           "column": 4
         },
         "end": {
-          "line": 297,
+          "line": 287,
           "column": 5
         }
       },
@@ -578,11 +577,11 @@
     "_applyDocNode": {
       "location": {
         "start": {
-          "line": 305,
+          "line": 294,
           "column": 4
         },
         "end": {
-          "line": 323,
+          "line": 311,
           "column": 5
         }
       },
@@ -612,11 +611,11 @@
     "togglePanelVisibility": {
       "location": {
         "start": {
-          "line": 335,
+          "line": 319,
           "column": 4
         },
         "end": {
-          "line": 347,
+          "line": 335,
           "column": 5
         }
       },
@@ -630,10 +629,9 @@
         "@param": [
           {
             "name": "@param",
-            "body": "panelHashCode {Integer} hash code of the panel object.",
-            "paramName": "panelHashCode",
-            "description": " hash code of the panel object.",
-            "type": "Integer"
+            "body": "panel",
+            "paramName": "panel",
+            "type": ""
           }
         ],
         "@return": [
@@ -651,11 +649,11 @@
     "sortItems": {
       "location": {
         "start": {
-          "line": 354,
+          "line": 342,
           "column": 4
         },
         "end": {
-          "line": 409,
+          "line": 397,
           "column": 5
         }
       },
@@ -949,6 +947,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -973,6 +972,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }

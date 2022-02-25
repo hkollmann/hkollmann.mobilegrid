@@ -1,6 +1,11 @@
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
+        "require": true
+      },
       "qx.Class": {
         "usage": "dynamic",
         "require": true
@@ -11,6 +16,14 @@
       "qx.lang.Array": {},
       "qx.ui.layout.Util": {},
       "qx.ui.menu.Menu": {}
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.debug": {
+          "load": true
+        }
+      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -50,7 +63,12 @@
     */
     members: {
       // overridden
-      verifyLayoutProperty: null,
+      verifyLayoutProperty: qx.core.Environment.select("qx.debug", {
+        "true": function _true(item, name, value) {
+          this.assert(name == "column", "The property '" + name + "' is not supported by the MenuButton layout!");
+        },
+        "false": null
+      }),
       // overridden
       renderLayout: function renderLayout(availWidth, availHeight, padding) {
         var children = this._getLayoutChildren();
@@ -65,7 +83,7 @@
           columnChildren[column] = child;
         }
 
-        var menu = this.__P_206_0(children[0]);
+        var menu = this.__P_209_0(children[0]);
 
         var columns = menu.getColumnSizes();
         var spacing = menu.getSpacingX(); // stretch label column
@@ -102,7 +120,7 @@
        * @param widget {qx.ui.core.Widget} the widget to get the menu for
        * @return {qx.ui.menu.Menu} the menu
        */
-      __P_206_0: function __P_206_0(widget) {
+      __P_209_0: function __P_209_0(widget) {
         while (!(widget instanceof qx.ui.menu.Menu)) {
           widget = widget.getLayoutParent();
         }
@@ -132,4 +150,4 @@
   qx.ui.menu.ButtonLayout.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=ButtonLayout.js.map?dt=1635064701277
+//# sourceMappingURL=ButtonLayout.js.map?dt=1645800087961

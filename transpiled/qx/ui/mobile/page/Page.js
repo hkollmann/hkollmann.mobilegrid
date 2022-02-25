@@ -162,32 +162,32 @@
     },
     events: {
       /** Fired when the lifecycle method {@link #initialize} is called */
-      "initialize": "qx.event.type.Event",
+      initialize: "qx.event.type.Event",
 
       /** Fired when the lifecycle method {@link #start} is called */
-      "start": "qx.event.type.Event",
+      start: "qx.event.type.Event",
 
       /** Fired when the lifecycle method {@link #stop} is called */
-      "stop": "qx.event.type.Event",
+      stop: "qx.event.type.Event",
 
       /** Fired when the lifecycle method {@link #pause} is called */
-      "pause": "qx.event.type.Event",
+      pause: "qx.event.type.Event",
 
       /** Fired when the lifecycle method {@link #resume} is called */
-      "resume": "qx.event.type.Event",
+      resume: "qx.event.type.Event",
 
       /**
        * Fired when the method {@link #back} is called and not prevented by
        * {@link qx.application.Mobile#back}. Data indicating whether
        * the action was triggered by a key event or not.
        */
-      "back": "qx.event.type.Data",
+      back: "qx.event.type.Data",
 
       /** Fired when the method {@link #menu} is called */
-      "menu": "qx.event.type.Event",
+      menu: "qx.event.type.Event",
 
       /** Fired when the method {@link #wait} is called */
-      "wait": "qx.event.type.Event"
+      wait: "qx.event.type.Event"
     },
     properties: {
       // overridden
@@ -212,7 +212,7 @@
      *****************************************************************************
      */
     members: {
-      __P_86_0: false,
+      __P_88_0: false,
       // overridden
       show: function show(properties) {
         if (qx.ui.mobile.page.Page._currentPage) {
@@ -222,12 +222,12 @@
         qx.ui.mobile.page.Page._currentPage = this;
         this.initialize();
         this.start();
-        qx.ui.mobile.page.Page.prototype.show.base.call(this, properties);
+        qx.ui.mobile.page.Page.superclass.prototype.show.call(this, properties);
       },
       // overridden
       exclude: function exclude(properties) {
         this.stop();
-        qx.ui.mobile.page.Page.prototype.exclude.base.call(this, properties);
+        qx.ui.mobile.page.Page.superclass.prototype.exclude.call(this, properties);
       },
 
       /**
@@ -294,7 +294,7 @@
         if (!this.isInitialized()) {
           this._initialize();
 
-          this.__P_86_0 = true;
+          this.__P_88_0 = true;
           this.setLifeCycleState("initialize");
         }
       },
@@ -313,7 +313,7 @@
        * @return {Boolean} Whether the page is already initialized or not
        */
       isInitialized: function isInitialized() {
-        return this.__P_86_0;
+        return this.__P_88_0;
       },
 
       /**
@@ -440,4 +440,4 @@
   qx.ui.mobile.page.Page.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Page.js.map?dt=1635064691937
+//# sourceMappingURL=Page.js.map?dt=1645800079740

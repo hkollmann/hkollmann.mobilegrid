@@ -55,6 +55,12 @@
    * For usage samples, check out the attached links.
    *
    * @group (Polyfill)
+   *
+   * @deprecated {7.0}
+   *  This normalizer handles Date.parse and Date.now. The former has
+   *  been standardized since IE version 3, and the latter, since IE
+   *  version 9, both ancient. There is no need for this normalizer any
+   *  longer.
    */
   qx.Bootstrap.define("qx.lang.normalize.Date", {
     statics: {
@@ -93,13 +99,13 @@
         if (!captureGroups) {
           //
           // if the regular expression does not match parse the string
-          // using the original function. 
-          // Additionally check if it returns a real time value, which we 
-          // ensure by using setTime with an intermediate Date object and the 
-          // parsed time value. 
-          // Safari 11 e.g. parses the date string '19700101' successfully 
+          // using the original function.
+          // Additionally check if it returns a real time value, which we
+          // ensure by using setTime with an intermediate Date object and the
+          // parsed time value.
+          // Safari 11 e.g. parses the date string '19700101' successfully
           // into a time value, but returns NaN if that value is used in setTime.
-          // 
+          //
           // See:
           //   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse
           //   https://github.com/qooxdoo/qooxdoo/issues/9451
@@ -165,4 +171,4 @@
   qx.lang.normalize.Date.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Date.js.map?dt=1635064685460
+//# sourceMappingURL=Date.js.map?dt=1645800073606

@@ -86,8 +86,8 @@
     extend: qx.ui.mobile.container.Composite,
 
     /**
-    * @param scrollProperties {Object} A map with scroll properties which are passed to the scrolling container (may contain iScroll properties).
-    */
+     * @param scrollProperties {Object} A map with scroll properties which are passed to the scrolling container (may contain iScroll properties).
+     */
     construct: function construct(scrollProperties) {
       qx.ui.mobile.container.Composite.constructor.call(this);
 
@@ -109,21 +109,21 @@
       pageEnd: "qx.event.type.Event",
 
       /** Fired when a vertical or horizontal waypoint is triggered. Data:
-      * <code> {"offset": 0,
-      *        "input": "10%",
-      *        "index": 0,
-      *        "element" : 0}</code>
-      */
+       * <code> {"offset": 0,
+       *        "input": "10%",
+       *        "index": 0,
+       *        "element" : 0}</code>
+       */
       waypoint: "qx.event.type.Data",
 
       /**
-      * Fired when a momentum starts on an iOS device.
-      */
+       * Fired when a momentum starts on an iOS device.
+       */
       momentumStart: "qx.event.type.Event",
 
       /**
-      * Fired when a momentum ends on an iOS device.
-      */
+       * Fired when a momentum ends on an iOS device.
+       */
       momentumEnd: "qx.event.type.Data"
     },
 
@@ -168,9 +168,9 @@
       _currentY: null,
 
       /**
-      * Sets the current x position.
-      * @param value {Number} the current horizontal position.
-      */
+       * Sets the current x position.
+       * @param value {Number} the current horizontal position.
+       */
       _setCurrentX: function _setCurrentX(value) {
         var old = this._currentX;
         this._currentX = value;
@@ -179,9 +179,9 @@
       },
 
       /**
-      * Sets the current y position.
-      * @param value {Number} the current vertical position.
-      */
+       * Sets the current y position.
+       * @param value {Number} the current vertical position.
+       */
       _setCurrentY: function _setCurrentY(value) {
         var old = this._currentY;
         this._currentY = value;
@@ -251,11 +251,11 @@
             if (waypoint.endsWith("%")) {
               offset = parseInt(waypoint, 10) * (scrollSize / 100);
               results.push({
-                "offset": offset,
-                "input": waypoint,
-                "index": i,
-                "element": null,
-                "axis": axis
+                offset: offset,
+                input: waypoint,
+                index: i,
+                element: null,
+                axis: axis
               });
             } else {
               // Dynamically created waypoints, based upon a selector.
@@ -272,21 +272,21 @@
                 }
 
                 results.push({
-                  "offset": position.top + this._currentY,
-                  "input": waypoint,
-                  "index": i,
-                  "element": j,
-                  "axis": axis
+                  offset: position.top + this._currentY,
+                  input: waypoint,
+                  index: i,
+                  element: j,
+                  axis: axis
                 });
               }
             }
           } else if (qx.lang.Type.isNumber(waypoint)) {
             results.push({
-              "offset": waypoint,
-              "input": waypoint,
-              "index": i,
-              "element": null,
-              "axis": axis
+              offset: waypoint,
+              input: waypoint,
+              index: i,
+              element: null,
+              axis: axis
             });
           }
         }
@@ -368,16 +368,16 @@
           }
 
           this.fireDataEvent("waypoint", {
-            "axis": axis,
-            "index": nextWaypoint.index,
-            "element": nextWaypoint.element,
-            "direction": direction
+            axis: axis,
+            index: nextWaypoint.index,
+            element: nextWaypoint.element,
+            direction: direction
           });
         }
       },
       // overridden
       _createContainerElement: function _createContainerElement() {
-        var element = qx.ui.mobile.container.Scroll.prototype._createContainerElement.base.call(this);
+        var element = qx.ui.mobile.container.Scroll.superclass.prototype._createContainerElement.call(this);
 
         var scrollElement = this._createScrollElement();
 
@@ -389,7 +389,7 @@
       },
       // overridden
       _getContentElement: function _getContentElement() {
-        var contentElement = qx.ui.mobile.container.Scroll.prototype._getContentElement.base.call(this);
+        var contentElement = qx.ui.mobile.container.Scroll.superclass.prototype._getContentElement.call(this);
 
         var scrollContentElement = this._getScrollContentElement();
 
@@ -498,13 +498,13 @@
       },
 
       /**
-      * Scrolls the wrapper contents to the widgets coordinates in a given
-      * period.
-      *
-      * @param element {String} the element to which the scroll container should scroll to.
-      * @param time {Integer?0} Time slice in which scrolling should be done (in seconds).
-      *
-      */
+       * Scrolls the wrapper contents to the widgets coordinates in a given
+       * period.
+       *
+       * @param element {String} the element to which the scroll container should scroll to.
+       * @param time {Integer?0} Time slice in which scrolling should be done (in seconds).
+       *
+       */
       _scrollToElement: function _scrollToElement(element, time) {
         if (this._getContentElement() && this._isScrollable()) {
           if (typeof time === "undefined") {
@@ -566,4 +566,4 @@
   qx.ui.mobile.container.Scroll.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Scroll.js.map?dt=1635064692051
+//# sourceMappingURL=Scroll.js.map?dt=1645800079835

@@ -3,6 +3,7 @@
     "dependsOn": {
       "qx.core.Environment": {
         "defer": "load",
+        "usage": "dynamic",
         "require": true
       },
       "qx.Class": {
@@ -59,6 +60,9 @@
         },
         "engine.version": {
           "className": "qx.bom.client.Engine"
+        },
+        "qx.dynlocale": {
+          "load": true
         },
         "browser.name": {
           "className": "qx.bom.client.Browser"
@@ -273,6 +277,8 @@
        MEMBERS
     *****************************************************************************
     */
+
+    /* eslint-disable @qooxdoo/qx/no-refs-in-members */
     members: {
       __P_67_0: null,
       __P_67_1: null,
@@ -311,7 +317,7 @@
           }
         }
 
-        qx.ui.basic.Label.prototype._applySelectable.base.call(this, value);
+        qx.ui.basic.Label.superclass.prototype._applySelectable.call(this, value);
       },
       // overridden
       _getContentHeightForWidth: function _getContentHeightForWidth(width) {
@@ -368,7 +374,9 @@
           this.__P_67_0 = qx.theme.manager.Font.getInstance().resolve(value);
 
           if (this.__P_67_0 instanceof qx.bom.webfonts.WebFont) {
-            this.__P_67_3 = this.__P_67_0.addListener("changeStatus", this._onWebFontStatusChange, this);
+            if (!this.__P_67_0.isValid()) {
+              this.__P_67_3 = this.__P_67_0.addListener("changeStatus", this._onWebFontStatusChange, this);
+            }
           }
 
           styles = this.__P_67_0.getStyles();
@@ -414,10 +422,10 @@
       },
 
       /**
-      * Firefox > 9 on OS X will draw an ellipsis on top of the label content even
-      * though there is enough space for the text. Re-applying the content forces
-      * a recalculation and fixes the problem. See qx bug #6293
-      */
+       * Firefox > 9 on OS X will draw an ellipsis on top of the label content even
+       * though there is enough space for the text. Re-applying the content forces
+       * a recalculation and fixes the problem. See qx bug #6293
+       */
       __P_67_6: function __P_67_6() {
         if (!this.getContentElement()) {
           return;
@@ -427,6 +435,7 @@
           var domEl = this.getContentElement().getDomElement();
 
           if (domEl) {
+            /* eslint-disable-next-line no-self-assign */
             domEl.innerHTML = domEl.innerHTML;
           }
         }
@@ -493,13 +502,16 @@
        * @signature function(e)
        * @param e {Event} the change event
        */
-      _onChangeLocale: function _onChangeLocale(e) {
-        var content = this.getValue();
+      _onChangeLocale: qx.core.Environment.select("qx.dynlocale", {
+        "true": function _true(e) {
+          var content = this.getValue();
 
-        if (content && content.translate) {
-          this.setValue(content.translate());
-        }
-      },
+          if (content && content.translate) {
+            this.setValue(content.translate());
+          }
+        },
+        "false": null
+      }),
 
       /**
        * Triggers layout recalculation after a web font was loaded
@@ -521,19 +533,28 @@
         }
       },
       // property apply
-      _applyValue: function _applyValue(value, old) {
-        // Sync with content element
-        if (value && value.translate) {
-          this.getContentElement().setValue(value.translate());
-        } else {
-          this.getContentElement().setValue(value);
-        } // Mark text size cache as invalid
+      _applyValue: qx.core.Environment.select("qx.dynlocale", {
+        "true": function _true(value, old) {
+          // Sync with content element
+          if (value && value.translate) {
+            this.getContentElement().setValue(value.translate());
+          } else {
+            this.getContentElement().setValue(value);
+          } // Mark text size cache as invalid
 
 
-        this.__P_67_1 = true; // Update layout
+          this.__P_67_1 = true; // Update layout
 
-        qx.ui.core.queue.Layout.add(this);
-      }
+          qx.ui.core.queue.Layout.add(this);
+        },
+        "false": function _false(value, old) {
+          this.getContentElement().setValue(value); // Mark text size cache as invalid
+
+          this.__P_67_1 = true; // Update layout
+
+          qx.ui.core.queue.Layout.add(this);
+        }
+      })
     },
 
     /*
@@ -556,4 +577,4 @@
   qx.ui.basic.Label.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Label.js.map?dt=1635064689600
+//# sourceMappingURL=Label.js.map?dt=1645800077578

@@ -62,28 +62,28 @@
     */
     events: {
       /** Event when a request is created */
-      "created": "qx.event.type.Event",
+      created: "qx.event.type.Event",
 
       /** Event when a request is configured */
-      "configured": "qx.event.type.Event",
+      configured: "qx.event.type.Event",
 
       /** Event when a request is send */
-      "sending": "qx.event.type.Event",
+      sending: "qx.event.type.Event",
 
       /** Event when a request is received */
-      "receiving": "qx.event.type.Event",
+      receiving: "qx.event.type.Event",
 
       /** Event when a request is completed */
-      "completed": "qx.event.type.Event",
+      completed: "qx.event.type.Event",
 
       /** Event when a request is aborted */
-      "aborted": "qx.event.type.Event",
+      aborted: "qx.event.type.Event",
 
       /** Event when a request has failed */
-      "failed": "qx.event.type.Event",
+      failed: "qx.event.type.Event",
 
       /** Event when a request has timed out */
-      "timeout": "qx.event.type.Event"
+      timeout: "qx.event.type.Event"
     },
 
     /*
@@ -432,4 +432,4 @@
   qx.io.remote.transport.Abstract.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Abstract.js.map?dt=1635064706046
+//# sourceMappingURL=Abstract.js.map?dt=1645800092477

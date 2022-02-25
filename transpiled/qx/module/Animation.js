@@ -55,13 +55,13 @@
   qx.Bootstrap.define("qx.module.Animation", {
     events: {
       /** Fired when an animation starts. */
-      "animationStart": undefined,
+      animationStart: undefined,
 
       /** Fired when an animation has ended one iteration. */
-      "animationIteration": undefined,
+      animationIteration: undefined,
 
       /** Fired when an animation has ended. */
-      "animationEnd": undefined
+      animationEnd: undefined
     },
     statics: {
       /**
@@ -344,4 +344,4 @@
   qx.module.Animation.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Animation.js.map?dt=1635064693717
+//# sourceMappingURL=Animation.js.map?dt=1645800081193

@@ -90,16 +90,16 @@
     extend: qx.event.Emitter,
     events: {
       /** Fired as soon as the animation has ended. */
-      "end": undefined,
+      end: undefined,
 
       /**
        * Fired on every frame having the passed time as value
        * (might be a float for higher precision).
        */
-      "frame": "Number"
+      frame: "Number"
     },
     members: {
-      __P_107_0: false,
+      __P_109_0: false,
 
       /**
        * Method used to start a series of animation frames. The series will end as
@@ -110,11 +110,11 @@
        * @ignore(performance.*)
        */
       startSequence: function startSequence(duration) {
-        this.__P_107_0 = false;
-        var start = window.performance && performance.now ? performance.now() + qx.bom.AnimationFrame.__P_107_1 : Date.now();
+        this.__P_109_0 = false;
+        var start = window.performance && performance.now ? performance.now() + qx.bom.AnimationFrame.__P_109_1 : Date.now();
 
         var cb = function cb(time) {
-          if (this.__P_107_0) {
+          if (this.__P_109_0) {
             this.id = null;
             return;
           } // final call
@@ -138,7 +138,7 @@
        * sequence is running.
        */
       cancelSequence: function cancelSequence() {
-        this.__P_107_0 = true;
+        this.__P_109_0 = true;
       }
     },
     statics: {
@@ -183,7 +183,6 @@
           y += a[i] * Math.pow(x, i);
         }
 
-        ;
         return y;
       },
 
@@ -204,7 +203,7 @@
         var cb = function cb(time) {
           // check for high resolution time
           if (time < 1e10) {
-            time = qx.bom.AnimationFrame.__P_107_1 + time;
+            time = qx.bom.AnimationFrame.__P_109_1 + time;
           }
 
           time = time || Date.now();
@@ -228,14 +227,14 @@
      */
     defer: function defer(statics) {
       // check and use the high resolution start time if available
-      statics.__P_107_1 = window.performance && performance.timing && performance.timing.navigationStart; // if not, simply use the current time
+      statics.__P_109_1 = window.performance && performance.timing && performance.timing.navigationStart; // if not, simply use the current time
 
-      if (!statics.__P_107_1) {
-        statics.__P_107_1 = Date.now();
+      if (!statics.__P_109_1) {
+        statics.__P_109_1 = Date.now();
       }
     }
   });
   qx.bom.AnimationFrame.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=AnimationFrame.js.map?dt=1635064693591
+//# sourceMappingURL=AnimationFrame.js.map?dt=1645800081085

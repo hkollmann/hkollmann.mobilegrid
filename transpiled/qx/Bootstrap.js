@@ -39,6 +39,21 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     window.qx = {};
   }
   /**
+   * This wraps a function with a plain `function`; JavaScript does not allow methods which are defined
+   * using object method shorthand (eg `{ construct() { this.base(arguments); }}`) to be used as constructors,
+   * the constructor must be a plain old `function`.
+   *
+   * @param {Function} construct
+   * @returns {Function}
+   */
+
+
+  function createPlainFunction(construct) {
+    return function () {
+      return construct.apply(this, [].slice.call(arguments));
+    };
+  }
+  /**
    * Bootstrap qx.Bootstrap to create myself later
    * This is needed for the API browser etc. to let them detect me
    */
@@ -93,7 +108,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     },
     define: function define(name, config) {
       var isStrictMode = function isStrictMode() {
-        return typeof this == 'undefined';
+        return typeof this == "undefined";
       };
 
       if (!config) {
@@ -108,12 +123,15 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
       if (config.members || config.extend) {
         qx.Bootstrap.setDisplayNames(config.members, name + ".prototype");
-        clazz = config.construct || new Function();
+        var construct = config.construct; // Object methods include the method name as part of the signature (eg `construct() {}`),
+        //  whereas plain functions just have `function() {}`
 
-        if (config.extend) {
-          this.extendClass(clazz, clazz, config.extend, name, basename);
+        if (construct && !construct.toString().match(/^function\s*\(/)) {
+          construct = createPlainFunction(construct);
         }
 
+        clazz = construct || new Function();
+        this.extendClass(clazz, clazz, config.extend, name, basename);
         var statics = config.statics || {}; // use keys to include the shadowed in IE
 
         for (var i = 0, keys = qx.Bootstrap.keys(statics), l = keys.length; i < l; i++) {
@@ -198,9 +216,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
     /**
      * Tests whether an object is an instance of qx.core.Object without using instanceof - this
-     * is only for certain low level instances which would otherwise cause a circular, load time 
+     * is only for certain low level instances which would otherwise cause a circular, load time
      * dependency
-     * 
+     *
      * @param object {Object?} the object to test
      * @return {Boolean} true if object is an instance of qx.core.Object
      */
@@ -340,9 +358,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
       /**
        * Tests whether an object is an instance of qx.core.Object without using instanceof - this
-       * is only for certain low level instances which would otherwise cause a circular, load time 
+       * is only for certain low level instances which would otherwise cause a circular, load time
        * dependency
-       * 
+       *
        * @param object {Object?} the object to test
        * @return {Boolean} true if object is an instance of qx.core.Object
        */
@@ -393,7 +411,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        * @param basename {Function} the base name
        */
       extendClass: function extendClass(clazz, construct, superClass, name, basename) {
-        var superproto = superClass.prototype; // Use helper function/class to save the unnecessary constructor call while
+        var superproto = superClass ? superClass.prototype : null; // Use helper function/class to save the unnecessary constructor call while
         // setting up inheritance.
 
         var helper = new Function();
@@ -605,8 +623,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        * @return {Array} array of the keys of the map
        */
       keys: {
-        "ES5": Object.keys,
-        "BROKEN_IE": function BROKEN_IE(map) {
+        ES5: Object.keys,
+        BROKEN_IE: function BROKEN_IE(map) {
           if (map === null || _typeof(map) !== "object" && typeof map !== "function") {
             throw new TypeError("Object.keys requires an object as argument.");
           }
@@ -898,4 +916,4 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   qx.Bootstrap.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Bootstrap.js.map?dt=1635064685755
+//# sourceMappingURL=Bootstrap.js.map?dt=1645800073922

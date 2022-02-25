@@ -73,39 +73,39 @@
     construct: function construct() {
       qx.bom.History.constructor.call(this);
 
-      this.__P_144_0();
+      this.__P_146_0();
     },
     members: {
-      __P_144_1: null,
+      __P_146_1: null,
 
       /**
        * Attach hash change listeners
        */
-      __P_144_0: function __P_144_0() {
+      __P_146_0: function __P_146_0() {
         if (qx.bom.History.SUPPORTS_HASH_CHANGE_EVENT) {
-          var boundFunc = qx.lang.Function.bind(this.__P_144_2, this);
-          this.__P_144_1 = qx.event.GlobalError.observeMethod(boundFunc);
-          qx.bom.Event.addNativeListener(window, "hashchange", this.__P_144_1);
+          var boundFunc = qx.lang.Function.bind(this.__P_146_2, this);
+          this.__P_146_1 = qx.event.GlobalError.observeMethod(boundFunc);
+          qx.bom.Event.addNativeListener(window, "hashchange", this.__P_146_1);
         } else {
-          qx.event.Idle.getInstance().addListener("interval", this.__P_144_2, this);
+          qx.event.Idle.getInstance().addListener("interval", this.__P_146_2, this);
         }
       },
 
       /**
        * Remove hash change listeners
        */
-      __P_144_3: function __P_144_3() {
+      __P_146_3: function __P_146_3() {
         if (qx.bom.History.SUPPORTS_HASH_CHANGE_EVENT) {
-          qx.bom.Event.removeNativeListener(window, "hashchange", this.__P_144_1);
+          qx.bom.Event.removeNativeListener(window, "hashchange", this.__P_146_1);
         } else {
-          qx.event.Idle.getInstance().removeListener("interval", this.__P_144_2, this);
+          qx.event.Idle.getInstance().removeListener("interval", this.__P_146_2, this);
         }
       },
 
       /**
        * hash change event handler
        */
-      __P_144_2: function __P_144_2() {
+      __P_146_2: function __P_146_2() {
         var currentState = this._readState();
 
         if (qx.lang.Type.isString(currentState) && currentState != this.getState()) {
@@ -128,7 +128,7 @@
        * @param state {String} state to save
        */
       _writeState: qx.core.Environment.select("engine.name", {
-        "opera": function opera(state) {
+        opera: function opera(state) {
           qx.event.Timer.once(function () {
             this._setHash(this._encode(state));
           }, this, 0);
@@ -139,10 +139,10 @@
       })
     },
     destruct: function destruct() {
-      this.__P_144_3();
+      this.__P_146_3();
     }
   });
   qx.bom.NativeHistory.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=NativeHistory.js.map?dt=1635064696754
+//# sourceMappingURL=NativeHistory.js.map?dt=1645800083827

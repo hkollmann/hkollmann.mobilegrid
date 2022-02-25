@@ -52,15 +52,15 @@
    */
   qx.Bootstrap.define("qx.event.GlobalError", {
     statics: {
-      __P_130_0: null,
-      __P_130_1: null,
-      __P_130_2: null,
+      __P_75_0: null,
+      __P_75_1: null,
+      __P_75_2: null,
 
       /**
        * Little helper to check if the global error handling is enabled.
        * @return {Boolean} <code>true</code>, if it is enabled.
        */
-      __P_130_3: function __P_130_3() {
+      __P_75_3: function __P_75_3() {
         if (qx.core && qx.core.Environment) {
           return qx.core.Environment.get("qx.globalErrorHandling");
         } else {
@@ -76,36 +76,36 @@
        * @param context {Object?window} The "this" context of the callback function
        */
       setErrorHandler: function setErrorHandler(callback, context) {
-        this.__P_130_0 = callback || null;
-        this.__P_130_2 = context || window;
+        this.__P_75_0 = callback || null;
+        this.__P_75_2 = context || window;
 
-        if (this.__P_130_3()) {
+        if (this.__P_75_3()) {
           // wrap the original onerror
           if (callback && window.onerror) {
-            var wrappedHandler = qx.Bootstrap.bind(this.__P_130_4, this);
+            var wrappedHandler = qx.Bootstrap.bind(this.__P_75_4, this);
 
-            if (this.__P_130_1 == null) {
-              this.__P_130_1 = window.onerror;
+            if (this.__P_75_1 == null) {
+              this.__P_75_1 = window.onerror;
             }
 
             var self = this;
 
             window.onerror = function (msg, uri, lineNumber) {
-              self.__P_130_1(msg, uri, lineNumber);
+              self.__P_75_1(msg, uri, lineNumber);
 
               wrappedHandler(msg, uri, lineNumber);
             };
           }
 
           if (callback && !window.onerror) {
-            window.onerror = qx.Bootstrap.bind(this.__P_130_4, this);
+            window.onerror = qx.Bootstrap.bind(this.__P_75_4, this);
           } // reset
 
 
-          if (this.__P_130_0 == null) {
-            if (this.__P_130_1 != null) {
-              window.onerror = this.__P_130_1;
-              this.__P_130_1 = null;
+          if (this.__P_75_0 == null) {
+            if (this.__P_75_1 != null) {
+              window.onerror = this.__P_75_1;
+              this.__P_75_1 = null;
             } else {
               window.onerror = null;
             }
@@ -124,8 +124,8 @@
        * @param columnNumber {Integer} column number of error
        * @param exception {Error} orginal error
        */
-      __P_130_4: function __P_130_4(msg, uri, lineNumber, columnNumber, exception) {
-        if (this.__P_130_0) {
+      __P_75_4: function __P_75_4(msg, uri, lineNumber, columnNumber, exception) {
+        if (this.__P_75_0) {
           this.handleError(new qx.core.WindowError(msg, uri, lineNumber, columnNumber, exception));
         }
       },
@@ -138,10 +138,10 @@
        * @return {Function} The function wrapped with error handling code
        */
       observeMethod: function observeMethod(method) {
-        if (this.__P_130_3()) {
+        if (this.__P_75_3()) {
           var self = this;
           return function () {
-            if (!self.__P_130_0) {
+            if (!self.__P_75_0) {
               return method.apply(this, arguments);
             }
 
@@ -162,8 +162,8 @@
        * @param ex {qx.core.WindowError|Error} Exception to delegate
        */
       handleError: function handleError(ex) {
-        if (this.__P_130_0) {
-          this.__P_130_0.call(this.__P_130_2, ex);
+        if (this.__P_75_0) {
+          this.__P_75_0.call(this.__P_75_2, ex);
         }
       }
     },
@@ -181,4 +181,4 @@
   qx.event.GlobalError.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=GlobalError.js.map?dt=1635064695702
+//# sourceMappingURL=GlobalError.js.map?dt=1645800079086

@@ -138,8 +138,8 @@
       },
 
       /** The size of the drawer in <code>px</code>. This value is interpreted as width if
-      * orientation is <code>left | right</code>, as height if orientation is
-      * <code>top | bottom</code>. */
+       * orientation is <code>left | right</code>, as height if orientation is
+       * <code>top | bottom</code>. */
       size: {
         check: "Integer",
         init: 300,
@@ -265,7 +265,7 @@
           var transitionTarget = this._getTransitionTarget().getContentElement();
 
           var listenerId = qx.bom.Element.addListener(transitionTarget, "transitionEnd", function (evt) {
-            qx.ui.mobile.container.Drawer.prototype.show.base.call(this);
+            qx.ui.mobile.container.Drawer.superclass.prototype.show.call(this);
 
             this._disableTransition();
 
@@ -276,7 +276,7 @@
             this.removeCssClass("hidden");
           }.bind(this), 0);
         } else {
-          qx.ui.mobile.container.Drawer.prototype.show.base.call(this);
+          qx.ui.mobile.container.Drawer.superclass.prototype.show.call(this);
           this.__P_25_3 = false;
           this.removeCssClass("hidden");
         }
@@ -306,7 +306,7 @@
           var transitionTarget = this._getTransitionTarget().getContentElement();
 
           var listenerId = qx.bom.Element.addListener(transitionTarget, "transitionEnd", function (evt) {
-            qx.ui.mobile.container.Drawer.prototype.hide.base.call(this);
+            qx.ui.mobile.container.Drawer.superclass.prototype.hide.call(this);
 
             this._disableTransition();
 
@@ -319,7 +319,7 @@
             this.addCssClass("hidden");
           }.bind(this), 0);
         } else {
-          qx.ui.mobile.container.Drawer.prototype.hide.base.call(this);
+          qx.ui.mobile.container.Drawer.superclass.prototype.hide.call(this);
           this.addCssClass("hidden");
           this.__P_25_3 = false;
 
@@ -358,16 +358,16 @@
       },
 
       /**
-        * Disables the transition on this drawer.
-        */
+       * Disables the transition on this drawer.
+       */
       _disableTransition: function _disableTransition() {
         qx.bom.element.Style.set(this._getTransitionTarget().getContentElement(), "transition", null);
       },
 
       /**
-      * Returns the target widget which is responsible for the transition handling.
-      * @return {qx.ui.mobile.core.Widget} the transition target widget.
-      */
+       * Returns the target widget which is responsible for the transition handling.
+       * @return {qx.ui.mobile.core.Widget} the transition target widget.
+       */
       _getTransitionTarget: function _getTransitionTarget() {
         if (this.getPositionZ() == "below") {
           return this.__P_25_0;
@@ -455,4 +455,4 @@
   qx.ui.mobile.container.Drawer.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Drawer.js.map?dt=1635064686683
+//# sourceMappingURL=Drawer.js.map?dt=1645800074949

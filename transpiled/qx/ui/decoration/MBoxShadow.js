@@ -57,7 +57,7 @@
    * * Opera 10.5+
    * * Chrome 4.0+
    *
-   * It is possible to define multiple box shadows by setting an 
+   * It is possible to define multiple box shadows by setting an
    * array containing the needed values as the property value.
    * In case multiple values are specified, the values of the properties
    * are repeated until all match in length.
@@ -165,7 +165,7 @@
             }
 
             if (color != null) {
-              var value = (inset ? 'inset ' : '') + hLength + "px " + vLength + "px " + blur + "px " + spread + "px " + color; // apply or append the box shadow styles
+              var value = (inset ? "inset " : "") + hLength + "px " + vLength + "px " + blur + "px " + spread + "px " + color; // apply or append the box shadow styles
 
               if (!styles[propName]) {
                 styles[propName] = value;
@@ -183,4 +183,4 @@
   qx.ui.decoration.MBoxShadow.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MBoxShadow.js.map?dt=1635064698847
+//# sourceMappingURL=MBoxShadow.js.map?dt=1645800085750

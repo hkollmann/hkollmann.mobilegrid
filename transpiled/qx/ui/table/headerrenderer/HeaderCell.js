@@ -51,7 +51,9 @@
       layout.setRowFlex(0, 1);
       layout.setColumnFlex(1, 1);
       layout.setColumnFlex(2, 1);
-      this.setLayout(layout);
+      this.setLayout(layout); // ARIA attrs
+
+      this.getContentElement().setAttribute("role", "columnheader");
     },
     properties: {
       appearance: {
@@ -152,11 +154,11 @@
             break;
         }
 
-        return control || qx.ui.table.headerrenderer.HeaderCell.prototype._createChildControlImpl.base.call(this, id);
+        return control || qx.ui.table.headerrenderer.HeaderCell.superclass.prototype._createChildControlImpl.call(this, id);
       }
     }
   });
   qx.ui.table.headerrenderer.HeaderCell.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=HeaderCell.js.map?dt=1635064704810
+//# sourceMappingURL=HeaderCell.js.map?dt=1645800091210

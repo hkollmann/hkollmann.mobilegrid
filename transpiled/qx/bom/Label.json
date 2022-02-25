@@ -13,7 +13,7 @@
         "column": 0
       },
       "end": {
-        "line": 369,
+        "line": 349,
         "column": 3
       }
     },
@@ -31,11 +31,11 @@
     "__styles": {
       "location": {
         "start": {
-          "line": 34,
+          "line": 32,
           "column": 4
         },
         "end": {
-          "line": 42,
+          "line": 40,
           "column": 5
         }
       },
@@ -59,11 +59,11 @@
     "__prepareText": {
       "location": {
         "start": {
-          "line": 50,
+          "line": 47,
           "column": 4
         },
         "end": {
-          "line": 56,
+          "line": 52,
           "column": 5
         }
       },
@@ -89,11 +89,11 @@
     "__prepareHtml": {
       "location": {
         "start": {
-          "line": 64,
+          "line": 59,
           "column": 4
         },
         "end": {
-          "line": 70,
+          "line": 64,
           "column": 5
         }
       },
@@ -119,11 +119,11 @@
     "__createMeasureElement": {
       "location": {
         "start": {
-          "line": 79,
+          "line": 72,
           "column": 4
         },
         "end": {
-          "line": 120,
+          "line": 113,
           "column": 5
         }
       },
@@ -160,11 +160,11 @@
     "__getStyles": {
       "location": {
         "start": {
-          "line": 130,
+          "line": 122,
           "column": 4
         },
         "end": {
-          "line": 151,
+          "line": 139,
           "column": 5
         }
       },
@@ -201,11 +201,11 @@
     "create": {
       "location": {
         "start": {
-          "line": 172,
+          "line": 159,
           "column": 4
         },
         "end": {
-          "line": 221,
+          "line": 208,
           "column": 5
         }
       },
@@ -258,12 +258,12 @@
     "__sanitizer": {
       "location": {
         "start": {
-          "line": 225,
+          "line": 211,
           "column": 4
         },
         "end": {
-          "line": 225,
-          "column": 22
+          "line": 211,
+          "column": 21
         }
       },
       "jsdoc": {
@@ -280,11 +280,11 @@
     "setSanitizer": {
       "location": {
         "start": {
-          "line": 236,
+          "line": 221,
           "column": 4
         },
         "end": {
-          "line": 245,
+          "line": 229,
           "column": 5
         }
       },
@@ -314,11 +314,11 @@
     "setValue": {
       "location": {
         "start": {
-          "line": 257,
+          "line": 240,
           "column": 4
         },
         "end": {
-          "line": 273,
+          "line": 259,
           "column": 5
         }
       },
@@ -352,11 +352,11 @@
     "getValue": {
       "location": {
         "start": {
-          "line": 282,
+          "line": 267,
           "column": 4
         },
         "end": {
-          "line": 293,
+          "line": 278,
           "column": 5
         }
       },
@@ -391,11 +391,11 @@
     "getHtmlSize": {
       "location": {
         "start": {
-          "line": 304,
+          "line": 288,
           "column": 4
         },
         "end": {
-          "line": 314,
+          "line": 297,
           "column": 5
         }
       },
@@ -446,11 +446,11 @@
     "getTextSize": {
       "location": {
         "start": {
-          "line": 324,
+          "line": 306,
           "column": 4
         },
         "end": {
-          "line": 337,
+          "line": 319,
           "column": 5
         }
       },
@@ -492,11 +492,11 @@
     "__measureSize": {
       "location": {
         "start": {
-          "line": 347,
+          "line": 328,
           "column": 4
         },
         "end": {
-          "line": 367,
+          "line": 347,
           "column": 5
         }
       },

@@ -41,11 +41,11 @@
     extend: qxl.apiviewer.ui.panels.InfoPanel,
 
     /**
-    * Creates class panel. An class panel shows information about classes, mixins
-    * and interfaces
-    *
-    * @param labelText {String} the label text describing the node type.
-    */
+     * Creates class panel. An class panel shows information about classes, mixins
+     * and interfaces
+     *
+     * @param labelText {String} the label text describing the node type.
+     */
     construct: function construct(labelText) {
       qxl.apiviewer.ui.panels.InfoPanel.constructor.call(this, labelText);
     },
@@ -156,4 +156,4 @@
   qxl.apiviewer.ui.panels.ClassPanel.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=ClassPanel.js.map?dt=1635064704070
+//# sourceMappingURL=ClassPanel.js.map?dt=1645800090351

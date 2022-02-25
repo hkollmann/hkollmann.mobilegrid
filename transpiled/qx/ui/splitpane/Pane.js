@@ -160,7 +160,7 @@
             break;
         }
 
-        return control || qx.ui.splitpane.Pane.prototype._createChildControlImpl.base.call(this, id);
+        return control || qx.ui.splitpane.Pane.superclass.prototype._createChildControlImpl.call(this, id);
       },
 
       /**
@@ -231,6 +231,8 @@
        * @param old {String} The old value of the orientation property
        */
       _applyOrientation: function _applyOrientation(value, old) {
+        // ARIA attrs
+        this.getContentElement().setAttribute("aria-orientation", value);
         var slider = this.getChildControl("slider");
         var splitter = this.getChildControl("splitter"); // Store boolean flag for faster access
 
@@ -354,7 +356,7 @@
        * @param flex {Number} The (optional) layout property for the widget's flex value.
        */
       add: function add(widget, flex) {
-        if (flex == null) {
+        if (flex === undefined) {
           this._add(widget);
         } else {
           this._add(widget, {
@@ -607,4 +609,4 @@
   qx.ui.splitpane.Pane.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Pane.js.map?dt=1635064689485
+//# sourceMappingURL=Pane.js.map?dt=1645800077464

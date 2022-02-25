@@ -75,7 +75,6 @@
        * @type {Map} Default attributes for creation {@link #create}.
        */
       DEFAULT_ATTRIBUTES: {
-        onload: "qx.event.handler.Iframe.onevent(this)",
         frameBorder: 0,
         frameSpacing: 0,
         marginWidth: 0,
@@ -102,12 +101,20 @@
         var initValues = qx.bom.Iframe.DEFAULT_ATTRIBUTES;
 
         for (var key in initValues) {
-          if (attributes[key] == null) {
+          if (!(key in attributes)) {
             attributes[key] = initValues[key];
           }
         }
 
-        return qx.dom.Element.create("iframe", attributes, win);
+        var elem = qx.dom.Element.create("iframe", attributes, win);
+
+        if (!("onload" in attributes)) {
+          elem.onload = function () {
+            qx.event.handler.Iframe.onevent(elem);
+          };
+        }
+
+        return elem;
       },
 
       /**
@@ -204,7 +211,7 @@
           // if the end-user navigates in the Iframe.
 
 
-          this.__P_211_0(iframe);
+          this.__P_214_0(iframe);
         } catch (ex) {
           qx.log.Logger.warn("Iframe source could not be set!");
         }
@@ -225,16 +232,15 @@
           }
         } catch (ex) {}
 
-        ;
         return "";
       },
 
       /**
-      * Remember actual URL of iframe.
-      *
-      * @param iframe {Element} DOM element of the iframe.
-      */
-      __P_211_0: function __P_211_0(iframe) {
+       * Remember actual URL of iframe.
+       *
+       * @param iframe {Element} DOM element of the iframe.
+       */
+      __P_214_0: function __P_214_0(iframe) {
         // URL can only be detected after load. Retrieve and store URL once.
         var callback = function callback() {
           qx.bom.Event.removeNativeListener(iframe, "load", callback);
@@ -248,4 +254,4 @@
   qx.bom.Iframe.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Iframe.js.map?dt=1635064701618
+//# sourceMappingURL=Iframe.js.map?dt=1645800088277

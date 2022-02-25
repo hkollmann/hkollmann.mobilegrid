@@ -158,6 +158,8 @@
        MEMBERS
     *****************************************************************************
     */
+
+    /* eslint-disable @qooxdoo/qx/no-refs-in-members */
     members: {
       /*
       ---------------------------------------------------------------------------
@@ -205,7 +207,7 @@
             break;
         }
 
-        return control || qx.ui.container.SlideBar.prototype._createChildControlImpl.base.call(this, id);
+        return control || qx.ui.container.SlideBar.superclass.prototype._createChildControlImpl.call(this, id);
       },
       // overridden
 
@@ -264,12 +266,14 @@
       */
       // overridden
       _applyEnabled: function _applyEnabled(value, old, name) {
-        qx.ui.container.SlideBar.prototype._applyEnabled.base.call(this, value, old, name);
+        qx.ui.container.SlideBar.superclass.prototype._applyEnabled.call(this, value, old, name);
 
         this._updateArrowsEnabled();
       },
       // property apply
       _applyOrientation: function _applyOrientation(value, old) {
+        // ARIA attrs
+        this.getContentElement().setAttribute("aria-orientation", value);
         var oldLayouts = [this.getLayout(), this._getLayout()];
         var buttonForward = this.getChildControl("button-forward");
         var buttonBackward = this.getChildControl("button-backward"); // old can also be null, so we have to check both explicitly to set
@@ -472,4 +476,4 @@
   qx.ui.container.SlideBar.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=SlideBar.js.map?dt=1635064701328
+//# sourceMappingURL=SlideBar.js.map?dt=1645800088002

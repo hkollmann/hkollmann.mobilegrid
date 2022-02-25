@@ -235,6 +235,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
     }
   });
+  /*eslint curly: "off"*/
+
   /**
    * @ignore(define.*, exports)
    * @lint ignoreUnused(JSON3)
@@ -351,7 +353,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
                 stringify([undef, getClass, null]) === "[null,null,null]" && // Simple serialization test. FF 3.1b1 uses Unicode escape sequences
                 // where character escape codes are expected (e.g., `\b` => `\u0008`).
                 stringify({
-                  "a": [value, true, false, null, "\x00\b\n\f\r\t"]
+                  a: [value, true, false, null, "\x00\b\n\f\r\t"]
                 }) == serialized && // FF 3.1b1 and b2 ignore the `filter` and `width` arguments.
                 stringify(null, value) === "1" && stringify([1, 2], null, 1) === "[\n 1,\n 2\n]" && // JSON 2, Prototype <= 1.7, and older WebKit builds incorrectly
                 // serialize extended years.
@@ -448,7 +450,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             if ((members.__proto__ = null, members.__proto__ = {
               // The *proto* property cannot be set multiple times in recent
               // versions of Firefox and SeaMonkey.
-              "toString": 1
+              toString: 1
             }, members).toString != getClass) {
               // Safari <= 2.0.3 doesn't implement `Object#hasOwnProperty`, but
               // supports the mutable *proto* property.
@@ -480,17 +482,17 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
         var PrimitiveTypes = {
-          'boolean': 1,
-          'number': 1,
-          'string': 1,
-          'undefined': 1
+          "boolean": 1,
+          number: 1,
+          string: 1,
+          undefined: 1
         }; // Internal: Determines if the given object `property` value is a
         // non-primitive.
 
         var isHostType = function isHostType(object, property) {
           var type = _typeof(object[property]);
 
-          return type == 'object' ? !!object[property] : !PrimitiveTypes[type];
+          return type == "object" ? !!object[property] : !PrimitiveTypes[type];
         }; // Internal: Normalizes the `for...in` iteration algorithm across
         // environments. Each enumerated key is yielded to a `callback` function.
 
@@ -528,7 +530,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
               var isFunction = getClass.call(object) == functionClass,
                   property,
                   length;
-              var hasProperty = !isFunction && typeof object.constructor != 'function' && isHostType(object, 'hasOwnProperty') ? object.hasOwnProperty : _isProperty;
+              var hasProperty = !isFunction && typeof object.constructor != "function" && isHostType(object, "hasOwnProperty") ? object.hasOwnProperty : _isProperty;
 
               for (property in object) {
                 // Gecko <= 1.0 enumerates the `prototype` property of functions under
@@ -1269,4 +1271,4 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   qx.lang.Json.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Json.js.map?dt=1635064701825
+//# sourceMappingURL=Json.js.map?dt=1645800088509

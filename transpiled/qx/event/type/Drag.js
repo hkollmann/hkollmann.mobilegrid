@@ -63,7 +63,7 @@
        * @return {qx.event.type.Event} The initialized event instance
        */
       init: function init(cancelable, originalEvent) {
-        qx.event.type.Drag.prototype.init.base.call(this, true, cancelable);
+        qx.event.type.Drag.superclass.prototype.init.call(this, true, cancelable);
 
         if (originalEvent) {
           this._native = originalEvent.getNativeEvent() || null;
@@ -77,7 +77,7 @@
       },
       // overridden
       clone: function clone(embryo) {
-        var clone = qx.event.type.Drag.prototype.clone.base.call(this, embryo);
+        var clone = qx.event.type.Drag.superclass.prototype.clone.call(this, embryo);
         clone._native = this._native;
         return clone;
       },
@@ -206,8 +206,8 @@
 
       /**
        * Returns the data of the given type. Used in the <code>drop</code> listener.
-       * 
-       * Note that this is a synchronous method and if any of the drag and drop 
+       *
+       * Note that this is a synchronous method and if any of the drag and drop
        * events handlers are implemented using Promises, this may fail; @see
        * `getDataAsync`.
        *
@@ -220,7 +220,7 @@
 
       /**
        * Returns the data of the given type. Used in the <code>drop</code> listener.
-       * 
+       *
        * @param type {String} Any of the supported types.
        * @return {qx.Promise|var} The data for the given type
        */
@@ -307,4 +307,4 @@
   qx.event.type.Drag.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Drag.js.map?dt=1635064693406
+//# sourceMappingURL=Drag.js.map?dt=1645800080954

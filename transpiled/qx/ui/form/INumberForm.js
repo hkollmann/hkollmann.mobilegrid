@@ -44,7 +44,7 @@
     */
     events: {
       /** Fired when the value was modified */
-      "changeValue": "qx.event.type.Data"
+      changeValue: "qx.event.type.Data"
     },
 
     /*
@@ -84,4 +84,4 @@
   qx.ui.form.INumberForm.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=INumberForm.js.map?dt=1635064706188
+//# sourceMappingURL=INumberForm.js.map?dt=1645800092489

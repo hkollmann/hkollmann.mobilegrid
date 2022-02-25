@@ -13,8 +13,8 @@
         "column": 0
       },
       "end": {
-        "line": 36,
-        "column": 5
+        "line": 33,
+        "column": 3
       }
     },
     "jsdoc": {}
@@ -24,12 +24,12 @@
     "__objectDb": {
       "location": {
         "start": {
-          "line": 24,
+          "line": 22,
           "column": 4
         },
         "end": {
-          "line": 24,
-          "column": 19
+          "line": 22,
+          "column": 18
         }
       },
       "type": "variable",
@@ -38,11 +38,11 @@
     "register": {
       "location": {
         "start": {
-          "line": 26,
+          "line": 24,
           "column": 4
         },
         "end": {
-          "line": 29,
+          "line": 27,
           "column": 5
         }
       },
@@ -52,11 +52,11 @@
     "getObjectFromHashCode": {
       "location": {
         "start": {
-          "line": 31,
+          "line": 29,
           "column": 4
         },
         "end": {
-          "line": 33,
+          "line": 31,
           "column": 5
         }
       },

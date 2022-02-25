@@ -85,8 +85,8 @@
        * @return {Document|null} The document of the given DOM node
        */
       getDocument: function getDocument(node) {
-        return node.nodeType === this.DOCUMENT ? node : // is document already
-        node.ownerDocument || // is DOM node
+        return node.nodeType === this.DOCUMENT ? node // is document already
+        : node.ownerDocument || // is DOM node
         node.document; // is window
       },
 
@@ -298,4 +298,4 @@
   qx.dom.Node.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Node.js.map?dt=1635064692452
+//# sourceMappingURL=Node.js.map?dt=1645800080170

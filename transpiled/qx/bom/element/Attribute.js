@@ -116,7 +116,7 @@
     */
     statics: {
       /** Internal map of attribute conversions */
-      __P_90_0: {
+      __P_92_0: {
         // Name translation table (camelcase is important for some attributes)
         names: {
           "class": "className",
@@ -139,8 +139,8 @@
         },
         // Attributes which are only applyable on a DOM element (not using compile())
         runtime: {
-          "html": 1,
-          "text": 1
+          html: 1,
+          text: 1
         },
         // Attributes which are (forced) boolean
         bools: {
@@ -164,8 +164,8 @@
           $$element: 1,
           $$elementObject: 1,
           // Used by qx.ui.core.Widget
-          $$widget: 1,
-          $$widgetObject: 1,
+          $$qxObjectHash: 1,
+          $$qxObject: 1,
           // Native properties
           checked: 1,
           readOnly: 1,
@@ -181,8 +181,8 @@
           tabIndex: 1
         },
         qxProperties: {
-          $$widget: 1,
-          $$widgetObject: 1,
+          $$qxObjectHash: 1,
+          $$qxObject: 1,
           $$element: 1,
           $$elementObject: 1
         },
@@ -201,8 +201,8 @@
           htmlFor: "",
           tabIndex: 0,
           maxLength: qx.core.Environment.select("engine.name", {
-            "mshtml": 2147483647,
-            "webkit": 524288,
+            mshtml: 2147483647,
+            webkit: 524288,
             "default": -1
           })
         },
@@ -226,7 +226,7 @@
        */
       compile: function compile(map) {
         var html = [];
-        var runtime = this.__P_90_0.runtime;
+        var runtime = this.__P_92_0.runtime;
 
         for (var key in map) {
           if (!runtime[key]) {
@@ -245,7 +245,7 @@
        * @return {var} The value of the attribute
        */
       get: function get(element, name) {
-        var hints = this.__P_90_0;
+        var hints = this.__P_92_0;
         var value; // normalize name
 
         name = hints.names[name] || name; // respect properties
@@ -289,7 +289,7 @@
           return;
         }
 
-        var hints = this.__P_90_0; // normalize name
+        var hints = this.__P_92_0; // normalize name
 
         name = hints.names[name] || name; // respect booleans
 
@@ -329,6 +329,40 @@
       },
 
       /**
+       * Serializes an HTML attribute into a writer; the `writer` function accepts
+       *  an varargs, which can be joined with an empty string or streamed.
+       *
+       * @param writer {Function} The writer to serialize to
+       * @param name {String} Name of the attribute
+       * @param value {var} New value of the attribute
+       */
+      serialize: function serialize(writer, name, value) {
+        if (typeof value === "undefined") {
+          return;
+        }
+
+        var hints = this.__P_92_0; // Skip serialization of hidden Qooxdoo state properties
+
+        if (hints.qxProperties[name]) {
+          return;
+        } // respect booleans
+
+
+        if (hints.bools[name] && !qx.lang.Type.isBoolean(value)) {
+          value = qx.lang.Type.isString(value);
+        } // apply attribute
+
+
+        if ((hints.bools[name] || value === null) && name.indexOf("data-") !== 0) {
+          if (value === true) {
+            writer(name, "=", name);
+          }
+        } else if (value !== null) {
+          writer(name, '="', value, '"');
+        }
+      },
+
+      /**
        * Resets an HTML attribute on the given DOM element
        *
        * @param element {Element} The DOM element to modify
@@ -346,4 +380,4 @@
   qx.bom.element.Attribute.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Attribute.js.map?dt=1635064692287
+//# sourceMappingURL=Attribute.js.map?dt=1645800080048

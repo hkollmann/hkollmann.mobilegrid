@@ -5,6 +5,9 @@
         "usage": "dynamic",
         "require": true
       },
+      "qx.test.MAppearance": {
+        "require": true
+      },
       "qx.theme.simple.Image": {}
     }
   };
@@ -46,31 +49,32 @@
    * @asset(qx/icon/${qx.icontheme}/16/actions/dialog-ok.png)
    */
   qx.Theme.define("qx.theme.simple.Appearance", {
+    include: [qx.test.MAppearance],
     appearances: {
       /*
       ---------------------------------------------------------------------------
         CORE
       ---------------------------------------------------------------------------
       */
-      "widget": {},
-      "label": {
+      widget: {},
+      label: {
         style: function style(states) {
           return {
             textColor: states.disabled ? "text-disabled" : undefined
           };
         }
       },
-      "image": {
+      image: {
         style: function style(states) {
           return {
             opacity: !states.replacement && states.disabled ? 0.3 : undefined
           };
         }
       },
-      "atom": {},
+      atom: {},
       "atom/label": "label",
       "atom/icon": "image",
-      "root": {
+      root: {
         style: function style(states) {
           return {
             backgroundColor: "background",
@@ -79,7 +83,7 @@
           };
         }
       },
-      "popup": {
+      popup: {
         style: function style(states) {
           return {
             decorator: "popup",
@@ -87,7 +91,7 @@
           };
         }
       },
-      "tooltip": {
+      tooltip: {
         include: "popup",
         style: function style(states) {
           return {
@@ -114,7 +118,7 @@
         }
       },
       "tooltip-error/atom": "atom",
-      "iframe": {
+      iframe: {
         style: function style(states) {
           return {
             backgroundColor: "white",
@@ -155,7 +159,7 @@
         SLIDEBAR
       ---------------------------------------------------------------------------
       */
-      "slidebar": {},
+      slidebar: {},
       "slidebar/scrollpane": {},
       "slidebar/content": {},
       "slidebar/button-forward": {
@@ -182,7 +186,7 @@
         TABLE
       ---------------------------------------------------------------------------
       */
-      "table": "widget",
+      table: "widget",
       "table/statusbar": {
         style: function style(states) {
           return {
@@ -315,7 +319,7 @@
         TREEVIRTUAL
       ---------------------------------------------------------------------------
       */
-      "treevirtual": {
+      treevirtual: {
         include: "textfield",
         alias: "table",
         style: function style(states, superStyles) {
@@ -448,7 +452,7 @@
         RESIZER
       ---------------------------------------------------------------------------
       */
-      "resizer": {
+      resizer: {
         style: function style(states) {
           return {
             decorator: "main-dark"
@@ -461,7 +465,7 @@
         SPLITPANE
       ---------------------------------------------------------------------------
       */
-      "splitpane": {},
+      splitpane: {},
       "splitpane/splitter": {
         style: function style(states) {
           return {
@@ -491,7 +495,7 @@
         MENU
       ---------------------------------------------------------------------------
       */
-      "menu": {
+      menu: {
         style: function style(states) {
           var result = {
             backgroundColor: "background",
@@ -625,7 +629,7 @@
         MENU BAR
       ---------------------------------------------------------------------------
       */
-      "menubar": {
+      menubar: {
         style: function style(states) {
           return {
             backgroundColor: "light-background",
@@ -699,7 +703,7 @@
       },
       "virtual-tree-folder": "tree-folder",
       "virtual-tree-file": "tree-file",
-      "cell": {
+      cell: {
         style: function style(states) {
           return {
             backgroundColor: states.selected ? "table-row-background-selected" : "table-row-background-even",
@@ -728,7 +732,7 @@
         SCROLLBAR
       ---------------------------------------------------------------------------
       */
-      "scrollbar": {},
+      scrollbar: {},
       "scrollbar/slider": {},
       "scrollbar/slider/knob": {
         style: function style(states) {
@@ -795,7 +799,7 @@
           };
         }
       },
-      "scrollarea": "widget",
+      scrollarea: "widget",
       "scrollarea/pane": "widget",
       "scrollarea/scrollbar-x": "scrollbar",
       "scrollarea/scrollbar-y": "scrollbar",
@@ -805,7 +809,7 @@
         TEXT FIELD
       ---------------------------------------------------------------------------
       */
-      "textfield": {
+      textfield: {
         style: function style(states) {
           var textColor;
 
@@ -842,7 +846,7 @@
           };
         }
       },
-      "textarea": "textfield",
+      textarea: "textfield",
 
       /*
       ---------------------------------------------------------------------------
@@ -876,7 +880,7 @@
           };
         }
       },
-      "radiobutton": {
+      radiobutton: {
         style: function style(states) {
           // set an empty icon to be sure that the icon image is rendered
           return {
@@ -904,7 +908,7 @@
         CHECK BOX
       ---------------------------------------------------------------------------
       */
-      "checkbox": {
+      checkbox: {
         alias: "atom",
         style: function style(states) {
           // The "disabled" icon is set to an icon **without** the -disabled
@@ -961,9 +965,16 @@
         SPINNER
       ---------------------------------------------------------------------------
       */
-      "spinner": {
+      spinner: {
         style: function style(states) {
+          var decorator;
+
+          if (!!states.invalid && !states.disabled) {
+            decorator = "border-invalid";
+          }
+
           return {
+            decorator: decorator,
             textColor: states.disabled ? "text-disabled" : undefined
           };
         }
@@ -1017,7 +1028,7 @@
         SELECTBOX
       ---------------------------------------------------------------------------
       */
-      "selectbox": "button-frame",
+      selectbox: "button-frame",
       "selectbox/atom": "atom",
       "selectbox/popup": "popup",
       "selectbox/list": {
@@ -1045,7 +1056,19 @@
         COMBO BOX
       ---------------------------------------------------------------------------
       */
-      "combobox": {},
+      combobox: {
+        style: function style(states) {
+          var decorator;
+
+          if (!!states.invalid && !states.disabled) {
+            decorator = "border-invalid";
+          }
+
+          return {
+            decorator: decorator
+          };
+        }
+      },
       "combobox/button": {
         alias: "button-frame",
         include: "button-frame",
@@ -1079,7 +1102,7 @@
         DATEFIELD
       ---------------------------------------------------------------------------
       */
-      "datefield": "textfield",
+      datefield: "textfield",
       "datefield/button": {
         alias: "combobox/button",
         include: "combobox/button",
@@ -1118,11 +1141,11 @@
         LIST
       ---------------------------------------------------------------------------
       */
-      "list": {
+      list: {
         alias: "scrollarea",
         include: "textfield"
       },
-      "listitem": {
+      listitem: {
         alias: "atom",
         style: function style(states) {
           var padding = [3, 5, 3, 5];
@@ -1161,7 +1184,7 @@
         SLIDER
       ---------------------------------------------------------------------------
       */
-      "slider": {
+      slider: {
         style: function style(states) {
           var decorator;
           var padding;
@@ -1231,7 +1254,7 @@
           };
         }
       },
-      "button": {
+      button: {
         alias: "button-frame",
         include: "button-frame",
         style: function style(states) {
@@ -1250,7 +1273,7 @@
           };
         }
       },
-      "menubutton": {
+      menubutton: {
         include: "button",
         alias: "button",
         style: function style(states) {
@@ -1266,7 +1289,7 @@
         SPLIT BUTTON
       ---------------------------------------------------------------------------
       */
-      "splitbutton": {},
+      splitbutton: {},
       "splitbutton/button": {
         alias: "atom",
         style: function style(states) {
@@ -1327,7 +1350,7 @@
         GROUP BOX
       ---------------------------------------------------------------------------
       */
-      "groupbox": {},
+      groupbox: {},
       "groupbox/legend": {
         alias: "atom",
         style: function style(states) {
@@ -1436,7 +1459,7 @@
           };
         }
       },
-      "tree": {
+      tree: {
         include: "list",
         alias: "list",
         style: function style(states) {
@@ -1452,7 +1475,7 @@
         WINDOW
       ---------------------------------------------------------------------------
       */
-      "window": {
+      window: {
         style: function style(states) {
           return {
             contentPadding: [10, 10, 10, 10],
@@ -1546,7 +1569,7 @@
         DATE CHOOSER
       ---------------------------------------------------------------------------
       */
-      "datechooser": {
+      datechooser: {
         style: function style(states) {
           return {
             decorator: "main",
@@ -1648,7 +1671,7 @@
         PROGRESSBAR
       ---------------------------------------------------------------------------
       */
-      "progressbar": {
+      progressbar: {
         style: function style(states) {
           return {
             decorator: "progressbar",
@@ -1672,7 +1695,7 @@
         TOOLBAR
       ---------------------------------------------------------------------------
       */
-      "toolbar": {
+      toolbar: {
         style: function style(states) {
           return {
             backgroundColor: "light-background",
@@ -1847,7 +1870,7 @@
         TABVIEW
       ---------------------------------------------------------------------------
       */
-      "tabview": {},
+      tabview: {},
       "tabview/bar": {
         alias: "slidebar",
         style: function style(states) {
@@ -2017,7 +2040,7 @@
         COLOR POPUP
       ---------------------------------------------------------------------------
       */
-      "colorpopup": {
+      colorpopup: {
         alias: "popup",
         include: "popup",
         style: function style(states) {
@@ -2086,7 +2109,7 @@
         COLOR SELECTOR
       ---------------------------------------------------------------------------
       */
-      "colorselector": "widget",
+      colorselector: "widget",
       "colorselector/control-bar": "widget",
       "colorselector/visual-pane": "groupbox",
       "colorselector/control-pane": "widget",
@@ -2209,9 +2232,9 @@
       "list-search-highlight": {
         style: function style(states) {
           return {
-            backgroundColor: 'rgba(255, 251, 0, 0.53)',
-            textDecorationStyle: 'dotted',
-            textDecorationLine: 'underline'
+            backgroundColor: "rgba(255, 251, 0, 0.53)",
+            textDecorationStyle: "dotted",
+            textDecorationLine: "underline"
           };
         }
       }
@@ -2220,4 +2243,4 @@
   qx.theme.simple.Appearance.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Appearance.js.map?dt=1635064684199
+//# sourceMappingURL=Appearance.js.map?dt=1645800072508

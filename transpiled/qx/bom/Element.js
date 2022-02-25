@@ -34,6 +34,9 @@
       "qx.event.handler.Gesture": {
         "require": true
       },
+      "qx.event.handler.Video": {
+        "require": true
+      },
       "qx.core.Environment": {
         "defer": "load",
         "require": true
@@ -95,6 +98,7 @@
    * @require(qx.event.handler.Input)
    * @require(qx.event.handler.Pointer)
    * @require(qx.event.handler.Gesture)
+   * @require(qx.event.handler.Video)
    */
   qx.Class.define("qx.bom.Element", {
     /*
@@ -310,4 +314,4 @@
   qx.bom.Element.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Element.js.map?dt=1635064692634
+//# sourceMappingURL=Element.js.map?dt=1645800080324

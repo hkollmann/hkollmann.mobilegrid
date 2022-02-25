@@ -46,7 +46,7 @@
        */
       main: function main() {
         // Call super class
-        hkollmann.mobilegrid.demo.Application.prototype.main.base.call(this); // Enable logging in debug variant
+        hkollmann.mobilegrid.demo.Application.superclass.prototype.main.call(this); // Enable logging in debug variant
 
         var demo = new hkollmann.mobilegrid.demo.Demo();
         var manager = new qx.ui.mobile.page.Manager(false);
@@ -58,4 +58,4 @@
   hkollmann.mobilegrid.demo.Application.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Application.js.map?dt=1635064682798
+//# sourceMappingURL=Application.js.map?dt=1645800071153

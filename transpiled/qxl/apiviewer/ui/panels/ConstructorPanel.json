@@ -13,7 +13,7 @@
         "column": 0
       },
       "end": {
-        "line": 44,
+        "line": 45,
         "column": 3
       }
     },
@@ -24,14 +24,13 @@
     "location": {
       "start": {
         "line": 27,
-        "column": 13
+        "column": 2
       },
       "end": {
         "line": 29,
         "column": 3
       }
-    },
-    "jsdoc": {}
+    }
   },
   "members": {
     "canDisplayItem": {
@@ -41,7 +40,7 @@
           "column": 4
         },
         "end": {
-          "line": 37,
+          "line": 39,
           "column": 5
         }
       },
@@ -69,11 +68,11 @@
     "getPanelItemObjects": {
       "location": {
         "start": {
-          "line": 39,
+          "line": 41,
           "column": 4
         },
         "end": {
-          "line": 41,
+          "line": 43,
           "column": 5
         }
       },
@@ -173,6 +172,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -197,6 +197,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }

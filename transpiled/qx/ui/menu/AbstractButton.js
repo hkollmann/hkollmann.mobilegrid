@@ -1,6 +1,11 @@
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
+        "require": true
+      },
       "qx.Class": {
         "usage": "dynamic",
         "require": true
@@ -24,6 +29,14 @@
       "qx.ui.menu.Manager": {},
       "qx.locale.Manager": {},
       "qx.core.ObjectRegistry": {}
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.dynlocale": {
+          "load": true
+        }
+      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -188,7 +201,7 @@
             break;
         }
 
-        return control || qx.ui.menu.AbstractButton.prototype._createChildControlImpl.base.call(this, id);
+        return control || qx.ui.menu.AbstractButton.superclass.prototype._createChildControlImpl.call(this, id);
       },
       // overridden
 
@@ -302,13 +315,16 @@
       /**
        * Update command string on locale changes
        */
-      _onChangeLocale: function _onChangeLocale(e) {
-        var command = this.getCommand();
+      _onChangeLocale: qx.core.Environment.select("qx.dynlocale", {
+        "true": function _true(e) {
+          var command = this.getCommand();
 
-        if (command != null) {
-          this.getChildControl("shortcut").setValue(command.toString());
-        }
-      },
+          if (command != null) {
+            this.getChildControl("shortcut").setValue(command.toString());
+          }
+        },
+        "false": null
+      }),
 
       /*
       ---------------------------------------------------------------------------
@@ -334,6 +350,7 @@
       // property apply
       _applyMenu: function _applyMenu(value, old) {
         if (old) {
+          old.removeListener("changeVisibility", this._onMenuChange, this);
           old.resetOpener();
           old.removeState("submenu");
         }
@@ -341,11 +358,39 @@
         if (value) {
           this._showChildControl("arrow");
 
+          value.addListener("changeVisibility", this._onMenuChange, this);
           value.setOpener(this);
           value.addState("submenu");
         } else {
           this._excludeChildControl("arrow");
+        } // ARIA attrs
+
+
+        var contentEl = this.getContentElement();
+
+        if (!contentEl) {
+          return;
         }
+
+        if (value) {
+          contentEl.setAttribute("aria-haspopup", "menu");
+          contentEl.setAttribute("aria-expanded", value.isVisible());
+          contentEl.setAttribute("aria-controls", value.getContentElement().getAttribute("id"));
+        } else {
+          contentEl.removeAttribute("aria-haspopup");
+          contentEl.removeAttribute("aria-expanded");
+          contentEl.removeAttribute("aria-controls");
+        }
+      },
+
+      /**
+       * Listener for visibility property changes of the attached menu
+       *
+       * @param e {qx.event.type.Data} Property change event
+       */
+      _onMenuChange: function _onMenuChange(e) {
+        // ARIA attrs
+        this.getContentElement().setAttribute("aria-expanded", this.getMenu().isVisible());
       },
       // property apply
       _applyShowCommandLabel: function _applyShowCommandLabel(value, old) {
@@ -379,4 +424,4 @@
   qx.ui.menu.AbstractButton.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=AbstractButton.js.map?dt=1635064696122
+//# sourceMappingURL=AbstractButton.js.map?dt=1645800083304

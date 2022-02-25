@@ -38,7 +38,7 @@
   ************************************************************************ */
 
   /**
-  *
+   *
    * Basic application routing manager.
    *
    * Define routes to react on certain GET / POST / DELETE / PUT operations.
@@ -99,7 +99,7 @@
    * </pre>
    *
    * This example defines different routes to handle navigation events.
-   * 
+   *
    * Note this class must be disposed after use
    */
   qx.Bootstrap.define("qx.application.Routing", {
@@ -435,16 +435,16 @@
       },
 
       /**
-      * Navigates back to the previously executed path.
-      *
-      * @param customData {Map?} The given custom data that should be propagated.
-      *   If it contains a key <code>defaultPath</code> and no history data is
-      *   available, its value is used as a target path. If it does not include
-      *   such a key, the routing's default path is used instead (again only for
-      *   empty history).
-      *   This behavior is useful for instance when reloading a page during
-      *   development but expecting the page's back button always to work.
-      */
+       * Navigates back to the previously executed path.
+       *
+       * @param customData {Map?} The given custom data that should be propagated.
+       *   If it contains a key <code>defaultPath</code> and no history data is
+       *   available, its value is used as a target path. If it does not include
+       *   such a key, the routing's default path is used instead (again only for
+       *   empty history).
+       *   This behavior is useful for instance when reloading a page during
+       *   development but expecting the page's back button always to work.
+       */
       back: function back(customData) {
         var data = customData;
 
@@ -452,7 +452,7 @@
           data["action"] = "back";
         } else {
           data = {
-            "action": "back"
+            action: "back"
           };
         }
 
@@ -490,4 +490,4 @@
   qx.application.Routing.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Routing.js.map?dt=1635064686270
+//# sourceMappingURL=Routing.js.map?dt=1645800074419

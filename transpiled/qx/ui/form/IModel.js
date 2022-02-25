@@ -39,7 +39,7 @@
     */
     events: {
       /** Fired when the model data changes */
-      "changeModel": "qx.event.type.Data"
+      changeModel: "qx.event.type.Data"
     },
 
     /*
@@ -71,4 +71,4 @@
   qx.ui.form.IModel.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=IModel.js.map?dt=1635064695828
+//# sourceMappingURL=IModel.js.map?dt=1645800083045

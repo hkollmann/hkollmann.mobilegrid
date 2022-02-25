@@ -13,7 +13,7 @@
         "column": 0
       },
       "end": {
-        "line": 464,
+        "line": 462,
         "column": 3
       }
     },
@@ -43,11 +43,11 @@
     "getCaller": {
       "location": {
         "start": {
-          "line": 51,
+          "line": 49,
           "column": 4
         },
         "end": {
-          "line": 53,
+          "line": 51,
           "column": 5
         }
       },
@@ -82,11 +82,11 @@
     "getName": {
       "location": {
         "start": {
-          "line": 64,
+          "line": 61,
           "column": 4
         },
         "end": {
-          "line": 121,
+          "line": 110,
           "column": 5
         }
       },
@@ -121,11 +121,11 @@
     "globalEval": {
       "location": {
         "start": {
-          "line": 132,
+          "line": 120,
           "column": 4
         },
         "end": {
-          "line": 139,
+          "line": 126,
           "column": 5
         }
       },
@@ -166,11 +166,11 @@
     "create": {
       "location": {
         "start": {
-          "line": 164,
+          "line": 151,
           "column": 4
         },
         "end": {
-          "line": 235,
+          "line": 239,
           "column": 5
         }
       },
@@ -191,9 +191,9 @@
           },
           {
             "name": "@param",
-            "body": "options {Map?} Map of options\n <ul>\n <li><strong>self</strong>: The object that the \"this\" of the function will refer to. Default is the same as the wrapper function is called.</li>\n <li><strong>args</strong>: An array of arguments that will be passed as arguments to the function when called.\n     Default is no custom arguments; the function will receive the standard arguments when called.</li>\n <li><strong>delay</strong>: If set, the returned function will delay the actual execution by this amount of milliseconds and return a timer handle when called.\n     Default is no delay.</li>\n <li><strong>periodical</strong>: If set the returned function will periodically perform the actual execution with this specified interval\n      and return a timer handle when called. Default is no periodical execution.</li>\n <li><strong>attempt</strong>: If set to true, the returned function will try to execute and return either the results or false on error. Default is false.</li>\n </ul>",
+            "body": "options {Map?} Map of options\n <ul>\n <li><strong>self</strong>: The object that the \"this\" of the function will refer to. Default is the same as the wrapper function is called.</li>\n <li><strong>args</strong>: An array of arguments that will be passed as arguments to the function when called.\n     Default is no custom arguments; the function will receive the standard arguments when called.</li>\n <li><strong>delay</strong>: If set, the returned function will delay the actual execution by this amount of milliseconds and return a timer handle when called.\n     Default is no delay.</li>\n <li><strong>periodical</strong>: If set the returned function will periodically perform the actual execution with this specified interval\n      and return a timer handle when called. Default is no periodical execution.</li>\n <li><strong>attempt</strong>: If set to true, the returned function will try to execute and return either the results or false on error. Default is false.</li>\n <li><strong>always</strong>: Always wrap the function with a closure, even if the options suggest that it is not necessary</li>\n </ul>",
             "paramName": "options",
-            "description": " Map of options\n <ul>\n <li><strong>self</strong>: The object that the \"this\" of the function will refer to. Default is the same as the wrapper function is called.</li>\n <li><strong>args</strong>: An array of arguments that will be passed as arguments to the function when called.\n     Default is no custom arguments; the function will receive the standard arguments when called.</li>\n <li><strong>delay</strong>: If set, the returned function will delay the actual execution by this amount of milliseconds and return a timer handle when called.\n     Default is no delay.</li>\n <li><strong>periodical</strong>: If set the returned function will periodically perform the actual execution with this specified interval\n      and return a timer handle when called. Default is no periodical execution.</li>\n <li><strong>attempt</strong>: If set to true, the returned function will try to execute and return either the results or false on error. Default is false.</li>\n </ul>",
+            "description": " Map of options\n <ul>\n <li><strong>self</strong>: The object that the \"this\" of the function will refer to. Default is the same as the wrapper function is called.</li>\n <li><strong>args</strong>: An array of arguments that will be passed as arguments to the function when called.\n     Default is no custom arguments; the function will receive the standard arguments when called.</li>\n <li><strong>delay</strong>: If set, the returned function will delay the actual execution by this amount of milliseconds and return a timer handle when called.\n     Default is no delay.</li>\n <li><strong>periodical</strong>: If set the returned function will periodically perform the actual execution with this specified interval\n      and return a timer handle when called. Default is no periodical execution.</li>\n <li><strong>attempt</strong>: If set to true, the returned function will try to execute and return either the results or false on error. Default is false.</li>\n <li><strong>always</strong>: Always wrap the function with a closure, even if the options suggest that it is not necessary</li>\n </ul>",
             "optional": true,
             "type": "Map"
           }
@@ -213,11 +213,11 @@
     "bind": {
       "location": {
         "start": {
-          "line": 278,
+          "line": 281,
           "column": 4
         },
         "end": {
-          "line": 285,
+          "line": 289,
           "column": 5
         }
       },
@@ -276,11 +276,11 @@
     "curry": {
       "location": {
         "start": {
-          "line": 310,
+          "line": 313,
           "column": 4
         },
         "end": {
-          "line": 315,
+          "line": 320,
           "column": 5
         }
       },
@@ -322,11 +322,11 @@
     "listener": {
       "location": {
         "start": {
-          "line": 330,
+          "line": 334,
           "column": 4
         },
         "end": {
-          "line": 355,
+          "line": 353,
           "column": 5
         }
       },
@@ -379,11 +379,11 @@
     "attempt": {
       "location": {
         "start": {
-          "line": 387,
+          "line": 384,
           "column": 4
         },
         "end": {
-          "line": 395,
+          "line": 393,
           "column": 5
         }
       },
@@ -436,11 +436,11 @@
     "delay": {
       "location": {
         "start": {
-          "line": 422,
+          "line": 419,
           "column": 4
         },
         "end": {
-          "line": 430,
+          "line": 428,
           "column": 5
         }
       },
@@ -500,11 +500,11 @@
     "periodical": {
       "location": {
         "start": {
-          "line": 454,
+          "line": 451,
           "column": 4
         },
         "end": {
-          "line": 462,
+          "line": 460,
           "column": 5
         }
       },

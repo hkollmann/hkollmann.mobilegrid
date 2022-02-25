@@ -67,13 +67,13 @@
       },
 
       /**
-      * Check whether the queue has scheduled changes for a widget.
-      * Note that the layout parent can have changes scheduled that
-      * affect the children widgets.
-      *
-      * @param widget {qx.ui.core.Widget} Widget to check.
-      * @return {Boolean} Whether the widget given has layout changes queued.
-      */
+       * Check whether the queue has scheduled changes for a widget.
+       * Note that the layout parent can have changes scheduled that
+       * affect the children widgets.
+       *
+       * @param widget {qx.ui.core.Widget} Widget to check.
+       * @return {Boolean} Whether the widget given has layout changes queued.
+       */
       isScheduled: function isScheduled(widget) {
         return !!this.__P_41_0[widget.toHashCode()];
       },
@@ -253,4 +253,4 @@
   qx.ui.core.queue.Layout.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Layout.js.map?dt=1635064687663
+//# sourceMappingURL=Layout.js.map?dt=1645800075907

@@ -109,7 +109,7 @@
        * @return {String} CSS compatible string
        */
       compile: qx.core.Environment.select("engine.name", {
-        "mshtml": function mshtml(opacity) {
+        mshtml: function mshtml(opacity) {
           if (opacity >= 1) {
             opacity = 1;
           }
@@ -138,7 +138,7 @@
        * @signature function(element, opacity)
        */
       set: qx.core.Environment.select("engine.name", {
-        "mshtml": function mshtml(element, opacity) {
+        mshtml: function mshtml(element, opacity) {
           if (qx.core.Environment.get("css.opacity")) {
             element.style.opacity = opacity;
           } else {
@@ -175,7 +175,7 @@
        * @signature function(element)
        */
       reset: qx.core.Environment.select("engine.name", {
-        "mshtml": function mshtml(element) {
+        mshtml: function mshtml(element) {
           if (qx.core.Environment.get("css.opacity")) {
             element.style.opacity = "";
           } else {
@@ -202,7 +202,7 @@
        * @signature function(element, mode)
        */
       get: qx.core.Environment.select("engine.name", {
-        "mshtml": function mshtml(element, mode) {
+        mshtml: function mshtml(element, mode) {
           if (qx.core.Environment.get("css.opacity")) {
             var opacity = qx.bom.element.Style.get(element, "opacity", mode, false);
 
@@ -240,4 +240,4 @@
   qx.bom.element.Opacity.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Opacity.js.map?dt=1635064692924
+//# sourceMappingURL=Opacity.js.map?dt=1645800080558

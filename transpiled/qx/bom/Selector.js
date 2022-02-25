@@ -261,16 +261,16 @@
         rpseudo = new RegExp(pseudos),
         ridentifier = new RegExp("^" + identifier + "$"),
         matchExpr = {
-      "ID": new RegExp("^#(" + identifier + ")"),
-      "CLASS": new RegExp("^\\.(" + identifier + ")"),
-      "TAG": new RegExp("^(" + identifier + "|[*])"),
-      "ATTR": new RegExp("^" + attributes),
-      "PSEUDO": new RegExp("^" + pseudos),
-      "CHILD": new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" + whitespace + "*(even|odd|(([+-]|)(\\d*)n|)" + whitespace + "*(?:([+-]|)" + whitespace + "*(\\d+)|))" + whitespace + "*\\)|)", "i"),
-      "bool": new RegExp("^(?:" + booleans + ")$", "i"),
+      ID: new RegExp("^#(" + identifier + ")"),
+      CLASS: new RegExp("^\\.(" + identifier + ")"),
+      TAG: new RegExp("^(" + identifier + "|[*])"),
+      ATTR: new RegExp("^" + attributes),
+      PSEUDO: new RegExp("^" + pseudos),
+      CHILD: new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" + whitespace + "*(even|odd|(([+-]|)(\\d*)n|)" + whitespace + "*(?:([+-]|)" + whitespace + "*(\\d+)|))" + whitespace + "*\\)|)", "i"),
+      bool: new RegExp("^(?:" + booleans + ")$", "i"),
       // For use in libraries implementing .is()
       // We use this for POS matching in `select`
-      "needsContext": new RegExp("^" + whitespace + "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" + whitespace + "*((?:-\\d)?\\d*)" + whitespace + "*\\)|)(?=[^-]|$)", "i")
+      needsContext: new RegExp("^" + whitespace + "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" + whitespace + "*((?:-\\d)?\\d*)" + whitespace + "*\\)|)(?=[^-]|$)", "i")
     },
         rinputs = /^(?:input|select|textarea|button)$/i,
         rheader = /^h\d$/i,
@@ -286,12 +286,16 @@
       // Support: Firefox<24
       // Workaround erroneous numeric interpretation of +"0x"
 
+      /* eslint-disable-next-line no-self-compare */
+
       return high !== high || escapedWhitespace ? escaped : high < 0 ? // BMP codepoint
       String.fromCharCode(high + 0x10000) : // Supplemental Plane codepoint (surrogate pair)
-      String.fromCharCode(high >> 10 | 0xD800, high & 0x3FF | 0xDC00);
+      String.fromCharCode(high >> 10 | 0xd800, high & 0x3ff | 0xdc00);
     },
         // CSS string/identifier serialization
     // https://drafts.csswg.org/cssom/#common-serializing-idioms
+
+    /* eslint-disable-next-line no-control-regex */
     rcssescape = /([\0-\x1f\x7f]|^-?\d)|^-$|[^\x80-\uFFFF\w-]/g,
         fcssescape = function fcssescape(ch, asCodePoint) {
       if (asCodePoint) {
@@ -1123,7 +1127,7 @@
         }
       },
       preFilter: {
-        "ATTR": function ATTR(match) {
+        ATTR: function ATTR(match) {
           match[1] = match[1].replace(runescape, funescape); // Move the given value to match[3] whether quoted or unquoted
 
           match[3] = (match[3] || match[4] || match[5] || "").replace(runescape, funescape);
@@ -1134,7 +1138,7 @@
 
           return match.slice(0, 4);
         },
-        "CHILD": function CHILD(match) {
+        CHILD: function CHILD(match) {
           /* matches from matchExpr["CHILD"]
           	1 type (only|nth|...)
           	2 what (child|of-type)
@@ -1163,7 +1167,7 @@
 
           return match;
         },
-        "PSEUDO": function PSEUDO(match) {
+        PSEUDO: function PSEUDO(match) {
           var excess,
               unquoted = !match[6] && match[2];
 
@@ -1187,7 +1191,7 @@
         }
       },
       filter: {
-        "TAG": function TAG(nodeNameSelector) {
+        TAG: function TAG(nodeNameSelector) {
           var nodeName = nodeNameSelector.replace(runescape, funescape).toLowerCase();
           return nodeNameSelector === "*" ? function () {
             return true;
@@ -1195,13 +1199,13 @@
             return elem.nodeName && elem.nodeName.toLowerCase() === nodeName;
           };
         },
-        "CLASS": function CLASS(className) {
+        CLASS: function CLASS(className) {
           var pattern = classCache[className + " "];
           return pattern || (pattern = new RegExp("(^|" + whitespace + ")" + className + "(" + whitespace + "|$)")) && classCache(className, function (elem) {
             return pattern.test(typeof elem.className === "string" && elem.className || typeof elem.getAttribute !== "undefined" && elem.getAttribute("class") || "");
           });
         },
-        "ATTR": function ATTR(name, operator, check) {
+        ATTR: function ATTR(name, operator, check) {
           return function (elem) {
             var result = Sizzle.attr(elem, name);
 
@@ -1217,7 +1221,7 @@
             return operator === "=" ? result === check : operator === "!=" ? result !== check : operator === "^=" ? check && result.indexOf(check) === 0 : operator === "*=" ? check && result.indexOf(check) > -1 : operator === "$=" ? check && result.slice(-check.length) === check : operator === "~=" ? (" " + result.replace(rwhitespace, " ") + " ").indexOf(check) > -1 : operator === "|=" ? result === check || result.slice(0, check.length + 1) === check + "-" : false;
           };
         },
-        "CHILD": function CHILD(type, what, argument, first, last) {
+        CHILD: function CHILD(type, what, argument, first, last) {
           var simple = type.slice(0, 3) !== "nth",
               forward = type.slice(-4) !== "last",
               ofType = what === "of-type";
@@ -1322,7 +1326,7 @@
             }
           };
         },
-        "PSEUDO": function PSEUDO(pseudo, argument) {
+        PSEUDO: function PSEUDO(pseudo, argument) {
           // pseudo-class names are case-insensitive
           // http://www.w3.org/TR/selectors/#pseudo-classes
           // Prioritize by case sensitivity in case custom pseudos are added with uppercase letters
@@ -1358,7 +1362,7 @@
       },
       pseudos: {
         // Potentially complex pseudos
-        "not": markFunction(function (selector) {
+        not: markFunction(function (selector) {
           // Trim the selector passed to compile
           // to avoid treating leading and trailing
           // spaces as combinators
@@ -1383,12 +1387,12 @@
             return !results.pop();
           };
         }),
-        "has": markFunction(function (selector) {
+        has: markFunction(function (selector) {
           return function (elem) {
             return Sizzle(selector, elem).length > 0;
           };
         }),
-        "contains": markFunction(function (text) {
+        contains: markFunction(function (text) {
           text = text.replace(runescape, funescape);
           return function (elem) {
             return (elem.textContent || elem.innerText || getText(elem)).indexOf(text) > -1;
@@ -1401,7 +1405,7 @@
         // The matching of C against the element's language value is performed case-insensitively.
         // The identifier C does not have to be a valid language name."
         // http://www.w3.org/TR/selectors/#lang-pseudo
-        "lang": markFunction(function (lang) {
+        lang: markFunction(function (lang) {
           // lang value must be a valid identifier
           if (!ridentifier.test(lang || "")) {
             Sizzle.error("unsupported lang: " + lang);
@@ -1422,26 +1426,26 @@
           };
         }),
         // Miscellaneous
-        "target": function target(elem) {
+        target: function target(elem) {
           var hash = window.location && window.location.hash;
           return hash && hash.slice(1) === elem.id;
         },
-        "root": function root(elem) {
+        root: function root(elem) {
           return elem === docElem;
         },
-        "focus": function focus(elem) {
+        focus: function focus(elem) {
           return elem === document.activeElement && (!document.hasFocus || document.hasFocus()) && !!(elem.type || elem.href || ~elem.tabIndex);
         },
         // Boolean properties
-        "enabled": createDisabledPseudo(false),
-        "disabled": createDisabledPseudo(true),
-        "checked": function checked(elem) {
+        enabled: createDisabledPseudo(false),
+        disabled: createDisabledPseudo(true),
+        checked: function checked(elem) {
           // In CSS3, :checked should return both checked and selected elements
           // http://www.w3.org/TR/2011/REC-css3-selectors-20110929/#checked
           var nodeName = elem.nodeName.toLowerCase();
           return nodeName === "input" && !!elem.checked || nodeName === "option" && !!elem.selected;
         },
-        "selected": function selected(elem) {
+        selected: function selected(elem) {
           // Accessing this property makes selected-by-default
           // options in Safari work properly
           if (elem.parentNode) {
@@ -1451,7 +1455,7 @@
           return elem.selected === true;
         },
         // Contents
-        "empty": function empty(elem) {
+        empty: function empty(elem) {
           // http://www.w3.org/TR/selectors/#empty-pseudo
           // :empty is negated by element (1) or content nodes (text: 3; cdata: 4; entity ref: 5),
           //   but not by others (comment: 8; processing instruction: 7; etc.)
@@ -1464,37 +1468,37 @@
 
           return true;
         },
-        "parent": function parent(elem) {
+        parent: function parent(elem) {
           return !Expr.pseudos["empty"](elem);
         },
         // Element/input types
-        "header": function header(elem) {
+        header: function header(elem) {
           return rheader.test(elem.nodeName);
         },
-        "input": function input(elem) {
+        input: function input(elem) {
           return rinputs.test(elem.nodeName);
         },
-        "button": function button(elem) {
+        button: function button(elem) {
           var name = elem.nodeName.toLowerCase();
           return name === "input" && elem.type === "button" || name === "button";
         },
-        "text": function text(elem) {
+        text: function text(elem) {
           var attr;
           return elem.nodeName.toLowerCase() === "input" && elem.type === "text" && ( // Support: IE<8
           // New HTML5 attribute values (e.g., "search") appear with elem.type === "text"
           (attr = elem.getAttribute("type")) == null || attr.toLowerCase() === "text");
         },
         // Position-in-collection
-        "first": createPositionalPseudo(function () {
+        first: createPositionalPseudo(function () {
           return [0];
         }),
-        "last": createPositionalPseudo(function (matchIndexes, length) {
+        last: createPositionalPseudo(function (matchIndexes, length) {
           return [length - 1];
         }),
-        "eq": createPositionalPseudo(function (matchIndexes, length, argument) {
+        eq: createPositionalPseudo(function (matchIndexes, length, argument) {
           return [argument < 0 ? argument + length : argument];
         }),
-        "even": createPositionalPseudo(function (matchIndexes, length) {
+        even: createPositionalPseudo(function (matchIndexes, length) {
           var i = 0;
 
           for (; i < length; i += 2) {
@@ -1503,7 +1507,7 @@
 
           return matchIndexes;
         }),
-        "odd": createPositionalPseudo(function (matchIndexes, length) {
+        odd: createPositionalPseudo(function (matchIndexes, length) {
           var i = 1;
 
           for (; i < length; i += 2) {
@@ -1512,7 +1516,7 @@
 
           return matchIndexes;
         }),
-        "lt": createPositionalPseudo(function (matchIndexes, length, argument) {
+        lt: createPositionalPseudo(function (matchIndexes, length, argument) {
           var i = argument < 0 ? argument + length : argument;
 
           for (; --i >= 0;) {
@@ -1521,7 +1525,7 @@
 
           return matchIndexes;
         }),
-        "gt": createPositionalPseudo(function (matchIndexes, length, argument) {
+        gt: createPositionalPseudo(function (matchIndexes, length, argument) {
           var i = argument < 0 ? argument + length : argument;
 
           for (; ++i < length;) {
@@ -2157,4 +2161,4 @@
   qx.bom.Selector.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Selector.js.map?dt=1635064697598
+//# sourceMappingURL=Selector.js.map?dt=1645800084611

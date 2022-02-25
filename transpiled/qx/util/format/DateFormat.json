@@ -15,7 +15,7 @@
         "column": 0
       },
       "end": {
-        "line": 1760,
+        "line": 1859,
         "column": 3
       }
     },
@@ -32,8 +32,8 @@
   "construct": {
     "location": {
       "start": {
-        "line": 90,
-        "column": 14
+        "line": 87,
+        "column": 2
       },
       "end": {
         "line": 110,
@@ -73,7 +73,7 @@
     "getDateInstance": {
       "location": {
         "start": {
-          "line": 131,
+          "line": 129,
           "column": 4
         },
         "end": {
@@ -103,11 +103,11 @@
     "getDateTimeInstance": {
       "location": {
         "start": {
-          "line": 156,
+          "line": 155,
           "column": 4
         },
         "end": {
-          "line": 168,
+          "line": 172,
           "column": 5
         }
       },
@@ -133,12 +133,12 @@
     "ASSUME_YEAR_2000_THRESHOLD": {
       "location": {
         "start": {
-          "line": 177,
+          "line": 180,
           "column": 4
         },
         "end": {
-          "line": 177,
-          "column": 35
+          "line": 180,
+          "column": 34
         }
       },
       "jsdoc": {
@@ -161,11 +161,11 @@
     "ISO_MASKS": {
       "location": {
         "start": {
-          "line": 180,
+          "line": 183,
           "column": 4
         },
         "end": {
-          "line": 185,
+          "line": 189,
           "column": 5
         }
       },
@@ -189,12 +189,12 @@
     "AM_MARKER": {
       "location": {
         "start": {
-          "line": 188,
+          "line": 192,
           "column": 4
         },
         "end": {
-          "line": 188,
-          "column": 20
+          "line": 192,
+          "column": 19
         }
       },
       "jsdoc": {
@@ -217,12 +217,12 @@
     "PM_MARKER": {
       "location": {
         "start": {
-          "line": 191,
+          "line": 195,
           "column": 4
         },
         "end": {
-          "line": 191,
-          "column": 20
+          "line": 195,
+          "column": 19
         }
       },
       "jsdoc": {
@@ -247,12 +247,12 @@
     "__locale": {
       "location": {
         "start": {
-          "line": 206,
+          "line": 205,
           "column": 4
         },
         "end": {
-          "line": 206,
-          "column": 19
+          "line": 205,
+          "column": 18
         }
       },
       "type": "variable",
@@ -261,12 +261,12 @@
     "__initialLocale": {
       "location": {
         "start": {
-          "line": 207,
+          "line": 206,
           "column": 4
         },
         "end": {
-          "line": 207,
-          "column": 26
+          "line": 206,
+          "column": 25
         }
       },
       "type": "variable",
@@ -275,18 +275,32 @@
     "__format": {
       "location": {
         "start": {
-          "line": 208,
+          "line": 207,
           "column": 4
         },
         "end": {
-          "line": 208,
-          "column": 19
+          "line": 207,
+          "column": 18
         }
       },
       "type": "variable",
       "access": "private"
     },
     "__parseFeed": {
+      "location": {
+        "start": {
+          "line": 208,
+          "column": 4
+        },
+        "end": {
+          "line": 208,
+          "column": 21
+        }
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__parseRules": {
       "location": {
         "start": {
           "line": 209,
@@ -300,29 +314,15 @@
       "type": "variable",
       "access": "private"
     },
-    "__parseRules": {
-      "location": {
-        "start": {
-          "line": 210,
-          "column": 4
-        },
-        "end": {
-          "line": 210,
-          "column": 23
-        }
-      },
-      "type": "variable",
-      "access": "private"
-    },
     "__formatTree": {
       "location": {
         "start": {
-          "line": 211,
+          "line": 210,
           "column": 4
         },
         "end": {
-          "line": 211,
-          "column": 23
+          "line": 210,
+          "column": 22
         }
       },
       "type": "variable",
@@ -331,12 +331,12 @@
     "__UTC": {
       "location": {
         "start": {
-          "line": 212,
+          "line": 211,
           "column": 4
         },
         "end": {
-          "line": 212,
-          "column": 16
+          "line": 211,
+          "column": 15
         }
       },
       "type": "variable",
@@ -345,11 +345,11 @@
     "__fillNumber": {
       "location": {
         "start": {
-          "line": 221,
+          "line": 220,
           "column": 4
         },
         "end": {
-          "line": 230,
+          "line": 228,
           "column": 5
         }
       },
@@ -391,11 +391,11 @@
     "__getDayInYear": {
       "location": {
         "start": {
-          "line": 239,
+          "line": 236,
           "column": 4
         },
         "end": {
-          "line": 252,
+          "line": 247,
           "column": 5
         }
       },
@@ -430,11 +430,11 @@
     "__thursdayOfSameWeek": {
       "location": {
         "start": {
-          "line": 261,
+          "line": 255,
           "column": 4
         },
         "end": {
-          "line": 263,
+          "line": 259,
           "column": 5
         }
       },
@@ -469,11 +469,11 @@
     "__getWeekInYear": {
       "location": {
         "start": {
-          "line": 272,
+          "line": 267,
           "column": 4
         },
         "end": {
-          "line": 287,
+          "line": 283,
           "column": 5
         }
       },
@@ -508,7 +508,7 @@
     "__getWeekInMonth": {
       "location": {
         "start": {
-          "line": 295,
+          "line": 291,
           "column": 4
         },
         "end": {
@@ -551,7 +551,7 @@
           "column": 4
         },
         "end": {
-          "line": 315,
+          "line": 314,
           "column": 5
         }
       },
@@ -586,11 +586,11 @@
     "__isLeapYear": {
       "location": {
         "start": {
-          "line": 323,
+          "line": 322,
           "column": 4
         },
         "end": {
-          "line": 328,
+          "line": 326,
           "column": 5
         }
       },
@@ -625,11 +625,11 @@
     "__getMonthAndDayFromDayOfYear": {
       "location": {
         "start": {
-          "line": 337,
+          "line": 335,
           "column": 4
         },
         "end": {
-          "line": 365,
+          "line": 358,
           "column": 5
         }
       },
@@ -671,11 +671,11 @@
     "__getYearFromWeekYearAndMonth": {
       "location": {
         "start": {
-          "line": 375,
+          "line": 368,
           "column": 4
         },
         "end": {
-          "line": 395,
+          "line": 392,
           "column": 5
         }
       },
@@ -724,11 +724,11 @@
     "setLocale": {
       "location": {
         "start": {
-          "line": 402,
+          "line": 399,
           "column": 4
         },
         "end": {
-          "line": 408,
+          "line": 406,
           "column": 5
         }
       },
@@ -755,11 +755,11 @@
     "resetLocale": {
       "location": {
         "start": {
-          "line": 413,
+          "line": 411,
           "column": 4
         },
         "end": {
-          "line": 415,
+          "line": 413,
           "column": 5
         }
       },
@@ -777,11 +777,11 @@
     "getLocale": {
       "location": {
         "start": {
-          "line": 420,
+          "line": 418,
           "column": 4
         },
         "end": {
-          "line": 426,
+          "line": 424,
           "column": 5
         }
       },
@@ -796,14 +796,44 @@
       "type": "function",
       "access": "public"
     },
-    "format": {
+    "getFormatString": {
       "location": {
         "start": {
-          "line": 434,
+          "line": 431,
           "column": 4
         },
         "end": {
-          "line": 716,
+          "line": 433,
+          "column": 5
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Returns the original format string</p>"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String}",
+            "type": "String",
+            "description": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "format": {
+      "location": {
+        "start": {
+          "line": 441,
+          "column": 4
+        },
+        "end": {
+          "line": 844,
           "column": 5
         }
       },
@@ -842,11 +872,11 @@
     "parse": {
       "location": {
         "start": {
-          "line": 727,
+          "line": 854,
           "column": 4
         },
         "end": {
-          "line": 830,
+          "line": 1005,
           "column": 5
         }
       },
@@ -893,11 +923,11 @@
     "__initFormatTree": {
       "location": {
         "start": {
-          "line": 838,
+          "line": 1012,
           "column": 4
         },
         "end": {
-          "line": 1003,
+          "line": 1147,
           "column": 5
         }
       },
@@ -915,11 +945,11 @@
     "__initParseFeed": {
       "location": {
         "start": {
-          "line": 1014,
+          "line": 1157,
           "column": 4
         },
         "end": {
-          "line": 1099,
+          "line": 1237,
           "column": 5
         }
       },
@@ -945,11 +975,11 @@
     "__isRuleForWildcard": {
       "location": {
         "start": {
-          "line": 1108,
+          "line": 1246,
           "column": 4
         },
         "end": {
-          "line": 1124,
+          "line": 1259,
           "column": 5
         }
       },
@@ -998,11 +1028,11 @@
     "__initParseRules": {
       "location": {
         "start": {
-          "line": 1129,
+          "line": 1264,
           "column": 4
         },
         "end": {
-          "line": 1758,
+          "line": 1857,
           "column": 5
         }
       },
@@ -1105,6 +1135,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -1129,6 +1160,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }

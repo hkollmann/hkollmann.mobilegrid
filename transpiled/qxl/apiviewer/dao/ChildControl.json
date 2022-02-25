@@ -13,7 +13,7 @@
         "column": 0
       },
       "end": {
-        "line": 35,
+        "line": 32,
         "column": 3
       }
     },
@@ -24,14 +24,13 @@
     "location": {
       "start": {
         "line": 24,
-        "column": 14
+        "column": 2
       },
       "end": {
         "line": 26,
         "column": 3
       }
-    },
-    "jsdoc": {}
+    }
   },
   "members": {
     "getDefaultValue": {
@@ -136,6 +135,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -160,6 +160,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }

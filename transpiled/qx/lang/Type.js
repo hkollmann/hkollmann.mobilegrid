@@ -91,26 +91,26 @@
       isFunctionOrAsyncFunction: qx.Bootstrap.isFunctionOrAsyncFunction,
 
       /**
-      * Whether the value is a regular expression.
-      *
-      * @param value {var} Value to check.
-      * @return {Boolean} Whether the value is a regular expression.
-      */
+       * Whether the value is a regular expression.
+       *
+       * @param value {var} Value to check.
+       * @return {Boolean} Whether the value is a regular expression.
+       */
       isRegExp: function isRegExp(value) {
         return this.getClass(value) === "RegExp";
       },
 
       /**
-      * Whether the value is a number.
-      *
-      * This function checks if the _type_ of the value is Number.
-      * Global properties *NaN*, *-Infinity*, *+Infinity*,
-      * *Number.POSITIVE_INFINITY* and *Number.NEGATIVE_INFINITY*
-      * return true.
-      *
-      * @param value {var} Value to check.
-      * @return {Boolean} Whether the value is a number.
-      */
+       * Whether the value is a number.
+       *
+       * This function checks if the _type_ of the value is Number.
+       * Global properties *NaN*, *-Infinity*, *+Infinity*,
+       * *Number.POSITIVE_INFINITY* and *Number.NEGATIVE_INFINITY*
+       * return true.
+       *
+       * @param value {var} Value to check.
+       * @return {Boolean} Whether the value is a number.
+       */
       isNumber: function isNumber(value) {
         // Added "value !== null" because IE throws an exception "Object expected"
         // by executing "value instanceof Number" if value is a DOM element that
@@ -121,11 +121,11 @@
       },
 
       /**
-      * Whether the value is a boolean.
-      *
-      * @param value {var} Value to check.
-      * @return {Boolean} Whether the value is a boolean.
-      */
+       * Whether the value is a boolean.
+       *
+       * @param value {var} Value to check.
+       * @return {Boolean} Whether the value is a boolean.
+       */
       isBoolean: function isBoolean(value) {
         // Added "value !== null" because IE throws an exception "Object expected"
         // by executing "value instanceof Boolean" if value is a DOM element that
@@ -182,4 +182,4 @@
   qx.lang.Type.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Type.js.map?dt=1635064686030
+//# sourceMappingURL=Type.js.map?dt=1645800074170

@@ -15,7 +15,7 @@
         "column": 0
       },
       "end": {
-        "line": 651,
+        "line": 640,
         "column": 3
       }
     },
@@ -38,11 +38,11 @@
   "construct": {
     "location": {
       "start": {
-        "line": 52,
-        "column": 14
+        "line": 48,
+        "column": 2
       },
       "end": {
-        "line": 90,
+        "line": 107,
         "column": 3
       }
     },
@@ -52,11 +52,11 @@
     "handles": {
       "location": {
         "start": {
-          "line": 108,
+          "line": 121,
           "column": 4
         },
         "end": {
-          "line": 116,
+          "line": 134,
           "column": 5
         }
       },
@@ -80,11 +80,11 @@
     "isSupported": {
       "location": {
         "start": {
-          "line": 124,
+          "line": 141,
           "column": 4
         },
         "end": {
-          "line": 126,
+          "line": 143,
           "column": 5
         }
       },
@@ -110,11 +110,11 @@
     "_numericMap": {
       "location": {
         "start": {
-          "line": 143,
+          "line": 157,
           "column": 4
         },
         "end": {
-          "line": 150,
+          "line": 163,
           "column": 5
         }
       },
@@ -140,12 +140,12 @@
     "__data": {
       "location": {
         "start": {
-          "line": 165,
+          "line": 173,
           "column": 4
         },
         "end": {
-          "line": 165,
-          "column": 17
+          "line": 173,
+          "column": 16
         }
       },
       "type": "variable",
@@ -154,12 +154,12 @@
     "__lastReadyState": {
       "location": {
         "start": {
-          "line": 166,
+          "line": 174,
           "column": 4
         },
         "end": {
-          "line": 166,
-          "column": 24
+          "line": 174,
+          "column": 23
         }
       },
       "type": "variable",
@@ -168,12 +168,12 @@
     "__form": {
       "location": {
         "start": {
-          "line": 167,
+          "line": 175,
           "column": 4
         },
         "end": {
-          "line": 167,
-          "column": 17
+          "line": 175,
+          "column": 16
         }
       },
       "type": "variable",
@@ -182,12 +182,12 @@
     "__frame": {
       "location": {
         "start": {
-          "line": 168,
+          "line": 176,
           "column": 4
         },
         "end": {
-          "line": 168,
-          "column": 18
+          "line": 176,
+          "column": 17
         }
       },
       "type": "variable",
@@ -196,12 +196,12 @@
     "__onreadystatechangeWrapper": {
       "location": {
         "start": {
-          "line": 169,
+          "line": 177,
           "column": 4
         },
         "end": {
-          "line": 169,
-          "column": 38
+          "line": 177,
+          "column": 37
         }
       },
       "type": "variable",
@@ -210,7 +210,7 @@
     "send": {
       "location": {
         "start": {
-          "line": 181,
+          "line": 189,
           "column": 4
         },
         "end": {
@@ -236,11 +236,11 @@
     "_onload": {
       "location": {
         "start": {
-          "line": 281,
+          "line": 280,
           "column": 4
         },
         "end": {
-          "line": 296,
+          "line": 298,
           "column": 6
         }
       },
@@ -273,11 +273,11 @@
     "_onreadystatechange": {
       "location": {
         "start": {
-          "line": 305,
+          "line": 306,
           "column": 4
         },
         "end": {
-          "line": 307,
+          "line": 310,
           "column": 6
         }
       },
@@ -310,11 +310,11 @@
     "_switchReadyState": {
       "location": {
         "start": {
-          "line": 315,
+          "line": 317,
           "column": 4
         },
         "end": {
-          "line": 332,
+          "line": 334,
           "column": 5
         }
       },
@@ -341,12 +341,12 @@
     "setRequestHeader": {
       "location": {
         "start": {
-          "line": 351,
+          "line": 350,
           "column": 4
         },
         "end": {
-          "line": 351,
-          "column": 50
+          "line": 350,
+          "column": 39
         }
       },
       "jsdoc": {
@@ -383,11 +383,11 @@
     "getResponseHeader": {
       "location": {
         "start": {
-          "line": 368,
+          "line": 366,
           "column": 4
         },
         "end": {
-          "line": 370,
+          "line": 368,
           "column": 5
         }
       },
@@ -426,11 +426,11 @@
     "getResponseHeaders": {
       "location": {
         "start": {
-          "line": 379,
+          "line": 377,
           "column": 4
         },
         "end": {
-          "line": 381,
+          "line": 379,
           "column": 5
         }
       },
@@ -460,11 +460,11 @@
     "getStatusCode": {
       "location": {
         "start": {
-          "line": 395,
+          "line": 393,
           "column": 4
         },
         "end": {
-          "line": 397,
+          "line": 395,
           "column": 5
         }
       },
@@ -494,11 +494,11 @@
     "getStatusText": {
       "location": {
         "start": {
-          "line": 405,
+          "line": 403,
           "column": 4
         },
         "end": {
-          "line": 407,
+          "line": 405,
           "column": 5
         }
       },
@@ -528,11 +528,11 @@
     "getIframeWindow": {
       "location": {
         "start": {
-          "line": 420,
+          "line": 418,
           "column": 4
         },
         "end": {
-          "line": 422,
+          "line": 420,
           "column": 5
         }
       },
@@ -558,11 +558,11 @@
     "getIframeDocument": {
       "location": {
         "start": {
-          "line": 430,
+          "line": 427,
           "column": 4
         },
         "end": {
-          "line": 432,
+          "line": 429,
           "column": 5
         }
       },
@@ -588,11 +588,11 @@
     "getIframeBody": {
       "location": {
         "start": {
-          "line": 440,
+          "line": 436,
           "column": 4
         },
         "end": {
-          "line": 442,
+          "line": 438,
           "column": 5
         }
       },
@@ -618,11 +618,11 @@
     "getIframeTextContent": {
       "location": {
         "start": {
-          "line": 458,
+          "line": 451,
           "column": 4
         },
         "end": {
-          "line": 478,
+          "line": 472,
           "column": 5
         }
       },
@@ -648,11 +648,11 @@
     "getIframeHtmlContent": {
       "location": {
         "start": {
-          "line": 486,
+          "line": 479,
           "column": 4
         },
         "end": {
-          "line": 490,
+          "line": 482,
           "column": 5
         }
       },
@@ -678,11 +678,11 @@
     "getFetchedLength": {
       "location": {
         "start": {
-          "line": 499,
+          "line": 490,
           "column": 4
         },
         "end": {
-          "line": 501,
+          "line": 492,
           "column": 5
         }
       },
@@ -712,11 +712,11 @@
     "getResponseContent": {
       "location": {
         "start": {
-          "line": 508,
+          "line": 499,
           "column": 4
         },
         "end": {
-          "line": 601,
+          "line": 584,
           "column": 5
         }
       },
@@ -827,6 +827,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -851,6 +852,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }
@@ -1719,11 +1721,11 @@
   "defer": {
     "location": {
       "start": {
-        "line": 612,
-        "column": 10
+        "line": 593,
+        "column": 2
       },
       "end": {
-        "line": 617,
+        "line": 600,
         "column": 3
       }
     },
@@ -1732,11 +1734,11 @@
   "destruct": {
     "location": {
       "start": {
-        "line": 628,
-        "column": 13
+        "line": 608,
+        "column": 2
       },
       "end": {
-        "line": 650,
+        "line": 639,
         "column": 3
       }
     },

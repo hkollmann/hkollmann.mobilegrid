@@ -13,7 +13,7 @@
         "column": 0
       },
       "end": {
-        "line": 67,
+        "line": 61,
         "column": 3
       }
     },
@@ -30,28 +30,26 @@
   "construct": {
     "location": {
       "start": {
-        "line": 27,
-        "column": 14
+        "line": 26,
+        "column": 2
       },
       "end": {
-        "line": 51,
+        "line": 46,
         "column": 3
       }
-    },
-    "jsdoc": {}
+    }
   },
   "defer": {
     "location": {
       "start": {
-        "line": 54,
-        "column": 10
+        "line": 48,
+        "column": 2
       },
       "end": {
-        "line": 66,
+        "line": 60,
         "column": 3
       }
-    },
-    "jsdoc": {}
+    }
   },
   "events": {},
   "members": {
@@ -212,6 +210,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -236,6 +235,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }

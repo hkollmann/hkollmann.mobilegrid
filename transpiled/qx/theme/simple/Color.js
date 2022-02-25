@@ -50,7 +50,7 @@
   qx.Theme.define("qx.theme.simple.Color", {
     colors: {
       // main
-      "background": "white",
+      background: "white",
       "dark-blue": "#5685D6",
       "light-background": "#E0ECFF",
       // backgrounds
@@ -65,15 +65,15 @@
       "tabview-button-border": "#134983",
       "tabview-label-active-disabled": "#D9D9D9",
       // text colors
-      "link": "#24B",
+      link: "#24B",
       // scrollbar
       "scrollbar-bright": "#F1F1F1",
       "scrollbar-dark": "#EBEBEB",
       // form
-      "button": "#E8F0E3",
+      button: "#E8F0E3",
       "button-border": "#BBB",
       "button-border-hovered": "#939393",
-      "invalid": "#FF0000",
+      invalid: "#FF0000",
       "button-box-bright": "#F9F9F9",
       "button-box-dark": "#E3E3E3",
       "button-box-bright-pressed": "#DDDDDD",
@@ -85,7 +85,7 @@
       // group box
       "white-box-border": "#BCBCBC",
       // shadows
-      "shadow": qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 0.4)" : "#666666",
+      shadow: qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 0.4)" : "#666666",
       // borders
       // 'border-main' is an alias of 'background-selected' (compatibility reasons)
       "border-main": "#6694E3",
@@ -94,12 +94,12 @@
       // separator
       "border-separator": "#808080",
       // text
-      "text": "black",
+      text: "black",
       "text-disabled": "#A7A6AA",
       "text-selected": "white",
       "text-placeholder": "#CBC8CD",
       // tooltip
-      "tooltip": "#FFFFE1",
+      tooltip: "#FFFFE1",
       "tooltip-text": "black",
       // table
       "table-header": [242, 242, 242],
@@ -129,4 +129,4 @@
   qx.theme.simple.Color.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Color.js.map?dt=1635064683843
+//# sourceMappingURL=Color.js.map?dt=1645800072176

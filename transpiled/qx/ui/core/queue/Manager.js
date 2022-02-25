@@ -7,6 +7,7 @@
       },
       "qx.core.Environment": {
         "defer": "load",
+        "usage": "dynamic",
         "require": true
       },
       "qx.Class": {
@@ -34,6 +35,9 @@
     "environment": {
       "provided": [],
       "required": {
+        "qx.debug": {
+          "load": true
+        },
         "event.touch": {
           "defer": true,
           "className": "qx.bom.client.Event"
@@ -223,27 +227,33 @@
        * @param callback {Function} the callback function
        * @param finallyCode {Function} function to be called in the finally block
        */
-      __P_45_5: function __P_45_5(callback, finallyCode) {
-        var self = qx.ui.core.queue.Manager;
-
-        try {
+      __P_45_5: qx.core.Environment.select("qx.debug", {
+        "true": function _true(callback, finallyCode) {
           callback();
-        } catch (e) {
-          self.__P_45_0 = false;
-          self.__P_45_4 = false;
-          self.__P_45_3 += 1;
-
-          if (self.__P_45_3 <= self.MAX_RETRIES) {
-            self.scheduleFlush();
-          } else {
-            throw new Error("Fatal Error: Flush terminated " + (self.__P_45_3 - 1) + " times in a row" + " due to exceptions in user code. The application has to be reloaded!");
-          }
-
-          throw e;
-        } finally {
           finallyCode();
+        },
+        "false": function _false(callback, finallyCode) {
+          var self = qx.ui.core.queue.Manager;
+
+          try {
+            callback();
+          } catch (e) {
+            self.__P_45_0 = false;
+            self.__P_45_4 = false;
+            self.__P_45_3 += 1;
+
+            if (self.__P_45_3 <= self.MAX_RETRIES) {
+              self.scheduleFlush();
+            } else {
+              throw new Error("Fatal Error: Flush terminated " + (self.__P_45_3 - 1) + " times in a row" + " due to exceptions in user code. The application has to be reloaded!");
+            }
+
+            throw e;
+          } finally {
+            finallyCode();
+          }
         }
-      },
+      }),
 
       /**
        * Handler used on touch devices to prevent the queue from manipulating
@@ -277,4 +287,4 @@
   qx.ui.core.queue.Manager.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Manager.js.map?dt=1635064687843
+//# sourceMappingURL=Manager.js.map?dt=1645800076068

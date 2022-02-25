@@ -45,6 +45,8 @@
    * @group (Polyfill)
    * @require(qx.bom.client.EcmaScript)
    */
+
+  /* eslint-disable no-extend-native */
   qx.Bootstrap.define("qx.lang.normalize.Array", {
     statics: {
       /**
@@ -261,7 +263,7 @@
       },
 
       /**
-       * The <code>find()</code> method returns a value in the array, if an element in the 
+       * The <code>find()</code> method returns a value in the array, if an element in the
        * array satisfies the provided testing function. Otherwise undefined is returned.
        *
        * <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find">MDN documentation</a> |
@@ -285,7 +287,7 @@
       },
 
       /**
-       * The <code>findIndex()</code> method returns an index in the array, if an element in the 
+       * The <code>findIndex()</code> method returns an index in the array, if an element in the
        * array satisfies the provided testing function. Otherwise -1 is returned.
        *
        * <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex">MDN documentation</a> |
@@ -425,7 +427,7 @@
         var k = Math.max(n >= 0 ? n : len - Math.abs(n), 0);
 
         function sameValueZero(x, y) {
-          return x === y || typeof x === 'number' && typeof y === 'number' && isNaN(x) && isNaN(y);
+          return x === y || typeof x === "number" && typeof y === "number" && isNaN(x) && isNaN(y);
         } // 7. Repeat, while k < len
 
 
@@ -434,7 +436,7 @@
           // b. If SameValueZero(searchElement, elementK) is true, return true.
           if (sameValueZero(o[k], searchElement)) {
             return true;
-          } // c. Increase k by 1. 
+          } // c. Increase k by 1.
 
 
           k++;
@@ -475,4 +477,4 @@
   qx.lang.normalize.Array.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Array.js.map?dt=1635064685419
+//# sourceMappingURL=Array.js.map?dt=1645800073580

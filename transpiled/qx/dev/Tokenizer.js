@@ -100,19 +100,19 @@
           "null": 1,
           "true": 1,
           "false": 1,
-          "NaN": 1,
-          "Infinity": 1,
+          NaN: 1,
+          Infinity: 1,
           "this": 1
         };
         var qxkeys = {
-          "statics": 1,
-          "members": 1,
-          "construct": 1,
-          "destruct": 1,
-          "events": 1,
-          "properties": 1,
-          "extend": 1,
-          "implement": 1
+          statics: 1,
+          members: 1,
+          construct: 1,
+          destruct: 1,
+          events: 1,
+          properties: 1,
+          extend: 1,
+          implement: 1
         };
 
         var reg = function reg(str) {
@@ -312,4 +312,4 @@
   qx.dev.Tokenizer.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Tokenizer.js.map?dt=1635064705523
+//# sourceMappingURL=Tokenizer.js.map?dt=1645800091686

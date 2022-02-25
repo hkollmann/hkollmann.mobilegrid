@@ -13,7 +13,7 @@
         "column": 0
       },
       "end": {
-        "line": 173,
+        "line": 179,
         "column": 3
       }
     },
@@ -24,24 +24,23 @@
     "location": {
       "start": {
         "line": 24,
-        "column": 13
+        "column": 2
       },
       "end": {
-        "line": 33,
+        "line": 34,
         "column": 3
       }
-    },
-    "jsdoc": {}
+    }
   },
   "members": {
     "_packageName": {
       "location": {
         "start": {
-          "line": 36,
+          "line": 37,
           "column": 4
         },
         "end": {
-          "line": 36,
+          "line": 37,
           "column": 22
         }
       },
@@ -51,11 +50,11 @@
     "_parentPackage": {
       "location": {
         "start": {
-          "line": 37,
+          "line": 38,
           "column": 4
         },
         "end": {
-          "line": 37,
+          "line": 38,
           "column": 24
         }
       },
@@ -65,11 +64,11 @@
     "_classes": {
       "location": {
         "start": {
-          "line": 38,
+          "line": 39,
           "column": 4
         },
         "end": {
-          "line": 38,
+          "line": 39,
           "column": 18
         }
       },
@@ -79,11 +78,11 @@
     "_packages": {
       "location": {
         "start": {
-          "line": 39,
+          "line": 40,
           "column": 4
         },
         "end": {
-          "line": 39,
+          "line": 40,
           "column": 19
         }
       },
@@ -93,11 +92,11 @@
     "_loadingPromise": {
       "location": {
         "start": {
-          "line": 40,
+          "line": 41,
           "column": 4
         },
         "end": {
-          "line": 40,
+          "line": 41,
           "column": 25
         }
       },
@@ -107,11 +106,11 @@
     "_loaded": {
       "location": {
         "start": {
-          "line": 41,
+          "line": 42,
           "column": 4
         },
         "end": {
-          "line": 41,
+          "line": 42,
           "column": 18
         }
       },
@@ -121,11 +120,11 @@
     "load": {
       "location": {
         "start": {
-          "line": 48,
+          "line": 49,
           "column": 4
         },
         "end": {
-          "line": 62,
+          "line": 66,
           "column": 5
         }
       },
@@ -151,20 +150,6 @@
     "isLoaded": {
       "location": {
         "start": {
-          "line": 64,
-          "column": 4
-        },
-        "end": {
-          "line": 66,
-          "column": 5
-        }
-      },
-      "type": "function",
-      "access": "public"
-    },
-    "getName": {
-      "location": {
-        "start": {
           "line": 68,
           "column": 4
         },
@@ -176,7 +161,7 @@
       "type": "function",
       "access": "public"
     },
-    "getFullName": {
+    "getName": {
       "location": {
         "start": {
           "line": 72,
@@ -190,7 +175,7 @@
       "type": "function",
       "access": "public"
     },
-    "getDescription": {
+    "getFullName": {
       "location": {
         "start": {
           "line": 76,
@@ -204,7 +189,7 @@
       "type": "function",
       "access": "public"
     },
-    "getClasses": {
+    "getDescription": {
       "location": {
         "start": {
           "line": 80,
@@ -218,7 +203,7 @@
       "type": "function",
       "access": "public"
     },
-    "getPackages": {
+    "getClasses": {
       "location": {
         "start": {
           "line": 84,
@@ -232,7 +217,7 @@
       "type": "function",
       "access": "public"
     },
-    "getPackage": {
+    "getPackages": {
       "location": {
         "start": {
           "line": 88,
@@ -246,7 +231,7 @@
       "type": "function",
       "access": "public"
     },
-    "addClass": {
+    "getPackage": {
       "location": {
         "start": {
           "line": 92,
@@ -260,7 +245,7 @@
       "type": "function",
       "access": "public"
     },
-    "getClassByName": {
+    "addClass": {
       "location": {
         "start": {
           "line": 96,
@@ -274,7 +259,7 @@
       "type": "function",
       "access": "public"
     },
-    "getPackageByName": {
+    "getClassByName": {
       "location": {
         "start": {
           "line": 100,
@@ -288,7 +273,7 @@
       "type": "function",
       "access": "public"
     },
-    "addPackage": {
+    "getPackageByName": {
       "location": {
         "start": {
           "line": 104,
@@ -302,7 +287,7 @@
       "type": "function",
       "access": "public"
     },
-    "loadDependedClasses": {
+    "addPackage": {
       "location": {
         "start": {
           "line": 108,
@@ -316,7 +301,7 @@
       "type": "function",
       "access": "public"
     },
-    "hasWarning": {
+    "loadDependedClasses": {
       "location": {
         "start": {
           "line": 112,
@@ -324,6 +309,20 @@
         },
         "end": {
           "line": 114,
+          "column": 5
+        }
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "hasWarning": {
+      "location": {
+        "start": {
+          "line": 116,
+          "column": 4
+        },
+        "end": {
+          "line": 118,
           "column": 5
         }
       },
@@ -418,6 +417,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -442,6 +442,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }
@@ -471,11 +472,11 @@
     "__rootPackage": {
       "location": {
         "start": {
-          "line": 119,
+          "line": 122,
           "column": 4
         },
         "end": {
-          "line": 119,
+          "line": 122,
           "column": 23
         }
       },
@@ -485,11 +486,11 @@
     "getPackage": {
       "location": {
         "start": {
-          "line": 127,
+          "line": 130,
           "column": 4
         },
         "end": {
-          "line": 153,
+          "line": 159,
           "column": 5
         }
       },
@@ -507,6 +508,12 @@
             "paramName": "name",
             "description": " package name, null or \"\" for top level",
             "type": "String"
+          },
+          {
+            "name": "@param",
+            "body": "create",
+            "paramName": "create",
+            "type": ""
           }
         ],
         "@return": [
@@ -524,11 +531,11 @@
     "getParentPackage": {
       "location": {
         "start": {
-          "line": 161,
+          "line": 167,
           "column": 4
         },
         "end": {
-          "line": 171,
+          "line": 177,
           "column": 5
         }
       },

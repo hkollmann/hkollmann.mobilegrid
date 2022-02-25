@@ -113,6 +113,8 @@
           return x !== 0 || 1 / x === 1 / y;
         } else {
           // Step 6.a: NaN == NaN
+
+          /* eslint-disable-next-line no-self-compare */
           return x !== x && y !== y;
         }
       },
@@ -123,16 +125,16 @@
        * <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">MDN web docs: Object.assign()</a>
        *
        * @signature function(target,varArgs)
-       * @param target {Object} The target object - what to apply the sources’ properties to, which is returned after it is modified. 
+       * @param target {Object} The target object - what to apply the sources’ properties to, which is returned after it is modified.
        * @param sources {Object} The source object(s) - objects containing the properties you want to apply.
        * @return {Object} The target object.
        */
       assign: function assign(target, sources) {
         // .length of function is 2
-        'use strict';
+        "use strict";
 
         if (target === null || target === undefined) {
-          throw new TypeError('Cannot convert undefined or null to object');
+          throw new TypeError("Cannot convert undefined or null to object");
         }
 
         var to = Object(target);
@@ -178,4 +180,4 @@
   qx.lang.normalize.Object.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Object.js.map?dt=1635064685605
+//# sourceMappingURL=Object.js.map?dt=1645800073709

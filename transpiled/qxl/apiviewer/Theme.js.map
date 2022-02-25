@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": [
-    "/home/runner/work/hkollmann.mobilegrid/hkollmann.mobilegrid/qx_packages/qooxdoo_qxl_apiviewer_v1_0_4/source/class/qxl/apiviewer/Theme.js"
+    "/home/runner/work/hkollmann.mobilegrid/hkollmann.mobilegrid/qx_packages/qooxdoo_qxl_apiviewer_v2_0_0/source/class/qxl/apiviewer/Theme.js"
   ],
   "names": [
     "qx",
@@ -27,8 +27,8 @@
     "icon",
     "Tango"
   ],
-  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;AAAAA,EAAAA,EAAE,CAACC,SAAH,CAAaC,oBAAb,CAAkCC,aAAlC;;AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;;AAEA;AACA;AACA;AACAH,EAAAA,EAAE,CAACI,KAAH,CAASC,MAAT,CAAgB,qBAAhB,EACE;AACEC,IAAAA,KAAK,EAAG,iBADV;AAGEC,IAAAA,IAAI,EACN;AACEC,MAAAA,KAAK,EAAGR,EAAE,CAACS,KAAH,CAASC,MAAT,CAAgBC,KAD1B;AAEEC,MAAAA,UAAU,EAAGZ,EAAE,CAACS,KAAH,CAASC,MAAT,CAAgBG,UAF/B;AAGEC,MAAAA,IAAI,EAAGd,EAAE,CAACS,KAAH,CAASC,MAAT,CAAgBK,IAHzB;AAIEC,MAAAA,UAAU,EAAGC,GAAG,CAACC,SAAJ,CAAcC,UAJ7B;AAKEC,MAAAA,IAAI,EAAGpB,EAAE,CAACS,KAAH,CAASW,IAAT,CAAcC;AALvB;AAJA,GADF;AAtBAJ,EAAAA,GAAG,CAACC,SAAJ,CAAcd,KAAd,CAAoBD,aAApB,GAAoCA,aAApC",
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;AAAAA,EAAAA,EAAE,CAACC,SAAH,CAAaC,oBAAb,CAAkCC,aAAlC;;AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;;AAEA;AACA;AACA;AACAH,EAAAA,EAAE,CAACI,KAAH,CAASC,MAAT,CAAgB,qBAAhB,EAAuC;AACrCC,IAAAA,KAAK,EAAE,iBAD8B;AAGrCC,IAAAA,IAAI,EAAE;AACJC,MAAAA,KAAK,EAAER,EAAE,CAACS,KAAH,CAASC,MAAT,CAAgBC,KADnB;AAEJC,MAAAA,UAAU,EAAEZ,EAAE,CAACS,KAAH,CAASC,MAAT,CAAgBG,UAFxB;AAGJC,MAAAA,IAAI,EAAEd,EAAE,CAACS,KAAH,CAASC,MAAT,CAAgBK,IAHlB;AAIJC,MAAAA,UAAU,EAAEC,GAAG,CAACC,SAAJ,CAAcC,UAJtB;AAKJC,MAAAA,IAAI,EAAEpB,EAAE,CAACS,KAAH,CAASW,IAAT,CAAcC;AALhB;AAH+B,GAAvC;AAtBAJ,EAAAA,GAAG,CAACC,SAAJ,CAAcd,KAAd,CAAoBD,aAApB,GAAoCA,aAApC",
   "sourcesContent": [
-    "/* ************************************************************************\n\n   qooxdoo - the new era of web development\n\n   http://qooxdoo.org\n\n   Copyright:\n     2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n\n   Authors:\n     * Sebastian Werner (wpbasti)\n     * Fabian Jakobs (fjakobs)\n\n************************************************************************ */\n\n/**\n * Contemporary Theme\n */\nqx.Theme.define(\"qxl.apiviewer.Theme\",\n  {\n    title : \"APIViewer theme\",\n\n    meta :\n  {\n    color : qx.theme.indigo.Color,\n    decoration : qx.theme.indigo.Decoration,\n    font : qx.theme.indigo.Font,\n    appearance : qxl.apiviewer.Appearance,\n    icon : qx.theme.icon.Tango\n  }\n  });\n"
+    "/* ************************************************************************\n\n   qooxdoo - the new era of web development\n\n   http://qooxdoo.org\n\n   Copyright:\n     2004-2008 1&1 Internet AG, Germany, http://www.1und1.de\n\n   License:\n     MIT: https://opensource.org/licenses/MIT\n     See the LICENSE file in the project's top-level directory for details.\n\n   Authors:\n     * Sebastian Werner (wpbasti)\n     * Fabian Jakobs (fjakobs)\n\n************************************************************************ */\n\n/**\n * Contemporary Theme\n */\nqx.Theme.define(\"qxl.apiviewer.Theme\", {\n  title: \"APIViewer theme\",\n\n  meta: {\n    color: qx.theme.indigo.Color,\n    decoration: qx.theme.indigo.Decoration,\n    font: qx.theme.indigo.Font,\n    appearance: qxl.apiviewer.Appearance,\n    icon: qx.theme.icon.Tango,\n  },\n});\n"
   ]
 }

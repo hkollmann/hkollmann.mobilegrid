@@ -103,6 +103,9 @@
     members: {
       // property apply
       _applyOrientation: function _applyOrientation(value, old) {
+        // ARIA attrs
+        this.setAttribute("aria-orientation", value);
+
         if (value == "horizontal") {
           this.setStyle("height", "100%");
           this.setStyle("cursor", "col-resize");
@@ -164,4 +167,4 @@
   qx.ui.splitpane.Blocker.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Blocker.js.map?dt=1635064696381
+//# sourceMappingURL=Blocker.js.map?dt=1645800083513

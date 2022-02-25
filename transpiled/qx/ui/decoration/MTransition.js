@@ -126,11 +126,11 @@
         var transitionProperties = ["transitionProperty", "transitionDuration", "transitionTimingFunction", "transitionDelay"];
         (function (tPros, tDurs, tTims, tDels) {
           for (var i = 0; i < tPros.length; i++) {
-            var tPro = tPros[i] || 'all';
-            var tDur = tDurs[i] || '0s';
-            var tTim = tTims[i] || 'ease';
-            var tDel = tDels[i] || '0s';
-            var value = tPro + ' ' + tDur + ' ' + tTim + ' ' + tDel;
+            var tPro = tPros[i] || "all";
+            var tDur = tDurs[i] || "0s";
+            var tTim = tTims[i] || "ease";
+            var tDel = tDels[i] || "0s";
+            var value = tPro + " " + tDur + " " + tTim + " " + tDel;
 
             if (!styles[propName]) {
               styles[propName] = value;
@@ -147,4 +147,4 @@
   qx.ui.decoration.MTransition.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MTransition.js.map?dt=1635064699014
+//# sourceMappingURL=MTransition.js.map?dt=1645800085892

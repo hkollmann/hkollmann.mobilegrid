@@ -33,10 +33,10 @@
   qx.Interface.define("qx.ui.core.scroll.IScrollBar", {
     events: {
       /** Fired if the user scroll */
-      "scroll": "qx.event.type.Data",
+      scroll: "qx.event.type.Data",
 
       /** Fired as soon as the scroll animation ended. */
-      "scrollAnimationEnd": 'qx.event.type.Event'
+      scrollAnimationEnd: "qx.event.type.Event"
     },
     properties: {
       /**
@@ -110,4 +110,4 @@
   qx.ui.core.scroll.IScrollBar.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=IScrollBar.js.map?dt=1635064705663
+//# sourceMappingURL=IScrollBar.js.map?dt=1645800091865

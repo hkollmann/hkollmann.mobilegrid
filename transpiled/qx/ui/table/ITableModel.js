@@ -47,17 +47,17 @@
        *   <li>lastColumn: The model index of the last column that has changed.</li>
        * </ul>
        */
-      "dataChanged": "qx.event.type.Data",
+      dataChanged: "qx.event.type.Data",
 
       /**
        * Fired when the meta data changed (the stuff shown in the table header).
        */
-      "metaDataChanged": "qx.event.type.Event",
+      metaDataChanged: "qx.event.type.Event",
 
       /**
        * Fired after the table is sorted (but before the metaDataChanged event)
        */
-      "sorted": "qx.event.type.Data"
+      sorted: "qx.event.type.Data"
     },
 
     /*
@@ -226,4 +226,4 @@
   qx.ui.table.ITableModel.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=ITableModel.js.map?dt=1635064703349
+//# sourceMappingURL=ITableModel.js.map?dt=1645800089782

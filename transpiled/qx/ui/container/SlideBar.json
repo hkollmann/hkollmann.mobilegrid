@@ -16,7 +16,7 @@
         "column": 0
       },
       "end": {
-        "line": 509,
+        "line": 469,
         "column": 3
       }
     },
@@ -63,11 +63,11 @@
   "construct": {
     "location": {
       "start": {
-        "line": 84,
-        "column": 14
+        "line": 80,
+        "column": 2
       },
       "end": {
-        "line": 98,
+        "line": 93,
         "column": 3
       }
     },
@@ -95,11 +95,11 @@
     "appearance": {
       "location": {
         "start": {
-          "line": 112,
+          "line": 103,
           "column": 4
         },
         "end": {
-          "line": 116,
+          "line": 106,
           "column": 5
         }
       },
@@ -117,11 +117,11 @@
     "orientation": {
       "location": {
         "start": {
-          "line": 119,
+          "line": 109,
           "column": 4
         },
         "end": {
-          "line": 124,
+          "line": 113,
           "column": 5
         }
       },
@@ -146,11 +146,11 @@
     "scrollStep": {
       "location": {
         "start": {
-          "line": 127,
+          "line": 116,
           "column": 4
         },
         "end": {
-          "line": 132,
+          "line": 120,
           "column": 5
         }
       },
@@ -174,12 +174,12 @@
     "scrollAnimationEnd": {
       "location": {
         "start": {
-          "line": 145,
+          "line": 131,
           "column": 4
         },
         "end": {
-          "line": 145,
-          "column": 46
+          "line": 131,
+          "column": 45
         }
       },
       "jsdoc": {
@@ -198,11 +198,11 @@
     "getChildrenContainer": {
       "location": {
         "start": {
-          "line": 164,
+          "line": 148,
           "column": 4
         },
         "end": {
-          "line": 166,
+          "line": 150,
           "column": 5
         }
       },
@@ -217,11 +217,11 @@
     "_createChildControlImpl": {
       "location": {
         "start": {
-          "line": 170,
+          "line": 153,
           "column": 4
         },
         "end": {
-          "line": 206,
+          "line": 192,
           "column": 5
         }
       },
@@ -236,11 +236,11 @@
     "_forwardStates": {
       "location": {
         "start": {
-          "line": 212,
+          "line": 198,
           "column": 4
         },
         "end": {
-          "line": 218,
+          "line": 203,
           "column": 5
         }
       },
@@ -264,11 +264,11 @@
     "scrollBy": {
       "location": {
         "start": {
-          "line": 232,
+          "line": 217,
           "column": 4
         },
         "end": {
-          "line": 240,
+          "line": 224,
           "column": 5
         }
       },
@@ -305,11 +305,11 @@
     "scrollTo": {
       "location": {
         "start": {
-          "line": 249,
+          "line": 232,
           "column": 4
         },
         "end": {
-          "line": 257,
+          "line": 239,
           "column": 5
         }
       },
@@ -344,11 +344,11 @@
     "_applyEnabled": {
       "location": {
         "start": {
-          "line": 266,
+          "line": 247,
           "column": 4
         },
         "end": {
-          "line": 269,
+          "line": 250,
           "column": 5
         }
       },
@@ -363,11 +363,11 @@
     "_applyOrientation": {
       "location": {
         "start": {
-          "line": 273,
+          "line": 253,
           "column": 4
         },
         "end": {
-          "line": 315,
+          "line": 290,
           "column": 5
         }
       },
@@ -381,11 +381,11 @@
     "_onRoll": {
       "location": {
         "start": {
-          "line": 331,
+          "line": 303,
           "column": 4
         },
         "end": {
-          "line": 381,
+          "line": 356,
           "column": 5
         }
       },
@@ -412,11 +412,11 @@
     "_onScroll": {
       "location": {
         "start": {
-          "line": 387,
+          "line": 361,
           "column": 4
         },
         "end": {
-          "line": 389,
+          "line": 363,
           "column": 5
         }
       },
@@ -434,11 +434,11 @@
     "_onScrollAnimationEnd": {
       "location": {
         "start": {
-          "line": 395,
+          "line": 368,
           "column": 4
         },
         "end": {
-          "line": 397,
+          "line": 370,
           "column": 5
         }
       },
@@ -456,11 +456,11 @@
     "_onResize": {
       "location": {
         "start": {
-          "line": 407,
+          "line": 379,
           "column": 4
         },
         "end": {
-          "line": 427,
+          "line": 399,
           "column": 5
         }
       },
@@ -487,11 +487,11 @@
     "_onExecuteBackward": {
       "location": {
         "start": {
-          "line": 434,
+          "line": 405,
           "column": 4
         },
         "end": {
-          "line": 436,
+          "line": 407,
           "column": 5
         }
       },
@@ -509,11 +509,11 @@
     "_onExecuteForward": {
       "location": {
         "start": {
-          "line": 443,
+          "line": 413,
           "column": 4
         },
         "end": {
-          "line": 445,
+          "line": 415,
           "column": 5
         }
       },
@@ -531,11 +531,11 @@
     "_updateArrowsEnabled": {
       "location": {
         "start": {
-          "line": 457,
+          "line": 426,
           "column": 4
         },
         "end": {
-          "line": 482,
+          "line": 447,
           "column": 5
         }
       },
@@ -553,11 +553,11 @@
     "_showArrows": {
       "location": {
         "start": {
-          "line": 489,
+          "line": 453,
           "column": 4
         },
         "end": {
-          "line": 493,
+          "line": 456,
           "column": 5
         }
       },
@@ -575,11 +575,11 @@
     "_hideArrows": {
       "location": {
         "start": {
-          "line": 500,
+          "line": 462,
           "column": 4
         },
         "end": {
-          "line": 506,
+          "line": 467,
           "column": 5
         }
       },
@@ -1137,6 +1137,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -1161,6 +1162,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }

@@ -40,7 +40,7 @@
     title: "Theme for API Viewer",
     extend: qx.theme.indigo.Appearance,
     appearances: {
-      "toggleview": {
+      toggleview: {
         style: function style(states) {
           return {
             width: 240,
@@ -48,7 +48,7 @@
           };
         }
       },
-      "detailviewer": {
+      detailviewer: {
         style: function style(states) {
           return {
             backgroundColor: "white",
@@ -57,7 +57,7 @@
           };
         }
       },
-      "legend": {
+      legend: {
         include: "scrollarea",
         alias: "scrollarea",
         style: function style(states) {
@@ -82,7 +82,7 @@
           };
         }
       },
-      "tabview": {
+      tabview: {
         style: function style(states) {
           return {
             contentPadding: 0
@@ -105,4 +105,4 @@
   qxl.apiviewer.Appearance.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Appearance.js.map?dt=1635064685214
+//# sourceMappingURL=Appearance.js.map?dt=1645800073357

@@ -30,7 +30,7 @@
 
   /**
    * A mixin providing objects by ID and owners.
-   * 
+   *
    * The typical use of IDs is to override the `_createQxObjectImpl` method and create
    * new instances on demand; all code should access these instances by calling
    * `getQxObject`.
@@ -54,7 +54,7 @@
       qxObjectId: {
         init: null,
         check: function check(value) {
-          return value === null || typeof value == "string" && value.indexOf('/') < 0;
+          return value === null || typeof value == "string" && value.indexOf("/") < 0;
         },
         nullable: true,
         apply: "_applyQxObjectId"
@@ -67,14 +67,14 @@
      * ****************************************************************************
      */
     members: {
-      __P_79_0: null,
-      __P_79_1: false,
+      __P_81_0: null,
+      __P_81_1: false,
 
       /**
        * Apply owner
        */
       _applyQxOwner: function _applyQxOwner(value, oldValue) {
-        if (!this.__P_79_1) {
+        if (!this.__P_81_1) {
           throw new Error("Please use API methods to change owner, not the property");
         }
       },
@@ -83,11 +83,11 @@
        * Apply objectId
        */
       _applyQxObjectId: function _applyQxObjectId(value, oldValue) {
-        if (!this.__P_79_1) {
+        if (!this.__P_81_1) {
           var owner = this.getQxOwner();
 
           if (owner) {
-            owner.__P_79_2(this, value, oldValue);
+            owner.__P_81_2(this, value, oldValue);
           }
 
           this._cascadeQxObjectIdChanges();
@@ -97,9 +97,9 @@
       /**
        * Called when a child's objectId changes
        */
-      __P_79_2: function __P_79_2(obj, newId, oldId) {
-        delete this.__P_79_0[oldId];
-        this.__P_79_0[newId] = obj;
+      __P_81_2: function __P_81_2(obj, newId, oldId) {
+        delete this.__P_81_0[oldId];
+        this.__P_81_0[newId] = obj;
       },
 
       /**
@@ -114,9 +114,9 @@
           }
         }
 
-        if (this.__P_79_0) {
-          for (var name in this.__P_79_0) {
-            var obj = this.__P_79_0[name];
+        if (this.__P_81_0) {
+          for (var name in this.__P_81_0) {
+            var obj = this.__P_81_0[name];
 
             if (obj instanceof qx.core.Object) {
               obj._cascadeQxObjectIdChanges();
@@ -127,14 +127,14 @@
 
       /**
        * Returns the object with the specified ID
-       * 
+       *
        * @param id
        *          {String} ID of the object
        * @return {qx.core.Object?} the found object
        */
       getQxObject: function getQxObject(id) {
-        if (this.__P_79_0) {
-          var obj = this.__P_79_0[id];
+        if (this.__P_81_0) {
+          var obj = this.__P_81_0[id];
 
           if (obj !== undefined) {
             return obj;
@@ -143,7 +143,7 @@
 
 
         var controlId = null;
-        var pos = id.indexOf('#');
+        var pos = id.indexOf("#");
 
         if (pos > -1) {
           controlId = id.substring(pos + 1);
@@ -152,8 +152,8 @@
 
         var result = undefined; // Handle paths
 
-        if (id.indexOf('/') > -1) {
-          var segs = id.split('/');
+        if (id.indexOf("/") > -1) {
+          var segs = id.split("/");
           var target = this;
           var found = segs.every(function (seg) {
             if (!seg.length) {
@@ -191,7 +191,7 @@
       /**
        * Creates the object and adds it to a list; most classes are expected to
        * override `_createQxObjectImpl` NOT this method.
-       * 
+       *
        * @param id {String} ID of the object
        * @return {qx.core.Object?} the created object
        */
@@ -210,7 +210,7 @@
        * value and will be cached by `getQxObject`, however `undefined` is NOT a
        * valid value and so will not be cached meaning that `_createQxObjectImpl`
        * will be called multiple times until a valid value is returned.
-       * 
+       *
        * @param id {String} ID of the object
        * @return {qx.core.Object?} the created object
        */
@@ -220,13 +220,13 @@
 
       /**
        * Adds an object as owned by this object
-       * 
+       *
        * @param obj {qx.core.Object} the object to register
        * @param id {String?} the id to set when registering the object
        */
       addOwnedQxObject: function addOwnedQxObject(obj, id) {
-        if (!this.__P_79_0) {
-          this.__P_79_0 = {};
+        if (!this.__P_81_0) {
+          this.__P_81_0 = {};
         }
 
         if (!(obj instanceof qx.core.Object)) {
@@ -234,11 +234,11 @@
             throw new Error("Cannot register an object that has no ID, obj=" + obj);
           }
 
-          if (this.__P_79_0[id]) {
+          if (this.__P_81_0[id]) {
             throw new Error("Cannot register an object with ID '" + id + "' because that ID is already in use, this=" + this + ", obj=" + obj);
           }
 
-          this.__P_79_0[id] = obj;
+          this.__P_81_0[id] = obj;
           return;
         }
 
@@ -248,11 +248,11 @@
           return;
         }
 
-        obj.__P_79_1 = true;
+        obj.__P_81_1 = true;
 
         try {
           if (thatOwner) {
-            thatOwner.__P_79_3(obj);
+            thatOwner.__P_81_3(obj);
           }
 
           if (id === undefined) {
@@ -263,7 +263,7 @@
             throw new Error("Cannot register an object that has no ID, obj=" + obj);
           }
 
-          if (this.__P_79_0[id]) {
+          if (this.__P_81_0[id]) {
             throw new Error("Cannot register an object with ID '" + id + "' because that ID is already in use, this=" + this + ", obj=" + obj);
           }
 
@@ -276,20 +276,20 @@
 
           obj._cascadeQxObjectIdChanges();
         } finally {
-          obj.__P_79_1 = false;
+          obj.__P_81_1 = false;
         }
 
-        this.__P_79_0[id] = obj;
+        this.__P_81_0[id] = obj;
       },
 
       /**
        * Discards an object from the list of owned objects; note that this does
        * not dispose of the object, simply forgets it if it exists.
-       * 
+       *
        * @param args {String|Object} the ID of the object to discard, or the object itself
        */
       removeOwnedQxObject: function removeOwnedQxObject(args) {
-        if (!this.__P_79_0) {
+        if (!this.__P_81_0) {
           throw new Error("Cannot discard object because it is not owned by this, this=" + this + ", object=" + obj);
         }
 
@@ -297,12 +297,12 @@
         var obj;
 
         if (typeof args === "string") {
-          if (args.indexOf('/') > -1) {
+          if (args.indexOf("/") > -1) {
             throw new Error("Cannot discard owned objects based on a path");
           }
 
           id = args;
-          obj = this.__P_79_0[id];
+          obj = this.__P_81_0[id];
 
           if (obj === undefined) {
             return;
@@ -316,25 +316,25 @@
 
           id = obj.getQxObjectId();
 
-          if (this.__P_79_0[id] !== obj) {
+          if (this.__P_81_0[id] !== obj) {
             throw new Error("Cannot discard object because it is not owned by this, this=" + this + ", object=" + obj);
           }
         }
 
         if (obj !== null) {
           if (!(obj instanceof qx.core.Object)) {
-            this.__P_79_3(obj);
+            this.__P_81_3(obj);
 
-            delete this.__P_79_0[id];
+            delete this.__P_81_0[id];
           } else {
-            obj.__P_79_1 = true;
+            obj.__P_81_1 = true;
 
             try {
-              this.__P_79_3(obj);
+              this.__P_81_3(obj);
 
               obj._cascadeQxObjectIdChanges();
             } finally {
-              obj.__P_79_1 = false;
+              obj.__P_81_1 = false;
             }
           }
         }
@@ -342,29 +342,29 @@
 
       /**
        * Removes an owned object
-       * 
+       *
        * @param obj {qx.core.Object} the object
        */
-      __P_79_3: function __P_79_3(obj) {
+      __P_81_3: function __P_81_3(obj) {
         if (obj !== null) {
           var id = obj.getQxObjectId();
           obj.setQxOwner(null);
-          delete this.__P_79_0[id];
+          delete this.__P_81_0[id];
         }
       },
 
       /**
        * Returns an array of objects that are owned by this object, or an empty
        * array if none exists.
-       * 
+       *
        * @return {Array}
        */
       getOwnedQxObjects: function getOwnedQxObjects() {
-        return this.__P_79_0 ? Object.values(this.__P_79_0) : [];
+        return this.__P_81_0 ? Object.values(this.__P_81_0) : [];
       }
     }
   });
   qx.core.MObjectId.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MObjectId.js.map?dt=1635064691463
+//# sourceMappingURL=MObjectId.js.map?dt=1645800079310

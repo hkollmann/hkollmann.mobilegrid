@@ -13,7 +13,7 @@
         "column": 0
       },
       "end": {
-        "line": 205,
+        "line": 215,
         "column": 3
       }
     },
@@ -34,11 +34,11 @@
     "__registeredObjects": {
       "location": {
         "start": {
-          "line": 28,
+          "line": 27,
           "column": 4
         },
         "end": {
-          "line": 28,
+          "line": 27,
           "column": 29
         }
       },
@@ -48,11 +48,11 @@
     "__registeredIdHashes": {
       "location": {
         "start": {
-          "line": 29,
+          "line": 28,
           "column": 4
         },
         "end": {
-          "line": 29,
+          "line": 28,
           "column": 30
         }
       },
@@ -62,11 +62,11 @@
     "_createQxObject": {
       "location": {
         "start": {
-          "line": 34,
+          "line": 33,
           "column": 4
         },
         "end": {
-          "line": 38,
+          "line": 37,
           "column": 5
         }
       },
@@ -95,11 +95,11 @@
     "_createQxObjectImpl": {
       "location": {
         "start": {
-          "line": 43,
+          "line": 42,
           "column": 4
         },
         "end": {
-          "line": 57,
+          "line": 56,
           "column": 5
         }
       },
@@ -128,11 +128,11 @@
     "getAbsoluteIdOf": {
       "location": {
         "start": {
-          "line": 75,
+          "line": 74,
           "column": 4
         },
         "end": {
-          "line": 115,
+          "line": 126,
           "column": 5
         }
       },
@@ -175,11 +175,11 @@
     "register": {
       "location": {
         "start": {
-          "line": 126,
+          "line": 137,
           "column": 4
         },
         "end": {
-          "line": 137,
+          "line": 148,
           "column": 5
         }
       },
@@ -214,11 +214,11 @@
     "unregister": {
       "location": {
         "start": {
-          "line": 145,
+          "line": 156,
           "column": 4
         },
         "end": {
-          "line": 170,
+          "line": 181,
           "column": 5
         }
       },
@@ -256,11 +256,11 @@
     "getRegisteredObjects": {
       "location": {
         "start": {
-          "line": 177,
+          "line": 188,
           "column": 4
         },
         "end": {
-          "line": 179,
+          "line": 190,
           "column": 5
         }
       },
@@ -371,6 +371,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -395,6 +396,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }
@@ -424,11 +426,11 @@
     "getQxObject": {
       "location": {
         "start": {
-          "line": 190,
+          "line": 200,
           "column": 4
         },
         "end": {
-          "line": 192,
+          "line": 202,
           "column": 5
         }
       },
@@ -463,11 +465,11 @@
     "getAbsoluteIdOf": {
       "location": {
         "start": {
-          "line": 201,
+          "line": 211,
           "column": 4
         },
         "end": {
-          "line": 203,
+          "line": 213,
           "column": 5
         }
       },

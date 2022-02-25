@@ -10,7 +10,7 @@
       }
     },
     "environment": {
-      "provided": ["ecmascript.array.indexof", "ecmascript.array.lastindexof", "ecmascript.array.foreach", "ecmascript.array.filter", "ecmascript.array.map", "ecmascript.array.some", "ecmascript.array.find", "ecmascript.array.findIndex", "ecmascript.array.every", "ecmascript.array.reduce", "ecmascript.array.reduceright", "ecmascript.array.includes", "ecmascript.date.now", "ecmascript.date.parse", "ecmascript.error.toString", "ecmascript.error.stacktrace", "ecmascript.function.bind", "ecmascript.object.keys", "ecmascript.object.values", "ecmascript.object.is", "ecmascript.object.assign", "ecmascript.number.EPSILON", "ecmascript.string.startsWith", "ecmascript.string.endsWith", "ecmascript.string.trim", "ecmascript.string.codePointAt", "ecmascript.string.fromCodePoint", "ecmascript.function.async", "ecmascript.mutationobserver", "ecmascript.bigint", "ecmascript.bigint.tolocalestring", "ecmascript.promise.native"],
+      "provided": ["ecmascript.array.indexof", "ecmascript.array.lastindexof", "ecmascript.array.foreach", "ecmascript.array.filter", "ecmascript.array.map", "ecmascript.array.some", "ecmascript.array.find", "ecmascript.array.findIndex", "ecmascript.array.every", "ecmascript.array.reduce", "ecmascript.array.reduceright", "ecmascript.array.includes", "ecmascript.date.now", "ecmascript.date.parse", "ecmascript.error.toString", "ecmascript.error.stacktrace", "ecmascript.function.bind", "ecmascript.object.keys", "ecmascript.object.values", "ecmascript.object.is", "ecmascript.object.assign", "ecmascript.number.EPSILON", "ecmascript.string.startsWith", "ecmascript.string.endsWith", "ecmascript.string.trim", "ecmascript.string.codePointAt", "ecmascript.string.fromCodePoint", "ecmascript.promise.native", "ecmascript.function.async", "ecmascript.mutationobserver", "ecmascript.bigint", "ecmascript.bigint.tolocalestring"],
       "required": {}
     }
   };
@@ -222,7 +222,6 @@
           return false;
         }
 
-        ;
         return qx.Bootstrap.getClass(f) === "AsyncFunction";
       },
 
@@ -281,8 +280,8 @@
        *   dates.
        */
       getDateParse: function getDateParse() {
-        return typeof Date.parse === "function" // Date.parse() is present...
-        && Date.parse("2001-02-03T04:05:06.007") != // ...and it treats local
+        return typeof Date.parse === "function" && // Date.parse() is present...
+        Date.parse("2001-02-03T04:05:06.007") != // ...and it treats local
         Date.parse("2001-02-03T04:05:06.007Z"); // dates as expected
       },
 
@@ -351,9 +350,9 @@
        *   works at least rudimentary.
        */
       getBigIntToLocaleString: function getBigIntToLocaleString() {
-        return typeof BigInt !== "undefined" // BigInt type supported...
-        && typeof BigInt.prototype.toLocaleString === "function" // ...method is present...
-        && BigInt(1234).toLocaleString("de-DE") === "1,234"; // ...and works as expected
+        return typeof BigInt !== "undefined" && // BigInt type supported...
+        typeof BigInt.prototype.toLocaleString === "function" && // ...method is present...
+        BigInt(1234).toLocaleString("de-DE") === "1,234"; // ...and works as expected
       },
 
       /**
@@ -404,7 +403,9 @@
       qx.core.Environment.add("ecmascript.string.endsWith", statics.getStringEndsWith);
       qx.core.Environment.add("ecmascript.string.trim", statics.getStringTrim);
       qx.core.Environment.add("ecmascript.string.codePointAt", statics.getStringCodePointAt);
-      qx.core.Environment.add("ecmascript.string.fromCodePoint", statics.getStringFromCodePoint); // ES7 async function support
+      qx.core.Environment.add("ecmascript.string.fromCodePoint", statics.getStringFromCodePoint); // Promises
+
+      qx.core.Environment.add("ecmascript.promise.native", statics.getPromiseNative); // ES7 async function support
 
       qx.core.Environment.add("ecmascript.function.async", statics.getAsyncFunction); // MutationObserver
 
@@ -419,4 +420,4 @@
   qx.bom.client.EcmaScript.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=EcmaScript.js.map?dt=1635064690011
+//# sourceMappingURL=EcmaScript.js.map?dt=1645800077911

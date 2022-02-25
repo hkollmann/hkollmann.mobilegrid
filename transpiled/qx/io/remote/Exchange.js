@@ -88,22 +88,22 @@
     */
     events: {
       /** Fired whenever a request is send */
-      "sending": "qx.event.type.Event",
+      sending: "qx.event.type.Event",
 
       /** Fired whenever a request is received */
-      "receiving": "qx.event.type.Event",
+      receiving: "qx.event.type.Event",
 
       /** Fired whenever a request is completed */
-      "completed": "qx.io.remote.Response",
+      completed: "qx.io.remote.Response",
 
       /** Fired whenever a request is aborted */
-      "aborted": "qx.event.type.Event",
+      aborted: "qx.event.type.Event",
 
       /** Fired whenever a request has failed */
-      "failed": "qx.io.remote.Response",
+      failed: "qx.io.remote.Response",
 
       /** Fired whenever a request has timed out */
-      "timeout": "qx.io.remote.Response"
+      timeout: "qx.io.remote.Response"
     },
 
     /*
@@ -410,8 +410,6 @@
               return "Unknown status code. Possibly due to a cross-domain request?";
             }
 
-            break;
-
           case 200:
             return "Ok";
 
@@ -682,7 +680,7 @@
         } // Disable future timeouts in case user handler blocks
 
 
-        this.__P_233_0();
+        this.__P_259_0();
       },
 
       /*
@@ -696,7 +694,7 @@
        * even if the user handler (e.g. "completed") was already called.
        *
        */
-      __P_233_0: function __P_233_0() {
+      __P_259_0: function __P_259_0() {
         var vRequest = this.getRequest();
 
         if (vRequest) {
@@ -865,7 +863,7 @@
             } // Disable future timeouts in case user handler blocks
 
 
-            this.__P_233_0();
+            this.__P_259_0();
 
             if (this.hasListener(value)) {
               var vResponse = qx.event.Registration.createEvent(value, qx.io.remote.Response);
@@ -931,4 +929,4 @@
   qx.io.remote.Exchange.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Exchange.js.map?dt=1635064703769
+//# sourceMappingURL=Exchange.js.map?dt=1645800091851

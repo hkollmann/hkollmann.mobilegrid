@@ -1,6 +1,11 @@
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
+        "require": true
+      },
       "qx.Class": {
         "usage": "dynamic",
         "require": true
@@ -17,6 +22,14 @@
       "qx.core.Init": {},
       "qx.ui.core.queue.Visibility": {},
       "qx.lang.Object": {}
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.dyntheme": {
+          "load": true
+        }
+      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -295,6 +308,8 @@
        MEMBERS
     *****************************************************************************
     */
+
+    /* eslint-disable @qooxdoo/qx/no-refs-in-members */
     members: {
       /*
       ---------------------------------------------------------------------------
@@ -306,22 +321,25 @@
        * Handler for the dynamic theme change.
        * @signature function()
        */
-      _onChangeTheme: function _onChangeTheme() {
-        // reset all themeable properties
-        var props = qx.util.PropertyUtil.getAllProperties(this.constructor);
+      _onChangeTheme: qx.core.Environment.select("qx.dyntheme", {
+        "true": function _true() {
+          // reset all themeable properties
+          var props = qx.util.PropertyUtil.getAllProperties(this.constructor);
 
-        for (var name in props) {
-          var desc = props[name]; // only themeable properties not having a user value
+          for (var name in props) {
+            var desc = props[name]; // only themeable properties not having a user value
 
-          if (desc.themeable) {
-            var userValue = qx.util.PropertyUtil.getUserValue(this, name);
+            if (desc.themeable) {
+              var userValue = qx.util.PropertyUtil.getUserValue(this, name);
 
-            if (userValue == null) {
-              qx.util.PropertyUtil.resetThemed(this, name);
+              if (userValue == null) {
+                qx.util.PropertyUtil.resetThemed(this, name);
+              }
             }
           }
-        }
-      },
+        },
+        "false": null
+      }),
 
       /*
       ---------------------------------------------------------------------------
@@ -433,13 +451,13 @@
         }
         /*
          * Height for width support
-         * 
+         *
          * Results into a re-layout which means that width/height is applied in the next iteration.
-         * 
-         * Note that it is important that this happens after the above first pass at calculating a 
+         *
+         * Note that it is important that this happens after the above first pass at calculating a
          * computed size because otherwise getBounds() will return null, and this will cause an
          * issue where the existing size is expected to have already been applied by the layout.
-         * See https://github.com/qooxdoo/qooxdoo/issues/9553  
+         * See https://github.com/qooxdoo/qooxdoo/issues/9553
          */
 
 
@@ -697,6 +715,14 @@
        * @param height {Integer} height of the layout item
        */
       setUserBounds: function setUserBounds(left, top, width, height) {
+        if (!this.__P_39_5) {
+          var parent = this.$$parent;
+
+          if (parent) {
+            parent.updateLayoutProperties();
+          }
+        }
+
         this.__P_39_5 = {
           left: left,
           top: top,
@@ -712,8 +738,16 @@
        *
        */
       resetUserBounds: function resetUserBounds() {
-        delete this.__P_39_5;
-        qx.ui.core.queue.Layout.add(this);
+        if (this.__P_39_5) {
+          delete this.__P_39_5;
+          var parent = this.$$parent;
+
+          if (parent) {
+            parent.updateLayoutProperties();
+          }
+
+          qx.ui.core.queue.Layout.add(this);
+        }
       },
 
       /*
@@ -881,7 +915,7 @@
       */
       // overridden
       clone: function clone() {
-        var clone = qx.ui.core.LayoutItem.prototype.clone.base.call(this);
+        var clone = qx.ui.core.LayoutItem.superclass.prototype.clone.call(this);
         var props = this.__P_39_6;
 
         if (props) {
@@ -908,4 +942,4 @@
   qx.ui.core.LayoutItem.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=LayoutItem.js.map?dt=1635064687577
+//# sourceMappingURL=LayoutItem.js.map?dt=1645800075840

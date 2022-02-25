@@ -51,6 +51,8 @@
    *
    * @group (Polyfill)
    */
+
+  /* eslint-disable no-extend-native */
   qx.Bootstrap.define("qx.lang.normalize.Error", {
     statics: {
       /**
@@ -90,4 +92,4 @@
   qx.lang.normalize.Error.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Error.js.map?dt=1635064685482
+//# sourceMappingURL=Error.js.map?dt=1645800073625

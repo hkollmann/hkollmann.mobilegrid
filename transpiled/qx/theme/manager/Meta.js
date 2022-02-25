@@ -46,7 +46,7 @@
     extend: qx.core.Object,
     events: {
       /** Fires if any theme manager has been changed. */
-      "changeTheme": "qx.event.type.Event"
+      changeTheme: "qx.event.type.Event"
     },
     properties: {
       /**
@@ -109,7 +109,7 @@
 
         this._activateEvents();
       },
-      __P_97_0: null,
+      __P_99_0: null,
 
       /**
        * Fires <code>changeTheme</code> event.
@@ -223,4 +223,4 @@
   qx.theme.manager.Meta.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Meta.js.map?dt=1635064692995
+//# sourceMappingURL=Meta.js.map?dt=1645800080612

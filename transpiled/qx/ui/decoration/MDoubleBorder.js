@@ -70,8 +70,8 @@
     include: [qx.ui.decoration.MSingleBorder, qx.ui.decoration.MBackgroundImage],
     construct: function construct() {
       // override the methods of single border and background image
-      this._getDefaultInsetsForBorder = this.__P_165_0;
-      this._styleBorder = this.__P_165_1;
+      this._getDefaultInsetsForBorder = this.__P_170_0;
+      this._styleBorder = this.__P_170_1;
     },
 
     /*
@@ -179,7 +179,7 @@
        *
        * @param styles {Map} A map to add the styles.
        */
-      __P_165_1: function __P_165_1(styles) {
+      __P_170_1: function __P_170_1(styles) {
         var propName = qx.core.Environment.get("css.boxshadow");
         var color, innerColor, innerWidth;
 
@@ -246,7 +246,7 @@
         var innerOpacity = this.getInnerOpacity();
 
         if (innerOpacity < 1) {
-          this.__P_165_2(innerColor, innerOpacity);
+          this.__P_170_2(innerColor, innerOpacity);
         } // inner border
 
 
@@ -256,16 +256,16 @@
           var borderBottom = (innerWidth.bottom || 0) + "px solid " + innerColor.bottom;
           var borderLeft = (innerWidth.left || 0) + "px solid " + innerColor.left;
           styles[":before"] = {
-            "width": "100%",
-            "height": "100%",
-            "position": "absolute",
-            "content": '""',
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            content: '""',
             "border-top": borderTop,
             "border-right": borderRight,
             "border-bottom": borderBottom,
             "border-left": borderLeft,
-            "left": 0,
-            "top": 0
+            left: 0,
+            top: 0
           };
           var boxSizingKey = qx.bom.Style.getCssName(qx.core.Environment.get("css.boxsizing"));
           styles[":before"][boxSizingKey] = "border-box"; // make sure to apply the border radius as well
@@ -323,7 +323,7 @@
        * @param innerColor {Map} map of top, right, bottom and left colors
        * @param innerOpacity {Number} alpha value
        */
-      __P_165_2: function __P_165_2(innerColor, innerOpacity) {
+      __P_170_2: function __P_170_2(innerColor, innerOpacity) {
         if (!qx.core.Environment.get("css.rgba")) {
           return;
         }
@@ -343,7 +343,7 @@
        * @return {Map} A map containing the default insets.
        *   (top, right, bottom, left)
        */
-      __P_165_0: function __P_165_0() {
+      __P_170_0: function __P_170_0() {
         return {
           top: this.getWidthTop() + this.getInnerWidthTop(),
           right: this.getWidthRight() + this.getInnerWidthRight(),
@@ -356,4 +356,4 @@
   qx.ui.decoration.MDoubleBorder.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MDoubleBorder.js.map?dt=1635064698889
+//# sourceMappingURL=MDoubleBorder.js.map?dt=1645800085793

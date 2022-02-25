@@ -99,7 +99,7 @@
     */
     events: {
       /** Fired when the navigation bar gets updated */
-      "update": "qx.event.type.Data"
+      update: "qx.event.type.Data"
     },
 
     /*
@@ -164,15 +164,15 @@
       },
 
       /**
-      * Handler for the "animationStart" event on the layout.
-      */
+       * Handler for the "animationStart" event on the layout.
+       */
       _onAnimationStart: function _onAnimationStart() {
         this.addCssClass("blocked");
       },
 
       /**
-      * Handler for the "animationEnd" event on the layout.
-      */
+       * Handler for the "animationEnd" event on the layout.
+       */
       _onAnimationEnd: function _onAnimationEnd() {
         this.removeCssClass("blocked");
       },
@@ -259,4 +259,4 @@
   qx.ui.mobile.container.Navigation.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Navigation.js.map?dt=1635064686800
+//# sourceMappingURL=Navigation.js.map?dt=1645800075049

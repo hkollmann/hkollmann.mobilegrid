@@ -13,8 +13,8 @@
         "column": 0
       },
       "end": {
-        "line": 147,
-        "column": 5
+        "line": 149,
+        "column": 3
       }
     },
     "jsdoc": {
@@ -30,26 +30,25 @@
   "construct": {
     "location": {
       "start": {
-        "line": 60,
-        "column": 16
+        "line": 59,
+        "column": 2
       },
       "end": {
-        "line": 62,
-        "column": 5
+        "line": 61,
+        "column": 3
       }
-    },
-    "jsdoc": {}
+    }
   },
   "members": {
     "getTypes": {
       "location": {
         "start": {
-          "line": 65,
-          "column": 6
+          "line": 64,
+          "column": 4
         },
         "end": {
-          "line": 71,
-          "column": 7
+          "line": 70,
+          "column": 5
         }
       },
       "type": "function",
@@ -72,12 +71,12 @@
     "getCheck": {
       "location": {
         "start": {
-          "line": 81,
-          "column": 6
+          "line": 79,
+          "column": 4
         },
         "end": {
           "line": 90,
-          "column": 7
+          "column": 5
         }
       },
       "jsdoc": {
@@ -103,11 +102,11 @@
       "location": {
         "start": {
           "line": 95,
-          "column": 6
+          "column": 4
         },
         "end": {
-          "line": 97,
-          "column": 7
+          "line": 99,
+          "column": 5
         }
       },
       "jsdoc": {
@@ -134,12 +133,12 @@
     "getClassname": {
       "location": {
         "start": {
-          "line": 99,
-          "column": 6
+          "line": 101,
+          "column": 4
         },
         "end": {
-          "line": 101,
-          "column": 7
+          "line": 103,
+          "column": 5
         }
       },
       "type": "function",
@@ -148,12 +147,12 @@
     "getPossibleValues": {
       "location": {
         "start": {
-          "line": 103,
-          "column": 6
+          "line": 105,
+          "column": 4
         },
         "end": {
-          "line": 105,
-          "column": 7
+          "line": 107,
+          "column": 5
         }
       },
       "type": "function",
@@ -162,12 +161,12 @@
     "getGroup": {
       "location": {
         "start": {
-          "line": 107,
-          "column": 6
+          "line": 109,
+          "column": 4
         },
         "end": {
-          "line": 109,
-          "column": 7
+          "line": 111,
+          "column": 5
         }
       },
       "type": "function",
@@ -176,12 +175,12 @@
     "isPropertyGroup": {
       "location": {
         "start": {
-          "line": 111,
-          "column": 6
+          "line": 113,
+          "column": 4
         },
         "end": {
-          "line": 113,
-          "column": 7
+          "line": 115,
+          "column": 5
         }
       },
       "type": "function",
@@ -190,12 +189,12 @@
     "getType": {
       "location": {
         "start": {
-          "line": 115,
-          "column": 6
+          "line": 117,
+          "column": 4
         },
         "end": {
-          "line": 117,
-          "column": 7
+          "line": 119,
+          "column": 5
         }
       },
       "type": "function",
@@ -204,12 +203,12 @@
     "getEvent": {
       "location": {
         "start": {
-          "line": 119,
-          "column": 6
+          "line": 121,
+          "column": 4
         },
         "end": {
-          "line": 121,
-          "column": 7
+          "line": 123,
+          "column": 5
         }
       },
       "type": "function",
@@ -218,12 +217,12 @@
     "getApplyMethod": {
       "location": {
         "start": {
-          "line": 123,
-          "column": 6
+          "line": 125,
+          "column": 4
         },
         "end": {
-          "line": 125,
-          "column": 7
+          "line": 127,
+          "column": 5
         }
       },
       "type": "function",
@@ -232,12 +231,12 @@
     "isNullable": {
       "location": {
         "start": {
-          "line": 127,
-          "column": 6
+          "line": 129,
+          "column": 4
         },
         "end": {
-          "line": 129,
-          "column": 7
+          "line": 131,
+          "column": 5
         }
       },
       "type": "function",
@@ -246,12 +245,12 @@
     "getDefaultValue": {
       "location": {
         "start": {
-          "line": 131,
-          "column": 6
+          "line": 133,
+          "column": 4
         },
         "end": {
-          "line": 133,
-          "column": 7
+          "line": 135,
+          "column": 5
         }
       },
       "type": "function",
@@ -260,12 +259,12 @@
     "isInheritable": {
       "location": {
         "start": {
-          "line": 135,
-          "column": 6
+          "line": 137,
+          "column": 4
         },
         "end": {
-          "line": 137,
-          "column": 7
+          "line": 139,
+          "column": 5
         }
       },
       "type": "function",
@@ -274,12 +273,12 @@
     "isThemeable": {
       "location": {
         "start": {
-          "line": 139,
-          "column": 6
+          "line": 141,
+          "column": 4
         },
         "end": {
-          "line": 141,
-          "column": 7
+          "line": 143,
+          "column": 5
         }
       },
       "type": "function",
@@ -288,12 +287,12 @@
     "isRefined": {
       "location": {
         "start": {
-          "line": 143,
-          "column": 6
+          "line": 145,
+          "column": 4
         },
         "end": {
-          "line": 145,
-          "column": 7
+          "line": 147,
+          "column": 5
         }
       },
       "type": "function",
@@ -387,6 +386,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -411,6 +411,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }

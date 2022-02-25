@@ -52,8 +52,7 @@
     extend: qxl.apiviewer.dao.Node,
 
     /**
-     * @param classDocNode
-     *          {Map} class documentation node
+     * @param className
      */
     construct: function construct(className) {
       qxl.apiviewer.dao.Node.constructor.call(this);
@@ -81,6 +80,14 @@
       _mixins: null,
       _loadingPromise: null,
       _loaded: false,
+      __P_70_0: null,
+
+      /**
+       * retrieves the meta file name + path
+       */
+      getMetaFile: function getMetaFile() {
+        return this.__P_70_0;
+      },
 
       /**
        * Loads the class
@@ -94,7 +101,7 @@
           return this._loadingPromise;
         }
 
-        var url = qxl.apiviewer.ClassLoader.getBaseUri() + "/transpiled/" + this._className.replace(/\./g, "/") + ".json";
+        var url = this.__P_70_0 = qxl.apiviewer.ClassLoader.getBaseUri() + this._className.replace(/\./g, "/") + ".json";
         return this._loadingPromise = qxl.apiviewer.RequestUtil.get(url).then(function (content) {
           /* eslint-disable-next-line no-eval */
           var meta = eval("(" + content + ")");
@@ -112,13 +119,13 @@
 
       /**
        * Loads meta data, including super classes/interfaces/mixins
-       *
+       * @param meta
        * @return {qx.Promise}
        */
       _initMeta: function _initMeta(meta) {
         var _this2 = this;
 
-        qxl.apiviewer.dao.Class.prototype._initMeta.base.call(this, meta);
+        qxl.apiviewer.dao.Class.superclass.prototype._initMeta.call(this, meta);
 
         this._jsdoc = meta.clazz.jsdoc || {};
         this._construct = meta.construct ? [new qxl.apiviewer.dao.Method(meta.construct, this, "construct")] : [];
@@ -224,6 +231,9 @@
         }
 
         var all = [];
+        /**
+         * @param tmp
+         */
 
         function findClasses(tmp) {
           var p = qxl.apiviewer.dao.Class.findClasses(tmp);
@@ -343,7 +353,7 @@
       /**
        * Get the direct child classes of the class.
        *
-       * @return {qx.Promise(qxl.apiviewer.dao.Class[])} A list of direct child classes of the
+       * @return {qx.Promise<qxl.apiviewer.dao.Class[]>} A list of direct child classes of the
        *         class.
        */
       getChildClasses: function getChildClasses() {
@@ -399,7 +409,7 @@
       /**
        * Get all classes including this mixin. (Only for mixins)
        *
-       * @return {qx.Promise(qxl.apiviewer.dao.Class[])} All classes including this mixin.
+       * @return {qx.Promise<qxl.apiviewer.dao.Class[]>} All classes including this mixin.
        */
       getIncluder: function getIncluder() {
         if (!this._includersPromise) {
@@ -416,7 +426,7 @@
       /**
        * Get all implementations of this interface. (Only for interfaces)
        *
-       * @return {qx.Promise(qxl.apiviewer.dao.Class[])} All implementations of this interface.
+       * @return {qx.Promise<qxl.apiviewer.dao.Class[]>} All implementations of this interface.
        */
       getImplementations: function getImplementations() {
         if (!this._implementationsPromise) {
@@ -524,7 +534,7 @@
 
       /**
        * Returns a property with a given name
-       *
+       * @param name
        * @return {qxl.apiviewer.dao.Property} The named property
        */
       getProperty: function getProperty(name) {
@@ -609,6 +619,9 @@
        */
       getInterfaceHierarchy: function getInterfaceHierarchy() {
         var result = [];
+        /**
+         * @param currentClass
+         */
 
         function add(currentClass) {
           result.push(currentClass);
@@ -698,16 +711,16 @@
        */
       getItemList: function getItemList(listName) {
         var methodMap = {
-          "events": "getEvents",
-          "constructor": "getConstructor",
-          "properties": "getProperties",
-          "methods": "getMembers",
+          events: "getEvents",
+          constructor: "getConstructor",
+          properties: "getProperties",
+          methods: "getMembers",
           "methods-static": "getStatics",
-          "constants": "getConstants",
+          constants: "getConstants",
           //        "appearances" : "getAppearances",
-          "superInterfaces": "getSuperInterfaces",
-          "superMixins": "getSuperMixins",
-          "childControls": "getChildControls"
+          superInterfaces: "getSuperInterfaces",
+          superMixins: "getSuperMixins",
+          childControls: "getChildControls"
         };
 
         if (listName == "constructor") {
@@ -745,10 +758,13 @@
        * on. This includes all super classes and their mixins/interfaces and the
        * class itself.
        *
-       * @return {qx.Promise(Class[])} array of dependent classes.
+       * @return {qx.Promise<Class[]>} array of dependent classes.
        */
       getDependedClasses: function getDependedClasses() {
         var foundClasses = [];
+        /**
+         * @param clazz
+         */
 
         function findClasses(clazz) {
           if (qxl.apiviewer.dao.Class.isNativeObject(clazz)) {
@@ -778,23 +794,23 @@
     },
     statics: {
       _native_classes: {
-        "Array": Array,
-        "Boolean": Boolean,
-        "Date": Date,
-        "Error": Error,
-        "Function": Function,
-        "Math": Math,
-        "Number": Number,
-        "Object": Object,
-        "RegExp": RegExp,
-        "String": String
+        Array: Array,
+        Boolean: Boolean,
+        Date: Date,
+        Error: Error,
+        Function: Function,
+        Math: Math,
+        Number: Number,
+        Object: Object,
+        RegExp: RegExp,
+        String: String
       },
 
       /**
        * Get a class documentation by the class name.
-       *
        * @param className
-       *          {String} name of the class
+       * {String} name of the class
+       * @param create
        * @return {qxl.apiviewer.dao.Class} The class documentation
        */
       getClassByName: function getClassByName(className, create) {
@@ -821,9 +837,8 @@
 
       /**
        * Get a class documentation by the class name.
-       *
-       * @param className
-       *          {String} name of the class
+       * @param classNames
+       * @param create
        * @return {qxl.apiviewer.dao.Class} The class documentation
        */
       getClassesByName: function getClassesByName(classNames, create) {
@@ -868,4 +883,4 @@
   qxl.apiviewer.dao.Class.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Class.js.map?dt=1635064689856
+//# sourceMappingURL=Class.js.map?dt=1645800077785

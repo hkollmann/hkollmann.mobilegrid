@@ -9,11 +9,11 @@
   "clazz": {
     "location": {
       "start": {
-        "line": 37,
+        "line": 39,
         "column": 0
       },
       "end": {
-        "line": 184,
+        "line": 173,
         "column": 3
       }
     },
@@ -36,7 +36,7 @@
         },
         "end": {
           "line": 42,
-          "column": 17
+          "column": 16
         }
       },
       "jsdoc": {
@@ -64,7 +64,7 @@
         },
         "end": {
           "line": 45,
-          "column": 18
+          "column": 17
         }
       },
       "jsdoc": {
@@ -87,11 +87,11 @@
     "isXmlDocument": {
       "location": {
         "start": {
-          "line": 55,
+          "line": 54,
           "column": 4
         },
         "end": {
-          "line": 64,
+          "line": 62,
           "column": 5
         }
       },
@@ -129,11 +129,11 @@
     "create": {
       "location": {
         "start": {
-          "line": 78,
+          "line": 75,
           "column": 4
         },
         "end": {
-          "line": 112,
+          "line": 111,
           "column": 5
         }
       },
@@ -185,11 +185,11 @@
     "fromString": {
       "location": {
         "start": {
-          "line": 124,
+          "line": 122,
           "column": 4
         },
         "end": {
-          "line": 139,
+          "line": 136,
           "column": 5
         }
       },
@@ -237,11 +237,11 @@
   "defer": {
     "location": {
       "start": {
-        "line": 151,
-        "column": 10
+        "line": 145,
+        "column": 2
       },
       "end": {
-        "line": 183,
+        "line": 172,
         "column": 3
       }
     },

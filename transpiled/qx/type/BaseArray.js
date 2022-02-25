@@ -466,9 +466,8 @@
         for (var length = args.length; length;) {
           Stack.prototype[args[--length]] = Array.prototype[args[length]];
         }
-      }
+      } // Remember Array's slice method
 
-      ; // Remember Array's slice method
 
       var slice = Array.prototype.slice; // Fix "concat" method
 
@@ -554,17 +553,14 @@
 
     function Stack(length) {
       if (arguments.length === 1 && typeof length === "number") {
-        this.length = -1 < length && length === length >> .5 ? length : this.push(length);
+        this.length = -1 < length && length === length >> 0.5 ? length : this.push(length);
       } else if (arguments.length) {
         this.push.apply(this, arguments);
       }
     }
 
-    ;
-
     function PseudoArray() {}
 
-    ;
     PseudoArray.prototype = [];
     Stack.prototype = new PseudoArray();
     Stack.prototype.length = 0;
@@ -574,4 +570,4 @@
   qx.type.BaseArray.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=BaseArray.js.map?dt=1635064702993
+//# sourceMappingURL=BaseArray.js.map?dt=1645800089422

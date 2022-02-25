@@ -13,7 +13,7 @@
         "column": 0
       },
       "end": {
-        "line": 86,
+        "line": 55,
         "column": 3
       }
     },
@@ -27,28 +27,15 @@
     }
   },
   "type": "class",
-  "construct": {
-    "location": {
-      "start": {
-        "line": 36,
-        "column": 14
-      },
-      "end": {
-        "line": 43,
-        "column": 3
-      }
-    },
-    "jsdoc": {}
-  },
   "properties": {
     "appearance": {
       "location": {
         "start": {
-          "line": 56,
+          "line": 33,
           "column": 4
         },
         "end": {
-          "line": 60,
+          "line": 36,
           "column": 5
         }
       },
@@ -67,11 +54,11 @@
     "show": {
       "location": {
         "start": {
-          "line": 62,
+          "line": 38,
           "column": 4
         },
         "end": {
-          "line": 66,
+          "line": 41,
           "column": 5
         }
       },
@@ -83,28 +70,6 @@
       "overriddenFrom": "qx.ui.basic.Atom",
       "appearsIn": {
         "qx.ui.basic.Atom": "class"
-      }
-    },
-    "focusable": {
-      "location": {
-        "start": {
-          "line": 68,
-          "column": 4
-        },
-        "end": {
-          "line": 72,
-          "column": 5
-        }
-      },
-      "name": "focusable",
-      "propertyType": "new",
-      "refine": true,
-      "init": false,
-      "defaultValue": false,
-      "overriddenFrom": "qx.ui.form.ToggleButton",
-      "appearsIn": {
-        "qx.ui.form.ToggleButton": "class",
-        "qx.ui.core.Widget": "class"
       }
     },
     "command": {
@@ -129,11 +94,11 @@
     "_applyVisibility": {
       "location": {
         "start": {
-          "line": 77,
+          "line": 46,
           "column": 4
         },
         "end": {
-          "line": 84,
+          "line": 53,
           "column": 5
         }
       },
@@ -467,6 +432,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -491,6 +457,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }

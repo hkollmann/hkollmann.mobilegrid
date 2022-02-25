@@ -58,7 +58,7 @@
     */
     statics: {
       /** @type {Integer} The typical native scrollbar size in the environment */
-      __P_81_0: null,
+      __P_83_0: null,
 
       /**
        * Get the typical native scrollbar size in the environment
@@ -66,8 +66,8 @@
        * @return {Number} The native scrollbar size
        */
       getScrollbarWidth: function getScrollbarWidth() {
-        if (this.__P_81_0 !== null) {
-          return this.__P_81_0;
+        if (this.__P_83_0 !== null) {
+          return this.__P_83_0;
         }
 
         var Style = qx.bom.element.Style;
@@ -85,7 +85,7 @@
         };
 
         var getInsetRight = qx.core.Environment.select("engine.name", {
-          "mshtml": function mshtml(el) {
+          mshtml: function mshtml(el) {
             if (Style.get(el, "overflowY") == "hidden" || el.clientWidth == 0) {
               return getBorderRight(el);
             }
@@ -115,9 +115,9 @@
         s.overflow = "scroll";
         document.body.appendChild(t);
         var c = getScrollBarSizeRight(t);
-        this.__P_81_0 = c;
+        this.__P_83_0 = c;
         document.body.removeChild(t);
-        return this.__P_81_0;
+        return this.__P_83_0;
       },
 
       /*
@@ -340,4 +340,4 @@
   qx.bom.element.Scroll.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Scroll.js.map?dt=1635064691642
+//# sourceMappingURL=Scroll.js.map?dt=1645800079489

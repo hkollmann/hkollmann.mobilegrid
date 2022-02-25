@@ -46,7 +46,7 @@
        *
        * @internal
        */
-      __P_259_0: qx.locale.Manager.getInstance(),
+      __P_261_0: qx.locale.Manager.getInstance(),
 
       /**
        * Get AM marker for time definitions
@@ -55,7 +55,7 @@
        * @return {String} translated AM marker.
        */
       getAmMarker: function getAmMarker(locale) {
-        return this.__P_259_0.localize("cldr_am", [], locale);
+        return this.__P_261_0.localize("cldr_am", [], locale);
       },
 
       /**
@@ -65,7 +65,7 @@
        * @return {String} translated PM marker.
        */
       getPmMarker: function getPmMarker(locale) {
-        return this.__P_259_0.localize("cldr_pm", [], locale);
+        return this.__P_261_0.localize("cldr_pm", [], locale);
       },
 
       /**
@@ -87,7 +87,7 @@
 
         for (var i = 0; i < days.length; i++) {
           var key = "cldr_day_" + context + "_" + length + "_" + days[i];
-          names.push(withFallback ? this.__P_259_1(context, context === 'format' ? 'stand-alone' : 'format', key, locale) : this.__P_259_0.localize(key, [], locale));
+          names.push(withFallback ? this.__P_261_1(context, context === "format" ? "stand-alone" : "format", key, locale) : this.__P_261_0.localize(key, [], locale));
         }
 
         return names;
@@ -110,7 +110,7 @@
         var context = context ? context : "format";
         var days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
         var key = "cldr_day_" + context + "_" + length + "_" + days[day];
-        return withFallback ? this.__P_259_1(context, context === 'format' ? 'stand-alone' : 'format', key, locale) : this.__P_259_0.localize(key, [], locale);
+        return withFallback ? this.__P_261_1(context, context === "format" ? "stand-alone" : "format", key, locale) : this.__P_261_0.localize(key, [], locale);
       },
 
       /**
@@ -131,7 +131,7 @@
 
         for (var i = 0; i < 12; i++) {
           var key = "cldr_month_" + context + "_" + length + "_" + (i + 1);
-          names.push(withFallback ? this.__P_259_1(context, context === 'format' ? 'stand-alone' : 'format', key, locale) : this.__P_259_0.localize(key, [], locale));
+          names.push(withFallback ? this.__P_261_1(context, context === "format" ? "stand-alone" : "format", key, locale) : this.__P_261_0.localize(key, [], locale));
         }
 
         return names;
@@ -153,7 +153,7 @@
       getMonthName: function getMonthName(length, month, locale, context, withFallback) {
         var context = context ? context : "format";
         var key = "cldr_month_" + context + "_" + length + "_" + (month + 1);
-        return withFallback ? this.__P_259_1(context, context === 'format' ? 'stand-alone' : 'format', key, locale) : this.__P_259_0.localize(key, [], locale);
+        return withFallback ? this.__P_261_1(context, context === "format" ? "stand-alone" : "format", key, locale) : this.__P_261_0.localize(key, [], locale);
       },
 
       /**
@@ -166,7 +166,7 @@
        */
       getDateFormat: function getDateFormat(size, locale) {
         var key = "cldr_date_format_" + size;
-        return this.__P_259_0.localize(key, [], locale);
+        return this.__P_261_0.localize(key, [], locale);
       },
 
       /**
@@ -185,7 +185,7 @@
       getDateTimeFormat: function getDateTimeFormat(canonical, fallback, locale) {
         var key = "cldr_date_time_format_" + canonical;
 
-        var localizedFormat = this.__P_259_0.localize(key, [], locale);
+        var localizedFormat = this.__P_261_0.localize(key, [], locale);
 
         if (localizedFormat == key) {
           localizedFormat = fallback;
@@ -205,7 +205,7 @@
       getTimeFormat: function getTimeFormat(size, locale) {
         var key = "cldr_time_format_" + size;
 
-        var localizedFormat = this.__P_259_0.localize(key, [], locale);
+        var localizedFormat = this.__P_261_0.localize(key, [], locale);
 
         if (localizedFormat != key) {
           return localizedFormat;
@@ -238,73 +238,73 @@
       getWeekStart: function getWeekStart(locale) {
         var weekStart = {
           // default is monday
-          "MV": 5,
+          MV: 5,
           // friday
-          "AE": 6,
+          AE: 6,
           // saturday
-          "AF": 6,
-          "BH": 6,
-          "DJ": 6,
-          "DZ": 6,
-          "EG": 6,
-          "ER": 6,
-          "ET": 6,
-          "IQ": 6,
-          "IR": 6,
-          "JO": 6,
-          "KE": 6,
-          "KW": 6,
-          "LB": 6,
-          "LY": 6,
-          "MA": 6,
-          "OM": 6,
-          "QA": 6,
-          "SA": 6,
-          "SD": 6,
-          "SO": 6,
-          "TN": 6,
-          "YE": 6,
-          "AS": 0,
+          AF: 6,
+          BH: 6,
+          DJ: 6,
+          DZ: 6,
+          EG: 6,
+          ER: 6,
+          ET: 6,
+          IQ: 6,
+          IR: 6,
+          JO: 6,
+          KE: 6,
+          KW: 6,
+          LB: 6,
+          LY: 6,
+          MA: 6,
+          OM: 6,
+          QA: 6,
+          SA: 6,
+          SD: 6,
+          SO: 6,
+          TN: 6,
+          YE: 6,
+          AS: 0,
           // sunday
-          "AU": 0,
-          "AZ": 0,
-          "BW": 0,
-          "CA": 0,
-          "CN": 0,
-          "FO": 0,
-          "GE": 0,
-          "GL": 0,
-          "GU": 0,
-          "HK": 0,
-          "IE": 0,
-          "IL": 0,
-          "IS": 0,
-          "JM": 0,
-          "JP": 0,
-          "KG": 0,
-          "KR": 0,
-          "LA": 0,
-          "MH": 0,
-          "MN": 0,
-          "MO": 0,
-          "MP": 0,
-          "MT": 0,
-          "NZ": 0,
-          "PH": 0,
-          "PK": 0,
-          "SG": 0,
-          "TH": 0,
-          "TT": 0,
-          "TW": 0,
-          "UM": 0,
-          "US": 0,
-          "UZ": 0,
-          "VI": 0,
-          "ZA": 0,
-          "ZW": 0,
-          "MW": 0,
-          "NG": 0,
-          "TJ": 0
+          AU: 0,
+          AZ: 0,
+          BW: 0,
+          CA: 0,
+          CN: 0,
+          FO: 0,
+          GE: 0,
+          GL: 0,
+          GU: 0,
+          HK: 0,
+          IE: 0,
+          IL: 0,
+          IS: 0,
+          JM: 0,
+          JP: 0,
+          KG: 0,
+          KR: 0,
+          LA: 0,
+          MH: 0,
+          MN: 0,
+          MO: 0,
+          MP: 0,
+          MT: 0,
+          NZ: 0,
+          PH: 0,
+          PK: 0,
+          SG: 0,
+          TH: 0,
+          TT: 0,
+          TW: 0,
+          UM: 0,
+          US: 0,
+          UZ: 0,
+          VI: 0,
+          ZA: 0,
+          ZW: 0,
+          MW: 0,
+          NG: 0,
+          TJ: 0
         };
 
         var territory = qx.locale.Date._getTerritory(locale); // default is monday
@@ -324,28 +324,28 @@
       getWeekendStart: function getWeekendStart(locale) {
         var weekendStart = {
           // default is saturday
-          "EG": 5,
+          EG: 5,
           // friday
-          "IL": 5,
-          "SY": 5,
-          "IN": 0,
+          IL: 5,
+          SY: 5,
+          IN: 0,
           // sunday
-          "AE": 4,
+          AE: 4,
           // thursday
-          "BH": 4,
-          "DZ": 4,
-          "IQ": 4,
-          "JO": 4,
-          "KW": 4,
-          "LB": 4,
-          "LY": 4,
-          "MA": 4,
-          "OM": 4,
-          "QA": 4,
-          "SA": 4,
-          "SD": 4,
-          "TN": 4,
-          "YE": 4
+          BH: 4,
+          DZ: 4,
+          IQ: 4,
+          JO: 4,
+          KW: 4,
+          LB: 4,
+          LY: 4,
+          MA: 4,
+          OM: 4,
+          QA: 4,
+          SA: 4,
+          SD: 4,
+          TN: 4,
+          YE: 4
         };
 
         var territory = qx.locale.Date._getTerritory(locale); // default is saturday
@@ -365,28 +365,28 @@
       getWeekendEnd: function getWeekendEnd(locale) {
         var weekendEnd = {
           // default is sunday
-          "AE": 5,
+          AE: 5,
           // friday
-          "BH": 5,
-          "DZ": 5,
-          "IQ": 5,
-          "JO": 5,
-          "KW": 5,
-          "LB": 5,
-          "LY": 5,
-          "MA": 5,
-          "OM": 5,
-          "QA": 5,
-          "SA": 5,
-          "SD": 5,
-          "TN": 5,
-          "YE": 5,
-          "AF": 5,
-          "IR": 5,
-          "EG": 6,
+          BH: 5,
+          DZ: 5,
+          IQ: 5,
+          JO: 5,
+          KW: 5,
+          LB: 5,
+          LY: 5,
+          MA: 5,
+          OM: 5,
+          QA: 5,
+          SA: 5,
+          SD: 5,
+          TN: 5,
+          YE: 5,
+          AF: 5,
+          IR: 5,
+          EG: 6,
           // saturday
-          "IL": 6,
-          "SY": 6
+          IL: 6,
+          SY: 6
         };
 
         var territory = qx.locale.Date._getTerritory(locale); // default is sunday
@@ -423,7 +423,7 @@
         if (locale) {
           var territory = locale.split("_")[1] || locale;
         } else {
-          territory = this.__P_259_0.getTerritory() || this.__P_259_0.getLanguage();
+          territory = this.__P_261_0.getTerritory() || this.__P_261_0.getLanguage();
         }
 
         return territory.toUpperCase();
@@ -441,12 +441,12 @@
        * @return {String} localized name for the key
        *
        */
-      __P_259_1: function __P_259_1(context, fallbackContext, key, locale) {
-        var localizedString = this.__P_259_0.localize(key, [], locale);
+      __P_261_1: function __P_261_1(context, fallbackContext, key, locale) {
+        var localizedString = this.__P_261_0.localize(key, [], locale);
 
         if (localizedString == key) {
-          var newKey = key.replace('_' + context + '_', '_' + fallbackContext + '_');
-          return this.__P_259_0.localize(newKey, [], locale);
+          var newKey = key.replace("_" + context + "_", "_" + fallbackContext + "_");
+          return this.__P_261_0.localize(newKey, [], locale);
         } else {
           return localizedString;
         }
@@ -456,4 +456,4 @@
   qx.locale.Date.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Date.js.map?dt=1635064705951
+//# sourceMappingURL=Date.js.map?dt=1645800092112

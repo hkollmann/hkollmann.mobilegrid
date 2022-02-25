@@ -144,6 +144,8 @@
        MEMBERS
     *****************************************************************************
     */
+
+    /* eslint-disable @qooxdoo/qx/no-refs-in-members */
     members: {
       __P_37_0: null,
 
@@ -365,4 +367,4 @@
   qx.ui.core.EventHandler.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=EventHandler.js.map?dt=1635064687374
+//# sourceMappingURL=EventHandler.js.map?dt=1645800075589

@@ -13,7 +13,7 @@
         "column": 0
       },
       "end": {
-        "line": 1247,
+        "line": 1458,
         "column": 3
       }
     },
@@ -53,11 +53,11 @@
   "construct": {
     "location": {
       "start": {
-        "line": 45,
-        "column": 13
+        "line": 44,
+        "column": 2
       },
       "end": {
-        "line": 50,
+        "line": 49,
         "column": 3
       }
     },
@@ -71,10 +71,16 @@
       "@param": [
         {
           "name": "@param",
-          "body": "labelText\n          {String} the label text describing the node type.",
+          "body": "labelText\n {String} the label text describing the node type.",
           "paramName": "labelText",
           "description": " the label text describing the node type.",
           "type": "String"
+        },
+        {
+          "name": "@param",
+          "body": "icon",
+          "paramName": "icon",
+          "type": ""
         }
       ]
     }
@@ -83,11 +89,11 @@
     "element": {
       "location": {
         "start": {
-          "line": 55,
+          "line": 53,
           "column": 4
         },
         "end": {
-          "line": 60,
+          "line": 58,
           "column": 5
         }
       },
@@ -109,11 +115,11 @@
     "isOpen": {
       "location": {
         "start": {
-          "line": 63,
+          "line": 61,
           "column": 4
         },
         "end": {
-          "line": 66,
+          "line": 64,
           "column": 5
         }
       },
@@ -134,11 +140,11 @@
     "docNode": {
       "location": {
         "start": {
-          "line": 68,
+          "line": 66,
           "column": 4
         },
         "end": {
-          "line": 71,
+          "line": 69,
           "column": 5
         }
       },
@@ -185,11 +191,11 @@
     "_labelText": {
       "location": {
         "start": {
-          "line": 76,
+          "line": 73,
           "column": 4
         },
         "end": {
-          "line": 76,
+          "line": 73,
           "column": 20
         }
       },
@@ -199,11 +205,11 @@
     "_icon": {
       "location": {
         "start": {
-          "line": 77,
+          "line": 74,
           "column": 4
         },
         "end": {
-          "line": 77,
+          "line": 74,
           "column": 15
         }
       },
@@ -213,11 +219,11 @@
     "getPanelTitle": {
       "location": {
         "start": {
-          "line": 84,
+          "line": 81,
           "column": 4
         },
         "end": {
-          "line": 86,
+          "line": 83,
           "column": 5
         }
       },
@@ -243,11 +249,11 @@
     "getPanelIcon": {
       "location": {
         "start": {
-          "line": 93,
+          "line": 90,
           "column": 4
         },
         "end": {
-          "line": 95,
+          "line": 92,
           "column": 5
         }
       },
@@ -273,11 +279,11 @@
     "canDisplayItem": {
       "location": {
         "start": {
-          "line": 102,
+          "line": 99,
           "column": 4
         },
         "end": {
-          "line": 104,
+          "line": 103,
           "column": 5
         }
       },
@@ -286,6 +292,14 @@
           {
             "name": "@description",
             "body": "<p>Whether the panel can display the given item node</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "dao",
+            "paramName": "dao",
+            "type": ""
           }
         ],
         "@return": [
@@ -303,11 +317,11 @@
     "getItemTypeHtml": {
       "location": {
         "start": {
-          "line": 117,
+          "line": 116,
           "column": 4
         },
         "end": {
-          "line": 119,
+          "line": 118,
           "column": 5
         }
       },
@@ -355,11 +369,11 @@
     "getItemTitleHtml": {
       "location": {
         "start": {
-          "line": 132,
+          "line": 131,
           "column": 4
         },
         "end": {
-          "line": 134,
+          "line": 133,
           "column": 5
         }
       },
@@ -407,11 +421,11 @@
     "getItemTextHtml": {
       "location": {
         "start": {
-          "line": 149,
+          "line": 148,
           "column": 4
         },
         "end": {
-          "line": 151,
+          "line": 150,
           "column": 5
         }
       },
@@ -466,11 +480,11 @@
     "getItemTooltip": {
       "location": {
         "start": {
-          "line": 153,
+          "line": 152,
           "column": 4
         },
         "end": {
-          "line": 155,
+          "line": 154,
           "column": 5
         }
       },
@@ -480,11 +494,11 @@
     "getItemHtml": {
       "location": {
         "start": {
-          "line": 168,
+          "line": 167,
           "column": 4
         },
         "end": {
-          "line": 226,
+          "line": 268,
           "column": 5
         }
       },
@@ -504,14 +518,20 @@
         "@param": [
           {
             "name": "@param",
-            "body": "node\n          {qxl.apiviewer.dao.ClassItem} the doc node of the item.",
+            "body": "node\n {qxl.apiviewer.dao.ClassItem} the doc node of the item.",
             "paramName": "node",
             "description": " the doc node of the item.",
             "type": "qxl.apiviewer.dao.ClassItem"
           },
           {
             "name": "@param",
-            "body": "showDetails\n          {Boolean} whether to show the details.",
+            "body": "currentDocNode",
+            "paramName": "currentDocNode",
+            "type": ""
+          },
+          {
+            "name": "@param",
+            "body": "showDetails\n {Boolean} whether to show the details.",
             "paramName": "showDetails",
             "description": " whether to show the details.",
             "type": "Boolean"
@@ -532,11 +552,11 @@
     "itemHasDetails": {
       "location": {
         "start": {
-          "line": 240,
+          "line": 282,
           "column": 4
         },
         "end": {
-          "line": 242,
+          "line": 284,
           "column": 5
         }
       },
@@ -584,11 +604,11 @@
     "__encodeObject": {
       "location": {
         "start": {
-          "line": 244,
+          "line": 286,
           "column": 4
         },
         "end": {
-          "line": 246,
+          "line": 292,
           "column": 5
         }
       },
@@ -598,11 +618,11 @@
     "getPanelHtml": {
       "location": {
         "start": {
-          "line": 253,
+          "line": 299,
           "column": 4
         },
         "end": {
-          "line": 265,
+          "line": 325,
           "column": 5
         }
       },
@@ -611,6 +631,14 @@
           {
             "name": "@description",
             "body": "<p>Get the HTML fragment of the info panel</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "viewer",
+            "paramName": "viewer",
+            "type": ""
           }
         ],
         "@return": [
@@ -628,11 +656,11 @@
     "_getPanelItems": {
       "location": {
         "start": {
-          "line": 277,
+          "line": 335,
           "column": 4
         },
         "end": {
-          "line": 309,
+          "line": 370,
           "column": 5
         }
       },
@@ -646,25 +674,30 @@
         "@param": [
           {
             "name": "@param",
-            "body": "showInherited\n          {Boolean} whether to show inherited items",
+            "body": "showInherited {Boolean} whether to show inherited items",
             "paramName": "showInherited",
             "description": " whether to show inherited items",
             "type": "Boolean"
           },
           {
             "name": "@param",
-            "body": "currentClassDocNode\n          {qxl.apiviewer.dao.Class} the currently displayed class",
-            "paramName": "currentClassDocNode",
-            "description": " the currently displayed class",
-            "type": "qxl.apiviewer.dao.Class"
+            "body": "showIncluded",
+            "paramName": "showIncluded",
+            "type": ""
+          },
+          {
+            "name": "@param",
+            "body": "daoClass",
+            "paramName": "daoClass",
+            "type": ""
           }
         ],
         "@return": [
           {
             "name": "@return",
-            "body": "{qxl.apiviewer.dao.ClassItem[]} list of all items to display in the\n         panel",
+            "body": "{qxl.apiviewer.dao.ClassItem[]} list of all items to display in the\n panel",
             "type": "qxl.apiviewer.dao.ClassItem[]",
-            "description": " list of all items to display in the\n         panel"
+            "description": " list of all items to display in the\n panel"
           }
         ]
       },
@@ -674,11 +707,11 @@
     "_canShowInherited": {
       "location": {
         "start": {
-          "line": 311,
+          "line": 372,
           "column": 4
         },
         "end": {
-          "line": 313,
+          "line": 374,
           "column": 5
         }
       },
@@ -688,11 +721,11 @@
     "getPanelItemObjects": {
       "location": {
         "start": {
-          "line": 315,
+          "line": 376,
           "column": 4
         },
         "end": {
-          "line": 317,
+          "line": 380,
           "column": 5
         }
       },
@@ -702,11 +735,11 @@
     "__filterItems": {
       "location": {
         "start": {
-          "line": 332,
+          "line": 395,
           "column": 4
         },
         "end": {
-          "line": 348,
+          "line": 417,
           "column": 5
         }
       },
@@ -720,28 +753,34 @@
         "@param": [
           {
             "name": "@param",
-            "body": "nodeArr\n          {qxl.apiviewer.dao.ClassItem[]} array of class items",
+            "body": "nodeArr\n {qxl.apiviewer.dao.ClassItem[]} array of class items",
             "paramName": "nodeArr",
             "description": " array of class items",
             "type": "qxl.apiviewer.dao.ClassItem[]"
           },
           {
             "name": "@param",
-            "body": "showProtected\n          {Boolean} whether to show protected items",
+            "body": "expandProperties",
+            "paramName": "expandProperties",
+            "type": ""
+          },
+          {
+            "name": "@param",
+            "body": "showProtected\n {Boolean} whether to show protected items",
             "paramName": "showProtected",
             "description": " whether to show protected items",
             "type": "Boolean"
           },
           {
             "name": "@param",
-            "body": "showPrivate\n          {Boolean} whether to show private items",
+            "body": "showPrivate\n {Boolean} whether to show private items",
             "paramName": "showPrivate",
             "description": " whether to show private items",
             "type": "Boolean"
           },
           {
             "name": "@param",
-            "body": "showInternal\n          {Boolean} whether to show internal items",
+            "body": "showInternal\n {Boolean} whether to show internal items",
             "paramName": "showInternal",
             "description": " whether to show internal items",
             "type": "Boolean"
@@ -762,11 +801,11 @@
     "_displayNodes": {
       "location": {
         "start": {
-          "line": 350,
+          "line": 419,
           "column": 4
         },
         "end": {
-          "line": 370,
+          "line": 441,
           "column": 5
         }
       },
@@ -776,11 +815,11 @@
     "update": {
       "location": {
         "start": {
-          "line": 381,
+          "line": 452,
           "column": 4
         },
         "end": {
-          "line": 404,
+          "line": 484,
           "column": 5
         }
       },
@@ -822,11 +861,11 @@
     "_applyElement": {
       "location": {
         "start": {
-          "line": 406,
+          "line": 486,
           "column": 4
         },
         "end": {
-          "line": 409,
+          "line": 489,
           "column": 5
         }
       },
@@ -839,11 +878,11 @@
     "getTitleElement": {
       "location": {
         "start": {
-          "line": 412,
+          "line": 492,
           "column": 4
         },
         "end": {
-          "line": 414,
+          "line": 494,
           "column": 5
         }
       },
@@ -861,11 +900,11 @@
     "getBodyElement": {
       "location": {
         "start": {
-          "line": 417,
+          "line": 497,
           "column": 4
         },
         "end": {
-          "line": 419,
+          "line": 499,
           "column": 5
         }
       },
@@ -883,11 +922,11 @@
     "getItemElement": {
       "location": {
         "start": {
-          "line": 432,
+          "line": 512,
           "column": 4
         },
         "end": {
-          "line": 449,
+          "line": 532,
           "column": 5
         }
       },
@@ -935,11 +974,11 @@
     "toggleShowItemDetails": {
       "location": {
         "start": {
-          "line": 462,
+          "line": 541,
           "column": 4
         },
         "end": {
-          "line": 499,
+          "line": 591,
           "column": 5
         }
       },
@@ -953,21 +992,13 @@
         "@param": [
           {
             "name": "@param",
-            "body": "panelHashCode\n          {Integer} hash code of the panel object.",
-            "paramName": "panelHashCode",
-            "description": " hash code of the panel object.",
-            "type": "Integer"
+            "body": "itemName",
+            "paramName": "itemName",
+            "type": ""
           },
           {
             "name": "@param",
-            "body": "name\n          {String} the name of the item.",
-            "paramName": "name",
-            "description": " the name of the item.",
-            "type": "String"
-          },
-          {
-            "name": "@param",
-            "body": "fromClassName\n          {String} the name of the class the item the item was defined in.",
+            "body": "fromClassName\n {String} the name of the class the item the item was defined in.",
             "paramName": "fromClassName",
             "description": " the name of the class the item the item was defined in.",
             "type": "String"
@@ -980,11 +1011,11 @@
     "_postProcessLinks": {
       "location": {
         "start": {
-          "line": 507,
+          "line": 599,
           "column": 4
         },
         "end": {
-          "line": 544,
+          "line": 637,
           "column": 5
         }
       },
@@ -1096,6 +1127,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -1120,6 +1152,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }
@@ -1426,11 +1459,11 @@
   "destruct": {
     "location": {
       "start": {
-        "line": 553,
-        "column": 12
+        "line": 646,
+        "column": 2
       },
       "end": {
-        "line": 555,
+        "line": 648,
         "column": 3
       }
     },
@@ -1447,11 +1480,11 @@
     "ITEM_SPEC_REGEX": {
       "location": {
         "start": {
-          "line": 563,
+          "line": 655,
           "column": 4
         },
         "end": {
-          "line": 563,
+          "line": 655,
           "column": 67
         }
       },
@@ -1469,11 +1502,11 @@
     "SENTENCE_END_REGEX": {
       "location": {
         "start": {
-          "line": 566,
+          "line": 658,
           "column": 4
         },
         "end": {
-          "line": 566,
+          "line": 658,
           "column": 40
         }
       },
@@ -1491,11 +1524,11 @@
     "resolveLinkAttributes": {
       "location": {
         "start": {
-          "line": 578,
+          "line": 670,
           "column": 4
         },
         "end": {
-          "line": 596,
+          "line": 691,
           "column": 5
         }
       },
@@ -1539,11 +1572,11 @@
     "createItemLinkHtml": {
       "location": {
         "start": {
-          "line": 614,
+          "line": 709,
           "column": 4
         },
         "end": {
-          "line": 778,
+          "line": 911,
           "column": 5
         }
       },
@@ -1605,11 +1638,11 @@
     "createSeeAlsoHtml": {
       "location": {
         "start": {
-          "line": 787,
+          "line": 920,
           "column": 4
         },
         "end": {
-          "line": 814,
+          "line": 953,
           "column": 5
         }
       },
@@ -1644,11 +1677,11 @@
     "createInheritedFromHtml": {
       "location": {
         "start": {
-          "line": 826,
+          "line": 965,
           "column": 4
         },
         "end": {
-          "line": 840,
+          "line": 997,
           "column": 5
         }
       },
@@ -1690,11 +1723,11 @@
     "createOverwriddenFromHtml": {
       "location": {
         "start": {
-          "line": 849,
+          "line": 1006,
           "column": 4
         },
         "end": {
-          "line": 858,
+          "line": 1021,
           "column": 5
         }
       },
@@ -1729,11 +1762,11 @@
     "createIncludedFromHtml": {
       "location": {
         "start": {
-          "line": 870,
+          "line": 1033,
           "column": 4
         },
         "end": {
-          "line": 880,
+          "line": 1050,
           "column": 5
         }
       },
@@ -1775,11 +1808,11 @@
     "__getItemFromClassHierarchy": {
       "location": {
         "start": {
-          "line": 893,
+          "line": 1063,
           "column": 4
         },
         "end": {
-          "line": 907,
+          "line": 1077,
           "column": 5
         }
       },
@@ -1821,11 +1854,11 @@
     "createDescriptionHtml": {
       "location": {
         "start": {
-          "line": 922,
+          "line": 1092,
           "column": 4
         },
         "end": {
-          "line": 932,
+          "line": 1106,
           "column": 5
         }
       },
@@ -1879,11 +1912,11 @@
     "__extractFirstSentence": {
       "location": {
         "start": {
-          "line": 941,
+          "line": 1115,
           "column": 4
         },
         "end": {
-          "line": 957,
+          "line": 1131,
           "column": 5
         }
       },
@@ -1918,11 +1951,11 @@
     "descriptionHasDetails": {
       "location": {
         "start": {
-          "line": 967,
+          "line": 1141,
           "column": 4
         },
         "end": {
-          "line": 973,
+          "line": 1147,
           "column": 5
         }
       },
@@ -1957,11 +1990,11 @@
     "createTypeHtml": {
       "location": {
         "start": {
-          "line": 988,
+          "line": 1162,
           "column": 4
         },
         "end": {
-          "line": 1051,
+          "line": 1239,
           "column": 5
         }
       },
@@ -2012,11 +2045,11 @@
     "createErrorHtml": {
       "location": {
         "start": {
-          "line": 1062,
+          "line": 1250,
           "column": 4
         },
         "end": {
-          "line": 1092,
+          "line": 1291,
           "column": 5
         }
       },
@@ -2058,11 +2091,11 @@
     "createDeprecationHtml": {
       "location": {
         "start": {
-          "line": 1104,
+          "line": 1303,
           "column": 4
         },
         "end": {
-          "line": 1121,
+          "line": 1320,
           "column": 5
         }
       },
@@ -2104,11 +2137,11 @@
     "createAccessHtml": {
       "location": {
         "start": {
-          "line": 1130,
+          "line": 1329,
           "column": 4
         },
         "end": {
-          "line": 1151,
+          "line": 1350,
           "column": 5
         }
       },
@@ -2143,11 +2176,11 @@
     "createInfoRequiredByHtml": {
       "location": {
         "start": {
-          "line": 1160,
+          "line": 1359,
           "column": 4
         },
         "end": {
-          "line": 1171,
+          "line": 1379,
           "column": 5
         }
       },
@@ -2182,11 +2215,11 @@
     "createSourceLinkHtml": {
       "location": {
         "start": {
-          "line": 1180,
+          "line": 1388,
           "column": 4
         },
         "end": {
-          "line": 1202,
+          "line": 1414,
           "column": 5
         }
       },
@@ -2221,11 +2254,11 @@
     "setTitleClass": {
       "location": {
         "start": {
-          "line": 1214,
+          "line": 1426,
           "column": 4
         },
         "end": {
-          "line": 1218,
+          "line": 1430,
           "column": 5
         }
       },
@@ -2267,11 +2300,11 @@
     "getItemCssClasses": {
       "location": {
         "start": {
-          "line": 1227,
+          "line": 1439,
           "column": 4
         },
         "end": {
-          "line": 1244,
+          "line": 1456,
           "column": 5
         }
       },

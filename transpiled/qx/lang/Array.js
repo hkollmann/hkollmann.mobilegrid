@@ -141,6 +141,11 @@
        * @return {Array} a newly created array (copy) with the content of the arguments object.
        */
       fromArguments: function fromArguments(args, offset) {
+        // Optimising for this use case can make a big difference (eg x100)
+        if (args.length === 0 && (offset === undefined || offset === 0)) {
+          return [];
+        }
+
         return Array.prototype.slice.call(args, offset || 0);
       },
 
@@ -563,7 +568,7 @@
 
       /**
        * Replaces the contents of the array `dest`
-       * 
+       *
        * @param dest {Array|qx.data.Array} the array to edit (if null then a new array is created)
        * @param src {Array|qx.data.Array} the array to copy from, or null
        * @return {Array} the edited array (or the new array, if dest is null)
@@ -598,9 +603,9 @@
 
       /**
        * Returns a native array from src where possible; qx.data.Array is converted to its native array,
-       * in which case unless `clone` parameter is set to true the rules of qx.data.Array.toArray should 
+       * in which case unless `clone` parameter is set to true the rules of qx.data.Array.toArray should
        * be followed, ie that the array should not be manipulated directly.
-       * 
+       *
        * @param src {qx.data.Array|Array} the object to return as an array
        * @param clone{Boolean?} whether to make the returned array a clone, ie editable by the calling code
        * @return {Array}
@@ -632,7 +637,7 @@
       /**
        * Returns a `qx.data.Array` array from src where possible; if `clone` is true then the result will
        * always be a new instance of `qx.data.Array` even if it is already a `qx.data.Array`
-       * 
+       *
        * @param src {qx.data.Array|Array} the object to return as `qx.data.Array`
        * @param clone{Boolean?} whether to make the returned array a clone, ie editable by the calling code
        * @return {Array}
@@ -661,4 +666,4 @@
   qx.lang.Array.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Array.js.map?dt=1635064688167
+//# sourceMappingURL=Array.js.map?dt=1645800076363

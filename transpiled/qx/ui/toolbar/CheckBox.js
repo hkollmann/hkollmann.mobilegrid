@@ -6,7 +6,6 @@
         "require": true
       },
       "qx.ui.form.ToggleButton": {
-        "construct": true,
         "require": true
       },
       "qx.ui.toolbar.PartContainer": {},
@@ -42,18 +41,6 @@
 
     /*
     *****************************************************************************
-       CONSTRUCTOR
-    *****************************************************************************
-    */
-    construct: function construct(label, icon) {
-      qx.ui.form.ToggleButton.constructor.call(this, label, icon); // Toolbar buttons should not support the keyboard events
-
-      this.removeListener("keydown", this._onKeyDown);
-      this.removeListener("keyup", this._onKeyUp);
-    },
-
-    /*
-    *****************************************************************************
        PROPERTIES
     *****************************************************************************
     */
@@ -65,16 +52,12 @@
       show: {
         refine: true,
         init: "inherit"
-      },
-      focusable: {
-        refine: true,
-        init: false
       }
     },
     members: {
       // overridden
       _applyVisibility: function _applyVisibility(value, old) {
-        qx.ui.toolbar.CheckBox.prototype._applyVisibility.base.call(this, value, old); // trigger a appearance recalculation of the parent
+        qx.ui.toolbar.CheckBox.superclass.prototype._applyVisibility.call(this, value, old); // trigger a appearance recalculation of the parent
 
 
         var parent = this.getLayoutParent();
@@ -88,4 +71,4 @@
   qx.ui.toolbar.CheckBox.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=CheckBox.js.map?dt=1635064689099
+//# sourceMappingURL=CheckBox.js.map?dt=1645800077130

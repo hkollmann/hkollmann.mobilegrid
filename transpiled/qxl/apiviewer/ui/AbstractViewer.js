@@ -166,7 +166,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             // existing pre element with the wrapper element.
             var preWrapper = document.createElement("div");
             var content = element.textContent || element.innerText;
-            preWrapper.innerHTML = "<pre class=\"javascript\">" + qx.dev.Tokenizer.javaScriptToHtml(content, true) + "</pre>";
+            preWrapper.innerHTML = '<pre class="javascript">' + qx.dev.Tokenizer.javaScriptToHtml(content, true) + "</pre>";
             element.parentNode.replaceChild(preWrapper, element);
           } else {
             element.innerHTML = qx.dev.Tokenizer.javaScriptToHtml(element.textContent);
@@ -175,28 +175,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     events: {
-      "synced": "qx.event.type.Event"
+      synced: "qx.event.type.Event"
     },
     members: {
       _infoPanelHash: null,
       _infoPanels: null,
-      __P_237_0: false,
+      __P_241_0: false,
       _init: function _init(pkg) {
         var _this = this;
 
-        this.__P_237_1();
+        this.__P_241_1();
 
         this.addListenerOnce("appear", function () {
           return _this._syncHtml();
         });
       },
-      __P_237_1: function __P_237_1() {
+      __P_241_1: function __P_241_1() {
         var html = new qx.util.StringBuilder();
-        html.add("<div style=\"padding:24px;\">"); // Add title
+        html.add('<div style="padding:24px;">'); // Add title
 
         html.add("<h1></h1>"); // Add TOC
 
-        html.add("<div class=\"tocContainer\"></div>"); // Add description
+        html.add('<div class="tocContainer"></div>'); // Add description
 
         html.add("<div>", "</div>"); // render panels
 
@@ -233,55 +233,52 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
        * HtmlEmbed element initialization routine.
        *
        */
-      _syncHtml: function () {
-        var _syncHtml2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+      _syncHtml: function _syncHtml() {
+        var _this2 = this;
+
+        return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
           var oldTitleElem, element, divArr, panels, i, panel;
           return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
               switch (_context.prev = _context.next) {
                 case 0:
-                  oldTitleElem = this._titleElem;
-                  element = this.getContentElement().getDomElement().firstChild;
+                  oldTitleElem = _this2._titleElem;
+                  element = _this2.getContentElement().getDomElement().firstChild;
                   divArr = element.childNodes;
-                  panels = this.getPanels();
+                  panels = _this2.getPanels();
                   qxl.apiviewer.ui.AbstractViewer.fixLinks(element);
-                  this._titleElem = divArr[0];
-                  this._tocElem = divArr[1];
-                  this._classDescElem = divArr[2];
+                  _this2._titleElem = divArr[0];
+                  _this2._tocElem = divArr[1];
+                  _this2._classDescElem = divArr[2];
 
                   for (i = 0; i < panels.length; i++) {
                     panel = panels[i];
                     panel.setElement(divArr[i + 3]);
                   }
 
-                  if (!(oldTitleElem !== this._titleElem && this.getDocNode())) {
+                  if (!(oldTitleElem !== _this2._titleElem && _this2.getDocNode())) {
                     _context.next = 12;
                     break;
                   }
 
                   _context.next = 12;
-                  return this._applyDocNode(this.getDocNode());
+                  return _this2._applyDocNode(_this2.getDocNode());
 
                 case 12:
-                  this.__P_237_0 = true;
-                  this.fireEvent("synced");
+                  _this2.__P_241_0 = true;
+
+                  _this2.fireEvent("synced");
 
                 case 14:
                 case "end":
                   return _context.stop();
               }
             }
-          }, _callee, this);
-        }));
-
-        function _syncHtml() {
-          return _syncHtml2.apply(this, arguments);
-        }
-
-        return _syncHtml;
-      }(),
+          }, _callee);
+        }))();
+      },
       isValid: function isValid() {
-        return this.__P_237_0;
+        return this.__P_241_0;
       },
       addInfoPanel: function addInfoPanel(panel) {
         this._infoPanelHash[panel.toHashCode()] = panel;
@@ -301,7 +298,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
        * @return {qx.Promise}
        */
       _updatePanels: function _updatePanels() {
-        var _this2 = this;
+        var _this3 = this;
 
         if (!this.getDocNode()) {
           return qx.Promise.resolve();
@@ -310,7 +307,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         qxl.apiviewer.LoadingIndicator.getInstance().show();
         var panels = this.getPanels();
         var all = panels.map(function (panel) {
-          return panel.update(_this2, _this2.getDocNode());
+          return panel.update(_this3, _this3.getDocNode());
         });
         return qx.Promise.all(all).then(function () {
           return qxl.apiviewer.LoadingIndicator.getInstance().hide();
@@ -324,17 +321,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
        * @return {qx.Promise}
        */
       _updatePanelsWithInheritedMembers: function _updatePanelsWithInheritedMembers() {
-        var _this3 = this;
+        var _this4 = this;
 
         if (!this.getDocNode()) {
           return qx.Promise.resolve();
         }
 
         return this._updatePanels().then(function () {
-          if (_this3._tocElem) {
-            qx.dom.Element.empty(_this3._tocElem);
+          if (_this4._tocElem) {
+            qx.dom.Element.empty(_this4._tocElem);
 
-            _this3._tocElem.appendChild(_this3._getTocHtml(_this3.getDocNode()));
+            _this4._tocElem.appendChild(_this4._getTocHtml(_this4.getDocNode()));
           }
         });
       },
@@ -345,7 +342,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
        * @param classNode {qxl.apiviewer.dao.Class} the doc node of the class to show.
        */
       _applyDocNode: function _applyDocNode(classNode) {
-        var _this4 = this;
+        var _this5 = this;
 
         if (!this._titleElem) {
           return null;
@@ -357,19 +354,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this._tocElem.appendChild(this._getTocHtml(classNode));
 
         return this._getDescriptionHtml(classNode).then(function (html) {
-          _this4._classDescElem.innerHTML = html;
-          qxl.apiviewer.ui.AbstractViewer.fixLinks(_this4._classDescElem);
-          qxl.apiviewer.ui.AbstractViewer.highlightCode(_this4._classDescElem); // Refresh the info viewers
+          _this5._classDescElem.innerHTML = html;
+          qxl.apiviewer.ui.AbstractViewer.fixLinks(_this5._classDescElem);
+          qxl.apiviewer.ui.AbstractViewer.highlightCode(_this5._classDescElem); // Refresh the info viewers
 
-          return _this4._updatePanels();
+          return _this5._updatePanels();
         });
       },
 
       /**
        * Event handler. Called when the user tapped a button for showing/hiding the
        * body of an info panel.
-       *
-       * @param panelHashCode {Integer} hash code of the panel object.
+       * @param panel
        * @return {qx.Promise}
        */
       togglePanelVisibility: function togglePanelVisibility(panel) {
@@ -458,4 +454,4 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   qxl.apiviewer.ui.AbstractViewer.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=AbstractViewer.js.map?dt=1635064704039
+//# sourceMappingURL=AbstractViewer.js.map?dt=1645800090322

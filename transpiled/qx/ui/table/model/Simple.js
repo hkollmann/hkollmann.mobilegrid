@@ -40,10 +40,10 @@
     construct: function construct() {
       qx.ui.table.model.Abstract.constructor.call(this);
       this._rowArr = [];
-      this.__P_124_0 = -1; // Array of objects, each with property "ascending" and "descending"
+      this.__P_128_0 = -1; // Array of objects, each with property "ascending" and "descending"
 
-      this.__P_124_1 = [];
-      this.__P_124_2 = null;
+      this.__P_128_1 = [];
+      this.__P_128_2 = null;
     },
     properties: {
       /**
@@ -175,11 +175,11 @@
     },
     members: {
       _rowArr: null,
-      __P_124_2: null,
-      __P_124_3: null,
-      __P_124_1: null,
-      __P_124_0: null,
-      __P_124_4: null,
+      __P_128_2: null,
+      __P_128_3: null,
+      __P_128_1: null,
+      __P_128_0: null,
+      __P_128_4: null,
       // overridden
       getRowData: function getRowData(rowIndex) {
         var rowData = this._rowArr[rowIndex];
@@ -247,10 +247,10 @@
        * @param editable {Boolean} whether all columns are editable.
        */
       setEditable: function setEditable(editable) {
-        this.__P_124_2 = [];
+        this.__P_128_2 = [];
 
         for (var col = 0; col < this.getColumnCount(); col++) {
-          this.__P_124_2[col] = editable;
+          this.__P_128_2[col] = editable;
         }
 
         this.fireEvent("metaDataChanged");
@@ -264,17 +264,17 @@
        */
       setColumnEditable: function setColumnEditable(columnIndex, editable) {
         if (editable != this.isColumnEditable(columnIndex)) {
-          if (this.__P_124_2 == null) {
-            this.__P_124_2 = [];
+          if (this.__P_128_2 == null) {
+            this.__P_128_2 = [];
           }
 
-          this.__P_124_2[columnIndex] = editable;
+          this.__P_128_2[columnIndex] = editable;
           this.fireEvent("metaDataChanged");
         }
       },
       // overridden
       isColumnEditable: function isColumnEditable(columnIndex) {
-        return this.__P_124_2 ? this.__P_124_2[columnIndex] == true : false;
+        return this.__P_128_2 ? this.__P_128_2[columnIndex] == true : false;
       },
 
       /**
@@ -285,24 +285,24 @@
        */
       setColumnSortable: function setColumnSortable(columnIndex, sortable) {
         if (sortable != this.isColumnSortable(columnIndex)) {
-          if (this.__P_124_3 == null) {
-            this.__P_124_3 = [];
+          if (this.__P_128_3 == null) {
+            this.__P_128_3 = [];
           }
 
-          this.__P_124_3[columnIndex] = sortable;
+          this.__P_128_3[columnIndex] = sortable;
           this.fireEvent("metaDataChanged");
         }
       },
       // overridden
       isColumnSortable: function isColumnSortable(columnIndex) {
-        return this.__P_124_3 ? this.__P_124_3[columnIndex] !== false : true;
+        return this.__P_128_3 ? this.__P_128_3[columnIndex] !== false : true;
       },
       // overridden
       sortByColumn: function sortByColumn(columnIndex, ascending) {
         // NOTE: We use different comparators for ascending and descending,
         //     because comparators should be really fast.
         var comparator;
-        var sortMethods = this.__P_124_1[columnIndex];
+        var sortMethods = this.__P_128_1[columnIndex];
 
         if (sortMethods) {
           comparator = ascending ? sortMethods.ascending : sortMethods.descending;
@@ -320,8 +320,8 @@
           return comparator(row1, row2, columnIndex);
         });
 
-        this.__P_124_0 = columnIndex;
-        this.__P_124_4 = ascending;
+        this.__P_128_0 = columnIndex;
+        this.__P_128_4 = ascending;
         var data = {
           columnIndex: columnIndex,
           ascending: ascending
@@ -341,12 +341,12 @@
        * @param compare {Function|Map}
        *   If provided as a Function, this is the comparator function to sort in
        *   ascending order. It takes three parameters: the two arrays of row data,
-       *   row1 and row2, being compared and the column index sorting was requested 
-       *   for. 
+       *   row1 and row2, being compared and the column index sorting was requested
+       *   for.
        *
-       *   For backwards compatability, user-supplied compare functions may still 
-       *   take only two parameters, the two arrays of row data, row1 and row2, 
-       *   being compared and obtain the column index as arguments.callee.columnIndex. 
+       *   For backwards compatability, user-supplied compare functions may still
+       *   take only two parameters, the two arrays of row data, row1 and row2,
+       *   being compared and obtain the column index as arguments.callee.columnIndex.
        *   This is deprecated, however, as arguments.callee is disallowed in ES5 strict
        *   mode and ES6.
        *
@@ -377,10 +377,10 @@
             descending: function descending(row1, row2, columnIndex) {
               /* assure backwards compatibility for sort functions using
                * arguments.callee.columnIndex and fix a bug where retreiveing
-               * column index via this way did not work for the case where a 
-               * single comparator function was used. 
-               * Note that arguments.callee is not available in ES5 strict mode and ES6. 
-               * See discussion in 
+               * column index via this way did not work for the case where a
+               * single comparator function was used.
+               * Note that arguments.callee is not available in ES5 strict mode and ES6.
+               * See discussion in
                * https://github.com/qooxdoo/qooxdoo/pull/9499#pullrequestreview-99655182
                */
               compare.columnIndex = columnIndex;
@@ -391,7 +391,7 @@
           methods = compare;
         }
 
-        this.__P_124_1[columnIndex] = methods;
+        this.__P_128_1[columnIndex] = methods;
       },
 
       /**
@@ -406,22 +406,22 @@
        *   in {@link #setSortMethods}.
        */
       getSortMethods: function getSortMethods(columnIndex) {
-        return this.__P_124_1[columnIndex];
+        return this.__P_128_1[columnIndex];
       },
 
       /**
        * Clears the sorting.
        */
       clearSorting: function clearSorting() {
-        if (this.__P_124_0 != -1) {
-          this.__P_124_0 = -1;
-          this.__P_124_4 = true;
+        if (this.__P_128_0 != -1) {
+          this.__P_128_0 = -1;
+          this.__P_128_4 = true;
           this.fireEvent("metaDataChanged");
         }
       },
       // overridden
       getSortColumnIndex: function getSortColumnIndex() {
-        return this.__P_124_0;
+        return this.__P_128_0;
       },
 
       /**
@@ -433,11 +433,11 @@
        * @param columnIndex {Integer} index of the column
        */
       _setSortColumnIndex: function _setSortColumnIndex(columnIndex) {
-        this.__P_124_0 = columnIndex;
+        this.__P_128_0 = columnIndex;
       },
       // overridden
       isSortAscending: function isSortAscending() {
-        return this.__P_124_4;
+        return this.__P_128_4;
       },
 
       /**
@@ -451,7 +451,7 @@
        *   <i> false</i> for a descending sort.
        */
       _setSortAscending: function _setSortAscending(ascending) {
-        this.__P_124_4 = ascending;
+        this.__P_128_4 = ascending;
       },
       // overridden
       getRowCount: function getRowCount() {
@@ -480,7 +480,7 @@
             this.fireDataEvent("dataChanged", data);
           }
 
-          if (columnIndex == this.__P_124_0) {
+          if (columnIndex == this.__P_128_0) {
             this.clearSorting();
           }
         }
@@ -655,9 +655,13 @@
        * @param clearSorting {Boolean ? true} Whether to clear the sort state.
        */
       removeRows: function removeRows(startIndex, howMany, clearSorting) {
-        this._rowArr.splice(startIndex, howMany); // Inform the listeners
-
-
+        // In the case of `removeRows`, specifically, we must create the
+        // listeners' event data before actually removing the rows from
+        // the row data, so that the `lastRow` calculation is correct.
+        // If we do the delete operation first, as is done in other
+        // methods, the final rows of the table can escape being
+        // updated, thus leaving hanging old data on the rendered table.
+        // This reordering (deleting after creating event data) fixes #10365.
         var data = {
           firstRow: startIndex,
           lastRow: this._rowArr.length - 1,
@@ -666,6 +670,10 @@
           removeStart: startIndex,
           removeCount: howMany
         };
+
+        this._rowArr.splice(startIndex, howMany); // Inform the listeners
+
+
         this.fireDataEvent("dataChanged", data);
 
         if (clearSorting !== false) {
@@ -708,10 +716,10 @@
       }
     },
     destruct: function destruct() {
-      this._rowArr = this.__P_124_2 = this.__P_124_1 = this.__P_124_3 = null;
+      this._rowArr = this.__P_128_2 = this.__P_128_1 = this.__P_128_3 = null;
     }
   });
   qx.ui.table.model.Simple.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Simple.js.map?dt=1635064695186
+//# sourceMappingURL=Simple.js.map?dt=1645800082607

@@ -44,13 +44,13 @@
        * <li>added: The items which has been added (as a JavaScript array)</li>
        * <li>removed: The items which has been removed (as a JavaScript array)</li>
        */
-      "change": "qx.event.type.Data",
+      change: "qx.event.type.Data",
 
       /**
        * The changeLength event will be fired every time the length of the
        * data structure changes.
        */
-      "changeLength": "qx.event.type.Event"
+      changeLength: "qx.event.type.Event"
     },
     members: {
       /**
@@ -110,4 +110,4 @@
   qx.data.IListData.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=IListData.js.map?dt=1635064690034
+//# sourceMappingURL=IListData.js.map?dt=1645800077934

@@ -21,7 +21,6 @@
       "qx.theme.manager.Font": {},
       "qx.lang.Object": {},
       "qx.bom.Style": {},
-      "qx.core.Assert": {},
       "qx.io.ImageLoader": {},
       "qx.bom.element.Background": {},
       "qx.log.Logger": {}
@@ -78,25 +77,25 @@
       DEBUG: false,
 
       /** @type {Map} Collect warnings for potential clipped images */
-      __P_178_0: {},
+      __P_184_0: {},
 
       /** @type {Map} List of repeat modes which supports the IE AlphaImageLoader */
-      __P_178_1: qx.core.Environment.select("engine.name", {
-        "mshtml": {
+      __P_184_1: qx.core.Environment.select("engine.name", {
+        mshtml: {
           "scale-x": true,
           "scale-y": true,
-          "scale": true,
+          scale: true,
           "no-repeat": true
         },
         "default": null
       }),
 
       /** @type {Map} Mapping between background repeat and the tag to create */
-      __P_178_2: {
+      __P_184_2: {
         "scale-x": "img",
         "scale-y": "img",
-        "scale": "img",
-        "repeat": "div",
+        scale: "img",
+        repeat: "div",
         "no-repeat": "div",
         "repeat-x": "div",
         "repeat-y": "div"
@@ -117,7 +116,13 @@
         var tag = this.getTagName(repeat, source);
 
         if (tag != element.tagName.toLowerCase()) {
-          throw new Error("Image modification not possible because elements could not be replaced at runtime anymore!");
+          // The "no-repeat" means that `getTagName` will suggest a `div` as opposed to an `img` tag, preferring to use
+          //  `img` only for things that need scaling.  The Desktop `qx.ui.*` will always follow this rule, but it
+          //  is valid for virtual DOM (`qx.html.*`) to be used to create a no-repeat `img` tag.  Ignore the validation
+          //  for `no-repeat` `img`.
+          if (repeat != "no-repeat" || element.tagName.toLowerCase() != "img") {
+            throw new Error("Image modification not possible because elements could not be replaced at runtime anymore!");
+          }
         }
 
         var ret = this.getAttributes(source, repeat, style);
@@ -166,12 +171,12 @@
         if (ResourceManager.isFontUri(source)) {
           var font = qx.theme.manager.Font.getInstance().resolve(source.match(/@([^/]+)/)[1]);
           var styles = qx.lang.Object.clone(font.getStyles());
-          styles['width'] = style.width;
-          styles['height'] = style.height;
-          styles['fontSize'] = parseInt(style.width) > parseInt(style.height) ? style.height : style.width;
-          styles['display'] = style.display;
-          styles['verticalAlign'] = style.verticalAlign;
-          styles['position'] = style.position;
+          styles["width"] = style.width;
+          styles["height"] = style.height;
+          styles["fontSize"] = parseInt(style.width) > parseInt(style.height) ? style.height : style.width;
+          styles["display"] = style.display;
+          styles["verticalAlign"] = style.verticalAlign;
+          styles["position"] = style.position;
           var css = "";
 
           for (var _style in styles) {
@@ -180,17 +185,8 @@
             }
           }
 
-          var resource = ResourceManager.getData(source);
-          var charCode;
-
-          if (resource) {
-            charCode = resource[2];
-          } else {
-            charCode = parseInt(qx.theme.manager.Font.getInstance().resolve(source.match(/@([^/]+)\/(.*)$/)[2]), 16);
-            qx.core.Assert.assertNumber(charCode, "Font source needs either a glyph name or the unicode number in hex");
-          }
-
-          return '<div style="' + css + '">' + String.fromCharCode(charCode) + '</div>';
+          var charCode = ResourceManager.fromFontUriToCharCode(source);
+          return '<div style="' + css + '">' + String.fromCharCode(charCode) + "</div>";
         } else {
           if (tag === "img") {
             return '<img src="' + ret.src + '" style="' + css + '"/>';
@@ -212,11 +208,11 @@
        * @return {String} The tag name: <code>div</code> or <code>img</code>
        */
       getTagName: function getTagName(repeat, source) {
-        if (source && qx.core.Environment.get("css.alphaimageloaderneeded") && this.__P_178_1[repeat] && source.endsWith(".png")) {
+        if (source && qx.core.Environment.get("css.alphaimageloaderneeded") && this.__P_184_1[repeat] && source.endsWith(".png")) {
           return "div";
         }
 
-        return this.__P_178_2[repeat];
+        return this.__P_184_2[repeat];
       },
 
       /**
@@ -233,10 +229,6 @@
           style = {};
         }
 
-        if (!style.position) {
-          style.position = "absolute";
-        }
-
         if (qx.core.Environment.get("engine.name") == "mshtml") {
           // Add a fix for small blocks where IE has a minHeight
           // of the fontSize in quirks mode
@@ -250,22 +242,22 @@
         var format = qx.util.ResourceManager.getInstance().getImageFormat(source) || qx.io.ImageLoader.getFormat(source);
         var result; // Enable AlphaImageLoader in IE6/IE7/IE8
 
-        if (qx.core.Environment.get("css.alphaimageloaderneeded") && this.__P_178_1[repeat] && format === "png") {
-          var dimension = this.__P_178_3(source);
+        if (qx.core.Environment.get("css.alphaimageloaderneeded") && this.__P_184_1[repeat] && format === "png") {
+          var dimension = this.__P_184_3(source);
 
-          this.__P_178_4(style, dimension.width, dimension.height);
+          this.__P_184_4(style, dimension.width, dimension.height);
 
           result = this.processAlphaFix(style, repeat, source);
         } else {
           delete style.clip;
 
           if (repeat === "scale") {
-            result = this.__P_178_5(style, repeat, source);
+            result = this.__P_184_5(style, repeat, source);
           } else if (repeat === "scale-x" || repeat === "scale-y") {
-            result = this.__P_178_6(style, repeat, source);
+            result = this.__P_184_6(style, repeat, source);
           } else {
             // Native repeats or "no-repeat"
-            result = this.__P_178_7(style, repeat, source);
+            result = this.__P_184_7(style, repeat, source);
           }
         }
 
@@ -279,7 +271,7 @@
        * @param width {Integer?null} width as number or null
        * @param height {Integer?null} height as number or null
        */
-      __P_178_4: function __P_178_4(style, width, height) {
+      __P_184_4: function __P_184_4(style, width, height) {
         if (style.width == null && width != null) {
           style.width = width + "px";
         }
@@ -297,7 +289,7 @@
        * @param source {String} image source
        * @return {Map} dimension of image
        */
-      __P_178_3: function __P_178_3(source) {
+      __P_184_3: function __P_184_3(source) {
         var width = qx.util.ResourceManager.getInstance().getImageWidth(source) || qx.io.ImageLoader.getWidth(source);
         var height = qx.util.ResourceManager.getInstance().getImageHeight(source) || qx.io.ImageLoader.getHeight(source);
         return {
@@ -341,12 +333,12 @@
        *
        * @return {Map} image URI and style infos
        */
-      __P_178_5: function __P_178_5(style, repeat, source) {
+      __P_184_5: function __P_184_5(style, repeat, source) {
         var uri = qx.util.ResourceManager.getInstance().toUri(source);
 
-        var dimension = this.__P_178_3(source);
+        var dimension = this.__P_184_3(source);
 
-        this.__P_178_4(style, dimension.width, dimension.height);
+        this.__P_184_4(style, dimension.width, dimension.height);
 
         return {
           src: uri,
@@ -364,11 +356,11 @@
        *
        * @return {Map} image URI and style infos
        */
-      __P_178_6: function __P_178_6(style, repeat, sourceid) {
+      __P_184_6: function __P_184_6(style, repeat, sourceid) {
         var ResourceManager = qx.util.ResourceManager.getInstance();
         var clipped = ResourceManager.getCombinedFormat(sourceid);
 
-        var dimension = this.__P_178_3(sourceid);
+        var dimension = this.__P_184_3(sourceid);
 
         var uri;
 
@@ -383,9 +375,9 @@
           }
 
           if (repeat === "scale-x") {
-            style = this.__P_178_8(style, data, dimension.height);
+            style = this.__P_184_8(style, data, dimension.height);
           } else {
-            style = this.__P_178_9(style, data, dimension.width);
+            style = this.__P_184_9(style, data, dimension.width);
           }
 
           return {
@@ -417,7 +409,7 @@
        *
        * @return {Map} style infos and image URI
        */
-      __P_178_8: function __P_178_8(style, data, height) {
+      __P_184_8: function __P_184_8(style, data, height) {
         // Use clipped image (multi-images on x-axis)
         var imageHeight = qx.util.ResourceManager.getInstance().getImageHeight(data[4]); // Add size and clipping
 
@@ -446,7 +438,7 @@
        *
        * @return {Map} style infos and image URI
        */
-      __P_178_9: function __P_178_9(style, data, width) {
+      __P_184_9: function __P_184_9(style, data, width) {
         // Use clipped image (multi-images on x-axis)
         var imageWidth = qx.util.ResourceManager.getInstance().getImageWidth(data[4]); // Add size and clipping
 
@@ -475,11 +467,11 @@
        *
        * @return {Map} image URI and style infos
        */
-      __P_178_7: function __P_178_7(style, repeat, sourceid) {
+      __P_184_7: function __P_184_7(style, repeat, sourceid) {
         var ResourceManager = qx.util.ResourceManager.getInstance();
         var clipped = ResourceManager.getCombinedFormat(sourceid);
 
-        var dimension = this.__P_178_3(sourceid); // Double axis repeats cannot be clipped
+        var dimension = this.__P_184_3(sourceid); // Double axis repeats cannot be clipped
 
 
         if (clipped && repeat !== "repeat") {
@@ -533,9 +525,9 @@
           var left = style.paddingLeft || 0;
           style.backgroundPosition = left + "px " + top + "px";
 
-          this.__P_178_4(style, dimension.width, dimension.height);
+          this.__P_184_4(style, dimension.width, dimension.height);
 
-          this.__P_178_10(style, sourceid, repeat);
+          this.__P_184_10(style, sourceid, repeat);
 
           return {
             style: style
@@ -550,7 +542,7 @@
        * @param repeat {String} repeat mode
        * @param source {String} image source
        */
-      __P_178_10: function __P_178_10(style, source, repeat) {
+      __P_184_10: function __P_184_10(style, source, repeat) {
         // retrieve the "backgroundPosition" style if available to prevent
         // overwriting with default values
         var top = null;
@@ -591,11 +583,11 @@
        *
        * @param source {String} image source
        */
-      __P_178_11: function __P_178_11(source) {
+      __P_184_11: function __P_184_11(source) {
         if (this.DEBUG && qx.util.ResourceManager.getInstance().has(source) && source.indexOf("qx/icon") == -1) {
-          if (!this.__P_178_0[source]) {
+          if (!this.__P_184_0[source]) {
             qx.log.Logger.debug("Potential clipped image candidate: " + source);
-            this.__P_178_0[source] = true;
+            this.__P_184_0[source] = true;
           }
         }
       }
@@ -604,4 +596,4 @@
   qx.bom.element.Decoration.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Decoration.js.map?dt=1635064699739
+//# sourceMappingURL=Decoration.js.map?dt=1645800086587

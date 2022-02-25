@@ -13,7 +13,7 @@
         "column": 0
       },
       "end": {
-        "line": 76,
+        "line": 78,
         "column": 3
       }
     },
@@ -23,25 +23,24 @@
   "construct": {
     "location": {
       "start": {
-        "line": 29,
-        "column": 13
+        "line": 28,
+        "column": 2
       },
       "end": {
-        "line": 31,
+        "line": 30,
         "column": 3
       }
-    },
-    "jsdoc": {}
+    }
   },
   "members": {
     "canDisplayItem": {
       "location": {
         "start": {
-          "line": 39,
+          "line": 36,
           "column": 4
         },
         "end": {
-          "line": 41,
+          "line": 38,
           "column": 5
         }
       },
@@ -69,11 +68,11 @@
     "getPanelItemObjects": {
       "location": {
         "start": {
-          "line": 43,
+          "line": 40,
           "column": 4
         },
         "end": {
-          "line": 45,
+          "line": 42,
           "column": 5
         }
       },
@@ -87,11 +86,11 @@
     "getItemTypeHtml": {
       "location": {
         "start": {
-          "line": 47,
+          "line": 44,
           "column": 4
         },
         "end": {
-          "line": 49,
+          "line": 50,
           "column": 5
         }
       },
@@ -135,7 +134,7 @@
           "column": 4
         },
         "end": {
-          "line": 54,
+          "line": 57,
           "column": 5
         }
       },
@@ -175,11 +174,11 @@
     "getItemTextHtml": {
       "location": {
         "start": {
-          "line": 57,
+          "line": 59,
           "column": 4
         },
         "end": {
-          "line": 72,
+          "line": 76,
           "column": 5
         }
       },
@@ -311,6 +310,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -335,6 +335,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }

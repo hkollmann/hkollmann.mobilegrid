@@ -84,7 +84,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        * @return {Boolean} <code>true</code> if audio is supported
        */
       getAudio: function getAudio() {
-        return !!document.createElement('audio').canPlayType;
+        return !!document.createElement("audio").canPlayType;
       },
 
       /**
@@ -169,7 +169,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        * @return {Boolean} <code>true</code> if video is supported
        */
       getVideo: function getVideo() {
-        return !!document.createElement('video').canPlayType;
+        return !!document.createElement("video").canPlayType;
       },
 
       /**
@@ -356,7 +356,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        * @internal
        * @param callback {Function} The function which should be executed as
        *   soon as the check is done.
-       * 
+       *
        * @ignore(Image)
        */
       getDataUrl: function getDataUrl(callback) {
@@ -449,7 +449,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
       /**
        * Check for HTML5 history manipulation support.
-        * @internal
+       * @internal
        * @return {Boolean} <code>true</code> if the HTML5 history API is supported
        */
       getHistoryState: function getHistoryState() {
@@ -525,4 +525,4 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   qx.bom.client.Html.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Html.js.map?dt=1635064696529
+//# sourceMappingURL=Html.js.map?dt=1645800083636

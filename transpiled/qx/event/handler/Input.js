@@ -157,12 +157,12 @@
     */
     members: {
       // special handling for opera
-      __P_155_0: false,
-      __P_155_1: null,
+      __P_159_0: false,
+      __P_159_1: null,
       // stores the former set value for opera and IE
-      __P_155_2: null,
+      __P_159_2: null,
       // stores the former set value for IE
-      __P_155_3: null,
+      __P_159_3: null,
 
       /*
       ---------------------------------------------------------------------------
@@ -186,7 +186,7 @@
       // interface implementation
       registerEvent: function registerEvent(target, type, capture) {
         if (qx.core.Environment.get("engine.name") == "mshtml" && (qx.core.Environment.get("engine.version") < 9 || qx.core.Environment.get("engine.version") >= 9 && qx.core.Environment.get("browser.documentmode") < 9)) {
-          if (!target.__P_155_4) {
+          if (!target.__P_159_4) {
             var tag = target.tagName.toLowerCase();
             var elementType = target.type;
 
@@ -203,11 +203,11 @@
               qx.bom.Event.addNativeListener(target, "keypress", this._onKeyPressWrapped);
             }
 
-            target.__P_155_4 = true;
+            target.__P_159_4 = true;
           }
         } else {
           if (type === "input") {
-            this.__P_155_5(target);
+            this.__P_159_5(target);
           } else if (type === "change") {
             if (target.type === "radio" || target.type === "checkbox") {
               qx.bom.Event.addNativeListener(target, "change", this._onChangeCheckedWrapper);
@@ -225,8 +225,8 @@
           }
         }
       },
-      __P_155_5: qx.core.Environment.select("engine.name", {
-        "mshtml": function mshtml(target) {
+      __P_159_5: qx.core.Environment.select("engine.name", {
+        mshtml: function mshtml(target) {
           if (qx.core.Environment.get("engine.version") >= 9 && qx.core.Environment.get("browser.documentmode") >= 9) {
             qx.bom.Event.addNativeListener(target, "input", this._onInputWrapper);
 
@@ -237,7 +237,7 @@
             }
           }
         },
-        "webkit": function webkit(target) {
+        webkit: function webkit(target) {
           var tag = target.tagName.toLowerCase(); // the change event is not fired while typing
           // this has been fixed in the latest nightlies
 
@@ -247,7 +247,7 @@
 
           qx.bom.Event.addNativeListener(target, "input", this._onInputWrapper);
         },
-        "opera": function opera(target) {
+        opera: function opera(target) {
           // register key events for filtering "enter" on input events
           qx.bom.Event.addNativeListener(target, "keyup", this._onKeyUpWrapper);
           qx.bom.Event.addNativeListener(target, "keydown", this._onKeyDownWrapper); // register an blur event for preventing the input event on blur
@@ -261,7 +261,7 @@
       // interface implementation
       unregisterEvent: function unregisterEvent(target, type) {
         if (qx.core.Environment.get("engine.name") == "mshtml" && qx.core.Environment.get("engine.version") < 9 && qx.core.Environment.get("browser.documentmode") < 9) {
-          if (target.__P_155_4) {
+          if (target.__P_159_4) {
             var tag = target.tagName.toLowerCase();
             var elementType = target.type;
 
@@ -278,14 +278,14 @@
             }
 
             try {
-              delete target.__P_155_4;
+              delete target.__P_159_4;
             } catch (ex) {
-              target.__P_155_4 = null;
+              target.__P_159_4 = null;
             }
           }
         } else {
           if (type === "input") {
-            this.__P_155_6(target);
+            this.__P_159_6(target);
           } else if (type === "change") {
             if (target.type === "radio" || target.type === "checkbox") {
               qx.bom.Event.removeNativeListener(target, "change", this._onChangeCheckedWrapper);
@@ -301,8 +301,8 @@
           }
         }
       },
-      __P_155_6: qx.core.Environment.select("engine.name", {
-        "mshtml": function mshtml(target) {
+      __P_159_6: qx.core.Environment.select("engine.name", {
+        mshtml: function mshtml(target) {
           if (qx.core.Environment.get("engine.version") >= 9 && qx.core.Environment.get("browser.documentmode") >= 9) {
             qx.bom.Event.removeNativeListener(target, "input", this._onInputWrapper);
 
@@ -312,7 +312,7 @@
             }
           }
         },
-        "webkit": function webkit(target) {
+        webkit: function webkit(target) {
           var tag = target.tagName.toLowerCase(); // the change event is not fired while typing
           // this has been fixed in the latest nightlies
 
@@ -322,7 +322,7 @@
 
           qx.bom.Event.removeNativeListener(target, "input", this._onInputWrapper);
         },
-        "opera": function opera(target) {
+        opera: function opera(target) {
           // unregister key events for filtering "enter" on input events
           qx.bom.Event.removeNativeListener(target, "keyup", this._onKeyUpWrapper);
           qx.bom.Event.removeNativeListener(target, "keydown", this._onKeyDownWrapper);
@@ -350,18 +350,18 @@
        * @param target {Element} The event target
        */
       _onKeyPress: qx.core.Environment.select("engine.name", {
-        "mshtml": function mshtml(e, target) {
+        mshtml: function mshtml(e, target) {
           if (e.keyCode === 13) {
-            if (target.value !== this.__P_155_2) {
-              this.__P_155_2 = target.value;
+            if (target.value !== this.__P_159_2) {
+              this.__P_159_2 = target.value;
               qx.event.Registration.fireEvent(target, "change", qx.event.type.Data, [target.value]);
             }
           }
         },
-        "opera": function opera(e, target) {
+        opera: function opera(e, target) {
           if (e.keyCode === 13) {
-            if (target.value !== this.__P_155_2) {
-              this.__P_155_2 = target.value;
+            if (target.value !== this.__P_159_2) {
+              this.__P_159_2 = target.value;
               qx.event.Registration.fireEvent(target, "change", qx.event.type.Data, [target.value]);
             }
           }
@@ -388,10 +388,10 @@
        * @param target {Element} The event target
        */
       _inputFix: qx.core.Environment.select("engine.name", {
-        "mshtml": function mshtml(e, target) {
+        mshtml: function mshtml(e, target) {
           if (e.keyCode === 46 || e.keyCode === 8) {
-            if (target.value !== this.__P_155_3) {
-              this.__P_155_3 = target.value;
+            if (target.value !== this.__P_159_3) {
+              this.__P_159_3 = target.value;
               qx.event.Registration.fireEvent(target, "input", qx.event.type.Data, [target.value]);
             }
           }
@@ -413,10 +413,10 @@
        * @param e {Event} DOM event object
        */
       _onKeyDown: qx.core.Environment.select("engine.name", {
-        "opera": function opera(e) {
+        opera: function opera(e) {
           // enter is pressed
           if (e.keyCode === 13) {
-            this.__P_155_0 = true;
+            this.__P_159_0 = true;
           }
         },
         "default": null
@@ -430,10 +430,10 @@
        * @param e {Event} DOM event object
        */
       _onKeyUp: qx.core.Environment.select("engine.name", {
-        "opera": function opera(e) {
+        opera: function opera(e) {
           // enter is pressed
           if (e.keyCode === 13) {
-            this.__P_155_0 = false;
+            this.__P_159_0 = false;
           }
         },
         "default": null
@@ -455,11 +455,11 @@
         var target = qx.bom.Event.getTarget(e);
         var tag = target.tagName.toLowerCase(); // ignore native input event when triggered by return in input element
 
-        if (!this.__P_155_0 || tag !== "input") {
+        if (!this.__P_159_0 || tag !== "input") {
           // opera lower 10.6 needs a special treatment for input events because
           // they are also fired on blur
           if (qx.core.Environment.get("engine.name") == "opera" && qx.core.Environment.get("browser.version") < 10.6) {
-            this.__P_155_1 = window.setTimeout(function () {
+            this.__P_159_1 = window.setTimeout(function () {
               qx.event.Registration.fireEvent(target, "input", qx.event.type.Data, [target.value]);
             }, 0);
           } else {
@@ -516,7 +516,7 @@
        * @param e {Event} Native DOM event
        */
       _onProperty: qx.core.Environment.select("engine.name", {
-        "mshtml": qx.event.GlobalError.observeMethod(function (e) {
+        mshtml: qx.event.GlobalError.observeMethod(function (e) {
           var target = qx.bom.Event.getTarget(e);
           var prop = e.propertyName;
 
@@ -548,4 +548,4 @@
   qx.event.handler.Input.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Input.js.map?dt=1635064698060
+//# sourceMappingURL=Input.js.map?dt=1645800085036

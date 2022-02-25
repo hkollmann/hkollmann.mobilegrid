@@ -39,16 +39,16 @@
     */
     events: {
       /** Fired when the enabled state was modified */
-      "changeEnabled": "qx.event.type.Data",
+      changeEnabled: "qx.event.type.Data",
 
       /** Fired when the valid state was modified */
-      "changeValid": "qx.event.type.Data",
+      changeValid: "qx.event.type.Data",
 
       /** Fired when the invalidMessage was modified */
-      "changeInvalidMessage": "qx.event.type.Data",
+      changeInvalidMessage: "qx.event.type.Data",
 
       /** Fired when the required was modified */
-      "changeRequired": "qx.event.type.Data"
+      changeRequired: "qx.event.type.Data"
     },
 
     /*
@@ -171,4 +171,4 @@
   qx.ui.form.IForm.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=IForm.js.map?dt=1635064695866
+//# sourceMappingURL=IForm.js.map?dt=1645800083078

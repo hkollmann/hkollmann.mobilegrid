@@ -63,7 +63,7 @@
         var textHtml = new qx.util.StringBuilder(node.getDescription());
 
         if (showDetails) {
-          textHtml.add("<div class=\"item-detail-headline\">", "Default value:", "</div>", "<div class=\"item-detail-text\">", "<code>", node.getDefaultValue() ? node.getDefaultValue() : "null", "</code>", "</div>");
+          textHtml.add('<div class="item-detail-headline">', "Default value:", "</div>", '<div class="item-detail-text">', "<code>", node.getDefaultValue() ? node.getDefaultValue() : "null", "</code>", "</div>");
         }
 
         return textHtml.get();
@@ -73,4 +73,4 @@
   qxl.apiviewer.ui.panels.ChildControlsPanel.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=ChildControlsPanel.js.map?dt=1635064704430
+//# sourceMappingURL=ChildControlsPanel.js.map?dt=1645800090844

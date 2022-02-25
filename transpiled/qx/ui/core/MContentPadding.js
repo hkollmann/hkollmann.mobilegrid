@@ -96,13 +96,15 @@
        MEMBERS
     *****************************************************************************
     */
+
+    /* eslint-disable @qooxdoo/qx/no-refs-in-members */
     members: {
       /**
        * @type {Map} Maps property names of content padding to the setter of the padding
        *
        * @lint ignoreReferenceField(__contentPaddingSetter)
        */
-      __P_182_0: {
+      __P_188_0: {
         contentPaddingTop: "setPaddingTop",
         contentPaddingRight: "setPaddingRight",
         contentPaddingBottom: "setPaddingBottom",
@@ -114,7 +116,7 @@
        *
        * @lint ignoreReferenceField(__contentPaddingThemedSetter)
        */
-      __P_182_1: {
+      __P_188_1: {
         contentPaddingTop: "setThemedPaddingTop",
         contentPaddingRight: "setThemedPaddingRight",
         contentPaddingBottom: "setThemedPaddingBottom",
@@ -126,7 +128,7 @@
        *
        * @lint ignoreReferenceField(__contentPaddingResetter)
        */
-      __P_182_2: {
+      __P_188_2: {
         contentPaddingTop: "resetPaddingTop",
         contentPaddingRight: "resetPaddingRight",
         contentPaddingBottom: "resetPaddingBottom",
@@ -137,15 +139,15 @@
         var target = this._getContentPaddingTarget();
 
         if (value == null) {
-          var resetter = this.__P_182_2[name];
+          var resetter = this.__P_188_2[name];
           target[resetter]();
         } else {
           // forward the themed sates if case the apply was invoked by a theme
           if (variant == "setThemed" || variant == "resetThemed") {
-            var setter = this.__P_182_1[name];
+            var setter = this.__P_188_1[name];
             target[setter](value);
           } else {
-            var setter = this.__P_182_0[name];
+            var setter = this.__P_188_0[name];
             target[setter](value);
           }
         }
@@ -155,4 +157,4 @@
   qx.ui.core.MContentPadding.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MContentPadding.js.map?dt=1635064699945
+//# sourceMappingURL=MContentPadding.js.map?dt=1645800086787

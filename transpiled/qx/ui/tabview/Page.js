@@ -64,7 +64,23 @@
 
       if (icon != null) {
         this.setIcon(icon);
-      }
+      } // ARIA attrs
+
+
+      var btn = this.getButton();
+      var pageId = "page-" + this.toHashCode();
+      var btnId = "btn-" + pageId + btn.toHashCode();
+      var contentEl = this.getContentElement();
+      contentEl.setAttribute("id", pageId);
+      contentEl.setAttribute("role", "tabpanel");
+      contentEl.setAttribute("aria-labelledBy", btnId);
+      contentEl.setAttribute("aria-expanded", false);
+      var btnContentEl = btn.getContentElement();
+      btnContentEl.setAttribute("id", btnId);
+      btnContentEl.setAttribute("role", "tab");
+      btnContentEl.setAttribute("aria-selected", false);
+      btnContentEl.setAttribute("aria-controls", pageId);
+      btn.addListener("changeValue", this._onBtnChangeValue, this);
     },
 
     /*
@@ -76,7 +92,7 @@
       /**
        * Fired by {@link qx.ui.tabview.TabButton} if the close button is tapped.
        */
-      "close": "qx.event.type.Event"
+      close: "qx.event.type.Event"
     },
 
     /*
@@ -111,6 +127,15 @@
         check: "Boolean",
         init: false,
         apply: "_applyShowCloseButton"
+      },
+
+      /** Allows the tab to be excluded from the display */
+      tabVisibility: {
+        init: "visible",
+        check: ["visible", "excluded"],
+        nullable: false,
+        apply: "_applyTabVisibility",
+        event: "changeTabVisibility"
       }
     },
 
@@ -119,6 +144,8 @@
        MEMBERS
     *****************************************************************************
     */
+
+    /* eslint-disable @qooxdoo/qx/no-refs-in-members */
     members: {
       /*
       ---------------------------------------------------------------------------
@@ -162,7 +189,7 @@
       },
       // overridden
       _applyEnabled: function _applyEnabled(value, old) {
-        qx.ui.tabview.Page.prototype._applyEnabled.base.call(this, value, old); // delegate to non-child widget button
+        qx.ui.tabview.Page.superclass.prototype._applyEnabled.call(this, value, old); // delegate to non-child widget button
         // since enabled is inheritable value may be null
 
 
@@ -186,10 +213,22 @@
             control.setAllowGrowY(true);
             control.setUserData("page", this);
             control.addListener("close", this._onButtonClose, this);
+            control.setVisibility(this.getTabVisibility());
             break;
         }
 
-        return control || qx.ui.tabview.Page.prototype._createChildControlImpl.base.call(this, id);
+        return control || qx.ui.tabview.Page.superclass.prototype._createChildControlImpl.call(this, id);
+      },
+
+      /**
+       * Tab Change Listener
+       * @param {*} e
+       */
+      _onBtnChangeValue: function _onBtnChangeValue(e) {
+        var val = e.getData();
+        this.getContentElement().setAttribute("aria-expanded", val, true); // Set third argument to true -> direct Update
+
+        this.getButton().getContentElement().setAttribute("aria-selected", val);
       },
 
       /*
@@ -200,6 +239,10 @@
       // property apply
       _applyShowCloseButton: function _applyShowCloseButton(value, old) {
         this.getChildControl("button").setShowCloseButton(value);
+      },
+      // property apply
+      _applyTabVisibility: function _applyTabVisibility(newValue, oldValue) {
+        this.getButton().setVisibility(newValue);
       },
 
       /*
@@ -236,4 +279,4 @@
   qx.ui.tabview.Page.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Page.js.map?dt=1635064701385
+//# sourceMappingURL=Page.js.map?dt=1645800088054

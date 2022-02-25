@@ -10,6 +10,11 @@
       "qx.lang.Function": {
         "require": true
       },
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
+        "require": true
+      },
       "qx.Class": {
         "usage": "dynamic",
         "require": true
@@ -19,6 +24,14 @@
       "qx.event.Pool": {},
       "qx.event.Utils": {},
       "qx.Promise": {}
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.promise": {
+          "load": true
+        }
+      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -392,15 +405,20 @@
        * 	if the default was prevented, the promise is rejected
        * @see #createEvent
        */
-      fireNonBubblingEventAsync: function fireNonBubblingEventAsync(target, type, clazz, args) {
-        var evt = this.__P_23_2.apply(this, arguments);
+      fireNonBubblingEventAsync: qx.core.Environment.select("qx.promise", {
+        "true": function _true(target, type, clazz, args) {
+          var evt = this.__P_23_2.apply(this, arguments);
 
-        if (evt === null) {
-          return qx.Promise.resolve(true);
+          if (evt === null) {
+            return qx.Promise.resolve(true);
+          }
+
+          return evt.promise();
+        },
+        "false": function _false() {
+          throw new Error(this.classname + ".fireNonBubblingEventAsync not supported because qx.promise==false");
         }
-
-        return evt.promise();
-      },
+      }),
 
       /*
       ---------------------------------------------------------------------------
@@ -493,4 +511,4 @@
   qx.event.Registration.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Registration.js.map?dt=1635064686556
+//# sourceMappingURL=Registration.js.map?dt=1645800074836

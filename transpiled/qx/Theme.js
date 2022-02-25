@@ -1,9 +1,24 @@
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
+        "require": true
+      },
       "qx.Bootstrap": {
         "usage": "dynamic",
         "require": true
+      }
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.debug": {
+          "load": true
+        }
       }
     }
   };
@@ -278,10 +293,55 @@
       __P_5_4: ["colors", "borders", "decorations", "fonts", "icons", "widgets", "appearances", "meta"],
 
       /** @type {Map} allowed keys in theme definition */
-      __P_5_5: null,
+      __P_5_5: qx.core.Environment.select("qx.debug", {
+        "true": {
+          title: "string",
+          // String
+          aliases: "object",
+          // Map
+          type: "string",
+          // String
+          extend: "object",
+          // Theme
+          colors: "object",
+          // Map
+          borders: "object",
+          // Map
+          decorations: "object",
+          // Map
+          fonts: "object",
+          // Map
+          icons: "object",
+          // Map
+          widgets: "object",
+          // Map
+          appearances: "object",
+          // Map
+          meta: "object",
+          // Map
+          include: "object",
+          // Array
+          patch: "object",
+          // Array
+          boot: "function" // Function
+
+        },
+        "default": null
+      }),
 
       /** @type {Map} allowed keys inside a meta theme block */
-      __P_5_6: null,
+      __P_5_6: qx.core.Environment.select("qx.debug", {
+        "true": {
+          color: "object",
+          border: "object",
+          decoration: "object",
+          font: "object",
+          icon: "object",
+          appearance: "object",
+          widget: "object"
+        },
+        "default": null
+      }),
 
       /**
        * Validates incoming configuration and checks keys and values
@@ -291,7 +351,96 @@
        * @param config {Map} Configuration map
        * @throws {Error} if the given config is not valid (e.g. wrong key or wrong key value)
        */
-      __P_5_7: function __P_5_7() {},
+      __P_5_7: qx.core.Environment.select("qx.debug", {
+        "true": function _true(name, config) {
+          var allowed = this.__P_5_5;
+
+          for (var key in config) {
+            if (allowed[key] === undefined) {
+              throw new Error('The configuration key "' + key + '" in theme "' + name + '" is not allowed!');
+            }
+
+            if (config[key] == null) {
+              throw new Error('Invalid key "' + key + '" in theme "' + name + '"! The value is undefined/null!');
+            }
+
+            if (allowed[key] !== null && _typeof(config[key]) !== allowed[key]) {
+              throw new Error('Invalid type of key "' + key + '" in theme "' + name + '"! The type of the key must be "' + allowed[key] + '"!');
+            }
+          } // Validate maps
+
+
+          var maps = ["colors", "borders", "decorations", "fonts", "icons", "widgets", "appearances", "meta"];
+
+          for (var i = 0, l = maps.length; i < l; i++) {
+            var key = maps[i];
+
+            if (config[key] !== undefined && (config[key] instanceof Array || config[key] instanceof RegExp || config[key] instanceof Date || config[key].classname !== undefined)) {
+              throw new Error('Invalid key "' + key + '" in theme "' + name + '"! The value needs to be a map!');
+            }
+          } // Check conflicts (detect number ...)
+
+
+          var counter = 0;
+
+          for (var i = 0, l = maps.length; i < l; i++) {
+            var key = maps[i];
+
+            if (config[key]) {
+              counter++;
+            }
+
+            if (counter > 1) {
+              throw new Error("You can only define one theme category per file! Invalid theme: " + name);
+            }
+          } // Validate meta
+
+
+          if (config.meta) {
+            var value;
+
+            for (var key in config.meta) {
+              value = config.meta[key];
+
+              if (this.__P_5_6[key] === undefined) {
+                throw new Error('The key "' + key + '" is not allowed inside a meta theme block.');
+              }
+
+              if (_typeof(value) !== this.__P_5_6[key]) {
+                throw new Error('The type of the key "' + key + '" inside the meta block is wrong.');
+              }
+
+              if (!(_typeof(value) === "object" && value !== null && value.$$type === "Theme")) {
+                throw new Error('The content of a meta theme must reference to other themes. The value for "' + key + '" in theme "' + name + '" is invalid: ' + value);
+              }
+            }
+          } // Validate extend
+
+
+          if (config.extend && config.extend.$$type !== "Theme") {
+            throw new Error('Invalid extend in theme "' + name + '": ' + config.extend);
+          } // Validate include
+
+
+          if (config.include) {
+            for (var i = 0, l = config.include.length; i < l; i++) {
+              if (typeof config.include[i] == "undefined" || config.include[i].$$type !== "Theme") {
+                throw new Error('Invalid include in theme "' + name + '": ' + config.include[i]);
+              }
+            }
+          } // Validate patch
+
+
+          if (config.patch) {
+            for (var i = 0, l = config.patch.length; i < l; i++) {
+              if (typeof config.patch[i] === "undefined" || config.patch[i].$$type !== "Theme") {
+                throw new Error('Invalid patch in theme "' + name + '": ' + config.patch[i]);
+              }
+            }
+          }
+        },
+        "default": function _default() {}
+      }),
 
       /**
        * Include all keys of the given mixin theme into the theme. The mixin may
@@ -366,4 +515,4 @@
   qx.Theme.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Theme.js.map?dt=1635064683806
+//# sourceMappingURL=Theme.js.map?dt=1645800072145

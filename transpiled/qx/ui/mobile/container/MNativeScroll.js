@@ -82,17 +82,17 @@
       _snapTimeoutId: null,
 
       /**
-      * Event handler for <code>appear</code> event.
-      */
+       * Event handler for <code>appear</code> event.
+       */
       _onAppear: function _onAppear() {
         this._calcSnapPoints();
       },
 
       /**
-      * Event handler for <code>touchmove</code> event.
-      * Needed for preventing iOS page bounce.
-      * @param evt {qx.event.type.Touch} touchmove event.
-      */
+       * Event handler for <code>touchmove</code> event.
+       * Needed for preventing iOS page bounce.
+       * @param evt {qx.event.type.Touch} touchmove event.
+       */
       _onTouchMove: function _onTouchMove(evt) {
         // If scroll container is scrollable
         if (this._isScrollableY()) {
@@ -133,9 +133,9 @@
       },
 
       /**
-      * Event handler for <code>trackend</code> events.
-      * @param evt {qx.event.type.Track} touchmove event.
-      */
+       * Event handler for <code>trackend</code> events.
+       * @param evt {qx.event.type.Track} touchmove event.
+       */
       _onTrackEnd: function _onTrackEnd(evt) {
         this._onTrack = false;
 
@@ -150,8 +150,8 @@
       },
 
       /**
-      * Event handler for <code>scroll</code> events.
-      */
+       * Event handler for <code>scroll</code> events.
+       */
       _onScroll: function _onScroll() {
         var scrollLeft = this.getContentElement().scrollLeft;
         var scrollTop = this.getContentElement().scrollTop;
@@ -172,8 +172,8 @@
       },
 
       /**
-      * Calculates the snapping points for the x/y axis.
-      */
+       * Calculates the snapping points for the x/y axis.
+       */
       _calcSnapPoints: function _calcSnapPoints() {
         if (this._scrollProperties) {
           var snap = this._scrollProperties.snap;
@@ -192,11 +192,11 @@
       },
 
       /**
-      * Determines the next snap points for the passed current position.
-      * @param current {Integer} description
-      * @param snapProperty {String} "top" or "left"
-      * @return {Integer} the determined snap point.
-      */
+       * Determines the next snap points for the passed current position.
+       * @param current {Integer} description
+       * @param snapProperty {String} "top" or "left"
+       * @return {Integer} the determined snap point.
+       */
       _determineSnapPoint: function _determineSnapPoint(current, snapProperty) {
         for (var i = 0; i < this._snapPoints.length; i++) {
           var snapPoint = this._snapPoints[i];
@@ -222,8 +222,8 @@
       },
 
       /**
-      * Snaps the scrolling area to the nearest snap point.
-      */
+       * Snaps the scrolling area to the nearest snap point.
+       */
       _snap: function _snap() {
         this.fireEvent("scrollEnd");
         var element = this.getContentElement();
@@ -277,9 +277,9 @@
       },
 
       /**
-      * Returns the scrolling height of the inner container.
-      * @return {Number} the scrolling height.
-      */
+       * Returns the scrolling height of the inner container.
+       * @return {Number} the scrolling height.
+       */
       _getScrollHeight: function _getScrollHeight() {
         if (!this.getContentElement()) {
           return 0;
@@ -289,9 +289,9 @@
       },
 
       /**
-      * Returns the scrolling width of the inner container.
-      * @return {Number} the scrolling width.
-      */
+       * Returns the scrolling width of the inner container.
+       * @return {Number} the scrolling width.
+       */
       _getScrollWidth: function _getScrollWidth() {
         if (!this.getContentElement()) {
           return 0;
@@ -321,19 +321,19 @@
 
         if (element) {
           qx.bom.element.Animation.animate(element, {
-            "duration": time,
-            "keyFrames": {
+            duration: time,
+            keyFrames: {
               0: {
-                "scrollTop": startY,
-                "scrollLeft": startX
+                scrollTop: startY,
+                scrollLeft: startX
               },
               100: {
-                "scrollTop": y,
-                "scrollLeft": x
+                scrollTop: y,
+                scrollLeft: x
               }
             },
-            "keep": 100,
-            "timing": "ease-out"
+            keep: 100,
+            timing: "ease-out"
           });
         }
       }
@@ -349,4 +349,4 @@
   qx.ui.mobile.container.MNativeScroll.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MNativeScroll.js.map?dt=1635064697702
+//# sourceMappingURL=MNativeScroll.js.map?dt=1645800084702

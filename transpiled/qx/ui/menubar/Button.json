@@ -13,7 +13,7 @@
         "column": 0
       },
       "end": {
-        "line": 204,
+        "line": 159,
         "column": 3
       }
     },
@@ -27,28 +27,15 @@
     }
   },
   "type": "class",
-  "construct": {
-    "location": {
-      "start": {
-        "line": 35,
-        "column": 14
-      },
-      "end": {
-        "line": 41,
-        "column": 3
-      }
-    },
-    "jsdoc": {}
-  },
   "properties": {
     "appearance": {
       "location": {
         "start": {
-          "line": 54,
+          "line": 33,
           "column": 4
         },
         "end": {
-          "line": 58,
+          "line": 36,
           "column": 5
         }
       },
@@ -68,11 +55,11 @@
     "show": {
       "location": {
         "start": {
-          "line": 60,
+          "line": 38,
           "column": 4
         },
         "end": {
-          "line": 64,
+          "line": 41,
           "column": 5
         }
       },
@@ -84,28 +71,6 @@
       "overriddenFrom": "qx.ui.basic.Atom",
       "appearsIn": {
         "qx.ui.basic.Atom": "class"
-      }
-    },
-    "focusable": {
-      "location": {
-        "start": {
-          "line": 66,
-          "column": 4
-        },
-        "end": {
-          "line": 70,
-          "column": 5
-        }
-      },
-      "name": "focusable",
-      "propertyType": "new",
-      "refine": true,
-      "init": false,
-      "defaultValue": false,
-      "overriddenFrom": "qx.ui.form.Button",
-      "appearsIn": {
-        "qx.ui.form.Button": "class",
-        "qx.ui.core.Widget": "class"
       }
     },
     "command": {
@@ -130,11 +95,11 @@
     "getMenuBar": {
       "location": {
         "start": {
-          "line": 95,
+          "line": 62,
           "column": 4
         },
         "end": {
-          "line": 110,
+          "line": 75,
           "column": 5
         }
       },
@@ -160,11 +125,11 @@
     "open": {
       "location": {
         "start": {
-          "line": 114,
+          "line": 78,
           "column": 4
         },
         "end": {
-          "line": 121,
+          "line": 85,
           "column": 5
         }
       },
@@ -179,11 +144,11 @@
     "_onMenuChange": {
       "location": {
         "start": {
-          "line": 135,
+          "line": 98,
           "column": 4
         },
         "end": {
-          "line": 159,
+          "line": 118,
           "column": 5
         }
       },
@@ -214,11 +179,11 @@
     "_onPointerUp": {
       "location": {
         "start": {
-          "line": 162,
+          "line": 121,
           "column": 4
         },
         "end": {
-          "line": 171,
+          "line": 129,
           "column": 5
         }
       },
@@ -234,11 +199,11 @@
     "_onPointerOver": {
       "location": {
         "start": {
-          "line": 178,
+          "line": 136,
           "column": 4
         },
         "end": {
-          "line": 202,
+          "line": 157,
           "column": 5
         }
       },
@@ -474,6 +439,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -498,6 +464,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }

@@ -48,15 +48,15 @@
       /** Maps user agent names to device IDs */
       __P_22_0: {
         "Windows Phone": "iemobile",
-        "iPod": "ipod",
-        "iPad": "ipad",
-        "iPhone": "iphone",
-        "PSP": "psp",
+        iPod: "ipod",
+        iPad: "ipad",
+        iPhone: "iphone",
+        PSP: "psp",
         "PLAYSTATION 3": "ps3",
         "Nintendo Wii": "wii",
         "Nintendo DS": "ds",
-        "XBOX": "xbox",
-        "Xbox": "xbox"
+        XBOX: "xbox",
+        Xbox: "xbox"
       },
 
       /**
@@ -73,7 +73,7 @@
           str.push(key);
         }
 
-        var reg = new RegExp("(" + str.join("|").replace(/\./g, "\.") + ")", "g");
+        var reg = new RegExp("(" + str.join("|").replace(/\./g, ".") + ")", "g");
         var match = reg.exec(navigator.userAgent);
 
         if (match && match[1]) {
@@ -123,9 +123,10 @@
        * @return {Boolean} Flag which indicates whether it is a tablet device.
        */
       detectTabletDevice: function detectTabletDevice(userAgentString) {
+        var iPadOS13Up = navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
         var isIE10Tablet = /MSIE 10/i.test(userAgentString) && /ARM/i.test(userAgentString) && !/windows phone/i.test(userAgentString);
         var isCommonTablet = !/android.+mobile|Tablet PC/i.test(userAgentString) && /Android|ipad|tablet|playbook|silk|kindle|psp/i.test(userAgentString);
-        return isIE10Tablet || isCommonTablet;
+        return isIE10Tablet || isCommonTablet || iPadOS13Up;
       },
 
       /**
@@ -161,4 +162,4 @@
   qx.bom.client.Device.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Device.js.map?dt=1635064686494
+//# sourceMappingURL=Device.js.map?dt=1645800074773

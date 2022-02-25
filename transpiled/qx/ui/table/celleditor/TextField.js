@@ -51,7 +51,7 @@
         if (typeof cellEditor.originalValue == "number") {
           // Correct problem of NaN displaying when value is null string.
           //if (value != null) {
-          if (value != null && value != '') {
+          if (value != null && value != "") {
             value = parseFloat(value);
           }
         }
@@ -68,4 +68,4 @@
   qx.ui.table.celleditor.TextField.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=TextField.js.map?dt=1635064703414
+//# sourceMappingURL=TextField.js.map?dt=1645800089836

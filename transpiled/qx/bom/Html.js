@@ -81,12 +81,12 @@
        * @param tag {String} Tag name
        * @return {String} XHTML corrected tag
        */
-      __P_242_0: function __P_242_0(all, front, tag) {
+      __P_247_0: function __P_247_0(all, front, tag) {
         return tag.match(/^(abbr|br|col|img|input|link|meta|param|hr|area|embed)$/i) ? all : front + "></" + tag + ">";
       },
 
       /** @type {Map} Contains wrap fragments for specific HTML matches */
-      __P_242_1: {
+      __P_247_1: {
         opt: [1, "<select multiple='multiple'>", "</select>"],
         // option or optgroup
         leg: [1, "<fieldset>", "</fieldset>"],
@@ -95,7 +95,7 @@
         td: [3, "<table><tbody><tr>", "</tr></tbody></table>"],
         col: [2, "<table><tbody></tbody><colgroup>", "</colgroup></table>"],
         def: qx.core.Environment.select("engine.name", {
-          "mshtml": [1, "div<div>", "</div>"],
+          mshtml: [1, "div<div>", "</div>"],
           "default": null
         })
       },
@@ -110,7 +110,7 @@
        * @return {String} Fixed HTML
        */
       fixEmptyTags: function fixEmptyTags(html) {
-        return html.replace(/(<(\w+)[^>]*?)\/>/g, this.__P_242_0);
+        return html.replace(/(<(\w+)[^>]*?)\/>/g, this.__P_247_0);
       },
 
       /**
@@ -120,14 +120,14 @@
        * @param context {Document} Context document in which (helper) elements should be created
        * @return {Array} List of resulting elements
        */
-      __P_242_2: function __P_242_2(html, context) {
+      __P_247_2: function __P_247_2(html, context) {
         var div = context.createElement("div");
         html = qx.bom.Html.fixEmptyTags(html); // Trim whitespace, otherwise indexOf won't work as expected
 
         var tags = html.replace(/^\s+/, "").substring(0, 5).toLowerCase(); // Auto-wrap content into required DOM structure
 
         var wrap,
-            map = this.__P_242_1;
+            map = this.__P_247_1;
 
         if (!tags.indexOf("<opt")) {
           wrap = map.opt;
@@ -227,7 +227,7 @@
           obj = objs[i]; // Convert HTML string into DOM nodes
 
           if (typeof obj === "string") {
-            obj = this.__P_242_2(obj, context);
+            obj = this.__P_247_2(obj, context);
           } // Append or merge depending on type
 
 
@@ -295,4 +295,4 @@
   qx.bom.Html.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Html.js.map?dt=1635064704507
+//# sourceMappingURL=Html.js.map?dt=1645800090956

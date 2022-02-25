@@ -13,6 +13,11 @@
         "require": true,
         "defer": "runtime"
       },
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
+        "require": true
+      },
       "qx.Class": {
         "usage": "dynamic",
         "require": true
@@ -38,6 +43,14 @@
       "qx.ui.core.Widget": {},
       "qx.ui.core.DragDropCursor": {},
       "qx.bom.element.Style": {}
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.promise": {
+          "load": true
+        }
+      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -326,12 +339,17 @@
        * @return {qx.Promise|String} One of <code>move</code>, <code>copy</code> or
        *    <code>alias</code>
        */
-      getCurrentActionAsync: function getCurrentActionAsync() {
-        var self = this;
-        return qx.Promise.resolve(self.__P_38_16()).then(function () {
-          return self.__P_38_10;
-        });
-      },
+      getCurrentActionAsync: qx.core.Environment.select("qx.promise", {
+        "true": function _true() {
+          var self = this;
+          return qx.Promise.resolve(self.__P_38_16()).then(function () {
+            return self.__P_38_10;
+          });
+        },
+        "false": function _false() {
+          throw new Error(this.classname + ".getCurrentActionAsync not supported because qx.promise==false");
+        }
+      }),
 
       /**
        * Returns the widget which has been the target of the drag start.
@@ -829,8 +847,8 @@
         var deltaY = e.getDocumentTop() - this.__P_38_15.top;
 
         return {
-          "x": deltaX,
-          "y": deltaY
+          x: deltaX,
+          y: deltaY
         };
       },
 
@@ -958,4 +976,4 @@
   qx.event.handler.DragDrop.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=DragDrop.js.map?dt=1635064687487
+//# sourceMappingURL=DragDrop.js.map?dt=1645800075731

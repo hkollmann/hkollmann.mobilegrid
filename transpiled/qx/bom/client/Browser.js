@@ -75,8 +75,17 @@
        * @internal
        */
       getName: function getName() {
-        var agent = navigator.userAgent;
-        var reg = new RegExp("(" + qx.bom.client.Browser.__P_83_0 + ")(/|)?([0-9]+\.[0-9])?");
+        return qx.bom.client.Browser.detectName(navigator.userAgent);
+      },
+
+      /**
+       * Examines the user agent of the browser to determine the browser name
+       *
+       * @param agent {String} the user agent string
+       * @return {String} The name of the current browser.
+       */
+      detectName: function detectName(agent) {
+        var reg = new RegExp("(" + qx.bom.client.Browser.__P_85_0 + ")(/|)?([0-9]+.[0-9])?");
         var match = agent.match(reg);
 
         if (!match) {
@@ -131,7 +140,7 @@
        */
       getVersion: function getVersion() {
         var agent = navigator.userAgent;
-        var reg = new RegExp("(" + qx.bom.client.Browser.__P_83_0 + ")(/| )([0-9]+\.[0-9])");
+        var reg = new RegExp("(" + qx.bom.client.Browser.__P_85_0 + ")(/| )([0-9]+.[0-9])");
         var match = agent.match(reg);
 
         if (!match) {
@@ -200,7 +209,7 @@
       /**
        * Internal helper map for picking the right browser names to check.
        */
-      __P_83_0: {
+      __P_85_0: {
         // Safari should be the last one to check, because some other Webkit-based browsers
         // use this identifier together with their own one.
         // "Version" is used in Safari 4 to define the Safari version. After "Safari" they place the
@@ -208,13 +217,13 @@
         // Palm Pre uses both Safari (contains Webkit version) and "Version" contains the "Pre" version. But
         // as "Version" is not Safari here, we better detect this as the Pre-Browser version. So place
         // "Pre" in front of both "Version" and "Safari".
-        "webkit": "AdobeAIR|Titanium|Fluid|Chrome|Android|Epiphany|Konqueror|iCab|iPad|iPhone|OmniWeb|Maxthon|Pre|PhantomJS|Mobile Safari|Safari",
+        webkit: "AdobeAIR|Titanium|Fluid|Chrome|Android|Epiphany|Konqueror|iCab|iPad|iPhone|OmniWeb|Maxthon|Pre|PhantomJS|Mobile Safari|Safari",
         // Better security by keeping Firefox the last one to match
-        "gecko": "prism|Fennec|Camino|Kmeleon|Galeon|Netscape|SeaMonkey|Namoroka|Firefox",
+        gecko: "prism|Fennec|Camino|Kmeleon|Galeon|Netscape|SeaMonkey|Namoroka|Firefox",
         // No idea what other browsers based on IE's engine
-        "mshtml": "IEMobile|Maxthon|MSIE|Trident",
+        mshtml: "IEMobile|Maxthon|MSIE|Trident",
         // Keep "Opera" the last one to correctly prefer/match the mobile clients
-        "opera": "Opera Mini|Opera Mobi|Opera"
+        opera: "Opera Mini|Opera Mobi|Opera"
       }[qx.bom.client.Engine.getName()]
     },
     defer: function defer(statics) {
@@ -227,4 +236,4 @@
   qx.bom.client.Browser.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Browser.js.map?dt=1635064691720
+//# sourceMappingURL=Browser.js.map?dt=1645800079556

@@ -1,6 +1,11 @@
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
+        "require": true
+      },
       "qx.Class": {
         "usage": "dynamic",
         "require": true
@@ -11,6 +16,14 @@
       },
       "qx.locale.Manager": {
         "construct": true
+      }
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.dynlocale": {
+          "load": true
+        }
       }
     }
   };
@@ -137,13 +150,16 @@
        * @signature function(e)
        * @param e {Event} the change event
        */
-      _onChangeLocale: function _onChangeLocale(e) {
-        var content = this.getValue();
+      _onChangeLocale: qx.core.Environment.select("qx.dynlocale", {
+        "true": function _true(e) {
+          var content = this.getValue();
 
-        if (content && content.translate) {
-          this.setValue(content.translate());
-        }
-      }
+          if (content && content.translate) {
+            this.setValue(content.translate());
+          }
+        },
+        "false": null
+      })
     },
 
     /*
@@ -160,4 +176,4 @@
   qx.ui.mobile.basic.Label.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Label.js.map?dt=1635064686457
+//# sourceMappingURL=Label.js.map?dt=1645800074741

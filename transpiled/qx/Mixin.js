@@ -1,7 +1,14 @@
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
       "qx.lang.normalize.Array": {
+        "require": true
+      },
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
         "require": true
       },
       "qx.Bootstrap": {
@@ -9,6 +16,14 @@
         "require": true
       },
       "qx.util.OOUtil": {}
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.debug": {
+          "load": true
+        }
+      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -291,7 +306,7 @@
        * cannot emit compile-time code which knows the base class method because that depends
        * on the class that the mixin is mixed-into.
        *
-       * This method will search the hierarchy of the class at runtime, and figure out the 
+       * This method will search the hierarchy of the class at runtime, and figure out the
        * nearest superclass method to call; the result is cached, and it is acceptable for
        * a mixin's method to override a method mixed into a superclass.
        *
@@ -308,7 +323,8 @@
         {
           if (clazz.$$mixinBaseClassMethods && clazz.$$mixinBaseClassMethods[mixin.name] !== undefined && clazz.$$mixinBaseClassMethods[mixin.name][methodName] !== undefined) {
             return clazz.$$mixinBaseClassMethods[mixin.name][methodName];
-          }
+          } // Find the class which added the mixin; if it is mixed in twice, we pick the super-most class
+
 
           var mixedInAt = null;
           var mixedInIndex = -1;
@@ -327,6 +343,8 @@
           var fn = null;
 
           if (mixedInAt) {
+            // Multiple mixins can provide an implementation, in which case the mixin which was
+            //  added second's "base" implementation is the first mixin's method
             for (var i = mixedInIndex - 1; i > -1; i--) {
               var peerMixin = mixedInAt.$$flatIncludes[i];
 
@@ -334,12 +352,25 @@
                 fn = peerMixin.$$members[methodName];
                 break;
               }
-            }
+            } // Try looking in the class itself
+
+
+            if (!fn && mixedInAt.prototype[methodName]) {
+              fn = mixedInAt.prototype[methodName].base; // if fn.self is set fn is an overloaded mixin method from
+              // another mixin. In this case fn.base contains the original
+              // class method.
+
+              if (fn && fn.self) {
+                fn = fn.base;
+              }
+            } // Try looking in the superclass
+
 
             if (!fn && mixedInAt.superclass) {
               fn = mixedInAt.superclass.prototype[methodName];
             }
-          }
+          } // Cache the result
+
 
           if (fn) {
             if (!clazz.$$mixinBaseClassMethods) {
@@ -378,7 +409,25 @@
       $$registry: {},
 
       /** @type {Map} allowed keys in mixin definition */
-      __P_13_0: null,
+      __P_12_0: qx.core.Environment.select("qx.debug", {
+        "true": {
+          include: "object",
+          // Mixin | Mixin[]
+          statics: "object",
+          // Map
+          members: "object",
+          // Map
+          properties: "object",
+          // Map
+          events: "object",
+          // Map
+          destruct: "function",
+          // Function
+          construct: "function" // Function
+
+        },
+        "default": null
+      }),
 
       /**
        * Validates incoming configuration and checks keys and values
@@ -387,10 +436,56 @@
        * @param name {String} The name of the class
        * @param config {Map} Configuration map
        */
-      __P_13_1: function __P_13_1(name, config) {}
+      __P_12_1: qx.core.Environment.select("qx.debug", {
+        "true": function _true(name, config) {
+          // Validate keys
+          var allowed = this.__P_12_0;
+
+          for (var key in config) {
+            if (!allowed[key]) {
+              throw new Error('The configuration key "' + key + '" in mixin "' + name + '" is not allowed!');
+            }
+
+            if (config[key] == null) {
+              throw new Error('Invalid key "' + key + '" in mixin "' + name + '"! The value is undefined/null!');
+            }
+
+            if (allowed[key] !== null && _typeof(config[key]) !== allowed[key]) {
+              throw new Error('Invalid type of key "' + key + '" in mixin "' + name + '"! The type of the key must be "' + allowed[key] + '"!');
+            }
+          } // Validate maps
+
+
+          var maps = ["statics", "members", "properties", "events"];
+
+          for (var i = 0, l = maps.length; i < l; i++) {
+            var key = maps[i];
+
+            if (config[key] !== undefined && (["Array", "RegExp", "Date"].indexOf(qx.Bootstrap.getClass(config[key])) != -1 || config[key].classname !== undefined)) {
+              throw new Error('Invalid key "' + key + '" in mixin "' + name + '"! The value needs to be a map!');
+            }
+          } // Validate includes
+
+
+          if (config.include) {
+            for (var i = 0, a = config.include, l = a.length; i < l; i++) {
+              if (a[i] == null) {
+                throw new Error("Includes of mixins must be mixins. The include number '" + (i + 1) + "' in mixin '" + name + "'is undefined/null!");
+              }
+
+              if (a[i].$$type !== "Mixin") {
+                throw new Error("Includes of mixins must be mixins. The include number '" + (i + 1) + "' in mixin '" + name + "'is not a mixin!");
+              }
+            }
+
+            this.checkCompatibility(config.include);
+          }
+        },
+        "default": function _default(name, config) {}
+      })
     }
   });
   qx.Mixin.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Mixin.js.map?dt=1635064685352
+//# sourceMappingURL=Mixin.js.map?dt=1645800073512

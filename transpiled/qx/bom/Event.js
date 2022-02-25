@@ -168,8 +168,6 @@
             if (e.number !== -2146828218) {
               throw e;
             }
-
-            ;
           }
         } else if (typeof target["on" + type] != "undefined") {
           target["on" + type] = null;
@@ -304,7 +302,7 @@
         var safariBrowserNames = ["mobile safari", "safari"];
 
         if (engineName === "webkit" && safariBrowserNames.indexOf(browserName) > -1) {
-          var supportedEvents = ['loadeddata', 'progress', 'timeupdate', 'seeked', 'canplay', 'play', 'playing', 'pause', 'loadedmetadata', 'ended', 'volumechange'];
+          var supportedEvents = ["loadeddata", "progress", "timeupdate", "seeked", "canplay", "play", "playing", "pause", "loadedmetadata", "ended", "volumechange"];
 
           if (supportedEvents.indexOf(type.toLowerCase()) > -1) {
             return true;
@@ -365,4 +363,4 @@
   qx.bom.Event.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Event.js.map?dt=1635064691851
+//# sourceMappingURL=Event.js.map?dt=1645800079657

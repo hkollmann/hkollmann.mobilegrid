@@ -74,7 +74,7 @@
        * @return {Selection} native selection object
        */
       getSelectionObject: qx.core.Environment.select("html.selection", {
-        "selection": function selection(documentNode) {
+        selection: function selection(documentNode) {
           return documentNode.selection;
         },
         // suitable for gecko, opera, webkit and mshtml >= 9
@@ -91,7 +91,7 @@
        * @return {String|null} selected text as string
        */
       get: qx.core.Environment.select("html.selection", {
-        "selection": function selection(node) {
+        selection: function selection(node) {
           // to get the selected text in legacy IE you have to work with the TextRange
           // of the selection object. So always pass the document node to the
           // Range class to get this TextRange object.
@@ -100,7 +100,7 @@
         },
         // suitable for gecko, opera and webkit
         "default": function _default(node) {
-          if (this.__P_109_0(node)) {
+          if (this.__P_112_0(node)) {
             return node.value.substring(node.selectionStart, node.selectionEnd);
           } else {
             return this.getSelectionObject(qx.dom.Node.getDocument(node)).toString();
@@ -116,7 +116,7 @@
        * @return {Integer|null} length of the selection or null
        */
       getLength: qx.core.Environment.select("html.selection", {
-        "selection": function selection(node) {
+        selection: function selection(node) {
           var selectedValue = this.get(node); // get the selected part and split it by linebreaks
 
           var split = qx.util.StringSplit.split(selectedValue, /\r\n/); // return the length substracted by the count of linebreaks
@@ -129,7 +129,7 @@
           if (qx.core.Environment.get("engine.name") == "opera") {
             var selectedValue, selectedLength, split;
 
-            if (this.__P_109_0(node)) {
+            if (this.__P_112_0(node)) {
               var start = node.selectionStart;
               var end = node.selectionEnd;
               selectedValue = node.value.substring(start, end);
@@ -148,7 +148,7 @@
           } // suitable for gecko and webkit
 
 
-          if (this.__P_109_0(node)) {
+          if (this.__P_112_0(node)) {
             return node.selectionEnd - node.selectionStart;
           } else {
             return this.get(node).length;
@@ -165,8 +165,8 @@
        *                   selection is not within the given node
        */
       getStart: qx.core.Environment.select("html.selection", {
-        "selection": function selection(node) {
-          if (this.__P_109_0(node)) {
+        selection: function selection(node) {
+          if (this.__P_112_0(node)) {
             var documentRange = qx.bom.Range.get(); // Check if the document.selection is the text range inside the input element
 
             if (!node.contains(documentRange.parentElement())) {
@@ -177,7 +177,7 @@
             var len = node.value.length; // Synchronize range start and end points
 
             range.moveToBookmark(documentRange.getBookmark());
-            range.moveEnd('character', len);
+            range.moveEnd("character", len);
             return len - range.text.length;
           } else {
             var range = qx.bom.Range.get(node);
@@ -225,7 +225,7 @@
         },
         "default": function _default(node) {
           if (qx.core.Environment.get("engine.name") === "gecko" || qx.core.Environment.get("engine.name") === "webkit") {
-            if (this.__P_109_0(node)) {
+            if (this.__P_112_0(node)) {
               return node.selectionStart;
             } else {
               var documentElement = qx.dom.Node.getDocument(node);
@@ -240,7 +240,7 @@
             }
           }
 
-          if (this.__P_109_0(node)) {
+          if (this.__P_112_0(node)) {
             return node.selectionStart;
           } else {
             return qx.bom.Selection.getSelectionObject(qx.dom.Node.getDocument(node)).anchorOffset;
@@ -256,8 +256,8 @@
        * @return {Integer} end of current selection
        */
       getEnd: qx.core.Environment.select("html.selection", {
-        "selection": function selection(node) {
-          if (this.__P_109_0(node)) {
+        selection: function selection(node) {
+          if (this.__P_112_0(node)) {
             var documentRange = qx.bom.Range.get(); // Check if the document.selection is the text range inside the input element
 
             if (!node.contains(documentRange.parentElement())) {
@@ -268,7 +268,7 @@
             var len = node.value.length; // Synchronize range start and end points
 
             range.moveToBookmark(documentRange.getBookmark());
-            range.moveStart('character', -len);
+            range.moveStart("character", -len);
             return range.text.length;
           } else {
             var range = qx.bom.Range.get(node);
@@ -317,7 +317,7 @@
         },
         "default": function _default(node) {
           if (qx.core.Environment.get("engine.name") === "gecko" || qx.core.Environment.get("engine.name") === "webkit") {
-            if (this.__P_109_0(node)) {
+            if (this.__P_112_0(node)) {
               return node.selectionEnd;
             } else {
               var documentElement = qx.dom.Node.getDocument(node);
@@ -332,7 +332,7 @@
             }
           }
 
-          if (this.__P_109_0(node)) {
+          if (this.__P_112_0(node)) {
             return node.selectionEnd;
           } else {
             return qx.bom.Selection.getSelectionObject(qx.dom.Node.getDocument(node)).focusOffset;
@@ -346,7 +346,7 @@
        * @param node {Node} node to check
        * @return {Boolean} Whether the given node is an input or textarea element
        */
-      __P_109_0: function __P_109_0(node) {
+      __P_112_0: function __P_112_0(node) {
         return qx.dom.Node.isElement(node) && (node.nodeName.toLowerCase() == "input" || node.nodeName.toLowerCase() == "textarea");
       },
 
@@ -364,7 +364,7 @@
        * @return {Boolean} whether a selection is drawn
        */
       set: qx.core.Environment.select("html.selection", {
-        "selection": function selection(node, start, end) {
+        selection: function selection(node, start, end) {
           var rng; // if the node is the document itself then work on with the body element
 
           if (qx.dom.Node.isDocument(node)) {
@@ -451,8 +451,12 @@
 
             if (start >= 0 && start <= node.value.length && end >= 0 && end <= node.value.length) {
               node.focus();
-              node.select();
-              node.setSelectionRange(start, end);
+              node.select(); // IE can throw "Unspecified error"
+
+              try {
+                node.setSelectionRange(start, end);
+              } catch (ex) {}
+
               return true;
             }
           } else {
@@ -536,7 +540,7 @@
        * @param node {Node} node to clear the selection for
        */
       clear: qx.core.Environment.select("html.selection", {
-        "selection": function selection(node) {
+        selection: function selection(node) {
           var rng = qx.bom.Range.get(node);
           var parent = rng.parentElement();
           var documentRange = qx.bom.Range.get(qx.dom.Node.getDocument(node)); // only collapse if the selection is really on the given node
@@ -557,7 +561,10 @@
           var nodeName = node.nodeName.toLowerCase(); // if the node is an input or textarea element use the specialized methods
 
           if (qx.dom.Node.isElement(node) && (nodeName == "input" || nodeName == "textarea")) {
-            node.setSelectionRange(0, 0);
+            // IE can throw "Unspecified error"
+            try {
+              node.setSelectionRange(0, 0);
+            } catch (ex) {}
 
             if (qx.bom.Element && qx.bom.Element.blur) {
               qx.bom.Element.blur(node);
@@ -594,4 +601,4 @@
   qx.bom.Selection.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Selection.js.map?dt=1635064693846
+//# sourceMappingURL=Selection.js.map?dt=1645800081463

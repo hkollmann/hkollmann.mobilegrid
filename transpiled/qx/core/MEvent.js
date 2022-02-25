@@ -44,7 +44,7 @@
   qx.Mixin.define("qx.core.MEvent", {
     members: {
       /** @type {Class} Pointer to the regular event registration class */
-      __P_78_0: qx.event.Registration,
+      __P_80_0: qx.event.Registration,
 
       /**
        * Add event listener to this object.
@@ -64,7 +64,7 @@
        */
       addListener: function addListener(type, listener, self, capture) {
         if (!this.$$disposed) {
-          return this.__P_78_0.addListener(this, type, listener, self, capture);
+          return this.__P_80_0.addListener(this, type, listener, self, capture);
         }
 
         return null;
@@ -128,7 +128,7 @@
             listener = callback;
           }
 
-          return this.__P_78_0.removeListener(this, type, listener, self, capture);
+          return this.__P_80_0.removeListener(this, type, listener, self, capture);
         }
 
         return false;
@@ -143,7 +143,7 @@
        */
       removeListenerById: function removeListenerById(id) {
         if (!this.$$disposed) {
-          return this.__P_78_0.removeListenerById(this, id);
+          return this.__P_80_0.removeListenerById(this, id);
         }
 
         return false;
@@ -158,7 +158,7 @@
        * @return {Boolean} Whether the object has a listener of the given type.
        */
       hasListener: function hasListener(type, capture) {
-        return this.__P_78_0.hasListener(this, type, capture);
+        return this.__P_80_0.hasListener(this, type, capture);
       },
 
       /**
@@ -170,7 +170,7 @@
        */
       dispatchEvent: function dispatchEvent(evt) {
         if (!this.$$disposed) {
-          return this.__P_78_0.dispatchEvent(this, evt);
+          return this.__P_80_0.dispatchEvent(this, evt);
         }
 
         return true;
@@ -188,7 +188,7 @@
        */
       fireEvent: function fireEvent(type, clazz, args) {
         if (!this.$$disposed) {
-          return this.__P_78_0.fireEvent(this, type, clazz, args);
+          return this.__P_80_0.fireEvent(this, type, clazz, args);
         }
 
         return true;
@@ -207,7 +207,7 @@
        */
       fireEventAsync: function fireEventAsync(type, clazz, args) {
         if (!this.$$disposed) {
-          return this.__P_78_0.fireEventAsync(this, type, clazz, args);
+          return this.__P_80_0.fireEventAsync(this, type, clazz, args);
         }
 
         return qx.Promise.resolve(true);
@@ -227,16 +227,16 @@
        */
       fireNonBubblingEvent: function fireNonBubblingEvent(type, clazz, args) {
         if (!this.$$disposed) {
-          return this.__P_78_0.fireNonBubblingEvent(this, type, clazz, args);
+          return this.__P_80_0.fireNonBubblingEvent(this, type, clazz, args);
         }
 
         return true;
       },
 
       /**
-       * Create an event object and dispatch it on this object; equivalent to fireNonBubblingEvent, 
+       * Create an event object and dispatch it on this object; equivalent to fireNonBubblingEvent,
        * except that it always returns a promise.
-       * 
+       *
        * The event dispatched with this method does never bubble! Use only if you
        * are sure that bubbling is not required.
        *
@@ -249,7 +249,7 @@
        */
       fireNonBubblingEventAsync: function fireNonBubblingEventAsync(type, clazz, args) {
         if (!this.$$disposed) {
-          return this.__P_78_0.fireNonBubblingEventAsync(this, type, clazz, args);
+          return this.__P_80_0.fireNonBubblingEventAsync(this, type, clazz, args);
         }
 
         return qx.Promise.resolve(true);
@@ -276,14 +276,14 @@
             oldData = null;
           }
 
-          return this.__P_78_0.fireEvent(this, type, qx.event.type.Data, [data, oldData, !!cancelable]);
+          return this.__P_80_0.fireEvent(this, type, qx.event.type.Data, [data, oldData, !!cancelable]);
         }
 
         return true;
       },
 
       /**
-       * Creates and dispatches an non-bubbling data event on this object; equivalent to 
+       * Creates and dispatches an non-bubbling data event on this object; equivalent to
        * fireEvent, except that it always returns a promise.
        *
        * @param type {String} Event type to fire
@@ -304,7 +304,7 @@
             oldData = null;
           }
 
-          return this.__P_78_0.fireEventAsync(this, type, qx.event.type.Data, [data, oldData, !!cancelable]);
+          return this.__P_80_0.fireEventAsync(this, type, qx.event.type.Data, [data, oldData, !!cancelable]);
         }
 
         return qx.Promise.resolve(true);
@@ -314,4 +314,4 @@
   qx.core.MEvent.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MEvent.js.map?dt=1635064691390
+//# sourceMappingURL=MEvent.js.map?dt=1645800079250

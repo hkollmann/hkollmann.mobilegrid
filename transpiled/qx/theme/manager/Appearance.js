@@ -71,6 +71,8 @@
        MEMBERS
     *****************************************************************************
     */
+
+    /* eslint-disable @qooxdoo/qx/no-refs-in-members */
     members: {
       /**
        * @lint ignoreReferenceField(__defaultStates)
@@ -312,4 +314,4 @@
   qx.theme.manager.Appearance.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Appearance.js.map?dt=1635064688373
+//# sourceMappingURL=Appearance.js.map?dt=1645800076527

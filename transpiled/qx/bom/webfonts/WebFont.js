@@ -46,7 +46,7 @@
        * is a map with the keys "family" (the font-family name) and "valid"
        * (Boolean).
        */
-      "changeStatus": "qx.event.type.Data"
+      changeStatus: "qx.event.type.Data"
     },
 
     /*
@@ -61,6 +61,15 @@
       sources: {
         nullable: true,
         apply: "_applySources"
+      },
+
+      /**
+       * Indicates that the font has loaded successfully
+       */
+      valid: {
+        init: false,
+        check: "Boolean",
+        event: "changeValid"
       }
     },
 
@@ -70,7 +79,7 @@
     *****************************************************************************
     */
     members: {
-      __P_140_0: null,
+      __P_142_0: null,
       // property apply
       _applySources: function _applySources(value, old) {
         var families = [];
@@ -96,6 +105,7 @@
        */
       _onWebFontChangeStatus: function _onWebFontChangeStatus(ev) {
         var result = ev.getData();
+        this.setValid(!!result.valid);
         this.fireDataEvent("changeStatus", result);
       },
 
@@ -113,4 +123,4 @@
   qx.bom.webfonts.WebFont.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=WebFont.js.map?dt=1635064696577
+//# sourceMappingURL=WebFont.js.map?dt=1645800083677

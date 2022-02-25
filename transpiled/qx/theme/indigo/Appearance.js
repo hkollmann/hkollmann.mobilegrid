@@ -69,7 +69,7 @@
           };
         }
       },
-      "toolbar": {
+      toolbar: {
         style: function style(states) {
           return {
             backgroundColor: "light-background",
@@ -85,7 +85,7 @@
           };
         }
       },
-      "window": {
+      window: {
         style: function style(states) {
           return {
             contentPadding: [10, 10, 10, 10],
@@ -158,9 +158,9 @@
       "list-search-highlight": {
         style: function style(states) {
           return {
-            backgroundColor: 'rgba(255, 251, 0, 0.53)',
-            textDecorationStyle: 'dotted',
-            textDecorationLine: 'underline'
+            backgroundColor: "rgba(255, 251, 0, 0.53)",
+            textDecorationStyle: "dotted",
+            textDecorationLine: "underline"
           };
         }
       }
@@ -169,4 +169,4 @@
   qx.theme.indigo.Appearance.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Appearance.js.map?dt=1635064689958
+//# sourceMappingURL=Appearance.js.map?dt=1645800077864

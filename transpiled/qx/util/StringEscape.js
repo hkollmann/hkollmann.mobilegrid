@@ -54,7 +54,7 @@
           if (charCodeToEntities[code]) {
             entity = "&" + charCodeToEntities[code] + ";";
           } else {
-            if (code > 0x7F) {
+            if (code > 0x7f) {
               entity = "&#" + code + ";";
             } else {
               entity = chr;
@@ -83,8 +83,8 @@
           if (code) {
             chr = String.fromCharCode(code);
           } else {
-            if (entity.charAt(0) == '#') {
-              if (entity.charAt(1).toUpperCase() == 'X') {
+            if (entity.charAt(0) == "#") {
+              if (entity.charAt(1).toUpperCase() == "X") {
                 code = entity.substring(2); // match hex number
 
                 if (code.match(/^[0-9A-Fa-f]+$/gi)) {
@@ -108,4 +108,4 @@
   qx.util.StringEscape.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=StringEscape.js.map?dt=1635064705866
+//# sourceMappingURL=StringEscape.js.map?dt=1645800092040

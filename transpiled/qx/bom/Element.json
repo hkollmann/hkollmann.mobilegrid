@@ -9,11 +9,11 @@
   "clazz": {
     "location": {
       "start": {
-        "line": 35,
+        "line": 36,
         "column": 0
       },
       "end": {
-        "line": 267,
+        "line": 282,
         "column": 3
       }
     },
@@ -68,6 +68,10 @@
         {
           "name": "@require",
           "body": "qx.event.handler.Gesture"
+        },
+        {
+          "name": "@require",
+          "body": "qx.event.handler.Video"
         }
       ]
     }
@@ -77,11 +81,11 @@
     "addListener": {
       "location": {
         "start": {
-          "line": 70,
+          "line": 69,
           "column": 4
         },
         "end": {
-          "line": 72,
+          "line": 77,
           "column": 5
         }
       },
@@ -146,11 +150,11 @@
     "removeListener": {
       "location": {
         "start": {
-          "line": 90,
+          "line": 94,
           "column": 4
         },
         "end": {
-          "line": 92,
+          "line": 102,
           "column": 5
         }
       },
@@ -215,11 +219,11 @@
     "removeListenerById": {
       "location": {
         "start": {
-          "line": 103,
+          "line": 112,
           "column": 4
         },
         "end": {
-          "line": 105,
+          "line": 114,
           "column": 5
         }
       },
@@ -261,11 +265,11 @@
     "hasListener": {
       "location": {
         "start": {
-          "line": 118,
+          "line": 126,
           "column": 4
         },
         "end": {
-          "line": 120,
+          "line": 128,
           "column": 5
         }
       },
@@ -316,11 +320,11 @@
     "focus": {
       "location": {
         "start": {
-          "line": 128,
+          "line": 135,
           "column": 4
         },
         "end": {
-          "line": 130,
+          "line": 139,
           "column": 5
         }
       },
@@ -347,11 +351,11 @@
     "blur": {
       "location": {
         "start": {
-          "line": 138,
+          "line": 146,
           "column": 4
         },
         "end": {
-          "line": 140,
+          "line": 150,
           "column": 5
         }
       },
@@ -378,11 +382,11 @@
     "activate": {
       "location": {
         "start": {
-          "line": 148,
+          "line": 157,
           "column": 4
         },
         "end": {
-          "line": 150,
+          "line": 161,
           "column": 5
         }
       },
@@ -409,11 +413,11 @@
     "deactivate": {
       "location": {
         "start": {
-          "line": 158,
+          "line": 168,
           "column": 4
         },
         "end": {
-          "line": 160,
+          "line": 172,
           "column": 5
         }
       },
@@ -440,11 +444,11 @@
     "capture": {
       "location": {
         "start": {
-          "line": 171,
+          "line": 182,
           "column": 4
         },
         "end": {
-          "line": 173,
+          "line": 186,
           "column": 5
         }
       },
@@ -480,11 +484,11 @@
     "releaseCapture": {
       "location": {
         "start": {
-          "line": 181,
+          "line": 193,
           "column": 4
         },
         "end": {
-          "line": 183,
+          "line": 197,
           "column": 5
         }
       },
@@ -511,11 +515,11 @@
     "clone": {
       "location": {
         "start": {
-          "line": 200,
+          "line": 213,
           "column": 4
         },
         "end": {
-          "line": 265,
+          "line": 280,
           "column": 5
         }
       },

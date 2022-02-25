@@ -48,7 +48,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
    * @ignore(environment)
    * @ignore(process)
    * @ignore(Titanium.*)
+   * @ignore(Packages)
    */
+
+  /* global Packages, enviroment, process, Titanium */
   qx.Bootstrap.define("qx.bom.client.Runtime", {
     statics: {
       /**
@@ -57,7 +60,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
        * to the browser name defined by {@link qx.bom.client.Browser#getName}.
        * @return {String} The name of the current runtime.
        * @internal
-       * @ignore(environment, process, Titanium.*, Packages)
        */
       getName: function getName() {
         var name = ""; // check for the Rhino runtime
@@ -83,4 +85,4 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   qx.bom.client.Runtime.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Runtime.js.map?dt=1635064697068
+//# sourceMappingURL=Runtime.js.map?dt=1645800084130

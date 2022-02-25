@@ -19,7 +19,7 @@
         "column": 0
       },
       "end": {
-        "line": 1200,
+        "line": 1108,
         "column": 3
       }
     },
@@ -108,11 +108,11 @@
   "construct": {
     "location": {
       "start": {
-        "line": 65,
-        "column": 14
+        "line": 59,
+        "column": 2
       },
       "end": {
-        "line": 105,
+        "line": 103,
         "column": 3
       }
     },
@@ -147,12 +147,12 @@
     "DEFAULT_MANAGER_CLASS": {
       "location": {
         "start": {
-          "line": 119,
+          "line": 113,
           "column": 4
         },
         "end": {
-          "line": 119,
-          "column": 48
+          "line": 113,
+          "column": 47
         }
       },
       "jsdoc": {
@@ -177,12 +177,12 @@
     "beforeClose": {
       "location": {
         "start": {
-          "line": 140,
+          "line": 129,
           "column": 4
         },
         "end": {
-          "line": 140,
-          "column": 41
+          "line": 129,
+          "column": 38
         }
       },
       "jsdoc": {
@@ -199,12 +199,12 @@
     "close": {
       "location": {
         "start": {
-          "line": 143,
+          "line": 132,
           "column": 4
         },
         "end": {
-          "line": 143,
-          "column": 35
+          "line": 132,
+          "column": 32
         }
       },
       "jsdoc": {
@@ -221,12 +221,12 @@
     "beforeMinimize": {
       "location": {
         "start": {
-          "line": 151,
+          "line": 140,
           "column": 4
         },
         "end": {
-          "line": 151,
-          "column": 44
+          "line": 140,
+          "column": 41
         }
       },
       "jsdoc": {
@@ -243,12 +243,12 @@
     "minimize": {
       "location": {
         "start": {
-          "line": 154,
+          "line": 143,
           "column": 4
         },
         "end": {
-          "line": 154,
-          "column": 38
+          "line": 143,
+          "column": 35
         }
       },
       "jsdoc": {
@@ -265,12 +265,12 @@
     "beforeMaximize": {
       "location": {
         "start": {
-          "line": 162,
+          "line": 151,
           "column": 4
         },
         "end": {
-          "line": 162,
-          "column": 44
+          "line": 151,
+          "column": 41
         }
       },
       "jsdoc": {
@@ -287,12 +287,12 @@
     "maximize": {
       "location": {
         "start": {
-          "line": 165,
+          "line": 154,
           "column": 4
         },
         "end": {
-          "line": 165,
-          "column": 38
+          "line": 154,
+          "column": 35
         }
       },
       "jsdoc": {
@@ -309,12 +309,12 @@
     "beforeRestore": {
       "location": {
         "start": {
-          "line": 173,
+          "line": 162,
           "column": 4
         },
         "end": {
-          "line": 173,
-          "column": 43
+          "line": 162,
+          "column": 40
         }
       },
       "jsdoc": {
@@ -331,12 +331,12 @@
     "restore": {
       "location": {
         "start": {
-          "line": 176,
+          "line": 165,
           "column": 4
         },
         "end": {
-          "line": 176,
-          "column": 37
+          "line": 165,
+          "column": 34
         }
       },
       "jsdoc": {
@@ -355,11 +355,11 @@
     "appearance": {
       "location": {
         "start": {
-          "line": 197,
+          "line": 182,
           "column": 4
         },
         "end": {
-          "line": 201,
+          "line": 185,
           "column": 5
         }
       },
@@ -377,11 +377,11 @@
     "visibility": {
       "location": {
         "start": {
-          "line": 205,
+          "line": 188,
           "column": 4
         },
         "end": {
-          "line": 209,
+          "line": 191,
           "column": 5
         }
       },
@@ -399,11 +399,11 @@
     "focusable": {
       "location": {
         "start": {
-          "line": 213,
+          "line": 194,
           "column": 4
         },
         "end": {
-          "line": 217,
+          "line": 197,
           "column": 5
         }
       },
@@ -421,11 +421,11 @@
     "active": {
       "location": {
         "start": {
-          "line": 224,
+          "line": 203,
           "column": 4
         },
         "end": {
-          "line": 230,
+          "line": 208,
           "column": 5
         }
       },
@@ -448,11 +448,11 @@
     "alwaysOnTop": {
       "location": {
         "start": {
-          "line": 241,
+          "line": 217,
           "column": 4
         },
         "end": {
-          "line": 246,
+          "line": 221,
           "column": 5
         }
       },
@@ -474,11 +474,11 @@
     "modal": {
       "location": {
         "start": {
-          "line": 249,
+          "line": 224,
           "column": 4
         },
         "end": {
-          "line": 255,
+          "line": 229,
           "column": 5
         }
       },
@@ -501,11 +501,11 @@
     "caption": {
       "location": {
         "start": {
-          "line": 259,
+          "line": 232,
           "column": 4
         },
         "end": {
-          "line": 264,
+          "line": 236,
           "column": 5
         }
       },
@@ -527,11 +527,11 @@
     "icon": {
       "location": {
         "start": {
-          "line": 268,
+          "line": 239,
           "column": 4
         },
         "end": {
-          "line": 275,
+          "line": 245,
           "column": 5
         }
       },
@@ -555,11 +555,11 @@
     "status": {
       "location": {
         "start": {
-          "line": 279,
+          "line": 248,
           "column": 4
         },
         "end": {
-          "line": 285,
+          "line": 253,
           "column": 5
         }
       },
@@ -582,11 +582,11 @@
     "showClose": {
       "location": {
         "start": {
-          "line": 297,
+          "line": 262,
           "column": 4
         },
         "end": {
-          "line": 303,
+          "line": 267,
           "column": 5
         }
       },
@@ -609,11 +609,11 @@
     "showMaximize": {
       "location": {
         "start": {
-          "line": 307,
+          "line": 270,
           "column": 4
         },
         "end": {
-          "line": 313,
+          "line": 275,
           "column": 5
         }
       },
@@ -636,11 +636,11 @@
     "showMinimize": {
       "location": {
         "start": {
-          "line": 317,
+          "line": 278,
           "column": 4
         },
         "end": {
-          "line": 323,
+          "line": 283,
           "column": 5
         }
       },
@@ -663,11 +663,11 @@
     "allowClose": {
       "location": {
         "start": {
-          "line": 335,
+          "line": 292,
           "column": 4
         },
         "end": {
-          "line": 340,
+          "line": 296,
           "column": 5
         }
       },
@@ -689,11 +689,11 @@
     "allowMaximize": {
       "location": {
         "start": {
-          "line": 344,
+          "line": 299,
           "column": 4
         },
         "end": {
-          "line": 349,
+          "line": 303,
           "column": 5
         }
       },
@@ -715,11 +715,11 @@
     "allowMinimize": {
       "location": {
         "start": {
-          "line": 353,
+          "line": 306,
           "column": 4
         },
         "end": {
-          "line": 358,
+          "line": 310,
           "column": 5
         }
       },
@@ -741,11 +741,11 @@
     "showStatusbar": {
       "location": {
         "start": {
-          "line": 370,
+          "line": 319,
           "column": 4
         },
         "end": {
-          "line": 375,
+          "line": 323,
           "column": 5
         }
       },
@@ -767,11 +767,11 @@
     "centerOnAppear": {
       "location": {
         "start": {
-          "line": 387,
+          "line": 332,
           "column": 4
         },
         "end": {
-          "line": 392,
+          "line": 336,
           "column": 5
         }
       },
@@ -793,11 +793,11 @@
     "centerOnContainerResize": {
       "location": {
         "start": {
-          "line": 398,
+          "line": 342,
           "column": 4
         },
         "end": {
-          "line": 403,
+          "line": 346,
           "column": 5
         }
       },
@@ -819,11 +819,11 @@
     "autoDestroy": {
       "location": {
         "start": {
-          "line": 426,
+          "line": 367,
           "column": 4
         },
         "end": {
-          "line": 430,
+          "line": 370,
           "column": 5
         }
       },
@@ -1070,12 +1070,12 @@
     "__restoredTop": {
       "location": {
         "start": {
-          "line": 445,
+          "line": 382,
           "column": 4
         },
         "end": {
-          "line": 445,
-          "column": 24
+          "line": 382,
+          "column": 23
         }
       },
       "jsdoc": {
@@ -1098,12 +1098,12 @@
     "__restoredLeft": {
       "location": {
         "start": {
-          "line": 448,
+          "line": 385,
           "column": 4
         },
         "end": {
-          "line": 448,
-          "column": 25
+          "line": 385,
+          "column": 24
         }
       },
       "jsdoc": {
@@ -1126,12 +1126,12 @@
     "__centeringAppearId": {
       "location": {
         "start": {
-          "line": 451,
+          "line": 388,
           "column": 4
         },
         "end": {
-          "line": 451,
-          "column": 30
+          "line": 388,
+          "column": 29
         }
       },
       "jsdoc": {
@@ -1154,12 +1154,12 @@
     "__centeringResizeId": {
       "location": {
         "start": {
-          "line": 454,
+          "line": 391,
           "column": 4
         },
         "end": {
-          "line": 454,
-          "column": 30
+          "line": 391,
+          "column": 29
         }
       },
       "jsdoc": {
@@ -1182,11 +1182,11 @@
     "getChildrenContainer": {
       "location": {
         "start": {
-          "line": 469,
+          "line": 405,
           "column": 4
         },
         "end": {
-          "line": 471,
+          "line": 407,
           "column": 5
         }
       },
@@ -1216,11 +1216,11 @@
     "_forwardStates": {
       "location": {
         "start": {
-          "line": 478,
+          "line": 413,
           "column": 4
         },
         "end": {
-          "line": 484,
+          "line": 418,
           "column": 5
         }
       },
@@ -1244,11 +1244,11 @@
     "setLayoutParent": {
       "location": {
         "start": {
-          "line": 488,
+          "line": 421,
           "column": 4
         },
         "end": {
-          "line": 518,
+          "line": 453,
           "column": 5
         }
       },
@@ -1264,11 +1264,11 @@
     "_createChildControlImpl": {
       "location": {
         "start": {
-          "line": 522,
+          "line": 456,
           "column": 4
         },
         "end": {
-          "line": 607,
+          "line": 559,
           "column": 5
         }
       },
@@ -1283,11 +1283,11 @@
     "_updateCaptionBar": {
       "location": {
         "start": {
-          "line": 622,
+          "line": 570,
           "column": 4
         },
         "end": {
-          "line": 687,
+          "line": 622,
           "column": 5
         }
       },
@@ -1305,11 +1305,11 @@
     "close": {
       "location": {
         "start": {
-          "line": 706,
+          "line": 637,
           "column": 4
         },
         "end": {
-          "line": 726,
+          "line": 659,
           "column": 5
         }
       },
@@ -1327,11 +1327,11 @@
     "open": {
       "location": {
         "start": {
-          "line": 732,
+          "line": 664,
           "column": 4
         },
         "end": {
-          "line": 737,
+          "line": 668,
           "column": 5
         }
       },
@@ -1349,11 +1349,11 @@
     "center": {
       "location": {
         "start": {
-          "line": 750,
+          "line": 680,
           "column": 4
         },
         "end": {
-          "line": 777,
+          "line": 703,
           "column": 5
         }
       },
@@ -1371,11 +1371,11 @@
     "maximize": {
       "location": {
         "start": {
-          "line": 783,
+          "line": 708,
           "column": 4
         },
         "end": {
-          "line": 823,
+          "line": 750,
           "column": 5
         }
       },
@@ -1393,11 +1393,11 @@
     "minimize": {
       "location": {
         "start": {
-          "line": 829,
+          "line": 755,
           "column": 4
         },
         "end": {
-          "line": 846,
+          "line": 775,
           "column": 5
         }
       },
@@ -1415,11 +1415,11 @@
     "restore": {
       "location": {
         "start": {
-          "line": 853,
+          "line": 781,
           "column": 4
         },
         "end": {
-          "line": 884,
+          "line": 815,
           "column": 5
         }
       },
@@ -1437,11 +1437,11 @@
     "moveTo": {
       "location": {
         "start": {
-          "line": 893,
+          "line": 823,
           "column": 4
         },
         "end": {
-          "line": 903,
+          "line": 832,
           "column": 5
         }
       },
@@ -1475,11 +1475,11 @@
     "isMaximized": {
       "location": {
         "start": {
-          "line": 914,
+          "line": 843,
           "column": 4
         },
         "end": {
-          "line": 917,
+          "line": 845,
           "column": 5
         }
       },
@@ -1505,11 +1505,11 @@
     "getMode": {
       "location": {
         "start": {
-          "line": 925,
+          "line": 853,
           "column": 4
         },
         "end": {
-          "line": 936,
+          "line": 863,
           "column": 5
         }
       },
@@ -1535,11 +1535,11 @@
     "_applyActive": {
       "location": {
         "start": {
-          "line": 945,
+          "line": 872,
           "column": 4
         },
         "end": {
-          "line": 952,
+          "line": 878,
           "column": 5
         }
       },
@@ -1553,11 +1553,11 @@
     "_applyModal": {
       "location": {
         "start": {
-          "line": 956,
+          "line": 881,
           "column": 4
         },
         "end": {
-          "line": 963,
+          "line": 890,
           "column": 5
         }
       },
@@ -1571,11 +1571,11 @@
     "_getContentPaddingTarget": {
       "location": {
         "start": {
-          "line": 971,
+          "line": 897,
           "column": 4
         },
         "end": {
-          "line": 973,
+          "line": 899,
           "column": 5
         }
       },
@@ -1601,11 +1601,11 @@
     "_applyShowStatusbar": {
       "location": {
         "start": {
-          "line": 977,
+          "line": 902,
           "column": 4
         },
         "end": {
-          "line": 994,
+          "line": 918,
           "column": 5
         }
       },
@@ -1619,11 +1619,11 @@
     "_applyCaptionBarChange": {
       "location": {
         "start": {
-          "line": 998,
+          "line": 921,
           "column": 4
         },
         "end": {
-          "line": 1000,
+          "line": 923,
           "column": 5
         }
       },
@@ -1644,11 +1644,11 @@
     "_applyStatus": {
       "location": {
         "start": {
-          "line": 1004,
+          "line": 926,
           "column": 4
         },
         "end": {
-          "line": 1010,
+          "line": 931,
           "column": 5
         }
       },
@@ -1662,11 +1662,11 @@
     "_applyFocusable": {
       "location": {
         "start": {
-          "line": 1014,
+          "line": 934,
           "column": 4
         },
         "end": {
-          "line": 1021,
+          "line": 940,
           "column": 5
         }
       },
@@ -1681,11 +1681,11 @@
     "_applyCenterOnAppear": {
       "location": {
         "start": {
-          "line": 1023,
+          "line": 942,
           "column": 4
         },
         "end": {
-          "line": 1036,
+          "line": 957,
           "column": 5
         }
       },
@@ -1698,11 +1698,11 @@
     "_applyCenterOnContainerResize": {
       "location": {
         "start": {
-          "line": 1038,
+          "line": 959,
           "column": 4
         },
         "end": {
-          "line": 1056,
+          "line": 978,
           "column": 5
         }
       },
@@ -1715,11 +1715,11 @@
     "_onWindowEventStop": {
       "location": {
         "start": {
-          "line": 1070,
+          "line": 991,
           "column": 4
         },
         "end": {
-          "line": 1072,
+          "line": 993,
           "column": 5
         }
       },
@@ -1746,11 +1746,11 @@
     "_onWindowPointerDown": {
       "location": {
         "start": {
-          "line": 1080,
+          "line": 1000,
           "column": 4
         },
         "end": {
-          "line": 1082,
+          "line": 1002,
           "column": 5
         }
       },
@@ -1777,11 +1777,11 @@
     "_onWindowFocusOut": {
       "location": {
         "start": {
-          "line": 1091,
+          "line": 1010,
           "column": 4
         },
         "end": {
-          "line": 1104,
+          "line": 1021,
           "column": 5
         }
       },
@@ -1808,11 +1808,11 @@
     "_onCaptionPointerDblTap": {
       "location": {
         "start": {
-          "line": 1113,
+          "line": 1029,
           "column": 4
         },
         "end": {
-          "line": 1118,
+          "line": 1037,
           "column": 5
         }
       },
@@ -1839,11 +1839,11 @@
     "_onMinimizeButtonTap": {
       "location": {
         "start": {
-          "line": 1135,
+          "line": 1051,
           "column": 4
         },
         "end": {
-          "line": 1139,
+          "line": 1054,
           "column": 5
         }
       },
@@ -1870,11 +1870,11 @@
     "_onRestoreButtonTap": {
       "location": {
         "start": {
-          "line": 1148,
+          "line": 1062,
           "column": 4
         },
         "end": {
-          "line": 1152,
+          "line": 1065,
           "column": 5
         }
       },
@@ -1901,11 +1901,11 @@
     "_onMaximizeButtonTap": {
       "location": {
         "start": {
-          "line": 1161,
+          "line": 1073,
           "column": 4
         },
         "end": {
-          "line": 1165,
+          "line": 1076,
           "column": 5
         }
       },
@@ -1932,11 +1932,11 @@
     "_onCloseButtonTap": {
       "location": {
         "start": {
-          "line": 1174,
+          "line": 1084,
           "column": 4
         },
         "end": {
-          "line": 1178,
+          "line": 1087,
           "column": 5
         }
       },
@@ -4090,6 +4090,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -4114,6 +4115,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }
@@ -9166,15 +9168,14 @@
   "destruct": {
     "location": {
       "start": {
-        "line": 1181,
-        "column": 13
+        "line": 1090,
+        "column": 2
       },
       "end": {
-        "line": 1199,
+        "line": 1107,
         "column": 3
       }
-    },
-    "jsdoc": {}
+    }
   },
   "descendants": []
 }

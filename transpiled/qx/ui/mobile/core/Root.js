@@ -155,7 +155,7 @@
        * Event is fired when the app scale factor of the application has (or
        * might have) changed.
        */
-      "changeAppScale": "qx.event.type.Event"
+      changeAppScale: "qx.event.type.Event"
     },
 
     /*
@@ -242,17 +242,19 @@
       },
 
       /**
-      * Sets the application's font scale factor, i.e. relative to a default 100%
-      * font size.
-      *
-      * @param value {Number} the font scale factor.
-      */
+       * Sets the application's font scale factor, i.e. relative to a default 100%
+       * font size.
+       *
+       * @param value {Number} the font scale factor.
+       */
       setFontScale: function setFontScale(value) {
         var docElement = document.documentElement;
         docElement.style.fontSize = value * 100 + "%"; // Force relayout - important for new Android devices and Firefox.
 
         setTimeout(function () {
           docElement.style.display = "none";
+          /* eslint-disable-next-line no-self-assign */
+
           docElement.clientWidth = docElement.clientWidth;
           docElement.style.display = "";
         }, 0);
@@ -260,17 +262,17 @@
       },
 
       /**
-      * Returns the rendered width.
-      * @return {Integer} the width of the container element.
-      */
+       * Returns the rendered width.
+       * @return {Integer} the width of the container element.
+       */
       getWidth: function getWidth() {
         return qx.bom.element.Dimension.getWidth(this.__P_19_0);
       },
 
       /**
-      * Returns the rendered height.
-      * @return {Integer} the height of the container element.
-      */
+       * Returns the rendered height.
+       * @return {Integer} the height of the container element.
+       */
       getHeight: function getHeight() {
         return qx.bom.element.Dimension.getHeight(this.__P_19_0);
       },
@@ -321,4 +323,4 @@
   qx.ui.mobile.core.Root.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Root.js.map?dt=1635064686324
+//# sourceMappingURL=Root.js.map?dt=1645800074459

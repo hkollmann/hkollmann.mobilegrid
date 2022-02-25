@@ -72,7 +72,11 @@
 
 
       var root = this.getApplicationRoot();
-      root.add(this); // Register pointer listeners
+      root.add(this); // ARIA attrs
+
+      var contentEl = this.getContentElement();
+      contentEl.setAttribute("role", "menu");
+      contentEl.setAttribute("id", "menu-" + this.toHashCode()); // Register pointer listeners
 
       this.addListener("pointerover", this._onPointerOver);
       this.addListener("pointerout", this._onPointerOut); // add resize listener
@@ -145,9 +149,9 @@
       },
 
       /**
-      * Default icon column width if no icons are rendered.
-      * This property is ignored as soon as an icon is present.
-      */
+       * Default icon column width if no icons are rendered.
+       * This property is ignored as soon as an icon is present.
+       */
       iconColumnWidth: {
         check: "Integer",
         init: 0,
@@ -207,7 +211,8 @@
       /** Widget that opened the menu */
       opener: {
         check: "qx.ui.core.Widget",
-        nullable: true
+        nullable: true,
+        apply: "_applyOpener"
       },
 
       /*
@@ -367,7 +372,7 @@
       },
       // overridden
       _applyVisibility: function _applyVisibility(value, old) {
-        qx.ui.menu.Menu.prototype._applyVisibility.base.call(this, value, old);
+        qx.ui.menu.Menu.superclass.prototype._applyVisibility.call(this, value, old);
 
         var mgr = qx.ui.menu.Manager.getInstance();
 
@@ -446,6 +451,23 @@
 
         if (value) {
           value.addState("selected");
+        } // ARIA attrs
+
+
+        var opener = this.__P_64_4();
+
+        var contentEl = opener ? opener.getContentElement() : this.getContentElement();
+
+        if (!contentEl) {
+          return;
+        }
+
+        var valueContentEl = value ? value.getContentElement() : null;
+
+        if (valueContentEl) {
+          contentEl.setAttribute("aria-activedescendant", valueContentEl.getAttribute("id"));
+        } else {
+          contentEl.removeAttribute("aria-activedescendant");
         }
       },
       // property apply
@@ -456,6 +478,22 @@
 
         if (value) {
           value.getMenu().open();
+        }
+      },
+      // property apply
+      _applyOpener: function _applyOpener(value, old) {
+        // ARIA attrs
+        var contentEl = this.getContentElement();
+
+        if (!contentEl) {
+          return;
+        }
+
+        if (value && value.getContentElement()) {
+          contentEl.setAttribute("aria-labelledby", "");
+          this.addAriaLabelledBy(value);
+        } else {
+          contentEl.removeAttribute("aria-labelledby");
         }
       },
       // property apply
@@ -505,7 +543,7 @@
             break;
         }
 
-        return control || qx.ui.menu.Menu.prototype._createChildControlImpl.base.call(this, id);
+        return control || qx.ui.menu.Menu.superclass.prototype._createChildControlImpl.call(this, id);
       },
 
       /**
@@ -609,6 +647,19 @@
       */
 
       /**
+       * Gets called when a child is added. Sets ARIA attrs
+       * @param {*} child
+       */
+      _afterAddChild: function _afterAddChild(child) {
+        // Some childs, e.g. Seperators, are no meaningful menu items
+        if (child instanceof qx.ui.menu.AbstractButton) {
+          var contentEl = child.getContentElement();
+          contentEl.setAttribute("id", "menu-item-" + child.toHashCode());
+          contentEl.setAttribute("role", "menuitem");
+        }
+      },
+
+      /**
        * Update position if the menu or the root is resized
        */
       _onResize: function _onResize() {
@@ -700,6 +751,35 @@
             mgr.cancelOpen(this.__P_64_0);
           }
         }
+      },
+
+      /*
+      ---------------------------------------------------------------------------
+        HELPER FUNCTIONS
+      ---------------------------------------------------------------------------
+      */
+
+      /**
+       * Get the opener of the root/the first parent menu.
+       * parent menu.
+       *
+       * @return {qx.ui.core.Widget|null} The opener.
+       */
+      __P_64_4: function __P_64_4() {
+        var parentMenu = this.getParentMenu();
+
+        if (!parentMenu) {
+          return this.getOpener();
+        }
+
+        var opener;
+
+        while (parentMenu) {
+          opener = parentMenu.getOpener();
+          parentMenu = parentMenu.getParentMenu();
+        }
+
+        return opener;
       }
     },
 
@@ -722,4 +802,4 @@
   qx.ui.menu.Menu.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Menu.js.map?dt=1635064689215
+//# sourceMappingURL=Menu.js.map?dt=1645800077241

@@ -56,12 +56,14 @@
    * @ignore(q)
    *
    * @group (Core)
+   *
+   * @asset(qx/iconfont/MaterialIcons/*)
    */
   qx.Bootstrap.define("qxWeb", {
     extend: qx.type.BaseArray,
     statics: {
       // internal storage for all initializers
-      __P_172_0: [],
+      __P_177_0: [],
       // internal reference to the used qx namespace
       $$qx: qx,
 
@@ -105,8 +107,8 @@
 
         var col = qx.lang.Array.cast(clean, clazz);
 
-        for (var i = 0; i < qxWeb.__P_172_0.length; i++) {
-          qxWeb.__P_172_0[i].call(col);
+        for (var i = 0; i < qxWeb.__P_177_0.length; i++) {
+          qxWeb.__P_177_0[i].call(col);
         }
 
         return col;
@@ -161,7 +163,9 @@
       $attachAll: function $attachAll(clazz, staticsNamespace) {
         // members
         for (var name in clazz.members) {
-          if (name.indexOf("$") !== 0 && name.indexOf("_") !== 0) qxWeb.prototype[name] = clazz.members[name];
+          if (name.indexOf("$") !== 0 && name.indexOf("_") !== 0) {
+            qxWeb.prototype[name] = clazz.members[name];
+          }
         } // statics
 
 
@@ -175,7 +179,9 @@
         }
 
         for (var name in clazz.statics) {
-          if (name.indexOf("$") !== 0 && name.indexOf("_") !== 0 && name !== "name" && name !== "basename" && name !== "classname" && name !== "toString" && name !== name.toUpperCase()) destination[name] = clazz.statics[name];
+          if (name.indexOf("$") !== 0 && name.indexOf("_") !== 0 && name !== "name" && name !== "basename" && name !== "classname" && name !== "toString" && name !== name.toUpperCase()) {
+            destination[name] = clazz.statics[name];
+          }
         }
       },
 
@@ -187,7 +193,7 @@
        * @param init {Function} The initialization method for a module.
        */
       $attachInit: function $attachInit(init) {
-        this.__P_172_0.push(init);
+        this.__P_177_0.push(init);
       },
 
       /**
@@ -475,4 +481,4 @@
   qxWeb.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=qxWeb.js.map?dt=1635064699429
+//# sourceMappingURL=qxWeb.js.map?dt=1645800086287

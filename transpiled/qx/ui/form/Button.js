@@ -91,8 +91,10 @@
 
       if (command != null) {
         this.setCommand(command);
-      } // Add listeners
+      } // ARIA attrs
 
+
+      this.getContentElement().setAttribute("role", "button"); // Add listeners
 
       this.addListener("pointerover", this._onPointerOver);
       this.addListener("pointerout", this._onPointerOut);
@@ -130,6 +132,8 @@
        MEMBERS
     *****************************************************************************
     */
+
+    /* eslint-disable @qooxdoo/qx/no-refs-in-members */
     members: {
       // overridden
 
@@ -333,4 +337,4 @@
   qx.ui.form.Button.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Button.js.map?dt=1635064703803
+//# sourceMappingURL=Button.js.map?dt=1645800090118

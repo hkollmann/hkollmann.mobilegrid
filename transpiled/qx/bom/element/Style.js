@@ -162,13 +162,13 @@
        */
       __P_28_2: function __P_28_2() {
         var styleNames = {
-          "appearance": qx.core.Environment.get("css.appearance"),
-          "userSelect": qx.core.Environment.get("css.userselect"),
-          "textOverflow": qx.core.Environment.get("css.textoverflow"),
-          "borderImage": qx.core.Environment.get("css.borderimage"),
+          appearance: qx.core.Environment.get("css.appearance"),
+          userSelect: qx.core.Environment.get("css.userselect"),
+          textOverflow: qx.core.Environment.get("css.textoverflow"),
+          borderImage: qx.core.Environment.get("css.borderimage"),
           "float": qx.core.Environment.get("css.float"),
-          "userModify": qx.core.Environment.get("css.usermodify"),
-          "boxSizing": qx.core.Environment.get("css.boxsizing")
+          userModify: qx.core.Environment.get("css.usermodify"),
+          boxSizing: qx.core.Environment.get("css.boxsizing")
         };
         this.__P_28_1 = {};
 
@@ -176,8 +176,8 @@
           if (!styleNames[key]) {
             delete styleNames[key];
           } else {
-            if (key === 'float') {
-              this.__P_28_1['cssFloat'] = key;
+            if (key === "float") {
+              this.__P_28_1["cssFloat"] = key;
             } else {
               this.__P_28_1[key] = qx.bom.Style.getCssName(styleNames[key]);
             }
@@ -269,7 +269,7 @@
               cssNames[name] = qx.bom.Style.getCssName(name);
             }
 
-            html.push(cssNames[name], ":", value === "" ? "\"\"" : value, ";");
+            html.push(cssNames[name], ":", value === "" ? '""' : value, ";");
           }
         }
 
@@ -530,4 +530,4 @@
   qx.bom.element.Style.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Style.js.map?dt=1635064686964
+//# sourceMappingURL=Style.js.map?dt=1645800075199

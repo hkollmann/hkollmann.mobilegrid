@@ -17,7 +17,7 @@
         "column": 0
       },
       "end": {
-        "line": 355,
+        "line": 320,
         "column": 3
       }
     },
@@ -34,8 +34,8 @@
   "construct": {
     "location": {
       "start": {
-        "line": 70,
-        "column": 14
+        "line": 68,
+        "column": 2
       },
       "end": {
         "line": 92,
@@ -82,11 +82,11 @@
     "appearance": {
       "location": {
         "start": {
-          "line": 105,
+          "line": 102,
           "column": 4
         },
         "end": {
-          "line": 109,
+          "line": 105,
           "column": 5
         }
       },
@@ -105,11 +105,11 @@
     "focusable": {
       "location": {
         "start": {
-          "line": 112,
+          "line": 108,
           "column": 4
         },
         "end": {
-          "line": 116,
+          "line": 111,
           "column": 5
         }
       },
@@ -146,11 +146,11 @@
     "_forwardStates": {
       "location": {
         "start": {
-          "line": 134,
+          "line": 125,
           "column": 4
         },
         "end": {
-          "line": 140,
+          "line": 130,
           "column": 5
         }
       },
@@ -174,11 +174,11 @@
     "press": {
       "location": {
         "start": {
-          "line": 152,
+          "line": 141,
           "column": 4
         },
         "end": {
-          "line": 159,
+          "line": 147,
           "column": 5
         }
       },
@@ -196,11 +196,11 @@
     "release": {
       "location": {
         "start": {
-          "line": 165,
+          "line": 152,
           "column": 4
         },
         "end": {
-          "line": 170,
+          "line": 156,
           "column": 5
         }
       },
@@ -218,11 +218,11 @@
     "reset": {
       "location": {
         "start": {
-          "line": 176,
+          "line": 161,
           "column": 4
         },
         "end": {
-          "line": 181,
+          "line": 165,
           "column": 5
         }
       },
@@ -246,11 +246,11 @@
     "_onPointerOver": {
       "location": {
         "start": {
-          "line": 200,
+          "line": 182,
           "column": 4
         },
         "end": {
-          "line": 213,
+          "line": 193,
           "column": 5
         }
       },
@@ -277,11 +277,11 @@
     "_onPointerOut": {
       "location": {
         "start": {
-          "line": 225,
+          "line": 204,
           "column": 4
         },
         "end": {
-          "line": 238,
+          "line": 215,
           "column": 5
         }
       },
@@ -308,11 +308,11 @@
     "_onPointerDown": {
       "location": {
         "start": {
-          "line": 250,
+          "line": 226,
           "column": 4
         },
         "end": {
-          "line": 264,
+          "line": 239,
           "column": 5
         }
       },
@@ -339,11 +339,11 @@
     "_onPointerUp": {
       "location": {
         "start": {
-          "line": 277,
+          "line": 251,
           "column": 4
         },
         "end": {
-          "line": 296,
+          "line": 269,
           "column": 5
         }
       },
@@ -370,11 +370,11 @@
     "_onTap": {
       "location": {
         "start": {
-          "line": 304,
+          "line": 276,
           "column": 4
         },
         "end": {
-          "line": 309,
+          "line": 281,
           "column": 5
         }
       },
@@ -401,11 +401,11 @@
     "_onKeyDown": {
       "location": {
         "start": {
-          "line": 319,
+          "line": 290,
           "column": 4
         },
         "end": {
-          "line": 329,
+          "line": 298,
           "column": 5
         }
       },
@@ -432,11 +432,11 @@
     "_onKeyUp": {
       "location": {
         "start": {
-          "line": 339,
+          "line": 307,
           "column": 4
         },
         "end": {
-          "line": 353,
+          "line": 318,
           "column": 5
         }
       },
@@ -672,6 +672,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -696,6 +697,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }

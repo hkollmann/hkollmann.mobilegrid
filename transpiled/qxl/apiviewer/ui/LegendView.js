@@ -123,7 +123,7 @@
         desc: "Constant"
       }, {
         icon: "ICON_BLANK",
-        desc: "<span style=\"text-decoration: line-through;color: #7193b9;\">deprecated</span>"
+        desc: '<span style="text-decoration: line-through;color: #7193b9;">deprecated</span>'
       }, {
         icon: "OVERLAY_WARN",
         desc: "Package/Class/Mixin/Interface is not fully documented"
@@ -192,4 +192,4 @@
   qxl.apiviewer.ui.LegendView.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=LegendView.js.map?dt=1635064688787
+//# sourceMappingURL=LegendView.js.map?dt=1645800076896

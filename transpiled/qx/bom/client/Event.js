@@ -19,15 +19,21 @@
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
 
   /* ************************************************************************
+  
      qooxdoo - the new era of web development
+  
      http://qooxdoo.org
+  
      Copyright:
-      2004-2011 1&1 Internet AG, Germany, http://www.1und1.de
+       2004-2011 1&1 Internet AG, Germany, http://www.1und1.de
+  
      License:
-      MIT: https://opensource.org/licenses/MIT
-      See the LICENSE file in the project's top-level directory for details.
+       MIT: https://opensource.org/licenses/MIT
+       See the LICENSE file in the project's top-level directory for details.
+  
      Authors:
-      * Martin Wittemann (martinwittemann)
+       * Martin Wittemann (martinwittemann)
+  
   ************************************************************************ */
 
   /**
@@ -198,7 +204,6 @@
           }
         }
 
-        ;
         return {
           type: type,
           target: target
@@ -207,8 +212,8 @@
 
       /**
        * Detects if the engine/browser supports auxclick events
-       * 
-       * See https://github.com/qooxdoo/qooxdoo/issues/9268 
+       *
+       * See https://github.com/qooxdoo/qooxdoo/issues/9268
        *
        * @return {Boolean} <code>true</code> if auxclick events are supported.
        */
@@ -219,7 +224,6 @@
           hasAuxclick = "onauxclick" in document.documentElement;
         } catch (ex) {}
 
-        ;
         return hasAuxclick ? true : false;
       },
 
@@ -265,4 +269,4 @@
   qx.bom.client.Event.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Event.js.map?dt=1635064691764
+//# sourceMappingURL=Event.js.map?dt=1645800079587

@@ -13,8 +13,8 @@
         "column": 0
       },
       "end": {
-        "line": 35,
-        "column": 5
+        "line": 33,
+        "column": 3
       }
     },
     "jsdoc": {
@@ -30,11 +30,11 @@
   "themeMeta": {
     "location": {
       "start": {
-        "line": 27,
-        "column": 4
+        "line": 26,
+        "column": 2
       },
       "end": {
-        "line": 34,
+        "line": 32,
         "column": 3
       }
     },

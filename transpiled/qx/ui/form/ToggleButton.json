@@ -19,7 +19,7 @@
         "column": 0
       },
       "end": {
-        "line": 344,
+        "line": 316,
         "column": 3
       }
     },
@@ -36,11 +36,11 @@
   "construct": {
     "location": {
       "start": {
-        "line": 51,
-        "column": 14
+        "line": 47,
+        "column": 2
       },
       "end": {
-        "line": 68,
+        "line": 67,
         "column": 3
       }
     },
@@ -73,11 +73,11 @@
     "appearance": {
       "location": {
         "start": {
-          "line": 81,
+          "line": 77,
           "column": 4
         },
         "end": {
-          "line": 85,
+          "line": 80,
           "column": 5
         }
       },
@@ -96,11 +96,11 @@
     "focusable": {
       "location": {
         "start": {
-          "line": 88,
+          "line": 83,
           "column": 4
         },
         "end": {
-          "line": 92,
+          "line": 86,
           "column": 5
         }
       },
@@ -118,11 +118,11 @@
     "value": {
       "location": {
         "start": {
-          "line": 95,
+          "line": 89,
           "column": 4
         },
         "end": {
-          "line": 102,
+          "line": 95,
           "column": 5
         }
       },
@@ -147,11 +147,11 @@
     "group": {
       "location": {
         "start": {
-          "line": 105,
+          "line": 98,
           "column": 4
         },
         "end": {
-          "line": 110,
+          "line": 102,
           "column": 5
         }
       },
@@ -173,11 +173,11 @@
     "triState": {
       "location": {
         "start": {
-          "line": 120,
+          "line": 112,
           "column": 4
         },
         "end": {
-          "line": 126,
+          "line": 117,
           "column": 5
         }
       },
@@ -218,11 +218,11 @@
     "_applyGroup": {
       "location": {
         "start": {
-          "line": 141,
+          "line": 128,
           "column": 4
         },
         "end": {
-          "line": 150,
+          "line": 136,
           "column": 5
         }
       },
@@ -243,11 +243,11 @@
     "_applyValue": {
       "location": {
         "start": {
-          "line": 159,
+          "line": 144,
           "column": 4
         },
         "end": {
-          "line": 169,
+          "line": 158,
           "column": 5
         }
       },
@@ -284,11 +284,11 @@
     "_applyTriState": {
       "location": {
         "start": {
-          "line": 177,
+          "line": 166,
           "column": 4
         },
         "end": {
-          "line": 179,
+          "line": 168,
           "column": 5
         }
       },
@@ -325,11 +325,11 @@
     "_onExecute": {
       "location": {
         "start": {
-          "line": 187,
+          "line": 175,
           "column": 4
         },
         "end": {
-          "line": 189,
+          "line": 177,
           "column": 5
         }
       },
@@ -356,11 +356,11 @@
     "_onPointerOver": {
       "location": {
         "start": {
-          "line": 201,
+          "line": 188,
           "column": 4
         },
         "end": {
-          "line": 214,
+          "line": 199,
           "column": 5
         }
       },
@@ -387,11 +387,11 @@
     "_onPointerOut": {
       "location": {
         "start": {
-          "line": 227,
+          "line": 211,
           "column": 4
         },
         "end": {
-          "line": 243,
+          "line": 225,
           "column": 5
         }
       },
@@ -418,11 +418,11 @@
     "_onPointerDown": {
       "location": {
         "start": {
-          "line": 256,
+          "line": 237,
           "column": 4
         },
         "end": {
-          "line": 269,
+          "line": 249,
           "column": 5
         }
       },
@@ -449,11 +449,11 @@
     "_onPointerUp": {
       "location": {
         "start": {
-          "line": 283,
+          "line": 262,
           "column": 4
         },
         "end": {
-          "line": 295,
+          "line": 273,
           "column": 5
         }
       },
@@ -480,11 +480,11 @@
     "_onKeyDown": {
       "location": {
         "start": {
-          "line": 305,
+          "line": 282,
           "column": 4
         },
         "end": {
-          "line": 316,
+          "line": 291,
           "column": 5
         }
       },
@@ -511,11 +511,11 @@
     "_onKeyUp": {
       "location": {
         "start": {
-          "line": 326,
+          "line": 300,
           "column": 4
         },
         "end": {
-          "line": 342,
+          "line": 314,
           "column": 5
         }
       },
@@ -861,6 +861,7 @@
         "@return": [
           {
             "name": "@return",
+            "type": "[[ ObjectMethod Function ]]",
             "desc": "Returns the value for qxObjectId"
           }
         ]
@@ -885,6 +886,7 @@
         "@param": [
           {
             "name": "@param",
+            "type": "[[ ObjectMethod Function ]]",
             "paramName": "value",
             "desc": "Value for qxObjectId"
           }

@@ -112,31 +112,31 @@
        * The property to CSS mapping.
        */
       PROPERTY_CSS_MAPPING: {
-        "alignX": {
+        alignX: {
           "qx-hbox": {
-            "left": "qx-flex-justify-start",
-            "center": "qx-flex-justify-center",
-            "right": "qx-flex-justify-end"
+            left: "qx-flex-justify-start",
+            center: "qx-flex-justify-center",
+            right: "qx-flex-justify-end"
           },
           "qx-vbox": {
-            "left": "qx-flex-align-start",
-            "center": "qx-flex-align-center",
-            "right": "qx-flex-align-end"
+            left: "qx-flex-align-start",
+            center: "qx-flex-align-center",
+            right: "qx-flex-align-end"
           }
         },
-        "alignY": {
+        alignY: {
           "qx-hbox": {
-            "top": "qx-flex-align-start",
-            "middle": "qx-flex-align-center",
-            "bottom": "qx-flex-align-end"
+            top: "qx-flex-align-start",
+            middle: "qx-flex-align-center",
+            bottom: "qx-flex-align-end"
           },
           "qx-vbox": {
-            "top": "qx-flex-justify-start",
-            "middle": "qx-flex-justify-center",
-            "bottom": "qx-flex-justify-end"
+            top: "qx-flex-justify-start",
+            middle: "qx-flex-justify-center",
+            bottom: "qx-flex-justify-end"
           }
         },
-        "reversed": {
+        reversed: {
           "qx-hbox": {
             "true": "qx-flex-reverse",
             "false": null
@@ -153,7 +153,7 @@
        * List all supported child layout properties here.
        */
       SUPPORTED_CHILD_LAYOUT_PROPERTIES: {
-        "flex": 1
+        flex: 1
       }
     },
 
@@ -187,11 +187,11 @@
           this.resetReversed();
         }
 
-        qx.ui.mobile.layout.AbstractBox.prototype.connectToWidget.base.call(this, widget);
+        qx.ui.mobile.layout.AbstractBox.superclass.prototype.connectToWidget.call(this, widget);
       },
       // overridden
       disconnectFromChildWidget: function disconnectFromChildWidget(widget) {
-        qx.ui.mobile.layout.AbstractBox.prototype.disconnectFromChildWidget.base.call(this);
+        qx.ui.mobile.layout.AbstractBox.superclass.prototype.disconnectFromChildWidget.call(this);
 
         for (var i = 0; i <= 6; i++) {
           widget.removeCssClass("qx-flex" + i);
@@ -232,4 +232,4 @@
   qx.ui.mobile.layout.AbstractBox.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=AbstractBox.js.map?dt=1635064692669
+//# sourceMappingURL=AbstractBox.js.map?dt=1645800080352

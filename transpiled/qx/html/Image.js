@@ -10,6 +10,7 @@
         "require": true
       },
       "qx.html.Element": {
+        "construct": true,
         "require": true
       },
       "qx.bom.element.Decoration": {},
@@ -53,14 +54,27 @@
   qx.Class.define("qx.html.Image", {
     extend: qx.html.Element,
 
+    /**
+     * Creates a new Image
+     *
+     * @see constructor for {Element}
+     */
+    construct: function construct(tagName, styles, attributes) {
+      qx.html.Element.constructor.call(this, tagName, styles, attributes);
+      this.registerProperty("source", null, this._setSourceProperty, function (writer, key, property) {
+        return property.value && writer("src=" + JSON.stringify(property.value));
+      });
+      this.registerProperty("scale", null, this._setScaleProperty);
+    },
+
     /*
     *****************************************************************************
        MEMBERS
     *****************************************************************************
     */
     members: {
-      __P_177_0: null,
-      __P_177_1: null,
+      __P_183_0: null,
+      __P_183_1: null,
       // this member variable is only used for IE browsers to be able
       // to the tag name which will be set. This is heavily connected to the runtime
       // change of decorators and the use of external (=unmanaged images). It is
@@ -76,8 +90,8 @@
        * @param paddingTop {Integer} top padding value
        */
       setPadding: function setPadding(paddingLeft, paddingTop) {
-        this.__P_177_1 = paddingLeft;
-        this.__P_177_0 = paddingTop;
+        this.__P_183_1 = paddingLeft;
+        this.__P_183_0 = paddingTop;
 
         if (this.getNodeName() == "div") {
           this.setStyle("backgroundPosition", paddingLeft + "px " + paddingTop + "px");
@@ -89,37 +103,40 @@
         ELEMENT API
       ---------------------------------------------------------------------------
       */
-      // overridden
-      _applyProperty: function _applyProperty(name, value) {
-        qx.html.Image.prototype._applyProperty.base.call(this, name, value);
 
-        if (name === "source") {
-          var elem = this.getDomElement(); // To prevent any wrong background-position or -repeat it is necessary
-          // to reset those styles whenever a background-image is updated.
-          // This is only necessary if any backgroundImage was set already.
-          // See bug #3376 for details
+      /**
+       * Implementation of setter for the "source" property
+       *
+       * @param value {String?} value to set
+       */
+      _setSourceProperty: function _setSourceProperty(value) {
+        var elem = this.getDomElement(); // To prevent any wrong background-position or -repeat it is necessary
+        // to reset those styles whenever a background-image is updated.
+        // This is only necessary if any backgroundImage was set already.
+        // See bug #3376 for details
 
-          var styles = this.getAllStyles();
+        var styles = this.getAllStyles() || {};
 
-          if (this.getNodeName() == "div" && this.getStyle("backgroundImage")) {
-            styles.backgroundRepeat = null;
-          }
-
-          var source = this._getProperty("source");
-
-          var scale = this._getProperty("scale");
-
-          var repeat = scale ? "scale" : "no-repeat"; // Source can be null in certain circumstances.
-          // See bug #3701 for details.
-
-          if (source != null) {
-            // Normalize "" to null
-            source = source || null;
-            styles.paddingTop = this.__P_177_0;
-            styles.paddingLeft = this.__P_177_1;
-            qx.bom.element.Decoration.update(elem, source, repeat, styles);
-          }
+        if (this.getNodeName() == "div" && this.getStyle("backgroundImage")) {
+          styles.backgroundRepeat = null;
         }
+
+        var source = this._getProperty("source");
+
+        var scale = this._getProperty("scale");
+
+        var repeat = scale ? "scale" : "no-repeat"; // Source can be null in certain circumstances.
+        // See bug #3701 for details.
+
+        if (source != null) {
+          // Normalize "" to null
+          source = source || null;
+          styles.paddingTop = this.__P_183_0;
+          styles.paddingLeft = this.__P_183_1;
+          qx.bom.element.Decoration.update(elem, source, repeat, styles);
+        }
+      },
+      _setScaleProperty: function _setScaleProperty(value) {// Nothing
       },
       // overridden
       _removeProperty: function _removeProperty(key, direct) {
@@ -150,12 +167,12 @@
           this.setNodeName(qx.bom.element.Decoration.getTagName(repeat));
         }
 
-        return qx.html.Image.prototype._createDomElement.base.call(this);
+        return qx.html.Image.superclass.prototype._createDomElement.call(this);
       },
       // overridden
       // be sure that style attributes are merged and not overwritten
-      _copyData: function _copyData(fromMarkup) {
-        return qx.html.Image.prototype._copyData.base.call(this, true);
+      _copyData: function _copyData(fromMarkup, propertiesFromDom) {
+        return qx.html.Image.superclass.prototype._copyData.call(this, true, propertiesFromDom);
       },
 
       /*
@@ -227,4 +244,4 @@
   qx.html.Image.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Image.js.map?dt=1635064699669
+//# sourceMappingURL=Image.js.map?dt=1645800086518

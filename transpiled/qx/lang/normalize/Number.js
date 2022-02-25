@@ -52,6 +52,8 @@
    *
    * @group (Polyfill)
    */
+
+  /* eslint-disable no-extend-native */
   qx.Bootstrap.define("qx.lang.normalize.Number", {
     statics: {
       EPSILON: 2e-52
@@ -65,4 +67,4 @@
   qx.lang.normalize.Number.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Number.js.map?dt=1635064685633
+//# sourceMappingURL=Number.js.map?dt=1645800073735

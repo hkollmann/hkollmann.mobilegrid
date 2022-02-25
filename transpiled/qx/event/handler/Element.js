@@ -52,7 +52,7 @@
   /**
    * This class supports typical DOM element inline events like scroll,
    * change, select, ...
-   * 
+   *
    * NOTE: Instances of this class must be disposed of after use
    *
    */
@@ -186,7 +186,7 @@
         }
 
         var eventData = events[eventId];
-        var isCancelable = this.constructor.CANCELABLE[eventData.type];
+        var isCancelable = nativeEvent.cancelable || this.constructor.CANCELABLE[eventData.type];
         qx.event.Registration.fireNonBubblingEvent(eventData.element, eventData.type, qx.event.type.Native, [nativeEvent, undefined, undefined, undefined, isCancelable]);
       })
     },
@@ -220,4 +220,4 @@
   qx.event.handler.Element.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Element.js.map?dt=1635064697928
+//# sourceMappingURL=Element.js.map?dt=1645800084908

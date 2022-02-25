@@ -185,7 +185,7 @@
 
         }
 
-        return control || qx.ui.tooltip.ToolTip.prototype._createChildControlImpl.base.call(this, id);
+        return control || qx.ui.tooltip.ToolTip.superclass.prototype._createChildControlImpl.call(this, id);
       },
 
       /**
@@ -225,4 +225,4 @@
   qx.ui.tooltip.ToolTip.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=ToolTip.js.map?dt=1635064698352
+//# sourceMappingURL=ToolTip.js.map?dt=1645800085303

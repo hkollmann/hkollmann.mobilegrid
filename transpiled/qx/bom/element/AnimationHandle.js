@@ -59,34 +59,34 @@
     extend: qx.event.Emitter,
     construct: function construct() {
       var css = qx.core.Environment.get("css.animation");
-      this.__P_244_0 = css && css["play-state"];
-      this.__P_244_1 = true;
-      this.addListenerOnce("end", this.__P_244_2, this);
+      this.__P_249_0 = css && css["play-state"];
+      this.__P_249_1 = true;
+      this.addListenerOnce("end", this.__P_249_2, this);
     },
     events: {
       /** Fired when the animation started via {@link qx.bom.element.Animation}. */
-      "start": "Element",
+      start: "Element",
 
       /**
        * Fired when the animation started via {@link qx.bom.element.Animation} has
        * ended.
        */
-      "end": "Element",
+      end: "Element",
 
       /** Fired on every iteration of the animation. */
-      "iteration": "Element"
+      iteration: "Element"
     },
     members: {
-      __P_244_0: null,
-      __P_244_1: false,
-      __P_244_3: false,
+      __P_249_0: null,
+      __P_249_1: false,
+      __P_249_3: false,
 
       /**
        * Accessor of the playing state.
        * @return {Boolean} <code>true</code>, if the animations is playing.
        */
       isPlaying: function isPlaying() {
-        return this.__P_244_1;
+        return this.__P_249_1;
       },
 
       /**
@@ -94,7 +94,7 @@
        * @return {Boolean} <code>true</code>, if the animations has ended.
        */
       isEnded: function isEnded() {
-        return this.__P_244_3;
+        return this.__P_249_3;
       },
 
       /**
@@ -102,7 +102,7 @@
        * @return {Boolean} <code>true</code>, if the animations is paused.
        */
       isPaused: function isPaused() {
-        return this.el.style[this.__P_244_0] == "paused";
+        return this.el.style[this.__P_249_0] == "paused";
       },
 
       /**
@@ -110,8 +110,8 @@
        */
       pause: function pause() {
         if (this.el) {
-          this.el.style[this.__P_244_0] = "paused";
-          this.el.$$animation.__P_244_1 = false; // in case the animation is based on JS
+          this.el.style[this.__P_249_0] = "paused";
+          this.el.$$animation.__P_249_1 = false; // in case the animation is based on JS
 
           if (this.animationId && qx.bom.element.AnimationJs) {
             qx.bom.element.AnimationJs.pause(this);
@@ -125,8 +125,8 @@
        */
       play: function play() {
         if (this.el) {
-          this.el.style[this.__P_244_0] = "running";
-          this.el.$$animation.__P_244_1 = true; // in case the animation is based on JS
+          this.el.style[this.__P_249_0] = "running";
+          this.el.$$animation.__P_249_1 = true; // in case the animation is based on JS
 
           if (this.i != undefined && qx.bom.element.AnimationJs) {
             qx.bom.element.AnimationJs.play(this);
@@ -139,10 +139,10 @@
        */
       stop: function stop() {
         if (this.el && qx.core.Environment.get("css.animation") && !this.jsAnimation) {
-          this.el.style[this.__P_244_0] = "";
+          this.el.style[this.__P_249_0] = "";
           this.el.style[qx.core.Environment.get("css.animation").name] = "";
-          this.el.$$animation.__P_244_1 = false;
-          this.el.$$animation.__P_244_3 = true;
+          this.el.$$animation.__P_249_1 = false;
+          this.el.$$animation.__P_249_3 = true;
         } // in case the animation is based on JS
         else if (this.jsAnimation) {
           this.stopped = true;
@@ -153,13 +153,13 @@
       /**
        * Set the animation state to ended
        */
-      __P_244_2: function __P_244_2() {
-        this.__P_244_1 = false;
-        this.__P_244_3 = true;
+      __P_249_2: function __P_249_2() {
+        this.__P_249_1 = false;
+        this.__P_249_3 = true;
       }
     }
   });
   qx.bom.element.AnimationHandle.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=AnimationHandle.js.map?dt=1635064704555
+//# sourceMappingURL=AnimationHandle.js.map?dt=1645800091000

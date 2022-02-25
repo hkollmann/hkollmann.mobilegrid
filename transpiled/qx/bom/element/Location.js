@@ -135,7 +135,7 @@
        * @return {Map} Map which contains the <code>left</code> and <code>top</code> offsets
        */
       __P_52_3: qx.core.Environment.select("engine.name", {
-        "mshtml": function mshtml(elem) {
+        mshtml: function mshtml(elem) {
           // Find body element
           var doc = qx.dom.Node.getDocument(elem);
           var body = doc.body;
@@ -154,7 +154,7 @@
             top: top
           };
         },
-        "webkit": function webkit(elem) {
+        webkit: function webkit(elem) {
           // Find body element
           var doc = qx.dom.Node.getDocument(elem);
           var body = doc.body; // Start with the offset
@@ -166,7 +166,7 @@
             top: top
           };
         },
-        "gecko": function gecko(elem) {
+        gecko: function gecko(elem) {
           // Find body element
           var body = qx.dom.Node.getDocument(elem).body; // Start with the offset
 
@@ -462,4 +462,4 @@
   qx.bom.element.Location.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Location.js.map?dt=1635064688455
+//# sourceMappingURL=Location.js.map?dt=1645800076600

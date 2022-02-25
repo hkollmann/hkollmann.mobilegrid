@@ -293,9 +293,9 @@
       },
 
       /**
-      * Factory method for the master button, which is responsible for showing/hiding masterContainer.
-      * @return {qx.ui.mobile.navigationbar.Button}
-      */
+       * Factory method for the master button, which is responsible for showing/hiding masterContainer.
+       * @return {qx.ui.mobile.navigationbar.Button}
+       */
       _createMasterButton: function _createMasterButton() {
         return new qx.ui.mobile.navigationbar.Button(this.getMasterTitle());
       },
@@ -309,9 +309,9 @@
       },
 
       /**
-      * Factory method for masterNavigation.
-      * @return {qx.ui.mobile.container.Navigation}
-      */
+       * Factory method for masterNavigation.
+       * @return {qx.ui.mobile.container.Navigation}
+       */
       _createMasterNavigation: function _createMasterNavigation() {
         return new qx.ui.mobile.container.Navigation();
       },
@@ -441,15 +441,15 @@
       },
 
       /**
-      * Called when user taps on masterButton.
-      */
+       * Called when user taps on masterButton.
+       */
       _onMasterButtonTap: function _onMasterButtonTap() {
         this.__P_4_3.show();
       },
 
       /**
-      * Called when user taps on hideMasterButton.
-      */
+       * Called when user taps on hideMasterButton.
+       */
       _onHideMasterButtonTap: function _onHideMasterButtonTap() {
         this._removeDetailContainerGap();
 
@@ -457,9 +457,9 @@
       },
 
       /**
-      * Event handler for <code>changeVisibility</code> event on master container.
-      * @param evt {qx.event.type.Data} the change event.
-      */
+       * Event handler for <code>changeVisibility</code> event on master container.
+       * @param evt {qx.event.type.Data} the change event.
+       */
       _onMasterChangeVisibility: function _onMasterChangeVisibility(evt) {
         var isMasterVisible = "visible" === evt.getData();
 
@@ -491,8 +491,8 @@
       },
 
       /**
-      * Called when layout of masterDetailContainer changes.
-      */
+       * Called when layout of masterDetailContainer changes.
+       */
       _onLayoutChange: function _onLayoutChange() {
         if (this.__P_4_0) {
           if (qx.bom.Viewport.isLandscape()) {
@@ -516,9 +516,9 @@
       },
 
       /**
-      * Returns the corresponding CSS property key which fits to the drawer's orientation.
-      * @return {String} the CSS property key.
-      */
+       * Returns the corresponding CSS property key which fits to the drawer's orientation.
+       * @return {String} the CSS property key.
+       */
       _getGapPropertyKey: function _getGapPropertyKey() {
         return "padding" + qx.lang.String.capitalize(this.__P_4_3.getOrientation());
       },
@@ -541,10 +541,10 @@
       },
 
       /**
-      * Called on property changes of hideMasterButtonCaption.
-      * @param value {String} new caption
-      * @param old {String} previous caption
-      */
+       * Called on property changes of hideMasterButtonCaption.
+       * @param value {String} new caption
+       * @param old {String} previous caption
+       */
       _applyHideMasterButtonCaption: function _applyHideMasterButtonCaption(value, old) {
         if (this.__P_4_0) {
           this.__P_4_6.setLabel(value);
@@ -552,10 +552,10 @@
       },
 
       /**
-      * Called on property changes of masterTitle.
-      * @param value {String} new title
-      * @param old {String} previous title
-      */
+       * Called on property changes of masterTitle.
+       * @param value {String} new title
+       * @param old {String} previous title
+       */
       _applyMasterTitle: function _applyMasterTitle(value, old) {
         if (this.__P_4_0) {
           this.__P_4_5.setLabel(value);
@@ -599,4 +599,4 @@
   qx.ui.mobile.page.Manager.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Manager.js.map?dt=1635064683739
+//# sourceMappingURL=Manager.js.map?dt=1645800072065

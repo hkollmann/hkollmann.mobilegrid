@@ -1,6 +1,11 @@
 (function () {
   var $$dbClassInfo = {
     "dependsOn": {
+      "qx.core.Environment": {
+        "defer": "load",
+        "usage": "dynamic",
+        "require": true
+      },
       "qx.Class": {
         "usage": "dynamic",
         "require": true
@@ -8,7 +13,16 @@
       "qx.ui.layout.Abstract": {
         "require": true
       },
+      "qx.ui.layout.Util": {},
       "qx.lang.Type": {}
+    },
+    "environment": {
+      "provided": [],
+      "required": {
+        "qx.debug": {
+          "load": true
+        }
+      }
     }
   };
   qx.Bootstrap.executePendingDefers($$dbClassInfo);
@@ -127,7 +141,33 @@
       ---------------------------------------------------------------------------
       */
       // overridden
-      verifyLayoutProperty: null,
+      verifyLayoutProperty: qx.core.Environment.select("qx.debug", {
+        "true": function _true(item, name, value) {
+          var layoutProperties = {
+            top: 1,
+            left: 1,
+            bottom: 1,
+            right: 1,
+            width: 1,
+            height: 1,
+            edge: 1
+          };
+          this.assert(layoutProperties[name] == 1, "The property '" + name + "' is not supported by the Canvas layout!");
+
+          if (name == "width" || name == "height") {
+            this.assertMatch(value, qx.ui.layout.Util.PERCENT_VALUE);
+          } else {
+            if (typeof value === "number") {
+              this.assertInteger(value);
+            } else if (qx.lang.Type.isString(value)) {
+              this.assertMatch(value, qx.ui.layout.Util.PERCENT_VALUE);
+            } else {
+              this.fail("Bad format of layout property '" + name + "': " + value + ". The value must be either an integer or an percent string.");
+            }
+          }
+        },
+        "false": null
+      }),
       // overridden
       renderLayout: function renderLayout(availWidth, availHeight, padding) {
         var children = this._getLayoutChildren();
@@ -355,4 +395,4 @@
   qx.ui.layout.Canvas.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Canvas.js.map?dt=1635064689360
+//# sourceMappingURL=Canvas.js.map?dt=1645800077358

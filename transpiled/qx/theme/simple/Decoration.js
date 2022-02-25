@@ -4,6 +4,9 @@
       "qx.Theme": {
         "usage": "dynamic",
         "require": true
+      },
+      "qx.test.MDecoration": {
+        "require": true
       }
     }
   };
@@ -31,6 +34,7 @@
    * The simple qooxdoo decoration theme.
    */
   qx.Theme.define("qx.theme.simple.Decoration", {
+    include: [qx.test.MDecoration],
     aliases: {
       decoration: "qx/decoration/Simple"
     },
@@ -46,7 +50,7 @@
           color: "background-selected"
         }
       },
-      "main": {
+      main: {
         style: {
           width: 1,
           color: "border-main"
@@ -58,7 +62,7 @@
           color: "button-border"
         }
       },
-      "popup": {
+      popup: {
         style: {
           width: 1,
           color: "window-border",
@@ -67,7 +71,7 @@
           shadowColor: "shadow"
         }
       },
-      "dragover": {
+      dragover: {
         style: {
           bottom: [2, "solid", "dark-blue"]
         }
@@ -544,7 +548,7 @@
         WINDOW
       ---------------------------------------------------------------------------
       */
-      "window": {
+      window: {
         style: {
           width: 1,
           color: "window-border",
@@ -592,7 +596,7 @@
         TEXT FIELD
       ---------------------------------------------------------------------------
       */
-      "inset": {
+      inset: {
         style: {
           width: 1,
           color: ["border-light-shadow", "border-light", "border-light", "border-light"]
@@ -629,7 +633,7 @@
         TOOL TIP
       ---------------------------------------------------------------------------
       */
-      "tooltip": {
+      tooltip: {
         style: {
           width: 1,
           color: "tooltip-text",
@@ -766,7 +770,7 @@
         TABLE
       ---------------------------------------------------------------------------
       */
-      "statusbar": {
+      statusbar: {
         style: {
           widthTop: 1,
           colorTop: "background-selected",
@@ -825,7 +829,7 @@
         PROGRESSBAR
       ---------------------------------------------------------------------------
       */
-      "progressbar": {
+      progressbar: {
         style: {
           backgroundColor: "#FFF",
           width: 1,
@@ -838,7 +842,7 @@
         RADIO BUTTON
       ---------------------------------------------------------------------------
       */
-      "radiobutton": {
+      radiobutton: {
         style: {
           radius: 10,
           width: 1,
@@ -865,7 +869,7 @@
         CHECK BOX
       ---------------------------------------------------------------------------
       */
-      "checkbox": {
+      checkbox: {
         style: {
           width: 1,
           color: "button-border"
@@ -888,4 +892,4 @@
   qx.theme.simple.Decoration.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Decoration.js.map?dt=1635064683944
+//# sourceMappingURL=Decoration.js.map?dt=1645800072245

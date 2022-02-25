@@ -42,6 +42,7 @@
     extend: qx.core.Object,
     statics: {
       __P_68_0: null,
+      RESOURCEPATH: null,
       setBaseUri: function setBaseUri(baseUri) {
         this.__P_68_0 = baseUri;
       },
@@ -77,9 +78,12 @@
         var pkg = qxl.apiviewer.dao.Package.getPackage(name);
         return pkg;
       }
+    },
+    defer: function defer(statics) {
+      statics.RESOURCEPATH = "apidata";
     }
   });
   qxl.apiviewer.ClassLoader.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=ClassLoader.js.map?dt=1635064689668
+//# sourceMappingURL=ClassLoader.js.map?dt=1645800077631

@@ -66,7 +66,7 @@
        * @return {Range} valid range of given selection
        */
       get: qx.core.Environment.select("html.selection", {
-        "selection": function selection(node) {
+        selection: function selection(node) {
           // check for the type of the given node
           // for legacy IE the nodes input, textarea, button and body
           // have access to own TextRange objects. Everything else is
@@ -87,8 +87,6 @@
                   default:
                     return qx.bom.Selection.getSelectionObject(qx.dom.Node.getDocument(node)).createRange();
                 }
-
-                break;
 
               case "textarea":
               case "body":
@@ -125,4 +123,4 @@
   qx.bom.Range.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Range.js.map?dt=1635064699460
+//# sourceMappingURL=Range.js.map?dt=1645800086333

@@ -84,7 +84,12 @@
      * @param label {String?null} An optional label for the radio button.
      */
     construct: function construct(label) {
-      qx.ui.form.Button.constructor.call(this, label); // Add listeners
+      qx.ui.form.Button.constructor.call(this, label); // ARIA attrs
+      // Important: (Grouped) radio btns should be children of a div with role 'radiogroup'
+
+      var contentEl = this.getContentElement();
+      contentEl.setAttribute("role", "radio");
+      contentEl.setAttribute("aria-checked", false); // Add listeners
 
       this.addListener("execute", this._onExecute);
       this.addListener("keypress", this._onKeyPress);
@@ -128,6 +133,8 @@
        MEMBERS
     *****************************************************************************
     */
+
+    /* eslint-disable @qooxdoo/qx/no-refs-in-members */
     members: {
       // overridden
 
@@ -155,6 +162,7 @@
       // property apply
       _applyValue: function _applyValue(value, old) {
         value ? this.addState("checked") : this.removeState("checked");
+        this.getContentElement().setAttribute("aria-checked", Boolean(value));
       },
 
       /** The assigned {@link qx.ui.form.RadioGroup} which handles the switching between registered buttons */
@@ -223,4 +231,4 @@
   qx.ui.form.RadioButton.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=RadioButton.js.map?dt=1635064705461
+//# sourceMappingURL=RadioButton.js.map?dt=1645800091631

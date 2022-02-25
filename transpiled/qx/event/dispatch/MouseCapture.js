@@ -102,6 +102,8 @@
       /** @type {Integer} Priority of this dispatcher */
       PRIORITY: qx.event.Registration.PRIORITY_FIRST
     },
+
+    /* eslint-disable @qooxdoo/qx/no-refs-in-members */
     members: {
       __P_47_1: null,
       __P_47_2: null,
@@ -133,7 +135,7 @@
           target = this.__P_47_2;
         }
 
-        return qx.event.dispatch.MouseCapture.prototype.dispatchEvent.base.call(this, target, event, type);
+        return qx.event.dispatch.MouseCapture.superclass.prototype.dispatchEvent.call(this, target, event, type);
       },
 
       /*
@@ -146,20 +148,20 @@
        * @lint ignoreReferenceField(__captureEvents)
        */
       __P_47_4: {
-        "mouseup": 1,
-        "mousedown": 1,
-        "click": 1,
-        "dblclick": 1,
-        "mousemove": 1,
-        "mouseout": 1,
-        "mouseover": 1,
-        "pointerdown": 1,
-        "pointerup": 1,
-        "pointermove": 1,
-        "pointerover": 1,
-        "pointerout": 1,
-        "tap": 1,
-        "dbltap": 1
+        mouseup: 1,
+        mousedown: 1,
+        click: 1,
+        dblclick: 1,
+        mousemove: 1,
+        mouseout: 1,
+        mouseover: 1,
+        pointerdown: 1,
+        pointerup: 1,
+        pointermove: 1,
+        pointerover: 1,
+        pointerout: 1,
+        tap: 1,
+        dbltap: 1
       },
 
       /*
@@ -251,7 +253,7 @@
        * @signature function(element, containerCapture)
        */
       nativeSetCapture: qx.core.Environment.select("engine.name", {
-        "mshtml": function mshtml(element, containerCapture) {
+        mshtml: function mshtml(element, containerCapture) {
           element.setCapture(containerCapture !== false);
         },
         "default": function _default() {}
@@ -265,7 +267,7 @@
        * @signature function(element)
        */
       nativeReleaseCapture: qx.core.Environment.select("engine.name", {
-        "mshtml": function mshtml(element) {
+        mshtml: function mshtml(element) {
           element.releaseCapture();
         },
         "default": function _default() {}
@@ -278,4 +280,4 @@
   qx.event.dispatch.MouseCapture.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=MouseCapture.js.map?dt=1635064688211
+//# sourceMappingURL=MouseCapture.js.map?dt=1645800076399

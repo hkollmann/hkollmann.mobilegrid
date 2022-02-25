@@ -95,7 +95,7 @@
 
       qx.ui.core.queue.Visibility.add(this);
       this.initNativeHelp();
-      this.addListener("keypress", this.__P_100_0, this);
+      this.addListener("keypress", this.__P_102_0, this);
     },
 
     /*
@@ -183,7 +183,7 @@
     *****************************************************************************
     */
     members: {
-      __P_100_1: null,
+      __P_102_1: null,
       // overridden
       isRootWidget: function isRootWidget() {
         return true;
@@ -199,16 +199,16 @@
       },
       // property apply
       _applyGlobalCursor: qx.core.Environment.select("engine.name", {
-        "mshtml": function mshtml(value, old) {// empty implementation
+        mshtml: function mshtml(value, old) {// empty implementation
         },
         // This would be the optimal solution.
         // For performance reasons this is impractical in IE
         "default": function _default(value, old) {
           var Stylesheet = qx.bom.Stylesheet;
-          var sheet = this.__P_100_1;
+          var sheet = this.__P_102_1;
 
           if (!sheet) {
-            this.__P_100_1 = sheet = Stylesheet.createElement();
+            this.__P_102_1 = sheet = Stylesheet.createElement();
           }
 
           Stylesheet.removeAllRules(sheet);
@@ -241,11 +241,11 @@
       },
 
       /**
-      * Fix unexpected scrolling when pressing "Space" while a widget is focused.
-      *
-      * @param e {qx.event.type.KeySequence} The KeySequence event
-      */
-      __P_100_0: function __P_100_0(e) {
+       * Fix unexpected scrolling when pressing "Space" while a widget is focused.
+       *
+       * @param e {qx.event.type.KeySequence} The KeySequence event
+       */
+      __P_102_0: function __P_102_0(e) {
         // Require space pressed
         if (e.getKeyIdentifier() !== "Space") {
           return;
@@ -302,7 +302,7 @@
     *****************************************************************************
     */
     destruct: function destruct() {
-      this.__P_100_1 = null;
+      this.__P_102_1 = null;
     },
 
     /*
@@ -317,4 +317,4 @@
   qx.ui.root.Abstract.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Abstract.js.map?dt=1635064693098
+//# sourceMappingURL=Abstract.js.map?dt=1645800080705

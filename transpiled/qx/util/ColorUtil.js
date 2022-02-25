@@ -199,13 +199,13 @@
         } else if (this.isSystemColor(str)) {
           throw new Error("Could not convert system colors to RGB: " + str);
         } else if (this.isRgbaString(str)) {
-          color = this.__P_118_0(str);
+          color = this.__P_122_0(str);
         } else if (this.isRgbString(str)) {
-          color = this.__P_118_1();
+          color = this.__P_122_1();
         } else if (this.ishexShortString(str)) {
-          color = this.__P_118_2();
+          color = this.__P_122_2();
         } else if (this.ishexLongString(str)) {
-          color = this.__P_118_3();
+          color = this.__P_122_3();
         }
 
         if (color) {
@@ -342,7 +342,7 @@
        *
        * @return {Array} an array with red, green, blue
        */
-      __P_118_1: function __P_118_1() {
+      __P_122_1: function __P_122_1() {
         var red = parseInt(RegExp.$1, 10);
         var green = parseInt(RegExp.$2, 10);
         var blue = parseInt(RegExp.$3, 10);
@@ -350,11 +350,11 @@
       },
 
       /**
-      * Converts a regexp object match of a rgba string to an RGB array.
-      *
-      * @return {Array} an array with red, green, blue
-      */
-      __P_118_0: function __P_118_0() {
+       * Converts a regexp object match of a rgba string to an RGB array.
+       *
+       * @return {Array} an array with red, green, blue
+       */
+      __P_122_0: function __P_122_0() {
         var red = parseInt(RegExp.$1, 10);
         var green = parseInt(RegExp.$2, 10);
         var blue = parseInt(RegExp.$3, 10);
@@ -374,11 +374,11 @@
        *
        * @return {Array} an array with red, green, blue
        */
-      __P_118_2: function __P_118_2() {
+      __P_122_2: function __P_122_2() {
         var red = parseInt(RegExp.$1, 16) * 17;
         var green = parseInt(RegExp.$2, 16) * 17;
         var blue = parseInt(RegExp.$3, 16) * 17;
-        var alpha = Math.round(parseInt(RegExp.$4 || 'f', 16) / 15 * 1000) / 1000;
+        var alpha = Math.round(parseInt(RegExp.$4 || "f", 16) / 15 * 1000) / 1000;
         return alpha == 1 ? [red, green, blue] : [red, green, blue, alpha];
       },
 
@@ -387,7 +387,7 @@
        *
        * @return {Array} an array with red, green, blue
        */
-      __P_118_4: function __P_118_4() {
+      __P_122_4: function __P_122_4() {
         var red = parseInt(RegExp.$1, 16) * 17;
         var green = parseInt(RegExp.$2, 16) * 17;
         var blue = parseInt(RegExp.$3, 16) * 17;
@@ -399,7 +399,7 @@
        *
        * @return {Array} an array with red, green, blue
        */
-      __P_118_5: function __P_118_5() {
+      __P_122_5: function __P_122_5() {
         var red = parseInt(RegExp.$1, 16) * 16 + parseInt(RegExp.$2, 16);
         var green = parseInt(RegExp.$3, 16) * 16 + parseInt(RegExp.$4, 16);
         var blue = parseInt(RegExp.$5, 16) * 16 + parseInt(RegExp.$6, 16);
@@ -411,11 +411,11 @@
        *
        * @return {Array} an array with red, green, blue
        */
-      __P_118_3: function __P_118_3() {
+      __P_122_3: function __P_122_3() {
         var red = parseInt(RegExp.$1, 16);
         var green = parseInt(RegExp.$2, 16);
         var blue = parseInt(RegExp.$3, 16);
-        var alpha = Math.round(parseInt(RegExp.$4 || 'ff', 16) / 255 * 1000) / 1000;
+        var alpha = Math.round(parseInt(RegExp.$4 || "ff", 16) / 255 * 1000) / 1000;
         return alpha == 1 ? [red, green, blue] : [red, green, blue, alpha];
       },
 
@@ -427,7 +427,7 @@
        */
       hex3StringToRgb: function hex3StringToRgb(value) {
         if (this.isHex3String(value)) {
-          return this.__P_118_4(value);
+          return this.__P_122_4(value);
         }
 
         throw new Error("Invalid hex3 value: " + value);
@@ -456,7 +456,7 @@
        */
       hex6StringToRgb: function hex6StringToRgb(value) {
         if (this.isHex6String(value)) {
-          return this.__P_118_5(value);
+          return this.__P_122_5(value);
         }
 
         throw new Error("Invalid hex6 value: " + value);
@@ -470,11 +470,11 @@
        */
       hexStringToRgb: function hexStringToRgb(value) {
         if (this.ishexShortString(value)) {
-          return this.__P_118_2(value);
+          return this.__P_122_2(value);
         }
 
         if (this.ishexLongString(value)) {
-          return this.__P_118_3(value);
+          return this.__P_122_3(value);
         }
 
         throw new Error("Invalid hex value: " + value);
@@ -679,7 +679,7 @@
        * @param hue_tuner {Function}  function
        * @return {String} a valid CSS rgb color string.*
        */
-      __P_118_6: function __P_118_6(color, tuneMap, tuner, hue_tuner) {
+      __P_122_6: function __P_122_6(color, tuneMap, tuner, hue_tuner) {
         var rgba = this.stringToRgb(color);
 
         for (var key in tuneMap) {
@@ -688,23 +688,23 @@
           }
 
           switch (key) {
-            case 'red':
+            case "red":
               rgba[0] = tuner(rgba[0], tuneMap[key], 255);
               break;
 
-            case 'green':
+            case "green":
               rgba[1] = tuner(rgba[1], tuneMap[key], 255);
               break;
 
-            case 'blue':
+            case "blue":
               rgba[2] = tuner(rgba[2], tuneMap[key], 255);
               break;
 
-            case 'alpha':
+            case "alpha":
               rgba[3] = tuner(rgba[3] || 1, tuneMap[key], 1);
               break;
 
-            case 'hue':
+            case "hue":
               if (hue_tuner) {
                 var hsb = this.rgbToHsb(rgba);
                 hsb[0] = hue_tuner(hsb[0], tuneMap[key]);
@@ -717,7 +717,7 @@
 
               break;
 
-            case 'saturation':
+            case "saturation":
               var hsb = this.rgbToHsb(rgba);
               hsb[1] = tuner(hsb[1], tuneMap[key], 100);
               rgb = this.hsbToRgb(hsb);
@@ -725,7 +725,7 @@
               rgba = rgb;
               break;
 
-            case 'brightness':
+            case "brightness":
               var hsb = this.rgbToHsb(rgba);
               hsb[2] = tuner(hsb[2], tuneMap[key], 100);
               rgb = this.hsbToRgb(hsb);
@@ -733,7 +733,7 @@
               rgba = rgb;
               break;
 
-            case 'lightness':
+            case "lightness":
               var hsl = this.rgbToHsl(rgba);
               hsl[2] = tuner(hsl[2], tuneMap[key], 100);
               rgb = this.hslToRgb(hsl);
@@ -771,7 +771,7 @@
       /**
        * Scale
        *
-        * Scale the given properties of the input color according to the
+       * Scale the given properties of the input color according to the
        * configuration given in the `scaleMap`. Each key argument must point to a
        * number between -100% and 100% (inclusive). This indicates how far the
        * corresponding property should be moved from its original position
@@ -789,7 +789,7 @@
        * @return {String} a valid CSS rgb color string.
        */
       scale: function scale(color, scaleMap) {
-        return this.__P_118_6(color, scaleMap, function (value, scale, max) {
+        return this.__P_122_6(color, scaleMap, function (value, scale, max) {
           if (value > max) {
             value = max;
           }
@@ -829,7 +829,7 @@
        * @return {String} a valid CSS rgb color string.
        */
       adjust: function adjust(color, adjustMap) {
-        return this.__P_118_6(color, adjustMap, function (value, offset, max) {
+        return this.__P_122_6(color, adjustMap, function (value, offset, max) {
           value += offset;
 
           if (value > max) {
@@ -872,7 +872,7 @@
           return c < 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
         };
 
-        return .2126 * lum(0) + .7152 * lum(1) + .0722 * lum(2);
+        return 0.2126 * lum(0) + 0.7152 * lum(1) + 0.0722 * lum(2);
       },
 
       /**
@@ -885,13 +885,40 @@
        * @return {Number} contrast
        */
       contrast: function contrast(back, front) {
-        var bl = this.luminance(back) + .05;
+        var bl = this.luminance(back) + 0.05;
         var fl = this.luminance(front) + 0.5;
         return Math.max(bl, fl) / Math.min(bl, fl);
+      },
+
+      /**
+       * Picks a contrasting color
+       *
+       * @param rgb {Number[]|String} the color, either as a string or as an RGB array of 3 numbers
+       * @param threshold {Number?} the threshold between light and dark outputs, where the range is 0-255, defaults to 128
+       * @param dark {String?} the colour to use for "dark", defaults to black
+       * @param light {String?} the colour to use for "light", defaults to white
+       * @return {String} colour string
+       */
+      chooseContrastingColor: function chooseContrastingColor(rgb, threshold, dark, light) {
+        if (typeof rgb == "string") {
+          rgb = qx.util.ColorUtil.stringToRgb(rgb);
+        }
+
+        var r = rgb[0];
+        var g = rgb[1];
+        var b = rgb[2];
+
+        if (!threshold) {
+          threshold = 128;
+        } // Combine into the YIQ color space (which gives us a handy scale we can use with a threshold)
+
+
+        var yiq = (r * 299 + g * 587 + b * 114) / 1000;
+        return yiq >= threshold ? dark || "#000" : light || "#fff";
       }
     }
   });
   qx.util.ColorUtil.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=ColorUtil.js.map?dt=1635064694448
+//# sourceMappingURL=ColorUtil.js.map?dt=1645800081981

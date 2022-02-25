@@ -291,21 +291,21 @@
       },
 
       /**
-        * Creates the navigation bar back button.
-        * Creates the scroll container.
-        *
-        * @return {qx.ui.mobile.navigationbar.BackButton} The created back button widget
-        */
+       * Creates the navigation bar back button.
+       * Creates the scroll container.
+       *
+       * @return {qx.ui.mobile.navigationbar.BackButton} The created back button widget
+       */
       _createBackButton: function _createBackButton() {
         return new qx.ui.mobile.navigationbar.BackButton(this.getBackButtonText());
       },
 
       /**
-        * Creates the navigation bar button.
-        * Creates the content container.
-        *
-        * @return {qx.ui.mobile.navigationbar.Button} The created button widget
-        */
+       * Creates the navigation bar button.
+       * Creates the content container.
+       *
+       * @return {qx.ui.mobile.navigationbar.Button} The created button widget
+       */
       _createButton: function _createButton() {
         return new qx.ui.mobile.navigationbar.Button(this.getButtonText(), this.getButtonIcon());
       },
@@ -432,7 +432,7 @@
       },
       // overridden
       _initialize: function _initialize() {
-        qx.ui.mobile.page.NavigationPage.prototype._initialize.base.call(this);
+        qx.ui.mobile.page.NavigationPage.superclass.prototype._initialize.call(this);
 
         this.__P_20_3 = this._createScrollContainer();
         this.__P_20_2 = this._createContent();
@@ -504,4 +504,4 @@
   qx.ui.mobile.page.NavigationPage.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=NavigationPage.js.map?dt=1635064686382
+//# sourceMappingURL=NavigationPage.js.map?dt=1645800074677

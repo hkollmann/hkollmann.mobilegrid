@@ -46,7 +46,7 @@
    * used to simulate e.g. a background task. The static method
    * {@link #once} is a special case. It will call a function deferred after a
    * given timeout.
-   * 
+   *
    * NOTE: Instances of this class must be disposed of after use
    *
    */
@@ -76,7 +76,7 @@
 
       var self = this;
 
-      this.__P_145_0 = function () {
+      this.__P_147_0 = function () {
         self._oninterval.call(self);
       };
     },
@@ -88,7 +88,7 @@
     */
     events: {
       /** This event if fired each time the interval time has elapsed */
-      "interval": "qx.event.type.Event"
+      interval: "qx.event.type.Event"
     },
 
     /*
@@ -113,12 +113,12 @@
         var timer = new qx.event.Timer(timeout); // Bug #3481: append original function to timer instance so it can be
         // read by a debugger
 
-        timer.__P_145_1 = func; // Add event listener to interval
+        timer.__P_147_1 = func; // Add event listener to interval
 
         timer.addListener("interval", function (e) {
           timer.stop();
           func.call(obj, e);
-          delete timer.__P_145_1;
+          delete timer.__P_147_1;
           timer.dispose();
           obj = null;
         }, obj); // Directly start timer
@@ -163,8 +163,8 @@
     *****************************************************************************
     */
     members: {
-      __P_145_2: null,
-      __P_145_0: null,
+      __P_147_2: null,
+      __P_147_0: null,
 
       /*
       ---------------------------------------------------------------------------
@@ -192,10 +192,10 @@
        */
       _applyEnabled: function _applyEnabled(value, old) {
         if (old) {
-          window.clearInterval(this.__P_145_2);
-          this.__P_145_2 = null;
+          window.clearInterval(this.__P_147_2);
+          this.__P_147_2 = null;
         } else if (value) {
-          this.__P_145_2 = window.setInterval(this.__P_145_0, this.getInterval());
+          this.__P_147_2 = window.setInterval(this.__P_147_0, this.getInterval());
         }
       },
 
@@ -279,14 +279,14 @@
     *****************************************************************************
     */
     destruct: function destruct() {
-      if (this.__P_145_2) {
-        window.clearInterval(this.__P_145_2);
+      if (this.__P_147_2) {
+        window.clearInterval(this.__P_147_2);
       }
 
-      this.__P_145_2 = this.__P_145_0 = null;
+      this.__P_147_2 = this.__P_147_0 = null;
     }
   });
   qx.event.Timer.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Timer.js.map?dt=1635064696790
+//# sourceMappingURL=Timer.js.map?dt=1645800083865

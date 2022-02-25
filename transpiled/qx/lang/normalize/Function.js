@@ -94,6 +94,8 @@
    *
    * @group (Polyfill)
    */
+
+  /* eslint-disable no-extend-native */
   qx.Bootstrap.define("qx.lang.normalize.Function", {
     statics: {
       /**
@@ -216,4 +218,4 @@
   qx.lang.normalize.Function.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Function.js.map?dt=1635064685510
+//# sourceMappingURL=Function.js.map?dt=1645800073650

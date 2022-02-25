@@ -41,7 +41,7 @@
     */
     events: {
       /** Fired when the item was checked or unchecked */
-      "changeValue": "qx.event.type.Data"
+      changeValue: "qx.event.type.Data"
     },
 
     /*
@@ -85,4 +85,4 @@
   qx.ui.form.IRadioItem.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=IRadioItem.js.map?dt=1635064695845
+//# sourceMappingURL=IRadioItem.js.map?dt=1645800083063

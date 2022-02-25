@@ -13,7 +13,7 @@
         "column": 0
       },
       "end": {
-        "line": 240,
+        "line": 213,
         "column": 3
       }
     },
@@ -37,11 +37,11 @@
     "DEFAULT_ATTRIBUTES": {
       "location": {
         "start": {
-          "line": 40,
+          "line": 38,
           "column": 4
         },
         "end": {
-          "line": 51,
+          "line": 47,
           "column": 5
         }
       },
@@ -65,7 +65,7 @@
     "create": {
       "location": {
         "start": {
-          "line": 63,
+          "line": 59,
           "column": 4
         },
         "end": {
@@ -115,11 +115,11 @@
     "getWindow": {
       "location": {
         "start": {
-          "line": 87,
+          "line": 86,
           "column": 4
         },
         "end": {
-          "line": 94,
+          "line": 92,
           "column": 5
         }
       },
@@ -160,11 +160,11 @@
     "getDocument": {
       "location": {
         "start": {
-          "line": 103,
+          "line": 100,
           "column": 4
         },
         "end": {
-          "line": 119,
+          "line": 115,
           "column": 5
         }
       },
@@ -199,11 +199,11 @@
     "getBody": {
       "location": {
         "start": {
-          "line": 128,
+          "line": 123,
           "column": 4
         },
         "end": {
-          "line": 139,
+          "line": 130,
           "column": 5
         }
       },
@@ -238,11 +238,11 @@
     "setSource": {
       "location": {
         "start": {
-          "line": 149,
+          "line": 139,
           "column": 4
         },
         "end": {
-          "line": 197,
+          "line": 178,
           "column": 5
         }
       },
@@ -282,11 +282,11 @@
     "queryCurrentUrl": {
       "location": {
         "start": {
-          "line": 206,
+          "line": 186,
           "column": 4
         },
         "end": {
-          "line": 219,
+          "line": 196,
           "column": 5
         }
       },
@@ -321,11 +321,11 @@
     "__rememberUrl": {
       "location": {
         "start": {
-          "line": 227,
+          "line": 203,
           "column": 4
         },
         "end": {
-          "line": 237,
+          "line": 211,
           "column": 5
         }
       },
